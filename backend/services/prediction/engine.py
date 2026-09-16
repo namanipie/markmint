@@ -1,15 +1,76 @@
-from typing import List, Dict, Any, Tuple
-from backend.services.dna.analyzer import ExamDNA
+from typing import List, Dict, Any, Tuple, Optional
+from backend.services.dna.analyzer import ExamDNA, DataSufficiency
 from backend.services.prediction.context import PredictionTarget
 
 class PredictionResult:
-    def __init__(self, target: str, name: str, rank: int, score: float, confidence: str, evidence: dict):
+    def __init__(
+        self,
+        target: str,
+        name: str,
+        rank: int,
+        score: float,
+        confidence: str,
+        evidence: dict,
+        prediction_score: Optional[float] = None,
+        probability: Optional[float] = None,
+        historical_occurrences: int = 0,
+        recent_occurrences: int = 0,
+        last_seen_year: Optional[int] = None,
+        marks_seen: float = 0.0,
+        family_recurrence_score: float = 0.0,
+        recent_frequency_score: float = 0.0,
+        recency_score: float = 0.0,
+        marks_score: float = 0.0,
+        evidence_count: int = 0,
+        reason_codes: Optional[List[str]] = None,
+        explanation: Optional[str] = None,
+    ):
         self.target = target  # 'topic', 'unit', 'family', 'concept'
         self.name = name
         self.rank = rank
         self.score = score
         self.confidence = confidence
-        self.evidence = evidence
+        self.evidence = evidence or {}
+
+        # Structured explainability fields
+        self.prediction_score = round(float(prediction_score if prediction_score is not None else score), 4)
+        self.probability = round(float(probability if probability is not None else min(1.0, max(0.0, score))), 4)
+        self.historical_occurrences = int(historical_occurrences or self.evidence.get("occurrences", 0))
+        self.recent_occurrences = int(recent_occurrences or self.evidence.get("recent_occurrences", 0))
+        self.last_seen_year = last_seen_year or (int(self.evidence["last_seen"]) if str(self.evidence.get("last_seen", "")).isdigit() else None)
+        self.marks_seen = float(marks_seen or self.evidence.get("total_marks", 0.0))
+        self.family_recurrence_score = round(float(family_recurrence_score or self.evidence.get("family_score", 0.0)), 4)
+        self.recent_frequency_score = round(float(recent_frequency_score or self.evidence.get("recent_freq", 0.0)), 4)
+        self.recency_score = round(float(recency_score or (0.7 * self.recent_frequency_score + 0.3 * self.evidence.get("hist_freq", 0.0))), 4)
+        self.marks_score = round(float(marks_score or self.evidence.get("marks_weight", 0.0)), 4)
+        self.evidence_count = int(evidence_count or self.historical_occurrences)
+        self.reason_codes = reason_codes or self.evidence.get("reason_codes", [])
+        self.explanation = explanation or self.evidence.get("explanation", "")
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "rank": self.rank,
+            "name": self.name,
+            "category": self.target,
+            "score": self.score,
+            "prediction_score": self.prediction_score,
+            "probability": self.probability,
+            "confidence": self.confidence,
+            "historyCount": self.historical_occurrences,
+            "historical_occurrences": self.historical_occurrences,
+            "recent_occurrences": self.recent_occurrences,
+            "last_seen_year": self.last_seen_year,
+            "lastSeen": str(self.last_seen_year) if self.last_seen_year else "Multiple",
+            "marks_seen": self.marks_seen,
+            "family_recurrence_score": self.family_recurrence_score,
+            "recent_frequency_score": self.recent_frequency_score,
+            "recency_score": self.recency_score,
+            "marks_score": self.marks_score,
+            "evidence_count": self.evidence_count,
+            "reason_codes": self.reason_codes,
+            "explanation": self.explanation,
+            "evidence_details": self.evidence,
+        }
 
 class BaseModel:
     def __init__(self, dna: ExamDNA):
@@ -37,18 +98,81 @@ class BaseModel:
         # Sort by score descending
         scored_items.sort(key=lambda x: x[1], reverse=True)
         results = []
+        sample_papers = self.dna.sample_size.papers if (self.dna and hasattr(self.dna, "sample_size")) else 0
+        total_sample_q = self.dna.sample_size.questions if (self.dna and hasattr(self.dna, "sample_size")) else 0
+
         for rank, (name, score, evidence) in enumerate(scored_items, start=1):
             conf = "HIGH" if score > 0.7 else "MEDIUM" if score > 0.4 else "LOW"
-            if evidence.get("sample_size", 0) < 3 and target == PredictionTarget.FAMILY:
+            if sample_papers <= 1:
+                conf = "INSUFFICIENT"
+            elif evidence.get("sample_size", 0) < 3 and target == PredictionTarget.FAMILY:
                 conf = "INSUFFICIENT"
             
+            # Derive reason codes and deterministic explanation
+            hist_occ = int(evidence.get("occurrences", 0))
+            recent_occ = int(evidence.get("recent_occurrences", 0))
+            recent_f = float(evidence.get("recent_freq", 0.0))
+            hist_f = float(evidence.get("hist_freq", 0.0))
+            marks_w = float(evidence.get("marks_weight", 0.0))
+            marks_seen = float(evidence.get("total_marks", 0.0))
+            paper_cov = float(evidence.get("paper_coverage", 0.0))
+            last_seen = evidence.get("last_seen")
+
+            reason_codes = []
+            if recent_f > 0.15 or recent_occ >= 1:
+                reason_codes.append("RECENTLY_REPEATED")
+            if hist_f >= 0.20 or hist_occ >= 3:
+                reason_codes.append("HIGH_FREQUENCY")
+            if marks_w > 0.15 or evidence.get("average_marks", 0.0) >= 8.0:
+                reason_codes.append("HIGH_MARK_WEIGHT")
+            if target == PredictionTarget.FAMILY and hist_occ >= 2:
+                reason_codes.append("QUESTION_FAMILY_RECURRING")
+            if hist_occ > 0 and recent_occ == 0 and recent_f == 0.0:
+                reason_codes.append("LONG_ABSENCE")
+            if sample_papers >= 3 and hist_occ >= 2:
+                reason_codes.append("SUFFICIENT_HISTORY")
+            elif sample_papers < 2 or hist_occ < 2:
+                reason_codes.append("LOW_EVIDENCE")
+
+            # Deterministic explanation string
+            if target == PredictionTarget.FAMILY:
+                explanation = f"Question family with {hist_occ} historical occurrence(s)"
+                if last_seen and str(last_seen) != "Unknown":
+                    explanation += f", last seen in {last_seen}."
+                else:
+                    explanation += "."
+            elif "LOW_EVIDENCE" in reason_codes:
+                explanation = f"Appeared in {hist_occ} question(s). Limited examination history ({sample_papers} paper(s) indexed)."
+            elif "LONG_ABSENCE" in reason_codes:
+                explanation = f"Historically appeared in {hist_occ} question(s) ({marks_seen:.0f} marks total), but absent from recent examinations."
+            elif "RECENTLY_REPEATED" in reason_codes and "HIGH_FREQUENCY" in reason_codes:
+                papers_num = max(1, int(round(paper_cov * sample_papers)))
+                explanation = f"Strong recurrence signal: appeared across {papers_num} of {sample_papers} papers with {hist_occ} questions and {marks_seen:.0f} marks."
+            elif "HIGH_MARK_WEIGHT" in reason_codes:
+                explanation = f"Carries significant historical weight ({marks_seen:.0f} marks across {hist_occ} question(s))."
+            else:
+                explanation = f"Appeared in {hist_occ} historical question(s) representing {marks_seen:.0f} marks."
+
             results.append(PredictionResult(
                 target=target,
                 name=name,
                 rank=rank,
                 score=score,
                 confidence=conf,
-                evidence=evidence
+                evidence=evidence,
+                prediction_score=score,
+                probability=score,
+                historical_occurrences=hist_occ,
+                recent_occurrences=recent_occ,
+                last_seen_year=int(last_seen) if str(last_seen).isdigit() else None,
+                marks_seen=marks_seen,
+                family_recurrence_score=float(evidence.get("family_score", 0.0)),
+                recent_frequency_score=recent_f,
+                recency_score=(0.7 * recent_f + 0.3 * hist_f),
+                marks_score=marks_w,
+                evidence_count=hist_occ,
+                reason_codes=reason_codes,
+                explanation=explanation,
             ))
         return results
 
@@ -119,7 +243,11 @@ class ExamScopeCombinedModel(BaseModel):
                 "combo": True, 
                 "recent_freq": t.recent_frequency,
                 "hist_freq": t.historical_frequency,
-                "occurrences": t.question_count
+                "occurrences": t.question_count,
+                "total_marks": t.total_marks,
+                "paper_coverage": t.paper_coverage,
+                "marks_weight": marks_w,
+                "average_marks": t.average_marks,
             }))
         return self._rank_and_format(scores, PredictionTarget.TOPIC)
         

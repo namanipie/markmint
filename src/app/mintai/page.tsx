@@ -3,29 +3,26 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock, CheckCircle2 } from "lucide-react";
-import { 
-  getCurriculumBranches, 
-  getCurriculumSemesters, 
-  getCurriculumSubjects, 
-  getPredictions, 
-  getExamDNA 
+import {
+  Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
+  CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight
+} from "lucide-react";
+import {
+  getCurriculumBranches,
+  getCurriculumSemesters,
+  getCurriculumSubjects,
+  getIntelligenceSnapshot,
+  getHistoricalQuestions,
+  updateStudyProgress
 } from "@/lib/api";
-import { 
-  PredictionResponse, 
-  ExamDNAAnalysis, 
-  BackendPrediction, 
-  CurriculumSubject 
+import {
+  CurriculumSubject,
+  IntelligenceSnapshot,
+  PredictionItem,
+  HistoricalQuestion,
+  CoverageSummary
 } from "@/lib/types";
-
-type ExamDNAResponse = ExamDNAAnalysis & {
-  sample_size?: { exam_types?: unknown[]; papers?: number; questions?: number };
-};
-
-const examTypeOrder = (examType: string) => {
-  const order: Record<string, number> = { CT1: 1, CT2: 2, CT3: 3, CT4: 4, END_SEM: 5 };
-  return order[examType] ?? 99;
-};
 
 export default function MintAIPage() {
   // Curriculum hierarchy states from backend
@@ -38,27 +35,35 @@ export default function MintAIPage() {
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
   const [selectedExam, setSelectedExam] = useState<string>("");
-  const [examinations, setExaminations] = useState<string[]>([]);
+  const [targetExamDate, setTargetExamDate] = useState<string>("");
 
   // Loading & error states
   const [isLoadingBranches, setIsLoadingBranches] = useState(true);
   const [isLoadingSemesters, setIsLoadingSemesters] = useState(false);
   const [isLoadingSubjects, setIsLoadingSubjects] = useState(false);
-  const [isLoadingExaminations, setIsLoadingExaminations] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   const [branchLoadError, setBranchLoadError] = useState("");
   const [semesterLoadError, setSemesterLoadError] = useState("");
   const [subjectLoadError, setSubjectLoadError] = useState("");
-  const [examLoadError, setExamLoadError] = useState("");
-
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [hasData, setHasData] = useState(false);
   const [error, setError] = useState("");
 
-  const [predictions, setPredictions] = useState<PredictionResponse | null>(null);
-  const [dna, setDna] = useState<ExamDNAAnalysis | null>(null);
+  // Intelligence data state
+  const [snapshot, setSnapshot] = useState<IntelligenceSnapshot | null>(null);
+  const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 
-  // Analytical readiness derived directly from backend contract
+  // Historical questions modal
+  const [isQuestionsModalOpen, setIsQuestionsModalOpen] = useState(false);
+  const [selectedTopicForQuestions, setSelectedTopicForQuestions] = useState<string | null>(null);
+  const [historicalQuestions, setHistoricalQuestions] = useState<HistoricalQuestion[]>([]);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+
+  // Resources modal
+  const [isResourcesModalOpen, setIsResourcesModalOpen] = useState(false);
+  const [selectedTopicForResources, setSelectedTopicForResources] = useState<string | null>(null);
+  const [topicResources, setTopicResources] = useState<any[]>([]);
+
+  // Subject analytical readiness
   const isSubjectAvailable = Boolean(
     selectedSubject &&
     selectedSubject.status === "MATCHED" &&
@@ -97,7 +102,7 @@ export default function MintAIPage() {
     };
   }, []);
 
-  // 2. When Branch changes: Load semesters for that branch from backend
+  // 2. When Branch changes: Load semesters for that branch
   useEffect(() => {
     if (!selectedBranch) {
       setSemesters([]);
@@ -114,11 +119,7 @@ export default function MintAIPage() {
     setSubjects([]);
     setSelectedSubject(null);
     setSelectedExam("");
-    setExaminations([]);
-    setDna(null);
-    setPredictions(null);
-    setHasData(false);
-    setError("");
+    setSnapshot(null);
 
     getCurriculumSemesters(selectedBranch)
       .then((semList) => {
@@ -130,8 +131,8 @@ export default function MintAIPage() {
       })
       .catch((err) => {
         if (!active) return;
-        console.error(`Failed to load semesters for branch ${selectedBranch}`, err);
-        setSemesterLoadError("Unable to load semesters for this branch.");
+        console.error(`Failed to load semesters for branch: ${selectedBranch}`, err);
+        setSemesterLoadError(`Failed to load semesters for branch: ${selectedBranch}`);
       })
       .finally(() => {
         if (active) setIsLoadingSemesters(false);
@@ -142,7 +143,7 @@ export default function MintAIPage() {
     };
   }, [selectedBranch]);
 
-  // 3. When Semester changes: Load subjects for that branch + semester from backend
+  // 3. When Semester changes: Load subjects for that branch and semester
   useEffect(() => {
     if (!selectedBranch || !selectedSemester) {
       setSubjects([]);
@@ -155,25 +156,20 @@ export default function MintAIPage() {
     setSubjectLoadError("");
     setSelectedSubject(null);
     setSelectedExam("");
-    setExaminations([]);
-    setDna(null);
-    setPredictions(null);
-    setHasData(false);
-    setError("");
+    setSnapshot(null);
 
     getCurriculumSubjects(selectedBranch, selectedSemester)
       .then((subjectList) => {
         if (!active) return;
         setSubjects(subjectList);
-        // Default to first subject if available
         if (subjectList.length > 0) {
           setSelectedSubject(subjectList[0]);
         }
       })
       .catch((err) => {
         if (!active) return;
-        console.error(`Failed to load subjects for ${selectedBranch} sem ${selectedSemester}`, err);
-        setSubjectLoadError("Unable to load subjects for this semester.");
+        console.error(`Failed to load subjects for ${selectedBranch} Sem ${selectedSemester}`, err);
+        setSubjectLoadError(`Unable to load subjects for semester ${selectedSemester}`);
       })
       .finally(() => {
         if (active) setIsLoadingSubjects(false);
@@ -184,431 +180,570 @@ export default function MintAIPage() {
     };
   }, [selectedBranch, selectedSemester]);
 
-  // 4. When Subject changes: If analytically available, fetch actual ExamDNA metadata to drive exam selector
-  useEffect(() => {
-    setSelectedExam("");
-    setExaminations([]);
-    setDna(null);
-    setPredictions(null);
-    setHasData(false);
-    setError("");
-    setExamLoadError("");
-
+  // 4. Run Full Intelligence Analysis
+  const handleAnalyze = async () => {
     if (!selectedSubject) return;
 
-    // Guardrail: If subject is UNMATCHED, AMBIGUOUS, or has 0 exams, do NOT call DNA or predictions
-    if (!isSubjectAvailable || selectedSubject.course_id === null) {
-      return;
-    }
-
-    let active = true;
-    setIsLoadingExaminations(true);
-
-    getExamDNA(selectedSubject.course_id)
-      .then((data) => {
-        if (!active) return;
-        const rawExamTypes = (data as ExamDNAResponse)?.sample_size?.exam_types || [];
-        const examTypes = [...new Set(rawExamTypes)]
-          .filter((value): value is string => typeof value === "string" && value.length > 0)
-          .sort((a, b) => examTypeOrder(a) - examTypeOrder(b) || a.localeCompare(b));
-
-        setDna(data);
-        setExaminations(examTypes);
-        if (examTypes.length > 0) {
-          setSelectedExam(examTypes[0]);
-        }
-      })
-      .catch((err) => {
-        if (!active) return;
-        console.error("Failed to retrieve examination metadata", err);
-        setExamLoadError("Unable to retrieve examination metadata for this course.");
-        setDna(null);
-        setExaminations([]);
-      })
-      .finally(() => {
-        if (active) setIsLoadingExaminations(false);
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [selectedSubject, isSubjectAvailable]);
-
-  // 5. Forecast submission using resolved backend Course identity
-  const handleAnalyze = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedSubject || !isSubjectAvailable || selectedSubject.course_id === null || !selectedExam) {
-      setError("Select an analytically available course with valid examination papers before running a forecast.");
+    // Guard against running predictions on unverified courses
+    if (selectedSubject.status !== "MATCHED" || !selectedSubject.course_id || !selectedSubject.has_exams) {
       return;
     }
 
     setIsAnalyzing(true);
-    setHasData(false);
     setError("");
 
     try {
-      // Execute prediction using resolved backend course_id
-      const [predData, dnaData] = await Promise.all([
-        getPredictions(selectedSubject.course_id).catch((err) => {
-          if (err.status === 404) return null;
-          throw err;
-        }),
-        dna ? Promise.resolve(dna) : getExamDNA(selectedSubject.course_id).catch(() => null)
-      ]);
-
-      if (!predData || !predData.predictions) {
-        setError("No prediction data generated for this course.");
-      } else {
-        setPredictions(predData);
-        if (dnaData) setDna(dnaData);
-        setHasData(true);
-        localStorage.setItem(
-          "markmint_recent", 
-          JSON.stringify({ 
-            course: selectedSubject.subject_name,
-            course_id: selectedSubject.course_id,
-            canonical_code: selectedSubject.canonical_code,
-            exam: selectedExam, 
-            type: "Forecast" 
-          })
-        );
+      const data = await getIntelligenceSnapshot(
+        selectedSubject.course_id,
+        undefined,
+        targetExamDate || undefined,
+        "anonymous"
+      );
+      setSnapshot(data);
+      if (data.available_assessment_types && data.available_assessment_types.length > 0 && !selectedExam) {
+        setSelectedExam(data.available_assessment_types[0]);
       }
     } catch (err: any) {
-      setError(err.message || "Failed to fetch predictions. Ensure the backend is running.");
+      console.error("Intelligence snapshot generation failed", err);
+      setError(err?.message || "Failed to synthesize academic intelligence.");
     } finally {
       setIsAnalyzing(false);
     }
   };
 
+  // 5. Open Historical Questions for a Topic
+  const handleViewQuestions = async (topicName?: string) => {
+    if (!selectedSubject || !selectedSubject.course_id) return;
+    setIsLoadingQuestions(true);
+    setSelectedTopicForQuestions(topicName || null);
+    setIsQuestionsModalOpen(true);
+
+    try {
+      const res = await getHistoricalQuestions(
+        selectedSubject.course_id,
+        topicName || undefined,
+        selectedExam || undefined,
+        50
+      );
+      setHistoricalQuestions(res.questions || []);
+    } catch (err) {
+      console.error("Failed to load historical questions", err);
+      setHistoricalQuestions([]);
+    } finally {
+      setIsLoadingQuestions(false);
+    }
+  };
+
+  // 6. Open Resources for a Topic
+  const handleViewResources = (topicName: string, resources: any[]) => {
+    setSelectedTopicForResources(topicName);
+    setTopicResources(resources || []);
+    setIsResourcesModalOpen(true);
+  };
+
+  // 7. Toggle Student Mastery State
+  const handleToggleTopicStatus = async (topicName: string, currentStatus?: string) => {
+    if (!selectedSubject || !selectedSubject.course_id) return;
+    const nextStatus = currentStatus === "COMPLETED" ? "NOT_STARTED" : "COMPLETED";
+
+    try {
+      await updateStudyProgress(selectedSubject.course_id, {
+        topic: topicName,
+        action: nextStatus === "COMPLETED" ? "complete_topic" : "reset_topic",
+      });
+      // Refresh snapshot to show re-evaluated priority and coverage
+      const updated = await getIntelligenceSnapshot(
+        selectedSubject.course_id,
+        undefined,
+        targetExamDate || undefined,
+        "anonymous"
+      );
+      setSnapshot(updated);
+    } catch (err) {
+      console.error("Failed to update topic progress", err);
+    }
+  };
+
+  // Find priority details for a topic from snapshot.study_priorities
+  const getTopicPriorityInfo = (topicName: string) => {
+    if (!snapshot?.study_priorities) return null;
+    return snapshot.study_priorities.find((p: any) => p.topic === topicName) || null;
+  };
+
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-accent/20">
+    <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
-      
-      <main className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-10 pt-8 pb-32 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
-        {/* Left Panel: Configuration */}
+
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Left Sidebar: Controls & Hierarchy */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="bg-card border border-border rounded-xl p-6 shadow-sm transition-all duration-150">
-            <h2 className="text-lg font-bold mb-1 flex items-center gap-2">
-              <Leaf className="w-4 h-4 text-accent" />
-              Intelligence Engine
-            </h2>
-            <p className="text-xs text-muted-foreground mb-6">
-              Generate deterministic probability forecasts based on historical evidence.
-            </p>
-            
-            <form onSubmit={handleAnalyze} className="space-y-4">
+          <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+            <div className="flex items-center gap-2 mb-6">
+              <Leaf className="w-5 h-5 text-accent" />
+              <h2 className="text-xl font-bold tracking-tight">Academic Scope</h2>
+            </div>
+
+            {/* Error notifications */}
+            {branchLoadError && (
+              <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive text-xs rounded-lg flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 shrink-0" />
+                <span>{branchLoadError}</span>
+              </div>
+            )}
+
+            <div className="space-y-4">
+              {/* Branch Selector */}
               <div>
-                {/* Branch Selector */}
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
-                  Select Branch
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
+                  Academic Branch
                 </label>
-                <select 
+                <select
+                  aria-label="Academic Branch"
+                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
                   value={selectedBranch}
                   onChange={(e) => setSelectedBranch(e.target.value)}
                   disabled={isLoadingBranches || branches.length === 0}
-                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-4"
                 >
-                  <option value="" disabled>Select a branch</option>
-                  {branches.map((branch) => (
-                    <option key={branch} value={branch}>{branch}</option>
-                  ))}
-                </select>
-
-                {/* Semester Selector */}
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
-                  Select Semester
-                </label>
-                <select
-                  value={selectedSemester}
-                  onChange={(e) => setSelectedSemester(e.target.value)}
-                  disabled={!selectedBranch || semesters.length === 0 || isLoadingSemesters}
-                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-4"
-                >
-                  <option value="" disabled>Select a semester</option>
-                  {semesters.map((semester) => (
-                    <option key={semester} value={String(semester)}>Semester {semester}</option>
-                  ))}
-                </select>
-
-                {/* Subject Selector */}
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
-                  Select Subject
-                </label>
-                <select
-                  value={selectedSubject?.curriculum_id || ""}
-                  onChange={(e) => {
-                    const found = subjects.find((s) => s.curriculum_id === e.target.value) || null;
-                    setSelectedSubject(found);
-                  }}
-                  disabled={!selectedSemester || subjects.length === 0 || isLoadingSubjects}
-                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-2"
-                >
-                  <option value="" disabled>Select a subject</option>
-                  {subjects.map((sub) => {
-                    const code = sub.canonical_code ? ` [${sub.canonical_code}]` : "";
-                    const badge = sub.status === "MATCHED" && sub.has_exams
-                      ? ""
-                      : sub.status === "AMBIGUOUS"
-                      ? " (Ambiguous)"
-                      : sub.status === "MATCHED" && !sub.has_exams
-                      ? " (No Exams)"
-                      : " (Awaiting Papers)";
-                    return (
-                      <option key={sub.curriculum_id} value={sub.curriculum_id}>
-                        {sub.subject_name}{code}{badge}
+                  {isLoadingBranches ? (
+                    <option>Loading branches...</option>
+                  ) : branches.length === 0 ? (
+                    <option>No branches available</option>
+                  ) : (
+                    branches.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
                       </option>
-                    );
-                  })}
+                    ))
+                  )}
                 </select>
-
-                {/* Analytical Readiness Indicator */}
-                {selectedSubject && (
-                  <div className="mb-4 text-xs">
-                    {selectedSubject.status === "MATCHED" && selectedSubject.has_exams && (
-                      <span className="text-emerald-500 flex items-center gap-1 font-medium">
-                        <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
-                        Analytically available ({selectedSubject.exam_count} exams, {selectedSubject.question_count} questions)
-                      </span>
-                    )}
-                    {selectedSubject.status === "MATCHED" && !selectedSubject.has_exams && (
-                      <span className="text-amber-500 flex items-center gap-1">
-                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                        Catalog indexed, but 0 historical exam papers available.
-                      </span>
-                    )}
-                    {selectedSubject.status === "AMBIGUOUS" && (
-                      <span className="text-amber-500 flex items-center gap-1">
-                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                        Ambiguous curriculum mapping. Forecasts unavailable.
-                      </span>
-                    )}
-                    {selectedSubject.status === "UNMATCHED" && (
-                      <span className="text-muted-foreground flex items-center gap-1">
-                        <Database className="w-3.5 h-3.5 opacity-60 flex-shrink-0" />
-                        Awaiting historical examination papers.
-                      </span>
-                    )}
-                  </div>
-                )}
-
-                {/* Examination Selector */}
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
-                  Select Examination
-                </label>
-                <select
-                  value={selectedExam}
-                  onChange={(e) => setSelectedExam(e.target.value)}
-                  disabled={!isSubjectAvailable || isLoadingExaminations || examinations.length === 0}
-                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none"
-                >
-                  <option value="" disabled>
-                    {!isSubjectAvailable
-                      ? "Examination selection unavailable"
-                      : examinations.length === 0
-                      ? "No examination types found"
-                      : "Select an examination"}
-                  </option>
-                  {examinations.map((examType) => (
-                    <option key={examType} value={examType}>{examType}</option>
-                  ))}
-                </select>
-
-                {/* Error & Feedback Messages */}
-                {isLoadingBranches && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading curriculum branches...</p>
-                )}
-                {branchLoadError && (
-                  <p className="mt-2 text-xs text-red-400">{branchLoadError}</p>
-                )}
-                {isLoadingSemesters && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading semesters...</p>
-                )}
-                {semesterLoadError && (
-                  <p className="mt-2 text-xs text-red-400">{semesterLoadError}</p>
-                )}
-                {isLoadingSubjects && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading subjects from catalog...</p>
-                )}
-                {subjectLoadError && (
-                  <p className="mt-2 text-xs text-red-400">{subjectLoadError}</p>
-                )}
-                {isSubjectAvailable && isLoadingExaminations && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading examination metadata...</p>
-                )}
-                {isSubjectAvailable && !isLoadingExaminations && examLoadError && (
-                  <p className="mt-2 text-xs text-amber-400">{examLoadError}</p>
-                )}
               </div>
 
-              {/* Submit Button */}
-              <button 
-                type="submit"
-                disabled={!isSubjectAvailable || !selectedExam || isAnalyzing}
-                className="w-full mt-4 bg-foreground text-background py-2.5 rounded-md text-sm font-medium hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
+              {/* Semester Selector */}
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
+                  Semester
+                </label>
+                <select
+                  aria-label="Semester"
+                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                  value={selectedSemester}
+                  onChange={(e) => setSelectedSemester(e.target.value)}
+                  disabled={isLoadingSemesters || semesters.length === 0}
+                >
+                  {isLoadingSemesters ? (
+                    <option>Loading semesters...</option>
+                  ) : semesters.length === 0 ? (
+                    <option>Select a branch first</option>
+                  ) : (
+                    semesters.map((s) => (
+                      <option key={s} value={String(s)}>
+                        Semester {s}
+                      </option>
+                    ))
+                  )}
+                </select>
+              </div>
+
+              {/* Subject Selector */}
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
+                  Course / Subject
+                </label>
+                <select
+                  aria-label="Course or Subject"
+                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                  value={selectedSubject?.curriculum_id || ""}
+                  onChange={(e) => {
+                    const match = subjects.find((s) => s.curriculum_id === e.target.value);
+                    setSelectedSubject(match || null);
+                    setSnapshot(null);
+                  }}
+                  disabled={isLoadingSubjects || subjects.length === 0}
+                >
+                  {isLoadingSubjects ? (
+                    <option>Loading courses...</option>
+                  ) : subjects.length === 0 ? (
+                    <option>No courses found</option>
+                  ) : (
+                    subjects.map((s) => (
+                      <option key={s.curriculum_id} value={s.curriculum_id}>
+                        {s.canonical_code ? `[${s.canonical_code}] ` : ""}
+                        {s.subject_name}
+                        {s.status === "MATCHED" && s.has_exams
+                          ? ` (${s.exam_count} exams)`
+                          : s.status === "AMBIGUOUS"
+                          ? " [Ambiguous]"
+                          : " [Awaiting Papers]"}
+                      </option>
+                    ))
+                  )}
+                </select>
+              </div>
+
+              {/* Target Exam Date (Optional) */}
+              <div>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
+                  Target Exam Date <span className="text-[10px] text-muted-foreground/60">(Optional)</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type="date"
+                    aria-label="Target Exam Date"
+                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono text-xs"
+                    value={targetExamDate}
+                    onChange={(e) => setTargetExamDate(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              {/* Assessment Type (Dynamic from Snapshot or DNA) */}
+              {snapshot?.available_assessment_types && snapshot.available_assessment_types.length > 0 && (
+                <div>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
+                    Assessment Cycle
+                  </label>
+                  <select
+                    aria-label="Assessment Cycle"
+                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono"
+                    value={selectedExam}
+                    onChange={(e) => setSelectedExam(e.target.value)}
+                  >
+                    {snapshot.available_assessment_types.map((et) => (
+                      <option key={et} value={et}>
+                        {et}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Action Button */}
+              <button
+                className="w-full bg-accent text-accent-foreground font-semibold py-2.5 rounded-lg transition-opacity hover:opacity-90 flex items-center justify-center gap-2 mt-4 disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
+                onClick={handleAnalyze}
+                disabled={!isSubjectAvailable || isAnalyzing}
               >
                 {isAnalyzing ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-background border-t-transparent rounded-full animate-spin" />
-                    Analyzing Evidence...
+                    <Activity className="w-4 h-4 animate-spin" />
+                    <span>Synthesizing Intelligence...</span>
                   </>
                 ) : (
                   <>
                     <Search className="w-4 h-4" />
-                    Run Forecast
+                    <span>Generate Forecast</span>
                   </>
                 )}
               </button>
-            </form>
+            </div>
           </div>
 
-          <div className="bg-accent/5 border border-accent/20 rounded-xl p-5">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-accent mb-2 flex items-center gap-2">
-              <AlertCircle className="w-4 h-4" />
-              Evidence Rule
-            </h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              MintAI relies strictly on deterministic historical extraction. It does not hallucinate probabilities for subjects lacking historical examination papers.
-            </p>
-          </div>
+          {/* Canonical Identity Card */}
+          {selectedSubject && (
+            <div className="bg-card border border-border rounded-xl p-5 shadow-sm text-xs space-y-2">
+              <div className="flex items-center justify-between pb-2 border-b border-border">
+                <span className="font-semibold text-muted-foreground uppercase tracking-wider text-[10px]">Academic Registry</span>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                  selectedSubject.status === "MATCHED" && selectedSubject.has_exams
+                    ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                    : selectedSubject.status === "AMBIGUOUS"
+                    ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                    : "bg-muted text-muted-foreground"
+                }`}>
+                  {selectedSubject.status}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Curriculum ID:</span>
+                <span className="font-mono">{selectedSubject.curriculum_id}</span>
+              </div>
+              {selectedSubject.canonical_code && (
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Canonical Code:</span>
+                  <span className="font-mono font-bold text-accent">{selectedSubject.canonical_code}</span>
+                </div>
+              )}
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Historical Exams:</span>
+                <span className="font-mono font-bold">{selectedSubject.exam_count}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-muted-foreground">Historical Questions:</span>
+                <span className="font-mono">{selectedSubject.question_count}</span>
+              </div>
+              {selectedSubject.has_exams && (
+                <button
+                  onClick={() => handleViewQuestions()}
+                  className="w-full mt-2 pt-2 border-t border-border/50 text-accent hover:underline flex items-center justify-center gap-1 font-medium"
+                >
+                  <BookOpen className="w-3 h-3" />
+                  <span>Browse All Historical Questions</span>
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Right Panel: Data Dashboard & States */}
+        {/* Right Main Panel */}
         <div className="lg:col-span-8 flex flex-col gap-6">
-          {error ? (
-            <div className="h-full min-h-[400px] border border-red-500/20 bg-red-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
-              <img 
-                src="/dog-guilty.jpg" 
-                alt="Guilty dog" 
-                className="w-32 h-32 rounded-full object-cover border-4 border-red-500/20 shadow-lg mb-6 hover:scale-105 transition-transform"
-              />
-              <h3 className="text-xl font-bold text-red-500 mb-2">Analysis Failed</h3>
-              <p className="text-sm text-red-400 max-w-sm mb-2">{error}</p>
-              <p className="text-xs text-red-400/70 max-w-sm italic">
-                &quot;Sorry, this dog ate your prediction while the backend was asleep. (API Connection Refused)&quot;
-              </p>
-            </div>
-          ) : isAnalyzing ? (
-             <div className="h-full min-h-[400px] border border-border rounded-xl p-8 flex flex-col justify-center">
-                <div className="max-w-md mx-auto w-full flex flex-col items-center justify-center text-center">
-                  <Activity className="w-10 h-10 text-accent animate-pulse mb-4" />
-                  <h3 className="text-lg font-bold text-foreground mb-2">Analyzing Evidence Pool</h3>
-                  <p className="text-sm text-muted-foreground max-w-sm">
-                    Connecting to intelligence layer...
-                  </p>
-                </div>
-             </div>
-          ) : predictions ? (
-            <div className="flex flex-col gap-8 animate-in fade-in duration-500">
-              
-              {/* STATE 2: DASHBOARD */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                  <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Data Quality</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-2xl font-bold text-foreground capitalize">{predictions.data_quality || "Unknown"}</span>
-                  </div>
-                </div>
-                <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                  <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Target Year</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-2xl font-bold text-foreground">{predictions.target_year || "Latest"}</span>
-                  </div>
-                </div>
-                <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                  <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Evidence Pool</p>
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-sm text-foreground font-medium">{predictions?.evidence || "Analyzing responses..."}</span>
-                    <span className="text-sm text-muted-foreground">
-                      {predictions?.predictions ? predictions.predictions.reduce((s, p) => s + (p.historyCount || 0), 0) : 0} Questions
-                    </span>
-                  </div>
-                </div>
+          {error && (
+            <div className="p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl flex items-center gap-3">
+              <AlertCircle className="w-5 h-5 shrink-0" />
+              <div>
+                <h4 className="font-semibold text-sm">Forecast Synthesis Error</h4>
+                <p className="text-xs opacity-90">{error}</p>
               </div>
+            </div>
+          )}
 
-              {/* DNA SUMMARY */}
-              {dna && dna.analysis_summary && (
-                <div className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-bold text-lg flex items-center gap-2 mb-3">
-                    <Database className="w-5 h-5 text-accent" />
-                    ExamDNA Insights
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">
-                    {dna.analysis_summary}
-                  </p>
+          {snapshot && snapshot.data_availability_status === "READY" ? (
+            <div className="flex flex-col gap-6">
+              {/* Preparation & Coverage Meter */}
+              {snapshot.coverage_summary && (
+                <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <Target className="w-4 h-4 text-accent" />
+                      <h3 className="text-sm font-bold tracking-tight">Preparation Coverage</h3>
+                    </div>
+                    <div className="font-mono font-bold text-sm text-accent">
+                      {snapshot.coverage_summary.student_preparation_coverage}% Prepared
+                    </div>
+                  </div>
+
+                  <div className="w-full bg-background rounded-full h-2 mb-3 overflow-hidden border border-border">
+                    <div
+                      className="bg-accent h-full transition-all duration-500"
+                      style={{ width: `${snapshot.coverage_summary.student_preparation_coverage}%` }}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-4 gap-2 text-center text-xs">
+                    <div className="bg-background/60 p-2 rounded border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Predicted</div>
+                      <div className="font-mono font-bold">{snapshot.coverage_summary.total_predicted_topics}</div>
+                    </div>
+                    <div className="bg-background/60 p-2 rounded border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Mastered</div>
+                      <div className="font-mono font-bold text-emerald-500">{snapshot.coverage_summary.mastered_topics}</div>
+                    </div>
+                    <div className="bg-background/60 p-2 rounded border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">In Progress</div>
+                      <div className="font-mono font-bold text-amber-500">{snapshot.coverage_summary.in_progress_topics}</div>
+                    </div>
+                    <div className="bg-background/60 p-2 rounded border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Gap Count</div>
+                      <div className="font-mono font-bold text-rose-500">{snapshot.coverage_summary.high_priority_gap_count}</div>
+                    </div>
+                  </div>
                 </div>
               )}
 
-              {/* PREDICTION CARDS */}
-              <div className="flex flex-col gap-4">
-                <h3 className="font-bold text-lg flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-accent" />
-                  Forecasted Topics
-                </h3>
-                
-                {predictions.predictions && predictions.predictions.length > 0 ? (
-                  predictions.predictions.map((p: BackendPrediction, i: number) => (
-                    <div key={i} className="bg-card border border-border rounded-xl p-5 hover:-translate-y-[1px] transition-transform duration-150">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h4 className="text-lg font-bold text-foreground mb-1">{p.name || "Unknown Topic"}</h4>
-                          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <CheckCircle2 className="w-3 h-3 text-accent" /> 
-                              Rank #{p.rank}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3 h-3" /> 
-                              Last: {p.lastSeen || "Unknown"}
-                            </span>
-                          </div>
+              {/* Exam Date Schedule (if date provided) */}
+              {snapshot.exam_schedule && snapshot.exam_schedule.phases && (
+                <div className="bg-card border border-border rounded-xl p-5 shadow-sm space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-accent" />
+                      <h3 className="text-sm font-bold">Exam Date-Aware Revision Schedule</h3>
+                    </div>
+                    <span className="text-xs font-mono text-accent">
+                      {snapshot.exam_schedule.days_remaining} Days Remaining
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+                    {snapshot.exam_schedule.phases.map((ph: any) => (
+                      <div key={ph.phase} className="bg-background/70 border border-border/60 rounded-lg p-3 text-xs space-y-1">
+                        <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
+                          <span>Phase {ph.phase}</span>
+                          <span className="font-mono">{ph.duration_days} Days</span>
                         </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-mono font-bold text-accent">{typeof p.confidence === "string" ? p.confidence : (typeof p.confidence === "number" ? Math.round(p.confidence * 100) + "%" : "—")}</div>
-                          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Confidence</div>
-                        </div>
-                      </div>
-                      
-                      <div className="w-full bg-background rounded-full h-1.5 mb-4 overflow-hidden">
-                        <div 
-                          className="bg-accent h-full" 
-                          style={{ 
-                            width: typeof p.confidence === "number" 
-                              ? `${Math.round(p.confidence * 100)}%` 
-                              : p.confidence === "LOW" ? "30%" : p.confidence === "MEDIUM" ? "60%" : p.confidence === "HIGH" ? "90%" : "—" 
-                          }} 
-                        />
-                      </div>
-                      
-                      <div className="flex flex-col gap-2 text-xs text-muted-foreground bg-background rounded-lg px-4 py-3 border border-border/50">
-                        <div className="flex items-center justify-between">
-                          <span>Appeared <strong>{p.historyCount}</strong> times historically</span>
-                          {p.category && (
-                            <span className="capitalize text-foreground font-medium">{p.category}</span>
-                          )}
-                        </div>
-                        {p.evidence_details && (
-                          <div className="mt-2 pt-2 border-t border-border/50">
-                            <div className="flex flex-col gap-1 text-xs text-muted-foreground bg-background/60 rounded-md px-2 py-1.5 border border-border/30">
-                              <span className="font-medium text-foreground">Historical Evidence</span>
-                              <span>Appeared <strong className="text-foreground">{p.evidence_details.occurrences ?? 0}</strong> time{(p.evidence_details.occurrences || 0) > 1 ? 's' : ''} historically</span>
-                              <span>Recent frequency <strong className="text-foreground">{typeof p.evidence_details.recent_freq === 'number' ? (p.evidence_details.recent_freq * 100).toFixed(1) + '%' : '—'}</strong></span>
-                              <span>Historical frequency <strong className="text-foreground">{typeof p.evidence_details.hist_freq === 'number' ? (p.evidence_details.hist_freq * 100).toFixed(1) + '%' : '—'}</strong></span>
-                              {p.evidence_details.combo !== undefined && (
-                                <span>Pattern match <strong className="text-foreground">{p.evidence_details.combo ? 'Confirmed' : 'Not confirmed'}</strong></span>
-                              )}
-                            </div>
+                        <div className="font-bold text-foreground">{ph.name}</div>
+                        <p className="text-[11px] text-muted-foreground">{ph.description}</p>
+                        {ph.focus_topics && ph.focus_topics.length > 0 && (
+                          <div className="pt-1 text-[10px] text-accent truncate">
+                            Focus: {ph.focus_topics.join(", ")}
                           </div>
                         )}
                       </div>
-                    </div>
-                  ))
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Predictions List */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-base font-bold tracking-tight">Predicted High-Yield Topics</h3>
+                  {snapshot.metadata && (
+                    <span className="text-[10px] font-mono text-muted-foreground">
+                      Engine: {snapshot.metadata.engine_version} | Model: {snapshot.metadata.model_version}
+                    </span>
+                  )}
+                </div>
+
+                {snapshot.predictions && snapshot.predictions.length > 0 ? (
+                  snapshot.predictions.map((p: PredictionItem, idx: number) => {
+                    const priorityInfo = getTopicPriorityInfo(p.name);
+                    const isExpanded = expandedTopic === p.name;
+                    const studentStatus = priorityInfo?.student_status || "NOT_STARTED";
+                    const priorityBand = priorityInfo?.priority || "MEDIUM";
+
+                    return (
+                      <div
+                        key={idx}
+                        className="bg-card border border-border rounded-xl p-5 shadow-sm transition-all hover:border-accent/40"
+                      >
+                        {/* Header Row */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border/50">
+                          <div>
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-mono text-xs text-muted-foreground">#{p.rank}</span>
+                              <h4 className="text-base font-bold text-foreground">{p.name}</h4>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-2 text-xs">
+                              {/* Probability Pill */}
+                              <span className="px-2 py-0.5 rounded bg-background font-mono text-[11px] border border-border">
+                                Recurrence: <strong className="text-accent">{Math.round(p.probability * 100)}%</strong>
+                              </span>
+
+                              {/* Confidence Badge */}
+                              <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                                p.confidence === "HIGH"
+                                  ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                                  : p.confidence === "MEDIUM"
+                                  ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                                  : "bg-muted text-muted-foreground"
+                              }`}>
+                                {p.confidence} Confidence
+                              </span>
+
+                              {/* Priority Band */}
+                              <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                                priorityBand === "VERY_HIGH"
+                                  ? "bg-rose-500/10 text-rose-500 border border-rose-500/20"
+                                  : priorityBand === "HIGH"
+                                  ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                                  : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
+                              }`}>
+                                Priority: {priorityBand.replace("_", " ")}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Quick Actions */}
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              onClick={() => handleToggleTopicStatus(p.name, studentStatus)}
+                              className={`text-xs px-2.5 py-1 rounded font-medium border transition-colors flex items-center gap-1 ${
+                                studentStatus === "COMPLETED"
+                                  ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
+                                  : "bg-background text-muted-foreground hover:text-foreground border-border"
+                              }`}
+                              title="Toggle study progress"
+                            >
+                              <CheckCircle2 className="w-3.5 h-3.5" />
+                              <span>{studentStatus === "COMPLETED" ? "Mastered" : "Mark Done"}</span>
+                            </button>
+
+                            <button
+                              onClick={() => handleViewQuestions(p.name)}
+                              className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1"
+                              title="View past exam questions"
+                            >
+                              <BookOpen className="w-3.5 h-3.5" />
+                              <span>Past Questions</span>
+                            </button>
+
+                            <button
+                              onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
+                              className="p-1 rounded text-muted-foreground hover:text-foreground"
+                              aria-label="Toggle details"
+                            >
+                              {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Expandable Explanation Section */}
+                        {isExpanded && (
+                          <div className="mt-4 pt-4 border-t border-border/50 text-xs space-y-3">
+                            <div className="text-muted-foreground font-semibold text-[10px] uppercase tracking-wider">
+                              Why MintAI Thinks This Matters
+                            </div>
+
+                            {/* Deterministic Explanation Text */}
+                            {p.explanation && (
+                              <p className="text-sm text-foreground/90 bg-background/80 p-3 rounded-lg border border-border/40">
+                                {p.explanation}
+                              </p>
+                            )}
+
+                            {/* Reason Codes */}
+                            {p.reason_codes && p.reason_codes.length > 0 && (
+                              <div className="flex flex-wrap gap-1.5 pt-1">
+                                {p.reason_codes.map((code) => (
+                                  <span
+                                    key={code}
+                                    className="px-2 py-0.5 bg-accent/10 text-accent rounded font-mono text-[10px] border border-accent/20"
+                                  >
+                                    {code}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+
+                            {/* Empirical Evidence Grid */}
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
+                                <div className="text-muted-foreground text-[10px]">Occurrences</div>
+                                <div className="font-mono font-bold text-foreground">
+                                  {p.historical_occurrences ?? p.historyCount ?? 0}
+                                </div>
+                              </div>
+                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
+                                <div className="text-muted-foreground text-[10px]">Recent Occurrences</div>
+                                <div className="font-mono font-bold text-foreground">
+                                  {p.recent_occurrences ?? 0}
+                                </div>
+                              </div>
+                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
+                                <div className="text-muted-foreground text-[10px]">Marks Seen</div>
+                                <div className="font-mono font-bold text-foreground">
+                                  {p.marks_seen ? `${Math.round(p.marks_seen)} Marks` : "N/A"}
+                                </div>
+                              </div>
+                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
+                                <div className="text-muted-foreground text-[10px]">Last Seen</div>
+                                <div className="font-mono font-bold text-foreground">
+                                  {p.last_seen_year || p.lastSeen || "Multiple"}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Resources Trigger */}
+                            {priorityInfo?.resources && priorityInfo.resources.length > 0 && (
+                              <div className="pt-2 flex justify-end">
+                                <button
+                                  onClick={() => handleViewResources(p.name, priorityInfo.resources)}
+                                  className="text-accent hover:underline flex items-center gap-1 font-medium"
+                                >
+                                  <span>View {priorityInfo.resources.length} Linked Study Resource(s)</span>
+                                  <ArrowRight className="w-3 h-3" />
+                                </button>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })
                 ) : (
                   <div className="text-center py-8 text-muted-foreground border border-dashed border-border rounded-xl">
-                    No predictions could be generated from the evidence pool. (Unresolved state)
+                    No predictions generated.
                   </div>
                 )}
-                
               </div>
             </div>
           ) : selectedSubject?.status === "AMBIGUOUS" ? (
@@ -657,7 +792,7 @@ export default function MintAIPage() {
                 Verified historical papers ({selectedSubject?.exam_count} exams, {selectedSubject?.question_count} questions) loaded for <strong>{selectedSubject?.subject_name}</strong>.
               </p>
               <p className="text-xs text-muted-foreground/80">
-                Select an examination type on the left and click <strong>Run Forecast</strong>.
+                Click <strong>Generate Forecast</strong> on the left to extract explainable predictions and study priorities.
               </p>
             </div>
           ) : (
@@ -671,7 +806,126 @@ export default function MintAIPage() {
           )}
         </div>
       </main>
-      
+
+      {/* Historical Questions Modal */}
+      {isQuestionsModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-card border border-border rounded-xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-xl">
+            <div className="flex items-center justify-between p-5 border-b border-border">
+              <div>
+                <h3 className="text-base font-bold text-foreground">
+                  Verified Historical Questions
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  {selectedTopicForQuestions
+                    ? `Showing past examination questions mapped to: ${selectedTopicForQuestions}`
+                    : `Course wide question archive for: ${selectedSubject?.subject_name}`}
+                </p>
+              </div>
+              <button
+                onClick={() => setIsQuestionsModalOpen(false)}
+                className="p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-background"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-5 space-y-4">
+              {isLoadingQuestions ? (
+                <div className="flex flex-col items-center justify-center py-12 gap-2 text-muted-foreground">
+                  <Activity className="w-6 h-6 animate-spin text-accent" />
+                  <span className="text-xs">Querying historical question repository...</span>
+                </div>
+              ) : historicalQuestions.length === 0 ? (
+                <div className="text-center py-12 text-muted-foreground text-xs">
+                  No historical questions found for this topic.
+                </div>
+              ) : (
+                historicalQuestions.map((q) => (
+                  <div
+                    key={q.id}
+                    className="p-4 bg-background/80 border border-border/60 rounded-lg text-xs space-y-2"
+                  >
+                    <div className="flex items-center justify-between text-[11px]">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono font-bold text-accent">Q{q.question_number}</span>
+                        {q.year && <span className="text-muted-foreground">[{q.year}]</span>}
+                        {q.assessment_type && (
+                          <span className="px-1.5 py-0.5 bg-muted rounded font-mono text-[10px]">
+                            {q.assessment_type}
+                          </span>
+                        )}
+                        {q.family_name && (
+                          <span className="px-1.5 py-0.5 bg-accent/10 text-accent rounded font-mono text-[10px]">
+                            {q.family_name}
+                          </span>
+                        )}
+                      </div>
+                      <div className="font-mono font-bold text-foreground">
+                        {q.marks ? `${q.marks} Marks` : "Marks Unspecified"}
+                      </div>
+                    </div>
+                    <p className="text-foreground leading-relaxed whitespace-pre-wrap font-sans">
+                      {q.original_text}
+                    </p>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Study Resources Modal */}
+      {isResourcesModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-card border border-border rounded-xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-xl">
+            <div className="flex items-center justify-between p-5 border-b border-border">
+              <div>
+                <h3 className="text-base font-bold text-foreground">Linked Study Resources</h3>
+                <p className="text-xs text-muted-foreground">Topic: {selectedTopicForResources}</p>
+              </div>
+              <button
+                onClick={() => setIsResourcesModalOpen(false)}
+                className="p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-background"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-5 space-y-3">
+              {topicResources.length === 0 ? (
+                <div className="text-center py-12 text-muted-foreground text-xs">
+                  No lecture notes or study documents linked to this topic yet.
+                </div>
+              ) : (
+                topicResources.map((res: any, idx: number) => (
+                  <div key={idx} className="p-4 bg-background border border-border rounded-lg text-xs space-y-2">
+                    <div className="flex items-center justify-between font-medium">
+                      <span className="text-foreground font-bold">{res.title}</span>
+                      <span className="text-[10px] font-mono uppercase text-muted-foreground">
+                        {res.resource_type || "Document"}
+                      </span>
+                    </div>
+                    {res.content && (
+                      <p className="text-muted-foreground text-[11px] leading-relaxed italic bg-card/60 p-2 rounded border border-border/30">
+                        &ldquo;{res.content}&rdquo;
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between text-[10px] text-muted-foreground pt-1 border-t border-border/30">
+                      <span>Source: {res.source || "Local Ingestion"}</span>
+                      {res.page_number && <span>Page {res.page_number}</span>}
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );

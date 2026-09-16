@@ -25,7 +25,9 @@ def get_db():
 
 class ProgressRequest(BaseModel):
     user_id: str = "anonymous"
-    topic_id: int
+    topic_id: Optional[int] = None
+    topic: Optional[str] = None
+    action: Optional[str] = None
     status: Optional[str] = None
     viewed_resource: bool = False
     practice_attempted: bool = False
@@ -135,13 +137,32 @@ def upload_study_resource(
 
 @router.post("/progress/{course_id}")
 def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(get_db)):
+    service = StudyIntelligenceService(db)
+    topic_id = req.topic_id
+    if topic_id is None and req.topic:
+        topic_obj = service._course_topic(req.topic, course_id)
+        if topic_obj:
+            topic_id = topic_obj.id
+        else:
+            raise HTTPException(status_code=404, detail=f"Topic '{req.topic}' not found in course {course_id}")
+    elif topic_id is None:
+        raise HTTPException(status_code=400, detail="Either 'topic_id' or 'topic' name must be provided")
+
+    status = req.status
+    if req.action == "complete_topic":
+        status = "COMPLETED"
+    elif req.action == "reset_topic":
+        status = "NOT_STARTED"
+
+    viewed_resource = req.viewed_resource or (req.action == "view_resource")
+
     try:
-        progress = StudyIntelligenceService(db).record_progress(
+        progress = service.record_progress(
             student_id=req.user_id,
             course_id=course_id,
-            topic_id=req.topic_id,
-            status=req.status,
-            viewed_resource=req.viewed_resource,
+            topic_id=topic_id,
+            status=status,
+            viewed_resource=viewed_resource,
             practice_attempted=req.practice_attempted,
             practice_accuracy=req.practice_accuracy,
         )

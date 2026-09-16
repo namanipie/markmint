@@ -119,37 +119,29 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
         topic_preds = engine.predict(PredictionTarget.TOPIC)
         family_preds = engine.predict(PredictionTarget.FAMILY)
         
+        from datetime import datetime
+        from backend.core.version import MODEL_VERSION, TAXONOMY_VERSION, ENGINE_VERSION
+
         predictions = []
         for p in topic_preds[:5]:
-            predictions.append({
-                "rank": p.rank,
-                "name": p.name,
-                "score": p.score,
-                "confidence": p.confidence,
-                "category": p.target,
-                "historyCount": p.evidence.get("occurrences", 0),
-                "lastSeen": "Multiple",
-                "evidence_details": p.evidence
-            })
+            predictions.append(p.to_dict())
 
         for p in family_preds[:5]:
-            predictions.append({
-                "rank": p.rank,
-                "name": p.name,
-                "score": p.score,
-                "confidence": p.confidence,
-                "category": p.target,
-                "historyCount": p.evidence.get("occurrences", 0),
-                "lastSeen": p.evidence.get("last_seen", "Unknown"),
-                "evidence_details": p.evidence
-            })
+            predictions.append(p.to_dict())
 
         return {
+            "course_id": course.id,
             "subject": course.name,
             "target_year": target_year,
             "predictions": predictions,
             "evidence": f"Analyzed {len(hist_exams_orm)} historical exams.",
-            "data_quality": "Marks unavailable for many questions. Analysis primarily uses occurrence frequency."
+            "data_quality": "Marks unavailable for many questions. Analysis primarily uses occurrence frequency.",
+            "model_metadata": {
+                "model_version": MODEL_VERSION,
+                "taxonomy_version": TAXONOMY_VERSION,
+                "engine_version": ENGINE_VERSION,
+                "generated_at": datetime.utcnow().isoformat()
+            }
         }
     except HTTPException:
         raise

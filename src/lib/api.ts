@@ -1,81 +1,27 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
-// ==========================================
-// TEMP MOCK DATA (For UI Development Only)
-// ==========================================
-const MOCK_COURSES = [
-  { course_id: "CS101", course_code: "CS101", course_name: "Operating Systems", name: "Operating Systems", code: "CS101" },
-  { course_id: "CS102", course_code: "CS102", course_name: "Database Systems", name: "Database Systems", code: "CS102" }
-];
-
-const MOCK_STUDY_PLAN = {
-  course_name: "Operating Systems",
-  overall_probability: 0.84,
-  progress: "25%",
-  topics: [
-    {
-      name: "Process Scheduling Algorithms",
-      probability: 0.92,
-      priority: "High",
-      reason: "High volatility and historically appears in 80% of CT2 assessments.",
-      historyCount: 12,
-      resources: [
-        { id: "res1", title: "Round Robin Scheduling Breakdown", url: "#", source: "studique" },
-        { id: "res2", title: "2021 Previous Year Question", url: "#", source: "pyq" }
-      ]
-    },
-    {
-      name: "Deadlock Avoidance (Banker's Algorithm)",
-      probability: 0.75,
-      priority: "Medium",
-      reason: "Appeared in last year's end semester. Moderate chance of recurrence.",
-      historyCount: 5,
-      resources: [
-        { id: "res3", title: "Banker's Algo Reference", url: "#", source: "local" }
-      ]
-    }
-  ],
-  student_resources: [
-    { id: "s1", title: "My OS Unit 2 Notes.pdf", url: "#", source: "student" }
-  ]
-};
-
-const shouldUseMocks = () => process.env.NEXT_PUBLIC_USE_MOCKS === "true";
-
-
 async function fetchAPI(path: string, options?: RequestInit) {
-  if (shouldUseMocks()) {
-    return handleMock(path);
-  }
-
-  try {
-    const res = await fetch(`${API_BASE}${path}`, options);
-    if (!res.ok) {
-      const err = new Error(`${res.status} ${res.statusText}`);
-      (err as any).status = res.status;
-      throw err;
+  const res = await fetch(`${API_BASE}${path}`, options);
+  if (!res.ok) {
+    let errorDetail = `${res.status} ${res.statusText}`;
+    try {
+      const data = await res.json();
+      if (data?.detail) {
+        errorDetail = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail);
+      } else if (data?.message) {
+        errorDetail = data.message;
+      }
+    } catch {
+      // ignore json parse error on non-json error responses
     }
-    return res.json();
-  } catch (err: any) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn(`[API Fallback] Fetch failed for ${path}, returning mock data.`);
-      return handleMock(path);
-    }
+    const err = new Error(errorDetail);
+    (err as any).status = res.status;
     throw err;
   }
+  return res.json();
 }
 
-function handleMock(path: string) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      if (path.includes("/courses/")) resolve(MOCK_COURSES);
-      else if (path.includes("/study/plan/")) resolve(MOCK_STUDY_PLAN);
-      else resolve({ empty: true });
-    }, 800);
-  });
-}
-
-import { CurriculumSubject, CurriculumStats } from "./types";
+import { CurriculumSubject, CurriculumStats, IntelligenceSnapshot, HistoricalQuestion, SearchResult } from "./types";
 
 // Real Backend Endpoints
 export async function getCurriculumBranches(): Promise<string[]> {
@@ -97,6 +43,46 @@ export async function getCurriculumSubjects(
 
 export async function getCurriculumStats(): Promise<CurriculumStats> {
   return fetchAPI("/curriculum/stats");
+}
+
+export async function getIntelligenceSnapshot(
+  courseId: string | number,
+  targetYear?: number,
+  targetExamDate?: string,
+  studentId: string = "anonymous"
+): Promise<IntelligenceSnapshot> {
+  let url = `/intelligence/${encodeURIComponent(String(courseId))}?student_id=${encodeURIComponent(studentId)}`;
+  if (targetYear) url += `&target_year=${encodeURIComponent(targetYear)}`;
+  if (targetExamDate) url += `&target_exam_date=${encodeURIComponent(targetExamDate)}`;
+  return fetchAPI(url);
+}
+
+export async function getHistoricalQuestions(
+  courseId: string | number,
+  topic?: string,
+  assessmentType?: string,
+  limit: number = 50
+): Promise<{ course_id: number; course_name: string; total_returned: number; questions: HistoricalQuestion[] }> {
+  let url = `/intelligence/${encodeURIComponent(String(courseId))}/questions?limit=${limit}`;
+  if (topic) url += `&topic=${encodeURIComponent(topic)}`;
+  if (assessmentType) url += `&assessment_type=${encodeURIComponent(assessmentType)}`;
+  return fetchAPI(url);
+}
+
+export async function getModelPerformance(): Promise<any> {
+  return fetchAPI("/intelligence/model-performance");
+}
+
+export async function getCorpusHealth(): Promise<any> {
+  return fetchAPI("/intelligence/corpus-health");
+}
+
+export async function searchIntelligence(query: { raw_query: string; limit?: number }): Promise<SearchResult[]> {
+  return fetchAPI("/search/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query),
+  });
 }
 
 export async function getCourses() {
@@ -140,50 +126,31 @@ export async function getStudyResources(course_name: string, topic_name: string)
 }
 
 export async function uploadStudyNotes(formData: FormData) {
-  if (shouldUseMocks()) {
-    return new Promise(resolve => setTimeout(() => {
-      resolve({ status: "success", document_id: "mock_doc_123", mapped_topics: ["Process Scheduling Algorithms"] });
-    }, 1500));
-  }
-
-  try {
-    const res = await fetch(`${API_BASE}/study/uploads`, {
-      method: "POST",
-      body: formData,
-    });
-    if (!res.ok) {
-      throw new Error(`Upload failed: ${res.status}`);
+  const res = await fetch(`${API_BASE}/study/uploads`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) {
+    let errorDetail = `Upload failed: ${res.status}`;
+    try {
+      const data = await res.json();
+      if (data?.detail) errorDetail = data.detail;
+    } catch {
+      // ignore json error
     }
-    return res.json();
-  } catch (err) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn("[API Fallback] Upload failed, returning mock data.");
-      return new Promise(resolve => setTimeout(() => {
-        resolve({ status: "success", document_id: "mock_doc_123", mapped_topics: ["Process Scheduling Algorithms"] });
-      }, 1500));
-    }
+    const err = new Error(errorDetail);
+    (err as any).status = res.status;
     throw err;
   }
+  return res.json();
 }
 
-export async function updateStudyProgress(course_id: string, data: any) {
-  if (shouldUseMocks()) {
-    return new Promise(resolve => setTimeout(() => resolve({ status: "success" }), 300));
-  }
-  try {
-    const res = await fetchAPI(`/study/progress/${course_id}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-    return res;
-  } catch (err) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn("[API Fallback] Progress update failed, returning mock data.");
-      return new Promise(resolve => setTimeout(() => resolve({ status: "success" }), 300));
-    }
-    throw err;
-  }
+export async function updateStudyProgress(course_id: string | number, data: any) {
+  return fetchAPI(`/study/progress/${course_id}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 }
 
 export async function getPractice(subject: string) {

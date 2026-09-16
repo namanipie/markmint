@@ -246,3 +246,131 @@ export interface CurriculumStats {
   backend_courses_count: number;
 }
 
+export interface PredictionItem {
+  rank: number;
+  name: string;
+  category: "topic" | "family" | "unit" | string;
+  score: number;
+  prediction_score: number;
+  probability: number;
+  confidence: "HIGH" | "MEDIUM" | "LOW" | "INSUFFICIENT" | string;
+  historyCount?: number;
+  historical_occurrences?: number;
+  recent_occurrences?: number;
+  last_seen_year?: number | null;
+  lastSeen?: string;
+  marks_seen?: number;
+  family_recurrence_score?: number;
+  recent_frequency_score?: number;
+  recency_score?: number;
+  marks_score?: number;
+  evidence_count?: number;
+  reason_codes?: string[];
+  explanation?: string;
+  evidence_details?: any;
+}
+
+export interface HistoricalQuestion {
+  id: number;
+  question_number: string;
+  original_text: string;
+  normalized_text?: string | null;
+  marks?: number | null;
+  is_alternative: boolean;
+  difficulty?: number | null;
+  question_type?: string | null;
+  cognitive_level?: string | null;
+  exam_id?: number | null;
+  year?: number | null;
+  assessment_type?: string | null;
+  term?: string | null;
+  family_id?: number | null;
+  family_name?: string | null;
+  repetition_type?: string;
+  topics?: string[];
+}
+
+export interface CoverageSummary {
+  total_predicted_topics: number;
+  mastered_topics: number;
+  in_progress_topics: number;
+  unstudied_topics: number;
+  student_preparation_coverage: number;
+  coverage_gap_topics: string[];
+  high_priority_gap_count: number;
+}
+
+export interface ExamSchedulePhase {
+  phase: number;
+  name: string;
+  duration_days: number;
+  focus_topics: string[];
+  description: string;
+}
+
+export interface ExamSchedule {
+  target_exam_date: string;
+  days_remaining: number;
+  status: string;
+  recommended_daily_topics: number;
+  phases: ExamSchedulePhase[];
+}
+
+export interface IntelligenceSnapshot {
+  data_availability_status: "READY" | "CATALOG_ONLY" | "AMBIGUOUS" | "UNMATCHED" | "INSUFFICIENT_EVIDENCE" | string;
+  course?: {
+    id: number;
+    name: string;
+    code: string;
+    canonical_code?: string | null;
+    department?: string | null;
+    regulation_year?: number | null;
+  } | null;
+  curriculum?: {
+    curriculum_id?: string | null;
+    subject_name: string;
+    branch_name?: string | null;
+    semester?: number | null;
+    credits: number;
+    status: string;
+    notes?: string | null;
+  } | null;
+  exam_history?: {
+    total_papers: number;
+    historical_papers_analyzed: number;
+    total_questions: number;
+    years: number[];
+    available_assessment_types: string[];
+    target_year?: number;
+  } | null;
+  available_assessment_types?: string[];
+  predictions: PredictionItem[];
+  study_priorities: any[];
+  coverage_summary?: CoverageSummary | null;
+  exam_schedule?: ExamSchedule | null;
+  message?: string;
+  metadata?: {
+    model_version: string;
+    taxonomy_version: string;
+    engine_version: string;
+    sufficiency?: string;
+    generated_at: string;
+  };
+}
+
+export interface SearchResult {
+  id: number;
+  result_type: "exam_question" | "study_material" | "concept" | "question_family" | "analysis_finding" | "course" | "topic" | "exam" | string;
+  title: string;
+  text_snippet: string;
+  subject?: string | null;
+  unit?: string | null;
+  topic?: string | null;
+  year?: number | null;
+  exam_type?: string | null;
+  relevance_score: number;
+  provenance_url?: string | null;
+  attribution?: string | null;
+  metadata?: Record<string, any> | null;
+}
+

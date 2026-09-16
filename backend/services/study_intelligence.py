@@ -20,21 +20,42 @@ class StudyPriority(str):
 
 
 class PriorityResult:
-    def __init__(self, topic: str, prediction_score: float, priority: str,
-                 reasons: List[str], resources: List[Dict[str, Any]]):
+    def __init__(
+        self,
+        topic: str,
+        prediction_score: float,
+        priority: str,
+        reasons: List[str],
+        resources: List[Dict[str, Any]],
+        confidence: str = "LOW",
+        probability: Optional[float] = None,
+        student_status: Optional[str] = None,
+        practice_accuracy: Optional[float] = None,
+        reason_codes: Optional[List[str]] = None,
+    ):
         self.topic = topic
         self.prediction_score = prediction_score
         self.priority = priority
         self.reasons = reasons
         self.resources = resources
+        self.confidence = confidence
+        self.probability = probability if probability is not None else prediction_score
+        self.student_status = student_status
+        self.practice_accuracy = practice_accuracy
+        self.reason_codes = reason_codes or []
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "topic": self.topic,
             "prediction_score": self.prediction_score,
+            "probability": self.probability,
+            "confidence": self.confidence,
             "priority": self.priority,
             "reasons": self.reasons,
+            "reason_codes": self.reason_codes,
             "resources": self.resources,
+            "student_status": self.student_status,
+            "practice_accuracy": self.practice_accuracy,
         }
 
 
@@ -93,6 +114,8 @@ class StudyIntelligenceService:
                     "original_url": document.original_url,
                     "uploaded_at": document.uploaded_at.isoformat() if document.uploaded_at else None,
                     "owner_id": document.owner_id,
+                    "page_number": evidence.page_number,
+                    "content": evidence.content[:250] if evidence.content else None,
                 })
 
         question_count = (
@@ -118,6 +141,8 @@ class StudyIntelligenceService:
     ) -> PriorityResult:
         score = float(prediction.score)
         evidence = prediction.evidence or {}
+        confidence = getattr(prediction, "confidence", "LOW")
+
         if score >= 0.8:
             priority = StudyPriority.VERY_HIGH
             reasons = [
@@ -151,46 +176,198 @@ class StudyIntelligenceService:
         progress = (
             self.db.query(StudentTopicProgress).filter_by(
                 student_id=student_id, topic_id=topic.id
-            ).first() if topic else None
+            ).first() if (topic and self.db is not None) else None
         )
-        weak = course_id is not None and self.db is not None and not progress
+        
+        student_status = progress.status if progress else "NOT_STARTED"
+        practice_accuracy = None
         if progress and progress.practice_attempted:
-            weak = (progress.practice_correct or 0) / progress.practice_attempted < 0.6
-            if weak:
-                reasons.append("Recorded practice accuracy is below 60%.")
-        elif weak:
-            reasons.append("No student progress evidence is recorded.")
-        if weak and priority == StudyPriority.HIGH:
-            priority = StudyPriority.VERY_HIGH
-        elif weak and priority == StudyPriority.MEDIUM:
-            priority = StudyPriority.HIGH
+            practice_accuracy = round((progress.practice_correct or 0) / progress.practice_attempted, 2)
 
-        return PriorityResult(prediction.name, round(score, 4), priority, reasons, resources)
+        # Personalization: Adjust priority based on mastery / progress
+        if progress and progress.status == "COMPLETED" and (practice_accuracy is None or practice_accuracy >= 0.8):
+            reasons.append("Topic completed with high mastery (>= 80%); deprioritized for active study.")
+            if priority == StudyPriority.VERY_HIGH:
+                priority = StudyPriority.HIGH
+            elif priority == StudyPriority.HIGH:
+                priority = StudyPriority.MEDIUM
+            elif priority == StudyPriority.MEDIUM:
+                priority = StudyPriority.LOW
+        else:
+            weak = course_id is not None and self.db is not None and not progress
+            if progress and progress.practice_attempted:
+                weak = (progress.practice_correct or 0) / progress.practice_attempted < 0.6
+                if weak:
+                    reasons.append("Recorded practice accuracy is below 60%.")
+            elif weak:
+                reasons.append("No student progress evidence is recorded.")
+            if weak and priority == StudyPriority.HIGH:
+                priority = StudyPriority.VERY_HIGH
+            elif weak and priority == StudyPriority.MEDIUM:
+                priority = StudyPriority.HIGH
+
+        reason_codes = list(getattr(prediction, "reason_codes", []))
+        if progress and progress.status == "COMPLETED":
+            reason_codes.append("STUDENT_MASTERED")
+        elif not progress:
+            reason_codes.append("STUDENT_UNSTUDIED")
+
+        return PriorityResult(
+            topic=prediction.name,
+            prediction_score=round(score, 4),
+            priority=priority,
+            reasons=reasons,
+            resources=resources,
+            confidence=confidence,
+            probability=round(score, 4),
+            student_status=student_status,
+            practice_accuracy=practice_accuracy,
+            reason_codes=reason_codes,
+        )
 
     def generate_study_plan(
-        self, predictions: List[PredictionResult], course_id: int, student_id: str = "anonymous"
+        self,
+        predictions: List[PredictionResult],
+        course_id: int,
+        student_id: str = "anonymous",
+        target_exam_date: Optional[str] = None
     ) -> List[Dict[str, Any]]:
         priorities = [
             self.calculate_study_priority(prediction, course_id, student_id)
-            for prediction in predictions if prediction.target == "topic"
+            for prediction in predictions if getattr(prediction, "target", "topic") == "topic"
         ]
         order = {StudyPriority.VERY_HIGH: 0, StudyPriority.HIGH: 1,
                  StudyPriority.MEDIUM: 2, StudyPriority.LOW: 3}
         priorities.sort(key=lambda item: (order[item.priority], -item.prediction_score, item.topic))
         return [{"order": index, **priority.to_dict()} for index, priority in enumerate(priorities, 1)]
 
+    def calculate_coverage_gap(
+        self,
+        predictions: List[PredictionResult],
+        course_id: int,
+        student_id: str = "anonymous"
+    ) -> Dict[str, Any]:
+        priorities = [
+            self.calculate_study_priority(p, course_id, student_id)
+            for p in predictions if getattr(p, "target", "topic") == "topic"
+        ]
+        total_predicted = len(priorities)
+        if total_predicted == 0:
+            return {
+                "total_predicted_topics": 0,
+                "mastered_topics": 0,
+                "in_progress_topics": 0,
+                "unstudied_topics": 0,
+                "student_preparation_coverage": 0.0,
+                "coverage_gap_topics": [],
+                "high_priority_gap_count": 0
+            }
+
+        mastered = 0
+        in_progress = 0
+        unstudied = 0
+        gap_topics = []
+
+        for item in priorities:
+            status = item.student_status or "NOT_STARTED"
+            acc = item.practice_accuracy
+            is_mastered = (status == "COMPLETED" and (acc is None or acc >= 0.6))
+            if is_mastered:
+                mastered += 1
+            elif status == "STARTED":
+                in_progress += 1
+                if item.priority in {StudyPriority.VERY_HIGH, StudyPriority.HIGH}:
+                    gap_topics.append(item.topic)
+            else:
+                unstudied += 1
+                if item.priority in {StudyPriority.VERY_HIGH, StudyPriority.HIGH}:
+                    gap_topics.append(item.topic)
+
+        coverage_pct = round(((mastered + 0.5 * in_progress) / total_predicted) * 100.0, 1)
+
+        return {
+            "total_predicted_topics": total_predicted,
+            "mastered_topics": mastered,
+            "in_progress_topics": in_progress,
+            "unstudied_topics": unstudied,
+            "student_preparation_coverage": coverage_pct,
+            "coverage_gap_topics": gap_topics,
+            "high_priority_gap_count": len(gap_topics)
+        }
+
+    def generate_exam_schedule(
+        self,
+        priorities: List[PriorityResult],
+        target_exam_date_str: Optional[str]
+    ) -> Optional[Dict[str, Any]]:
+        if not target_exam_date_str:
+            return None
+
+        try:
+            target_date = datetime.strptime(target_exam_date_str.strip(), "%Y-%m-%d").date()
+            today = datetime.utcnow().date()
+            days_remaining = (target_date - today).days
+            if days_remaining <= 0:
+                return {
+                    "target_exam_date": target_exam_date_str,
+                    "days_remaining": 0,
+                    "status": "EXAM_DUE_OR_PASSED",
+                    "phases": []
+                }
+
+            phase1_days = max(1, int(days_remaining * 0.5))
+            phase2_days = max(1, int(days_remaining * 0.3))
+            phase3_days = max(1, days_remaining - phase1_days - phase2_days)
+
+            vh_topics = [p.topic for p in priorities if p.priority == StudyPriority.VERY_HIGH]
+            h_topics = [p.topic for p in priorities if p.priority == StudyPriority.HIGH]
+            m_topics = [p.topic for p in priorities if p.priority in {StudyPriority.MEDIUM, StudyPriority.LOW}]
+
+            return {
+                "target_exam_date": target_exam_date_str,
+                "days_remaining": days_remaining,
+                "status": "ON_TRACK",
+                "recommended_daily_topics": round(len(priorities) / max(1, days_remaining), 1),
+                "phases": [
+                    {
+                        "phase": 1,
+                        "name": "High-Yield Foundation",
+                        "duration_days": phase1_days,
+                        "focus_topics": vh_topics,
+                        "description": "Core concepts & highest predicted recurrence topics."
+                    },
+                    {
+                        "phase": 2,
+                        "name": "Targeted Question Practice",
+                        "duration_days": phase2_days,
+                        "focus_topics": h_topics,
+                        "description": "Solve historical questions and recurring families."
+                    },
+                    {
+                        "phase": 3,
+                        "name": "Final Timed Drill & Revision",
+                        "duration_days": phase3_days,
+                        "focus_topics": m_topics,
+                        "description": "Comprehensive review and formula reinforcement."
+                    }
+                ]
+            }
+        except (ValueError, TypeError):
+            return None
+
     def record_progress(
-        self, user_id: str, course_id: int, topic_id: int, status: str = None,
+        self, user_id: str = None, course_id: int = None, topic_id: int = None, status: str = None,
         viewed_resource: bool = False, practice_attempted: bool = False,
-        practice_accuracy: float = None,
+        practice_accuracy: float = None, student_id: str = None,
     ) -> StudentTopicProgress:
+        effective_user_id = student_id or user_id or "anonymous"
         if not self._course_topic_by_id(topic_id, course_id):
             raise ValueError("Topic does not belong to the selected course")
         progress = self.db.query(StudentTopicProgress).filter_by(
-            student_id=user_id, topic_id=topic_id
+            student_id=effective_user_id, topic_id=topic_id
         ).first()
         if not progress:
-            progress = StudentTopicProgress(student_id=user_id, topic_id=topic_id)
+            progress = StudentTopicProgress(student_id=effective_user_id, topic_id=topic_id)
             self.db.add(progress)
         if status:
             if status not in {"NOT_STARTED", "STARTED", "COMPLETED"}:

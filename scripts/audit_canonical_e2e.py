@@ -230,4 +230,107 @@ res_pred_bio = client.get(f"/api/predictions/{bio_subj['subject_name']}")
 print(f"3. Prediction query status: {res_pred_bio.status_code} (Clean 404, not falsely mapped to Cell Bio or Comp Bio)")
 assert res_pred_bio.status_code == 404
 
-print("\n>> All End-to-End Audits PASSED!")
+print("\n" + "=" * 70)
+print("6. ACADEMIC INTELLIGENCE LAYER AUDIT")
+print("=" * 70)
+
+# A. Intelligence Snapshot for Calculus (READY)
+resp_intel_calc = client.get("/api/intelligence/1")
+print(f"Intelligence Calculus (1): status={resp_intel_calc.status_code}")
+assert resp_intel_calc.status_code == 200
+data_intel_calc = resp_intel_calc.json()
+assert data_intel_calc["data_availability_status"] == "READY"
+assert data_intel_calc["course"]["canonical_code"] == "21MAB101T"
+preds = data_intel_calc["predictions"]
+assert len(preds) > 0
+top_t = preds[0]
+print(f"   Top Prediction: {top_t['name']} | Prob: {top_t['probability']:.2f} | Conf: {top_t['confidence']}")
+assert "reason_codes" in top_t
+assert len(top_t["reason_codes"]) > 0
+assert "coverage_summary" in data_intel_calc
+assert data_intel_calc["exam_schedule"] is None
+
+# Test with target_exam_date
+resp_intel_sched = client.get("/api/intelligence/1?target_exam_date=2026-12-01")
+assert resp_intel_sched.status_code == 200
+sched = resp_intel_sched.json()["exam_schedule"]
+assert sched is not None
+assert sched["days_remaining"] > 0
+print(f"   Exam schedule: target={sched['target_exam_date']} | days_remaining={sched['days_remaining']} | phases={len(sched['phases'])}")
+
+# B. Intelligence Snapshot for Programming (CATALOG_ONLY)
+resp_intel_prog = client.get("/api/intelligence/3")
+print(f"\nIntelligence Programming (3): status={resp_intel_prog.status_code}")
+assert resp_intel_prog.status_code == 200
+data_intel_prog = resp_intel_prog.json()
+assert data_intel_prog["data_availability_status"] == "CATALOG_ONLY"
+assert len(data_intel_prog["predictions"]) == 0
+assert data_intel_prog["exam_history"]["total_papers"] == 0
+print(f"   Correctly flagged as CATALOG_ONLY with 0 papers, no fabricated predictions")
+
+# C. Intelligence Snapshot for Unmatched (Physics: aeros-1-2)
+resp_intel_phys = client.get("/api/intelligence/aeros-1-2")
+print(f"\nIntelligence Physics (aeros-1-2): status={resp_intel_phys.status_code}")
+assert resp_intel_phys.status_code == 200
+data_intel_phys = resp_intel_phys.json()
+assert data_intel_phys["course"] is None
+assert len(data_intel_phys["predictions"]) == 0
+print(f"   Correctly returned UNMATCHED status with clear warning: '{data_intel_phys['curriculum']['notes']}'")
+
+# D. Intelligence Snapshot for Ambiguous (Biology: aeros-2-3)
+resp_intel_bio = client.get("/api/intelligence/aeros-2-3")
+print(f"\nIntelligence Biology (aeros-2-3): status={resp_intel_bio.status_code}")
+assert resp_intel_bio.status_code == 200
+data_intel_bio = resp_intel_bio.json()
+assert data_intel_bio["data_availability_status"] == "AMBIGUOUS"
+assert data_intel_bio["course"] is None
+assert len(data_intel_bio["predictions"]) == 0
+print(f"   Correctly returned AMBIGUOUS status with candidate details: '{data_intel_bio['curriculum']['notes']}'")
+
+# E. Historical Questions for Calculus
+resp_questions = client.get("/api/intelligence/1/questions?limit=5")
+print(f"\nHistorical Questions Calculus (1): status={resp_questions.status_code}")
+assert resp_questions.status_code == 200
+data_questions = resp_questions.json()
+questions = data_questions["questions"]
+print(f"   Retrieved {len(questions)} chronological questions")
+assert len(questions) > 0
+q0 = questions[0]
+print(f"   Sample question: ID={q0['id']} | Year={q0['year']} | Marks={q0['marks']} | Text snippet={q0['original_text'][:50]}...")
+assert "year" in q0 and "marks" in q0 and "topics" in q0
+
+# F. Model Performance & Backtesting Report
+resp_perf = client.get("/api/intelligence/model-performance")
+print(f"\nModel Performance: status={resp_perf.status_code}")
+assert resp_perf.status_code == 200
+perf = resp_perf.json()
+print(f"   Model Version: {perf['model_version']} | Engine: {perf['engine_version']} | Total Evaluations: {perf['total_evaluations']}")
+assert perf["model_version"] == "2.1.0"
+assert perf["total_evaluations"] > 0
+
+# G. Corpus Health & Observability
+resp_health = client.get("/api/intelligence/corpus-health")
+print(f"\nCorpus Health: status={resp_health.status_code}")
+assert resp_health.status_code == 200
+health = resp_health.json()
+entities = health["corpus_entities"]
+print(f"   Total Courses: {entities['courses']} | Exams: {entities['exams']} | Questions: {entities['questions']} | Families: {entities['question_families']}")
+print(f"   Curriculum Mappings: {health['curriculum_mappings']}")
+assert entities["courses"] == 12
+assert entities["exams"] == 8
+assert entities["questions"] == 223
+assert entities["question_families"] == 548
+assert health["curriculum_mappings"]["total"] == 2810
+
+# H. Multi-Type Search Intent
+resp_search = client.post("/api/search/", json={"raw_query": "matrix question", "limit": 5})
+print(f"\nSearch 'matrix question': status={resp_search.status_code}")
+assert resp_search.status_code == 200
+search_res = resp_search.json()
+print(f"   Search Results: {len(search_res)}, Top Type: {search_res[0]['result_type']}")
+assert len(search_res) > 0
+assert search_res[0]["result_type"] == "exam_question"
+
+print("\n" + "=" * 70)
+print(">> All Canonical & Intelligence End-to-End Audits PASSED!")
+print("=" * 70)

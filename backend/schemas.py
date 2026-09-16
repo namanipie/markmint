@@ -406,6 +406,9 @@ class SearchResultType(str, Enum):
     CONCEPT = "concept"
     QUESTION_FAMILY = "question_family"
     ANALYSIS_FINDING = "analysis_finding"
+    COURSE = "course"
+    TOPIC = "topic"
+    EXAM = "exam"
 
 class SearchFilters(BaseModel):
     subject: Optional[str] = None
@@ -432,6 +435,7 @@ class SearchResult(BaseModel):
     relevance_score: float
     provenance_url: Optional[str] = None
     attribution: Optional[str] = None
+    metadata: Optional[dict] = None
 
 class SearchQuery(BaseModel):
     raw_query: str
