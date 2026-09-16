@@ -390,7 +390,7 @@ export default function MintAIPage() {
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Evidence Pool</p>
                   <div className="flex flex-col gap-0.5">
                   <span className="text-sm text-foreground font-medium">{predictions?.evidence || "Analyzing responses..."}</span>
-                    <span className="text-sm text-muted-foreground">{predictions.evidence?.total_questions || 0} Questions</span>
+                    <span className="text-sm text-muted-foreground">{predictions?.predictions ? predictions.predictions.reduce((s,p) => s + (p.historyCount||0), 0) : 0} Questions</span>
                   </div>
                 </div>
               </div>
@@ -445,11 +445,21 @@ export default function MintAIPage() {
                       <div className="flex flex-col gap-2 text-xs text-muted-foreground bg-background rounded-lg px-4 py-3 border border-border/50">
                         <div className="flex items-center justify-between">
                           <span>Appeared <strong>{p.historyCount}</strong> times historically</span>
-                          <span className="capitalize text-foreground font-medium">{p.category} Category</span>
+                          {p.category && (
+                          <span className="capitalize text-foreground font-medium">{p.category}</span>
+                        )}
                         </div>
                         {p.evidence_details && (
-                          <div className="mt-1 pt-2 border-t border-border/50 italic opacity-80">
-                            <span className="text-xs text-muted-foreground whitespace-pre-wrap">{JSON.stringify(p.evidence_details || {}, null, 2)}</span>
+                          <div className="mt-2 pt-2 border-t border-border/50">
+                            <div className="flex flex-col gap-1 text-xs text-muted-foreground bg-background/60 rounded-md px-2 py-1.5 border border-border/30">
+                              <span className="font-medium text-foreground">Historical Evidence</span>
+                              <span>Appeared <strong className="text-foreground">{p.evidence_details.occurrences ?? 0}</strong> time{(p.evidence_details.occurrences || 0) > 1 ? 's' : ''} historically</span>
+                              <span>Recent frequency <strong className="text-foreground">{typeof p.evidence_details.recent_freq === 'number' ? (p.evidence_details.recent_freq * 100).toFixed(1) + '%' : '—'}</strong></span>
+                              <span>Historical frequency <strong className="text-foreground">{typeof p.evidence_details.hist_freq === 'number' ? (p.evidence_details.hist_freq * 100).toFixed(1) + '%' : '—'}</strong></span>
+                              {p.evidence_details.combo !== undefined && (
+                                <span>Pattern match <strong className="text-foreground">{p.evidence_details.combo ? 'Confirmed' : 'Not confirmed'}</strong></span>
+                              )}
+                            </div>
                           </div>
                         )}
                       </div>
