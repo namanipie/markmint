@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MarkMint | SRMIST AI Assistant",
     description: "MintAi predicts your CT, FT, and End Sem question papers.",
+  },
+  verification: {
+    google: "xCV7uIaHTrTcL3-G9SqrLSMP3YJQJIi1oPaeNd49f3o",
   }
 };
 
