@@ -275,6 +275,7 @@ export default function MintAIPage() {
       <Navbar />
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <h1 className="sr-only">MintAI Prediction Engine</h1>
         {/* Left Sidebar: Controls & Hierarchy */}
         <div className="lg:col-span-4 flex flex-col gap-6">
           <div className="bg-card border border-border rounded-xl p-6 shadow-sm">

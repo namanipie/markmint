@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.com"),
   title: "MarkMint | Predict exams & track GPA for SRMIST",
   description: "MintAi predicts your CT, FT, and End Sem question papers. Calculate your GPA instantly for 40+ engineering branches.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "MarkMint | SRMIST AI Assistant",
     description: "Generate structured study plans, filter PYQs, and predict exams with MintAi.",
@@ -43,6 +46,19 @@ export const metadata: Metadata = {
   }
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MarkMint",
+  "url": "https://markmint.com",
+  "description": "MintAi predicts your CT, FT, and End Sem question papers for SRMIST.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://markmint.com/mintai?course={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,6 +69,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} h-full antialiased`} suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground relative">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         <Toaster
