@@ -389,7 +389,7 @@ export default function MintAIPage() {
                 <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Evidence Pool</p>
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-sm font-medium text-foreground">{predictions.evidence?.total_papers || 0} Papers</span>
+                  <span className="text-sm text-foreground font-medium">{predictions?.evidence || "Analyzing responses..."}</span>
                     <span className="text-sm text-muted-foreground">{predictions.evidence?.total_questions || 0} Questions</span>
                   </div>
                 </div>
