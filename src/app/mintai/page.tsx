@@ -439,7 +439,7 @@ export default function MintAIPage() {
                       </div>
                       
                       <div className="w-full bg-background rounded-full h-1.5 mb-4 overflow-hidden">
-                        <div className="bg-accent h-full" style={{ width: `${Math.round(p.confidence * 100)}%` }}></div>
+                        <div className="bg-accent h-full" style={{ width: (typeof p.confidence === "number" ? Math.round(p.confidence * 100) + "%" : (p.confidence === "LOW" ? "30%" : p.confidence === "MEDIUM" ? "60%" : p.confidence === "HIGH" ? "90%" : "—")) }}></div>
                       </div>
                       
                       <div className="flex flex-col gap-2 text-xs text-muted-foreground bg-background rounded-lg px-4 py-3 border border-border/50">
