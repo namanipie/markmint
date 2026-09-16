@@ -160,11 +160,16 @@ export interface BackendPrediction {
   rank: number;
   name: string;
   score: number;
-  confidence: number;
+  confidence: string;
   category: string;
   historyCount: number;
   lastSeen: string;
-  evidence_details: string;
+  evidence_details: {
+    combo?: boolean;
+    recent_freq?: number;
+    hist_freq?: number;
+    occurrences?: number;
+  };
 }
 
 export interface PredictionResponse {
