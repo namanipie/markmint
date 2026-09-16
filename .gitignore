@@ -1,24 +1,17 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/
 
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
-
-# production
-/build
+.next/
+out/
+build/
 
 # misc
 .DS_Store
@@ -29,50 +22,53 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+logs/
+temp/
+scratch/
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+# next-env.d.ts is often tracked, so leaving it out of gitignore unless user prefers.
 
-# Python generated files
+# Python
 __pycache__/
 *.py[cod]
-
-
-# Data
-data/*
-!data/curriculum_catalog.json
-!backend/data/curriculum_catalog.json
-*.db
-*.json
-!data/curriculum_catalog.json
-!backend/data/curriculum_catalog.json
-*.txt
-scratch/
-
-# Environments
+*$py.class
 .venv/
+venv/
+env/
 
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+production_corpus.db
+exam_db.sqlite
 
-# Root scratch scripts
-check.py
-classify_script.py
-taxonomy_expand.py
-taxonomy_insert.py
-
-# Temporary session files
-1.md
-AI_BRAIN.md
-AI_RULES.md
-SESSION_MEMORY.md
-
-# Downloaded raw corpus files (PDFs)
+# Data & Corpus
 corpus/
+data/manifests/
+data/reports/
+# Preserve specific JSON catalogs if tracked:
+!data/curriculum_catalog.json
+!backend/data/curriculum_catalog.json
+
+# IDE / Editor
+.vscode/
+.idea/
+.claude/
+
+# Temporary / Scratch
+temp_gpa.html
+*.log
+inspection_results.json
 
 
