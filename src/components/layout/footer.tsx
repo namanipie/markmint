@@ -28,8 +28,6 @@ export function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <span>v1.0</span>
-            <span className="w-1 h-1 rounded-full bg-border" />
             <span>Built for SRMIST students</span>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span>Last updated Sep 2026</span>
