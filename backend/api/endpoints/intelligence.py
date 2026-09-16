@@ -1,13 +1,18 @@
 from typing import Any, Dict, List, Optional
 from datetime import datetime
+import time
+import logging
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import func, desc
 
 from backend.core.database import get_db
-from backend.core.version import MODEL_VERSION, TAXONOMY_VERSION, ENGINE_VERSION
+from backend.core.version import (
+    MODEL_VERSION, TAXONOMY_VERSION, ENGINE_VERSION,
+    CORPUS_VERSION, CALIBRATION_METHOD, SCORE_SEMANTICS
+)
 from backend.models.core import (
-    Course, Exam, Section, Question, Topic, QuestionFamily,
+    Course, Exam, Section, Question, Topic, Unit, Syllabus, QuestionFamily, QuestionFamilyMembership,
     Document, StudyEvidence, CurriculumMapping, Concept
 )
 from backend.api.endpoints.predictions import _find_course, _build_historical_exam_payloads
@@ -22,6 +27,8 @@ from backend.services.prediction.engine import (
 from backend.services.prediction.backtester import BacktestEvaluator
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
 
+logger = logging.getLogger("markmint.intelligence")
+
 router = APIRouter()
 
 
@@ -30,6 +37,11 @@ def get_course_historical_questions(
     course_id: str,
     topic: Optional[str] = Query(None),
     assessment_type: Optional[str] = Query(None),
+    year: Optional[int] = Query(None),
+    min_marks: Optional[float] = Query(None),
+    max_marks: Optional[float] = Query(None),
+    family_id: Optional[int] = Query(None),
+    repetition_type: Optional[str] = Query(None),
     limit: int = Query(50, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
@@ -51,6 +63,21 @@ def get_course_historical_questions(
     if assessment_type:
         query = query.filter(func.lower(Exam.assessment_type) == assessment_type.lower())
 
+    if year is not None:
+        query = query.filter(Exam.year == year)
+
+    if min_marks is not None:
+        query = query.filter(Question.marks >= min_marks)
+
+    if max_marks is not None:
+        query = query.filter(Question.marks <= max_marks)
+
+    if family_id is not None:
+        query = query.filter(Question.family_id == family_id)
+
+    if repetition_type:
+        query = query.join(Question.memberships).filter(func.lower(QuestionFamilyMembership.match_type) == repetition_type.lower())
+
     # Deterministic chronological order: latest year first, then highest marks
     questions = (
         query.order_by(Exam.year.desc().nullslast(), Question.marks.desc().nullslast(), Question.id.asc())
@@ -64,6 +91,17 @@ def get_course_historical_questions(
         family = q.family if hasattr(q, "family") else None
         membership = q.memberships[0] if getattr(q, "memberships", None) else None
         topics = [t.name for t in q.topics] if getattr(q, "topics", None) else []
+
+        family_history = []
+        if family and hasattr(family, "questions") and family.questions:
+            family_history = sorted(list({
+                q_m.section.exam.year
+                for q_m in family.questions
+                if q_m.section and q_m.section.exam and q_m.section.exam.year
+            }))
+
+        source_doc_title = exam.document.title if (exam and exam.document) else None
+        source_doc_url = exam.document.original_url if (exam and exam.document) else None
 
         formatted_questions.append({
             "id": q.id,
@@ -81,6 +119,9 @@ def get_course_historical_questions(
             "term": exam.term if exam else None,
             "family_id": family.id if family else None,
             "family_name": family.canonical_name if family else None,
+            "family_recurrence_history": family_history,
+            "source_document_title": source_doc_title,
+            "source_document_url": source_doc_url,
             "repetition_type": membership.match_type if membership else (family.repetition_type if family else "singleton"),
             "topics": topics,
         })
@@ -89,6 +130,8 @@ def get_course_historical_questions(
         "course_id": course.id,
         "course_name": course.name,
         "topic_filter": topic,
+        "assessment_type_filter": assessment_type,
+        "year_filter": year,
         "total_returned": len(formatted_questions),
         "questions": formatted_questions,
     }
@@ -155,7 +198,7 @@ def get_model_performance(db: Session = Depends(get_db)) -> Dict[str, Any]:
 
             for model_name, model in models.items():
                 preds = model.predict(PredictionTarget.TOPIC)
-                metrics = BacktestEvaluator.evaluate(preds, target_items, k_values=[5, 10])
+                metrics = BacktestEvaluator.evaluate(preds, target_items, k_values=[3, 5, 10])
                 results.append({
                     "course_id": course.id,
                     "course_name": course.name,
@@ -167,13 +210,21 @@ def get_model_performance(db: Session = Depends(get_db)) -> Dict[str, Any]:
                     "metrics": metrics,
                 })
 
+    all_exam_years = [
+        y[0] for y in db.query(Exam.year).filter(Exam.year != None).distinct().order_by(Exam.year.asc()).all()
+    ]
+    corpus_period = f"{min(all_exam_years)}-{max(all_exam_years)}" if all_exam_years else "N/A"
+
     return {
         "status": "COMPLETED",
         "evaluated_courses_count": evaluated_courses_count,
         "total_evaluations": len(results),
         "methodology": "Chronological backtesting with strict temporal cutoff. Only exams prior to cutoff year were provided to models.",
+        "evaluation_rules": "Strict temporal isolation: Exam.year >= cutoff_year is inaccessible to models. Unknown-year data is excluded.",
+        "corpus_period": corpus_period,
         "model_version": MODEL_VERSION,
         "engine_version": ENGINE_VERSION,
+        "corpus_version": CORPUS_VERSION,
         "evaluations": results,
     }
 
@@ -187,6 +238,7 @@ def get_corpus_health(db: Session = Depends(get_db)) -> Dict[str, Any]:
     topics_count = db.query(func.count(Topic.id)).scalar() or 0
     concepts_count = db.query(func.count(Concept.id)).scalar() or 0
     families_count = db.query(func.count(QuestionFamily.id)).scalar() or 0
+    family_memberships_count = db.query(func.count(QuestionFamilyMembership.id)).scalar() or 0
     study_evidence_count = db.query(func.count(StudyEvidence.id)).scalar() or 0
     documents_count = db.query(func.count(Document.id)).scalar() or 0
 
@@ -212,12 +264,15 @@ def get_corpus_health(db: Session = Depends(get_db)) -> Dict[str, Any]:
         .all()
     )
     doc_status_breakdown = {r[0]: r[1] for r in doc_status_rows}
+    extraction_failures = doc_status_breakdown.get("FAILED", 0)
+    extraction_successes = doc_status_breakdown.get("COMPLETED", 0) + doc_status_breakdown.get("SUCCESS", 0)
 
     return {
         "status": "HEALTHY",
         "model_version": MODEL_VERSION,
         "taxonomy_version": TAXONOMY_VERSION,
         "engine_version": ENGINE_VERSION,
+        "corpus_version": CORPUS_VERSION,
         "generated_at": datetime.utcnow().isoformat(),
         "corpus_entities": {
             "courses": courses_count,
@@ -226,8 +281,15 @@ def get_corpus_health(db: Session = Depends(get_db)) -> Dict[str, Any]:
             "topics": topics_count,
             "concepts": concepts_count,
             "question_families": families_count,
+            "family_memberships": family_memberships_count,
             "study_evidences": study_evidence_count,
             "documents": documents_count,
+        },
+        "ingestion_health": {
+            "documents_total": documents_count,
+            "extraction_successes": extraction_successes,
+            "extraction_failures": extraction_failures,
+            "unresolved_question_classifications": unresolved_questions,
         },
         "curriculum_mappings": {
             "total": sum(status_counts.values()),
@@ -251,10 +313,11 @@ def get_intelligence_snapshot(
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
-    Coherent aggregation snapshot endpoint for MintAI.
-    Combines course metadata, canonical curriculum, exam history, ExamDNA,
-    explainable predictions, study priorities, coverage gap, and model versioning.
+    Unified academic intelligence snapshot endpoint.
+    Orchestrates course metadata, ExamDNA sample size, chronological history,
+    explainable predictions, study priorities, coverage, and exam schedules.
     """
+    t_start = time.time()
     course = _find_course(db, course_id)
 
     # If course is not directly resolved, check if course_id matches curriculum_mapping
@@ -281,6 +344,10 @@ def get_intelligence_snapshot(
 
     # 1. Handle AMBIGUOUS State
     if curriculum_row and curriculum_row.status == "AMBIGUOUS":
+        logger.info(
+            "Intelligence snapshot resolved: course_id=%s, status=AMBIGUOUS, latency_ms=%.2f",
+            course_id, (time.time() - t_start) * 1000
+        )
         return {
             "data_availability_status": "AMBIGUOUS",
             "course": None,
@@ -308,6 +375,10 @@ def get_intelligence_snapshot(
     # 2. Handle UNMATCHED State
     if (curriculum_row and curriculum_row.status == "UNMATCHED") or not course:
         subject_name = curriculum_row.subject_name if curriculum_row else course_id
+        logger.info(
+            "Intelligence snapshot resolved: course_id=%s, status=UNMATCHED, latency_ms=%.2f",
+            course_id, (time.time() - t_start) * 1000
+        )
         return {
             "data_availability_status": "UNMATCHED",
             "course": None,
@@ -342,6 +413,10 @@ def get_intelligence_snapshot(
     total_papers = len(exam_rows)
 
     if total_papers == 0:
+        logger.info(
+            "Intelligence snapshot resolved: course_id=%s, status=CATALOG_ONLY, latency_ms=%.2f",
+            course_id, (time.time() - t_start) * 1000
+        )
         return {
             "data_availability_status": "CATALOG_ONLY",
             "course": {
@@ -390,6 +465,10 @@ def get_intelligence_snapshot(
     hist_exams_orm = repo.get_historical_exams()
 
     if not hist_exams_orm:
+        logger.info(
+            "Intelligence snapshot resolved: course_id=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
+            course_id, (time.time() - t_start) * 1000
+        )
         return {
             "data_availability_status": "INSUFFICIENT_EVIDENCE",
             "course": {
@@ -458,13 +537,70 @@ def get_intelligence_snapshot(
 
     all_years = sorted(list({e.year for e in exam_rows if e.year}))
 
-    predictions_payload = [p.to_dict() for p in topic_preds[:10]] + [p.to_dict() for p in family_preds[:5]]
+    predictions_payload = []
+    for p in topic_preds[:10]:
+        p_dict = p.to_dict()
+        t_obj = (
+            db.query(Topic)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+            .filter(Syllabus.course_id == course.id, Topic.name == p.name)
+            .first()
+        )
+        if t_obj:
+            p_dict["topic_id"] = t_obj.id
+        topic_years = {
+            e.year for e in hist_exams_orm
+            if e.year is not None and any(
+                q.topics and q.topics[0].name == p.name
+                for s in e.sections for q in s.questions
+            )
+        }
+        p_dict["timeline"] = [
+            {
+                "year": y,
+                "exam_exists": True,
+                "topic_present": y in topic_years,
+                "family_present": False,
+                "present": y in topic_years,
+                "status": "TOPIC_PRESENT" if (y in topic_years) else "TOPIC_ABSENT",
+            }
+            for y in all_years
+        ]
+        p_dict["historical_years"] = sorted(list(topic_years))
+        predictions_payload.append(p_dict)
+
+    for p in family_preds[:5]:
+        p_dict = p.to_dict()
+        fam_years = {
+            e.year for e in hist_exams_orm
+            if e.year is not None and any(
+                q.family and q.family.canonical_name == p.name
+                for s in e.sections for q in s.questions
+            )
+        }
+        p_dict["timeline"] = [
+            {
+                "year": y,
+                "exam_exists": True,
+                "topic_present": False,
+                "family_present": y in fam_years,
+                "present": y in fam_years,
+                "status": "FAMILY_PRESENT" if (y in fam_years) else "FAMILY_ABSENT",
+            }
+            for y in all_years
+        ]
+        p_dict["historical_years"] = sorted(list(fam_years))
+        predictions_payload.append(p_dict)
+
+    all_span_years = list(range(all_years[0], all_years[-1] + 1)) if all_years else []
+    gap_years = [y for y in all_span_years if y not in all_years]
 
     availability_status = "READY"
     if sufficiency == DataSufficiency.INSUFFICIENT:
         availability_status = "INSUFFICIENT_EVIDENCE"
 
-    return {
+    snapshot_payload = {
         "data_availability_status": availability_status,
         "course": {
             "id": course.id,
@@ -488,6 +624,9 @@ def get_intelligence_snapshot(
             "historical_papers_analyzed": len(hist_exams_orm),
             "total_questions": total_q_count,
             "years": all_years,
+            "observed_years": all_years,
+            "unobserved_years": gap_years,
+            "gap_years": gap_years,
             "available_assessment_types": available_assessment_types,
             "target_year": target_year,
         },
@@ -500,7 +639,18 @@ def get_intelligence_snapshot(
             "model_version": MODEL_VERSION,
             "taxonomy_version": TAXONOMY_VERSION,
             "engine_version": ENGINE_VERSION,
+            "corpus_version": CORPUS_VERSION,
+            "calibration_method": CALIBRATION_METHOD,
+            "score_semantics": SCORE_SEMANTICS,
             "sufficiency": sufficiency.value if hasattr(sufficiency, "value") else str(sufficiency),
             "generated_at": datetime.utcnow().isoformat(),
+            "latency_ms": round((time.time() - t_start) * 1000, 2),
         }
     }
+
+    logger.info(
+        "Synthesized intelligence snapshot: course_id=%s, papers=%d, questions=%d, latency_ms=%.2f, status=%s",
+        course.id, len(hist_exams_orm), total_q_count, (time.time() - t_start) * 1000, availability_status
+    )
+
+    return snapshot_payload

@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
-  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat
 } from "lucide-react";
 import {
   getCurriculumBranches,
@@ -23,6 +23,25 @@ import {
   HistoricalQuestion,
   CoverageSummary
 } from "@/lib/types";
+import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analytics-view";
+import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
+import { MathText } from "@/components/ui/math-text";
+
+export type MintAIState =
+  | "loading_branches"
+  | "loading_semesters"
+  | "loading_subjects"
+  | "loading_intelligence"
+  | "branch_error"
+  | "semester_error"
+  | "subject_error"
+  | "analysis_error"
+  | "unmatched"
+  | "ambiguous"
+  | "catalog_only"
+  | "insufficient_evidence"
+  | "ready"
+  | "idle";
 
 export default function MintAIPage() {
   // Curriculum hierarchy states from backend
@@ -36,6 +55,7 @@ export default function MintAIPage() {
   const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
   const [selectedExam, setSelectedExam] = useState<string>("");
   const [targetExamDate, setTargetExamDate] = useState<string>("");
+  const [mainView, setMainView] = useState<"forecast" | "analytics">("forecast");
 
   // Loading & error states
   const [isLoadingBranches, setIsLoadingBranches] = useState(true);
@@ -52,16 +72,30 @@ export default function MintAIPage() {
   const [snapshot, setSnapshot] = useState<IntelligenceSnapshot | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 
-  // Historical questions modal
+  // Historical questions modal & filters
   const [isQuestionsModalOpen, setIsQuestionsModalOpen] = useState(false);
   const [selectedTopicForQuestions, setSelectedTopicForQuestions] = useState<string | null>(null);
   const [historicalQuestions, setHistoricalQuestions] = useState<HistoricalQuestion[]>([]);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+  const [questionFilterYear, setQuestionFilterYear] = useState<string>("");
+  const [questionFilterMinMarks, setQuestionFilterMinMarks] = useState<string>("");
+  const [questionFilterRepetition, setQuestionFilterRepetition] = useState<string>("");
 
   // Resources modal
   const [isResourcesModalOpen, setIsResourcesModalOpen] = useState(false);
   const [selectedTopicForResources, setSelectedTopicForResources] = useState<string | null>(null);
   const [topicResources, setTopicResources] = useState<any[]>([]);
+
+  // Topic Intelligence Drilldown Modal
+  const [isTopicModalOpen, setIsTopicModalOpen] = useState(false);
+  const [selectedTopicIdForModal, setSelectedTopicIdForModal] = useState<number | string | null>(null);
+  const [selectedTopicNameForModal, setSelectedTopicNameForModal] = useState<string>("");
+
+  const handleOpenTopicIntelligence = (topicId?: number | string | null, topicName?: string) => {
+    setSelectedTopicIdForModal(topicId || null);
+    setSelectedTopicNameForModal(topicName || "");
+    setIsTopicModalOpen(true);
+  };
 
   // Subject analytical readiness
   const isSubjectAvailable = Boolean(
@@ -70,6 +104,41 @@ export default function MintAIPage() {
     selectedSubject.course_id !== null &&
     selectedSubject.has_exams === true
   );
+
+  // Explicit state derivation eliminating contradictory states
+  const currentState: MintAIState = (() => {
+    if (isLoadingBranches) return "loading_branches";
+    if (branchLoadError) return "branch_error";
+    if (isLoadingSemesters) return "loading_semesters";
+    if (semesterLoadError) return "semester_error";
+    if (isLoadingSubjects) return "loading_subjects";
+    if (subjectLoadError) return "subject_error";
+    if (isAnalyzing) return "loading_intelligence";
+    if (error) return "analysis_error";
+    if (!selectedSubject) return "idle";
+    if (selectedSubject.status === "UNMATCHED") return "unmatched";
+    if (selectedSubject.status === "AMBIGUOUS") return "ambiguous";
+    if (snapshot) {
+      if (snapshot.data_availability_status === "INSUFFICIENT_EVIDENCE") return "insufficient_evidence";
+      if (snapshot.data_availability_status === "CATALOG_ONLY") return "catalog_only";
+      if (snapshot.data_availability_status === "READY") return "ready";
+    }
+    if (selectedSubject.status === "MATCHED" && !selectedSubject.has_exams) return "catalog_only";
+    return "idle";
+  })();
+
+  // Accessible keyboard listener for modal dialogs (Escape key)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isQuestionsModalOpen) setIsQuestionsModalOpen(false);
+        if (isResourcesModalOpen) setIsResourcesModalOpen(false);
+        if (isTopicModalOpen) setIsTopicModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isQuestionsModalOpen, isResourcesModalOpen, isTopicModalOpen]);
 
   // 1. Initial Mount: Load branches from backend
   useEffect(() => {
@@ -216,6 +285,9 @@ export default function MintAIPage() {
     if (!selectedSubject || !selectedSubject.course_id) return;
     setIsLoadingQuestions(true);
     setSelectedTopicForQuestions(topicName || null);
+    setQuestionFilterYear("");
+    setQuestionFilterMinMarks("");
+    setQuestionFilterRepetition("");
     setIsQuestionsModalOpen(true);
 
     try {
@@ -233,6 +305,22 @@ export default function MintAIPage() {
       setIsLoadingQuestions(false);
     }
   };
+
+  // Filtered questions for modal
+  const filteredQuestions = historicalQuestions.filter((q) => {
+    if (questionFilterYear && String(q.year) !== questionFilterYear) return false;
+    if (questionFilterMinMarks && (q.marks ?? 0) < Number(questionFilterMinMarks)) return false;
+    if (questionFilterRepetition && q.repetition_type !== questionFilterRepetition) return false;
+    return true;
+  });
+
+  const availableQuestionYears = Array.from(
+    new Set(historicalQuestions.map((q) => q.year).filter((y): y is number => y !== null && y !== undefined))
+  ).sort((a, b) => b - a);
+
+  const availableRepetitionTypes = Array.from(
+    new Set(historicalQuestions.map((q) => q.repetition_type).filter((t): t is string => Boolean(t)))
+  );
 
   // 6. Open Resources for a Topic
   const handleViewResources = (topicName: string, resources: any[]) => {
@@ -473,13 +561,22 @@ export default function MintAIPage() {
                 <span className="font-mono">{selectedSubject.question_count}</span>
               </div>
               {selectedSubject.has_exams && (
-                <button
-                  onClick={() => handleViewQuestions()}
-                  className="w-full mt-2 pt-2 border-t border-border/50 text-accent hover:underline flex items-center justify-center gap-1 font-medium"
-                >
-                  <BookOpen className="w-3 h-3" />
-                  <span>Browse All Historical Questions</span>
-                </button>
+                <div className="pt-2 border-t border-border/50 space-y-1.5">
+                  <button
+                    onClick={() => setMainView("analytics")}
+                    className="w-full text-accent hover:underline flex items-center justify-center gap-1.5 font-medium text-xs py-1.5 rounded bg-accent/5 hover:bg-accent/10 border border-accent/20 transition-colors"
+                  >
+                    <Repeat className="w-3.5 h-3.5" />
+                    <span>Repetition Analytics (&ldquo;What Repeated?&rdquo;)</span>
+                  </button>
+                  <button
+                    onClick={() => handleViewQuestions()}
+                    className="w-full text-muted-foreground hover:text-foreground hover:underline flex items-center justify-center gap-1 text-[11px] py-0.5"
+                  >
+                    <BookOpen className="w-3 h-3" />
+                    <span>Browse All Historical Questions</span>
+                  </button>
+                </div>
               )}
             </div>
           )}
@@ -497,7 +594,50 @@ export default function MintAIPage() {
             </div>
           )}
 
-          {snapshot && snapshot.data_availability_status === "READY" ? (
+          {/* Top Switcher: Forecast vs Repetition Analytics */}
+          {selectedSubject?.has_exams && selectedSubject.course_id && (
+            <div className="flex items-center gap-2 border-b border-border pb-3">
+              <button
+                onClick={() => setMainView("forecast")}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                  mainView === "forecast"
+                    ? "bg-accent text-accent-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground bg-muted/40"
+                }`}
+              >
+                <Target className="w-3.5 h-3.5" />
+                <span>Predictive Forecast &amp; Study Plan</span>
+              </button>
+              <button
+                onClick={() => setMainView("analytics")}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                  mainView === "analytics"
+                    ? "bg-accent text-accent-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground bg-muted/40"
+                }`}
+              >
+                <Repeat className="w-3.5 h-3.5" />
+                <span>Repetition Analytics (&ldquo;What Repeated?&rdquo;)</span>
+                <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-500/10 text-emerald-500 font-mono font-bold">
+                  Factual
+                </span>
+              </button>
+            </div>
+          )}
+
+          {mainView === "analytics" && selectedSubject?.has_exams && selectedSubject.course_id ? (
+            <RepetitionAnalyticsView
+              courseId={selectedSubject.course_id}
+              courseName={selectedSubject.subject_name}
+              canonicalCode={selectedSubject.canonical_code}
+              onSelectTopic={(topicName) => {
+                setMainView("forecast");
+                setExpandedTopic(topicName);
+              }}
+            />
+          ) : (
+            <>
+              {snapshot && snapshot.data_availability_status === "READY" ? (
             <div className="flex flex-col gap-6">
               {/* Preparation & Coverage Meter */}
               {snapshot.coverage_summary && (
@@ -564,7 +704,7 @@ export default function MintAIPage() {
                         <p className="text-[11px] text-muted-foreground">{ph.description}</p>
                         {ph.focus_topics && ph.focus_topics.length > 0 && (
                           <div className="pt-1 text-[10px] text-accent truncate">
-                            Focus: {ph.focus_topics.join(", ")}
+                            Focus: {ph.focus_topics.map((t: any) => typeof t === "string" ? t : (t.topic_name || t.topic_id || "")).join(", ")}
                           </div>
                         )}
                       </div>
@@ -605,7 +745,7 @@ export default function MintAIPage() {
                             </div>
                             <div className="flex flex-wrap items-center gap-2 text-xs">
                               {/* Probability Pill */}
-                              <span className="px-2 py-0.5 rounded bg-background font-mono text-[11px] border border-border">
+                              <span className="px-2 py-0.5 rounded bg-background font-mono text-[11px] border border-border" title="Laplace-smoothed empirical paper recurrence probability">
                                 Recurrence: <strong className="text-accent">{Math.round(p.probability * 100)}%</strong>
                               </span>
 
@@ -630,11 +770,35 @@ export default function MintAIPage() {
                               }`}>
                                 Priority: {priorityBand.replace("_", " ")}
                               </span>
+
+                              {/* Recommended Action Badge */}
+                              {priorityInfo?.recommended_action && (
+                                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                                  priorityInfo.recommended_action === "DEEP_STUDY_URGENT"
+                                    ? "bg-rose-500/15 text-rose-400 border border-rose-500/30"
+                                    : priorityInfo.recommended_action === "PRACTICE_QUESTIONS"
+                                    ? "bg-amber-500/15 text-amber-400 border border-amber-500/30"
+                                    : priorityInfo.recommended_action === "MAINTAIN_AND_REVIEW"
+                                    ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                                    : "bg-indigo-500/15 text-indigo-400 border border-indigo-500/30"
+                                }`}>
+                                  {priorityInfo.recommended_action.replace(/_/g, " ")}
+                                </span>
+                              )}
                             </div>
                           </div>
 
                           {/* Quick Actions */}
                           <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
+                              className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors"
+                              title="Open deep Topic Intelligence Drilldown"
+                            >
+                              <Sparkles className="w-3.5 h-3.5" />
+                              <span>Intelligence</span>
+                            </button>
+
                             <button
                               onClick={() => handleToggleTopicStatus(p.name, studentStatus)}
                               className={`text-xs px-2.5 py-1 rounded font-medium border transition-colors flex items-center gap-1 ${
@@ -671,7 +835,7 @@ export default function MintAIPage() {
                         {isExpanded && (
                           <div className="mt-4 pt-4 border-t border-border/50 text-xs space-y-3">
                             <div className="text-muted-foreground font-semibold text-[10px] uppercase tracking-wider">
-                              Why MintAI Thinks This Matters
+                              Historical Evidence Rationale
                             </div>
 
                             {/* Deterministic Explanation Text */}
@@ -700,13 +864,13 @@ export default function MintAIPage() {
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
                                 <div className="text-muted-foreground text-[10px]">Occurrences</div>
                                 <div className="font-mono font-bold text-foreground">
-                                  {p.historical_occurrences ?? p.historyCount ?? 0}
+                                  {p.historical_occurrences ?? p.historyCount ?? 0} Questions
                                 </div>
                               </div>
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Recent Occurrences</div>
+                                <div className="text-muted-foreground text-[10px]">Paper Coverage</div>
                                 <div className="font-mono font-bold text-foreground">
-                                  {p.recent_occurrences ?? 0}
+                                  {p.papers_analyzed ? `${p.papers_with_topic ?? 0}/${p.papers_analyzed} Papers` : (p.paper_coverage ? `${Math.round(p.paper_coverage * 100)}%` : "—")}
                                 </div>
                               </div>
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
@@ -722,6 +886,48 @@ export default function MintAIPage() {
                                 </div>
                               </div>
                             </div>
+
+                            {/* Visual Multi-Year Historical Timeline */}
+                            {p.timeline && p.timeline.length > 0 && (
+                              <div className="space-y-1.5 bg-background/50 p-2.5 rounded-lg border border-border/40">
+                                <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+                                  <span className="font-medium">Historical Paper Timeline</span>
+                                  <span className="font-mono text-[10px]">● = Present &nbsp; ○ = Exam Held, Absent &nbsp; ┄ = Gap Year</span>
+                                </div>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {p.timeline.map((entry) => (
+                                    <span
+                                      key={entry.year}
+                                      title={
+                                        entry.present
+                                          ? `Exam Present: Tested in ${entry.year}`
+                                          : entry.exam_exists === false
+                                          ? `No exam archived for ${entry.year} (unobserved gap year)`
+                                          : `Exam held in ${entry.year}, but this topic was not examined`
+                                      }
+                                      className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-mono font-medium ${
+                                        entry.present
+                                          ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                                          : entry.exam_exists === false
+                                          ? "bg-muted/20 text-muted-foreground/40 border border-dashed border-border/30"
+                                          : "bg-muted/40 text-muted-foreground/60 border border-border/30"
+                                      }`}
+                                    >
+                                      <span
+                                        className={`h-1.5 w-1.5 rounded-full ${
+                                          entry.present
+                                            ? "bg-emerald-500"
+                                            : entry.exam_exists === false
+                                            ? "bg-transparent border border-muted-foreground/40"
+                                            : "bg-muted-foreground/30"
+                                        }`}
+                                      />
+                                      {entry.year}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
 
                             {/* Resources Trigger */}
                             {priorityInfo?.resources && priorityInfo.resources.length > 0 && (
@@ -746,6 +952,24 @@ export default function MintAIPage() {
                   </div>
                 )}
               </div>
+            </div>
+          ) : snapshot && snapshot.data_availability_status === "INSUFFICIENT_EVIDENCE" ? (
+            <div className="h-full min-h-[400px] border border-dashed border-amber-500/30 bg-amber-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8">
+              <AlertCircle className="w-10 h-10 text-amber-500 mb-4" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Insufficient Examination Volume</h3>
+              <p className="text-sm text-muted-foreground max-w-sm mb-2">
+                Only {selectedSubject?.exam_count || 1} examination paper(s) indexed for <strong>{selectedSubject?.subject_name}</strong>.
+              </p>
+              <p className="text-xs text-muted-foreground/80 max-w-sm mb-4">
+                MarkMint requires at least 2 historical examination cycles to compute reliable probabilistic forecasts.
+              </p>
+              <button
+                onClick={() => handleViewQuestions()}
+                className="px-4 py-2 bg-background border border-border rounded-lg text-xs font-semibold hover:border-accent flex items-center gap-2"
+              >
+                <BookOpen className="w-4 h-4 text-accent" />
+                <span>Browse {selectedSubject?.question_count || 0} Historical Questions</span>
+              </button>
             </div>
           ) : selectedSubject?.status === "AMBIGUOUS" ? (
             <div className="h-full min-h-[400px] border border-amber-500/20 bg-amber-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8">
@@ -797,24 +1021,31 @@ export default function MintAIPage() {
               </p>
             </div>
           ) : (
-            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
-              <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
-              <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Parameters</h3>
-              <p className="text-sm text-muted-foreground max-w-sm">
-                Select an academic branch, semester, and course on the left to extract the evidence pool.
-              </p>
-            </div>
-          )}
-        </div>
-      </main>
+              <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
+                <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
+                <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Parameters</h3>
+                <p className="text-sm text-muted-foreground max-w-sm">
+                  Select an academic branch, semester, and course on the left to extract the evidence pool.
+                </p>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </main>
 
       {/* Historical Questions Modal */}
       {isQuestionsModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="questions-modal-title"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+        >
           <div className="bg-card border border-border rounded-xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-xl">
             <div className="flex items-center justify-between p-5 border-b border-border">
               <div>
-                <h3 className="text-base font-bold text-foreground">
+                <h3 id="questions-modal-title" className="text-base font-bold text-foreground">
                   Verified Historical Questions
                 </h3>
                 <p className="text-xs text-muted-foreground">
@@ -832,29 +1063,103 @@ export default function MintAIPage() {
               </button>
             </div>
 
+            <div className="p-4 border-b border-border/60 bg-card/50 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex flex-wrap items-center gap-2">
+                {/* Year Filter */}
+                {availableQuestionYears.length > 0 && (
+                  <select
+                    aria-label="Filter by Year"
+                    value={questionFilterYear}
+                    onChange={(e) => setQuestionFilterYear(e.target.value)}
+                    className="bg-background border border-border rounded-md px-2.5 py-1 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-accent"
+                  >
+                    <option value="">All Years</option>
+                    {availableQuestionYears.map((y) => (
+                      <option key={y} value={String(y)}>
+                        {y}
+                      </option>
+                    ))}
+                  </select>
+                )}
+
+                {/* Min Marks Filter */}
+                <select
+                  aria-label="Filter by Minimum Marks"
+                  value={questionFilterMinMarks}
+                  onChange={(e) => setQuestionFilterMinMarks(e.target.value)}
+                  className="bg-background border border-border rounded-md px-2.5 py-1 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-accent"
+                >
+                  <option value="">All Marks</option>
+                  <option value="2">≥ 2 Marks</option>
+                  <option value="5">≥ 5 Marks</option>
+                  <option value="10">≥ 10 Marks</option>
+                  <option value="15">≥ 15 Marks</option>
+                </select>
+
+                {/* Repetition Filter */}
+                {availableRepetitionTypes.length > 0 && (
+                  <select
+                    aria-label="Filter by Repetition Type"
+                    value={questionFilterRepetition}
+                    onChange={(e) => setQuestionFilterRepetition(e.target.value)}
+                    className="bg-background border border-border rounded-md px-2.5 py-1 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-accent"
+                  >
+                    <option value="">All Repetition Types</option>
+                    {availableRepetitionTypes.map((rt) => (
+                      <option key={rt} value={rt}>
+                        {rt.replace(/_/g, " ")}
+                      </option>
+                    ))}
+                  </select>
+                )}
+
+                {(questionFilterYear || questionFilterMinMarks || questionFilterRepetition) && (
+                  <button
+                    onClick={() => {
+                      setQuestionFilterYear("");
+                      setQuestionFilterMinMarks("");
+                      setQuestionFilterRepetition("");
+                    }}
+                    className="text-muted-foreground hover:text-foreground text-[11px] underline ml-1"
+                  >
+                    Clear Filters
+                  </button>
+                )}
+              </div>
+
+              <span className="text-[11px] font-mono text-muted-foreground">
+                Showing {filteredQuestions.length} of {historicalQuestions.length} questions
+              </span>
+            </div>
+
             <div className="flex-1 overflow-y-auto p-5 space-y-4">
               {isLoadingQuestions ? (
                 <div className="flex flex-col items-center justify-center py-12 gap-2 text-muted-foreground">
                   <Activity className="w-6 h-6 animate-spin text-accent" />
                   <span className="text-xs">Querying historical question repository...</span>
                 </div>
-              ) : historicalQuestions.length === 0 ? (
+              ) : filteredQuestions.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground text-xs">
-                  No historical questions found for this topic.
+                  No historical questions match the current filters.
                 </div>
               ) : (
-                historicalQuestions.map((q) => (
+                filteredQuestions.map((q) => (
                   <div
                     key={q.id}
-                    className="p-4 bg-background/80 border border-border/60 rounded-lg text-xs space-y-2"
+                    className="p-4 bg-background/80 border border-border/60 rounded-lg text-xs space-y-2.5"
                   >
-                    <div className="flex items-center justify-between text-[11px]">
-                      <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2 text-[11px]">
+                      <div className="flex flex-wrap items-center gap-1.5">
                         <span className="font-mono font-bold text-accent">Q{q.question_number}</span>
-                        {q.year && <span className="text-muted-foreground">[{q.year}]</span>}
+                        {q.year && <span className="text-muted-foreground font-mono">[{q.year}]</span>}
                         {q.assessment_type && (
                           <span className="px-1.5 py-0.5 bg-muted rounded font-mono text-[10px]">
                             {q.assessment_type}
+                          </span>
+                        )}
+                        {q.repetition_type && (
+                          <span className="px-1.5 py-0.5 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded font-mono text-[10px] uppercase">
+                            {q.repetition_type.replace(/_/g, " ")}
                           </span>
                         )}
                         {q.family_name && (
@@ -867,9 +1172,25 @@ export default function MintAIPage() {
                         {q.marks ? `${q.marks} Marks` : "Marks Unspecified"}
                       </div>
                     </div>
-                    <p className="text-foreground leading-relaxed whitespace-pre-wrap font-sans">
-                      {q.original_text}
-                    </p>
+
+                    <div className="text-foreground leading-relaxed font-sans text-xs">
+                      <MathText content={q.original_text} />
+                    </div>
+
+                    {(q.family_recurrence_history || q.source_document_title) && (
+                      <div className="pt-2 border-t border-border/40 flex flex-wrap items-center justify-between gap-2 text-[10px] text-muted-foreground">
+                        {q.family_recurrence_history && (
+                          <span className="font-mono">
+                            Recurrence: <strong className="text-accent">{q.family_recurrence_history}</strong>
+                          </span>
+                        )}
+                        {q.source_document_title && (
+                          <span className="truncate max-w-[280px]">
+                            Paper: {q.source_document_title}
+                          </span>
+                        )}
+                      </div>
+                    )}
                   </div>
                 ))
               )}
@@ -880,11 +1201,16 @@ export default function MintAIPage() {
 
       {/* Study Resources Modal */}
       {isResourcesModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="resources-modal-title"
+          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+        >
           <div className="bg-card border border-border rounded-xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-xl">
             <div className="flex items-center justify-between p-5 border-b border-border">
               <div>
-                <h3 className="text-base font-bold text-foreground">Linked Study Resources</h3>
+                <h3 id="resources-modal-title" className="text-base font-bold text-foreground">Linked Study Resources</h3>
                 <p className="text-xs text-muted-foreground">Topic: {selectedTopicForResources}</p>
               </div>
               <button
@@ -925,6 +1251,17 @@ export default function MintAIPage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Topic Intelligence Drilldown Modal */}
+      {selectedSubject?.course_id && (
+        <TopicIntelligenceModal
+          isOpen={isTopicModalOpen}
+          onClose={() => setIsTopicModalOpen(false)}
+          courseId={selectedSubject.course_id}
+          topicId={selectedTopicIdForModal}
+          initialTopicName={selectedTopicNameForModal}
+        />
       )}
 
       <Footer />

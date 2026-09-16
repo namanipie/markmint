@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 export interface ConfidenceBadgeProps {
-  confidence: "HIGH" | "MEDIUM" | "LOW" | "INSUFFICIENT" | number | string;
+  confidence: "HIGH" | "MEDIUM" | "LOW" | "INSUFFICIENT" | string;
   size?: "sm" | "md" | "lg";
   className?: string;
 }
@@ -25,15 +25,6 @@ export function ConfidenceBadge({ confidence, size = "md", className }: Confiden
       colorClass = "bg-rose-500/10 text-rose-500 border border-rose-500/20";
       displayLabel = "Insufficient Evidence";
     }
-  } else if (typeof confidence === "number") {
-    if (confidence >= 75) {
-      colorClass = "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20";
-    } else if (confidence >= 50) {
-      colorClass = "bg-amber-500/10 text-amber-500 border border-amber-500/20";
-    } else {
-      colorClass = "bg-rose-500/10 text-rose-500 border border-rose-500/20";
-    }
-    displayLabel = `${confidence}%`;
   }
 
   const sizeClass = {

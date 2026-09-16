@@ -11,6 +11,7 @@ from backend.api.endpoints import (
     practice,
     search,
     study_connection,
+    analytics,
 )
 
 api_router = APIRouter()
@@ -21,6 +22,7 @@ def health_check() -> dict[str, str]:
 
 api_router.include_router(curriculum.router, prefix="/curriculum", tags=["curriculum"])
 api_router.include_router(intelligence.router, prefix="/intelligence", tags=["intelligence"])
+api_router.include_router(analytics.router, prefix="/analytics", tags=["analytics"])
 
 api_router.include_router(papers.router, tags=["papers"])
 api_router.include_router(courses.router, prefix="/courses", tags=["courses"])

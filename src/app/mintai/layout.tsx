@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MintAi | Predict Your Next Exam",
-  description: "Chat with our custom AI to get instant, accurate answers about your syllabus, exams, and predict your paper.",
+  title: "MintAi | Historical Exam Intelligence & Evidence-Based Forecasting",
+  description: "Forecast high-yield topics using verified historical exam evidence. Analyze recurrence patterns and explore authentic past question papers.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

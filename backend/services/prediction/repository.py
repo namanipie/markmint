@@ -1,7 +1,7 @@
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 from sqlalchemy import or_, and_
 from typing import List
-from backend.models.core import Exam, Section, Question, QuestionFamily, QuestionFamilyMembership
+from backend.models.core import Exam, Section, Question, QuestionFamily, QuestionFamilyMembership, Topic
 from backend.services.prediction.context import HistoricalContext
 
 class HistoricalRepository:
@@ -14,8 +14,19 @@ class HistoricalRepository:
         self.context = context
 
     def get_historical_exams(self) -> List[Exam]:
-        """Returns only exams strictly before the cutoff year."""
-        return self.db.query(Exam).filter(
+        """Returns only exams strictly before the cutoff year with eager loading to prevent N+1 queries."""
+        return self.db.query(Exam).options(
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.topics)
+            .selectinload(Topic.unit),
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.family),
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.memberships),
+        ).filter(
             Exam.course_id == self.context.course_id,
             Exam.year != None,
             Exam.year < self.context.cutoff_year
@@ -39,7 +50,18 @@ class HistoricalRepository:
 
     def get_target_exams(self) -> List[Exam]:
         """Returns ONLY the target year exams. Never use this for historical feature generation!"""
-        return self.db.query(Exam).filter(
+        return self.db.query(Exam).options(
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.topics),
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.family),
+            selectinload(Exam.sections)
+            .selectinload(Section.questions)
+            .selectinload(Question.memberships),
+        ).filter(
             Exam.course_id == self.context.course_id,
             Exam.year == self.context.cutoff_year
         ).all()
+

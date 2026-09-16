@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import "katex/dist/katex.min.css";
 import { Toaster } from "sonner";
 import { CommandPalette } from "@/components/ui/command-palette";
 import { GlobalFeatures } from "@/components/ui/GlobalFeatures";
@@ -26,14 +27,14 @@ import { EasterEggManager } from "@/components/ambient/EasterEggManager";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.com"),
-  title: "MarkMint | Predict exams & track GPA for SRMIST",
-  description: "MintAi predicts your CT, FT, and End Sem question papers. Calculate your GPA instantly for 40+ engineering branches.",
+  title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
+  description: "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "MarkMint | SRMIST AI Assistant",
-    description: "Generate structured study plans, filter PYQs, and predict exams with MintAi.",
+    title: "MarkMint | SRMIST Academic Intelligence",
+    description: "Forecast high-yield topics using verified historical exam evidence. Generate structured study plans and explore past questions.",
     url: "https://markmint.com",
     siteName: "MarkMint",
     locale: "en_US",
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MarkMint | SRMIST AI Assistant",
-    description: "MintAi predicts your CT, FT, and End Sem question papers.",
+    title: "MarkMint | SRMIST Academic Intelligence",
+    description: "Forecast high-yield topics using verified historical exam evidence.",
   },
   verification: {
     google: "xCV7uIaHTrTcL3-G9SqrLSMP3YJQJIi1oPaeNd49f3o",

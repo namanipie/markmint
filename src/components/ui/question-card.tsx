@@ -29,7 +29,18 @@ export function QuestionCard({ question, onClick, className }: QuestionCardProps
         <div className="flex items-center gap-3">
           <DifficultyBadge difficulty={question.difficulty} />
           {question.confidence !== undefined && (
-            <ConfidenceBadge confidence={question.confidence} size="sm" />
+            <ConfidenceBadge
+              confidence={
+                typeof question.confidence === "string"
+                  ? question.confidence
+                  : (question.confidence as number) >= 0.75 || (question.confidence as number) >= 75
+                  ? "HIGH"
+                  : (question.confidence as number) >= 0.50 || (question.confidence as number) >= 50
+                  ? "MEDIUM"
+                  : "LOW"
+              }
+              size="sm"
+            />
           )}
         </div>
       </div>

@@ -1,377 +1,270 @@
 """
-Resource classifier for The Helper scraper.
-Classifies resources by type, year, and exam type with confidence scoring.
+Deterministic multi-signal classifier for academic resources.
+Classifies resources into PYQ, STUDY_MATERIAL, SYLLABUS, ASSIGNMENT, LAB, REFERENCE, OTHER, UNKNOWN.
+Extracts assessment years and types without hallucinating.
 """
 
 import re
-from typing import Optional, Tuple
-from enum import Enum
-
-
-class ResourceType(Enum):
-    """Types of academic resources."""
-    PYQ = "pyq"
-    CT_PAPER = "ct_paper"
-    SEMESTER_PAPER = "semester_paper"
-    SYLLABUS = "syllabus"
-    QUESTION_BANK = "question_bank"
-    NOTES = "notes"
-    IMPORTANT_QUESTIONS = "important_questions"
-    ANSWER_KEY = "answer_key"
-    OTHER = "other"
-
-
-class ExamType(Enum):
-    """Types of exams."""
-    SEMESTER = "semester"
-    CT = "ct"
-    QUIZ = "quiz"
+from typing import Optional, List, Tuple
+from .models import ResourceClassification, ClassificationResult
 
 
 class ResourceClassifier:
-    """
-    Classifies academic resources based on title patterns.
+    """Deterministic, explainable rule-based academic document classifier."""
 
-    Examples:
-        >>> classifier = ResourceClassifier()
-        >>> rtype, year, exam, conf = classifier.classify("PYQ Nov 2024")
-        >>> rtype == ResourceType.PYQ
-        True
-        >>> year
-        2024
-        >>> exam is None  # PYQ alone doesn't imply exam type
-        True
-        >>> conf > 0.8
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("CT Papers 2025")
-        >>> rtype == ResourceType.CT_PAPER
-        True
-        >>> year
-        2025
-        >>> exam == ExamType.CT
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("Question Bank")
-        >>> rtype == ResourceType.QUESTION_BANK
-        True
-        >>> year is None
-        True
-        >>> exam is None
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("Unit 1 Notes")
-        >>> rtype == ResourceType.NOTES
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("Syllabus 2024")
-        >>> rtype == ResourceType.SYLLABUS
-        True
-        >>> year
-        2024
-
-        >>> rtype, year, exam, conf = classifier.classify("Important Questions")
-        >>> rtype == ResourceType.IMPORTANT_QUESTIONS
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("Answer Key May 2023")
-        >>> rtype == ResourceType.ANSWER_KEY
-        True
-        >>> year
-        2023
-
-        >>> rtype, year, exam, conf = classifier.classify("Best Books")
-        >>> rtype == ResourceType.OTHER
-        True
-
-        >>> rtype, year, exam, conf = classifier.classify("PYQ Master PDF")
-        >>> rtype == ResourceType.PYQ
-        True
-        >>> conf > 0.7
-        True
-    """
-
-    def __init__(self):
-        """Initialize classifier with pattern definitions."""
-        # Resource type patterns (pattern, resource_type, weight)
-        self.resource_patterns = [
-            # PYQ patterns
-            (r'\bpyq\b', ResourceType.PYQ, 1.0),
-            (r'\bprevious\s+year\b', ResourceType.PYQ, 0.9),
-            (r'\bprev\s+year\b', ResourceType.PYQ, 0.9),
-            (r'\bpast\s+year\b', ResourceType.PYQ, 0.9),
-            (r'\bold\s+question\b', ResourceType.PYQ, 0.8),
-
-            # CT Paper patterns
-            (r'\bct\b', ResourceType.CT_PAPER, 1.0),
-            (r'\bclass\s+test\b', ResourceType.CT_PAPER, 1.0),
-            (r'\bclasstest\b', ResourceType.CT_PAPER, 1.0),
-            (r'\bct\s*\d+\b', ResourceType.CT_PAPER, 1.0),
-
-            # Semester paper patterns
-            (r'\bsemester\b', ResourceType.SEMESTER_PAPER, 0.9),
-            (r'\bend\s+sem\b', ResourceType.SEMESTER_PAPER, 1.0),
-            (r'\bendsem\b', ResourceType.SEMESTER_PAPER, 1.0),
-            (r'\bsem\s+exam\b', ResourceType.SEMESTER_PAPER, 0.9),
-            (r'\bmidsem\b', ResourceType.SEMESTER_PAPER, 0.9),
-            (r'\bmid\s+sem\b', ResourceType.SEMESTER_PAPER, 0.9),
-
-            # Syllabus patterns
-            (r'\bsyllabus\b', ResourceType.SYLLABUS, 1.0),
-            (r'\bcurriculum\b', ResourceType.SYLLABUS, 0.8),
-            (r'\bcourse\s+outline\b', ResourceType.SYLLABUS, 0.8),
-
-            # Question bank patterns
-            (r'\bquestion\s+bank\b', ResourceType.QUESTION_BANK, 1.0),
-            (r'\bqb\b', ResourceType.QUESTION_BANK, 0.9),
-            (r'\bq\.?\s*bank\b', ResourceType.QUESTION_BANK, 1.0),
-
-            # Notes patterns
-            (r'\bnotes?\b', ResourceType.NOTES, 0.9),
-            (r'\bunit\s+\d+', ResourceType.NOTES, 0.8),
-            (r'\bchapter\s+\d+', ResourceType.NOTES, 0.8),
-            (r'\blecture\b', ResourceType.NOTES, 0.8),
-            (r'\bhandout\b', ResourceType.NOTES, 0.8),
-
-            # Important questions patterns
-            (r'\bimportant\s+questions?\b', ResourceType.IMPORTANT_QUESTIONS, 1.0),
-            (r'\bimp\s+questions?\b', ResourceType.IMPORTANT_QUESTIONS, 1.0),
-            (r'\bimportant\s+que\b', ResourceType.IMPORTANT_QUESTIONS, 0.9),
-            (r'\bimp\b.*\bque\b', ResourceType.IMPORTANT_QUESTIONS, 0.8),
-
-            # Answer key patterns
-            (r'\banswer\s+key\b', ResourceType.ANSWER_KEY, 1.0),
-            (r'\bsolutions?\b', ResourceType.ANSWER_KEY, 0.8),
-            (r'\banswers?\b', ResourceType.ANSWER_KEY, 0.7),
-            (r'\bkey\b', ResourceType.ANSWER_KEY, 0.6),
-        ]
-
-        # Exam type patterns
-        self.exam_patterns = [
-            (r'\bsemester\b|\bend\s+sem\b|\bendsem\b|\bmidsem\b|\bmid\s+sem\b', ExamType.SEMESTER),
-            (r'\bct\b|\bclass\s+test\b|\bclasstest\b', ExamType.CT),
-            (r'\bquiz\b', ExamType.QUIZ),
-        ]
-
-        # Year patterns
-        self.year_patterns = [
-            r'\b(20[2-9][0-9])\b',  # 2020-2099
-            r'\b(nov|may|jul|june|december|jan)\s+(20[2-9][0-9])\b',
-            r'\b(20[2-9][0-9])\s+(nov|may|jul|june|december|jan)\b',
-        ]
-
-    def _extract_year(self, title: str) -> Optional[int]:
-        """
-        Extract year from title.
-
-        Args:
-            title: Resource title
-
-        Returns:
-            Year if found (2020-2026), None otherwise
-
-        Examples:
-            >>> classifier = ResourceClassifier()
-            >>> classifier._extract_year("PYQ Nov 2024")
-            2024
-            >>> classifier._extract_year("CT Papers 2025")
-            2025
-            >>> classifier._extract_year("Question Bank")
-            >>> classifier._extract_year("May 2023 Exam")
-            2023
-            >>> classifier._extract_year("2022 Syllabus")
-            2022
-        """
-        title_lower = title.lower()
-
-        for pattern in self.year_patterns:
-            match = re.search(pattern, title_lower)
-            if match:
-                # Extract year from groups
-                year_str = None
-                for group in match.groups():
-                    if group and group.isdigit():
-                        year_str = group
-                        break
-
-                if year_str:
-                    year = int(year_str)
-                    # Validate year range
-                    if 2020 <= year <= 2026:
-                        return year
-
-        return None
-
-    def _infer_exam_type(self, title: str) -> Optional[ExamType]:
-        """
-        Infer exam type from title.
-
-        Args:
-            title: Resource title
-
-        Returns:
-            ExamType if identified, None otherwise
-
-        Examples:
-            >>> classifier = ResourceClassifier()
-            >>> classifier._infer_exam_type("PYQ Semester")
-            <ExamType.SEMESTER: 'semester'>
-            >>> classifier._infer_exam_type("CT Papers")
-            <ExamType.CT: 'ct'>
-            >>> classifier._infer_exam_type("Quiz 1")
-            <ExamType.QUIZ: 'quiz'>
-            >>> classifier._infer_exam_type("Notes")
-        """
-        title_lower = title.lower()
-
-        for pattern, exam_type in self.exam_patterns:
-            if re.search(pattern, title_lower):
-                return exam_type
-
-        return None
-
-    def _classify_type(self, title: str) -> Tuple[ResourceType, float]:
-        """
-        Classify resource type with confidence score.
-
-        Args:
-            title: Resource title
-
-        Returns:
-            Tuple of (ResourceType, confidence_score)
-
-        Examples:
-            >>> classifier = ResourceClassifier()
-            >>> rtype, conf = classifier._classify_type("PYQ Nov 2024")
-            >>> rtype == ResourceType.PYQ
-            True
-            >>> conf > 0.8
-            True
-
-            >>> rtype, conf = classifier._classify_type("Best Books")
-            >>> rtype == ResourceType.OTHER
-            True
-            >>> conf < 0.5
-            True
-        """
-        title_lower = title.lower()
-
-        # Track matches: {ResourceType: [weights]}
-        matches = {}
-
-        for pattern, resource_type, weight in self.resource_patterns:
-            if re.search(pattern, title_lower):
-                if resource_type not in matches:
-                    matches[resource_type] = []
-                matches[resource_type].append(weight)
-
-        # No matches - classify as OTHER with low confidence
-        if not matches:
-            return ResourceType.OTHER, 0.3
-
-        # Calculate scores for each resource type
-        scores = {}
-        for resource_type, weights in matches.items():
-            # Score = max weight + bonus for multiple matches
-            max_weight = max(weights)
-            match_bonus = min(0.1 * (len(weights) - 1), 0.2)
-            scores[resource_type] = min(max_weight + match_bonus, 1.0)
-
-        # Return type with highest score
-        best_type = max(scores.items(), key=lambda x: x[1])
-        return best_type[0], best_type[1]
-
-    def classify(self, title: str) -> Tuple[ResourceType, Optional[int], Optional[ExamType], float]:
-        """
-        Classify a resource by its title.
-
-        Args:
-            title: Resource title to classify
-
-        Returns:
-            Tuple of (resource_type, year, exam_type, confidence)
-            - resource_type: Classified ResourceType
-            - year: Extracted year (2020-2026) or None
-            - exam_type: Inferred ExamType or None
-            - confidence: Confidence score (0.0-1.0)
-
-        Examples:
-            >>> classifier = ResourceClassifier()
-            >>> rtype, year, exam, conf = classifier.classify("PYQ Nov 2024")
-            >>> rtype == ResourceType.PYQ and year == 2024
-            True
-
-            >>> rtype, year, exam, conf = classifier.classify("CT Papers 2025")
-            >>> rtype == ResourceType.CT_PAPER and year == 2025 and exam == ExamType.CT
-            True
-
-            >>> rtype, year, exam, conf = classifier.classify("Syllabus")
-            >>> rtype == ResourceType.SYLLABUS and year is None
-            True
-
-            >>> rtype, year, exam, conf = classifier.classify("Unit 3 Notes 2023")
-            >>> rtype == ResourceType.NOTES and year == 2023
-            True
-        """
-        if not title or not title.strip():
-            return ResourceType.OTHER, None, None, 0.1
-
-        # Extract components
-        resource_type, base_confidence = self._classify_type(title)
-        year = self._extract_year(title)
-        exam_type = self._infer_exam_type(title)
-
-        # Adjust confidence based on information richness
-        confidence = base_confidence
-
-        # Boost confidence if year found for relevant types
-        if year and resource_type in [ResourceType.PYQ, ResourceType.CT_PAPER, ResourceType.SEMESTER_PAPER]:
-            confidence = min(confidence + 0.1, 1.0)
-
-        # Boost confidence if exam type matches resource type
-        if exam_type:
-            if (exam_type == ExamType.SEMESTER and resource_type == ResourceType.SEMESTER_PAPER) or \
-               (exam_type == ExamType.CT and resource_type == ResourceType.CT_PAPER):
-                confidence = min(confidence + 0.1, 1.0)
-
-        # Title clarity bonus - shorter, clearer titles get higher confidence
-        words = title.strip().split()
-        if len(words) <= 3 and resource_type != ResourceType.OTHER:
-            confidence = min(confidence + 0.05, 1.0)
-
-        return resource_type, year, exam_type, confidence
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-
-    # Additional manual tests
-    classifier = ResourceClassifier()
-
-    test_cases = [
-        "PYQ Nov 2024",
-        "CT Papers 2025",
-        "Question Bank",
-        "Unit 1 Notes",
-        "Syllabus 2024",
-        "Important Questions",
-        "Answer Key May 2023",
-        "Best Books",
-        "PYQ Master PDF",
-        "End Sem Paper 2022",
-        "Quiz 1 Solutions",
-        "Lecture Notes Unit 5",
-        "IMP Questions for Finals",
-        "Previous Year Question Papers",
+    # PYQ patterns with weights
+    PYQ_PATTERNS = [
+        (r"\bpyqs?\b", 1.0, "Contains keyword 'PYQ'"),
+        (r"\bprevious\s+years?\b", 0.95, "Contains 'previous year'"),
+        (r"\bprev\s+years?\b", 0.9, "Contains 'prev year'"),
+        (r"\bpast\s+years?\b", 0.9, "Contains 'past year'"),
+        (r"\bquestion\s+papers?\b", 0.95, "Contains 'question paper'"),
+        (r"\bq\.?p\.?\b", 0.7, "Contains abbreviation 'QP'"),
+        (r"\bold\s+questions?\b", 0.8, "Contains 'old question'"),
+        (r"\bclass\s*tests?\b", 0.9, "Contains 'class test'"),
+        (r"\bcycle\s*tests?\b", 0.9, "Contains 'cycle test'"),
+        (r"\bct\s*[1-3]\b", 0.95, "Contains CT assessment pattern (CT1/CT2/CT3)"),
+        (r"\bct[-_][1-3]\b", 0.95, "Contains CT assessment pattern"),
+        (r"\bend\s*sem(?:ester)?\b", 0.95, "Contains 'end sem'"),
+        (r"\bmid\s*sem(?:ester)?\b", 0.9, "Contains 'mid sem'"),
+        (r"\bmidterm\b", 0.85, "Contains 'midterm'"),
+        (r"\bmodel\s+exam\b", 0.85, "Contains 'model exam'"),
+        (r"\bmodel\s+papers?\b", 0.85, "Contains 'model paper'"),
+        (r"\bsem\s+exam\b", 0.85, "Contains 'sem exam'"),
+        (r"\bexamination\s+papers?\b", 0.95, "Contains 'examination paper'"),
+        (r"\bexam\s+paper\b", 0.9, "Contains 'exam paper'"),
+        (r"\bquestion\s+banks?\b", 0.75, "Contains 'question bank'"),
     ]
 
-    print("\n=== Manual Test Results ===\n")
-    for title in test_cases:
-        rtype, year, exam, conf = classifier.classify(title)
-        print(f"Title: {title}")
-        print(f"  Type: {rtype.value}")
-        print(f"  Year: {year}")
-        print(f"  Exam: {exam.value if exam else None}")
-        print(f"  Confidence: {conf:.2f}")
-        print()
+    # Study material patterns with weights
+    STUDY_PATTERNS = [
+        (r"\blecture\s*notes?\b", 1.0, "Contains 'lecture notes'"),
+        (r"\bnotes?\b", 0.75, "Contains 'notes'"),
+        (r"\bunit\s*[1-5]\b", 0.9, "Contains unit marker (e.g. Unit 1)"),
+        (r"\bunitwise\b", 0.95, "Contains 'unitwise'"),
+        (r"\bmodule\s*[1-5]\b", 0.9, "Contains module marker"),
+        (r"\bchapter\s*\d+\b", 0.85, "Contains chapter marker"),
+        (r"\bhandouts?\b", 0.85, "Contains 'handout'"),
+        (r"\bslides?\b", 0.8, "Contains 'slides'"),
+        (r"\bpresentations?\b", 0.8, "Contains 'presentation'"),
+        (r"\bstudy\s+materials?\b", 0.95, "Contains 'study material'"),
+        (r"\bcourse\s+materials?\b", 0.9, "Contains 'course material'"),
+        (r"\btutorials?\b", 0.7, "Contains 'tutorial'"),
+        (r"\bformula\s+sheet\b", 0.85, "Contains 'formula sheet'"),
+        (r"\bsummary\b", 0.65, "Contains 'summary'"),
+    ]
+
+    # Syllabus patterns
+    SYLLABUS_PATTERNS = [
+        (r"\bsyllabus\b", 1.0, "Contains 'syllabus'"),
+        (r"\bcurriculum\b", 0.9, "Contains 'curriculum'"),
+        (r"\bcourse\s+outline\b", 0.9, "Contains 'course outline'"),
+        (r"\bcourse\s+plan\b", 0.9, "Contains 'course plan'"),
+    ]
+
+    # Lab patterns
+    LAB_PATTERNS = [
+        (r"\blab\s+manual\b", 1.0, "Contains 'lab manual'"),
+        (r"\blaboratory\b", 0.85, "Contains 'laboratory'"),
+        (r"\bpractical\b", 0.8, "Contains 'practical'"),
+        (r"\bexperiments?\b", 0.75, "Contains 'experiment'"),
+        (r"\bviva\b", 0.8, "Contains 'viva'"),
+    ]
+
+    # Assignment patterns
+    ASSIGNMENT_PATTERNS = [
+        (r"\bassignments?\b", 0.95, "Contains 'assignment'"),
+        (r"\bhomework\b", 0.9, "Contains 'homework'"),
+        (r"\bproblem\s+sets?\b", 0.85, "Contains 'problem set'"),
+    ]
+
+    # Reference patterns
+    REFERENCE_PATTERNS = [
+        (r"\btextbooks?\b", 0.9, "Contains 'textbook'"),
+        (r"\breference\s+books?\b", 0.95, "Contains 'reference book'"),
+    ]
+
+    # Year patterns: 2010 to 2030
+    YEAR_PATTERNS = [
+        r"\b(20[1-3][0-9])\b",
+        r"\b(?:jan|january|feb|february|mar|march|apr|april|may|june?|july?|aug|august|sep|september|oct|october|nov|november|dec|december)\s+(20[1-3][0-9])\b",
+        r"\b(20[1-3][0-9])\s+(?:jan|january|feb|february|mar|march|apr|april|may|june?|july?|aug|august|sep|september|oct|october|nov|november|dec|december)\b",
+    ]
+
+    # Assessment type patterns
+    ASSESSMENT_PATTERNS = [
+        (r"\bct\s*1\b|\bct-1\b|\bcycle\s*test\s*1\b|\bclass\s*test\s*1\b", "CT1"),
+        (r"\bct\s*2\b|\bct-2\b|\bcycle\s*test\s*2\b|\bclass\s*test\s*2\b", "CT2"),
+        (r"\bct\s*3\b|\bct-3\b|\bcycle\s*test\s*3\b|\bclass\s*test\s*3\b", "CT3"),
+        (r"\bend\s*sem(?:ester)?\b|\bendsem(?:ester)?\b|\bsemester\s*exam\b|\bfinal\s*exam\b", "END_SEM"),
+        (r"\bmid\s*sem(?:ester)?\b|\bmidsem(?:ester)?\b|\bmidterm\b|\bmid[- ]term\b", "MID_SEM"),
+        (r"\bmodel\s*(?:exam|paper|test)\b", "MODEL"),
+    ]
+
+    @classmethod
+    def extract_year(cls, text: str) -> Optional[int]:
+        """Extract valid academic year (2010..2030). Returns None if not explicitly present."""
+        if not text:
+            return None
+        text_lower = text.lower()
+        for pattern in cls.YEAR_PATTERNS:
+            match = re.search(pattern, text_lower)
+            if match:
+                for grp in match.groups():
+                    if grp and grp.isdigit():
+                        yr = int(grp)
+                        if 2010 <= yr <= 2030:
+                            return yr
+        return None
+
+    @classmethod
+    def extract_assessment_type(cls, text: str) -> Optional[str]:
+        """Extract assessment type (CT1, CT2, END_SEM, etc.). Returns None if not found."""
+        if not text:
+            return None
+        text_lower = text.lower()
+        for pattern, atype in cls.ASSESSMENT_PATTERNS:
+            if re.search(pattern, text_lower):
+                return atype
+        return None
+
+    @classmethod
+    def classify(
+        cls,
+        title: str,
+        filename: Optional[str] = None,
+        source_type: Optional[str] = None,
+        drive_path: Optional[str] = None,
+    ) -> ClassificationResult:
+        """
+        Deterministic multi-factor classifier.
+        Evaluates title, filename, source_type, and folder path hierarchy.
+        """
+        combined = " ".join(filter(None, [title, filename, source_type, drive_path])).lower()
+
+        reasons: List[str] = []
+        year = cls.extract_year(combined)
+        assessment_type = cls.extract_assessment_type(combined)
+
+        if year:
+            reasons.append(f"Detected academic year: {year}")
+        if assessment_type:
+            reasons.append(f"Detected assessment type: {assessment_type}")
+
+        # Check explicit source_type hint if present
+        source_type_lower = (source_type or "").lower()
+        if source_type_lower in ["pyq", "pyqs", "examination papers / pyqs", "ct papers"]:
+            reasons.append(f"Source catalog explicitly tagged as: '{source_type}'")
+        elif source_type_lower in ["ppt", "ppts", "lecture notes", "notes"]:
+            reasons.append(f"Source catalog explicitly tagged as: '{source_type}'")
+
+        # Calculate category scores
+        scores: Dict[str, float] = {
+            ResourceClassification.PYQ.value: 0.0,
+            ResourceClassification.STUDY_MATERIAL.value: 0.0,
+            ResourceClassification.SYLLABUS.value: 0.0,
+            ResourceClassification.LAB.value: 0.0,
+            ResourceClassification.ASSIGNMENT.value: 0.0,
+            ResourceClassification.REFERENCE.value: 0.0,
+        }
+
+        # Match PYQ
+        for pat, weight, desc in cls.PYQ_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.PYQ.value] = max(
+                    scores[ResourceClassification.PYQ.value], weight
+                )
+                reasons.append(desc)
+
+        # Match Study Material
+        for pat, weight, desc in cls.STUDY_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.STUDY_MATERIAL.value] = max(
+                    scores[ResourceClassification.STUDY_MATERIAL.value], weight
+                )
+                reasons.append(desc)
+
+        # Match Syllabus
+        for pat, weight, desc in cls.SYLLABUS_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.SYLLABUS.value] = max(
+                    scores[ResourceClassification.SYLLABUS.value], weight
+                )
+                reasons.append(desc)
+
+        # Match Lab
+        for pat, weight, desc in cls.LAB_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.LAB.value] = max(
+                    scores[ResourceClassification.LAB.value], weight
+                )
+                reasons.append(desc)
+
+        # Match Assignment
+        for pat, weight, desc in cls.ASSIGNMENT_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.ASSIGNMENT.value] = max(
+                    scores[ResourceClassification.ASSIGNMENT.value], weight
+                )
+                reasons.append(desc)
+
+        # Match Reference
+        for pat, weight, desc in cls.REFERENCE_PATTERNS:
+            if re.search(pat, combined):
+                scores[ResourceClassification.REFERENCE.value] = max(
+                    scores[ResourceClassification.REFERENCE.value], weight
+                )
+                reasons.append(desc)
+
+        # Boost from source_type
+        if source_type_lower in ["pyq", "pyqs", "ct papers"]:
+            scores[ResourceClassification.PYQ.value] = max(
+                scores[ResourceClassification.PYQ.value], 0.95
+            )
+        elif source_type_lower in ["ppt", "ppts", "lecture notes"]:
+            scores[ResourceClassification.STUDY_MATERIAL.value] = max(
+                scores[ResourceClassification.STUDY_MATERIAL.value], 0.95
+            )
+        elif source_type_lower == "syllabus":
+            scores[ResourceClassification.SYLLABUS.value] = max(
+                scores[ResourceClassification.SYLLABUS.value], 0.95
+            )
+
+        # Boost PYQ if assessment_type was explicitly detected
+        if assessment_type and scores[ResourceClassification.PYQ.value] > 0.0:
+            scores[ResourceClassification.PYQ.value] = min(1.0, scores[ResourceClassification.PYQ.value] + 0.1)
+
+        # Find best candidate
+        sorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+        top_cat, top_score = sorted_scores[0]
+        second_cat, second_score = sorted_scores[1]
+
+        # Uncertainty threshold: require >= 0.6 confidence and a margin over runner-up if runner-up is strong
+        if top_score < 0.6:
+            return ClassificationResult(
+                category=ResourceClassification.UNKNOWN,
+                confidence=top_score,
+                reasons=["Insufficient confidence signals"] + reasons,
+                extracted_year=year,
+                assessment_type=assessment_type,
+            )
+
+        # If PYQ and STUDY_MATERIAL are in direct contention without clear winner
+        if top_cat in [ResourceClassification.PYQ.value, ResourceClassification.STUDY_MATERIAL.value] and \
+           second_cat in [ResourceClassification.PYQ.value, ResourceClassification.STUDY_MATERIAL.value] and \
+           (top_score - second_score) < 0.15:
+            return ClassificationResult(
+                category=ResourceClassification.UNKNOWN,
+                confidence=top_score,
+                reasons=["Conflicting PYQ and Study Material signals"] + reasons,
+                extracted_year=year,
+                assessment_type=assessment_type,
+            )
+
+        return ClassificationResult(
+            category=ResourceClassification(top_cat),
+            confidence=round(top_score, 2),
+            reasons=reasons,
+            extracted_year=year,
+            assessment_type=assessment_type,
+        )

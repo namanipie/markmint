@@ -78,6 +78,23 @@ class Document(Base):
 
     exams = relationship("Exam", back_populates="document")
     study_evidences = relationship("StudyEvidence", back_populates="document")
+    provenances = relationship("DocumentProvenance", back_populates="document", cascade="all, delete-orphan")
+
+
+class DocumentProvenance(Base):
+    """Tracks provenance for resources discovered across multiple sources (SHA-256 deduplication)."""
+    __tablename__ = "document_provenances"
+
+    id = Column(Integer, primary_key=True, index=True)
+    document_id = Column(Integer, ForeignKey("documents.id", ondelete="CASCADE"), nullable=False, index=True)
+    source_site = Column(String, nullable=False)  # "TheHelpers", "Studique", "GoogleDrive"
+    source_url = Column(String, nullable=False)
+    resolved_url = Column(String, nullable=True)
+    source_priority = Column(String, nullable=False, default="PRIMARY_SOURCE")  # "PRIMARY_SOURCE", "MIRROR", "DUPLICATE_SOURCE"
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    document = relationship("Document", back_populates="provenances")
+
 
 
 class Concept(Base):
@@ -228,6 +245,10 @@ class Exam(Base):
     document = relationship("Document", back_populates="exams")
     sections = relationship("Section", back_populates="exam")
 
+    __table_args__ = (
+        Index("ix_exams_course_year", "course_id", "year"),
+    )
+
 
 class Section(Base):
     __tablename__ = "sections"
@@ -320,6 +341,11 @@ class StudentTopicProgress(Base):
     last_studied_at = Column(DateTime, nullable=True)
     
     topic = relationship('Topic')
+
+    __table_args__ = (
+        UniqueConstraint("student_id", "topic_id", name="uq_student_topic_progress"),
+        Index("ix_student_topic_status", "student_id", "status"),
+    )
 
 class StudentResourceProgress(Base):
     __tablename__ = 'student_resource_progress'

@@ -1,6 +1,6 @@
 """Deterministic study-priority and resource services."""
 
-from datetime import datetime
+from datetime import datetime, date, timezone
 from typing import Any, Dict, List
 
 from sqlalchemy.orm import Session
@@ -32,6 +32,8 @@ class PriorityResult:
         student_status: Optional[str] = None,
         practice_accuracy: Optional[float] = None,
         reason_codes: Optional[List[str]] = None,
+        topic_id: Optional[int] = None,
+        recommended_action: str = "DEEP_STUDY_URGENT",
     ):
         self.topic = topic
         self.prediction_score = prediction_score
@@ -43,14 +45,18 @@ class PriorityResult:
         self.student_status = student_status
         self.practice_accuracy = practice_accuracy
         self.reason_codes = reason_codes or []
+        self.topic_id = topic_id
+        self.recommended_action = recommended_action
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "topic": self.topic,
+            "topic_id": self.topic_id,
             "prediction_score": self.prediction_score,
             "probability": self.probability,
             "confidence": self.confidence,
             "priority": self.priority,
+            "recommended_action": self.recommended_action,
             "reasons": self.reasons,
             "reason_codes": self.reason_codes,
             "resources": self.resources,
@@ -193,6 +199,7 @@ class StudyIntelligenceService:
                 priority = StudyPriority.MEDIUM
             elif priority == StudyPriority.MEDIUM:
                 priority = StudyPriority.LOW
+            recommended_action = "MAINTAIN_AND_REVIEW"
         else:
             weak = course_id is not None and self.db is not None and not progress
             if progress and progress.practice_attempted:
@@ -205,6 +212,15 @@ class StudyIntelligenceService:
                 priority = StudyPriority.VERY_HIGH
             elif weak and priority == StudyPriority.MEDIUM:
                 priority = StudyPriority.HIGH
+
+            if priority == StudyPriority.VERY_HIGH:
+                recommended_action = "DEEP_STUDY_URGENT"
+            elif priority == StudyPriority.HIGH:
+                recommended_action = "PRACTICE_QUESTIONS"
+            elif priority == StudyPriority.MEDIUM:
+                recommended_action = "CONCEPT_REINFORCEMENT"
+            else:
+                recommended_action = "FOUNDATIONAL_EXPLORATION"
 
         reason_codes = list(getattr(prediction, "reason_codes", []))
         if progress and progress.status == "COMPLETED":
@@ -219,10 +235,12 @@ class StudyIntelligenceService:
             reasons=reasons,
             resources=resources,
             confidence=confidence,
-            probability=round(score, 4),
+            probability=round(getattr(prediction, "probability", score), 4),
             student_status=student_status,
             practice_accuracy=practice_accuracy,
             reason_codes=reason_codes,
+            topic_id=topic.id if topic else None,
+            recommended_action=recommended_action,
         )
 
     def generate_study_plan(
@@ -260,7 +278,10 @@ class StudyIntelligenceService:
                 "unstudied_topics": 0,
                 "student_preparation_coverage": 0.0,
                 "coverage_gap_topics": [],
-                "high_priority_gap_count": 0
+                "high_priority_gap_count": 0,
+                "mastered_topic_count": 0,
+                "in_progress_count": 0,
+                "unstudied_count": 0,
             }
 
         mastered = 0
@@ -274,7 +295,7 @@ class StudyIntelligenceService:
             is_mastered = (status == "COMPLETED" and (acc is None or acc >= 0.6))
             if is_mastered:
                 mastered += 1
-            elif status == "STARTED":
+            elif status in {"STARTED", "IN_PROGRESS"}:
                 in_progress += 1
                 if item.priority in {StudyPriority.VERY_HIGH, StudyPriority.HIGH}:
                     gap_topics.append(item.topic)
@@ -292,7 +313,10 @@ class StudyIntelligenceService:
             "unstudied_topics": unstudied,
             "student_preparation_coverage": coverage_pct,
             "coverage_gap_topics": gap_topics,
-            "high_priority_gap_count": len(gap_topics)
+            "high_priority_gap_count": len(gap_topics),
+            "mastered_topic_count": mastered,
+            "in_progress_count": in_progress,
+            "unstudied_count": unstudied,
         }
 
     def generate_exam_schedule(
@@ -305,7 +329,7 @@ class StudyIntelligenceService:
 
         try:
             target_date = datetime.strptime(target_exam_date_str.strip(), "%Y-%m-%d").date()
-            today = datetime.utcnow().date()
+            today = date.today()
             days_remaining = (target_date - today).days
             if days_remaining <= 0:
                 return {
@@ -315,20 +339,51 @@ class StudyIntelligenceService:
                     "phases": []
                 }
 
-            phase1_days = max(1, int(days_remaining * 0.5))
-            phase2_days = max(1, int(days_remaining * 0.3))
-            phase3_days = max(1, days_remaining - phase1_days - phase2_days)
+            # Build focus topic dicts with topic_id and topic_name
+            vh_topics = [{"topic_id": p.topic_id, "topic_name": p.topic} for p in priorities if p.priority == StudyPriority.VERY_HIGH]
+            h_topics = [{"topic_id": p.topic_id, "topic_name": p.topic} for p in priorities if p.priority == StudyPriority.HIGH]
+            m_topics = [{"topic_id": p.topic_id, "topic_name": p.topic} for p in priorities if p.priority in {StudyPriority.MEDIUM, StudyPriority.LOW}]
 
-            vh_topics = [p.topic for p in priorities if p.priority == StudyPriority.VERY_HIGH]
-            h_topics = [p.topic for p in priorities if p.priority == StudyPriority.HIGH]
-            m_topics = [p.topic for p in priorities if p.priority in {StudyPriority.MEDIUM, StudyPriority.LOW}]
+            # Strict time conservation: ensure sum(phase.duration_days) == days_remaining
+            if days_remaining == 1:
+                phases = [
+                    {
+                        "phase": 1,
+                        "name": "Final High-Yield Review",
+                        "duration_days": 1,
+                        "focus_topics": (vh_topics + h_topics)[:5] or [{"topic_id": None, "topic_name": "Core Formulas"}],
+                        "description": "Emergency high-yield formula and core concept reinforcement."
+                    }
+                ]
+            elif days_remaining == 2:
+                phases = [
+                    {
+                        "phase": 1,
+                        "name": "Core High-Yield Focus",
+                        "duration_days": 1,
+                        "focus_topics": vh_topics[:5] or h_topics[:5],
+                        "description": "Essential theorems and high-weight recurrences."
+                    },
+                    {
+                        "phase": 2,
+                        "name": "Targeted Question Practice",
+                        "duration_days": 1,
+                        "focus_topics": h_topics[:5] or m_topics[:5],
+                        "description": "Practice high-frequency questions and formulas."
+                    }
+                ]
+            else:
+                phase1_days = max(1, int(round(days_remaining * 0.5)))
+                phase2_days = max(1, int(round(days_remaining * 0.3)))
+                phase3_days = days_remaining - phase1_days - phase2_days
+                if phase3_days < 1:
+                    phase3_days = 1
+                    if phase1_days > phase2_days:
+                        phase1_days = max(1, phase1_days - 1)
+                    else:
+                        phase2_days = max(1, phase2_days - 1)
 
-            return {
-                "target_exam_date": target_exam_date_str,
-                "days_remaining": days_remaining,
-                "status": "ON_TRACK",
-                "recommended_daily_topics": round(len(priorities) / max(1, days_remaining), 1),
-                "phases": [
+                phases = [
                     {
                         "phase": 1,
                         "name": "High-Yield Foundation",
@@ -351,6 +406,13 @@ class StudyIntelligenceService:
                         "description": "Comprehensive review and formula reinforcement."
                     }
                 ]
+
+            return {
+                "target_exam_date": target_exam_date_str,
+                "days_remaining": days_remaining,
+                "status": "ON_TRACK",
+                "recommended_daily_topics": round(len(priorities) / max(1, days_remaining), 1),
+                "phases": phases
             }
         except (ValueError, TypeError):
             return None
@@ -377,7 +439,7 @@ class StudyIntelligenceService:
             progress.practice_attempted = (progress.practice_attempted or 0) + 1
             if practice_accuracy is not None and practice_accuracy >= 0.5:
                 progress.practice_correct = (progress.practice_correct or 0) + 1
-        progress.last_studied_at = datetime.utcnow()
+        progress.last_studied_at = datetime.now(timezone.utc)
         self.db.commit()
         self.db.refresh(progress)
         return progress

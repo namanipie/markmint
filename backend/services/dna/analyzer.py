@@ -32,10 +32,11 @@ class DNAAnalyzerService:
         Expects a list of exam dicts mapped from the database.
         """
         sorted_exams = sorted(exams, key=lambda x: x.get("year") or 0)
-        total_exams = len(sorted_exams)
+        papers_with_questions = [e for e in sorted_exams if len(e.get("questions", [])) > 0]
+        total_exams = len(papers_with_questions) if papers_with_questions else len(sorted_exams)
         
         all_questions = []
-        for exam in sorted_exams:
+        for exam in (papers_with_questions if papers_with_questions else sorted_exams):
             all_questions.extend(exam.get("questions", []))
             
         total_questions = len(all_questions)
@@ -43,12 +44,12 @@ class DNAAnalyzerService:
         if total_questions == 0 or total_exams == 0:
             return cls._empty_dna()
             
-        years = [e.get("year") for e in sorted_exams if e.get("year")]
+        years = [e.get("year") for e in sorted_exams if e.get("year") is not None]
         min_year = min(years) if years else 0
         max_year = max(years) if years else 0
         
-        # 'Recent' is the last 2 available chronological years in THIS dataset
-        recent_years_set = {y for y in years if y >= max_year - 1}
+        # 'Recent' is the last 2 available chronological years in THIS dataset (excluding None)
+        recent_years_set = {y for y in years if y >= max_year - 1} if max_year > 0 else set()
 
         exam_types = list({e.get("exam_type") for e in sorted_exams if e.get("exam_type")})
         
@@ -70,11 +71,11 @@ class DNAAnalyzerService:
         total_marks = sum(q.get("marks", 0.0) or 0.0 for q in all_questions if not q.get("is_alternative"))
         recent_total_marks = sum(
             q.get("marks", 0.0) or 0.0 
-            for e in sorted_exams if e.get("year") in recent_years_set 
+            for e in sorted_exams if e.get("year") and e.get("year") in recent_years_set 
             for q in e.get("questions", []) if not q.get("is_alternative")
         )
         recent_total_questions = sum(
-            1 for e in sorted_exams if e.get("year") in recent_years_set 
+            1 for e in sorted_exams if e.get("year") and e.get("year") in recent_years_set 
             for q in e.get("questions", [])
         )
         
@@ -96,11 +97,11 @@ class DNAAnalyzerService:
         })
 
         # 2. Populate Aggregators
-        for exam in sorted_exams:
+        for exam in (papers_with_questions if papers_with_questions else sorted_exams):
             exam_year = exam.get("year")
             exam_id = exam.get("id")
             exam_type = exam.get("exam_type")
-            is_recent = exam_year in recent_years_set
+            is_recent = bool(exam_year and exam_year in recent_years_set)
             
             for q in exam.get("questions", []):
                 m = q.get("marks") or 0.0
@@ -204,7 +205,7 @@ class DNAAnalyzerService:
             
         families_dna = []
         for f_name, fd in families_data.items():
-            sorted_years = sorted(list(fd["years"]))
+            sorted_years = sorted(list({y for y in fd["years"] if y is not None}))
             interval = 0.0
             if len(sorted_years) > 1:
                 diffs = [sorted_years[i] - sorted_years[i-1] for i in range(1, len(sorted_years))]

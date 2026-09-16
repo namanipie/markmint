@@ -1,309 +1,289 @@
-import aiohttp
-import sqlite3
-import hashlib
-import os
-import logging
-from urllib.parse import urlparse, parse_qs
-from typing import Optional
-import asyncio
-import time
+"""
+Resilient streaming file downloader and strict PDF validator for MarkMint.
+Guarantees:
+- Streaming downloads (bounded memory).
+- Exponential backoff retry with error recovery.
+- Google Drive large-file virus scan confirmation redirect handling.
+- Strict PDF verification: size > 0, %PDF- magic bytes, readable PDF structure.
+- Rejection of HTML error pages saved as PDF.
+- Path traversal prevention and deterministic sanitized corpus storage.
+- Chunked SHA-256 calculation.
+"""
 
-# Set up logging
-logging.basicConfig(level=logging.INFO)
+import os
+import re
+import time
+import hashlib
+import logging
+from typing import Optional, Tuple
+from urllib.parse import urlparse, parse_qs
+import requests
+import pdfplumber
+
 logger = logging.getLogger(__name__)
 
-class DiscoveredResource:
-    """Represents a discovered resource to be downloaded."""
-    def __init__(self, url: str, semester: str, subject: str, filename: str):
-        self.url = url
-        self.semester = semester
-        self.subject = subject
-        self.filename = filename
 
-class DownloadedResource:
-    """Represents a downloaded resource."""
-    def __init__(self, local_path: str, sha256: str, size: int):
-        self.local_path = local_path
+def sanitize_filesystem_name(name: str) -> str:
+    """Sanitizes strings to create safe directory or file names, preventing path traversal."""
+    if not name:
+        return "unnamed"
+    # Remove null bytes and control chars
+    clean = re.sub(r"[\x00-\x1f\x7f]", "", str(name))
+    # Replace slashes, backslashes, colons, and path traversal sequences
+    clean = clean.replace("..", "_").replace("/", "_").replace("\\", "_").replace(":", "_")
+    clean = clean.replace("?", "_").replace("*", "_").replace('"', "_").replace("<", "_").replace(">", "_").replace("|", "_")
+    clean = " ".join(clean.split()).strip()
+    return clean or "unnamed"
+
+
+class ValidationResult:
+    """Outcome of file validation."""
+    def __init__(
+        self,
+        is_valid: bool,
+        sha256: Optional[str] = None,
+        file_size: int = 0,
+        failure_reason: Optional[str] = None,
+    ):
+        self.is_valid = is_valid
         self.sha256 = sha256
-        self.size = size
+        self.file_size = file_size
+        self.failure_reason = failure_reason
+
+    def __repr__(self):
+        return f"<ValidationResult valid={self.is_valid} size={self.file_size} sha256={self.sha256[:8] if self.sha256 else None}>"
+
 
 class ResourceDownloader:
-    def __init__(self, cache_dir: str = "data/.download_cache", storage_dir: str = "data/raw"):
-        """
-        Initialize the ResourceDownloader.
+    """Handles streaming download, retry, Drive confirm tokens, and strict PDF verification."""
 
-        Args:
-            cache_dir: Directory for SQLite cache database
-            storage_dir: Base directory for storing downloaded files
-        """
-        self.cache_dir = cache_dir
-        self.storage_dir = storage_dir
-        self.max_file_size = 50 * 1024 * 1024  # 50MB
+    USER_AGENT = (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    )
 
-        # Create directories if they don't exist
-        os.makedirs(self.cache_dir, exist_ok=True)
-        os.makedirs(self.storage_dir, exist_ok=True)
+    def __init__(
+        self,
+        corpus_dir: str = "corpus",
+        temp_dir: str = "data/.download_cache/temp",
+        max_file_size_bytes: int = 100 * 1024 * 1024,  # 100 MB
+        timeout_seconds: int = 45,
+    ):
+        self.corpus_dir = corpus_dir
+        self.temp_dir = temp_dir
+        self.max_file_size_bytes = max_file_size_bytes
+        self.timeout_seconds = timeout_seconds
 
-        # Initialize SQLite cache
-        self.db_path = os.path.join(self.cache_dir, "downloads.db")
-        self._init_db()
+        os.makedirs(self.corpus_dir, exist_ok=True)
+        os.makedirs(self.temp_dir, exist_ok=True)
 
-    def _init_db(self):
-        """Initialize the SQLite database for download tracking."""
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS downloads (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                url_normalized TEXT UNIQUE,
-                sha256 TEXT UNIQUE,
-                local_path TEXT,
-                download_timestamp REAL,
-                file_size INTEGER,
-                source_metadata TEXT
-            )
-        ''')
-        conn.commit()
-        conn.close()
-
-    def normalize_url(self, url: str) -> str:
-        """
-        Normalize URL for consistent hashing.
-
-        Args:
-            url: URL to normalize
-
-        Returns:
-            Normalized URL string
-        """
-        parsed = urlparse(url)
-        # Remove fragment and normalize path
-        normalized = parsed._replace(fragment="", params="", query="").geturl()
-        # Sort query parameters if any
-        if parsed.query:
-            query_parts = parse_qs(parsed.query, keep_blank_values=True)
-            sorted_query = "&".join([f"{k}={'&'.join(sorted(v))}" for k, v in sorted(query_parts.items())])
-            normalized = parsed._replace(query=sorted_query, fragment="").geturl()
-        return normalized
-
-    def convert_google_drive_url(self, url: str) -> str:
-        """
-        Convert Google Drive sharing URL to direct download URL.
-
-        Args:
-            url: Google Drive sharing URL
-
-        Returns:
-            Direct download URL
-        """
-        parsed = urlparse(url)
-        if 'drive.google.com' in parsed.netloc:
-            # Handle file/d/{id}/view format
-            if '/file/d/' in parsed.path:
-                file_id = parsed.path.split('/file/d/')[1].split('/')[0]
-                return f"https://drive.google.com/uc?export=download&id={file_id}"
-            # Handle open?id={id} format
-            elif 'open' in parsed.path and 'id' in parse_qs(parsed.query):
-                file_id = parse_qs(parsed.query)['id'][0]
-                return f"https://drive.google.com/uc?export=download&id={file_id}"
-            # Handle uc?export=download&id={id} (already direct)
-            elif 'uc' in parsed.path and 'export=download' in parsed.query:
-                return url
-        return url
-
-    async def download_with_retry(self, url: str, max_retries: int = 3) -> bytes:
-        """
-        Download file with retry mechanism and exponential backoff.
-
-        Args:
-            url: URL to download from
-            max_retries: Maximum number of retry attempts
-
-        Returns:
-            Downloaded file content as bytes
-
-        Raises:
-            Exception: If all retry attempts fail
-        """
-        for attempt in range(max_retries):
-            try:
-                timeout = aiohttp.ClientTimeout(total=120)
-                async with aiohttp.ClientSession(timeout=timeout) as session:
-                    async with session.get(url) as response:
-                        response.raise_for_status()
-                        content_type = response.headers.get('Content-Type', '')
-                        
-                        # Check content length if available
-                        content_length = response.headers.get('Content-Length')
-                        if content_length and int(content_length) > self.max_file_size:
-                            raise ValueError(f"File size {content_length} exceeds limit of {self.max_file_size} bytes")
-
-                        # Read in chunks to handle large files and enforce size limit
-                        chunks = []
-                        total_size = 0
-                        async for chunk in response.content.iter_chunked(8192):
-                            total_size += len(chunk)
-                            if total_size > self.max_file_size:
-                                raise ValueError(f"Downloaded file size {total_size} exceeds limit of {self.max_file_size} bytes")
-                            chunks.append(chunk)
-
-                        data = b''.join(chunks)
-                        
-                        # Google Drive returns an HTML confirmation page for large files
-                        # Check if we got HTML instead of a real file
-                        if b'text/html' in content_type.encode() or (data[:100].strip().startswith(b'<!') and b'confirm' in data[:5000]):
-                            import re
-                            # Try to find the confirm URL  
-                            html_text = data.decode('utf-8', errors='ignore')
-                            # Look for form action with confirm token
-                            confirm_match = re.search(r'href="(/uc\?export=download[^"]*confirm=[^"]*)"', html_text)
-                            if not confirm_match:
-                                confirm_match = re.search(r'action="([^"]*)"', html_text)
-                            if confirm_match:
-                                confirm_url = confirm_match.group(1).replace('&amp;', '&')
-                                if confirm_url.startswith('/'):
-                                    confirm_url = f"https://drive.google.com{confirm_url}"
-                                logger.info(f"Following Google Drive confirmation redirect...")
-                                async with session.get(confirm_url) as confirm_resp:
-                                    confirm_resp.raise_for_status()
-                                    chunks2 = []
-                                    total2 = 0
-                                    async for chunk in confirm_resp.content.iter_chunked(8192):
-                                        total2 += len(chunk)
-                                        if total2 > self.max_file_size:
-                                            raise ValueError(f"File too large: {total2}")
-                                        chunks2.append(chunk)
-                                    return b''.join(chunks2)
-                        
-                        return data
-            except Exception as e:
-                logger.warning(f"Attempt {attempt + 1} failed for {url}: {str(e)}")
-                if attempt < max_retries - 1:
-                    # Exponential backoff: 2^attempt seconds
-                    wait_time = 2 ** attempt
-                    logger.info(f"Waiting {wait_time} seconds before retry...")
-                    await asyncio.sleep(wait_time)
-                else:
-                    logger.error(f"All {max_retries} attempts failed for {url}")
-                    raise
-
-    def calculate_sha256(self, file_path: str) -> str:
-        """
-        Calculate SHA-256 hash of a file in chunks.
-
-        Args:
-            file_path: Path to the file
-
-        Returns:
-            SHA-256 hash as hexadecimal string
-        """
-        sha256_hash = hashlib.sha256()
+    @classmethod
+    def calculate_sha256(cls, file_path: str) -> str:
+        """Calculate SHA-256 hash in 64KB blocks."""
+        hasher = hashlib.sha256()
         with open(file_path, "rb") as f:
-            for byte_block in iter(lambda: f.read(4096), b""):
-                sha256_hash.update(byte_block)
-        return sha256_hash.hexdigest()
+            while chunk := f.read(65536):
+                hasher.update(chunk)
+        return hasher.hexdigest()
 
-    def check_duplicate(self, sha256: str) -> Optional[str]:
+    @classmethod
+    def validate_pdf_file(cls, file_path: str) -> ValidationResult:
         """
-        Check if a file with the given SHA-256 hash already exists in cache.
-
-        Args:
-            sha256: SHA-256 hash to check
-
-        Returns:
-            Existing file path if found, None otherwise
+        Validates downloaded file:
+        1. File must exist and size > 0.
+        2. Must start with '%PDF-' magic bytes.
+        3. Must open cleanly via PDF parser (pdfplumber/pdfminer).
+        4. Rejects HTML pages (e.g. Google Drive error/login pages).
         """
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute("SELECT local_path FROM downloads WHERE sha256 = ?", (sha256,))
-        result = cursor.fetchone()
-        conn.close()
+        if not os.path.exists(file_path):
+            return ValidationResult(is_valid=False, failure_reason="File does not exist on disk")
 
-        if result:
-            logger.info(f"Duplicate found for hash {sha256}: {result[0]}")
-            return result[0]
-        return None
+        file_size = os.path.getsize(file_path)
+        if file_size == 0:
+            return ValidationResult(is_valid=False, file_size=0, failure_reason="Downloaded file is 0 bytes (empty)")
 
-    async def download(self, url: str, resource: DiscoveredResource) -> DownloadedResource:
-        """
-        Download a file from URL with deduplication.
+        # Read first 1024 bytes for magic bytes check
+        with open(file_path, "rb") as f:
+            header = f.read(1024)
 
-        Args:
-            url: URL to download from
-            resource: DiscoveredResource containing metadata
-
-        Returns:
-            DownloadedResource with local path and hash
-        """
-        # Normalize URL for consistent caching
-        normalized_url = self.normalize_url(url)
-
-        # Convert Google Drive URLs if needed
-        download_url = self.convert_google_drive_url(normalized_url)
-        logger.info(f"Downloading from: {download_url}")
-
-        # Download the file content
-        content = await self.download_with_retry(download_url)
-
-        # Calculate SHA-256 hash
-        # We'll write to a temporary file to calculate hash
-        temp_dir = os.path.join(self.cache_dir, "temp")
-        os.makedirs(temp_dir, exist_ok=True)
-        temp_file = os.path.join(temp_dir, f"temp_{hashlib.md5(download_url.encode()).hexdigest()}")
-
-        with open(temp_file, "wb") as f:
-            f.write(content)
-
-        file_hash = self.calculate_sha256(temp_file)
-        file_size = len(content)
-
-        # Check for duplicates
-        existing_path = self.check_duplicate(file_hash)
-        if existing_path:
-            logger.info(f"Duplicate file found. Using existing: {existing_path}")
-            # Clean up temp file
-            os.remove(temp_file)
-            # Return reference to existing file
-            return DownloadedResource(
-                local_path=existing_path,
-                sha256=file_hash,
-                size=file_size
+        # Check for HTML signature
+        header_lower = header.lower()
+        if (
+            b"<!doctype html" in header_lower
+            or b"<html" in header_lower
+            or b"<body" in header_lower
+            or b"accounts.google.com" in header_lower
+        ):
+            return ValidationResult(
+                is_valid=False,
+                file_size=file_size,
+                failure_reason="File is an HTML web page disguised as a PDF (e.g. login/error page)",
             )
 
-        # No duplicate found, save to storage directory
-        # Create semester/subject directory structure
-        storage_path = os.path.join(
-            self.storage_dir,
-            resource.semester,
-            resource.subject,
-            resource.filename
-        )
-        os.makedirs(os.path.dirname(storage_path), exist_ok=True)
+        # Check for %PDF- magic bytes
+        if b"%PDF-" not in header[:64]:
+            return ValidationResult(
+                is_valid=False,
+                file_size=file_size,
+                failure_reason=f"Invalid PDF header: Missing '%PDF-' magic bytes (starts with: {header[:16]!r})",
+            )
 
-        # Move temp file to final location
-        os.replace(temp_file, storage_path)
-        logger.info(f"Saved file to: {storage_path}")
+        # Structural integrity check with PDF parser
+        try:
+            with pdfplumber.open(file_path) as pdf:
+                page_count = len(pdf.pages)
+                if page_count == 0:
+                    return ValidationResult(
+                        is_valid=False,
+                        file_size=file_size,
+                        failure_reason="PDF contains 0 valid pages",
+                    )
+        except Exception as e:
+            return ValidationResult(
+                is_valid=False,
+                file_size=file_size,
+                failure_reason=f"PDF structure is damaged or corrupt: {str(e)}",
+            )
 
-        # Record in cache database
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-        cursor.execute('''
-            INSERT OR REPLACE INTO downloads
-            (url_normalized, sha256, local_path, download_timestamp, file_size, source_metadata)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (
-            normalized_url,
-            file_hash,
-            storage_path,
-            time.time(),
-            file_size,
-            f"semester:{resource.semester},subject:{resource.subject}"
-        ))
-        conn.commit()
-        conn.close()
+        # File is valid
+        file_hash = cls.calculate_sha256(file_path)
+        return ValidationResult(is_valid=True, sha256=file_hash, file_size=file_size)
 
-        return DownloadedResource(
-            local_path=storage_path,
-            sha256=file_hash,
-            size=file_size
-        )
+    def download_to_temp(
+        self,
+        download_url: str,
+        max_retries: int = 3,
+    ) -> Tuple[Optional[str], Optional[str]]:
+        """
+        Streams download into a temporary file. Handles Google Drive large-file scan warnings.
+        Returns:
+            (temp_file_path, error_message)
+        """
+        temp_filename = f"dl_{int(time.time()*1000)}_{hashlib.md5(download_url.encode()).hexdigest()[:10]}.tmp"
+        temp_file_path = os.path.join(self.temp_dir, temp_filename)
+
+        headers = {
+            "User-Agent": self.USER_AGENT,
+            "Accept": "*/*",
+        }
+
+        session = requests.Session()
+
+        for attempt in range(1, max_retries + 1):
+            try:
+                r = session.get(download_url, headers=headers, stream=True, timeout=self.timeout_seconds)
+
+                if r.status_code != 200:
+                    r.raise_for_status()
+
+                # Stream to temp file
+                downloaded_bytes = 0
+                with open(temp_file_path, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=32768):
+                        if chunk:
+                            downloaded_bytes += len(chunk)
+                            if downloaded_bytes > self.max_file_size_bytes:
+                                f.close()
+                                if os.path.exists(temp_file_path):
+                                    os.remove(temp_file_path)
+                                return None, f"File exceeded size limit of {self.max_file_size_bytes} bytes"
+                            f.write(chunk)
+
+                # Check if Google Drive returned an HTML virus scan confirmation page
+                with open(temp_file_path, "rb") as f:
+                    first_bytes = f.read(2048)
+
+                if b"<!doctype html" in first_bytes.lower() or b"confirm=" in first_bytes.lower():
+                    # Parse confirmation token from HTML
+                    with open(temp_file_path, "r", encoding="utf-8", errors="ignore") as f:
+                        html_content = f.read()
+
+                    confirm_match = re.search(r'href="(/uc\?export=download[^"]*confirm=[^"]*)"', html_content)
+                    if not confirm_match:
+                        confirm_match = re.search(r'action="([^"]*)"', html_content)
+                    if not confirm_match:
+                        token_match = re.search(r'confirm=([0-9A-Za-z_-]+)', html_content)
+                        if token_match:
+                            token = token_match.group(1)
+                            confirm_url = f"{download_url}&confirm={token}"
+                        else:
+                            confirm_url = None
+                    else:
+                        confirm_url = confirm_match.group(1).replace("&amp;", "&")
+                        if confirm_url.startswith("/"):
+                            confirm_url = f"https://drive.google.com{confirm_url}"
+
+                    if confirm_url:
+                        logger.info("Following Google Drive large-file confirmation redirect...")
+                        r2 = session.get(confirm_url, headers=headers, stream=True, timeout=self.timeout_seconds)
+                        if r2.status_code == 200:
+                            downloaded_bytes = 0
+                            with open(temp_file_path, "wb") as f:
+                                for chunk in r2.iter_content(chunk_size=32768):
+                                    if chunk:
+                                        downloaded_bytes += len(chunk)
+                                        f.write(chunk)
+
+                return temp_file_path, None
+
+            except Exception as e:
+                logger.warning(
+                    "Download attempt %d/%d failed for %s: %s",
+                    attempt, max_retries, download_url, str(e)
+                )
+                if os.path.exists(temp_file_path):
+                    try:
+                        os.remove(temp_file_path)
+                    except OSError:
+                        pass
+
+                if attempt < max_retries:
+                    backoff = 2 ** attempt
+                    time.sleep(backoff)
+                else:
+                    return None, f"Failed after {max_retries} attempts: {str(e)}"
+
+        return None, "All retry attempts exhausted"
+
+    def build_destination_path(
+        self,
+        semester: Optional[str],
+        subject: Optional[str],
+        classification: Optional[str],
+        filename: str,
+        drive_folder_path: Optional[str] = None,
+    ) -> str:
+        """
+        Builds a sanitized deterministic filesystem path preventing path traversal:
+        corpus/Semester_{sem}/{subject}/{classification}/[{drive_folder_path}/]{filename}.pdf
+        """
+        sem_str = f"Semester_{sanitize_filesystem_name(str(semester))}" if semester else "Semester_General"
+        subj_str = sanitize_filesystem_name(subject or "General")
+        class_str = sanitize_filesystem_name(classification or "OTHER")
+        file_str = sanitize_filesystem_name(filename)
+
+        if not file_str.lower().endswith(".pdf"):
+            file_str += ".pdf"
+
+        path_parts = [self.corpus_dir, sem_str, subj_str, class_str]
+
+        if drive_folder_path:
+            # Sanitize each subfolder in drive_folder_path
+            folders = [sanitize_filesystem_name(p) for p in drive_folder_path.replace("\\", "/").split("/") if p.strip()]
+            path_parts.extend(folders)
+
+        path_parts.append(file_str)
+        return os.path.join(*path_parts)
+
+    def store_verified_file(
+        self,
+        temp_file_path: str,
+        destination_path: str,
+    ) -> str:
+        """Moves verified file to destination path, creating parent directories safely."""
+        os.makedirs(os.path.dirname(destination_path), exist_ok=True)
+        # If destination already exists with same content, overwrite safely
+        if os.path.exists(destination_path):
+            os.remove(destination_path)
+        os.replace(temp_file_path, destination_path)
+        return destination_path

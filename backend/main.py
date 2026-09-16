@@ -28,4 +28,18 @@ def health_check():
     """Lightweight health endpoint."""
     return {"status": "ok", "environment": settings.ENVIRONMENT}
 
+@app.on_event("startup")
+def on_startup():
+    try:
+        from backend.core.database import SessionLocal
+        from backend.services.curriculum_seeder import ensure_curriculum_seeded
+        db = SessionLocal()
+        try:
+            ensure_curriculum_seeded(db)
+        finally:
+            db.close()
+    except Exception as e:
+        import logging
+        logging.getLogger("markmint").warning("Startup curriculum seeding deferred: %s", e)
+
 app.include_router(api_router, prefix="/api")

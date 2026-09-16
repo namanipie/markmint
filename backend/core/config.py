@@ -49,6 +49,8 @@ class Settings(BaseSettings):
         if not url:
             if self.ENVIRONMENT == Environment.TEST:
                 return "sqlite:///./test.db"
+            if os.path.exists("production_corpus.db"):
+                return "sqlite:///./production_corpus.db"
             return "sqlite:///./demo.db"
             
         return url

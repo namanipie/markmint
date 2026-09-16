@@ -13,6 +13,9 @@ router = APIRouter()
 @router.get("/branches", response_model=List[str])
 def get_curriculum_branches(db: Session = Depends(get_db)) -> List[str]:
     """Return all unique academic branches available in the curriculum catalog."""
+    from backend.services.curriculum_seeder import ensure_curriculum_seeded
+    ensure_curriculum_seeded(db)
+
     branches = (
         db.query(CurriculumMapping.branch_name)
         .distinct()

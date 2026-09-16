@@ -46,9 +46,13 @@ __pycache__/
 
 
 # Data
-data/
+data/*
+!data/curriculum_catalog.json
+!backend/data/curriculum_catalog.json
 *.db
 *.json
+!data/curriculum_catalog.json
+!backend/data/curriculum_catalog.json
 *.txt
 scratch/
 
@@ -61,4 +65,14 @@ check.py
 classify_script.py
 taxonomy_expand.py
 taxonomy_insert.py
+
+# Temporary session files
+1.md
+AI_BRAIN.md
+AI_RULES.md
+SESSION_MEMORY.md
+
+# Downloaded raw corpus files (PDFs)
+corpus/
+
 

@@ -26,8 +26,12 @@ export interface Prediction {
     papers_present: number;
     total_papers: number;
     long_answer_count: number;
+    historicalYears?: number[];
   };
   historicalAppearances: number[];
+  timeline?: { year: number; present: boolean }[];
+  reason_codes?: string[];
+  explanation?: string;
 }
 
 export interface DashboardStats {
@@ -254,6 +258,13 @@ export interface PredictionItem {
   prediction_score: number;
   probability: number;
   confidence: "HIGH" | "MEDIUM" | "LOW" | "INSUFFICIENT" | string;
+  score_semantics?: string;
+  calibration_method?: string;
+  evidence_sufficiency?: string;
+  papers_analyzed?: number;
+  papers_with_topic?: number;
+  paper_coverage?: number;
+  supporting_questions?: any[];
   historyCount?: number;
   historical_occurrences?: number;
   recent_occurrences?: number;
@@ -268,6 +279,19 @@ export interface PredictionItem {
   reason_codes?: string[];
   explanation?: string;
   evidence_details?: any;
+  topic_id?: number;
+  family_id?: number;
+  timeline?: TimelineEntry[];
+  historical_years?: number[];
+}
+
+export interface TimelineEntry {
+  year: number;
+  exam_exists?: boolean;
+  topic_present?: boolean;
+  family_present?: boolean;
+  present: boolean;
+  status?: "TOPIC_PRESENT" | "TOPIC_ABSENT" | "FAMILY_PRESENT" | "FAMILY_ABSENT" | "NO_EXAM_RECORDED" | string;
 }
 
 export interface HistoricalQuestion {
@@ -286,6 +310,9 @@ export interface HistoricalQuestion {
   term?: string | null;
   family_id?: number | null;
   family_name?: string | null;
+  family_recurrence_history?: number[];
+  source_document_title?: string | null;
+  source_document_url?: string | null;
   repetition_type?: string;
   topics?: string[];
 }
@@ -295,6 +322,9 @@ export interface CoverageSummary {
   mastered_topics: number;
   in_progress_topics: number;
   unstudied_topics: number;
+  mastered_topic_count?: number;
+  in_progress_count?: number;
+  unstudied_count?: number;
   student_preparation_coverage: number;
   coverage_gap_topics: string[];
   high_priority_gap_count: number;
@@ -304,7 +334,7 @@ export interface ExamSchedulePhase {
   phase: number;
   name: string;
   duration_days: number;
-  focus_topics: string[];
+  focus_topics: (string | { topic_id?: number | null; topic_name: string })[];
   description: string;
 }
 
@@ -353,6 +383,10 @@ export interface IntelligenceSnapshot {
     model_version: string;
     taxonomy_version: string;
     engine_version: string;
+    corpus_version?: string;
+    calibration_method?: string;
+    score_semantics?: string;
+    latency_ms?: number;
     sufficiency?: string;
     generated_at: string;
   };
@@ -372,5 +406,280 @@ export interface SearchResult {
   provenance_url?: string | null;
   attribution?: string | null;
   metadata?: Record<string, any> | null;
+}
+
+export interface RepetitionOverview {
+  course_id: number;
+  course_name: string;
+  code: string;
+  canonical_code: string;
+  readiness_status: string;
+  total_papers: number;
+  total_questions: number;
+  years: number[];
+  time_range: string;
+  assessment_types: string[];
+  marks_summary: {
+    total_marks: number;
+    avg_marks: number;
+    max_marks: number;
+  };
+  top_repeated_topics: {
+    topic_id: number;
+    topic_name: string;
+    occurrences: number;
+    paper_count: number;
+    paper_coverage: number;
+    total_marks: number;
+    recurrence_status: string;
+  }[];
+  top_repeated_families: {
+    family_id: number;
+    canonical_name: string;
+    occurrences: number;
+    paper_count: number;
+    repetition_type: string;
+  }[];
+}
+
+export interface TopicRepetitionItem {
+  topic_id: number;
+  topic_name: string;
+  unit_name: string;
+  unit_number: number;
+  occurrence_count: number;
+  paper_count: number;
+  paper_coverage: number;
+  total_marks: number;
+  average_marks: number;
+  max_marks: number;
+  first_seen_year: number | null;
+  last_seen_year: number | null;
+  recent_occurrence_count: number;
+  recurrence_status: "RECENTLY_RECURRING" | "HISTORICALLY_STABLE" | "DORMANT" | "LIMITED_EVIDENCE" | "NEVER_EXAMINED";
+  assessment_type_breakdown: Record<string, number>;
+}
+
+export interface TopicRepetitionResponse {
+  course_id: number;
+  course_name: string;
+  total_papers_analyzed: number;
+  total_topics: number;
+  topics_with_questions: number;
+  filters_applied: {
+    year?: number | null;
+    assessment_type?: string | null;
+    unit?: number | null;
+    min_marks?: number | null;
+    max_marks?: number | null;
+  };
+  topics: TopicRepetitionItem[];
+}
+
+export interface FamilyAppearanceItem {
+  question_id: number;
+  question_number: string;
+  year: number | null;
+  assessment_type: string | null;
+  term: string | null;
+  marks: number;
+  is_alternative: boolean;
+  original_text: string;
+  normalized_text: string;
+}
+
+export interface FamilyRepeatItem {
+  family_id: number;
+  canonical_name: string;
+  repetition_type: "exact_repetition" | "parameter_variation" | "conceptual_variant" | "singleton" | string;
+  occurrence_count: number;
+  appearances_count: number;
+  paper_count: number;
+  first_seen_year: number | null;
+  last_seen_year: number | null;
+  assessment_history: string[];
+  marks_history: { label: string; marks: number; year: number | null }[];
+  appearances: FamilyAppearanceItem[];
+  timeline?: TimelineEntry[];
+}
+
+export interface FamilyRepeatResponse {
+  course_id: number;
+  course_name: string;
+  total_papers: number;
+  total_families_found: number;
+  multi_repeat_families_count: number;
+  observed_years?: number[];
+  unobserved_years?: number[];
+  gap_years?: number[];
+  families: FamilyRepeatItem[];
+}
+
+export interface RepeatedQuestionsResponse {
+  course_id: number;
+  course_name: string;
+  total_exact_repeats: number;
+  total_family_repeats: number;
+  total_concept_variants: number;
+  exact_repeats: {
+    repetition_type: "EXACT_REPEAT";
+    family_id: number;
+    canonical_name: string;
+    repeat_count: number;
+    paper_count: number;
+    years_seen: number[];
+    questions: {
+      question_id: number;
+      question_number: string;
+      year: number | null;
+      assessment_type: string | null;
+      marks: number;
+      original_text: string;
+    }[];
+  }[];
+}
+
+export interface EvolutionTimelineEntry {
+  year: number;
+  exam_exists?: boolean;
+  gap?: boolean;
+  status?: string;
+  description?: string;
+  paper_count: number;
+  papers_count: number;
+  assessment_types: string[];
+  total_questions: number;
+  total_marks: number;
+  topics: {
+    name: string;
+    question_count: number;
+    marks: number;
+    is_new: boolean;
+  }[];
+  active_topics: {
+    name: string;
+    question_count: number;
+    marks: number;
+    is_new: boolean;
+  }[];
+  new_topics_introduced: string[];
+  discontinued_topics: string[];
+}
+
+export interface EvolutionResponse {
+  course_id: number;
+  course_name: string;
+  timeline_years: number[];
+  observed_years?: number[];
+  unobserved_years?: number[];
+  gap_years?: number[];
+  gap_entries?: EvolutionTimelineEntry[];
+  timeline: EvolutionTimelineEntry[];
+}
+
+export interface MarksAnalyticsResponse {
+  course_id: number;
+  course_name: string;
+  total_questions_analyzed: number;
+  total_marks: number;
+  avg_question_marks: number;
+  common_marks: { marks: number; count: number; percentage: number }[];
+  marks_by_assessment_type: Record<string, number>;
+  topic_mark_shares: { topic_name: string; marks: number; percentage: number }[];
+}
+
+export interface AssessmentTypePaperCount {
+  type: string;
+  paper_count: number;
+}
+
+export interface TopicAssessmentBreakdown {
+  papers_present: number;
+  total_papers: number;
+  paper_frequency: number;
+  question_count: number;
+  total_marks: number;
+}
+
+export interface AssessmentComparisonTopic {
+  topic_id: number;
+  topic_name: string;
+  unit_name: string;
+  unit_number: number;
+  assessment_breakdown: Record<string, TopicAssessmentBreakdown>;
+  bias: "CLASS_TEST_LEANING" | "END_SEM_LEANING" | "UNIVERSAL" | "BALANCED" | "UNEXAMINED";
+  is_universal: boolean;
+}
+
+export interface AssessmentComparisonResponse {
+  course_id: number;
+  course_name: string;
+  assessment_types: AssessmentTypePaperCount[];
+  total_papers: number;
+  topics: AssessmentComparisonTopic[];
+}
+
+export interface PastQuestionItem {
+  id: number;
+  question_number: string;
+  year: number | null;
+  assessment_type: string;
+  marks: number | null;
+  is_alternative: boolean;
+  original_text: string;
+  difficulty: number | null;
+  family_id: number | null;
+  family_name: string | null;
+  repeat_type: "EXACT_REPEAT" | "FAMILY_REPEAT" | "SINGLETON";
+}
+
+export interface TopicIntelligenceResponse {
+  course_id: number;
+  course_name: string;
+  topic_id: number;
+  topic_name: string;
+  unit: {
+    name: string;
+    number: number;
+  };
+  repetition_metrics: {
+    paper_count: number;
+    total_papers: number;
+    paper_coverage: number;
+    question_count: number;
+    total_marks: number;
+    average_marks: number;
+    max_marks: number;
+    first_seen_year: number | null;
+    last_seen_year: number | null;
+    assessment_distribution: Record<string, number>;
+  };
+  question_families: {
+    family_id: number;
+    canonical_name: string;
+    repetition_type: string;
+    question_count: number;
+    years: number[];
+  }[];
+  past_questions: PastQuestionItem[];
+  forecast: {
+    probability: number;
+    confidence: string;
+    reason_codes: string[];
+    rationale: string;
+    historical_years: number[];
+  };
+  personalization: {
+    student_id: string;
+    status: "NOT_STARTED" | "IN_PROGRESS" | "MASTERED";
+    practice_attempted: number;
+    practice_correct: number;
+    priority_score: number;
+    recommended_action: string;
+  };
+  timeline?: TimelineEntry[];
+  observed_years?: number[];
+  unobserved_years?: number[];
+  gap_years?: number[];
 }
 

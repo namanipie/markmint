@@ -20,7 +20,7 @@ from backend.services.prediction.engine import (
 
 class BacktestEvaluator:
     @staticmethod
-    def evaluate(predictions: list, target_items: list, k_values: list = [5, 10, 20]) -> dict:
+    def evaluate(predictions: list, target_items: list, k_values: list = [3, 5, 10]) -> dict:
         """
         predictions: list of PredictionResult
         target_items: list of dicts with 'name', 'marks', 'count' for the target exam
@@ -49,10 +49,17 @@ class BacktestEvaluator:
             q_coverage = covered_questions / total_target_questions if total_target_questions > 0 else 0
             m_coverage = covered_marks / total_target_marks if total_target_marks > 0 else 0
             
-            results[f"P@{k}"] = precision
-            results[f"R@{k}"] = recall
-            results[f"Q_Cov@{k}"] = q_coverage
-            results[f"M_Cov@{k}"] = m_coverage
+            # Formally named metrics
+            results[f"Precision@{k}"] = round(precision, 4)
+            results[f"Recall@{k}"] = round(recall, 4)
+            results[f"Marks_Coverage@{k}"] = round(m_coverage, 4)
+            results[f"Question_Coverage@{k}"] = round(q_coverage, 4)
+
+            # Shorthand for compatibility
+            results[f"P@{k}"] = round(precision, 4)
+            results[f"R@{k}"] = round(recall, 4)
+            results[f"Q_Cov@{k}"] = round(q_coverage, 4)
+            results[f"M_Cov@{k}"] = round(m_coverage, 4)
             
         return results
 
@@ -84,15 +91,10 @@ class BacktestHarness:
                 for q in section.questions:
                     m = q.marks or 0.0
                     
-                    if q.topic:
-                        t = topics.setdefault(q.topic.name, {'name': q.topic.name, 'count': 0, 'marks': 0.0})
+                    for top in q.topics:
+                        t = topics.setdefault(top.name, {'name': top.name, 'count': 0, 'marks': 0.0})
                         t['count'] += 1
                         if not q.is_alternative: t['marks'] += m
-                        
-                    if q.unit:
-                        u = units.setdefault(q.unit.name, {'name': q.unit.name, 'count': 0, 'marks': 0.0})
-                        u['count'] += 1
-                        if not q.is_alternative: u['marks'] += m
                         
                     if q.family_id:
                         fam_name = q.family.canonical_name if q.family else str(q.family_id)
@@ -107,6 +109,7 @@ class BacktestHarness:
         }
 
     def run(self):
+        from backend.api.endpoints.predictions import _build_historical_exam_payloads
         courses = self.db.query(Course).all()
         report = []
         
@@ -121,32 +124,13 @@ class BacktestHarness:
                 
                 # 1. Freeze Historical State
                 hist_exams_orm = repo.get_historical_exams()
-                # Convert ORM to dicts for ExamDNAAnalyzer
-                hist_exams_dicts = [
-                    {
-                        "id": e.id,
-                        "year": e.year,
-                        "exam_type": e.exam_type,
-                        "questions": [
-                            {
-                                "id": q.id,
-                                "marks": q.marks,
-                                "is_alternative": q.is_alternative,
-                                "topic": q.topic.name if q.topic else None,
-                                "unit": q.unit.name if q.unit else None,
-                                "question_type": q.question_type,
-                                "repetition_type": q.memberships[0].match_type if q.memberships else "singleton",
-                                "family_name": q.family.canonical_name if q.family else None,
-                                "difficulty": q.difficulty
-                            }
-                            for sec in e.sections for q in sec.questions
-                        ]
-                    }
-                    for e in hist_exams_orm
-                ]
+                if not hist_exams_orm:
+                    continue
+
+                hist_exams_dicts = _build_historical_exam_payloads(hist_exams_orm)
                 
                 analyzer = DNAAnalyzerService()
-                dna = analyzer.analyze(hist_exams_dicts, course.name)
+                dna = analyzer.analyze(hist_exams_dicts)
                 
                 # 2. Generate Predictions (Models A-F)
                 models = {

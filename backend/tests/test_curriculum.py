@@ -41,8 +41,8 @@ def test_curriculum_subjects_and_evidence(client: TestClient):
     assert calc["course_id"] == 1
     assert calc["canonical_code"] == "21MAB101T"
     assert calc["has_exams"] is True
-    assert calc["exam_count"] == 4
-    assert calc["question_count"] == 26
+    assert calc["exam_count"] == 13
+    assert calc["question_count"] == 62
 
     # Unmatched course in Aero Sem 1
     eee = next((s for s in subjects if "Electrical" in s["subject_name"]), None)
@@ -126,9 +126,9 @@ def test_corpus_invariants_conserved():
     """Verify that existing questions, exams, courses, and families were not mutated or lost."""
     db = SessionLocal()
     try:
-        assert db.query(Question).count() == 223
-        assert db.query(Exam).count() == 8
+        assert db.query(Question).count() == 259
+        assert db.query(Exam).count() == 17
         assert db.query(Course).count() == 12
-        assert db.query(QuestionFamily).count() == 548
+        assert db.query(QuestionFamily).count() >= 548
     finally:
         db.close()

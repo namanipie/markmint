@@ -1,11 +1,11 @@
 import re
 from typing import Any, Optional
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, and_, desc, func
+from sqlalchemy import or_, and_, desc, func, String, cast
 
 from backend.models.core import (
     Question, Concept, StudyEvidence, Document, Exam, Section,
-    Course, Topic, QuestionFamily, Unit
+    Course, Topic, QuestionFamily, Unit, Syllabus
 )
 from backend.schemas import (
     SearchQuery, SearchResult, SearchResultType, ParsedIntent, SearchFilters
@@ -19,7 +19,10 @@ class DiscoverySearchEngine:
         """
         Parses natural language to extract implicit filters (e.g. '5 mark questions').
         """
-        q = raw_query.lower()
+        if not raw_query or not raw_query.strip():
+            return ParsedIntent(clean_search_term="")
+
+        q = raw_query.lower().strip()
         intent = ParsedIntent(clean_search_term=raw_query)
         
         # 1. Target Type
@@ -43,7 +46,7 @@ class DiscoverySearchEngine:
         if marks_match:
             intent.extracted_marks = float(marks_match.group(1))
             
-        # 3. Clean search term (remove boilerplate words)
+        # 3. Clean search term (remove boilerplate words & sanitize)
         stopwords = {
             "about", "what", "keeps", "coming", "in", "on", "that", "repeat", "repeats", "recently",
             "mark", "marks", "question", "questions", "topic", "topics", "concept", "concepts",
@@ -52,22 +55,43 @@ class DiscoverySearchEngine:
         }
         words = q.split()
         clean_words = [w for w in words if w not in stopwords and not w.isdigit()]
-        intent.clean_search_term = " ".join(clean_words).strip() or raw_query.strip()
+        if clean_words:
+            clean = " ".join(clean_words).strip()
+        elif intent.target_type:
+            clean = ""
+        else:
+            clean = raw_query.strip()
+        intent.clean_search_term = clean
         
         return intent
 
     def _hybrid_search_courses(self, intent: ParsedIntent, filters: SearchFilters, limit: int) -> list[SearchResult]:
         if not self.db:
             return []
-        term = f"%{intent.clean_search_term}%"
-        query = self.db.query(Course).filter(
-            or_(
-                Course.name.ilike(term),
-                Course.code.ilike(term),
-                Course.canonical_code.ilike(term),
-                Course.department.ilike(term)
-            )
-        )
+        query = self.db.query(Course)
+        if intent.clean_search_term:
+            tokens = [t.strip() for t in intent.clean_search_term.split() if t.strip()]
+            if len(tokens) > 1:
+                token_filters = [
+                    or_(
+                        Course.name.ilike(f"%{t}%"),
+                        Course.code.ilike(f"%{t}%"),
+                        Course.canonical_code.ilike(f"%{t}%"),
+                        Course.department.ilike(f"%{t}%")
+                    )
+                    for t in tokens
+                ]
+                query = query.filter(and_(*token_filters))
+            else:
+                term = f"%{intent.clean_search_term}%"
+                query = query.filter(
+                    or_(
+                        Course.name.ilike(term),
+                        Course.code.ilike(term),
+                        Course.canonical_code.ilike(term),
+                        Course.department.ilike(term)
+                    )
+                )
         results = query.limit(limit).all()
         return [
             SearchResult(
@@ -85,10 +109,22 @@ class DiscoverySearchEngine:
     def _hybrid_search_topics(self, intent: ParsedIntent, filters: SearchFilters, limit: int) -> list[SearchResult]:
         if not self.db:
             return []
-        term = f"%{intent.clean_search_term}%"
-        query = self.db.query(Topic).join(Unit, Topic.unit_id == Unit.id).filter(
-            Topic.name.ilike(term)
-        )
+        query = self.db.query(Topic).join(Unit, Topic.unit_id == Unit.id).join(Syllabus, Unit.syllabus_id == Syllabus.id).join(Course, Syllabus.course_id == Course.id)
+        if intent.clean_search_term:
+            tokens = [t.strip() for t in intent.clean_search_term.split() if t.strip()]
+            if len(tokens) > 1:
+                token_filters = [
+                    or_(
+                        Topic.name.ilike(f"%{t}%"),
+                        Unit.name.ilike(f"%{t}%"),
+                        Course.name.ilike(f"%{t}%")
+                    )
+                    for t in tokens
+                ]
+                query = query.filter(and_(*token_filters))
+            else:
+                term = f"%{intent.clean_search_term}%"
+                query = query.filter(Topic.name.ilike(term))
         results = query.limit(limit).all()
         return [
             SearchResult(
@@ -107,13 +143,27 @@ class DiscoverySearchEngine:
     def _hybrid_search_families(self, intent: ParsedIntent, filters: SearchFilters, limit: int) -> list[SearchResult]:
         if not self.db:
             return []
-        term = f"%{intent.clean_search_term}%"
-        query = self.db.query(QuestionFamily).filter(
-            or_(
-                QuestionFamily.canonical_name.ilike(term),
-                QuestionFamily.description.ilike(term)
-            )
-        )
+        query = self.db.query(QuestionFamily)
+        if intent.clean_search_term:
+            tokens = [t.strip() for t in intent.clean_search_term.split() if t.strip()]
+            if len(tokens) > 1:
+                token_filters = [
+                    or_(
+                        QuestionFamily.canonical_name.ilike(f"%{t}%"),
+                        QuestionFamily.description.ilike(f"%{t}%"),
+                        QuestionFamily.subject.ilike(f"%{t}%")
+                    )
+                    for t in tokens
+                ]
+                query = query.filter(and_(*token_filters))
+            else:
+                term = f"%{intent.clean_search_term}%"
+                query = query.filter(
+                    or_(
+                        QuestionFamily.canonical_name.ilike(term),
+                        QuestionFamily.description.ilike(term)
+                    )
+                )
         results = query.limit(limit).all()
         return [
             SearchResult(
@@ -222,7 +272,53 @@ class DiscoverySearchEngine:
             metadata={"document_id": s.document_id, "page_number": s.page_number}
         ) for s in results]
 
+    def _hybrid_search_exams(self, intent: ParsedIntent, filters: SearchFilters, limit: int) -> list[SearchResult]:
+        if not self.db:
+            return []
+        
+        query = self.db.query(Exam).join(Course)
+        
+        if intent.clean_search_term:
+            tokens = [t.strip() for t in intent.clean_search_term.split() if t.strip()]
+            if not tokens:
+                tokens = [intent.clean_search_term]
+            
+            token_filters = []
+            for t in tokens:
+                pattern = f"%{t}%"
+                token_filters.append(
+                    or_(
+                        Course.name.ilike(pattern),
+                        Course.code.ilike(pattern),
+                        Exam.term.ilike(pattern),
+                        Exam.assessment_type.ilike(pattern),
+                        cast(Exam.year, String).ilike(pattern)
+                    )
+                )
+            query = query.filter(and_(*token_filters))
+            
+        if filters.year:
+            query = query.filter(Exam.year == filters.year)
+        results = query.limit(limit).all()
+        return [
+            SearchResult(
+                id=e.id,
+                result_type=SearchResultType.EXAM,
+                title=f"{e.course.name} - {e.assessment_type or 'Exam'} {e.year or ''}",
+                text_snippet=f"Course: {e.course.name} | Term: {e.term or 'Regular'} | Year: {e.year or 'Unknown'}",
+                subject=e.course.name,
+                year=e.year,
+                exam_type=e.assessment_type,
+                relevance_score=0.91,
+                metadata={"exam_id": e.id, "course_id": e.course_id}
+            )
+            for e in results
+        ]
+
     def search(self, query: SearchQuery) -> list[SearchResult]:
+        if not query.raw_query or not query.raw_query.strip():
+            return []
+
         intent = self._parse_intent(query.raw_query)
         filters = query.filters or SearchFilters()
         
@@ -239,6 +335,8 @@ class DiscoverySearchEngine:
             return self._hybrid_search_concepts(intent, filters, query.limit)
         elif intent.target_type == SearchResultType.STUDY_MATERIAL:
             return self._hybrid_search_study_material(intent, filters, query.limit)
+        elif intent.target_type == SearchResultType.EXAM:
+            return self._hybrid_search_exams(intent, filters, query.limit)
         else:
             # Broad scatter-gather across all entities
             per_type = max(2, query.limit // 4)
@@ -248,7 +346,8 @@ class DiscoverySearchEngine:
             questions = self._hybrid_search_questions(intent, filters, limit=per_type)
             concepts = self._hybrid_search_concepts(intent, filters, limit=per_type)
             materials = self._hybrid_search_study_material(intent, filters, limit=per_type)
+            exams = self._hybrid_search_exams(intent, filters, limit=per_type)
             
-            combined = courses + topics + families + questions + concepts + materials
+            combined = courses + topics + families + questions + concepts + materials + exams
             combined.sort(key=lambda x: x.relevance_score, reverse=True)
             return combined[:query.limit]

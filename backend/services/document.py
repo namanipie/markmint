@@ -12,11 +12,39 @@ from backend.models.core import (
     Syllabus,
     Topic,
     Unit,
+    DocumentProvenance,
 )
 
 class DocumentService:
     def __init__(self, db: Session):
         self.db = db
+
+    def add_provenance(
+        self,
+        document_id: int,
+        source_site: str,
+        source_url: str,
+        resolved_url: Optional[str] = None,
+        source_priority: str = "PRIMARY_SOURCE"
+    ) -> DocumentProvenance:
+        existing = self.db.query(DocumentProvenance).filter(
+            DocumentProvenance.document_id == document_id,
+            DocumentProvenance.source_url == source_url
+        ).first()
+        if existing:
+            return existing
+
+        provenance = DocumentProvenance(
+            document_id=document_id,
+            source_site=source_site,
+            source_url=source_url,
+            resolved_url=resolved_url,
+            source_priority=source_priority
+        )
+        self.db.add(provenance)
+        self.db.commit()
+        self.db.refresh(provenance)
+        return provenance
 
     def get_or_create_document(self, document_hash: str, **kwargs) -> Document:
         query = self.db.query(Document).filter(Document.document_hash == document_hash)
@@ -28,13 +56,31 @@ class DocumentService:
             )
             
         doc = query.first()
+        source_site = kwargs.get("source", "unknown")
         
         if not doc:
             doc = Document(document_hash=document_hash, **kwargs)
             self.db.add(doc)
             self.db.commit()
             self.db.refresh(doc)
+            if original_url:
+                self.add_provenance(
+                    document_id=doc.id,
+                    source_site=source_site,
+                    source_url=original_url,
+                    source_priority="PRIMARY_SOURCE"
+                )
+        else:
+            # Document exists with this hash - record additional provenance if URL provided
+            if original_url and original_url != doc.original_url:
+                self.add_provenance(
+                    document_id=doc.id,
+                    source_site=source_site,
+                    source_url=original_url,
+                    source_priority="DUPLICATE_SOURCE"
+                )
         return doc
+
 
     def _get_or_create_concept(self, canonical_name: str) -> Concept:
         concept = self.db.query(Concept).filter(Concept.canonical_name == canonical_name).first()

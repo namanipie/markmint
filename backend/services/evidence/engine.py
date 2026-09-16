@@ -30,12 +30,15 @@ class WhyEngineService:
             f"It represents {metrics.supported_questions} questions and {metrics.total_marks} total marks."
         )
 
-        confidence = "HIGH" if (metrics.supported_papers / metrics.total_papers) >= 0.7 else "MEDIUM"
-        
+        # Confidence strictly reflects evidence volume and recency stability (not recurrence ratio)
         limitations = None
         if metrics.recent_papers == 0:
             confidence = "LOW"
             limitations = "This topic has not appeared in any recent exams, reducing predictive confidence."
+        elif metrics.total_papers >= 5 and metrics.supported_questions >= 10:
+            confidence = "HIGH"
+        else:
+            confidence = "MEDIUM"
 
         return InsightExplanation(
             finding_type="topic_importance",

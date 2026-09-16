@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
-from backend.api.endpoints.predictions import get_prediction
+from backend.api.endpoints.predictions import get_prediction, resolve_course
 from backend.core.database import SessionLocal
 from backend.models.core import Course
 from backend.services.student_uploads import StudentUploadService
@@ -35,7 +35,7 @@ class ProgressRequest(BaseModel):
 
 
 def _course(db: Session, course_name: str) -> Course:
-    course = db.query(Course).filter(Course.name == course_name).first()
+    course = resolve_course(db, course_name)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     return course
@@ -100,6 +100,9 @@ def get_topic_resources(course_name: str, topic_name: str, limit: int = 20):
         db.close()
 
 
+MAX_PDF_SIZE_BYTES = 20 * 1024 * 1024  # 20MB
+
+
 @router.post("/uploads")
 def upload_study_resource(
     file: UploadFile = File(...),
@@ -110,10 +113,18 @@ def upload_study_resource(
 ):
     if not file.filename or not file.filename.lower().endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Only PDF study resources are supported")
-    safe_name = Path(file.filename).name
+
+    content = file.file.read()
+    if len(content) > MAX_PDF_SIZE_BYTES:
+        raise HTTPException(status_code=413, detail="File size exceeds the 20MB limit.")
+
+    if not content.startswith(b"%PDF-"):
+        raise HTTPException(status_code=400, detail="Invalid PDF file format: missing '%PDF-' header signature.")
+
+    import re
+    safe_name = re.sub(r"[^a-zA-Z0-9_.-]", "_", Path(file.filename).name)
     upload_dir = Path("data/uploads")
     upload_dir.mkdir(parents=True, exist_ok=True)
-    content = file.file.read()
     stored_name = f"{hashlib.sha256(content).hexdigest()}_{safe_name}"
     file_path = upload_dir / stored_name
     file_path.write_bytes(content)

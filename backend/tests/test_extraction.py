@@ -74,4 +74,37 @@ def test_extract_questions_from_pdf(client: TestClient) -> None:
     assert q3["marks"] == 15.0
     assert "Compare trees and graphs." in q3["original_text"]
     assert q3["page_number"] == 2
+
+
+def test_upload_non_pdf_rejected(client: TestClient) -> None:
+    buffer = BytesIO(b"Hello world, plain text")
+    response = client.post(
+        "/api/papers/upload",
+        files={"file": ("notes.txt", buffer, "text/plain")},
+    )
+    assert response.status_code == 400
+    assert "Only PDF files are supported" in response.json()["detail"]
+
+
+def test_upload_fake_pdf_header_rejected(client: TestClient) -> None:
+    buffer = BytesIO(b"MALICIOUS_EXE_OR_CORRUPT_HEADER")
+    response = client.post(
+        "/api/papers/upload",
+        files={"file": ("test.pdf", buffer, "application/pdf")},
+    )
+    assert response.status_code == 400
+    assert "missing '%PDF-' header signature" in response.json()["detail"]
+
+
+def test_upload_oversized_file_rejected(client: TestClient) -> None:
+    oversized = BytesIO(b"%PDF-" + b"0" * (20 * 1024 * 1024 + 10))
+    response = client.post(
+        "/api/papers/upload",
+        files={"file": ("huge.pdf", oversized, "application/pdf")},
+    )
+    assert response.status_code == 413
+    assert "20MB limit" in response.json()["detail"]
+
+
 def test_pdf_symbol_preservation(): pass  # ponytail: regression slot — run with known math/chem PDF
+

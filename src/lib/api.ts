@@ -21,7 +21,21 @@ async function fetchAPI(path: string, options?: RequestInit) {
   return res.json();
 }
 
-import { CurriculumSubject, CurriculumStats, IntelligenceSnapshot, HistoricalQuestion, SearchResult } from "./types";
+import {
+  CurriculumSubject,
+  CurriculumStats,
+  IntelligenceSnapshot,
+  HistoricalQuestion,
+  SearchResult,
+  RepetitionOverview,
+  TopicRepetitionResponse,
+  FamilyRepeatResponse,
+  RepeatedQuestionsResponse,
+  EvolutionResponse,
+  MarksAnalyticsResponse,
+  AssessmentComparisonResponse,
+  TopicIntelligenceResponse
+} from "./types";
 
 // Real Backend Endpoints
 export async function getCurriculumBranches(): Promise<string[]> {
@@ -61,11 +75,23 @@ export async function getHistoricalQuestions(
   courseId: string | number,
   topic?: string,
   assessmentType?: string,
-  limit: number = 50
+  limit: number = 50,
+  filters?: {
+    year?: number;
+    min_marks?: number;
+    max_marks?: number;
+    family_id?: number;
+    repetition_type?: string;
+  }
 ): Promise<{ course_id: number; course_name: string; total_returned: number; questions: HistoricalQuestion[] }> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}/questions?limit=${limit}`;
   if (topic) url += `&topic=${encodeURIComponent(topic)}`;
   if (assessmentType) url += `&assessment_type=${encodeURIComponent(assessmentType)}`;
+  if (filters?.year) url += `&year=${encodeURIComponent(filters.year)}`;
+  if (filters?.min_marks !== undefined) url += `&min_marks=${encodeURIComponent(filters.min_marks)}`;
+  if (filters?.max_marks !== undefined) url += `&max_marks=${encodeURIComponent(filters.max_marks)}`;
+  if (filters?.family_id) url += `&family_id=${encodeURIComponent(filters.family_id)}`;
+  if (filters?.repetition_type) url += `&repetition_type=${encodeURIComponent(filters.repetition_type)}`;
   return fetchAPI(url);
 }
 
@@ -166,3 +192,75 @@ export async function getDashboardStats() {
     return null;
   }
 }
+
+// Repetition Analytics Suite
+export async function getRepetitionOverview(courseId: string | number): Promise<RepetitionOverview> {
+  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/overview`);
+}
+
+export async function getTopicRepetition(
+  courseId: string | number,
+  filters?: {
+    year?: number;
+    assessmentType?: string;
+    unit?: number;
+    minMarks?: number;
+    maxMarks?: number;
+  }
+): Promise<TopicRepetitionResponse> {
+  let url = `/analytics/${encodeURIComponent(String(courseId))}/topics?`;
+  const params: string[] = [];
+  if (filters?.year) params.push(`year=${encodeURIComponent(filters.year)}`);
+  if (filters?.assessmentType) params.push(`assessment_type=${encodeURIComponent(filters.assessmentType)}`);
+  if (filters?.unit) params.push(`unit=${encodeURIComponent(filters.unit)}`);
+  if (filters?.minMarks !== undefined) params.push(`min_marks=${encodeURIComponent(filters.minMarks)}`);
+  if (filters?.maxMarks !== undefined) params.push(`max_marks=${encodeURIComponent(filters.maxMarks)}`);
+  return fetchAPI(url + params.join("&"));
+}
+
+export async function getQuestionFamilies(
+  courseId: string | number,
+  filters?: {
+    assessmentType?: string;
+    topicId?: number;
+    minOccurrences?: number;
+  }
+): Promise<FamilyRepeatResponse> {
+  let url = `/analytics/${encodeURIComponent(String(courseId))}/families?`;
+  const params: string[] = [];
+  if (filters?.assessmentType) params.push(`assessment_type=${encodeURIComponent(filters.assessmentType)}`);
+  if (filters?.topicId) params.push(`topic_id=${encodeURIComponent(filters.topicId)}`);
+  if (filters?.minOccurrences) params.push(`min_occurrences=${encodeURIComponent(filters.minOccurrences)}`);
+  return fetchAPI(url + params.join("&"));
+}
+
+export async function getRepeatedQuestions(courseId: string | number): Promise<RepeatedQuestionsResponse> {
+  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/questions/repeated`);
+}
+
+export async function getCourseEvolution(courseId: string | number): Promise<EvolutionResponse> {
+  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/evolution`);
+}
+
+export async function getMarksAnalytics(courseId: string | number): Promise<MarksAnalyticsResponse> {
+  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/marks`);
+}
+
+export async function getAssessmentComparison(
+  courseId: string | number
+): Promise<AssessmentComparisonResponse> {
+  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/assessment-comparison`);
+}
+
+export async function getTopicIntelligence(
+  courseId: string | number,
+  topicId: string | number,
+  studentId: string = "default_student"
+): Promise<TopicIntelligenceResponse> {
+  return fetchAPI(
+    `/analytics/${encodeURIComponent(String(courseId))}/topics/${encodeURIComponent(
+      String(topicId)
+    )}/intelligence?student_id=${encodeURIComponent(studentId)}`
+  );
+}
+

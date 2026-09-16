@@ -1,92 +1,41 @@
 """
 Idempotent migration and seeding script for MarkMint Canonical Academic Data Layer.
+Database-agnostic: supports both PostgreSQL (via DATABASE_URL / Render) and SQLite.
 
-1. Ensures nullable canonical columns exist on courses table.
-2. Ensures curriculum_mappings table and indexes exist.
-3. Seeds all 2,810 curriculum entries across 54 branches.
-4. Maps verified courses (Calculus, Chemistry, etc.) to existing Course records.
-5. Tags ambiguous courses with notes, preserving raw integrity.
-6. Enriches Courses 1 and 2 with validated SRM canonical codes and metadata.
+1. Ensures curriculum_mappings table and indexes exist.
+2. Seeds all 2,810 curriculum entries across 54 branches idempotently.
+3. Maps verified courses (Calculus, Chemistry, etc.) to existing Course records.
+4. Tags ambiguous courses with notes, preserving raw integrity.
+5. Enriches Courses 1 and 2 with validated SRM canonical codes and metadata.
 """
 
 import os
 import sys
 import json
-import sqlite3
 import re
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE_DIR, "production_corpus.db")
+sys.path.insert(0, BASE_DIR)
+
+from backend.core.database import SessionLocal, engine, Base
+from backend.models.core import Course, CurriculumMapping
+
 JSON_PATH = os.path.join(BASE_DIR, "data", "curriculum_catalog.json")
 
 
-def normalize(text: str) -> str:
+def normalize(text_val: str) -> str:
     """Normalize a string to lowercase alphanumeric characters only."""
-    return re.sub(r'[^a-zA-Z0-9]', '', str(text)).lower()
+    return re.sub(r'[^a-zA-Z0-9]', '', str(text_val)).lower()
 
 
-def migrate_schema(conn: sqlite3.Connection):
-    """Add new columns to courses and create curriculum_mappings table idempotently."""
-    cur = conn.cursor()
-
-    # 1. Add nullable columns to courses if missing
-    cur.execute("PRAGMA table_info(courses)")
-    existing_cols = [row[1] for row in cur.fetchall()]
-
-    new_cols = [
-        ("canonical_code", "VARCHAR(32)"),
-        ("regulation_year", "INTEGER"),
-        ("department", "VARCHAR(120)")
-    ]
-
-    for col_name, col_type in new_cols:
-        if col_name not in existing_cols:
-            print(f"[Schema] Adding column '{col_name}' ({col_type}) to courses table...")
-            cur.execute(f"ALTER TABLE courses ADD COLUMN {col_name} {col_type}")
-
-    # 2. Create curriculum_mappings table
-    cur.execute("""
-        CREATE TABLE IF NOT EXISTS curriculum_mappings (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            branch_name VARCHAR(120) NOT NULL,
-            semester INTEGER NOT NULL,
-            curriculum_id VARCHAR(64) NOT NULL,
-            subject_name VARCHAR(255) NOT NULL,
-            credits INTEGER DEFAULT 3,
-            course_id INTEGER REFERENCES courses(id) ON DELETE SET NULL,
-            status VARCHAR(32) NOT NULL DEFAULT 'UNMATCHED',
-            notes VARCHAR(255),
-            created_at DATETIME
-        )
-    """)
-
-    # 3. Create indexes
-    cur.execute("""
-        CREATE UNIQUE INDEX IF NOT EXISTS uq_branch_sem_curr_id 
-        ON curriculum_mappings(branch_name, semester, curriculum_id)
-    """)
-    cur.execute("""
-        CREATE INDEX IF NOT EXISTS idx_branch_sem_status 
-        ON curriculum_mappings(branch_name, semester, status)
-    """)
-    cur.execute("""
-        CREATE INDEX IF NOT EXISTS idx_curr_course_id 
-        ON curriculum_mappings(course_id)
-    """)
-    cur.execute("""
-        CREATE INDEX IF NOT EXISTS idx_curr_subject_name 
-        ON curriculum_mappings(subject_name)
-    """)
-
-    conn.commit()
-    print("[Schema] Schema migration complete.")
+def ensure_schema():
+    """Ensure tables exist using SQLAlchemy metadata."""
+    Base.metadata.create_all(bind=engine)
 
 
-def seed_curriculum(conn: sqlite3.Connection):
-    """Seed the 2,810 curriculum entries and link verified courses."""
-    cur = conn.cursor()
-
+def seed_curriculum(db):
+    """Seed the 2,810 curriculum entries and link verified courses idempotently."""
     if not os.path.exists(JSON_PATH):
         raise FileNotFoundError(f"Curriculum catalog not found at {JSON_PATH}")
 
@@ -95,14 +44,17 @@ def seed_curriculum(conn: sqlite3.Connection):
 
     print(f"[Seed] Loaded {len(catalog)} curriculum entries from {JSON_PATH}")
 
+    # Check existing count
+    existing_count = db.query(CurriculumMapping).count()
+    print(f"[Seed] Existing curriculum mappings count: {existing_count}")
+
     # Load existing courses
-    cur.execute("SELECT id, code, name FROM courses")
-    db_courses = cur.fetchall()
-    
-    # Map normalized course name -> course_id
+    db_courses = db.query(Course).all()
     course_map = {}
-    for c_id, code, name in db_courses:
-        course_map[normalize(name)] = c_id
+    for c in db_courses:
+        course_map[normalize(c.name)] = c.id
+        if c.code:
+            course_map[normalize(c.code)] = c.id
 
     # Ambiguous subject specifications (do NOT force map)
     ambiguous_notes = {
@@ -114,120 +66,109 @@ def seed_curriculum(conn: sqlite3.Connection):
         "fundamentals of economics": "Naming variant of Fundamental Of Economics (FOE)",
     }
 
-    # Tracking counters
-    counts = {
-        "matched": 0,
-        "unmatched": 0,
-        "ambiguous": 0,
-        "total": len(catalog)
-    }
+    if existing_count < len(catalog):
+        print("[Seed] Populating curriculum mappings...")
+        existing_keys = {
+            (m.branch_name, m.semester, m.curriculum_id)
+            for m in db.query(CurriculumMapping.branch_name, CurriculumMapping.semester, CurriculumMapping.curriculum_id).all()
+        }
 
-    now_iso = datetime.utcnow().isoformat()
+        now_dt = datetime.utcnow()
+        new_records = []
+        for entry in catalog:
+            branch = entry["branch"]
+            sem = int(entry["semester"])
+            curr_id = entry["id"]
+            subj_name = entry["name"]
+            credits = entry.get("credits", 3)
 
-    for entry in catalog:
-        branch = entry["branch"]
-        sem = int(entry["semester"])
-        curr_id = entry["id"]
-        subj_name = entry["name"]
-        credits = entry.get("credits", 3)
+            if (branch, sem, curr_id) in existing_keys:
+                continue
 
-        norm_name = normalize(subj_name)
-
-        course_id = None
-        status = "UNMATCHED"
-        notes = None
-
-        if norm_name in course_map:
-            course_id = course_map[norm_name]
-            status = "MATCHED"
-            counts["matched"] += 1
-        elif norm_name in ambiguous_notes:
-            status = "AMBIGUOUS"
-            notes = ambiguous_notes[norm_name]
-            counts["ambiguous"] += 1
-        else:
+            norm_name = normalize(subj_name)
+            course_id = None
             status = "UNMATCHED"
-            counts["unmatched"] += 1
+            notes = None
 
-        # Upsert entry
-        cur.execute("""
-            INSERT INTO curriculum_mappings (
-                branch_name, semester, curriculum_id, subject_name, credits, course_id, status, notes, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ON CONFLICT(branch_name, semester, curriculum_id) DO UPDATE SET
-                subject_name = excluded.subject_name,
-                credits = excluded.credits,
-                course_id = excluded.course_id,
-                status = excluded.status,
-                notes = excluded.notes
-        """, (branch, sem, curr_id, subj_name, credits, course_id, status, notes, now_iso))
+            if norm_name in course_map:
+                course_id = course_map[norm_name]
+                status = "MATCHED"
+            elif norm_name in ambiguous_notes:
+                status = "AMBIGUOUS"
+                notes = ambiguous_notes[norm_name]
+            else:
+                status = "UNMATCHED"
+
+            new_records.append(CurriculumMapping(
+                branch_name=branch,
+                semester=sem,
+                curriculum_id=curr_id,
+                subject_name=subj_name,
+                credits=credits,
+                course_id=course_id,
+                status=status,
+                notes=notes,
+                created_at=now_dt
+            ))
+
+        if new_records:
+            db.bulk_save_objects(new_records)
+            db.commit()
+            print(f"[Seed] Inserted {len(new_records)} curriculum mapping records.")
 
     # Enrich validated SRM canonical metadata for Courses 1 and 2
-    cur.execute("""
-        UPDATE courses 
-        SET canonical_code = '21MAB101T', regulation_year = 2021, department = 'Mathematics' 
-        WHERE id = 1
-    """)
-    cur.execute("""
-        UPDATE courses 
-        SET canonical_code = '21CYB101J', regulation_year = 2021, department = 'Chemistry' 
-        WHERE id = 2
-    """)
+    c1 = db.query(Course).filter(Course.id == 1).first()
+    if c1:
+        c1.canonical_code = "21MAB101T"
+        c1.regulation_year = 2021
+        c1.department = "Mathematics"
 
-    conn.commit()
+    c2 = db.query(Course).filter(Course.id == 2).first()
+    if c2:
+        c2.canonical_code = "21CYB101J"
+        c2.regulation_year = 2021
+        c2.department = "Chemistry"
 
-    print("[Seed] Seeding completed:")
-    print(f"  - Total entries processed: {counts['total']}")
-    print(f"  - Verified MATCHED:       {counts['matched']}")
-    print(f"  - Tagged AMBIGUOUS:       {counts['ambiguous']}")
-    print(f"  - UNMATCHED (catalog):    {counts['unmatched']}")
+    db.commit()
+    print("[Seed] Enriched Courses 1 & 2 canonical metadata.")
 
 
-def verify_integrity(conn: sqlite3.Connection):
+def verify_integrity(db):
     """Verify database invariants."""
-    cur = conn.cursor()
+    total_mappings = db.query(CurriculumMapping).count()
+    matched = db.query(CurriculumMapping).filter(CurriculumMapping.status == "MATCHED").count()
+    ambiguous = db.query(CurriculumMapping).filter(CurriculumMapping.status == "AMBIGUOUS").count()
+    unmatched = db.query(CurriculumMapping).filter(CurriculumMapping.status == "UNMATCHED").count()
 
-    cur.execute("SELECT count(*) FROM curriculum_mappings")
-    total_mappings = cur.fetchone()[0]
-
-    cur.execute("SELECT count(*) FROM courses")
-    total_courses = cur.fetchone()[0]
-
-    cur.execute("SELECT count(*) FROM exams")
-    total_exams = cur.fetchone()[0]
-
-    cur.execute("SELECT count(*) FROM questions")
-    total_questions = cur.fetchone()[0]
-
-    cur.execute("SELECT count(*) FROM question_families")
-    total_families = cur.fetchone()[0]
+    total_courses = db.query(Course).count()
 
     print("\n[Integrity Verification]")
     print(f"  - curriculum_mappings: {total_mappings} (expected 2810)")
-    print(f"  - courses:             {total_courses} (expected 12)")
-    print(f"  - exams:               {total_exams} (expected 8)")
-    print(f"  - questions:           {total_questions} (expected 223)")
-    print(f"  - question_families:   {total_families} (expected 548)")
+    print(f"    * MATCHED:   {matched} (expected 250)")
+    print(f"    * AMBIGUOUS: {ambiguous} (expected 40)")
+    print(f"    * UNMATCHED: {unmatched} (expected 2520)")
+    print(f"  - courses:             {total_courses} (expected >= 12)")
 
     assert total_mappings == 2810, f"Expected 2810 mappings, got {total_mappings}"
-    assert total_courses == 12, f"Expected 12 courses, got {total_courses}"
-    assert total_exams == 8, f"Expected 8 exams, got {total_exams}"
-    assert total_questions == 223, f"Expected 223 questions, got {total_questions}"
-    assert total_families == 548, f"Expected 548 question families, got {total_families}"
+    assert matched == 250, f"Expected 250 matched, got {matched}"
+    assert ambiguous == 40, f"Expected 40 ambiguous, got {ambiguous}"
+    assert unmatched == 2520, f"Expected 2520 unmatched, got {unmatched}"
+    assert total_courses >= 12, f"Expected >= 12 courses, got {total_courses}"
 
-    print("[Integrity] ALL INVARIANTS SATISFIED!")
+    print("[Integrity] ALL CURRICULUM INVARIANTS SATISFIED!")
 
 
 def main():
-    print(f"Connecting to database at {DB_PATH}...")
-    conn = sqlite3.connect(DB_PATH)
+    print(f"Connecting to database via SessionLocal()...")
+    ensure_schema()
+    db = SessionLocal()
     try:
-        migrate_schema(conn)
-        seed_curriculum(conn)
-        verify_integrity(conn)
+        seed_curriculum(db)
+        verify_integrity(db)
     finally:
-        conn.close()
+        db.close()
 
 
 if __name__ == "__main__":
     main()
+
