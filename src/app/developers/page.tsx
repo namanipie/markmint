@@ -366,7 +366,7 @@ function FloatingLeaf() {
 export default function DevelopersPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-accent/20">
-      <FloatingLeaf />
+      {/* <FloatingLeaf /> */}
       <Navbar />
 
       <main className="flex-1 w-full max-w-7xl mx-auto px-6 md:px-10 pt-12 pb-32">
