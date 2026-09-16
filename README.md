@@ -1,4 +1,31 @@
-﻿# MarkMint (formerly ExamScope)
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-Black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+</div>
+
+<br />
+
+<div align="center">
+  <h2>🍃 MarkMint</h2>
+  <p><strong>A deterministic exam-intelligence platform built for SRMIST students.</strong></p>
+  <p>
+    <a href="https://markmint.vercel.app">View Live Demo</a>
+    ·
+    <a href="https://github.com/namanipie/markmint/issues">Report Bug</a>
+  </p>
+</div>
+
+---
+
+### ✨ Features
+* **MintAI Engine:** Generates high-confidence exam predictions using exponential decay recency-weighting algorithms.
+* **ExamDNA Dashboard:** Visualizes topic weights, mark distributions, and cognitive level mappings over historical data.
+* **Premium UI/UX:** Fully responsive, dark-mode optimized interface featuring interactive 3D elements and cinematic Easter eggs.
+* **Strictly Decoupled Architecture:** Clean separation between the Next.js frontend and the robust Python FastAPI extraction engine.
+
+---
 
 MarkMint is a deterministic exam-intelligence platform designed to ingest raw university examination papers and study materials, extract structured metadata, and generate high-confidence predictions using historical ExamDNA and MintAI prediction models.
 
