@@ -433,7 +433,7 @@ export default function MintAIPage() {
                           </div>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-mono font-bold text-accent">{Math.round(p.confidence * 100)}%</div>
+                          <div className="text-2xl font-mono font-bold text-accent">{typeof p.confidence === "string" ? p.confidence : (typeof p.confidence === "number" ? Math.round(p.confidence * 100) + "%" : "—")}</div>
                           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Confidence</div>
                         </div>
                       </div>
