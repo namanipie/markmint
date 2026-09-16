@@ -75,7 +75,30 @@ function handleMock(path: string) {
   });
 }
 
+import { CurriculumSubject, CurriculumStats } from "./types";
+
 // Real Backend Endpoints
+export async function getCurriculumBranches(): Promise<string[]> {
+  return fetchAPI("/curriculum/branches");
+}
+
+export async function getCurriculumSemesters(branch: string): Promise<number[]> {
+  return fetchAPI(`/curriculum/branches/${encodeURIComponent(branch)}/semesters`);
+}
+
+export async function getCurriculumSubjects(
+  branch: string, 
+  semester: number | string
+): Promise<CurriculumSubject[]> {
+  return fetchAPI(
+    `/curriculum/branches/${encodeURIComponent(branch)}/semesters/${encodeURIComponent(String(semester))}`
+  );
+}
+
+export async function getCurriculumStats(): Promise<CurriculumStats> {
+  return fetchAPI("/curriculum/stats");
+}
+
 export async function getCourses() {
   return fetchAPI("/courses/");
 }
@@ -84,8 +107,8 @@ export async function getCourse(id: string | number) {
   return fetchAPI(`/courses/${id}`);
 }
 
-export async function getPredictions(subject: string) {
-  return fetchAPI(`/predictions/${encodeURIComponent(subject)}`);
+export async function getPredictions(subjectOrCourseId: string | number) {
+  return fetchAPI(`/predictions/${encodeURIComponent(String(subjectOrCourseId))}`);
 }
 
 export async function getExamPredictions(id: string | number) {

@@ -3,47 +3,54 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock, ShieldCheck, CheckCircle2 } from "lucide-react";
-import { getCourses, getPredictions, getExamDNA } from "@/lib/api";
-import { BackendCourse, PredictionResponse, ExamDNAAnalysis, BackendPrediction } from "@/lib/types";
-import { CURRICULUM } from "@/lib/curriculumData";
-
-type CourseRecord = BackendCourse & {
-  id?: number | string;
-  name?: string;
-  code?: string;
-};
-
-type CurriculumSubject = {
-  id: string;
-  name: string;
-  credits?: number;
-};
+import { Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock, CheckCircle2 } from "lucide-react";
+import { 
+  getCurriculumBranches, 
+  getCurriculumSemesters, 
+  getCurriculumSubjects, 
+  getPredictions, 
+  getExamDNA 
+} from "@/lib/api";
+import { 
+  PredictionResponse, 
+  ExamDNAAnalysis, 
+  BackendPrediction, 
+  CurriculumSubject 
+} from "@/lib/types";
 
 type ExamDNAResponse = ExamDNAAnalysis & {
-  sample_size?: { exam_types?: unknown[] };
+  sample_size?: { exam_types?: unknown[]; papers?: number; questions?: number };
 };
-
-const normalizeName = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
 
 const examTypeOrder = (examType: string) => {
   const order: Record<string, number> = { CT1: 1, CT2: 2, CT3: 3, CT4: 4, END_SEM: 5 };
   return order[examType] ?? 99;
 };
 
-const supportedExamTypes = ["CT1", "CT2", "CT3", "CT4", "END_SEM"];
-
 export default function MintAIPage() {
-  const [courses, setCourses] = useState<CourseRecord[]>([]);
-  const [selectedBranch, setSelectedBranch] = useState("Computer Science and Engineering");
-  const [selectedSemester, setSelectedSemester] = useState("1");
-  const [selectedCourse, setSelectedCourse] = useState("");
-  const [selectedExam, setSelectedExam] = useState("");
+  // Curriculum hierarchy states from backend
+  const [branches, setBranches] = useState<string[]>([]);
+  const [semesters, setSemesters] = useState<number[]>([]);
+  const [subjects, setSubjects] = useState<CurriculumSubject[]>([]);
+
+  // User selections
+  const [selectedBranch, setSelectedBranch] = useState<string>("");
+  const [selectedSemester, setSelectedSemester] = useState<string>("");
+  const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
+  const [selectedExam, setSelectedExam] = useState<string>("");
   const [examinations, setExaminations] = useState<string[]>([]);
-  const [isLoadingCourses, setIsLoadingCourses] = useState(true);
+
+  // Loading & error states
+  const [isLoadingBranches, setIsLoadingBranches] = useState(true);
+  const [isLoadingSemesters, setIsLoadingSemesters] = useState(false);
+  const [isLoadingSubjects, setIsLoadingSubjects] = useState(false);
   const [isLoadingExaminations, setIsLoadingExaminations] = useState(false);
-  const [courseLoadError, setCourseLoadError] = useState("");
+
+  const [branchLoadError, setBranchLoadError] = useState("");
+  const [semesterLoadError, setSemesterLoadError] = useState("");
+  const [subjectLoadError, setSubjectLoadError] = useState("");
   const [examLoadError, setExamLoadError] = useState("");
+
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [hasData, setHasData] = useState(false);
   const [error, setError] = useState("");
@@ -51,61 +58,172 @@ export default function MintAIPage() {
   const [predictions, setPredictions] = useState<PredictionResponse | null>(null);
   const [dna, setDna] = useState<ExamDNAAnalysis | null>(null);
 
-  const branches = Object.keys(CURRICULUM).sort();
-  const semesters = selectedBranch
-    ? Object.keys(CURRICULUM[selectedBranch] || {}).sort((a, b) => Number(a) - Number(b))
-    : [];
-  const curriculumSubjects = (CURRICULUM[selectedBranch]?.[selectedSemester] || []) as CurriculumSubject[];
-  const availableSubjects = curriculumSubjects
-    .map((subject) => ({
-      subject,
-      course: courses.find((course) => normalizeName(course.name || course.course_name) === normalizeName(subject.name)),
-    }))
-    .filter((entry): entry is { subject: CurriculumSubject; course: CourseRecord } => Boolean(entry.course));
-  const selectedCourseRecord = availableSubjects.find(
-    ({ course }) => String(course.id ?? course.course_id) === selectedCourse,
-  )?.course;
-  const selectedCourseId = selectedCourseRecord
-    ? String(selectedCourseRecord.id ?? selectedCourseRecord.course_id)
-    : "";
-  const selectedSubject = selectedCourseRecord?.name || selectedCourseRecord?.course_name || "";
+  // Analytical readiness derived directly from backend contract
+  const isSubjectAvailable = Boolean(
+    selectedSubject &&
+    selectedSubject.status === "MATCHED" &&
+    selectedSubject.course_id !== null &&
+    selectedSubject.has_exams === true
+  );
 
+  // 1. Initial Mount: Load branches from backend
   useEffect(() => {
-    getCourses().then((data) => {
-      // Data might be an array or an object with an array
-      const courseList = Array.isArray(data) ? data : (data.items || data.courses || []);
-      setCourses(courseList as CourseRecord[]);
-      setCourseLoadError("");
-    }).catch(err => {
-      console.error("Failed to load courses", err);
-      setCourseLoadError("Unable to load courses. Please try again.");
-    }).finally(() => setIsLoadingCourses(false));
+    let active = true;
+    setIsLoadingBranches(true);
+    setBranchLoadError("");
+
+    getCurriculumBranches()
+      .then((branchList) => {
+        if (!active) return;
+        setBranches(branchList);
+        if (branchList.length > 0) {
+          const defaultBranch = branchList.includes("Aerospace Engineering")
+            ? "Aerospace Engineering"
+            : branchList[0];
+          setSelectedBranch(defaultBranch);
+        }
+      })
+      .catch((err) => {
+        if (!active) return;
+        console.error("Failed to load branches from backend", err);
+        setBranchLoadError("Unable to load academic branches. Ensure the backend is running.");
+      })
+      .finally(() => {
+        if (active) setIsLoadingBranches(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
+  // 2. When Branch changes: Load semesters for that branch from backend
   useEffect(() => {
-    if (!selectedCourseRecord) {
+    if (!selectedBranch) {
+      setSemesters([]);
+      setSelectedSemester("");
+      setSubjects([]);
+      setSelectedSubject(null);
       return;
     }
 
     let active = true;
-    getExamDNA(selectedCourseId)
-      .then((data) => {
+    setIsLoadingSemesters(true);
+    setSemesterLoadError("");
+    setSelectedSemester("");
+    setSubjects([]);
+    setSelectedSubject(null);
+    setSelectedExam("");
+    setExaminations([]);
+    setDna(null);
+    setPredictions(null);
+    setHasData(false);
+    setError("");
+
+    getCurriculumSemesters(selectedBranch)
+      .then((semList) => {
         if (!active) return;
-        const rawExamTypes = (data as ExamDNAResponse).sample_size?.exam_types || [];
-        const examTypes = [...new Set(rawExamTypes)].sort(
-          (a, b) => String(a).localeCompare(String(b)),
-        ).filter((value): value is string => typeof value === "string" && value.length > 0)
-          .sort((a, b) => examTypeOrder(a) - examTypeOrder(b) || a.localeCompare(b));
-        setDna(data);
-        setExaminations(examTypes);
-        setSelectedExam("");
+        setSemesters(semList);
+        if (semList.length > 0) {
+          setSelectedSemester(String(semList[0]));
+        }
       })
       .catch((err) => {
         if (!active) return;
-        console.error("Failed to load examinations", err);
-        setExamLoadError("Course-specific examination data is unavailable; showing supported examination types.");
+        console.error(`Failed to load semesters for branch ${selectedBranch}`, err);
+        setSemesterLoadError("Unable to load semesters for this branch.");
+      })
+      .finally(() => {
+        if (active) setIsLoadingSemesters(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [selectedBranch]);
+
+  // 3. When Semester changes: Load subjects for that branch + semester from backend
+  useEffect(() => {
+    if (!selectedBranch || !selectedSemester) {
+      setSubjects([]);
+      setSelectedSubject(null);
+      return;
+    }
+
+    let active = true;
+    setIsLoadingSubjects(true);
+    setSubjectLoadError("");
+    setSelectedSubject(null);
+    setSelectedExam("");
+    setExaminations([]);
+    setDna(null);
+    setPredictions(null);
+    setHasData(false);
+    setError("");
+
+    getCurriculumSubjects(selectedBranch, selectedSemester)
+      .then((subjectList) => {
+        if (!active) return;
+        setSubjects(subjectList);
+        // Default to first subject if available
+        if (subjectList.length > 0) {
+          setSelectedSubject(subjectList[0]);
+        }
+      })
+      .catch((err) => {
+        if (!active) return;
+        console.error(`Failed to load subjects for ${selectedBranch} sem ${selectedSemester}`, err);
+        setSubjectLoadError("Unable to load subjects for this semester.");
+      })
+      .finally(() => {
+        if (active) setIsLoadingSubjects(false);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [selectedBranch, selectedSemester]);
+
+  // 4. When Subject changes: If analytically available, fetch actual ExamDNA metadata to drive exam selector
+  useEffect(() => {
+    setSelectedExam("");
+    setExaminations([]);
+    setDna(null);
+    setPredictions(null);
+    setHasData(false);
+    setError("");
+    setExamLoadError("");
+
+    if (!selectedSubject) return;
+
+    // Guardrail: If subject is UNMATCHED, AMBIGUOUS, or has 0 exams, do NOT call DNA or predictions
+    if (!isSubjectAvailable || selectedSubject.course_id === null) {
+      return;
+    }
+
+    let active = true;
+    setIsLoadingExaminations(true);
+
+    getExamDNA(selectedSubject.course_id)
+      .then((data) => {
+        if (!active) return;
+        const rawExamTypes = (data as ExamDNAResponse)?.sample_size?.exam_types || [];
+        const examTypes = [...new Set(rawExamTypes)]
+          .filter((value): value is string => typeof value === "string" && value.length > 0)
+          .sort((a, b) => examTypeOrder(a) - examTypeOrder(b) || a.localeCompare(b));
+
+        setDna(data);
+        setExaminations(examTypes);
+        if (examTypes.length > 0) {
+          setSelectedExam(examTypes[0]);
+        }
+      })
+      .catch((err) => {
+        if (!active) return;
+        console.error("Failed to retrieve examination metadata", err);
+        setExamLoadError("Unable to retrieve examination metadata for this course.");
         setDna(null);
-        setExaminations(supportedExamTypes);
+        setExaminations([]);
       })
       .finally(() => {
         if (active) setIsLoadingExaminations(false);
@@ -114,56 +232,46 @@ export default function MintAIPage() {
     return () => {
       active = false;
     };
-  }, [selectedCourseId, selectedCourseRecord]);
+  }, [selectedSubject, isSubjectAvailable]);
 
+  // 5. Forecast submission using resolved backend Course identity
   const handleAnalyze = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedCourseRecord || !selectedExam) {
-      setError("Select a valid subject and examination before running a forecast.");
+    if (!selectedSubject || !isSubjectAvailable || selectedSubject.course_id === null || !selectedExam) {
+      setError("Select an analytically available course with valid examination papers before running a forecast.");
       return;
     }
-    
+
     setIsAnalyzing(true);
     setHasData(false);
     setError("");
-    
-    console.log("=== MINTAI API TRACE ===");
-    console.log("Course record:", selectedCourseRecord);
-    console.log("Course.id:", selectedCourseRecord?.id ?? selectedCourseId);
-    console.log("Course.code:", selectedCourseRecord?.code || (selectedCourseRecord as any)?.course_code || "N/A");
-    console.log("Course.name:", selectedCourseRecord?.name || selectedCourseRecord?.course_name || selectedSubject);
-    console.log("Prediction URL:", `/api/predictions/${encodeURIComponent(selectedSubject)}`);
-    console.log("DNA URL:", `/api/analysis/dna?course_id=${selectedCourseId}`);
-    console.log("========================");
-    console.log("=== RUN FORECAST DEBUG ===");
-    console.log("selectedBranch:", selectedBranch);
-    console.log("selectedSemester:", selectedSemester);
-    console.log("selectedCourse (React state):", selectedCourse);
-    console.log("selectedExam:", selectedExam);
-    console.log("matched course object:", selectedCourseRecord);
-    console.log("course.id:", selectedCourseRecord.id);
-    console.log("course.code:", selectedCourseRecord.code || (selectedCourseRecord as any).course_code);
-    console.log("course.name:", selectedCourseRecord.name || (selectedCourseRecord as any).course_name);
-    console.log("final prediction URL:", `/api/predictions/${encodeURIComponent(selectedSubject)}`);
-    console.log("==========================");
 
     try {
-      // The prediction API accepts the course name; the examination remains frontend context.
+      // Execute prediction using resolved backend course_id
       const [predData, dnaData] = await Promise.all([
-        getPredictions(selectedSubject).catch(e => {
-            if(e.status === 404) return null;
-            throw e;
+        getPredictions(selectedSubject.course_id).catch((err) => {
+          if (err.status === 404) return null;
+          throw err;
         }),
-        getExamDNA(selectedCourseId).catch(e => null)
+        dna ? Promise.resolve(dna) : getExamDNA(selectedSubject.course_id).catch(() => null)
       ]);
-      
-      if (!predData) {
-        setError("No prediction data found for this course. Try another one.");
+
+      if (!predData || !predData.predictions) {
+        setError("No prediction data generated for this course.");
       } else {
         setPredictions(predData);
-        setDna(dnaData);
+        if (dnaData) setDna(dnaData);
         setHasData(true);
-        localStorage.setItem("markmint_recent", JSON.stringify({ course: selectedSubject, exam: selectedExam, type: "Forecast" }));
+        localStorage.setItem(
+          "markmint_recent", 
+          JSON.stringify({ 
+            course: selectedSubject.subject_name,
+            course_id: selectedSubject.course_id,
+            canonical_code: selectedSubject.canonical_code,
+            exam: selectedExam, 
+            type: "Forecast" 
+          })
+        );
       }
     } catch (err: any) {
       setError(err.message || "Failed to fetch predictions. Ensure the backend is running.");
@@ -191,22 +299,14 @@ export default function MintAIPage() {
             
             <form onSubmit={handleAnalyze} className="space-y-4">
               <div>
+                {/* Branch Selector */}
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
                   Select Branch
                 </label>
                 <select 
                   value={selectedBranch}
-                  onChange={(e) => {
-                    setSelectedBranch(e.target.value);
-                    setSelectedSemester("");
-                    setSelectedCourse("");
-                    setSelectedExam("");
-                    setIsLoadingExaminations(false);
-                    setExaminations([]);
-                    setExamLoadError("");
-                    setDna(null);
-                  }}
-                  disabled={isLoadingCourses || branches.length === 0}
+                  onChange={(e) => setSelectedBranch(e.target.value)}
+                  disabled={isLoadingBranches || branches.length === 0}
                   className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-4"
                 >
                   <option value="" disabled>Select a branch</option>
@@ -215,99 +315,136 @@ export default function MintAIPage() {
                   ))}
                 </select>
 
+                {/* Semester Selector */}
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
                   Select Semester
                 </label>
                 <select
                   value={selectedSemester}
-                  onChange={(e) => {
-                    setSelectedSemester(e.target.value);
-                    setSelectedCourse("");
-                    setSelectedExam("");
-                    setIsLoadingExaminations(false);
-                    setExaminations([]);
-                    setExamLoadError("");
-                    setDna(null);
-                  }}
-                  disabled={!selectedBranch || semesters.length === 0}
+                  onChange={(e) => setSelectedSemester(e.target.value)}
+                  disabled={!selectedBranch || semesters.length === 0 || isLoadingSemesters}
                   className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-4"
                 >
                   <option value="" disabled>Select a semester</option>
                   {semesters.map((semester) => (
-                    <option key={semester} value={semester}>Semester {semester}</option>
+                    <option key={semester} value={String(semester)}>Semester {semester}</option>
                   ))}
                 </select>
 
+                {/* Subject Selector */}
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
                   Select Subject
                 </label>
                 <select
-                  value={selectedCourse}
+                  value={selectedSubject?.curriculum_id || ""}
                   onChange={(e) => {
-                    setSelectedCourse(e.target.value);
-                    setSelectedExam("");
-                    setIsLoadingExaminations(true);
-                    setExaminations([]);
-                    setDna(null);
-                    setExamLoadError("");
+                    const found = subjects.find((s) => s.curriculum_id === e.target.value) || null;
+                    setSelectedSubject(found);
                   }}
-                  disabled={!selectedSemester || availableSubjects.length === 0 || isLoadingCourses}
-                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-4"
+                  disabled={!selectedSemester || subjects.length === 0 || isLoadingSubjects}
+                  className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none mb-2"
                 >
                   <option value="" disabled>Select a subject</option>
-                  {availableSubjects.map(({ subject, course }) => {
-                    const courseId = String(course.id ?? course.course_id);
-                    const courseCode = course.code || course.course_code || "";
-                    const courseName = course.name || course.course_name || subject.name;
+                  {subjects.map((sub) => {
+                    const code = sub.canonical_code ? ` [${sub.canonical_code}]` : "";
+                    const badge = sub.status === "MATCHED" && sub.has_exams
+                      ? ""
+                      : sub.status === "AMBIGUOUS"
+                      ? " (Ambiguous)"
+                      : sub.status === "MATCHED" && !sub.has_exams
+                      ? " (No Exams)"
+                      : " (Awaiting Papers)";
                     return (
-                      <option key={courseId} value={courseId}>
-                        {courseCode ? `${courseName} (${courseCode})` : courseName}
+                      <option key={sub.curriculum_id} value={sub.curriculum_id}>
+                        {sub.subject_name}{code}{badge}
                       </option>
                     );
                   })}
                 </select>
 
+                {/* Analytical Readiness Indicator */}
+                {selectedSubject && (
+                  <div className="mb-4 text-xs">
+                    {selectedSubject.status === "MATCHED" && selectedSubject.has_exams && (
+                      <span className="text-emerald-500 flex items-center gap-1 font-medium">
+                        <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
+                        Analytically available ({selectedSubject.exam_count} exams, {selectedSubject.question_count} questions)
+                      </span>
+                    )}
+                    {selectedSubject.status === "MATCHED" && !selectedSubject.has_exams && (
+                      <span className="text-amber-500 flex items-center gap-1">
+                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                        Catalog indexed, but 0 historical exam papers available.
+                      </span>
+                    )}
+                    {selectedSubject.status === "AMBIGUOUS" && (
+                      <span className="text-amber-500 flex items-center gap-1">
+                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                        Ambiguous curriculum mapping. Forecasts unavailable.
+                      </span>
+                    )}
+                    {selectedSubject.status === "UNMATCHED" && (
+                      <span className="text-muted-foreground flex items-center gap-1">
+                        <Database className="w-3.5 h-3.5 opacity-60 flex-shrink-0" />
+                        Awaiting historical examination papers.
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Examination Selector */}
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 block">
                   Select Examination
                 </label>
                 <select
                   value={selectedExam}
                   onChange={(e) => setSelectedExam(e.target.value)}
-                  disabled={!selectedCourse || isLoadingExaminations || examinations.length === 0}
+                  disabled={!isSubjectAvailable || isLoadingExaminations || examinations.length === 0}
                   className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-accent transition-colors appearance-none"
                 >
-                  <option value="" disabled>Select an examination</option>
+                  <option value="" disabled>
+                    {!isSubjectAvailable
+                      ? "Examination selection unavailable"
+                      : examinations.length === 0
+                      ? "No examination types found"
+                      : "Select an examination"}
+                  </option>
                   {examinations.map((examType) => (
                     <option key={examType} value={examType}>{examType}</option>
                   ))}
                 </select>
 
-                {isLoadingCourses && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading courses...</p>
+                {/* Error & Feedback Messages */}
+                {isLoadingBranches && (
+                  <p className="mt-2 text-xs text-muted-foreground">Loading curriculum branches...</p>
                 )}
-                {!isLoadingCourses && courseLoadError && (
-                  <p className="mt-2 text-xs text-red-400">{courseLoadError}</p>
+                {branchLoadError && (
+                  <p className="mt-2 text-xs text-red-400">{branchLoadError}</p>
                 )}
-                {!isLoadingCourses && selectedBranch && semesters.length === 0 && (
-                  <p className="mt-2 text-xs text-muted-foreground">No semesters available for this branch.</p>
+                {isLoadingSemesters && (
+                  <p className="mt-2 text-xs text-muted-foreground">Loading semesters...</p>
                 )}
-                {!isLoadingCourses && selectedSemester && availableSubjects.length === 0 && (
-                  <p className="mt-2 text-xs text-muted-foreground">No subjects available for this semester.</p>
+                {semesterLoadError && (
+                  <p className="mt-2 text-xs text-red-400">{semesterLoadError}</p>
                 )}
-                {selectedCourse && isLoadingExaminations && (
-                  <p className="mt-2 text-xs text-muted-foreground">Loading examinations...</p>
+                {isLoadingSubjects && (
+                  <p className="mt-2 text-xs text-muted-foreground">Loading subjects from catalog...</p>
                 )}
-                {selectedCourse && !isLoadingExaminations && examLoadError && (
+                {subjectLoadError && (
+                  <p className="mt-2 text-xs text-red-400">{subjectLoadError}</p>
+                )}
+                {isSubjectAvailable && isLoadingExaminations && (
+                  <p className="mt-2 text-xs text-muted-foreground">Loading examination metadata...</p>
+                )}
+                {isSubjectAvailable && !isLoadingExaminations && examLoadError && (
                   <p className="mt-2 text-xs text-amber-400">{examLoadError}</p>
-                )}
-                {selectedCourse && !isLoadingExaminations && !examLoadError && examinations.length === 0 && (
-                  <p className="mt-2 text-xs text-muted-foreground">No examinations available for this subject.</p>
                 )}
               </div>
 
+              {/* Submit Button */}
               <button 
                 type="submit"
-                disabled={!selectedCourse || !selectedExam || isAnalyzing || Boolean(courseLoadError)}
+                disabled={!isSubjectAvailable || !selectedExam || isAnalyzing}
                 className="w-full mt-4 bg-foreground text-background py-2.5 rounded-md text-sm font-medium hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isAnalyzing ? (
@@ -331,12 +468,12 @@ export default function MintAIPage() {
               Evidence Rule
             </h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              MintAI relies strictly on deterministic historical extraction. It does not hallucinate probabilities. The unresolved questions are intentional.
+              MintAI relies strictly on deterministic historical extraction. It does not hallucinate probabilities for subjects lacking historical examination papers.
             </p>
           </div>
         </div>
 
-        {/* Right Panel: Data Dashboard */}
+        {/* Right Panel: Data Dashboard & States */}
         <div className="lg:col-span-8 flex flex-col gap-6">
           {error ? (
             <div className="h-full min-h-[400px] border border-red-500/20 bg-red-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
@@ -348,15 +485,7 @@ export default function MintAIPage() {
               <h3 className="text-xl font-bold text-red-500 mb-2">Analysis Failed</h3>
               <p className="text-sm text-red-400 max-w-sm mb-2">{error}</p>
               <p className="text-xs text-red-400/70 max-w-sm italic">
-                "Sorry, this dog ate your prediction while the backend was asleep. (API Connection Refused)"
-              </p>
-            </div>
-          ) : !hasData && !isAnalyzing ? (
-            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
-              <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
-              <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Parameters</h3>
-              <p className="text-sm text-muted-foreground max-w-sm">
-                No historical papers available yet. Select a course on the left to extract the evidence pool.
+                &quot;Sorry, this dog ate your prediction while the backend was asleep. (API Connection Refused)&quot;
               </p>
             </div>
           ) : isAnalyzing ? (
@@ -389,8 +518,10 @@ export default function MintAIPage() {
                 <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
                   <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Evidence Pool</p>
                   <div className="flex flex-col gap-0.5">
-                  <span className="text-sm text-foreground font-medium">{predictions?.evidence || "Analyzing responses..."}</span>
-                    <span className="text-sm text-muted-foreground">{predictions?.predictions ? predictions.predictions.reduce((s,p) => s + (p.historyCount||0), 0) : 0} Questions</span>
+                    <span className="text-sm text-foreground font-medium">{predictions?.evidence || "Analyzing responses..."}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {predictions?.predictions ? predictions.predictions.reduce((s, p) => s + (p.historyCount || 0), 0) : 0} Questions
+                    </span>
                   </div>
                 </div>
               </div>
@@ -439,15 +570,22 @@ export default function MintAIPage() {
                       </div>
                       
                       <div className="w-full bg-background rounded-full h-1.5 mb-4 overflow-hidden">
-                        <div className="bg-accent h-full" style={{ width: (typeof p.confidence === "number" ? Math.round(p.confidence * 100) + "%" : (p.confidence === "LOW" ? "30%" : p.confidence === "MEDIUM" ? "60%" : p.confidence === "HIGH" ? "90%" : "—")) }}></div>
+                        <div 
+                          className="bg-accent h-full" 
+                          style={{ 
+                            width: typeof p.confidence === "number" 
+                              ? `${Math.round(p.confidence * 100)}%` 
+                              : p.confidence === "LOW" ? "30%" : p.confidence === "MEDIUM" ? "60%" : p.confidence === "HIGH" ? "90%" : "—" 
+                          }} 
+                        />
                       </div>
                       
                       <div className="flex flex-col gap-2 text-xs text-muted-foreground bg-background rounded-lg px-4 py-3 border border-border/50">
                         <div className="flex items-center justify-between">
                           <span>Appeared <strong>{p.historyCount}</strong> times historically</span>
                           {p.category && (
-                          <span className="capitalize text-foreground font-medium">{p.category}</span>
-                        )}
+                            <span className="capitalize text-foreground font-medium">{p.category}</span>
+                          )}
                         </div>
                         {p.evidence_details && (
                           <div className="mt-2 pt-2 border-t border-border/50">
@@ -473,7 +611,64 @@ export default function MintAIPage() {
                 
               </div>
             </div>
-          ) : null}
+          ) : selectedSubject?.status === "AMBIGUOUS" ? (
+            <div className="h-full min-h-[400px] border border-amber-500/20 bg-amber-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8">
+              <AlertCircle className="w-10 h-10 text-amber-500 mb-4" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Ambiguous Course Mapping</h3>
+              <p className="text-sm text-muted-foreground max-w-md mb-3">
+                <strong>{selectedSubject.subject_name}</strong> maps to multiple candidate academic subjects in the syllabus catalog.
+              </p>
+              {selectedSubject.notes && (
+                <p className="text-xs text-amber-500/90 max-w-md italic bg-amber-500/10 rounded-md p-3 mb-3 border border-amber-500/20">
+                  {selectedSubject.notes}
+                </p>
+              )}
+              <p className="text-xs text-muted-foreground max-w-sm">
+                No deterministic forecast can be synthesized without an explicit canonical course mapping.
+              </p>
+            </div>
+          ) : selectedSubject?.status === "UNMATCHED" ? (
+            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
+              <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Historical Evidence</h3>
+              <p className="text-sm text-muted-foreground max-w-sm mb-2">
+                No historical examination papers have been indexed for <strong>{selectedSubject.subject_name}</strong> yet.
+              </p>
+              <p className="text-xs text-muted-foreground/70 max-w-sm">
+                MarkMint&apos;s deterministic engine only computes probabilities when verified university exam papers exist.
+              </p>
+            </div>
+          ) : selectedSubject?.status === "MATCHED" && !selectedSubject.has_exams ? (
+            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
+              <FileText className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Catalog Indexed — No Examination Papers</h3>
+              <p className="text-sm text-muted-foreground max-w-sm mb-2">
+                <strong>{selectedSubject.subject_name}</strong> is verified in the academic registry, but 0 historical examination papers are currently uploaded.
+              </p>
+              <p className="text-xs text-muted-foreground/70 max-w-sm">
+                Historical intelligence will unlock automatically when past papers are ingested for this course.
+              </p>
+            </div>
+          ) : isSubjectAvailable ? (
+            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
+              <Database className="w-10 h-10 text-accent mb-4 opacity-70" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Evidence Pool Ready</h3>
+              <p className="text-sm text-muted-foreground max-w-sm mb-3">
+                Verified historical papers ({selectedSubject?.exam_count} exams, {selectedSubject?.question_count} questions) loaded for <strong>{selectedSubject?.subject_name}</strong>.
+              </p>
+              <p className="text-xs text-muted-foreground/80">
+                Select an examination type on the left and click <strong>Run Forecast</strong>.
+              </p>
+            </div>
+          ) : (
+            <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
+              <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Parameters</h3>
+              <p className="text-sm text-muted-foreground max-w-sm">
+                Select an academic branch, semester, and course on the left to extract the evidence pool.
+              </p>
+            </div>
+          )}
         </div>
       </main>
       

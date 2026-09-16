@@ -70,6 +70,9 @@ class StudyPriorityProfile(BaseModel):
 class CourseBase(BaseModel):
     name: str
     code: str
+    canonical_code: Optional[str] = None
+    regulation_year: Optional[int] = None
+    department: Optional[str] = None
 
 
 class CourseCreate(CourseBase):
@@ -78,6 +81,22 @@ class CourseCreate(CourseBase):
 
 class Course(CourseBase):
     id: int
+
+    class Config:
+        from_attributes = True
+
+
+class CurriculumSubjectResponse(BaseModel):
+    curriculum_id: str
+    subject_name: str
+    credits: int
+    course_id: Optional[int] = None
+    canonical_code: Optional[str] = None
+    status: str
+    has_exams: bool = False
+    exam_count: int = 0
+    question_count: int = 0
+    notes: Optional[str] = None
 
     class Config:
         from_attributes = True

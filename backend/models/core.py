@@ -1,5 +1,6 @@
 import enum
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, Text, Boolean, Enum as SQLEnum, DateTime, JSON
+from datetime import datetime
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, Text, Boolean, Enum as SQLEnum, DateTime, JSON, Index, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from backend.core.database import Base
@@ -141,9 +142,36 @@ class Course(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     code = Column(String, unique=True, index=True, nullable=False)
+    canonical_code = Column(String(32), nullable=True, index=True)
+    regulation_year = Column(Integer, nullable=True)
+    department = Column(String(120), nullable=True)
 
     exams = relationship("Exam", back_populates="course")
     syllabuses = relationship("Syllabus", back_populates="course")
+    curriculum_mappings = relationship("CurriculumMapping", back_populates="course")
+
+
+class CurriculumMapping(Base):
+    """Maps frontend curriculum entries (branch + semester + subject) to backend canonical Courses."""
+    __tablename__ = "curriculum_mappings"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    branch_name = Column(String(120), nullable=False, index=True)
+    semester = Column(Integer, nullable=False, index=True)
+    curriculum_id = Column(String(64), nullable=False)
+    subject_name = Column(String(255), nullable=False, index=True)
+    credits = Column(Integer, default=3)
+    course_id = Column(Integer, ForeignKey("courses.id", ondelete="SET NULL"), nullable=True, index=True)
+    status = Column(String(32), nullable=False, default="UNMATCHED")  # MATCHED, UNMATCHED, AMBIGUOUS
+    notes = Column(String(255), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    course = relationship("Course", back_populates="curriculum_mappings")
+
+    __table_args__ = (
+        UniqueConstraint("branch_name", "semester", "curriculum_id", name="uq_branch_sem_curr_id"),
+        Index("idx_branch_sem_status", "branch_name", "semester", "status"),
+    )
 
 
 class Syllabus(Base):

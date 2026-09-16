@@ -223,3 +223,26 @@ export interface StudyUploadResponse {
   mapped_topics: string[];
   message?: string;
 }
+
+export interface CurriculumSubject {
+  curriculum_id: string;
+  subject_name: string;
+  credits: number;
+  course_id: number | null;
+  canonical_code: string | null;
+  status: "MATCHED" | "UNMATCHED" | "AMBIGUOUS" | string;
+  has_exams: boolean;
+  exam_count: number;
+  question_count: number;
+  notes: string | null;
+}
+
+export interface CurriculumStats {
+  total_entries: number;
+  branches_count: number;
+  matched_entries: number;
+  ambiguous_entries: number;
+  unmatched_entries: number;
+  backend_courses_count: number;
+}
+
