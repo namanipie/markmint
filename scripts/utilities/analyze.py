@@ -1,11 +1,12 @@
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 os.environ.setdefault('ENVIRONMENT', 'production')
 
 from backend.core.database import SessionLocal
-from backend.services.search.discovery import SearchDiscoveryEngine
+from backend.services.search.discovery import DiscoverySearchEngine as SearchDiscoveryEngine
 from backend.models.core import Course
 
 def run_analysis():

@@ -4,13 +4,14 @@ import sys
 import json
 import time
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 
-from backend.services.scraper.crawler import TheHelperCrawler
+from backend.services.scraper.crawler import AcademicResourceCrawler as TheHelperCrawler
 from backend.services.scraper.downloader import ResourceDownloader
 import backend.services.scraper.downloader as dl_module
 
-PROGRESS_FILE = "data/.download_cache/scrape_progress.json"
+PROGRESS_FILE = os.path.join(BASE_DIR, "data", ".download_cache", "scrape_progress.json")
 
 
 def load_progress():

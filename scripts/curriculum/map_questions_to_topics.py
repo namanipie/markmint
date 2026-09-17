@@ -3,10 +3,16 @@ Deterministic topic mapping for Course 1 (Calculus) and Course 2 (Chemistry).
 Connects unmapped questions in questions table to their canonical syllabus topics via question_topic.
 Preserves existing mappings and maintains corpus invariants.
 """
+import os
+import sys
 import sqlite3
 
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
+
 def run_mapping():
-    conn = sqlite3.connect('production_corpus.db')
+    db_path = os.getenv("MAPPER_DB_PATH", os.path.join(BASE_DIR, 'production_corpus.db'))
+    conn = sqlite3.connect(db_path)
     c = conn.cursor()
 
     # 1. Course 1 specific mappings for unmapped questions

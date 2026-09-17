@@ -2,7 +2,8 @@ import os
 import sys
 import json
 from collections import defaultdict
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 
 from backend.core.database import SessionLocal
 from backend.models.core import QuestionFamily, Question, QuestionFamilyMembership, Exam, Document
@@ -103,7 +104,9 @@ def run_audit():
         "largest_family_member_pairs": largest_pairs
     }
     
-    with open('data/reports/family_human_review.json', 'w') as f:
+    report_path = os.path.join(BASE_DIR, 'data', 'reports', 'family_human_review.json')
+    os.makedirs(os.path.dirname(report_path), exist_ok=True)
+    with open(report_path, 'w') as f:
         json.dump(review_set, f, indent=2)
 
     print("Audit JSONs generated.")

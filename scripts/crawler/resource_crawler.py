@@ -22,7 +22,8 @@ import argparse
 import logging
 from datetime import datetime, timezone
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 
 from backend.core.database import SessionLocal
 from backend.services.scraper.models import DownloadStatus

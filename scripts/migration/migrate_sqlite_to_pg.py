@@ -4,7 +4,8 @@ from sqlalchemy import create_engine, MetaData, text
 from sqlalchemy.orm import sessionmaker
 
 # Add backend to path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.insert(0, BASE_DIR)
 
 from backend.models.core import Base
 

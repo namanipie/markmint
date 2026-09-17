@@ -2,7 +2,8 @@ import os
 import sys
 import sqlite3
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 os.environ.setdefault('ENVIRONMENT', 'production')
 
 from backend.core.database import SessionLocal
@@ -30,7 +31,7 @@ def wipe_and_reset():
     db.commit()
 
     print("[4] Resetting scraper cache for re-ingestion...")
-    db_path = "data/.download_cache/downloads.db"
+    db_path = os.path.join(BASE_DIR, "data", ".download_cache", "downloads.db")
     if os.path.exists(db_path):
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()

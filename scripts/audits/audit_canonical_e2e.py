@@ -10,7 +10,10 @@ Tests:
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
+
 import json
 import sqlite3
 from fastapi.testclient import TestClient
@@ -21,7 +24,8 @@ client = TestClient(app)
 print("=" * 70)
 print("1. RECONCILIATION COUNTS AUDIT")
 print("=" * 70)
-conn = sqlite3.connect("production_corpus.db")
+db_file = os.getenv("AUDIT_DB_PATH", os.path.join(BASE_DIR, "production_corpus.db"))
+conn = sqlite3.connect(db_file)
 cur = conn.cursor()
 
 cur.execute("SELECT count(*) FROM curriculum_mappings")

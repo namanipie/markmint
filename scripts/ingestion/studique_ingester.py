@@ -7,7 +7,8 @@ import hashlib
 import logging
 from typing import List, Dict, Any
 
-sys.path.append('.')
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 from backend.core.database import SessionLocal
 from backend.models.core import Document, Course
 from backend.services.document import DocumentService
@@ -17,7 +18,7 @@ from backend.services.extraction.knowledge_extractor import KnowledgeExtractor
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-OUTPUT_DIR = "data/studique_production"
+OUTPUT_DIR = os.path.join(BASE_DIR, "data", "studique_production")
 BATCH_SIZE = 5
 
 def download_file_with_retry(file_key: str, dest_path: str, max_retries: int = 3) -> bool:

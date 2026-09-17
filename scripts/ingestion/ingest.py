@@ -4,7 +4,8 @@ import json
 import sys
 import re
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.insert(0, BASE_DIR)
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -41,7 +42,7 @@ def process_downloads(max_files: int = 50):
         "skipped": 0
     }
     
-    db_path = "data/.download_cache/downloads.db"
+    db_path = os.path.join(BASE_DIR, "data", ".download_cache", "downloads.db")
     
     if not os.path.exists(db_path):
         print(f"Cache DB not found at {db_path}. Is the scraper running?")
