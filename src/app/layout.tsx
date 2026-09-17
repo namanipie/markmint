@@ -25,6 +25,7 @@ const dancingScript = Dancing_Script({
 import { ThemeProvider } from "@/components/theme-provider";
 import { EasterEggManager } from "@/components/ambient/EasterEggManager";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.vercel.app"),
@@ -97,6 +98,7 @@ export default function RootLayout({
         <GlobalFeatures />
       </ThemeProvider>
       <Analytics />
+      <SpeedInsights />
       </body>
     </html>
   );
