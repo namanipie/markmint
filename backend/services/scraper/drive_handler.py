@@ -12,6 +12,7 @@ Handles:
 """
 
 import re
+import json
 import logging
 from typing import Optional, List, Dict, Any, Tuple
 from urllib.parse import urlparse, parse_qs
@@ -31,17 +32,21 @@ class GoogleDriveItem:
         name: str,
         is_folder: bool,
         folder_path: str = "",
-        direct_url: Optional[str] = None
+        direct_url: Optional[str] = None,
+        mime_type: Optional[str] = None,
+        size: Optional[int] = None,
     ):
         self.item_id = item_id
         self.name = name
         self.is_folder = is_folder
         self.folder_path = folder_path
         self.direct_url = direct_url or f"https://drive.google.com/uc?export=download&id={item_id}"
+        self.mime_type = mime_type
+        self.size = size
 
     def __repr__(self):
         kind = "Folder" if self.is_folder else "File"
-        return f"<GoogleDriveItem [{kind}] {self.name} (id={self.item_id}, path='{self.folder_path}')>"
+        return f"<GoogleDriveItem [{kind}] {self.name} (id={self.item_id}, mime={self.mime_type}, size={self.size}, path='{self.folder_path}')>"
 
 
 class GoogleDriveHandler:
@@ -133,6 +138,46 @@ class GoogleDriveHandler:
         return url
 
     @classmethod
+    def _parse_drive_ivd(cls, html_text: str) -> List[Dict[str, Any]]:
+        """Parses Google Drive's embedded window['_DRIVE_ivd'] data structure."""
+        m = re.search(r"window\['_DRIVE_ivd'\]\s*=\s*'([^']+)'", html_text)
+        if not m:
+            return []
+        try:
+            raw_str = m.group(1).replace(r'\/', '/')
+            decoded_str = raw_str.encode('utf-8').decode('unicode_escape')
+            data = json.loads(decoded_str)
+            items = []
+
+            def find_items(obj):
+                if isinstance(obj, list):
+                    if (
+                        len(obj) > 3
+                        and isinstance(obj[0], str)
+                        and len(obj[0]) >= 20
+                        and isinstance(obj[1], list)
+                        and isinstance(obj[2], str)
+                        and isinstance(obj[3], str)
+                    ):
+                        items.append({
+                            'id': obj[0],
+                            'parents': obj[1],
+                            'name': obj[2],
+                            'mime': obj[3],
+                            'is_folder': (obj[3] == 'application/vnd.google-apps.folder'),
+                            'size': obj[13] if len(obj) > 13 and isinstance(obj[13], int) else None,
+                        })
+                    else:
+                        for x in obj:
+                            find_items(x)
+
+            find_items(data)
+            return items
+        except Exception as e:
+            logger.debug("Failed to parse _DRIVE_ivd: %s", e)
+            return []
+
+    @classmethod
     def traverse_folder(
         cls,
         folder_url: str,
@@ -143,6 +188,7 @@ class GoogleDriveHandler:
     ) -> Tuple[List[GoogleDriveItem], Optional[ActionRequiredItem]]:
         """
         Recursively traverse Google Drive folder and nested subfolders.
+        Uses native _DRIVE_ivd payload if available, falling back to HTML DOM parsing.
         Returns:
             (items_found, action_required_if_blocked)
         """
@@ -186,52 +232,67 @@ class GoogleDriveHandler:
             )
             return [], action
 
-        soup = BeautifulSoup(r.text, "html.parser")
-        elements = soup.find_all(attrs={"data-id": True})
-
         found_items: List[GoogleDriveItem] = []
         subfolders_to_visit: List[Tuple[str, str]] = []  # (subfolder_id, subfolder_name)
-        seen_ids = set()
 
-        for el in elements:
-            did = el.get("data-id")
-            if not did or did == "_gd" or did in seen_ids:
-                continue
-            seen_ids.add(did)
+        # Strategy 1: Attempt native _DRIVE_ivd decoding
+        ivd_items = cls._parse_drive_ivd(r.text)
+        if ivd_items:
+            for it in ivd_items:
+                if it['id'] == folder_id:
+                    continue
+                if it['is_folder']:
+                    subfolders_to_visit.append((it['id'], it['name']))
+                else:
+                    found_items.append(GoogleDriveItem(
+                        item_id=it['id'],
+                        name=it['name'],
+                        is_folder=False,
+                        folder_path=current_folder_path,
+                        mime_type=it['mime'],
+                        size=it['size'],
+                    ))
+        else:
+            # Strategy 2: Fallback to HTML DOM parsing
+            soup = BeautifulSoup(r.text, "html.parser")
+            elements = soup.find_all(attrs={"data-id": True})
+            seen_ids = set()
 
-            label = el.get("aria-label") or ""
-            if not label:
-                child = el.find(attrs={"aria-label": True})
-                if child:
-                    label = child.get("aria-label", "")
+            for el in elements:
+                did = el.get("data-id")
+                if not did or did == "_gd" or did in seen_ids:
+                    continue
+                seen_ids.add(did)
 
-            # Check if child is a subfolder or a file
-            is_folder = (
-                "Google Drive Folder" in label
-                or "Folder" in label
-                or "/folders/" in str(el)
-            )
+                label = el.get("aria-label") or ""
+                if not label:
+                    child = el.find(attrs={"aria-label": True})
+                    if child:
+                        label = child.get("aria-label", "")
 
-            # Clean name from aria-label
-            clean_name = label
-            for suffix in [" PDF Shared", " PDF", " Shared", " Google Drive Folder"]:
-                if clean_name.endswith(suffix):
-                    clean_name = clean_name[:-len(suffix)].strip()
-
-            if not clean_name:
-                clean_name = " ".join(el.stripped_strings) or f"item_{did}"
-
-            if is_folder:
-                subfolders_to_visit.append((did, clean_name))
-            else:
-                item_folder_path = current_folder_path
-                item = GoogleDriveItem(
-                    item_id=did,
-                    name=clean_name,
-                    is_folder=False,
-                    folder_path=item_folder_path,
+                is_folder = (
+                    "Google Drive Folder" in label
+                    or "Folder" in label
+                    or "/folders/" in str(el)
                 )
-                found_items.append(item)
+
+                clean_name = label
+                for suffix in [" PDF Shared", " PDF", " Shared", " Google Drive Folder"]:
+                    if clean_name.endswith(suffix):
+                        clean_name = clean_name[:-len(suffix)].strip()
+
+                if not clean_name:
+                    clean_name = " ".join(el.stripped_strings) or f"item_{did}"
+
+                if is_folder:
+                    subfolders_to_visit.append((did, clean_name))
+                else:
+                    found_items.append(GoogleDriveItem(
+                        item_id=did,
+                        name=clean_name,
+                        is_folder=False,
+                        folder_path=current_folder_path,
+                    ))
 
         # Recursively traverse nested subfolders
         for sub_id, sub_name in subfolders_to_visit:

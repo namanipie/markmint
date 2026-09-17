@@ -40,17 +40,15 @@ def test_intelligence_snapshot_calculus_ready():
     assert "engine_version" in data["metadata"]
 
 
-def test_intelligence_snapshot_programming_catalog_only():
-    """Verify programming course 5 (0 exams) returns CATALOG_ONLY state without fabricating predictions."""
+def test_intelligence_snapshot_programming_ready():
+    """Verify programming course 5 (20 exams) returns READY state with valid evidence."""
     res = client.get("/api/intelligence/5")
     assert res.status_code == 200
     data = res.json()
 
-    assert data["data_availability_status"] == "CATALOG_ONLY"
+    assert data["data_availability_status"] == "READY"
     assert data["course"]["id"] == 5
-    assert data["exam_history"]["total_papers"] == 0
-    assert len(data["predictions"]) == 0
-    assert "0 historical exam papers exist" in data["message"]
+    assert data["exam_history"]["total_papers"] >= 20
 
 
 def test_intelligence_snapshot_unmatched_guardrail():

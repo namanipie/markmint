@@ -84,7 +84,10 @@ def print_manifest_summary(manifest_path: str = "data/manifest.json"):
             print(f"    ACTION:  {act.what_is_needed}")
 
 
-def ingest_existing_manifest(manifest_path: str = "data/manifest.json"):
+def ingest_existing_manifest(
+    manifest_path: str = "data/manifest.json",
+    allow_gemini: bool = False,
+):
     """Ingests all valid downloaded records from an existing manifest file."""
     if not os.path.exists(manifest_path):
         print(f"[!] Manifest file not found at {manifest_path}")
@@ -93,16 +96,24 @@ def ingest_existing_manifest(manifest_path: str = "data/manifest.json"):
     print(f"\n[Ingest] Ingesting resources from {manifest_path} into database...")
     mgr = ManifestManager(manifest_path=manifest_path)
     db = SessionLocal()
-    ingester = CorpusIngester(db)
+    checkpoint_path = "data/manifests/ingestion_checkpoint.json"
+    ingester = CorpusIngester(db, checkpoint_path=checkpoint_path, allow_gemini=allow_gemini)
 
     try:
+        candidates = [
+            rec for rec in mgr.records.values()
+            if rec.download_status in [DownloadStatus.DOWNLOADED, DownloadStatus.DUPLICATE] and rec.local_path
+        ]
+        total_candidates = len(candidates)
+        print(f"[Ingest] Found {total_candidates} candidate records to evaluate.")
+
         count = 0
-        for key, rec in mgr.records.items():
-            if rec.download_status in [DownloadStatus.DOWNLOADED, DownloadStatus.DUPLICATE] and rec.local_path:
-                if rec.ingestion_status != "INGESTED":
-                    ingester.ingest_record(rec)
-                    mgr.add_or_update_record(rec)
-                    count += 1
+        for rec in candidates:
+            rec = ingester.ingest_record(rec)
+            mgr.add_or_update_record(rec)
+            count += 1
+            if count % 25 == 0 or count == total_candidates:
+                print(f"[Ingest Progress] {count}/{total_candidates} ({count*100/total_candidates:.1f}%) records processed.")
         print(f"[Ingest] Ingestion complete. Processed {count} records.")
     finally:
         db.close()
@@ -119,6 +130,7 @@ def main():
     parser.add_argument("--live", action="store_true", help="Execute live crawl against target sites")
     parser.add_argument("--download-only", action="store_true", help="Download and validate files without DB ingestion")
     parser.add_argument("--ingest-manifest", action="store_true", help="Ingest existing completed manifest into DB")
+    parser.add_argument("--allow-gemini", action="store_true", help="Allow Gemini Vision during an explicit ingestion run")
     parser.add_argument("--manifest", action="store_true", help="Print summary of manifest and exit")
     parser.add_argument("--manifest-path", type=str, default="data/manifest.json", help="Path to manifest JSON")
     parser.add_argument("--output-dir", type=str, default="corpus", help="Corpus download directory")
@@ -132,7 +144,7 @@ def main():
         return
 
     if args.ingest_manifest:
-        ingest_existing_manifest(args.manifest_path)
+        ingest_existing_manifest(args.manifest_path, allow_gemini=args.allow_gemini)
         print_manifest_summary(args.manifest_path)
         return
 

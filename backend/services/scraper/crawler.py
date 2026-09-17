@@ -64,7 +64,7 @@ class AcademicResourceCrawler:
 
         self._last_request_time = 0.0
 
-    def _sleep_rate_limit(self):
+    def _sleep_rate_limit(self, domain: Optional[str] = None):
         elapsed = time.time() - self._last_request_time
         if elapsed < self.rate_limit_seconds:
             time.sleep(self.rate_limit_seconds - elapsed)
@@ -97,13 +97,42 @@ class AcademicResourceCrawler:
         logger.info("Discovered %d subjects from Studique catalog.", len(subjects))
 
         discovered_records: List[ManifestRecord] = []
+        from backend.models.core import CurriculumMapping
+        from .curriculum_resolver import normalize_text
+
+        # Cache canonical subject semesters
+        fy_mappings = self.db.query(CurriculumMapping.subject_name, CurriculumMapping.semester).all()
+        subj_to_sems: Dict[str, Set[int]] = {}
+        for c_name, c_sem in fy_mappings:
+            subj_to_sems.setdefault(normalize_text(c_name), set()).add(c_sem)
 
         for subj_data in subjects:
             subj_name = subj_data.get("name", "").strip()
-            subj_sem = str(subj_data.get("year", subj_data.get("semester", ""))).strip()
+            norm_name = normalize_text(subj_name)
+            alias_name = self.resolver.KNOWN_ALIASES.get(norm_name, subj_name)
+            norm_alias = normalize_text(alias_name)
 
-            if semester_filter and subj_sem and str(semester_filter) != subj_sem:
+            # Determine valid canonical semesters for this subject
+            valid_sems: Set[int] = set()
+            for c_norm, sems in subj_to_sems.items():
+                if norm_alias == c_norm or norm_alias in c_norm or c_norm in norm_alias:
+                    valid_sems.update(sems)
+
+            # Strict first-year filter (Semesters 1 and 2 only)
+            is_first_year = any(s in [1, 2] for s in valid_sems)
+            if not is_first_year and any(s > 2 for s in valid_sems):
+                # Pure higher-semester subject (e.g. Compiler Design, DBMS, OS)
                 continue
+            if not is_first_year and not valid_sems:
+                # Subject not recognized in first-year canonical curriculum
+                continue
+
+            if semester_filter:
+                if valid_sems and semester_filter not in valid_sems:
+                    continue
+                assigned_sem = str(semester_filter)
+            else:
+                assigned_sem = str(min(valid_sems & {1, 2})) if (valid_sems & {1, 2}) else "1"
 
             if subject_filter and subject_filter.lower() not in subj_name.lower():
                 continue
@@ -127,12 +156,17 @@ class AcademicResourceCrawler:
                     source_site="Studique",
                     source_url=source_url,
                     resolved_url=direct_url,
-                    semester=subj_sem or "1",
+                    sources=["Studique"],
+                    source_urls=[source_url],
+                    resolved_urls=[direct_url],
+                    drive_ids=[fkey],
+                    google_drive_id=fkey,
+                    resource_id=f"studique_{fkey}",
+                    semester=assigned_sem,
                     subject=subj_name,
                     unit=unit_str,
                     title=f"{subj_name} - {name}",
                     resource_type="ppt",
-                    google_drive_id=fkey,
                     download_status=DownloadStatus.DISCOVERED,
                 )
                 discovered_records.append(rec)
@@ -153,11 +187,16 @@ class AcademicResourceCrawler:
                     source_site="Studique",
                     source_url=source_url,
                     resolved_url=direct_url,
-                    semester=subj_sem or "1",
+                    sources=["Studique"],
+                    source_urls=[source_url],
+                    resolved_urls=[direct_url],
+                    drive_ids=[fkey],
+                    google_drive_id=fkey,
+                    resource_id=f"studique_{fkey}",
+                    semester=assigned_sem,
                     subject=subj_name,
                     title=f"{subj_name} - PYQ {name}",
                     resource_type="pyq",
-                    google_drive_id=fkey,
                     download_status=DownloadStatus.DISCOVERED,
                 )
                 discovered_records.append(rec)
@@ -245,22 +284,42 @@ class AcademicResourceCrawler:
             len(semester_map)
         )
 
-        # Extract resources mapping: l={"Calculus And Linear Algebra":{pyqs:[...],notes:[...]}}
-        # Search for subject resource objects
-        resource_blocks = re.findall(r'"([^"]+)":\{([^{}]+(?:\{[^{}]*\}[^{}]*)*)\}', text)
+        # Robust brace-matching subject resource extraction (handles both quoted and unquoted subject names)
         subject_resources: Dict[str, List[Dict[str, str]]] = {}
-
-        for subj_name, block in resource_blocks:
-            # Look for pyqs, notes, etc.
-            items = re.findall(r'name:"([^"]+)",url:"([^"]+)"', block)
-            if items:
-                res_list = [{"name": n, "url": u} for n, u in items]
-                subject_resources[subj_name] = res_list
+        for sem, subjects in semester_map.items():
+            if semester_filter and semester_filter != sem:
+                continue
+            elif not semester_filter and sem not in [1, 2]:
+                continue
+            for subj in subjects:
+                escaped_subj = re.escape(subj)
+                pattern = rf'(?:"{escaped_subj}"|{escaped_subj})\s*:\s*\{{'
+                m = re.search(pattern, text)
+                if m:
+                    start_idx = m.end() - 1  # at '{'
+                    depth = 0
+                    end_idx = start_idx
+                    for i in range(start_idx, len(text)):
+                        if text[i] == '{':
+                            depth += 1
+                        elif text[i] == '}':
+                            depth -= 1
+                            if depth == 0:
+                                end_idx = i + 1
+                                break
+                    block = text[start_idx:end_idx]
+                    items = re.findall(r'name\s*:\s*"([^"]+)"\s*,\s*url\s*:\s*"([^"]+)"', block)
+                    if items:
+                        subject_resources[subj] = [{"name": n, "url": u} for n, u in items]
 
         discovered_records: List[ManifestRecord] = []
 
         for sem, subjects in semester_map.items():
-            if semester_filter and semester_filter != sem:
+            if semester_filter:
+                if semester_filter != sem:
+                    continue
+            elif sem not in [1, 2]:
+                # Strictly isolate first-year crawl (Semesters 1 and 2 only)
                 continue
 
             for subj in subjects:
@@ -281,25 +340,24 @@ class AcademicResourceCrawler:
                     if GoogleDriveHandler.is_drive_folder(raw_url):
                         logger.info("Found Google Drive folder for '%s' -> %s. Traversing...", subj, raw_url)
                         self._sleep_rate_limit()
-                        folder_items, action_req = GoogleDriveHandler.traverse_folder(
-                            raw_url,
-                            current_folder_path=f"{subj}/{res_name}",
-                            max_depth=5,
-                        )
+                        folder_items, action = GoogleDriveHandler.traverse_folder(raw_url)
 
-                        if action_req:
+                        if action:
                             rec = ManifestRecord(
                                 source_site="TheHelpers",
                                 source_url=source_subject_url,
                                 resolved_url=raw_url,
+                                sources=["TheHelpers"],
+                                source_urls=[source_subject_url],
+                                resolved_urls=[raw_url],
                                 semester=str(sem),
                                 subject=subj,
-                                title=f"{subj} - {res_name} (Folder)",
+                                title=f"{subj} - {res_name}",
                                 resource_type="folder",
-                                google_drive_id=GoogleDriveHandler.extract_folder_id(raw_url),
                                 download_status=DownloadStatus.FAILED,
-                                failure_reason=action_req.problem,
-                                action_required=action_req,
+                                terminal_status="ACCESS_BLOCKED",
+                                action_required=action,
+                                failure_reason=action.problem,
                             )
                             discovered_records.append(rec)
                             continue
@@ -309,15 +367,21 @@ class AcademicResourceCrawler:
                         for child in folder_items:
                             if max_items and len(discovered_records) >= max_items:
                                 break
+                            child_drive_id = child.item_id
                             child_rec = ManifestRecord(
                                 source_site="TheHelpers",
                                 source_url=source_subject_url,
                                 resolved_url=child.direct_url,
+                                sources=["TheHelpers"],
+                                source_urls=[source_subject_url],
+                                resolved_urls=[child.direct_url],
+                                drive_ids=[child_drive_id] if child_drive_id else [],
+                                google_drive_id=child_drive_id,
+                                resource_id=f"helpers_{child_drive_id}" if child_drive_id else f"helpers_{abs(hash(child.direct_url))}",
                                 semester=str(sem),
                                 subject=subj,
                                 title=f"{subj} - {child.name}",
                                 resource_type="file",
-                                google_drive_id=child.item_id,
                                 drive_folder_path=child.folder_path,
                                 download_status=DownloadStatus.DISCOVERED,
                             )
@@ -332,11 +396,16 @@ class AcademicResourceCrawler:
                             source_site="TheHelpers",
                             source_url=source_subject_url,
                             resolved_url=direct_url,
+                            sources=["TheHelpers"],
+                            source_urls=[source_subject_url],
+                            resolved_urls=[direct_url],
+                            drive_ids=[drive_id] if drive_id else [],
+                            google_drive_id=drive_id,
+                            resource_id=f"helpers_{drive_id}" if drive_id else f"helpers_{abs(hash(direct_url))}",
                             semester=str(sem),
                             subject=subj,
                             title=f"{subj} - {res_name}",
                             resource_type="file",
-                            google_drive_id=drive_id,
                             download_status=DownloadStatus.DISCOVERED,
                         )
                         discovered_records.append(rec)
@@ -347,6 +416,85 @@ class AcademicResourceCrawler:
         logger.info("Generated %d candidate resource records from The Helpers.", len(discovered_records))
         return discovered_records
 
+    @classmethod
+    def build_union_graph(
+        cls,
+        studique_records: List[ManifestRecord],
+        helpers_records: List[ManifestRecord],
+    ) -> List[ManifestRecord]:
+        """
+        Unifies discovered records across Studique and The Helpers into a single deduplicated graph.
+        Merges records that share the same Google Drive file ID or matching direct download URLs,
+        preserving multi-source provenance.
+        """
+        drive_id_map: Dict[str, ManifestRecord] = {}
+        url_map: Dict[str, ManifestRecord] = {}
+        merged_records: List[ManifestRecord] = []
+
+        all_candidates = studique_records + helpers_records
+        logger.info(
+            "Building Union Graph from %d candidate records (%d Studique, %d The Helpers)...",
+            len(all_candidates), len(studique_records), len(helpers_records)
+        )
+
+        for rec in all_candidates:
+            primary_drive_id = rec.google_drive_id or (rec.drive_ids[0] if rec.drive_ids else None)
+            matched_existing: Optional[ManifestRecord] = None
+
+            if primary_drive_id and primary_drive_id in drive_id_map:
+                matched_existing = drive_id_map[primary_drive_id]
+            elif rec.resolved_url and rec.resolved_url in url_map:
+                matched_existing = url_map[rec.resolved_url]
+
+            if matched_existing:
+                # Merge multi-source provenance
+                for s in rec.sources or [rec.source_site]:
+                    if s and s not in matched_existing.sources:
+                        matched_existing.sources.append(s)
+                matched_existing.source_site = ", ".join(sorted(matched_existing.sources))
+
+                for su in rec.source_urls or [rec.source_url]:
+                    if su and su not in matched_existing.source_urls:
+                        matched_existing.source_urls.append(su)
+
+                for ru in rec.resolved_urls or [rec.resolved_url]:
+                    if ru and ru not in matched_existing.resolved_urls:
+                        matched_existing.resolved_urls.append(ru)
+
+                for di in rec.drive_ids or ([rec.google_drive_id] if rec.google_drive_id else []):
+                    if di and di not in matched_existing.drive_ids:
+                        matched_existing.drive_ids.append(di)
+
+                # Preserve richest metadata
+                if not matched_existing.unit and rec.unit:
+                    matched_existing.unit = rec.unit
+                if not matched_existing.drive_folder_path and rec.drive_folder_path:
+                    matched_existing.drive_folder_path = rec.drive_folder_path
+                if not matched_existing.google_drive_id and rec.google_drive_id:
+                    matched_existing.google_drive_id = rec.google_drive_id
+            else:
+                if not rec.sources:
+                    rec.sources = [rec.source_site] if rec.source_site else []
+                if not rec.source_urls:
+                    rec.source_urls = [rec.source_url] if rec.source_url else []
+                if not rec.resolved_urls:
+                    rec.resolved_urls = [rec.resolved_url] if rec.resolved_url else []
+                if not rec.drive_ids:
+                    rec.drive_ids = [rec.google_drive_id] if rec.google_drive_id else []
+                if not rec.resource_id:
+                    if rec.google_drive_id:
+                        rec.resource_id = f"gdrive_{rec.google_drive_id}"
+                    else:
+                        rec.resource_id = f"res_{abs(hash(rec.resolved_url or rec.source_url))}"
+
+                merged_records.append(rec)
+                if primary_drive_id:
+                    drive_id_map[primary_drive_id] = rec
+                if rec.resolved_url:
+                    url_map[rec.resolved_url] = rec
+
+        return merged_records
+
     # =========================================================================
     # PROCESS & EXECUTE PIPELINE
     # =========================================================================
@@ -354,41 +502,80 @@ class AcademicResourceCrawler:
     def process_record(self, record: ManifestRecord, resume: bool = True) -> ManifestRecord:
         """
         Executes full pipeline on a single manifest record:
-        Download -> Validation -> Classification -> Curriculum Resolution -> Ingestion -> Manifest Save.
+        Resume Check -> Multi-source Download -> Strict Validation -> Deduplication -> Classification -> Mapping -> Storage.
         """
         print(f"\n--> Processing [{record.source_site}] {record.title}")
 
-        # 1. Check resume status
-        if resume and self.manifest.is_already_completed(
-            record.source_site, record.source_url, record.google_drive_id
-        ):
-            print(f"    [SKIP] Already completed in manifest (ID: {record.google_drive_id or record.source_url})")
-            existing = self.manifest.get_by_drive_id(record.google_drive_id) if record.google_drive_id else None
-            return existing or record
+        # 1. Check resume status and verify existing file on disk
+        if resume:
+            existing = None
+            if record.google_drive_id:
+                existing = self.manifest.get_by_drive_id(record.google_drive_id)
+            if not existing and record.sha256:
+                existing = self.manifest.get_by_sha256(record.sha256)
+            if not existing:
+                existing = self.manifest.get_by_source(record.source_site, record.source_url)
 
-        # 2. Resolve URL
-        download_url = record.resolved_url or record.source_url
-        if not download_url:
+            if existing and existing.local_path and os.path.exists(existing.local_path):
+                file_size = os.path.getsize(existing.local_path)
+                if file_size > 1024:
+                    try:
+                        with open(existing.local_path, "rb") as f:
+                            head = f.read(10)
+                            f.seek(max(0, file_size - 2048))
+                            tail = f.read()
+                        if head.startswith(b"%PDF-") and b"%%EOF" in tail:
+                            print(f"    [SKIP] Already verified on disk ({file_size} bytes): {existing.local_path}")
+                            for s in record.sources:
+                                if s not in existing.sources:
+                                    existing.sources.append(s)
+                            if not existing.terminal_status:
+                                existing.terminal_status = "DOWNLOADED" if existing.download_status != DownloadStatus.DUPLICATE else "DUPLICATE"
+                            return self.manifest.add_or_update_record(existing)
+                    except Exception:
+                        pass
+
+        # 2. Collect candidate URLs for multi-source fallback
+        candidate_urls: List[str] = []
+        for u in (record.resolved_urls or []) + [record.resolved_url, record.source_url]:
+            if u and u not in candidate_urls and not GoogleDriveHandler.is_drive_folder(u):
+                candidate_urls.append(u)
+
+        if not candidate_urls:
             record.download_status = DownloadStatus.FAILED
+            record.terminal_status = "FAILED"
             record.failure_reason = "No valid download URL could be resolved"
             return self.manifest.add_or_update_record(record)
 
-        self._sleep_rate_limit()
+        # 3. Stream download to temporary file with source fallback
+        temp_path = None
+        last_error = None
 
-        # 3. Stream download to temporary file
-        print(f"    [DOWNLOADING] {download_url[:80]}...")
-        temp_path, error = self.downloader.download_to_temp(download_url)
-        if error or not temp_path:
-            print(f"    [FAILED] Download error: {error}")
+        for download_url in candidate_urls:
+            domain = urlparse(download_url).netloc or "default"
+            self._sleep_rate_limit(domain)
+
+            print(f"    [DOWNLOADING] {download_url[:80]}...")
+            temp_path, last_error = self.downloader.download_to_temp(download_url)
+            if not last_error and temp_path:
+                break
+            print(f"    [FALLBACK] URL failed ({last_error}), trying next candidate source...")
+
+        if last_error or not temp_path:
+            print(f"    [FAILED] Download failed for all candidate URLs: {last_error}")
             record.download_status = DownloadStatus.FAILED
-            record.failure_reason = error or "Download failed"
-            if "authentication" in (error or "").lower() or "permission" in (error or "").lower():
+            err_lower = (last_error or "").lower()
+            if any(term in err_lower for term in ["permission", "auth", "denied", "access", "403", "401"]):
+                record.terminal_status = "ACCESS_BLOCKED"
                 record.action_required = ActionRequiredItem(
                     source=record.source_site,
-                    url=download_url,
-                    problem=error or "Access denied",
+                    url=candidate_urls[0],
+                    problem=last_error or "Access denied / Authorization required",
                     what_is_needed="Provide public viewing permission or direct download link",
                 )
+            else:
+                record.terminal_status = "FAILED"
+            record.failure_reason = last_error or "Download failed across all candidate sources"
             return self.manifest.add_or_update_record(record)
 
         # 4. Strict PDF Validation
@@ -397,6 +584,7 @@ class AcademicResourceCrawler:
         if not val_result.is_valid:
             print(f"    [INVALID] Rejected: {val_result.failure_reason}")
             record.download_status = DownloadStatus.INVALID
+            record.terminal_status = "INVALID"
             record.failure_reason = val_result.failure_reason
             record.file_size = val_result.file_size
             try:
@@ -413,6 +601,7 @@ class AcademicResourceCrawler:
         if existing_record and existing_record.local_path and os.path.exists(existing_record.local_path):
             print(f"    [DUPLICATE] Identical SHA-256 ({record.sha256[:8]}...) exists at: {existing_record.local_path}")
             record.download_status = DownloadStatus.DUPLICATE
+            record.terminal_status = "DUPLICATE"
             record.local_path = existing_record.local_path
             record.classification = existing_record.classification
             record.classification_confidence = existing_record.classification_confidence
@@ -428,9 +617,10 @@ class AcademicResourceCrawler:
             except OSError:
                 pass
 
-            # Ingest to attach provenance record
             if not self.download_only:
                 self.ingester.ingest_record(record)
+            else:
+                record.ingestion_status = "NOT_INGESTED (download-only mode)"
 
             return self.manifest.add_or_update_record(record)
 
@@ -475,14 +665,17 @@ class AcademicResourceCrawler:
         stored_path = self.downloader.store_verified_file(temp_path, destination_path)
         record.local_path = stored_path
         record.download_status = DownloadStatus.DOWNLOADED
+        record.terminal_status = "DOWNLOADED"
 
         print(f"    [STORED] {stored_path}")
 
-        # 9. Database Ingestion
+        # 9. Database Ingestion (Strictly bypassed in download-only mode)
         if not self.download_only:
             print("    [INGESTING] Feeding into MarkMint database pipeline...")
             self.ingester.ingest_record(record)
             print(f"    [INGESTED] Status: {record.ingestion_status}")
+        else:
+            record.ingestion_status = "NOT_INGESTED (download-only mode)"
 
         return self.manifest.add_or_update_record(record)
 
@@ -496,48 +689,74 @@ class AcademicResourceCrawler:
     ) -> AuditReport:
         """
         Executes full crawl & processing across specified sources.
+        Constructs a multi-source union graph, then executes downloads and generates the audit report.
         """
         print("=" * 70)
         print("  MARKMINT ACADEMIC RESOURCE CRAWLER PIPELINE")
         print(f"  Source: {source} | Semester: {semester or 'All'} | Limit: {limit or 'No limit'}")
         print("=" * 70)
 
-        candidates: List[ManifestRecord] = []
         sources_crawled = []
+        candidates: List[ManifestRecord] = []
 
-        # Phase 1: Discovery
-        if source in ["studique", "all"]:
-            sources_crawled.append("Studique")
-            candidates.extend(
-                self.discover_studique(
-                    semester_filter=semester,
-                    subject_filter=subject,
-                    max_items=limit,
-                )
+        # Phase 1: Exhaustive Discovery & Union Graph Construction
+        if source == "all":
+            sources_crawled = ["Studique", "TheHelpers"]
+            print("\n[Discovery 1/2] Discovering resources from Studique...")
+            studique_records = self.discover_studique(
+                semester_filter=semester,
+                subject_filter=subject,
+                max_items=limit,
+            )
+            print("\n[Discovery 2/2] Discovering resources from The Helpers...")
+            helpers_records = self.discover_thehelpers(
+                semester_filter=semester,
+                subject_filter=subject,
+                max_items=limit,
+            )
+            candidates = self.build_union_graph(studique_records, helpers_records)
+        elif source == "studique":
+            sources_crawled = ["Studique"]
+            candidates = self.discover_studique(
+                semester_filter=semester,
+                subject_filter=subject,
+                max_items=limit,
+            )
+        elif source == "helpers":
+            sources_crawled = ["TheHelpers"]
+            candidates = self.discover_thehelpers(
+                semester_filter=semester,
+                subject_filter=subject,
+                max_items=limit,
             )
 
-        if source in ["helpers", "all"]:
-            sources_crawled.append("TheHelpers")
-            candidates.extend(
-                self.discover_thehelpers(
-                    semester_filter=semester,
-                    subject_filter=subject,
-                    max_items=limit,
-                )
-            )
-
-        print(f"\n[Discovery Complete] Found {len(candidates)} candidate resources across {sources_crawled}.")
+        print(f"\n[Discovery Complete] Found {len(candidates)} unique candidates across {sources_crawled}.")
 
         # Phase 2: Processing (Download, Validate, Classify, Map, Ingest)
+        target_records = candidates[:limit] if limit else candidates
         processed_count = 0
         try:
-            for rec in candidates:
-                if limit and processed_count >= limit:
-                    print(f"\nReached batch limit of {limit} resources.")
-                    break
-
-                self.process_record(rec, resume=resume)
-                processed_count += 1
+            if self.download_only and len(target_records) > 1:
+                from concurrent.futures import ThreadPoolExecutor, as_completed
+                print(f"\n[Processing] Starting bounded concurrent downloads (4 workers) for {len(target_records)} records...")
+                with ThreadPoolExecutor(max_workers=4) as executor:
+                    future_to_rec = {
+                        executor.submit(self.process_record, rec, resume): rec
+                        for rec in target_records
+                    }
+                    for future in as_completed(future_to_rec):
+                        rec = future_to_rec[future]
+                        try:
+                            future.result()
+                            processed_count += 1
+                            if processed_count % 25 == 0 or processed_count == len(target_records):
+                                print(f"    [Progress] Processed {processed_count}/{len(target_records)} records...")
+                        except Exception as e:
+                            logger.error("Error processing record %s: %s", rec.title, e)
+            else:
+                for rec in target_records:
+                    self.process_record(rec, resume=resume)
+                    processed_count += 1
 
         except KeyboardInterrupt:
             print("\n[!] Crawl interrupted by user. All progress saved in manifest.")

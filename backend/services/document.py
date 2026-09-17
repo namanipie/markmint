@@ -16,8 +16,15 @@ from backend.models.core import (
 )
 
 class DocumentService:
-    def __init__(self, db: Session):
+    def __init__(self, db: Session, *, auto_commit: bool = True):
         self.db = db
+        self.auto_commit = auto_commit
+
+    def _commit(self):
+        if self.auto_commit:
+            self.db.commit()
+        else:
+            self.db.flush()
 
     def add_provenance(
         self,
@@ -42,26 +49,19 @@ class DocumentService:
             source_priority=source_priority
         )
         self.db.add(provenance)
-        self.db.commit()
+        self._commit()
         self.db.refresh(provenance)
         return provenance
 
     def get_or_create_document(self, document_hash: str, **kwargs) -> Document:
-        query = self.db.query(Document).filter(Document.document_hash == document_hash)
-        
-        original_url = kwargs.get("original_url")
-        if original_url:
-            query = self.db.query(Document).filter(
-                (Document.document_hash == document_hash) | (Document.original_url == original_url)
-            )
-            
-        doc = query.first()
+        doc = self.db.query(Document).filter(Document.document_hash == document_hash).first()
         source_site = kwargs.get("source", "unknown")
-        
+        original_url = kwargs.get("original_url")
+
         if not doc:
             doc = Document(document_hash=document_hash, **kwargs)
             self.db.add(doc)
-            self.db.commit()
+            self._commit()
             self.db.refresh(doc)
             if original_url:
                 self.add_provenance(
@@ -144,7 +144,7 @@ class DocumentService:
             doc.extraction_status = "completed"
             doc.extraction_confidence = 0.9
             
-        self.db.commit()
+        self._commit()
         self.db.refresh(new_exam)
         return new_exam
 
@@ -197,4 +197,4 @@ class DocumentService:
             doc.extraction_status = "completed"
             doc.extraction_confidence = 0.8
             
-        self.db.commit()
+        self._commit()

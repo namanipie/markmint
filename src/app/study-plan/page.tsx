@@ -42,9 +42,9 @@ export default function StudyIntelligencePage() {
     setUploadError("");
     
     try {
-      const courseObj = courses.find(c => c.course_id === selectedCourse || (c as any).id === selectedCourse);
+      const courseObj = courses.find(c => String(c.id) === selectedCourse);
       setSelectedCourseObj(courseObj || null);
-      const subject = courseObj ? courseObj.course_name || courseObj.course_id || selectedCourse : selectedCourse;
+      const subject = courseObj ? courseObj.name : selectedCourse;
       
       const data = await getStudyPlan(subject);
       setStudyData(data);
@@ -62,7 +62,7 @@ export default function StudyIntelligencePage() {
   const handleResourceClick = async (topicName: string, resourceId: string) => {
     if (!selectedCourseObj) return;
     try {
-      await updateStudyProgress(selectedCourseObj.course_id, {
+      await updateStudyProgress(selectedCourseObj.id, {
         topic: topicName,
         action: "view_resource",
         resource_id: resourceId
@@ -76,12 +76,12 @@ export default function StudyIntelligencePage() {
   const handleTopicComplete = async (topicName: string) => {
     if (!selectedCourseObj) return;
     try {
-      await updateStudyProgress(selectedCourseObj.course_id, {
+      await updateStudyProgress(selectedCourseObj.id, {
         topic: topicName,
         action: "complete_topic"
       });
       // Optionally refresh plan to update progress %
-      const subject = selectedCourseObj.course_name || selectedCourseObj.course_id;
+      const subject = selectedCourseObj.name;
       const data = await getStudyPlan(subject);
       setStudyData(data);
     } catch (err) {
@@ -99,15 +99,15 @@ export default function StudyIntelligencePage() {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("course_id", selectedCourseObj.course_id);
-    formData.append("course_name", selectedCourseObj.course_name);
+    formData.append("course_id", String(selectedCourseObj.id));
+    formData.append("course_name", selectedCourseObj.name);
 
     try {
       const result = await uploadStudyNotes(formData);
       setUploadResult(result);
       
       // Refresh study plan to show the new uploaded resources
-      const subject = selectedCourseObj.course_name || selectedCourseObj.course_id;
+      const subject = selectedCourseObj.name;
       const data = await getStudyPlan(subject);
       setStudyData(data);
     } catch (err: any) {
@@ -158,9 +158,9 @@ export default function StudyIntelligencePage() {
                 className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:border-primary text-foreground transition-colors appearance-none"
               >
                 <option value="" disabled>Select a course</option>
-                {courses.map((c: any) => (
-                  <option key={c.course_id || c.id} value={c.course_id || c.id}>
-                    {c.course_code || c.code} - {c.course_name || c.name}
+                {courses.map((c) => (
+                  <option key={c.id} value={String(c.id)}>
+                    {c.code} - {c.name}
                   </option>
                 ))}
               </select>

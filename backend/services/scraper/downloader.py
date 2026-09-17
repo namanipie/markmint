@@ -145,6 +145,17 @@ class ResourceDownloader:
                 failure_reason=f"PDF structure is damaged or corrupt: {str(e)}",
             )
 
+        # Check for %%EOF marker in the tail of the file
+        with open(file_path, "rb") as f:
+            f.seek(max(0, file_size - 2048))
+            tail = f.read()
+        if b"%%EOF" not in tail:
+            return ValidationResult(
+                is_valid=False,
+                file_size=file_size,
+                failure_reason="PDF is truncated or incomplete (missing '%%EOF' trailer)",
+            )
+
         # File is valid
         file_hash = cls.calculate_sha256(file_path)
         return ValidationResult(is_valid=True, sha256=file_hash, file_size=file_size)
@@ -174,6 +185,8 @@ class ResourceDownloader:
                 r = session.get(download_url, headers=headers, stream=True, timeout=self.timeout_seconds)
 
                 if r.status_code != 200:
+                    if r.status_code in [400, 401, 403, 404]:
+                        return None, f"HTTP {r.status_code}: {r.reason} (Permanent error, aborting retries)"
                     r.raise_for_status()
 
                 # Stream to temp file
@@ -227,6 +240,9 @@ class ResourceDownloader:
                 return temp_file_path, None
 
             except Exception as e:
+                err_str = str(e)
+                if any(code in err_str for code in ["400", "401", "403", "404"]):
+                    return None, f"Permanent HTTP error: {err_str}"
                 logger.warning(
                     "Download attempt %d/%d failed for %s: %s",
                     attempt, max_retries, download_url, str(e)

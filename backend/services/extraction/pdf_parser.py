@@ -66,7 +66,7 @@ class PDFParser:
             return ""
 
     @staticmethod
-    def extract_text_with_pages(file_stream: BinaryIO) -> list[dict[str, Any]]:
+    def extract_text_with_pages(file_stream: BinaryIO, *, allow_ocr: bool = True) -> list[dict[str, Any]]:
         """
         Extracts text page by page.
         Returns a list of dicts: [{'page_number': 1, 'text': '...'}, ...]
@@ -77,7 +77,8 @@ class PDFParser:
                 for i, page in enumerate(pdf.pages):
                     text = page.extract_text()
                     
-                    if PDFParser.is_scanned_page(page, text):
+                    scanned = PDFParser.is_scanned_page(page, text)
+                    if allow_ocr and scanned:
                         print(f"  [OCR] Processing scanned page {i+1}...")
                         ocr_text = PDFParser._perform_ocr(page)
                         if ocr_text:

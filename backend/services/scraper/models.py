@@ -112,6 +112,33 @@ class ManifestRecord(BaseModel):
     action_required: Optional[ActionRequiredItem] = None
     timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
+    # Union tracking fields
+    resource_id: Optional[str] = Field(default=None, description="Deterministic cross-source ID")
+    sources: List[str] = Field(default_factory=list, description="All sources where resource was discovered")
+    source_urls: List[str] = Field(default_factory=list, description="All discovery URLs")
+    resolved_urls: List[str] = Field(default_factory=list, description="All direct download URLs for fallback")
+    drive_ids: List[str] = Field(default_factory=list, description="All associated Google Drive IDs")
+    terminal_status: Optional[str] = Field(default=None, description="Terminal status: DOWNLOADED, DUPLICATE, INVALID, FAILED, ACCESS_BLOCKED")
+    potential_content_duplicate: Optional[bool] = Field(default=None, description="Flag for semantic/title content duplicates")
+    potential_content_duplicate_reference: Optional[str] = Field(
+        default=None,
+        description="Legacy duplicate-reference identifier preserved when normalized to True",
+    )
+
+    def to_manifest_dict(self) -> Dict[str, Any]:
+        d = self.model_dump()
+        if not d.get("sources"):
+            d["sources"] = [self.source_site] if self.source_site else []
+        if not d.get("source_urls"):
+            d["source_urls"] = [self.source_url] if self.source_url else []
+        if not d.get("resolved_urls"):
+            d["resolved_urls"] = [self.resolved_url] if self.resolved_url else []
+        if not d.get("drive_ids"):
+            d["drive_ids"] = [self.google_drive_id] if self.google_drive_id else []
+        if not d.get("terminal_status"):
+            d["terminal_status"] = self.download_status.value
+        return d
+
 
 class AuditReport(BaseModel):
     """Final audit report capturing the full crawl & ingestion results."""
@@ -124,6 +151,7 @@ class AuditReport(BaseModel):
     pdfs_failed: int = 0
     pdfs_invalid: int = 0
     duplicates: int = 0
+    access_blocked: int = 0
     pyqs: int = 0
     study_materials: int = 0
     unknown_classifications: int = 0

@@ -397,16 +397,38 @@ export function RepetitionAnalyticsView({
             </div>
 
             {/* Topics List */}
-            <div className="space-y-2">
-              <div className="text-xs text-muted-foreground flex justify-between items-center px-1">
-                <span>
-                  Showing {topicData?.topics.length || 0} topics sorted by paper recurrence & marks weight
-                </span>
-                <span className="font-mono text-[10px]">Coverage = Papers Present / Analyzed</span>
+            {(!topicData || topicData.topics.length === 0) && overview && overview.total_questions > 0 ? (
+              <div className="bg-card border border-border/80 rounded-xl p-8 text-center space-y-3">
+                <div className="inline-flex p-3 rounded-full bg-accent/10 text-accent mb-1">
+                  <Layers className="w-6 h-6" />
+                </div>
+                <h4 className="text-sm font-semibold text-foreground">
+                  Topic Taxonomy Pending Cataloging
+                </h4>
+                <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
+                  Topic-level syllabus taxonomy is pending cataloging for this course. Question Family recurrence is active with {overview.total_questions} verified questions across {overview.top_repeated_families.length} families.
+                </p>
+                <div className="pt-2">
+                  <button
+                    onClick={() => setActiveTab("families")}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-xs font-semibold hover:bg-accent/90 transition-colors cursor-pointer"
+                  >
+                    <span>View Question Families</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
+            ) : (
+              <div className="space-y-2">
+                <div className="text-xs text-muted-foreground flex justify-between items-center px-1">
+                  <span>
+                    Showing {topicData?.topics.length || 0} topics sorted by paper recurrence & marks weight
+                  </span>
+                  <span className="font-mono text-[10px]">Coverage = Papers Present / Analyzed</span>
+                </div>
 
-              <div className="grid grid-cols-1 gap-2.5">
-                {(topicData?.topics || []).map((t) => {
+                <div className="grid grid-cols-1 gap-2.5">
+                  {(topicData?.topics || []).map((t) => {
                   const coveragePercent = Math.round(t.paper_coverage * 100);
                   const isHighYield = t.paper_count >= 2 || coveragePercent >= 50;
 
@@ -510,8 +532,9 @@ export function RepetitionAnalyticsView({
                 })}
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      )}
 
         {/* TAB 2: QUESTION FAMILIES EXPLORER */}
         {activeTab === "families" && (

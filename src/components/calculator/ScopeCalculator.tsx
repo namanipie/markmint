@@ -9,6 +9,9 @@ interface CourseGrade {
   name: string;
   credits: number;
   grade: string;
+  course_id?: number | null;
+  status?: string;
+  notes?: string | null;
 }
 
 const GRADE_POINTS: Record<string, number> = {
@@ -23,15 +26,15 @@ const GRADE_POINTS: Record<string, number> = {
   "Ab": 0,
 };
 
-import { CURRICULUM } from "@/lib/curriculumData";
-
-const BRANCHES = Object.keys(CURRICULUM).sort();
+import { getCurriculumBranches, getCurriculumSubjects } from "@/lib/api";
 
 export function ScopeCalculator() {
+  const [branches, setBranches] = useState<string[]>([]);
   const [selectedBranch, setSelectedBranch] = useState<string>("Computer Science and Engineering");
   const [selectedSemester, setSelectedSemester] = useState<string>("custom");
   const [showClearModal, setShowClearModal] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isLoadingCurriculum, setIsLoadingCurriculum] = useState(false);
   
   const [courses, setCourses] = useState<CourseGrade[]>([
     { id: "1", name: "", credits: 3, grade: "" },
@@ -41,17 +44,51 @@ export function ScopeCalculator() {
 
   const hasShownGpaToast = useRef(false);
 
-  const handleCurriculumChange = (branch: string, semester: string) => {
+  useEffect(() => {
+    getCurriculumBranches()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setBranches(data);
+          if (!data.includes(selectedBranch)) {
+            setSelectedBranch(data[0]);
+          }
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to load branches for calculator", err);
+      });
+  }, []);
+
+  const handleCurriculumChange = async (branch: string, semester: string) => {
     setSelectedBranch(branch);
     setSelectedSemester(semester);
     
     if (semester !== "custom") {
-      const curriculumCourses = CURRICULUM[branch]?.[semester];
-      if (curriculumCourses && curriculumCourses.length > 0) {
-        setCourses(curriculumCourses.map(c => ({ ...c, grade: "" })));
-      } else {
-        toast("Curriculum for this semester is not added yet.", { duration: 3000 });
+      setIsLoadingCurriculum(true);
+      try {
+        const subjectList = await getCurriculumSubjects(branch, Number(semester));
+        if (subjectList && subjectList.length > 0) {
+          setCourses(
+            subjectList.map((s) => ({
+              id: s.curriculum_id,
+              name: s.subject_name,
+              credits: s.credits || 3,
+              grade: "",
+              course_id: s.course_id,
+              status: s.status,
+              notes: s.notes,
+            }))
+          );
+        } else {
+          toast("Curriculum for this semester is not added yet.", { duration: 3000 });
+          setSelectedSemester("custom");
+        }
+      } catch (err) {
+        console.error("Failed to load curriculum subjects", err);
+        toast("Unable to load curriculum for this semester.", { duration: 3000 });
         setSelectedSemester("custom");
+      } finally {
+        setIsLoadingCurriculum(false);
       }
     } else {
       // Custom blank slate
@@ -116,7 +153,7 @@ export function ScopeCalculator() {
                 onChange={(e) => handleCurriculumChange(e.target.value, selectedSemester)}
                 className="bg-background border border-border rounded-md px-3 py-1.5 text-sm font-medium focus:outline-none focus:border-accent transition-colors w-full sm:max-w-[300px] truncate"
               >
-                {BRANCHES.map(branch => (
+                {(branches.length > 0 ? branches : [selectedBranch]).map(branch => (
                   <option key={branch} value={branch} className="bg-background text-foreground">
                     {branch}
                   </option>

@@ -155,9 +155,12 @@ export type HeatmapData = HeatmapCell;
 export type TrendData = HistoricalTrend;
 
 export interface BackendCourse {
-  course_id: string;
-  course_code: string;
-  course_name: string;
+  id: number;
+  code: string;
+  name: string;
+  canonical_code?: string | null;
+  department?: string | null;
+  regulation_year?: number | null;
 }
 
 export interface BackendPrediction {
@@ -420,9 +423,13 @@ export interface RepetitionOverview {
   time_range: string;
   assessment_types: string[];
   marks_summary: {
-    total_marks: number;
-    avg_marks: number;
-    max_marks: number;
+    min_question_marks: number;
+    max_question_marks: number;
+    avg_question_marks: number;
+    total_marks_analyzed: number;
+    total_marks?: number;
+    avg_marks?: number;
+    max_marks?: number;
   };
   top_repeated_topics: {
     topic_id: number;

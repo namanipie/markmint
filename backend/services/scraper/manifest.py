@@ -50,22 +50,103 @@ class ManifestManager:
         try:
             with open(self.manifest_path, "r", encoding="utf-8") as f:
                 raw_data = json.load(f)
+        except FileNotFoundError:
+            logger.info("Manifest file not found at %s. Initialized empty manifest.", self.manifest_path)
+            return
+        except json.JSONDecodeError as e:
+            logger.error("Failed to parse manifest JSON from %s: %s", self.manifest_path, e)
+            raise
 
-            loaded_count = 0
-            for item in raw_data:
-                record = ManifestRecord.model_validate(item)
-                key = self._make_key(record.source_site, record.source_url, record.google_drive_id)
-                self.records[key] = record
+        if not isinstance(raw_data, list):
+            raise ValueError(f"Manifest {self.manifest_path} must contain a JSON list")
 
-                if record.sha256:
-                    self.sha256_index[record.sha256] = key
-                if record.google_drive_id:
-                    self.drive_id_index[record.google_drive_id] = key
-                loaded_count += 1
+        references = {
+            value
+            for item in raw_data
+            for value in (item.get("resource_id"), item.get("google_drive_id"))
+            if value
+        }
+        hashes_by_reference: Dict[str, Optional[str]] = {}
+        for item in raw_data:
+            sha = item.get("sha256")
+            if not sha:
+                continue
+            for ref in (item.get("resource_id"), item.get("google_drive_id")):
+                if ref and ref not in hashes_by_reference:
+                    hashes_by_reference[ref] = sha
 
-            logger.info("Loaded %d manifest records from %s.", loaded_count, self.manifest_path)
-        except Exception as e:
-            logger.error("Failed to load manifest from %s: %s", self.manifest_path, e)
+        loaded_count = 0
+        for index, item in enumerate(raw_data):
+            try:
+                normalized_item = self._normalize_legacy_duplicate_reference(
+                    item, references, hashes_by_reference
+                )
+                record = ManifestRecord.model_validate(normalized_item)
+            except Exception as e:
+                rec_id = item.get("resource_id") or item.get("google_drive_id") or item.get("source_url") or index
+                message = f"Manifest record {index} (id={rec_id!r}) failed validation: {e}"
+                logger.error(message)
+                raise ValueError(message) from e
+
+            key = self._make_key(record.source_site, record.source_url, record.google_drive_id)
+            self.records[key] = record
+
+            if record.sha256:
+                self.sha256_index[record.sha256] = key
+            if record.google_drive_id:
+                self.drive_id_index[record.google_drive_id] = key
+            loaded_count += 1
+
+        logger.info("Loaded %d manifest records from %s.", loaded_count, self.manifest_path)
+
+    @staticmethod
+    def _normalize_legacy_duplicate_reference(
+        item: Dict[str, Any],
+        references: set[str],
+        hashes_by_reference: Dict[str, Optional[str]],
+    ) -> Dict[str, Any]:
+        """Normalize only verified legacy duplicate references and boolean encodings, preserving their source value."""
+        value = item.get("potential_content_duplicate")
+        if value is None:
+            return item
+        if isinstance(value, bool):
+            return item
+
+        if isinstance(value, str):
+            stripped = value.strip()
+            if stripped.lower() in ("true", "1"):
+                normalized = dict(item)
+                normalized["potential_content_duplicate"] = True
+                return normalized
+            if stripped.lower() in ("false", "0"):
+                normalized = dict(item)
+                normalized["potential_content_duplicate"] = False
+                return normalized
+
+            if value not in references or not item.get("sha256"):
+                raise ValueError(f"unrecognized duplicate reference {value!r}")
+            if hashes_by_reference.get(value) != item["sha256"]:
+                raise ValueError(
+                    f"duplicate reference {value!r} has a different SHA-256 "
+                    f"({hashes_by_reference.get(value)} vs {item.get('sha256')})"
+                )
+
+            normalized = dict(item)
+            normalized["potential_content_duplicate"] = True
+            normalized["potential_content_duplicate_reference"] = value
+            return normalized
+
+        if isinstance(value, (int, float)):
+            if value == 1:
+                normalized = dict(item)
+                normalized["potential_content_duplicate"] = True
+                return normalized
+            if value == 0:
+                normalized = dict(item)
+                normalized["potential_content_duplicate"] = False
+                return normalized
+
+        raise ValueError(f"invalid duplicate field value: {value!r} of type {type(value).__name__}")
 
     def save(self):
         """Atomically saves manifest to disk."""

@@ -5,8 +5,11 @@ alembic
 psycopg2-binary
 pydantic
 pydantic-settings
+python-dotenv
 pytest
 httpx
+requests
+google-genai
 ruff
 mypy
 pdfplumber

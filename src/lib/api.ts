@@ -187,7 +187,7 @@ export async function getPractice(subject: string) {
 export async function getDashboardStats() {
   try {
     return await fetchAPI("/stats/");
-  } catch (e) {
+  } catch {
     // Fallback if no global stats endpoint exists
     return null;
   }
@@ -208,7 +208,7 @@ export async function getTopicRepetition(
     maxMarks?: number;
   }
 ): Promise<TopicRepetitionResponse> {
-  let url = `/analytics/${encodeURIComponent(String(courseId))}/topics?`;
+  const url = `/analytics/${encodeURIComponent(String(courseId))}/topics?`;
   const params: string[] = [];
   if (filters?.year) params.push(`year=${encodeURIComponent(filters.year)}`);
   if (filters?.assessmentType) params.push(`assessment_type=${encodeURIComponent(filters.assessmentType)}`);
@@ -226,7 +226,7 @@ export async function getQuestionFamilies(
     minOccurrences?: number;
   }
 ): Promise<FamilyRepeatResponse> {
-  let url = `/analytics/${encodeURIComponent(String(courseId))}/families?`;
+  const url = `/analytics/${encodeURIComponent(String(courseId))}/families?`;
   const params: string[] = [];
   if (filters?.assessmentType) params.push(`assessment_type=${encodeURIComponent(filters.assessmentType)}`);
   if (filters?.topicId) params.push(`topic_id=${encodeURIComponent(filters.topicId)}`);

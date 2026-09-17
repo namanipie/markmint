@@ -947,8 +947,26 @@ export default function MintAIPage() {
                     );
                   })
                 ) : (
-                  <div className="text-center py-8 text-muted-foreground border border-dashed border-border rounded-xl">
-                    No predictions generated.
+                  <div className="border border-dashed border-border/80 bg-card/60 rounded-xl p-6 text-center space-y-3">
+                    <div className="inline-flex p-2.5 rounded-full bg-accent/10 text-accent mb-1">
+                      <Repeat className="w-5 h-5" />
+                    </div>
+                    <h4 className="text-sm font-semibold text-foreground">
+                      Topic Predictions Pending Syllabus Taxonomy
+                    </h4>
+                    <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
+                      Detailed topic taxonomy is currently being cataloged for this course. Question Family recurrence analytics and empirical paper patterns are fully active and verified.
+                    </p>
+                    <div className="pt-2">
+                      <button
+                        onClick={() => setMainView("analytics")}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-xs font-semibold hover:bg-accent/90 transition-colors cursor-pointer"
+                      >
+                        <Repeat className="w-3.5 h-3.5" />
+                        <span>Explore Repetition Analytics</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

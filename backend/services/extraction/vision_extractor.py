@@ -1,7 +1,12 @@
 import os
 import json
+import time
+import random
 from typing import Any, Optional
 from pydantic import BaseModel, Field
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from google import genai
 from google.genai import types
@@ -78,7 +83,6 @@ class VisionExtractor:
             
             # Wait for processing if needed
             while gemini_file.state.name == "PROCESSING":
-                import time
                 time.sleep(2)
                 gemini_file = client.files.get(name=gemini_file.name)
             
@@ -111,36 +115,47 @@ class VisionExtractor:
         4. Do NOT hallucinate questions that do not exist.
         """
 
+        max_retries = 5
+        base_delay = 2.0
+        last_error = None
+
         try:
-            print("[VisionExtractor] Generating structured content...")
-            response = client.models.generate_content(
-                model="gemini-3.5-flash-lite",
-                contents=[gemini_file, prompt],
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    response_schema=GeminiDocument,
-                    temperature=0.1
-                )
-            )
-            
-            output_text = response.text
-            data = json.loads(output_text)
-            
-            # Transform to internal schema
-            return cls._transform_to_domain(data)
-            
-        except Exception as e:
+            for attempt in range(max_retries):
+                try:
+                    print(f"[VisionExtractor] Generating structured content (attempt {attempt + 1}/{max_retries})...")
+                    response = client.models.generate_content(
+                        model="gemini-3.5-flash-lite",
+                        contents=[gemini_file, prompt],
+                        config=types.GenerateContentConfig(
+                            response_mime_type="application/json",
+                            response_schema=GeminiDocument,
+                            temperature=0.1
+                        )
+                    )
+                    data = json.loads(response.text)
+                    return cls._transform_to_domain(data)
+                except Exception as e:
+                    err_str = str(e)
+                    last_error = err_str
+                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out"])
+                    if is_transient and attempt < max_retries - 1:
+                        sleep_time = min(60.0, (base_delay * (2 ** attempt)) + random.uniform(0.1, 1.0))
+                        print(f"[VisionExtractor] Transient error ({err_str[:60]}). Retrying in {sleep_time:.2f}s...")
+                        time.sleep(sleep_time)
+                    else:
+                        break
+
             return DocumentExtractionResult(
                 sections=[],
                 total_pages=0,
                 successful=False,
-                error_message=f"Gemini API error: {str(e)}"
+                error_message=f"Gemini API error: {last_error}"
             )
         finally:
             try:
                 client.files.delete(name=gemini_file.name)
-            except:
-                pass
+            except Exception as exc:
+                print(f"[VisionExtractor] Uploaded file cleanup failed: {exc}")
 
 
     @classmethod

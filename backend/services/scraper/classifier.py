@@ -234,6 +234,18 @@ class ResourceClassifier:
         if assessment_type and scores[ResourceClassification.PYQ.value] > 0.0:
             scores[ResourceClassification.PYQ.value] = min(1.0, scores[ResourceClassification.PYQ.value] + 0.1)
 
+        # Prioritize explicit filename notes/study-material indicators over inherited folder path PYQ keywords
+        explicit_name = " ".join(filter(None, [title, filename])).lower()
+        has_explicit_notes = bool(re.search(r"(?:^|[\s_/-])(?:lecture[\s_/-]*)?notes?|\bhandouts?\b|\bformula\s+sheet\b|\bsummary\b", explicit_name))
+        has_explicit_pyq = bool(re.search(r"\b(?:pyqs?|question\s*papers?|qp)\b", explicit_name))
+        if has_explicit_notes and not has_explicit_pyq:
+            scores[ResourceClassification.STUDY_MATERIAL.value] = max(
+                scores[ResourceClassification.STUDY_MATERIAL.value], 0.95
+            )
+            if scores[ResourceClassification.PYQ.value] > 0.8:
+                scores[ResourceClassification.PYQ.value] = 0.5
+            reasons.append("Prioritized explicit 'notes' in filename over inherited folder keywords")
+
         # Find best candidate
         sorted_scores = sorted(scores.items(), key=lambda x: x[1], reverse=True)
         top_cat, top_score = sorted_scores[0]

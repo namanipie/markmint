@@ -88,12 +88,14 @@ class QuestionFamilyManager:
         if not questions_by_year:
             return
             
-        # Local cache of family embeddings for Top-K retrieval
-        # Maps family_id -> list of embeddings (we can take the mean or max)
+        # Local cache of family embeddings and normalized texts for Top-K retrieval
         family_embeddings_cache = {}
+        family_norm_text_cache = {}
         
         # Load existing families into cache
         existing_families = self._get_historical_families(subject_name, 2100)
+        for fam in existing_families:
+            family_norm_text_cache[fam.id] = QuestionNormalizer.normalize(fam.canonical_name)
         
         # Precompute embeddings for all questions for efficiency, though we will apply them chronologically
         from backend.services.canonical import CanonicalRepresentationBuilder
@@ -108,11 +110,10 @@ class QuestionFamilyManager:
             q_year = year
             
             # Extract high-fidelity canonical text from structured JSON
-            from backend.services.canonical import CanonicalRepresentationBuilder
             q_text = CanonicalRepresentationBuilder.build(question)
             
             q_norm = QuestionNormalizer.normalize(q_text)
-            q_emb = np.array(all_embeddings[i])
+            q_emb = np.array(all_embeddings[i], dtype=np.float32)
             
             # Update the question's text fields to the new high-fidelity version
             question.original_text = q_text
@@ -127,9 +128,10 @@ class QuestionFamilyManager:
             
             # Attempt Exact Match (Lexical) first against questions in candidate families
             for family in candidate_families:
-                # We could optimize this by caching normalized canonical texts
-                fam_norm = QuestionNormalizer.normalize(family.canonical_name)
-                # Jaccard/Levenshtein approximation (exact string for now)
+                fam_norm = family_norm_text_cache.get(family.id)
+                if fam_norm is None:
+                    fam_norm = QuestionNormalizer.normalize(family.canonical_name)
+                    family_norm_text_cache[family.id] = fam_norm
                 if q_norm == fam_norm:
                     if len(q_norm) > 10: # Avoid matching trivial "1"
                         decision = FamilyMatchDecision(True, "exact", 1.0, "lexical_hash")
@@ -138,49 +140,47 @@ class QuestionFamilyManager:
             
             # 3. Semantic Top-K Matching
             if not decision and candidate_families:
-                # Compute scores
-                scores = []
-                valid_candidates = []
+                uncached = [f for f in candidate_families if f.id not in family_embeddings_cache]
+                if uncached:
+                    uncached_texts = [f.canonical_name for f in uncached]
+                    new_embs = self.provider.get_embeddings(uncached_texts)
+                    for f, emb in zip(uncached, new_embs):
+                        arr = np.array(emb, dtype=np.float32)
+                        n = np.linalg.norm(arr)
+                        family_embeddings_cache[f.id] = (arr / n) if n > 0 else arr
                 
-                for family in candidate_families:
-                    # Retrieve the embedding of the canonical question or compute it
-                    fam_emb = np.array(self.provider.get_embeddings([family.canonical_name])[0])
+                cand_embs = np.stack([family_embeddings_cache[f.id] for f in candidate_families])
+                norm_q = np.linalg.norm(q_emb)
+                q_unit = (q_emb / norm_q) if norm_q > 0 else q_emb
+                sims = np.dot(cand_embs, q_unit)
+
+                best_idx = int(np.argmax(sims))
+                best_score = float(sims[best_idx])
+                best_fam = candidate_families[best_idx]
+
+                if best_score >= self.CONCEPTUAL_THRESHOLD:
+                    # 4. LLM Structural Guardrail Validation
+                    is_valid = LLMStructuralGuardrail.validate(q_text, best_fam.canonical_name, best_score)
                     
-                    dot = np.dot(q_emb, fam_emb)
-                    norm_q = np.linalg.norm(q_emb)
-                    norm_f = np.linalg.norm(fam_emb)
-                    
-                    if norm_q > 0 and norm_f > 0:
-                        sim = float(dot / (norm_q * norm_f))
-                        scores.append(sim)
-                        valid_candidates.append(family)
-                        
-                if scores:
-                    best_idx = int(np.argmax(scores))
-                    best_score = scores[best_idx]
-                    best_fam = valid_candidates[best_idx]
-                    
-                    if best_score >= self.CONCEPTUAL_THRESHOLD:
-                        # 4. LLM Structural Guardrail Validation
-                        is_valid = LLMStructuralGuardrail.validate(q_text, best_fam.canonical_name, best_score)
-                        
-                        if is_valid:
-                            decision = FamilyMatchDecision(True, "conceptual", best_score, "semantic_embedding+llm_guardrail")
-                            best_family_id = best_fam.id
-                        else:
-                            # Flagged as structural but different concept -> Reject match
-                            pass
+                    if is_valid:
+                        decision = FamilyMatchDecision(True, "conceptual", best_score, "semantic_embedding+llm_guardrail")
+                        best_family_id = best_fam.id
             
             # 5. Assignment
             if decision and best_family_id:
                 # Assign to existing family
                 question.family_id = best_family_id
                 
-                # Update latest seen
+                # Update latest seen and repetition type
                 fam_to_update = self.db.query(QuestionFamily).get(best_family_id)
-                if fam_to_update and q_year is not None:
-                    if fam_to_update.latest_seen_year is None or q_year > fam_to_update.latest_seen_year:
-                        fam_to_update.latest_seen_year = q_year
+                if fam_to_update:
+                    if q_year is not None:
+                        if fam_to_update.latest_seen_year is None or q_year > fam_to_update.latest_seen_year:
+                            fam_to_update.latest_seen_year = q_year
+                    if fam_to_update.repetition_type in ("singleton", None):
+                        fam_to_update.repetition_type = "exact_repeat" if decision.match_type == "exact" else "family_repeat"
+                    elif fam_to_update.repetition_type == "exact_repeat" and decision.match_type != "exact":
+                        fam_to_update.repetition_type = "family_repeat"
                 
                 # Persist evidence
                 membership = QuestionFamilyMembership(
@@ -206,6 +206,9 @@ class QuestionFamilyManager:
                 self.db.flush() # get ID
                 
                 question.family_id = new_family.id
+                family_norm_text_cache[new_family.id] = q_norm
+                norm_q = np.linalg.norm(q_emb)
+                family_embeddings_cache[new_family.id] = (q_emb / norm_q) if norm_q > 0 else q_emb
                 
                 membership = QuestionFamilyMembership(
                     question_id=question.id,
