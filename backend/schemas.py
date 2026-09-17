@@ -230,11 +230,17 @@ class RepetitionDNA(BaseModel):
     structural_count: int
 
 class FamilyDNA(BaseModel):
+    family_id: Optional[int] = None
     family_name: str
     occurrences: int
     years: list[int]
     exam_types: list[str]
-    average_marks: float
+    average_marks: Optional[float] = None
+    total_marks: Optional[float] = None
+    distinct_paper_count: int = 0
+    paper_ids: list[int] = []
+    question_ids: list[int] = []
+    repetition_type: Optional[str] = None
     recurrence_interval_years: float
     recent_recurrence_count: int
     trend: str # 'growing', 'declining', 'stable'

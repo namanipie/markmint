@@ -41,11 +41,12 @@ def get_course_historical_questions(
     min_marks: Optional[float] = Query(None),
     max_marks: Optional[float] = Query(None),
     family_id: Optional[int] = Query(None),
+    family_name: Optional[str] = Query(None),
     repetition_type: Optional[str] = Query(None),
     limit: int = Query(50, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
-    """Expose verified historical examination questions chronologically for a course and optional topic."""
+    """Expose verified historical examination questions chronologically for a course and optional topic or family."""
     course = _find_course(db, course_id)
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
@@ -74,6 +75,8 @@ def get_course_historical_questions(
 
     if family_id is not None:
         query = query.filter(Question.family_id == family_id)
+    elif family_name:
+        query = query.join(Question.family).filter(func.lower(QuestionFamily.canonical_name) == family_name.lower())
 
     if repetition_type:
         query = query.join(Question.memberships).filter(func.lower(QuestionFamilyMembership.match_type) == repetition_type.lower())
@@ -522,6 +525,50 @@ def get_intelligence_snapshot(
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
     study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id)
+    if not study_plan and family_preds:
+        family_plan = []
+        for index, item in enumerate(family_preds[:5], start=1):
+            p_dict = item.to_dict()
+            fam_id = item.family_id
+            score = float(item.score or 0.0)
+            p_cnt = item.distinct_paper_count or 1
+            occ = item.evidence.get("occurrences", 1) if isinstance(item.evidence, dict) else 1
+            years = item.observed_years or []
+            years_str = f" ({', '.join(map(str, sorted(years)))})" if years else ""
+            rep_type = item.repetition_type or "family_repeat"
+            rep_label = "Exact verbatim repeat" if rep_type == "exact_repeat" else "Recurring question family"
+            priority_band = "HIGH" if score >= 0.5 or occ >= 3 else "MEDIUM"
+            family_plan.append({
+                "topic": item.name,
+                "name": item.name,
+                "category": "family",
+                "family_id": fam_id,
+                "prediction_score": round(score, 4),
+                "probability": round(float(p_dict.get("probability", score)), 4),
+                "confidence": item.confidence or "MEDIUM",
+                "priority": priority_band,
+                "repetition_type": rep_type,
+                "distinct_paper_count": p_cnt,
+                "historical_occurrences": occ,
+                "observed_years": years,
+                "reason": f"{rep_label}: appeared across {p_cnt} past examination papers{years_str} with {occ} total occurrences.",
+                "reasons": [
+                    f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
+                    f"Verified historical frequency: {occ} questions examined.",
+                ],
+                "resources": [
+                    {
+                        "id": f"fam-{fam_id}" if fam_id else f"res-{index}",
+                        "title": f"Past Exam Questions (Family #{fam_id})" if fam_id else "Past Exam Questions",
+                        "source": "pyq",
+                        "resource_type": "family_questions",
+                        "family_id": fam_id,
+                        "question_count": occ,
+                    }
+                ],
+                "student_status": "NOT_STARTED",
+            })
+        study_plan = family_plan
     coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id)
 
     # 7. Exam Schedule if date provided
@@ -537,7 +584,7 @@ def get_intelligence_snapshot(
 
     all_years = sorted(list({e.year for e in exam_rows if e.year}))
 
-    predictions_payload = []
+    topic_predictions_payload = []
     for p in topic_preds[:10]:
         p_dict = p.to_dict()
         t_obj = (
@@ -568,17 +615,55 @@ def get_intelligence_snapshot(
             for y in all_years
         ]
         p_dict["historical_years"] = sorted(list(topic_years))
-        predictions_payload.append(p_dict)
+        topic_predictions_payload.append(p_dict)
 
+    family_predictions_payload = []
     for p in family_preds[:5]:
         p_dict = p.to_dict()
-        fam_years = {
-            e.year for e in hist_exams_orm
-            if e.year is not None and any(
-                q.family and q.family.canonical_name == p.name
+
+        # Deterministic family lookup to ensure stable family_id and repetition_type
+        fam_id = p.family_id
+        fam_repetition_type = p.repetition_type
+        if not fam_id:
+            fam_rec = db.query(QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name == p.name).first()
+            if fam_rec:
+                fam_id = fam_rec[0]
+                if not fam_repetition_type:
+                    fam_repetition_type = fam_rec[1]
+
+        # Distinct paper IDs where this family appeared in this course
+        fam_exams = {
+            e.id for e in hist_exams_orm
+            if any(
+                (q.family_id == fam_id if fam_id else (q.family and q.family.canonical_name == p.name))
                 for s in e.sections for q in s.questions
             )
         }
+        distinct_papers = len(fam_exams) if fam_exams else (p.distinct_paper_count or 1)
+
+        # Observed years
+        fam_years = {
+            e.year for e in hist_exams_orm
+            if e.year is not None and e.id in fam_exams
+        }
+        if not fam_years:
+            fam_years = {
+                e.year for e in hist_exams_orm
+                if e.year is not None and any(
+                    q.family and q.family.canonical_name == p.name
+                    for s in e.sections for q in s.questions
+                )
+            }
+
+        p_dict["family_id"] = fam_id
+        p_dict["repetition_type"] = fam_repetition_type or p_dict.get("repetition_type") or "singleton"
+        p_dict["distinct_paper_count"] = distinct_papers
+        p_dict["papers_with_family"] = distinct_papers
+        p_dict["papers_with_topic"] = distinct_papers
+        p_dict["papers_analyzed"] = total_papers
+        p_dict["paper_coverage"] = round(distinct_papers / total_papers, 4) if total_papers > 0 else 0.0
+        p_dict["observed_years"] = sorted(list(fam_years))
+        p_dict["historical_years"] = sorted(list(fam_years))
         p_dict["timeline"] = [
             {
                 "year": y,
@@ -590,8 +675,26 @@ def get_intelligence_snapshot(
             }
             for y in all_years
         ]
-        p_dict["historical_years"] = sorted(list(fam_years))
-        predictions_payload.append(p_dict)
+        family_predictions_payload.append(p_dict)
+
+    syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
+    taxonomy_topic_count = (
+        db.query(Topic)
+        .join(Unit, Topic.unit_id == Unit.id)
+        .filter(Unit.syllabus_id.in_(syl_ids))
+        .count()
+        if syl_ids else 0
+    )
+    has_topic_taxonomy = taxonomy_topic_count > 0
+
+    if has_topic_taxonomy and len(topic_preds) > 0:
+        prediction_mode = "topic"
+    elif len(family_preds) > 0:
+        prediction_mode = "family"
+    else:
+        prediction_mode = "insufficient"
+
+    predictions_payload = topic_predictions_payload if prediction_mode == "topic" else family_predictions_payload
 
     all_span_years = list(range(all_years[0], all_years[-1] + 1)) if all_years else []
     gap_years = [y for y in all_span_years if y not in all_years]
@@ -602,6 +705,11 @@ def get_intelligence_snapshot(
 
     snapshot_payload = {
         "data_availability_status": availability_status,
+        "prediction_mode": prediction_mode,
+        "has_topic_taxonomy": has_topic_taxonomy,
+        "taxonomy_topic_count": taxonomy_topic_count,
+        "topic_predictions_count": len(topic_preds),
+        "family_predictions_count": len(family_preds),
         "course": {
             "id": course.id,
             "name": course.name,
@@ -632,6 +740,8 @@ def get_intelligence_snapshot(
         },
         "available_assessment_types": available_assessment_types,
         "predictions": predictions_payload,
+        "topic_predictions": topic_predictions_payload,
+        "family_predictions": family_predictions_payload,
         "study_priorities": study_plan,
         "coverage_summary": coverage_summary,
         "exam_schedule": exam_schedule,

@@ -6,8 +6,9 @@ import { Footer } from "@/components/layout/footer";
 import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
 import { BackendCourse } from "@/lib/types";
-import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap } from "lucide-react";
+import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers } from "lucide-react";
 import { motion } from "framer-motion";
+import { MathText } from "@/components/ui/math-text";
 
 export default function StudyIntelligencePage() {
   const [courses, setCourses] = useState<BackendCourse[]>([]);
@@ -205,105 +206,140 @@ export default function StudyIntelligencePage() {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-8"
           >
-            {/* Dashboard Overview */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Predicted Topics</p>
-                <div className="flex items-end gap-2">
-                  <span className="text-2xl font-bold text-foreground font-mono">{studyData.topics?.length || 0}</span>
-                </div>
-              </div>
-              <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Overall Score</p>
-                <div className="flex items-end gap-2">
-                  <span className="text-2xl font-bold text-primary font-mono">{studyData.overall_probability ? (studyData.overall_probability).toFixed(2) : 'N/A'}</span>
-                </div>
-              </div>
-              <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
-                <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">Study Progress</p>
-                <div className="flex items-end gap-2">
-                  <span className="text-2xl font-bold text-foreground font-mono">{studyData.progress || '0%'}</span>
-                </div>
-              </div>
-            </div>
+            {(() => {
+              const isFamilyPlan = studyData.plan_mode === "family";
+              const totalResources = studyData.topics?.reduce((acc: number, t: any) => acc + (t.resources?.length || 0), 0) || 0;
 
-            {/* Topic Breakdown & Uploads */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2 space-y-6">
-                <h3 className="font-bold text-lg flex items-center gap-2 text-foreground">
-                  <Target className="w-5 h-5 text-primary" />
-                  Priority Study Targets
-                </h3>
-                
-                {studyData.topics && studyData.topics.length > 0 ? studyData.topics.map((topic: any, idx: number) => (
-                  <div key={idx} className="bg-card border border-border rounded-xl p-5">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h4 className="text-lg font-bold text-foreground mb-1">{topic.name || 'Unknown Topic'}</h4>
-                        <div className="flex items-center gap-2 text-xs font-medium">
-                          <span className={`px-2 py-0.5 rounded-sm ${
-                            topic.priority?.toLowerCase() === 'high' ? 'bg-accent/20 text-accent' : 
-                            topic.priority?.toLowerCase() === 'medium' ? 'bg-primary/20 text-primary' : 
-                            'bg-muted/20 text-muted-foreground'
-                          }`}>
-                            {topic.priority || 'Medium'} Priority
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-mono font-bold text-foreground">{topic.probability ? (topic.probability).toFixed(2) : '0.00'}</div>
-                        <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Score</div>
+              return (
+                <>
+                  {/* Dashboard Overview */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                        {isFamilyPlan ? "Priority Families" : "Predicted Topics"}
+                      </p>
+                      <div className="flex items-end gap-2">
+                        <span className="text-2xl font-bold text-foreground font-mono">{studyData.topics?.length || 0}</span>
                       </div>
                     </div>
-                    
-                    {topic.reason && (
-                      <div className="mt-4 text-sm text-muted-foreground bg-background rounded-md p-3 border border-border/50">
-                        <strong className="text-foreground block mb-1 text-xs uppercase tracking-wider">Why study this?</strong>
-                        {topic.reason}
-                        {topic.historyCount && <div className="mt-2 text-xs opacity-70">Appeared in {topic.historyCount} past papers.</div>}
+                    <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                        {isFamilyPlan ? "Multi-Exam Families" : "Overall Score"}
+                      </p>
+                      <div className="flex items-end gap-2">
+                        <span className="text-2xl font-bold text-primary font-mono">
+                          {isFamilyPlan
+                            ? `${studyData.topics?.filter((t: any) => (t.distinct_paper_count ?? 1) >= 2).length || 0} recurring`
+                            : (studyData.overall_probability ? (studyData.overall_probability).toFixed(2) : 'N/A')}
+                        </span>
                       </div>
-                    )}
+                    </div>
+                    <div className="bg-card border border-border rounded-xl p-5 hover:border-border/80 transition-colors">
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                        {isFamilyPlan ? "Historical PYQs & Notes" : "Study Progress"}
+                      </p>
+                      <div className="flex items-end gap-2">
+                        <span className="text-2xl font-bold text-foreground font-mono">
+                          {isFamilyPlan ? `${totalResources} resources` : (studyData.progress || '0%')}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
 
-                    {topic.resources && topic.resources.length > 0 && (
-                      <div className="mt-4 pt-4 border-t border-border/50">
-                        <h5 className="text-xs font-bold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2"><GraduationCap className="w-4 h-4"/> Resources</h5>
-                        <ul className="space-y-2">
-                          {topic.resources.map((res: any, ridx: number) => (
-                            <li key={ridx} className="flex items-center justify-between p-2 rounded-md hover:bg-background transition-colors border border-transparent hover:border-border/50">
-                              <div className="flex items-center gap-3 overflow-hidden">
-                                <FileText className="w-4 h-4 text-muted-foreground shrink-0" />
-                                <a 
-                                  href={res.url || '#'} 
-                                  target="_blank"
-                                  onClick={() => handleResourceClick(topic.name, res.id || `res-${ridx}`)}
-                                  className="text-sm font-medium hover:text-primary transition-colors truncate"
-                                >
-                                  {res.title || 'Study Material'}
-                                </a>
-                                {renderResourceBadge(res.source)}
+                  {/* Topic Breakdown & Uploads */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div className="lg:col-span-2 space-y-6">
+                      <h3 className="font-bold text-lg flex items-center gap-2 text-foreground">
+                        <Target className="w-5 h-5 text-primary" />
+                        {isFamilyPlan ? "Priority Question Family Targets" : "Priority Study Targets"}
+                      </h3>
+                      
+                      {studyData.topics && studyData.topics.length > 0 ? studyData.topics.map((topic: any, idx: number) => (
+                        <div key={idx} className="bg-card border border-border rounded-xl p-5">
+                          <div className="flex justify-between items-start mb-3">
+                            <div className="flex-1 pr-3">
+                              <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                {isFamilyPlan && (
+                                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-border">
+                                    <Layers className="w-3 h-3" /> Question Family
+                                  </span>
+                                )}
+                                <span className={`px-2 py-0.5 rounded text-[10px] font-bold font-mono ${
+                                  topic.priority?.toLowerCase() === 'high' ? 'bg-accent/20 text-accent' : 
+                                  topic.priority?.toLowerCase() === 'medium' ? 'bg-primary/20 text-primary' : 
+                                  'bg-muted/20 text-muted-foreground'
+                                }`}>
+                                  {topic.priority || 'Medium'} Priority
+                                </span>
                               </div>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    
-                    <div className="mt-4 pt-4 flex justify-end">
-                      <button 
-                        onClick={() => handleTopicComplete(topic.name)}
-                        className="text-xs font-medium px-4 py-2 bg-background border border-border rounded-md hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors flex items-center gap-2"
-                      >
-                        <CheckCircle2 className="w-4 h-4" />
-                        Mark Completed
-                      </button>
+                              <h4 className="text-base font-bold text-foreground leading-snug">
+                                <MathText content={topic.name || topic.topic || 'Unknown Target'} />
+                              </h4>
+                            </div>
+                            <div className="text-right shrink-0">
+                              <div className="text-2xl font-mono font-bold text-foreground">{topic.probability ? (topic.probability).toFixed(2) : '0.00'}</div>
+                              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Score</div>
+                            </div>
+                          </div>
+                          
+                          {topic.reason && (
+                            <div className="mt-4 text-sm text-muted-foreground bg-background rounded-md p-3 border border-border/50">
+                              <strong className="text-foreground block mb-1 text-xs uppercase tracking-wider">Why study this?</strong>
+                              {topic.reason}
+                              {topic.historyCount && <div className="mt-2 text-xs opacity-70">Appeared in {topic.historyCount} past papers.</div>}
+                            </div>
+                          )}
+
+                          {topic.resources && topic.resources.length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-border/50">
+                              <h5 className="text-xs font-bold text-foreground uppercase tracking-wider mb-3 flex items-center gap-2"><GraduationCap className="w-4 h-4"/> Resources</h5>
+                              <ul className="space-y-2">
+                                {topic.resources.map((res: any, ridx: number) => (
+                                  <li key={ridx} className="flex items-center justify-between p-2 rounded-md hover:bg-background transition-colors border border-transparent hover:border-border/50">
+                                    <div className="flex items-center gap-3 overflow-hidden">
+                                      <FileText className="w-4 h-4 text-muted-foreground shrink-0" />
+                                      <a 
+                                        href={res.url || '#'} 
+                                        target="_blank"
+                                        onClick={() => handleResourceClick(topic.name, res.id || `res-${ridx}`)}
+                                        className="text-sm font-medium hover:text-primary transition-colors truncate"
+                                      >
+                                        {res.title || 'Study Material'}
+                                      </a>
+                                      {renderResourceBadge(res.source)}
+                                    </div>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          
+                          <div className="mt-4 pt-4 flex justify-end">
+                            {isFamilyPlan ? (
+                              <a
+                                href="/mintai"
+                                className="text-xs font-medium px-4 py-2 bg-background border border-border rounded-md hover:bg-accent/10 hover:text-accent hover:border-accent/30 transition-colors flex items-center gap-2 cursor-pointer"
+                              >
+                                <BookOpen className="w-4 h-4" />
+                                Inspect in MintAI
+                              </a>
+                            ) : (
+                              <button 
+                                onClick={() => handleTopicComplete(topic.name)}
+                                className="text-xs font-medium px-4 py-2 bg-background border border-border rounded-md hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors flex items-center gap-2 cursor-pointer"
+                              >
+                                <CheckCircle2 className="w-4 h-4" />
+                                Mark Completed
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      )) : (
+                        <div className="p-8 border border-dashed border-border rounded-xl text-center text-muted-foreground">
+                          No predicted targets found in this plan.
+                        </div>
+                      )}
                     </div>
-                  </div>
-                )) : (
-                  <div className="p-8 border border-dashed border-border rounded-xl text-center text-muted-foreground">
-                    No predicted topics found in this plan.
-                  </div>
-                )}
-              </div>
 
               {/* Sidebar Resources & Upload */}
               <div className="space-y-6">
@@ -383,7 +419,10 @@ export default function StudyIntelligencePage() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </>
+        );
+      })()}
+    </motion.div>
         ) : null}
       </main>
 

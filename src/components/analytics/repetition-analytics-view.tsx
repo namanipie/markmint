@@ -89,6 +89,7 @@ export function RepetitionAnalyticsView({
   const [filterUnit, setFilterUnit] = useState<string>("ALL");
   const [filterMinMarks, setFilterMinMarks] = useState<string>("ALL");
   const [familyRepeatOnly, setFamilyRepeatOnly] = useState<boolean>(true);
+  const [familySearchQuery, setFamilySearchQuery] = useState<string>("");
   const [expandedFamilyId, setExpandedFamilyId] = useState<number | null>(null);
 
   // Load initial overview & active tab data
@@ -176,7 +177,13 @@ export function RepetitionAnalyticsView({
 
   // Filtered families
   const displayedFamilies = (familyData?.families || []).filter((f) => {
-    if (familyRepeatOnly) return f.occurrence_count >= 2;
+    if (familyRepeatOnly && f.occurrence_count < 2) return false;
+    if (familySearchQuery.trim()) {
+      const q = familySearchQuery.toLowerCase();
+      const inCanonical = f.canonical_name.toLowerCase().includes(q);
+      const inAppearances = f.appearances?.some((a) => a.original_text.toLowerCase().includes(q));
+      if (!inCanonical && !inAppearances) return false;
+    }
     return true;
   });
 
@@ -188,7 +195,7 @@ export function RepetitionAnalyticsView({
           <div>
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accent/10 text-accent border border-accent/20">
-                HISTORICAL REPETITION INTELLIGENCE
+                EMPIRICAL EXAMINATION RECURRENCE
               </span>
               {canonicalCode && (
                 <span className="font-mono text-xs text-muted-foreground">
@@ -197,7 +204,7 @@ export function RepetitionAnalyticsView({
               )}
             </div>
             <h2 className="text-xl font-bold tracking-tight text-foreground mt-1">
-              What has actually repeated in {courseName}?
+              Question Recurrence &amp; Longitudinal Patterns: {courseName}
             </h2>
             <p className="text-xs text-muted-foreground mt-0.5">
               Empirical evidence from {overview.total_papers} verified examination papers spanning{" "}
@@ -539,25 +546,46 @@ export function RepetitionAnalyticsView({
         {/* TAB 2: QUESTION FAMILIES EXPLORER */}
         {activeTab === "families" && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between p-3 bg-background/50 border border-border rounded-lg text-xs">
-              <div className="text-muted-foreground">
-                Question families group near-clones, numeric parameter changes, and recurring standard prompts.
+            <div className="p-3 bg-background/50 border border-border rounded-lg text-xs space-y-3">
+              <div className="text-muted-foreground text-[11px]">
+                Question Families &amp; Repeat Types: Grouping exact repeats, numerical variants, and canonical prompts across examination cycles.
               </div>
-              <label className="flex items-center gap-2 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={familyRepeatOnly}
-                  onChange={(e) => setFamilyRepeatOnly(e.target.checked)}
-                  className="rounded border-border text-accent focus:ring-accent"
-                />
-                <span className="font-medium">Multi-repeat only (2+ appearances)</span>
-              </label>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2 flex-1 max-w-md">
+                  <input
+                    type="text"
+                    value={familySearchQuery}
+                    onChange={(e) => setFamilySearchQuery(e.target.value)}
+                    placeholder="Search question prompts or keywords..."
+                    className="w-full bg-background border border-border rounded-md px-3 py-1.5 text-xs focus:ring-1 focus:ring-accent focus:outline-none"
+                  />
+                  {familySearchQuery && (
+                    <button
+                      onClick={() => setFamilySearchQuery("")}
+                      className="text-muted-foreground hover:text-foreground text-[11px] underline shrink-0 cursor-pointer"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+                <label className="flex items-center gap-2 cursor-pointer select-none shrink-0">
+                  <input
+                    type="checkbox"
+                    checked={familyRepeatOnly}
+                    onChange={(e) => setFamilyRepeatOnly(e.target.checked)}
+                    className="rounded border-border text-accent focus:ring-accent"
+                  />
+                  <span className="font-medium text-xs">Multi-repeat only (2+ appearances)</span>
+                </label>
+              </div>
             </div>
 
             <div className="space-y-3">
               {displayedFamilies.length === 0 ? (
                 <div className="p-8 text-center text-muted-foreground text-xs">
-                  No multi-repeat question families match the criteria.
+                  {familySearchQuery
+                    ? "No question families match your search query."
+                    : "No multi-repeat question families match the criteria."}
                 </div>
               ) : (
                 displayedFamilies.map((fam) => {
@@ -576,9 +604,15 @@ export function RepetitionAnalyticsView({
                             <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground">
                               Family #{fam.family_id}
                             </span>
-                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-accent/10 text-accent border border-accent/20">
-                              {fam.repetition_type.replace(/_/g, " ")}
-                            </span>
+                            {fam.repetition_type === "EXACT_REPEAT" ? (
+                              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                                Exact Repeat
+                              </span>
+                            ) : (
+                              <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-accent/10 text-accent border border-accent/20">
+                                {fam.repetition_type.replace(/_/g, " ")}
+                              </span>
+                            )}
                             <span className="text-xs font-mono font-bold text-emerald-500">
                               {fam.occurrence_count} Appearances across {fam.paper_count} Exams
                             </span>

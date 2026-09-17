@@ -31,6 +31,13 @@ class PredictionResult:
         papers_analyzed: int = 0,
         papers_with_topic: int = 0,
         supporting_questions: Optional[List[Dict[str, Any]]] = None,
+        family_id: Optional[int] = None,
+        distinct_paper_count: Optional[int] = None,
+        total_marks_observed: Optional[float] = None,
+        average_marks: Optional[float] = None,
+        repetition_type: Optional[str] = None,
+        observed_years: Optional[List[int]] = None,
+        supporting_question_ids: Optional[List[int]] = None,
     ):
         self.target = target  # 'topic', 'unit', 'family', 'concept'
         self.name = name
@@ -49,10 +56,27 @@ class PredictionResult:
         self.papers_with_topic = int(papers_with_topic)
         self.supporting_questions = supporting_questions or []
 
+        self.family_id = family_id or self.evidence.get("family_id")
+        self.distinct_paper_count = distinct_paper_count if distinct_paper_count is not None else self.evidence.get("distinct_paper_count")
+        self.total_marks_observed = total_marks_observed if total_marks_observed is not None else self.evidence.get("total_marks")
+        self.average_marks = average_marks if average_marks is not None else self.evidence.get("average_marks")
+        self.repetition_type = repetition_type or self.evidence.get("repetition_type")
+        self.observed_years = observed_years if observed_years is not None else self.evidence.get("years", [])
+        self.supporting_question_ids = supporting_question_ids if supporting_question_ids is not None else self.evidence.get("question_ids", [])
+
         self.historical_occurrences = int(historical_occurrences or self.evidence.get("occurrences", 0))
         self.recent_occurrences = int(recent_occurrences or self.evidence.get("recent_occurrences", 0))
         self.last_seen_year = last_seen_year or (int(self.evidence["last_seen"]) if str(self.evidence.get("last_seen", "")).isdigit() else None)
-        self.marks_seen = float(marks_seen or self.evidence.get("total_marks", 0.0))
+        # Marks semantics: null if unavailable, rather than fake 0.0
+        if self.total_marks_observed is not None:
+            self.marks_seen = float(self.total_marks_observed)
+        elif marks_seen is not None and float(marks_seen) > 0.0:
+            self.marks_seen = float(marks_seen)
+        elif self.evidence.get("total_marks") is not None:
+            self.marks_seen = float(self.evidence["total_marks"])
+        else:
+            self.marks_seen = None
+
         self.family_recurrence_score = round(float(family_recurrence_score or self.evidence.get("family_score", 0.0)), 4)
         self.recent_frequency_score = round(float(recent_frequency_score or self.evidence.get("recent_freq", 0.0)), 4)
         self.recency_score = round(float(recency_score or (0.7 * self.recent_frequency_score + 0.3 * self.evidence.get("hist_freq", 0.0))), 4)
@@ -62,6 +86,7 @@ class PredictionResult:
         self.explanation = explanation or self.evidence.get("explanation", "")
 
     def to_dict(self) -> Dict[str, Any]:
+        p_cov = round(self.distinct_paper_count / self.papers_analyzed, 4) if (self.distinct_paper_count is not None and self.papers_analyzed > 0) else (round(self.papers_with_topic / self.papers_analyzed, 4) if self.papers_analyzed > 0 else 0.0)
         return {
             "rank": self.rank,
             "name": self.name,
@@ -75,7 +100,16 @@ class PredictionResult:
             "evidence_sufficiency": self.evidence_sufficiency,
             "papers_analyzed": self.papers_analyzed,
             "papers_with_topic": self.papers_with_topic,
+            "distinct_paper_count": self.distinct_paper_count,
+            "papers_with_family": self.distinct_paper_count,
+            "paper_coverage": p_cov,
+            "family_id": self.family_id,
+            "repetition_type": self.repetition_type,
+            "observed_years": self.observed_years,
+            "average_marks": self.average_marks,
+            "total_marks_observed": self.total_marks_observed,
             "supporting_questions": self.supporting_questions,
+            "supporting_question_ids": self.supporting_question_ids,
             "historyCount": self.historical_occurrences,
             "historical_occurrences": self.historical_occurrences,
             "recent_occurrences": self.recent_occurrences,
@@ -127,11 +161,12 @@ class BaseModel:
             recent_occ = int(evidence.get("recent_occurrences", 0))
             recent_f = float(evidence.get("recent_freq", 0.0))
             hist_f = float(evidence.get("hist_freq", 0.0))
-            marks_w = float(evidence.get("marks_weight", 0.0))
-            marks_seen = float(evidence.get("total_marks", 0.0))
+            marks_w = float(evidence.get("marks_weight") or 0.0)
+            raw_marks_seen = evidence.get("total_marks")
+            marks_seen = float(raw_marks_seen) if raw_marks_seen is not None else None
             paper_cov = float(evidence.get("paper_coverage", 0.0))
             last_seen = evidence.get("last_seen")
-            papers_with_topic = int(evidence.get("papers_with_topic", round(paper_cov * sample_papers)))
+            papers_with_topic = int(evidence.get("distinct_paper_count", round(paper_cov * sample_papers))) if target == PredictionTarget.FAMILY else int(evidence.get("papers_with_topic", round(paper_cov * sample_papers)))
 
             # Confidence strictly reflects evidence volume, recency presence, and sample stability
             if sample_papers <= 1:
@@ -159,7 +194,7 @@ class BaseModel:
             elif sample_papers >= 3 and hist_occ >= 2:
                 reason_codes.append("SUFFICIENT_HISTORY")
 
-            if hist_occ >= 4 and marks_seen >= 20.0:
+            if hist_occ >= 4 and marks_seen is not None and marks_seen >= 20.0:
                 reason_codes.append("HIGH_EVIDENCE")
             elif hist_occ < 2 or sample_papers < 2:
                 reason_codes.append("LOW_EVIDENCE")
@@ -168,7 +203,8 @@ class BaseModel:
                 reason_codes.append("RECENTLY_REPEATED")
             if hist_f >= 0.20 or hist_occ >= 3:
                 reason_codes.append("HIGH_FREQUENCY")
-            if marks_w > 0.15 or evidence.get("average_marks", 0.0) >= 8.0:
+            avg_m = evidence.get("average_marks")
+            if marks_w > 0.15 or (avg_m is not None and float(avg_m) >= 8.0):
                 reason_codes.append("HIGH_MARK_WEIGHT")
             if target == PredictionTarget.FAMILY and hist_occ >= 2:
                 reason_codes.append("QUESTION_FAMILY_RECURRING")
@@ -179,24 +215,32 @@ class BaseModel:
 
             # Deterministic explanation string
             if target == PredictionTarget.FAMILY:
-                explanation = f"Question family with {hist_occ} historical occurrence(s)"
+                p_cnt = evidence.get("distinct_paper_count", 0)
+                rep_type = evidence.get("repetition_type")
+                rep_desc = "Exact verbatim repeat family" if rep_type == "exact_repeat" else "Recurring question family"
+                explanation = f"{rep_desc} with {hist_occ} historical occurrence(s)"
+                if p_cnt > 0 and sample_papers > 0:
+                    explanation += f" across {p_cnt} of {sample_papers} examination papers"
                 if last_seen and str(last_seen) != "Unknown":
                     explanation += f", last seen in {last_seen}."
                 else:
                     explanation += "."
             elif "CONFLICTING_SIGNALS" in reason_codes:
-                explanation = f"Conflicting signals: significant historical weight ({marks_seen:.0f} marks), but unrepresented in recent examinations."
+                explanation = f"Conflicting signals: significant historical weight ({marks_seen:.0f} marks), but unrepresented in recent examinations." if marks_seen is not None else "Conflicting signals: significant historical weight, but unrepresented in recent examinations."
             elif "LOW_EVIDENCE" in reason_codes:
                 explanation = f"Appeared in {hist_occ} question(s). Limited examination history ({sample_papers} paper(s) indexed)."
             elif "LONG_ABSENCE" in reason_codes:
-                explanation = f"Historically appeared in {hist_occ} question(s) ({marks_seen:.0f} marks total), but absent from recent examinations."
+                explanation = f"Historically appeared in {hist_occ} question(s) ({marks_seen:.0f} marks total), but absent from recent examinations." if marks_seen is not None else f"Historically appeared in {hist_occ} question(s), but absent from recent examinations."
             elif "RECENTLY_REPEATED" in reason_codes and "HIGH_FREQUENCY" in reason_codes:
                 papers_num = max(1, int(round(paper_cov * sample_papers)))
-                explanation = f"Strong recurrence signal: appeared across {papers_num} of {sample_papers} papers with {hist_occ} questions and {marks_seen:.0f} marks."
+                marks_str = f" and {marks_seen:.0f} marks" if marks_seen is not None else ""
+                explanation = f"Strong recurrence signal: appeared across {papers_num} of {sample_papers} papers with {hist_occ} questions{marks_str}."
             elif "HIGH_MARK_WEIGHT" in reason_codes:
-                explanation = f"Carries significant historical weight ({marks_seen:.0f} marks across {hist_occ} question(s))."
+                marks_str = f" ({marks_seen:.0f} marks across {hist_occ} question(s))" if marks_seen is not None else f" across {hist_occ} question(s)"
+                explanation = f"Carries significant historical weight{marks_str}."
             else:
-                explanation = f"Appeared in {hist_occ} historical question(s) representing {marks_seen:.0f} marks."
+                marks_str = f" representing {marks_seen:.0f} marks" if marks_seen is not None else ""
+                explanation = f"Appeared in {hist_occ} historical question(s){marks_str}."
 
             results.append(PredictionResult(
                 target=target,
@@ -224,6 +268,13 @@ class BaseModel:
                 papers_analyzed=sample_papers,
                 papers_with_topic=papers_with_topic,
                 supporting_questions=evidence.get("supporting_questions", []),
+                family_id=evidence.get("family_id"),
+                distinct_paper_count=evidence.get("distinct_paper_count") if evidence.get("distinct_paper_count") is not None else (papers_with_topic if target == PredictionTarget.FAMILY else None),
+                total_marks_observed=evidence.get("total_marks"),
+                average_marks=evidence.get("average_marks"),
+                repetition_type=evidence.get("repetition_type"),
+                observed_years=evidence.get("years"),
+                supporting_question_ids=evidence.get("question_ids"),
             ))
         return results
 
@@ -327,7 +378,19 @@ class FamilyRecurrenceBaseline(BaseModel):
         scores = []
         for f in self.dna.families:
             score = f.occurrences * 0.5 + f.recent_recurrence_count * 0.5
-            scores.append((f.family_name, score, {"occurrences": f.occurrences, "sample_size": f.occurrences}))
+            last_seen = str(max(f.years)) if f.years else "Unknown"
+            scores.append((f.family_name, score, {
+                "family_id": f.family_id,
+                "occurrences": f.occurrences,
+                "sample_size": f.occurrences,
+                "distinct_paper_count": f.distinct_paper_count,
+                "years": f.years,
+                "average_marks": f.average_marks,
+                "total_marks": f.total_marks,
+                "question_ids": f.question_ids,
+                "repetition_type": f.repetition_type,
+                "last_seen": last_seen,
+            }))
         return self._rank_and_format(scores, PredictionTarget.FAMILY)
 
 class ExamScopeCombinedModel(BaseModel):
@@ -367,9 +430,16 @@ class ExamScopeCombinedModel(BaseModel):
             score = (f.occurrences * 0.4) + (f.recent_recurrence_count * 0.6)
             last_seen = str(max(f.years)) if f.years else "Unknown"
             scores.append((f.family_name, score, {
+                "family_id": f.family_id,
                 "occurrences": f.occurrences, 
                 "sample_size": f.occurrences, 
+                "distinct_paper_count": f.distinct_paper_count,
                 "interval": f.recurrence_interval_years,
-                "last_seen": last_seen
+                "last_seen": last_seen,
+                "years": f.years,
+                "average_marks": f.average_marks,
+                "total_marks": f.total_marks,
+                "question_ids": f.question_ids,
+                "repetition_type": f.repetition_type,
             }))
         return self._rank_and_format(scores, PredictionTarget.FAMILY)

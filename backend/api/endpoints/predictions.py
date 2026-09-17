@@ -84,10 +84,14 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
                         if getattr(question, "memberships", None)
                         else "singleton"
                     ),
-                    "family_name": (
-                        question.family.canonical_name if question.family else None
+                    "family_id": (
+                        getattr(question, "family_id", None)
+                        or (getattr(getattr(question, "family", None), "id", None))
                     ),
-                    "difficulty": question.difficulty,
+                    "family_name": (
+                        getattr(getattr(question, "family", None), "canonical_name", None)
+                    ),
+                    "difficulty": getattr(question, "difficulty", None),
                 }
                 for section in exam.sections
                 for question in section.questions

@@ -216,6 +216,8 @@ export interface StudyTopicPlan {
 
 export interface StudyPlanResponse {
   course_name: string;
+  course_id?: number;
+  plan_mode?: "topic" | "family" | string;
   overall_probability?: number;
   topics: StudyTopicPlan[];
   resources?: StudyResource[];
@@ -266,14 +268,20 @@ export interface PredictionItem {
   evidence_sufficiency?: string;
   papers_analyzed?: number;
   papers_with_topic?: number;
+  distinct_paper_count?: number;
+  papers_with_family?: number;
   paper_coverage?: number;
   supporting_questions?: any[];
+  supporting_question_ids?: number[];
   historyCount?: number;
   historical_occurrences?: number;
   recent_occurrences?: number;
   last_seen_year?: number | null;
   lastSeen?: string;
-  marks_seen?: number;
+  marks_seen?: number | null;
+  average_marks?: number | null;
+  total_marks_observed?: number | null;
+  repetition_type?: string | null;
   family_recurrence_score?: number;
   recent_frequency_score?: number;
   recency_score?: number;
@@ -283,9 +291,10 @@ export interface PredictionItem {
   explanation?: string;
   evidence_details?: any;
   topic_id?: number;
-  family_id?: number;
+  family_id?: number | null;
   timeline?: TimelineEntry[];
   historical_years?: number[];
+  observed_years?: number[];
 }
 
 export interface TimelineEntry {
@@ -351,6 +360,11 @@ export interface ExamSchedule {
 
 export interface IntelligenceSnapshot {
   data_availability_status: "READY" | "CATALOG_ONLY" | "AMBIGUOUS" | "UNMATCHED" | "INSUFFICIENT_EVIDENCE" | string;
+  prediction_mode?: "topic" | "family" | "insufficient" | string;
+  has_topic_taxonomy?: boolean;
+  taxonomy_topic_count?: number;
+  topic_predictions_count?: number;
+  family_predictions_count?: number;
   course?: {
     id: number;
     name: string;
@@ -378,6 +392,8 @@ export interface IntelligenceSnapshot {
   } | null;
   available_assessment_types?: string[];
   predictions: PredictionItem[];
+  family_predictions?: PredictionItem[];
+  topic_predictions?: PredictionItem[];
   study_priorities: any[];
   coverage_summary?: CoverageSummary | null;
   exam_schedule?: ExamSchedule | null;
@@ -690,3 +706,38 @@ export interface TopicIntelligenceResponse {
   gap_years?: number[];
 }
 
+export interface SingleFamilyAppearance {
+  question_id: number;
+  question_number: string;
+  year: number | null;
+  assessment_type: string | null;
+  term?: string | null;
+  exam_id?: number | null;
+  marks: number | null;
+  is_alternative: boolean;
+  original_text: string;
+  normalized_text?: string | null;
+  repetition_type: string;
+  source_document_title?: string | null;
+  source_document_url?: string | null;
+}
+
+export interface SingleFamilyResponse {
+  course_id: number;
+  course_name: string;
+  family_id: number;
+  canonical_name: string;
+  repetition_type: string;
+  occurrence_count: number;
+  distinct_paper_count: number;
+  total_papers_analyzed: number;
+  paper_coverage: number;
+  first_seen_year: number | null;
+  last_seen_year: number | null;
+  observed_years: number[];
+  assessment_history: string[];
+  average_marks: number | null;
+  total_marks_observed: number | null;
+  appearances: SingleFamilyAppearance[];
+  timeline: TimelineEntry[];
+}

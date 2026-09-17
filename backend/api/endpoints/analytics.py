@@ -19,7 +19,7 @@ from sqlalchemy import func, distinct, desc
 
 from backend.core.database import get_db
 from backend.models.core import (
-    Course, Exam, Section, Question, Topic, Unit, Syllabus,
+    Course, Exam, Section, Question, Topic, Unit, Syllabus, Document,
     QuestionFamily, QuestionFamilyMembership, StudentTopicProgress, question_topic
 )
 from backend.api.endpoints.predictions import _find_course, _build_historical_exam_payloads
@@ -456,6 +456,102 @@ def get_repeated_family_analytics(
         "unobserved_years": gap_years,
         "gap_years": gap_years,
         "families": results,
+    }
+
+
+@router.get("/{course_id}/families/{family_id}")
+def get_family_detail_evidence(
+    course_id: str,
+    family_id: int,
+    limit: int = Query(50, ge=1, le=200),
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """
+    Focused single question family evidence endpoint.
+    Exposes canonical prompt, recurrence type, distinct paper count,
+    chronological question appearances, exam names/years, marks, and repeat classification.
+    """
+    course = _find_course(db, course_id)
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+
+    fam = db.query(QuestionFamily).filter(QuestionFamily.id == family_id).first()
+    if not fam:
+        raise HTTPException(status_code=404, detail="Question family not found")
+
+    exams = db.query(Exam).filter(Exam.course_id == course.id).all()
+    total_papers = len(exams)
+    course_exam_years = sorted(list({e.year for e in exams if e.year is not None}))
+
+    q_rows = (
+        db.query(Question, Exam.year, Exam.assessment_type, Exam.term, Exam.id, Document.title, Document.original_url)
+        .join(Section, Question.section_id == Section.id)
+        .join(Exam, Section.exam_id == Exam.id)
+        .outerjoin(Document, Exam.document_id == Document.id)
+        .filter(Exam.course_id == course.id, Question.family_id == fam.id)
+        .order_by(Exam.year.desc().nullslast(), Question.marks.desc().nullslast(), Question.id.asc())
+        .limit(limit)
+        .all()
+    )
+
+    distinct_exam_ids = {r[4] for r in q_rows if r[4] is not None}
+    years_set = {r[1] for r in q_rows if r[1] is not None}
+    assessments_set = {r[2] for r in q_rows if r[2]}
+
+    non_alt_marks = [float(r[0].marks) for r in q_rows if not r[0].is_alternative and r[0].marks is not None]
+    avg_marks = round(sum(non_alt_marks) / len(non_alt_marks), 2) if non_alt_marks else None
+    tot_marks = round(sum(non_alt_marks), 2) if non_alt_marks else None
+
+    appearances = []
+    for q, yr, atype, term, exam_id, doc_title, doc_url in q_rows:
+        membership = q.memberships[0] if getattr(q, "memberships", None) else None
+        m_type = membership.match_type if membership else (fam.repetition_type or "singleton")
+        appearances.append({
+            "question_id": q.id,
+            "question_number": q.question_number,
+            "year": yr,
+            "assessment_type": atype,
+            "term": term,
+            "exam_id": exam_id,
+            "marks": float(q.marks) if q.marks is not None else None,
+            "is_alternative": q.is_alternative,
+            "original_text": q.original_text,
+            "normalized_text": q.normalized_text,
+            "repetition_type": m_type,
+            "source_document_title": doc_title,
+            "source_document_url": doc_url,
+        })
+
+    fam_timeline = [
+        {
+            "year": y,
+            "exam_exists": True,
+            "topic_present": False,
+            "family_present": y in years_set,
+            "present": y in years_set,
+            "status": "FAMILY_PRESENT" if (y in years_set) else "FAMILY_ABSENT",
+        }
+        for y in course_exam_years
+    ]
+
+    return {
+        "course_id": course.id,
+        "course_name": course.name,
+        "family_id": fam.id,
+        "canonical_name": fam.canonical_name,
+        "repetition_type": fam.repetition_type or "singleton",
+        "occurrence_count": len(q_rows),
+        "distinct_paper_count": len(distinct_exam_ids),
+        "total_papers_analyzed": total_papers,
+        "paper_coverage": round(len(distinct_exam_ids) / total_papers, 4) if total_papers > 0 else 0.0,
+        "first_seen_year": min(years_set) if years_set else fam.first_seen_year,
+        "last_seen_year": max(years_set) if years_set else fam.latest_seen_year,
+        "observed_years": sorted(list(years_set)),
+        "assessment_history": sorted(list(assessments_set)),
+        "average_marks": avg_marks,
+        "total_marks_observed": tot_marks,
+        "appearances": appearances,
+        "timeline": fam_timeline,
     }
 
 

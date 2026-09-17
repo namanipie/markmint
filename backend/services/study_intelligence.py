@@ -51,6 +51,7 @@ class PriorityResult:
     def to_dict(self) -> Dict[str, Any]:
         return {
             "topic": self.topic,
+            "name": self.topic,
             "topic_id": self.topic_id,
             "prediction_score": self.prediction_score,
             "probability": self.probability,

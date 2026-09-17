@@ -93,7 +93,8 @@ class DNAAnalyzerService:
         
         families_data: dict[str, Any] = defaultdict(lambda: {
             "occurrences": 0, "years": set(), "exam_types": set(), 
-            "marks": [], "recent_count": 0
+            "marks": [], "recent_count": 0, "family_id": None,
+            "papers": set(), "question_ids": [], "repetition_types": []
         })
 
         # 2. Populate Aggregators
@@ -148,14 +149,27 @@ class DNAAnalyzerService:
                 
                 # Question Families
                 fam = q.get("family_name")
+                fam_id = q.get("family_id")
                 if fam:
                     fd = families_data[fam]
                     fd["occurrences"] += 1
-                    if exam_year: fd["years"].add(exam_year)
-                    if exam_type: fd["exam_types"].add(exam_type)
-                    if not is_alt:
-                        fd["marks"].append(m)
-                    if is_recent: fd["recent_count"] += 1
+                    if fam_id and fd["family_id"] is None:
+                        fd["family_id"] = fam_id
+                    if exam_id is not None:
+                        fd["papers"].add(exam_id)
+                    if exam_year:
+                        fd["years"].add(exam_year)
+                    if exam_type:
+                        fd["exam_types"].add(exam_type)
+                    if q.get("id"):
+                        fd["question_ids"].append(q.get("id"))
+                    rep_t = q.get("repetition_type")
+                    if rep_t:
+                        fd["repetition_types"].append(rep_t)
+                    if not is_alt and q.get("marks") is not None:
+                        fd["marks"].append(float(q["marks"]))
+                    if is_recent:
+                        fd["recent_count"] += 1
 
         # 3. Compile DTOs
         topics_dna = []
@@ -210,13 +224,30 @@ class DNAAnalyzerService:
             if len(sorted_years) > 1:
                 diffs = [sorted_years[i] - sorted_years[i-1] for i in range(1, len(sorted_years))]
                 interval = sum(diffs) / len(diffs)
-                
+
+            marks_list = fd["marks"]
+            avg_m = (round(sum(marks_list) / len(marks_list), 2)) if marks_list else None
+            tot_m = round(sum(marks_list), 2) if marks_list else None
+
+            rep_types = fd["repetition_types"]
+            rep_type = rep_types[0] if rep_types else "singleton"
+            if "exact_repeat" in rep_types or "exact" in rep_types:
+                rep_type = "exact_repeat"
+            elif "family_repeat" in rep_types or "near" in rep_types:
+                rep_type = "family_repeat"
+
             families_dna.append(FamilyDNA(
+                family_id=fd["family_id"],
                 family_name=f_name,
                 occurrences=fd["occurrences"],
                 years=sorted_years,
                 exam_types=list(fd["exam_types"]),
-                average_marks=sum(fd["marks"]) / len(fd["marks"]) if fd["marks"] else 0,
+                average_marks=avg_m,
+                total_marks=tot_m,
+                distinct_paper_count=len(fd["papers"]),
+                paper_ids=sorted(list(fd["papers"])),
+                question_ids=fd["question_ids"],
+                repetition_type=rep_type,
                 recurrence_interval_years=interval,
                 recent_recurrence_count=fd["recent_count"],
                 trend="stable" # Basic default, temporal engine can override

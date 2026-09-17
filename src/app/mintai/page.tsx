@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
-  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers
 } from "lucide-react";
 import {
   getCurriculumBranches,
@@ -25,6 +25,7 @@ import {
 } from "@/lib/types";
 import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analytics-view";
 import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
+import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
 import { MathText } from "@/components/ui/math-text";
 
 export type MintAIState =
@@ -95,6 +96,17 @@ export default function MintAIPage() {
     setSelectedTopicIdForModal(topicId || null);
     setSelectedTopicNameForModal(topicName || "");
     setIsTopicModalOpen(true);
+  };
+
+  // Family Evidence Drilldown Modal
+  const [isFamilyModalOpen, setIsFamilyModalOpen] = useState(false);
+  const [selectedFamilyIdForModal, setSelectedFamilyIdForModal] = useState<number | string | null>(null);
+  const [selectedFamilyNameForModal, setSelectedFamilyNameForModal] = useState<string>("");
+
+  const handleOpenFamilyEvidence = (familyId?: number | string | null, familyName?: string) => {
+    setSelectedFamilyIdForModal(familyId || null);
+    setSelectedFamilyNameForModal(familyName || "");
+    setIsFamilyModalOpen(true);
   };
 
   // Subject analytical readiness
@@ -280,11 +292,11 @@ export default function MintAIPage() {
     }
   };
 
-  // 5. Open Historical Questions for a Topic
-  const handleViewQuestions = async (topicName?: string) => {
+  // 5. Open Historical Questions for a Topic or Question Family
+  const handleViewQuestions = async (topicName?: string, familyId?: number | null, familyName?: string) => {
     if (!selectedSubject || !selectedSubject.course_id) return;
     setIsLoadingQuestions(true);
-    setSelectedTopicForQuestions(topicName || null);
+    setSelectedTopicForQuestions(familyName || topicName || null);
     setQuestionFilterYear("");
     setQuestionFilterMinMarks("");
     setQuestionFilterRepetition("");
@@ -293,9 +305,10 @@ export default function MintAIPage() {
     try {
       const res = await getHistoricalQuestions(
         selectedSubject.course_id,
-        topicName || undefined,
+        familyId ? undefined : topicName,
         selectedExam || undefined,
-        50
+        50,
+        familyId ? { family_id: familyId } : (familyName ? { family_name: familyName } : undefined)
       );
       setHistoricalQuestions(res.questions || []);
     } catch (err) {
@@ -637,10 +650,64 @@ export default function MintAIPage() {
             />
           ) : (
             <>
-              {snapshot && snapshot.data_availability_status === "READY" ? (
+              {snapshot && snapshot.data_availability_status === "READY" ? (() => {
+                const isFamilyMode = snapshot.prediction_mode === "family";
+
+                return (
             <div className="flex flex-col gap-6">
-              {/* Preparation & Coverage Meter */}
-              {snapshot.coverage_summary && (
+              {/* Preparation & Coverage / Evidence Meter */}
+              {isFamilyMode ? (
+                <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-accent" />
+                      <h3 className="text-sm font-bold tracking-tight">Empirical Evidence &amp; Question Family Scope</h3>
+                    </div>
+                    <div className="font-mono text-xs px-2.5 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
+                      {snapshot.predictions.length} High-Yield Families
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+                    <div className="bg-background/60 p-2.5 rounded-lg border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">High-Yield Families</div>
+                      <div className="font-mono font-bold text-base text-accent">{snapshot.predictions.length}</div>
+                    </div>
+                    <div className="bg-background/60 p-2.5 rounded-lg border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Multi-Repeat Families</div>
+                      <div className="font-mono font-bold text-base text-emerald-500">
+                        {snapshot.predictions.filter((p) => (p.distinct_paper_count ?? 0) >= 2 || (p.historical_occurrences ?? 0) >= 2).length}
+                      </div>
+                    </div>
+                    <div className="bg-background/60 p-2.5 rounded-lg border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Exams Analyzed</div>
+                      <div className="font-mono font-bold text-base text-foreground">
+                        {snapshot.exam_history?.historical_papers_analyzed ?? snapshot.exam_history?.total_papers ?? 0}
+                      </div>
+                    </div>
+                    <div className="bg-background/60 p-2.5 rounded-lg border border-border/40">
+                      <div className="text-muted-foreground text-[10px] uppercase">Verified Questions</div>
+                      <div className="font-mono font-bold text-base text-foreground">
+                        {snapshot.exam_history?.total_questions ?? 0}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Truthful Taxonomy Availability Banner */}
+                  <div className="mt-3 pt-3 border-t border-border/40 text-xs text-muted-foreground flex items-center gap-2">
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                    {snapshot.has_topic_taxonomy ? (
+                      <span>
+                        <strong>Topic taxonomy active ({snapshot.taxonomy_topic_count ?? 0} syllabus topics cataloged):</strong> Topic-level predictions are not currently available for this course. Historical Question Family recurrence is available.
+                      </span>
+                    ) : (
+                      <span>
+                        <strong>Syllabus taxonomy pending:</strong> Detailed syllabus topic taxonomy is currently being cataloged for this course. Historical Question Family recurrence analytics are active and verified.
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ) : snapshot.coverage_summary ? (
                 <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -678,7 +745,7 @@ export default function MintAIPage() {
                     </div>
                   </div>
                 </div>
-              )}
+              ) : null}
 
               {/* Exam Date Schedule (if date provided) */}
               {snapshot.exam_schedule && snapshot.exam_schedule.phases && (
@@ -716,7 +783,9 @@ export default function MintAIPage() {
               {/* Predictions List */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold tracking-tight">Predicted High-Yield Topics</h3>
+                  <h3 className="text-base font-bold tracking-tight">
+                    {isFamilyMode ? "Predicted High-Yield Question Families" : "Predicted High-Yield Topics"}
+                  </h3>
                   {snapshot.metadata && (
                     <span className="text-[10px] font-mono text-muted-foreground">
                       Engine: {snapshot.metadata.engine_version} | Model: {snapshot.metadata.model_version}
@@ -726,23 +795,46 @@ export default function MintAIPage() {
 
                 {snapshot.predictions && snapshot.predictions.length > 0 ? (
                   snapshot.predictions.map((p: PredictionItem, idx: number) => {
+                    const isFamily = p.category === "family";
                     const priorityInfo = getTopicPriorityInfo(p.name);
                     const isExpanded = expandedTopic === p.name;
                     const studentStatus = priorityInfo?.student_status || "NOT_STARTED";
                     const priorityBand = priorityInfo?.priority || "MEDIUM";
+                    const distinctPapers = p.distinct_paper_count ?? p.papers_with_topic ?? 0;
+                    const totalPapers = p.papers_analyzed ?? snapshot.exam_history?.total_papers ?? 0;
+                    const isHighRecurrence = distinctPapers >= 4 || p.confidence === "HIGH";
+                    const isSinglePaper = distinctPapers === 1;
 
                     return (
                       <div
-                        key={idx}
-                        className="bg-card border border-border rounded-xl p-5 shadow-sm transition-all hover:border-accent/40"
+                        key={p.family_id ? `fam-${p.family_id}` : idx}
+                        className={`bg-card border rounded-xl p-5 shadow-sm transition-all ${
+                          isHighRecurrence
+                            ? "border-emerald-500/30 hover:border-emerald-500/50 bg-card/95"
+                            : isSinglePaper
+                            ? "border-border/60 hover:border-border bg-card/60"
+                            : "border-border hover:border-border/90"
+                        }`}
                       >
                         {/* Header Row */}
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border/50">
-                          <div>
-                            <div className="flex items-center gap-2 mb-1">
+                          <div className="flex-1 pr-2">
+                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
                               <span className="font-mono text-xs text-muted-foreground">#{p.rank}</span>
-                              <h4 className="text-base font-bold text-foreground">{p.name}</h4>
+                              {isFamily && (
+                                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-border">
+                                  {p.family_id ? `Family #${p.family_id}` : "Question Family"}
+                                </span>
+                              )}
+                              {p.repetition_type === "EXACT_REPEAT" && (
+                                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                                  Exact Repeat
+                                </span>
+                              )}
                             </div>
+                            <h4 className="text-sm sm:text-base font-bold text-foreground leading-snug mb-2">
+                              <MathText content={p.name} />
+                            </h4>
                             <div className="flex flex-wrap items-center gap-2 text-xs">
                               {/* Probability Pill */}
                               <span className="px-2 py-0.5 rounded bg-background font-mono text-[11px] border border-border" title="Laplace-smoothed empirical paper recurrence probability">
@@ -760,19 +852,66 @@ export default function MintAIPage() {
                                 {p.confidence} Confidence
                               </span>
 
-                              {/* Priority Band */}
-                              <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                                priorityBand === "VERY_HIGH"
-                                  ? "bg-rose-500/10 text-rose-500 border border-rose-500/20"
-                                  : priorityBand === "HIGH"
-                                  ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
-                                  : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
-                              }`}>
-                                Priority: {priorityBand.replace("_", " ")}
-                              </span>
+                              {/* Paper Coverage Pill */}
+                              {isSinglePaper ? (
+                                <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-mono text-[10px] font-semibold border border-amber-500/20" title="Observed in 1 examination paper only">
+                                  1 Paper Only (Isolated Observation)
+                                </span>
+                              ) : distinctPapers >= 4 ? (
+                                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/25" title={`Verified across ${distinctPapers} distinct examination papers`}>
+                                  ✓ {distinctPapers} of {totalPapers > 0 ? `${totalPapers} Papers` : "Papers"}
+                                </span>
+                              ) : (
+                                <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
+                                  {distinctPapers} of {totalPapers > 0 ? `${totalPapers} Papers` : "Papers"}
+                                </span>
+                              )}
+
+                              {/* Marks Pill */}
+                              {(() => {
+                                if (p.average_marks != null && p.average_marks > 0) {
+                                  return (
+                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
+                                      ~{p.average_marks} Marks
+                                    </span>
+                                  );
+                                }
+                                if (p.total_marks_observed != null && p.total_marks_observed > 0) {
+                                  return (
+                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
+                                      {Math.round(p.total_marks_observed)} Marks
+                                    </span>
+                                  );
+                                }
+                                if (p.marks_seen != null && p.marks_seen > 0) {
+                                  return (
+                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
+                                      {Math.round(p.marks_seen)} Marks
+                                    </span>
+                                  );
+                                }
+                                return (
+                                  <span className="px-2 py-0.5 rounded bg-muted/30 font-mono text-[10px] text-muted-foreground/70 border border-border/40">
+                                    Marks Unspecified
+                                  </span>
+                                );
+                              })()}
+
+                              {/* Priority Band (Topic Mode) */}
+                              {!isFamily && (
+                                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                                  priorityBand === "VERY_HIGH"
+                                    ? "bg-rose-500/10 text-rose-500 border border-rose-500/20"
+                                    : priorityBand === "HIGH"
+                                    ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                                    : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
+                                }`}>
+                                  Priority: {priorityBand.replace("_", " ")}
+                                </span>
+                              )}
 
                               {/* Recommended Action Badge */}
-                              {priorityInfo?.recommended_action && (
+                              {!isFamily && priorityInfo?.recommended_action && (
                                 <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
                                   priorityInfo.recommended_action === "DEEP_STUDY_URGENT"
                                     ? "bg-rose-500/15 text-rose-400 border border-rose-500/30"
@@ -790,40 +929,73 @@ export default function MintAIPage() {
 
                           {/* Quick Actions */}
                           <div className="flex items-center gap-2 shrink-0">
-                            <button
-                              onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
-                              className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors"
-                              title="Open deep Topic Intelligence Drilldown"
-                            >
-                              <Sparkles className="w-3.5 h-3.5" />
-                              <span>Intelligence</span>
-                            </button>
+                            {isFamily ? (
+                              <>
+                                <button
+                                  onClick={() => handleOpenFamilyEvidence(p.family_id, p.name)}
+                                  className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors cursor-pointer"
+                                  title="Inspect Question Family Empirical Evidence"
+                                >
+                                  <Sparkles className="w-3.5 h-3.5" />
+                                  <span>Inspect Evidence</span>
+                                </button>
 
-                            <button
-                              onClick={() => handleToggleTopicStatus(p.name, studentStatus)}
-                              className={`text-xs px-2.5 py-1 rounded font-medium border transition-colors flex items-center gap-1 ${
-                                studentStatus === "COMPLETED"
-                                  ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                  : "bg-background text-muted-foreground hover:text-foreground border-border"
-                              }`}
-                              title="Toggle study progress"
-                            >
-                              <CheckCircle2 className="w-3.5 h-3.5" />
-                              <span>{studentStatus === "COMPLETED" ? "Mastered" : "Mark Done"}</span>
-                            </button>
+                                <button
+                                  onClick={() => handleViewQuestions(undefined, p.family_id, p.name)}
+                                  className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1 cursor-pointer"
+                                  title="View past exam questions for this family"
+                                >
+                                  <BookOpen className="w-3.5 h-3.5" />
+                                  <span>Past Questions</span>
+                                </button>
 
-                            <button
-                              onClick={() => handleViewQuestions(p.name)}
-                              className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1"
-                              title="View past exam questions"
-                            >
-                              <BookOpen className="w-3.5 h-3.5" />
-                              <span>Past Questions</span>
-                            </button>
+                                <a
+                                  href="/study-plan"
+                                  className="text-xs px-2.5 py-1 rounded font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border flex items-center gap-1 transition-colors cursor-pointer"
+                                  title="Open Study Intelligence for this course"
+                                >
+                                  <Target className="w-3.5 h-3.5" />
+                                  <span>Study</span>
+                                </a>
+                              </>
+                            ) : (
+                              <>
+                                <button
+                                  onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
+                                  className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors cursor-pointer"
+                                  title="Open deep Topic Intelligence Drilldown"
+                                >
+                                  <Sparkles className="w-3.5 h-3.5" />
+                                  <span>Intelligence</span>
+                                </button>
+
+                                <button
+                                  onClick={() => handleToggleTopicStatus(p.name, studentStatus)}
+                                  className={`text-xs px-2.5 py-1 rounded font-medium border transition-colors flex items-center gap-1 cursor-pointer ${
+                                    studentStatus === "COMPLETED"
+                                      ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
+                                      : "bg-background text-muted-foreground hover:text-foreground border-border"
+                                  }`}
+                                  title="Toggle study progress"
+                                >
+                                  <CheckCircle2 className="w-3.5 h-3.5" />
+                                  <span>{studentStatus === "COMPLETED" ? "Mastered" : "Mark Done"}</span>
+                                </button>
+
+                                <button
+                                  onClick={() => handleViewQuestions(p.name)}
+                                  className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1 cursor-pointer"
+                                  title="View past exam questions"
+                                >
+                                  <BookOpen className="w-3.5 h-3.5" />
+                                  <span>Past Questions</span>
+                                </button>
+                              </>
+                            )}
 
                             <button
                               onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
-                              className="p-1 rounded text-muted-foreground hover:text-foreground"
+                              className="p-1 rounded text-muted-foreground hover:text-foreground cursor-pointer"
                               aria-label="Toggle details"
                             >
                               {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -870,13 +1042,17 @@ export default function MintAIPage() {
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
                                 <div className="text-muted-foreground text-[10px]">Paper Coverage</div>
                                 <div className="font-mono font-bold text-foreground">
-                                  {p.papers_analyzed ? `${p.papers_with_topic ?? 0}/${p.papers_analyzed} Papers` : (p.paper_coverage ? `${Math.round(p.paper_coverage * 100)}%` : "—")}
+                                  {totalPapers > 0 ? `${distinctPapers}/${totalPapers} Papers` : "—"}
                                 </div>
                               </div>
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
                                 <div className="text-muted-foreground text-[10px]">Marks Seen</div>
                                 <div className="font-mono font-bold text-foreground">
-                                  {p.marks_seen ? `${Math.round(p.marks_seen)} Marks` : "N/A"}
+                                  {p.average_marks != null
+                                    ? `~${p.average_marks} Marks (${p.total_marks_observed ?? p.marks_seen} Total)`
+                                    : p.marks_seen
+                                    ? `${Math.round(p.marks_seen)} Marks`
+                                    : "Marks Unspecified"}
                                 </div>
                               </div>
                               <div className="bg-background/60 p-2.5 rounded border border-border/30">
@@ -934,7 +1110,7 @@ export default function MintAIPage() {
                               <div className="pt-2 flex justify-end">
                                 <button
                                   onClick={() => handleViewResources(p.name, priorityInfo.resources)}
-                                  className="text-accent hover:underline flex items-center gap-1 font-medium"
+                                  className="text-accent hover:underline flex items-center gap-1 font-medium cursor-pointer"
                                 >
                                   <span>View {priorityInfo.resources.length} Linked Study Resource(s)</span>
                                   <ArrowRight className="w-3 h-3" />
@@ -952,10 +1128,14 @@ export default function MintAIPage() {
                       <Repeat className="w-5 h-5" />
                     </div>
                     <h4 className="text-sm font-semibold text-foreground">
-                      Topic Predictions Pending Syllabus Taxonomy
+                      {snapshot?.has_topic_taxonomy
+                        ? "Topic Predictions Currently Unavailable"
+                        : "Topic Predictions Pending Syllabus Taxonomy"}
                     </h4>
                     <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
-                      Detailed topic taxonomy is currently being cataloged for this course. Question Family recurrence analytics and empirical paper patterns are fully active and verified.
+                      {snapshot?.has_topic_taxonomy
+                        ? `${snapshot.taxonomy_topic_count ?? "Cataloged"} syllabus topics exist for this course, but question-to-topic prediction mappings are not currently available. Question Family recurrence analytics and empirical paper patterns are fully active and verified.`
+                        : "Detailed syllabus topic taxonomy is currently being cataloged for this course. Question Family recurrence analytics and empirical paper patterns are fully active and verified."}
                     </p>
                     <div className="pt-2">
                       <button
@@ -971,7 +1151,8 @@ export default function MintAIPage() {
                 )}
               </div>
             </div>
-          ) : snapshot && snapshot.data_availability_status === "INSUFFICIENT_EVIDENCE" ? (
+          );
+        })() : snapshot && snapshot.data_availability_status === "INSUFFICIENT_EVIDENCE" ? (
             <div className="h-full min-h-[400px] border border-dashed border-amber-500/30 bg-amber-500/5 rounded-xl flex flex-col items-center justify-center text-center p-8">
               <AlertCircle className="w-10 h-10 text-amber-500 mb-4" />
               <h3 className="text-lg font-bold text-foreground mb-2">Insufficient Examination Volume</h3>
@@ -1279,6 +1460,18 @@ export default function MintAIPage() {
           courseId={selectedSubject.course_id}
           topicId={selectedTopicIdForModal}
           initialTopicName={selectedTopicNameForModal}
+        />
+      )}
+
+      {/* Question Family Evidence Modal */}
+      {selectedSubject?.course_id && (
+        <FamilyEvidenceModal
+          isOpen={isFamilyModalOpen}
+          onClose={() => setIsFamilyModalOpen(false)}
+          courseId={selectedSubject.course_id}
+          familyId={selectedFamilyIdForModal}
+          initialFamilyName={selectedFamilyNameForModal}
+          onViewQuestions={(famId, famName) => handleViewQuestions(undefined, famId, famName)}
         />
       )}
 

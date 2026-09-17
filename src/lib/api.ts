@@ -34,7 +34,8 @@ import {
   EvolutionResponse,
   MarksAnalyticsResponse,
   AssessmentComparisonResponse,
-  TopicIntelligenceResponse
+  TopicIntelligenceResponse,
+  SingleFamilyResponse
 } from "./types";
 
 // Real Backend Endpoints
@@ -81,6 +82,7 @@ export async function getHistoricalQuestions(
     min_marks?: number;
     max_marks?: number;
     family_id?: number;
+    family_name?: string;
     repetition_type?: string;
   }
 ): Promise<{ course_id: number; course_name: string; total_returned: number; questions: HistoricalQuestion[] }> {
@@ -91,6 +93,7 @@ export async function getHistoricalQuestions(
   if (filters?.min_marks !== undefined) url += `&min_marks=${encodeURIComponent(filters.min_marks)}`;
   if (filters?.max_marks !== undefined) url += `&max_marks=${encodeURIComponent(filters.max_marks)}`;
   if (filters?.family_id) url += `&family_id=${encodeURIComponent(filters.family_id)}`;
+  if (filters?.family_name) url += `&family_name=${encodeURIComponent(filters.family_name)}`;
   if (filters?.repetition_type) url += `&repetition_type=${encodeURIComponent(filters.repetition_type)}`;
   return fetchAPI(url);
 }
@@ -263,4 +266,14 @@ export async function getTopicIntelligence(
     )}/intelligence?student_id=${encodeURIComponent(studentId)}`
   );
 }
+
+export async function getSingleFamilyEvidence(
+  courseId: string | number,
+  familyId: string | number
+): Promise<SingleFamilyResponse> {
+  return fetchAPI(
+    `/analytics/${encodeURIComponent(String(courseId))}/families/${encodeURIComponent(String(familyId))}`
+  );
+}
+
 

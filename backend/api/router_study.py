@@ -7,20 +7,12 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from backend.api.endpoints.predictions import get_prediction, resolve_course
-from backend.core.database import SessionLocal
+from backend.core.database import SessionLocal, get_db
 from backend.models.core import Course
 from backend.services.student_uploads import StudentUploadService
 from backend.services.study_intelligence import StudyIntelligenceService
 
 router = APIRouter(prefix="/study", tags=["study"])
-
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
 class ProgressRequest(BaseModel):
@@ -51,14 +43,34 @@ def get_study_priorities(
     course_name: str,
     target_year: Optional[int] = None,
     user_id: str = "anonymous",
+    db: Session = Depends(get_db),
 ):
-    db = SessionLocal()
-    try:
-        course = _course(db, course_name)
-        payload, predictions = _topic_predictions(course.name, target_year, db)
-        topic_predictions = [p for p in predictions if p.get("category") == "topic"]
-        from backend.services.prediction.engine import PredictionResult
+    course = _course(db, course_name)
+    payload, predictions = _topic_predictions(course.name, target_year, db)
+    topic_predictions = [p for p in predictions if p.get("category") == "topic"]
+    family_predictions = [p for p in predictions if p.get("category") == "family"]
+    from backend.services.prediction.engine import PredictionResult
+    from backend.models.core import Topic, Unit, Syllabus
 
+    syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
+    taxonomy_topic_count = (
+        db.query(Topic)
+        .join(Unit, Topic.unit_id == Unit.id)
+        .filter(Unit.syllabus_id.in_(syl_ids))
+        .count()
+        if syl_ids else 0
+    )
+    has_topic_taxonomy = taxonomy_topic_count > 0
+
+    if has_topic_taxonomy and topic_predictions:
+        plan_mode = "topic"
+    elif family_predictions:
+        plan_mode = "family"
+    else:
+        plan_mode = "insufficient"
+    plan = []
+
+    if topic_predictions:
         model_predictions = [
             PredictionResult(
                 target=item.get("category", "topic"),
@@ -73,31 +85,84 @@ def get_study_priorities(
         plan = StudyIntelligenceService(db).generate_study_plan(
             model_predictions, course.id, user_id
         )
-        return {
-            "course": course.name,
-            "target_year": payload["target_year"],
-            "priorities": plan,
-            "prediction_evidence": payload.get("evidence"),
-            "data_quality": payload.get("data_quality"),
-        }
-    finally:
-        db.close()
+    elif family_predictions:
+        for index, item in enumerate(family_predictions, start=1):
+            fam_id = item.get("family_id")
+            score = float(item.get("score", 0.0))
+            p_cnt = item.get("distinct_paper_count") or item.get("papers_with_topic") or 1
+            occ = item.get("historical_occurrences") or item.get("historyCount") or 1
+            years = item.get("observed_years") or []
+            years_str = f" ({', '.join(map(str, sorted(years)))})" if years else ""
+            rep_type = item.get("repetition_type", "family_repeat")
+            rep_label = "Exact verbatim repeat" if rep_type == "exact_repeat" else "Recurring question family"
+
+            priority_band = "HIGH" if score >= 0.5 or occ >= 3 else "MEDIUM"
+            plan.append({
+                "topic": item["name"],
+                "name": item["name"],
+                "category": "family",
+                "family_id": fam_id,
+                "prediction_score": round(score, 4),
+                "probability": round(float(item.get("probability", score)), 4),
+                "confidence": item.get("confidence", "MEDIUM"),
+                "priority": priority_band,
+                "repetition_type": rep_type,
+                "distinct_paper_count": p_cnt,
+                "historical_occurrences": occ,
+                "observed_years": years,
+                "reason": f"{rep_label}: appeared across {p_cnt} past examination papers{years_str} with {occ} total occurrences.",
+                "reasons": [
+                    f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
+                    f"Verified historical frequency: {occ} questions examined.",
+                ],
+                "resources": [
+                    {
+                        "id": f"fam-{fam_id}" if fam_id else f"res-{index}",
+                        "title": f"Past Exam Questions (Family #{fam_id})" if fam_id else "Past Exam Questions",
+                        "source": "pyq",
+                        "resource_type": "family_questions",
+                        "family_id": fam_id,
+                        "question_count": occ,
+                    }
+                ],
+                "student_status": "NOT_STARTED",
+            })
+
+    return {
+        "course": course.name,
+        "target_year": payload["target_year"],
+        "plan_mode": plan_mode,
+        "priorities": plan,
+        "topics": plan,
+        "has_topic_taxonomy": has_topic_taxonomy,
+        "taxonomy_topic_count": taxonomy_topic_count,
+        "topic_predictions_count": len(topic_predictions),
+        "family_predictions_count": len(family_predictions),
+        "prediction_evidence": payload.get("evidence"),
+        "data_quality": payload.get("data_quality"),
+    }
 
 
 @router.get("/plan/{course_name}")
-def get_study_plan(course_name: str, target_year: Optional[int] = None, user_id: str = "anonymous"):
-    return get_study_priorities(course_name, target_year, user_id)
+def get_study_plan(
+    course_name: str,
+    target_year: Optional[int] = None,
+    user_id: str = "anonymous",
+    db: Session = Depends(get_db),
+):
+    return get_study_priorities(course_name, target_year, user_id, db)
 
 
 @router.get("/resources/{course_name}/{topic_name}")
-def get_topic_resources(course_name: str, topic_name: str, limit: int = 20):
-    db = SessionLocal()
-    try:
-        course = _course(db, course_name)
-        resources = StudyIntelligenceService(db).get_topic_resources(topic_name, course.id)
-        return {"course": course.name, "topic": topic_name, "resources": resources[:limit]}
-    finally:
-        db.close()
+def get_topic_resources(
+    course_name: str,
+    topic_name: str,
+    limit: int = 20,
+    db: Session = Depends(get_db),
+):
+    course = _course(db, course_name)
+    resources = StudyIntelligenceService(db).get_topic_resources(topic_name, course.id)
+    return {"course": course.name, "topic": topic_name, "resources": resources[:limit]}
 
 
 MAX_PDF_SIZE_BYTES = 20 * 1024 * 1024  # 20MB

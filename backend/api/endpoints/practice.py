@@ -9,14 +9,22 @@ router = APIRouter()
 def get_practice_questions(subject: str, limit: int = 20):
     db = SessionLocal()
     try:
-        course = db.query(Course).filter(Course.name == subject).first()
+        from backend.api.endpoints.predictions import _find_course
+        course = _find_course(db, subject)
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
 
         # Fetch recent historical questions
-        questions = db.query(Question, Exam.year).join(Section).join(Exam).filter(
-            Exam.course_id == course.id
-        ).order_by(Exam.year.desc()).limit(limit).all()
+        questions = (
+            db.query(Question, Exam.year)
+            .select_from(Question)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .filter(Exam.course_id == course.id)
+            .order_by(Exam.year.desc().nullslast(), Question.id.asc())
+            .limit(limit)
+            .all()
+        )
 
         formatted_questions = []
         for q, year in questions:
