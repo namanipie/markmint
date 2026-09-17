@@ -190,6 +190,26 @@ class CurriculumMapping(Base):
         Index("idx_branch_sem_status", "branch_name", "semester", "status"),
     )
 
+    @classmethod
+    def get_by_composite_key(cls, db, branch_name: str, semester: int, curriculum_id: str):
+        """Safely fetch a mapping by its canonical 3-tuple business key."""
+        return db.query(cls).filter(
+            cls.branch_name == branch_name,
+            cls.semester == semester,
+            cls.curriculum_id == curriculum_id
+        ).first()
+
+    @classmethod
+    def update_by_composite_key(cls, db, branch_name: str, semester: int, curriculum_id: str, **kwargs):
+        """Safely update a mapping using only its canonical 3-tuple business key."""
+        record = cls.get_by_composite_key(db, branch_name, semester, curriculum_id)
+        if not record:
+            return None
+        for key, value in kwargs.items():
+            if hasattr(record, key):
+                setattr(record, key, value)
+        return record
+
 
 class Syllabus(Base):
     __tablename__ = "syllabuses"

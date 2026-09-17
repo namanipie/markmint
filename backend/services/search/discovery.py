@@ -205,7 +205,7 @@ class DiscoverySearchEngine:
         out = []
         for q in results:
             doc_url = q.section.exam.document.original_url if (q.section and q.section.exam and q.section.exam.document) else None
-            top_name = q.topics[0].name if q.topics else "General"
+            top_name = ", ".join(t.name for t in q.topics) if q.topics else "General"
             out.append(SearchResult(
                 id=q.id,
                 result_type=SearchResultType.EXAM_QUESTION,

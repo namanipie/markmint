@@ -109,23 +109,32 @@ class DNAAnalyzerService:
                 is_alt = q.get("is_alternative", False)
                 
                 # Topics
-                topic = q.get("topic")
-                if topic:
-                    td = topics_data[topic]
-                    td["q_count"] += 1
-                    if not is_alt:
-                        td["marks"] += m
-                        td["non_alt_q_count"] += 1
-                    td["papers"].add(exam_id)
-                    if m >= 5.0: td["long_ans"] += 1
-                    if m <= 3.0: td["short_ans"] += 1
-                    if is_recent: td["recent_q_count"] += 1
-                    if q.get("difficulty") is not None:
-                        td["diffs"].append(q["difficulty"])
+                q_topics = q.get("topics")
+                if q_topics is None:
+                    topic_single = q.get("topic")
+                    q_topics = [topic_single] if topic_single else []
+
+                for topic in q_topics:
+                    if topic:
+                        td = topics_data[topic]
+                        td["q_count"] += 1
+                        if not is_alt:
+                            td["marks"] += m
+                            td["non_alt_q_count"] += 1
+                        td["papers"].add(exam_id)
+                        if m >= 5.0: td["long_ans"] += 1
+                        if m <= 3.0: td["short_ans"] += 1
+                        if is_recent: td["recent_q_count"] += 1
+                        if q.get("difficulty") is not None:
+                            td["diffs"].append(q["difficulty"])
                 
                 # Units
-                unit = q.get("unit")
-                if unit:
+                q_units = q.get("units")
+                if q_units is None:
+                    unit_single = q.get("unit")
+                    q_units = [unit_single] if unit_single else []
+
+                for unit in list(dict.fromkeys(u for u in q_units if u)):
                     ud = units_data[unit]
                     ud["q_count"] += 1
                     if not is_alt:

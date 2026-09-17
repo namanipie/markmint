@@ -599,7 +599,7 @@ def get_intelligence_snapshot(
         topic_years = {
             e.year for e in hist_exams_orm
             if e.year is not None and any(
-                q.topics and q.topics[0].name == p.name
+                any(t.name == p.name for t in q.topics)
                 for s in e.sections for q in s.questions
             )
         }

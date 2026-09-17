@@ -78,7 +78,15 @@ class ExamService:
                         "id": str(q.id),
                         "marks": q.marks or 0.0,
                         "topic": topic_name,
+                        "topics": [t.name for t in q.topics] if getattr(q, "topics", None) else [],
                         "unit": q.topics[0].unit.name if q.topics and q.topics[0].unit else None,
+                        "units": (
+                            list(dict.fromkeys(
+                                t.unit.name for t in q.topics if getattr(t, "unit", None) and t.unit.name
+                            ))
+                            if getattr(q, "topics", None)
+                            else []
+                        ),
                         "question_type": q.question_type,
                         "cognitive_level": q.cognitive_level,
                         "difficulty": q.difficulty,

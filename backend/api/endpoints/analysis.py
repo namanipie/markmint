@@ -50,7 +50,15 @@ def _get_exams_as_dicts(course_id: int, db: Session) -> list[dict]:
                     "marks": q.marks,
                     "is_alternative": q.is_alternative,
                     "topic": q.topics[0].name if q.topics else None,
-                    "unit": None, # Unit mapped via concepts typically, stubbed here
+                    "topics": [t.name for t in q.topics] if getattr(q, "topics", None) else [],
+                    "unit": q.topics[0].unit.name if (q.topics and getattr(q.topics[0], "unit", None)) else None,
+                    "units": (
+                        list(dict.fromkeys(
+                            t.unit.name for t in q.topics if getattr(t, "unit", None) and t.unit.name
+                        ))
+                        if getattr(q, "topics", None)
+                        else []
+                    ),
                     "question_type": q.question_type,
                     "repetition_type": q.family.repetition_type if q.family else None,
                     "family_name": q.family.canonical_name if q.family else None,

@@ -73,11 +73,26 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
                     "marks": question.marks,
                     "is_alternative": question.is_alternative,
                     "topic": question.topics[0].name if question.topics else None,
+                    "topics": [t.name for t in question.topics] if getattr(question, "topics", None) else [],
                     "unit": (
                         question.topics[0].unit.name
                         if (question.topics and getattr(question.topics[0], "unit", None))
                         else None
                     ),
+                    "units": (
+                        list(dict.fromkeys(
+                            t.unit.name for t in question.topics if getattr(t, "unit", None) and t.unit.name
+                        ))
+                        if getattr(question, "topics", None)
+                        else []
+                    ),
+                    "topic_mappings": [
+                        {
+                            "topic": t.name,
+                            "unit": t.unit.name if getattr(t, "unit", None) else None
+                        }
+                        for t in question.topics
+                    ] if getattr(question, "topics", None) else [],
                     "question_type": question.question_type,
                     "repetition_type": (
                         question.memberships[0].match_type
@@ -159,7 +174,7 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
             topic_years = {
                 e.year for e in hist_exams_orm
                 if e.year is not None and any(
-                    q.topics and q.topics[0].name == p.name
+                    any(t.name == p.name for t in q.topics)
                     for s in e.sections for q in s.questions
                 )
             }
