@@ -26,7 +26,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { EasterEggManager } from "@/components/ambient/EasterEggManager";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.vercel.app"),
   title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
   description: "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
   alternates: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MarkMint | SRMIST Academic Intelligence",
     description: "Forecast high-yield topics using verified historical exam evidence. Generate structured study plans and explore past questions.",
-    url: "https://markmint.com",
+    url: "https://markmint.vercel.app",
     siteName: "MarkMint",
     locale: "en_US",
     type: "website",
@@ -54,11 +54,11 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "MarkMint",
-  "url": "https://markmint.com",
+  "url": "https://markmint.vercel.app",
   "description": "MintAi predicts your CT, FT, and End Sem question papers for SRMIST.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://markmint.com/mintai?course={search_term_string}",
+    "target": "https://markmint.vercel.app/mintai?course={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };

@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://markmint.com";
+  const baseUrl = "https://markmint.vercel.app";
   
   return [
     {

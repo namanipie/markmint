@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://markmint.com/sitemap.xml",
+    sitemap: "https://markmint.vercel.app/sitemap.xml",
   };
 }
