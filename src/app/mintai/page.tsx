@@ -401,25 +401,13 @@ export default function MintAIPage() {
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
                   Academic Branch
                 </label>
-                <select
-                  aria-label="Academic Branch"
-                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                <Combobox
+                  options={branches.map((b) => ({ value: b, label: b }))}
                   value={selectedBranch}
-                  onChange={(e) => setSelectedBranch(e.target.value)}
+                  onChange={(val: string) => setSelectedBranch(val)}
+                  placeholder={isLoadingBranches ? "Loading branches..." : "Search branches..."}
                   disabled={isLoadingBranches || branches.length === 0}
-                >
-                  {isLoadingBranches ? (
-                    <option>Loading branches...</option>
-                  ) : branches.length === 0 ? (
-                    <option>No branches available</option>
-                  ) : (
-                    branches.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))
-                  )}
-                </select>
+                />
               </div>
 
               {/* Semester Selector */}
@@ -427,25 +415,13 @@ export default function MintAIPage() {
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
                   Semester
                 </label>
-                <select
-                  aria-label="Semester"
-                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                <Combobox
+                  options={semesters.map((s) => ({ value: String(s), label: `Semester ${s}` }))}
                   value={selectedSemester}
-                  onChange={(e) => setSelectedSemester(e.target.value)}
+                  onChange={(val: string) => setSelectedSemester(val)}
+                  placeholder={isLoadingSemesters ? "Loading semesters..." : "Select semester..."}
                   disabled={isLoadingSemesters || semesters.length === 0}
-                >
-                  {isLoadingSemesters ? (
-                    <option>Loading semesters...</option>
-                  ) : semesters.length === 0 ? (
-                    <option>Select a branch first</option>
-                  ) : (
-                    semesters.map((s) => (
-                      <option key={s} value={String(s)}>
-                        Semester {s}
-                      </option>
-                    ))
-                  )}
-                </select>
+                />
               </div>
 
               {/* Subject Selector */}
@@ -453,35 +429,20 @@ export default function MintAIPage() {
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
                   Course / Subject
                 </label>
-                <select
-                  aria-label="Course or Subject"
-                  className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                <Combobox
+                  options={subjects.map((s) => ({ 
+                    value: s.curriculum_id, 
+                    label: `${s.canonical_code ? `[${s.canonical_code}] ` : ""}${s.subject_name}${s.status === "MATCHED" && s.has_exams ? ` (${s.exam_count} exams)` : s.status === "AMBIGUOUS" ? " [Ambiguous]" : " [Awaiting Papers]"}` 
+                  }))}
                   value={selectedSubject?.curriculum_id || ""}
-                  onChange={(e) => {
-                    const match = subjects.find((s) => s.curriculum_id === e.target.value);
+                  onChange={(val: string) => {
+                    const match = subjects.find((s) => s.curriculum_id === val);
                     setSelectedSubject(match || null);
                     setSnapshot(null);
                   }}
+                  placeholder={isLoadingSubjects ? "Loading courses..." : "Search courses..."}
                   disabled={isLoadingSubjects || subjects.length === 0}
-                >
-                  {isLoadingSubjects ? (
-                    <option>Loading courses...</option>
-                  ) : subjects.length === 0 ? (
-                    <option>No courses found</option>
-                  ) : (
-                    subjects.map((s) => (
-                      <option key={s.curriculum_id} value={s.curriculum_id}>
-                        {s.canonical_code ? `[${s.canonical_code}] ` : ""}
-                        {s.subject_name}
-                        {s.status === "MATCHED" && s.has_exams
-                          ? ` (${s.exam_count} exams)`
-                          : s.status === "AMBIGUOUS"
-                          ? " [Ambiguous]"
-                          : " [Awaiting Papers]"}
-                      </option>
-                    ))
-                  )}
-                </select>
+                />
               </div>
 
               {/* Target Exam Date (Optional) */}
@@ -1136,14 +1097,39 @@ export default function MintAIPage() {
               </p>
             </div>
           ) : (
-              <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
-                <Database className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
-                <h3 className="text-lg font-bold text-foreground mb-2">Awaiting Parameters</h3>
-                <p className="text-sm text-muted-foreground max-w-sm">
-                  Select an academic branch, semester, and course on the left to extract the evidence pool.
+            <div className="h-full min-h-[400px] rounded-xl flex flex-col justify-center p-8 lg:p-12 bg-card border border-border shadow-sm">
+              <div className="max-w-xl">
+                <h3 className="text-2xl font-bold text-foreground mb-4">MintAI Prediction Engine</h3>
+                <p className="text-base text-muted-foreground mb-10 leading-relaxed">
+                  Select a course from the curriculum catalog to unlock highly probable examination topics based on deterministic historical patterns.
                 </p>
+                
+                <div className="flex flex-col gap-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent font-bold text-sm shrink-0 border border-accent/20">1</div>
+                    <div>
+                      <h4 className="text-sm font-bold text-foreground">Select Scope</h4>
+                      <p className="text-sm text-muted-foreground mt-0.5">Choose your academic branch, semester, and target course.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 opacity-70">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">2</div>
+                    <div>
+                      <h4 className="text-sm font-bold text-foreground">Analyze Evidence</h4>
+                      <p className="text-sm text-muted-foreground mt-0.5">Explore recurring exam patterns and historical frequency.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 opacity-70">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">3</div>
+                    <div>
+                      <h4 className="text-sm font-bold text-foreground">Study & Practice</h4>
+                      <p className="text-sm text-muted-foreground mt-0.5">Focus on high-yield topics directly matched to syllabus objectives.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
+            </div>
+          )}
           </>
         )}
       </div>
