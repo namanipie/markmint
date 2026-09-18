@@ -23,7 +23,6 @@ const dancingScript = Dancing_Script({
 });
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { EasterEggManager } from "@/components/ambient/EasterEggManager";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -94,8 +93,7 @@ export default function RootLayout({
             },
           }}
         />
-        <EasterEggManager />
-        <GlobalFeatures />
+                <GlobalFeatures />
       </ThemeProvider>
       <Analytics />
       <SpeedInsights />

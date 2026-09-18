@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Leaf, Menu, X } from "lucide-react";
-import { HangingLamp } from "@/components/ambient/HangingLamp";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
@@ -16,6 +16,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const links = [
     { href: "/", label: "Home" },
     { href: "/mintai", label: "MintAI" },
+    { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
   ];
@@ -33,7 +34,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               <span className="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider translate-y-[2px]">Beta</span>
             </span>
           </Link>
-          <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8">
+          <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
             For SRMIST Students
           </span>
         </div>
@@ -58,25 +59,20 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               </Link>
             );
           })}
-          
-
         </nav>
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+        
+        {/* Right: Theme Toggle & Mobile Menu */}
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          
+          <div className="md:hidden flex items-center">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
-
       </div>
-
-      {/* The Hanging Lamp - Flush against the absolute right edge */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <HangingLamp />
-      </div>
-    
-
 
       {/* Mobile Menu Dropdown (#5) */}
       {isMobileMenuOpen && (

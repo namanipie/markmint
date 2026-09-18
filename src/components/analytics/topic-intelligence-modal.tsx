@@ -21,6 +21,7 @@ import { getTopicIntelligence } from "@/lib/api";
 import { TopicIntelligenceResponse } from "@/lib/types";
 import { MathText } from "@/components/ui/math-text";
 import { ConfidenceBadge } from "@/components/ui/confidence-badge";
+import { Drawer } from "@/components/ui/drawer";
 
 interface TopicIntelligenceModalProps {
   isOpen: boolean;
@@ -82,44 +83,27 @@ export function TopicIntelligenceModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
-
+  
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4 overflow-y-auto"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="topic-modal-title"
-    >
-      <div className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b border-border bg-secondary/20">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-                Topic Intelligence Drilldown
-              </span>
-              {data?.unit && (
-                <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-foreground">
-                  Unit {data.unit.number}: {data.unit.name}
-                </span>
-              )}
-            </div>
-            <h2 id="topic-modal-title" className="text-2xl font-bold text-foreground">
-              {data?.topic_name || initialTopicName || "Topic Intelligence"}
-            </h2>
-          </div>
-          <button
-            onClick={onClose}
-            className="rounded-full p-2 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors"
-            aria-label="Close dialog"
-          >
-            <X className="h-5 w-5" />
-          </button>
+    <Drawer
+      isOpen={isOpen}
+      onClose={onClose}
+      title={data?.topic_name || initialTopicName || "Topic Intelligence"}
+      subtitle={
+        <div className="flex items-center gap-2 mt-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+            Topic Intelligence Drilldown
+          </span>
+          {data?.unit && (
+            <span className="inline-flex items-center rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-foreground">
+              Unit {data.unit.number}: {data.unit.name}
+            </span>
+          )}
         </div>
+      }
+    >
+      <div className="flex flex-col gap-6">
 
-        {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {isLoading && (
             <div className="flex flex-col items-center justify-center py-16 space-y-4">
               <div className="h-8 w-8 animate-spin rounded-full border-4 border-accent border-t-transparent" />
@@ -391,7 +375,6 @@ export function TopicIntelligenceModal({
             Close
           </button>
         </div>
-      </div>
-    </div>
+    </Drawer>
   );
 }

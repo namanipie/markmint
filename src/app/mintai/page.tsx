@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { Drawer } from "@/components/ui/drawer";
+import { Combobox } from "@/components/ui/combobox";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
@@ -1234,33 +1236,17 @@ export default function MintAIPage() {
     </main>
 
       {/* Historical Questions Modal */}
-      {isQuestionsModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="questions-modal-title"
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-        >
-          <div className="bg-card border border-border rounded-xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-xl">
-            <div className="flex items-center justify-between p-5 border-b border-border">
-              <div>
-                <h3 id="questions-modal-title" className="text-base font-bold text-foreground">
-                  Verified Historical Questions
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  {selectedTopicForQuestions
-                    ? `Showing past examination questions mapped to: ${selectedTopicForQuestions}`
-                    : `Course wide question archive for: ${selectedSubject?.subject_name}`}
-                </p>
-              </div>
-              <button
-                onClick={() => setIsQuestionsModalOpen(false)}
-                className="p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-background"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+      <Drawer
+        isOpen={isQuestionsModalOpen}
+        onClose={() => setIsQuestionsModalOpen(false)}
+        title="Verified Historical Questions"
+        subtitle={
+          selectedTopicForQuestions
+            ? `Showing past examination questions mapped to: ${selectedTopicForQuestions}`
+            : `Course wide question archive for: ${selectedSubject?.subject_name}`
+        }
+      >
+        <div className="flex flex-col h-full">
 
             <div className="p-4 border-b border-border/60 bg-card/50 flex flex-wrap items-center justify-between gap-3 text-xs">
               <div className="flex flex-wrap items-center gap-2">
@@ -1394,34 +1380,17 @@ export default function MintAIPage() {
                 ))
               )}
             </div>
-          </div>
         </div>
-      )}
+      </Drawer>
 
       {/* Study Resources Modal */}
-      {isResourcesModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="resources-modal-title"
-          className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-        >
-          <div className="bg-card border border-border rounded-xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-xl">
-            <div className="flex items-center justify-between p-5 border-b border-border">
-              <div>
-                <h3 id="resources-modal-title" className="text-base font-bold text-foreground">Linked Study Resources</h3>
-                <p className="text-xs text-muted-foreground">Topic: {selectedTopicForResources}</p>
-              </div>
-              <button
-                onClick={() => setIsResourcesModalOpen(false)}
-                className="p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-background"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto p-5 space-y-3">
+      <Drawer
+        isOpen={isResourcesModalOpen}
+        onClose={() => setIsResourcesModalOpen(false)}
+        title="Linked Study Resources"
+        subtitle={`Topic: ${selectedTopicForResources}`}
+      >
+        <div className="flex-1 overflow-y-auto p-5 space-y-3">
               {topicResources.length === 0 ? (
                 <div className="text-center py-12 text-muted-foreground text-xs">
                   No lecture notes or study documents linked to this topic yet.
@@ -1448,9 +1417,7 @@ export default function MintAIPage() {
                 ))
               )}
             </div>
-          </div>
-        </div>
-      )}
+          </Drawer>
 
       {/* Topic Intelligence Drilldown Modal */}
       {selectedSubject?.course_id && (
