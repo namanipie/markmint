@@ -13,6 +13,7 @@ from backend.services.taxonomy_rules.microbio_rules import MICROBIO_TAXONOMY_RUL
 from backend.services.taxonomy_rules.pac_rules import PAC_TAXONOMY_RULES
 from backend.services.taxonomy_rules.biochem_rules import BIOCHEM_TAXONOMY_RULES
 from backend.services.taxonomy_rules.eee_rules import EEE_TAXONOMY_RULES
+from backend.services.taxonomy_rules.acca_rules import ACCA_TAXONOMY_RULES
 
 __all__ = [
     "CHEMISTRY_TAXONOMY_RULES",
@@ -27,6 +28,7 @@ __all__ = [
     "PAC_TAXONOMY_RULES",
     "BIOCHEM_TAXONOMY_RULES",
     "EEE_TAXONOMY_RULES",
+    "ACCA_TAXONOMY_RULES",
 ]
 
 

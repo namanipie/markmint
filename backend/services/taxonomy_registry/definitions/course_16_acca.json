@@ -1,0 +1,771 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 16,
+    "name": "Advanced Calculus and Complex Analysis",
+    "canonical_code": "21MAB102T",
+    "code": "SEM2-ACCA",
+    "regulation_year": 2021,
+    "department": "Mathematics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB102T Advanced Calculus and Complex Analysis",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Multiple Integrals, Vector Calculus, Laplace Transforms, Analytic Functions, and Complex Integration."
+  },
+  "units": [
+    {
+      "id": 37,
+      "number": 1,
+      "name": "Multiple Integrals",
+      "topics": [
+        {
+          "id": 315,
+          "name": "Double Integrals and Change of Variables",
+          "canonical_name": "Double Integrals and Change of Variables",
+          "aliases": [
+            "Double Integrals and Polar Coordinates"
+          ],
+          "strong_phrases": [
+            "evaluate double integral",
+            "double integral over the region",
+            "double integral",
+            "change of variables from cartesian to polar",
+            "cartesian to polar coordinates in double integral",
+            "transforming to polar coordinates",
+            "double integration"
+          ],
+          "specific_keywords": [
+            "double integral",
+            "double integrals"
+          ],
+          "negative_guards": [
+            "triple integral",
+            "change of order of integration",
+            "change the order of integration",
+            "changing the order of integration",
+            "reverse the order of integration",
+            "green's theorem",
+            "stokes' theorem"
+          ],
+          "context_hints": [
+            "calculus",
+            "integration"
+          ]
+        },
+        {
+          "id": 316,
+          "name": "Change of Order of Integration",
+          "canonical_name": "Change of Order of Integration",
+          "aliases": [
+            "Reversing Order of Integration"
+          ],
+          "strong_phrases": [
+            "change of order of integration",
+            "changing the order of integration",
+            "change the order of integration",
+            "reverse the order of integration",
+            "by changing the order of integration"
+          ],
+          "specific_keywords": [
+            "change of order",
+            "order of integration"
+          ],
+          "negative_guards": [
+            "laplace transform",
+            "fourier"
+          ],
+          "context_hints": [
+            "multiple integrals",
+            "integration order"
+          ]
+        },
+        {
+          "id": 317,
+          "name": "Triple Integrals and Volume Evaluation",
+          "canonical_name": "Triple Integrals and Volume Evaluation",
+          "aliases": [
+            "Triple Integrals and Volume"
+          ],
+          "strong_phrases": [
+            "evaluate triple integral",
+            "triple integral",
+            "triple integration",
+            "volume of the region bounded by",
+            "volume enclosed by the cylinder",
+            "volume of tetrahedron",
+            "triple integral over the sphere"
+          ],
+          "specific_keywords": [
+            "triple integral",
+            "triple integrals"
+          ],
+          "negative_guards": [
+            "gauss divergence",
+            "stokes' theorem",
+            "double integral"
+          ],
+          "context_hints": [
+            "multivariate calculus",
+            "volume integrals"
+          ]
+        },
+        {
+          "id": 318,
+          "name": "Area and Volume as Multiple Integrals",
+          "canonical_name": "Area and Volume as Multiple Integrals",
+          "aliases": [
+            "Area Enclosed by Curves"
+          ],
+          "strong_phrases": [
+            "area enclosed by the curves",
+            "area of the ellipse using double integration",
+            "find the area between the parabolas",
+            "area enclosed by the cardioid",
+            "find the area bounded by",
+            "area using double integral"
+          ],
+          "specific_keywords": [
+            "area enclosed",
+            "area bounded by"
+          ],
+          "negative_guards": [
+            "green's theorem",
+            "volume",
+            "triple integral"
+          ],
+          "context_hints": [
+            "applications of integration",
+            "area"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "number": 2,
+      "name": "Vector Calculus",
+      "topics": [
+        {
+          "id": 319,
+          "name": "Gradient, Directional Derivative, and Potential Functions",
+          "canonical_name": "Gradient, Directional Derivative, and Potential Functions",
+          "aliases": [
+            "Directional Derivative and Scalar Potential"
+          ],
+          "strong_phrases": [
+            "directional derivative of",
+            "find the directional derivative",
+            "gradient of a scalar field",
+            "scalar potential function",
+            "find the scalar potential",
+            "unit normal vector to the surface",
+            "angle between the surfaces",
+            "grad phi"
+          ],
+          "specific_keywords": [
+            "directional derivative",
+            "scalar potential"
+          ],
+          "negative_guards": [
+            "solenoidal",
+            "irrotational",
+            "green's theorem",
+            "stokes' theorem",
+            "gauss divergence"
+          ],
+          "context_hints": [
+            "vector differentiation",
+            "gradient"
+          ]
+        },
+        {
+          "id": 320,
+          "name": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+          "canonical_name": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+          "aliases": [
+            "Solenoidal and Irrotational Vector Fields"
+          ],
+          "strong_phrases": [
+            "solenoidal vector",
+            "is solenoidal",
+            "irrotational vector",
+            "is irrotational",
+            "divergence and curl",
+            "div f and curl f",
+            "show that the vector field is irrotational",
+            "find the constants such that the vector is solenoidal",
+            "curl of a vector"
+          ],
+          "specific_keywords": [
+            "solenoidal",
+            "irrotational"
+          ],
+          "negative_guards": [
+            "green's theorem",
+            "stokes' theorem",
+            "gauss divergence"
+          ],
+          "context_hints": [
+            "vector fields",
+            "curl and divergence"
+          ]
+        },
+        {
+          "id": 321,
+          "name": "Green's Theorem in a Plane",
+          "canonical_name": "Green's Theorem in a Plane",
+          "aliases": [
+            "Green's Theorem Evaluation and Verification"
+          ],
+          "strong_phrases": [
+            "verify green's theorem",
+            "verify green theorem",
+            "verify greens theorem",
+            "using green's theorem",
+            "evaluate using green's theorem",
+            "apply green's theorem",
+            "state green's theorem in a plane",
+            "green's theorem in the plane"
+          ],
+          "specific_keywords": [
+            "green's theorem",
+            "greens theorem"
+          ],
+          "negative_guards": [
+            "stokes' theorem",
+            "gauss divergence"
+          ],
+          "context_hints": [
+            "line integral",
+            "plane theorem"
+          ]
+        },
+        {
+          "id": 322,
+          "name": "Stokes' Theorem",
+          "canonical_name": "Stokes' Theorem",
+          "aliases": [
+            "Stokes' Theorem Verification and Evaluation"
+          ],
+          "strong_phrases": [
+            "verify stokes' theorem",
+            "verify stokes theorem",
+            "using stokes' theorem",
+            "evaluate by stokes' theorem",
+            "apply stokes' theorem",
+            "state and prove stokes theorem",
+            "state stokes theorem"
+          ],
+          "specific_keywords": [
+            "stokes' theorem",
+            "stokes theorem"
+          ],
+          "negative_guards": [
+            "green's theorem",
+            "gauss divergence"
+          ],
+          "context_hints": [
+            "surface integral",
+            "curl theorem"
+          ]
+        },
+        {
+          "id": 323,
+          "name": "Gauss Divergence Theorem",
+          "canonical_name": "Gauss Divergence Theorem",
+          "aliases": [
+            "Divergence Theorem of Gauss"
+          ],
+          "strong_phrases": [
+            "verify gauss divergence theorem",
+            "verify divergence theorem",
+            "using gauss divergence theorem",
+            "evaluate using divergence theorem",
+            "apply gauss divergence theorem",
+            "state gauss divergence theorem",
+            "state and prove gauss divergence"
+          ],
+          "specific_keywords": [
+            "gauss divergence theorem",
+            "gauss divergence",
+            "divergence theorem"
+          ],
+          "negative_guards": [
+            "stokes' theorem",
+            "green's theorem"
+          ],
+          "context_hints": [
+            "flux integral",
+            "volume theorem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "number": 3,
+      "name": "Laplace Transforms",
+      "topics": [
+        {
+          "id": 324,
+          "name": "Laplace Transforms of Elementary Functions and Shifting Properties",
+          "canonical_name": "Laplace Transforms of Elementary Functions and Shifting Properties",
+          "aliases": [
+            "Laplace Transforms and Shifting Theorems"
+          ],
+          "strong_phrases": [
+            "find the laplace transform of",
+            "laplace transform of t sin",
+            "laplace transform of t cos",
+            "first shifting theorem",
+            "second shifting theorem",
+            "laplace transform of e^",
+            "laplace transform of elementary functions",
+            "transform of unit step function"
+          ],
+          "specific_keywords": [
+            "shifting theorem",
+            "unit step function",
+            "heaviside"
+          ],
+          "negative_guards": [
+            "inverse laplace",
+            "convolution theorem",
+            "differential equation",
+            "periodic function"
+          ],
+          "context_hints": [
+            "transform",
+            "operational calculus"
+          ]
+        },
+        {
+          "id": 325,
+          "name": "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+          "canonical_name": "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+          "aliases": [
+            "Periodic Functions and Transform of Derivatives"
+          ],
+          "strong_phrases": [
+            "laplace transform of periodic function",
+            "periodic function with period",
+            "transform of a periodic function",
+            "laplace transform of derivative",
+            "laplace transform of integral",
+            "evaluation of integrals using laplace"
+          ],
+          "specific_keywords": [
+            "periodic function"
+          ],
+          "negative_guards": [
+            "inverse laplace",
+            "convolution",
+            "differential equation"
+          ],
+          "context_hints": [
+            "periodic waveform",
+            "integrals"
+          ]
+        },
+        {
+          "id": 326,
+          "name": "Inverse Laplace Transforms and Partial Fractions",
+          "canonical_name": "Inverse Laplace Transforms and Partial Fractions",
+          "aliases": [
+            "Inverse Laplace Transform Evaluation"
+          ],
+          "strong_phrases": [
+            "find the inverse laplace transform",
+            "inverse laplace transform of",
+            "evaluate inverse laplace",
+            "l^-1",
+            "inverse transform using partial fractions"
+          ],
+          "specific_keywords": [
+            "inverse laplace",
+            "inverse laplace transform"
+          ],
+          "negative_guards": [
+            "convolution theorem",
+            "differential equation"
+          ],
+          "context_hints": [
+            "inverse transform",
+            "s-domain to time-domain"
+          ]
+        },
+        {
+          "id": 327,
+          "name": "Convolution Theorem for Laplace Transforms",
+          "canonical_name": "Convolution Theorem for Laplace Transforms",
+          "aliases": [
+            "Convolution Integral in Laplace"
+          ],
+          "strong_phrases": [
+            "using convolution theorem find the inverse laplace",
+            "using convolution theorem",
+            "by convolution theorem",
+            "state and prove convolution theorem",
+            "state convolution theorem for laplace",
+            "apply convolution theorem"
+          ],
+          "specific_keywords": [
+            "convolution theorem"
+          ],
+          "negative_guards": [
+            "differential equation"
+          ],
+          "context_hints": [
+            "convolution",
+            "integral product"
+          ]
+        },
+        {
+          "id": 328,
+          "name": "Solving Ordinary Differential Equations Using Laplace Transforms",
+          "canonical_name": "Solving Ordinary Differential Equations Using Laplace Transforms",
+          "aliases": [
+            "Differential Equations via Laplace"
+          ],
+          "strong_phrases": [
+            "solve the differential equation using laplace",
+            "solve the initial value problem using laplace",
+            "solve by laplace transform method",
+            "solving ode using laplace",
+            "d^2y/dt^2"
+          ],
+          "specific_keywords": [
+            "differential equation using laplace",
+            "initial value problem using laplace"
+          ],
+          "negative_guards": [
+            "convolution theorem"
+          ],
+          "context_hints": [
+            "differential equations",
+            "initial value problem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "number": 4,
+      "name": "Analytic Functions",
+      "topics": [
+        {
+          "id": 329,
+          "name": "Analytic Functions and Cauchy-Riemann Equations",
+          "canonical_name": "Analytic Functions and Cauchy-Riemann Equations",
+          "aliases": [
+            "Cauchy-Riemann Equations and Regular Functions"
+          ],
+          "strong_phrases": [
+            "cauchy-riemann equations",
+            "cauchy riemann equations",
+            "cr equations in cartesian",
+            "cr equations in polar",
+            "is an analytic function",
+            "prove that the function is analytic",
+            "necessary and sufficient condition for a function to be analytic",
+            "analytic function f(z)"
+          ],
+          "specific_keywords": [
+            "cauchy-riemann",
+            "analytic function",
+            "analytic functions"
+          ],
+          "negative_guards": [
+            "harmonic",
+            "milne-thomson",
+            "bilinear transformation",
+            "conformal mapping"
+          ],
+          "context_hints": [
+            "complex analysis",
+            "analyticity"
+          ]
+        },
+        {
+          "id": 330,
+          "name": "Harmonic Functions and Orthogonal Trajectories",
+          "canonical_name": "Harmonic Functions and Orthogonal Trajectories",
+          "aliases": [
+            "Harmonic Conjugate and Laplace Equation"
+          ],
+          "strong_phrases": [
+            "show that u is harmonic",
+            "harmonic function",
+            "find the harmonic conjugate",
+            "harmonic conjugate of",
+            "orthogonal trajectories of the family of curves",
+            "satisfies laplace equation in complex"
+          ],
+          "specific_keywords": [
+            "harmonic conjugate",
+            "harmonic function"
+          ],
+          "negative_guards": [
+            "milne-thomson",
+            "conformal mapping"
+          ],
+          "context_hints": [
+            "potential theory",
+            "harmonic"
+          ]
+        },
+        {
+          "id": 331,
+          "name": "Milne-Thomson Method for Analytic Functions",
+          "canonical_name": "Milne-Thomson Method for Analytic Functions",
+          "aliases": [
+            "Constructing Analytic Function by Milne-Thomson"
+          ],
+          "strong_phrases": [
+            "milne-thomson method",
+            "milne thomson method",
+            "using milne-thomson method construct",
+            "construct the analytic function f(z)",
+            "construct an analytic function"
+          ],
+          "specific_keywords": [
+            "milne-thomson",
+            "milne thomson"
+          ],
+          "negative_guards": [
+            "conformal mapping"
+          ],
+          "context_hints": [
+            "complex construction",
+            "milne thomson"
+          ]
+        },
+        {
+          "id": 332,
+          "name": "Conformal Mapping and Standard Transformations",
+          "canonical_name": "Conformal Mapping and Standard Transformations",
+          "aliases": [
+            "Standard Conformal Mappings"
+          ],
+          "strong_phrases": [
+            "conformal mapping",
+            "find the image of the circle under",
+            "image of the line under the transformation",
+            "transformation w = 1/z",
+            "transformation w = z^2",
+            "transformation w = exp(z)",
+            "critical points of the conformal mapping"
+          ],
+          "specific_keywords": [
+            "conformal mapping",
+            "conformal transformation"
+          ],
+          "negative_guards": [
+            "bilinear transformation",
+            "cross-ratio"
+          ],
+          "context_hints": [
+            "geometry of complex functions",
+            "transformations"
+          ]
+        },
+        {
+          "id": 333,
+          "name": "Bilinear Transformations and Cross-Ratio",
+          "canonical_name": "Bilinear Transformations and Cross-Ratio",
+          "aliases": [
+            "Mobius Transformation and Invariant Cross-Ratio"
+          ],
+          "strong_phrases": [
+            "bilinear transformation",
+            "find the bilinear transformation",
+            "mobius transformation",
+            "cross-ratio of four points",
+            "cross ratio",
+            "fixed points of the bilinear transformation",
+            "invariant points of bilinear transformation"
+          ],
+          "specific_keywords": [
+            "bilinear transformation",
+            "bilinear transformations",
+            "cross-ratio",
+            "mobius transformation"
+          ],
+          "negative_guards": [
+            "cauchy's integral",
+            "taylor series",
+            "laurent series",
+            "harmonic",
+            "milne-thomson"
+          ],
+          "context_hints": [
+            "mobius maps",
+            "cross ratio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "number": 5,
+      "name": "Complex Integration",
+      "topics": [
+        {
+          "id": 334,
+          "name": "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+          "canonical_name": "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+          "aliases": [
+            "Cauchy's Integral Formula for Derivatives"
+          ],
+          "strong_phrases": [
+            "cauchy's integral formula",
+            "cauchy integral formula",
+            "cauchys integral formula",
+            "cauchy's integral theorem",
+            "cauchy integral theorem",
+            "evaluate using cauchy's integral formula",
+            "higher order cauchy integral formula"
+          ],
+          "specific_keywords": [
+            "cauchy's integral formula",
+            "cauchy integral formula",
+            "cauchys integral formula"
+          ],
+          "negative_guards": [
+            "residue theorem",
+            "laurent's series",
+            "taylor's series",
+            "contour integration"
+          ],
+          "context_hints": [
+            "complex integration",
+            "cauchy formula"
+          ]
+        },
+        {
+          "id": 335,
+          "name": "Taylor's and Laurent's Series Expansions",
+          "canonical_name": "Taylor's and Laurent's Series Expansions",
+          "aliases": [
+            "Laurent Series in Annulus"
+          ],
+          "strong_phrases": [
+            "laurent's series",
+            "laurent series",
+            "laurents series",
+            "taylor's series in complex",
+            "expand in laurent's series",
+            "expand in taylor's series",
+            "laurent expansion in the region",
+            "valid in the region 1 < |z| < 2",
+            "valid for |z| > 1"
+          ],
+          "specific_keywords": [
+            "laurent's series",
+            "laurent series",
+            "laurents series",
+            "taylor's series"
+          ],
+          "negative_guards": [
+            "contour integration",
+            "residue theorem"
+          ],
+          "context_hints": [
+            "series expansions",
+            "annulus"
+          ]
+        },
+        {
+          "id": 336,
+          "name": "Singularities, Poles, and Residues",
+          "canonical_name": "Singularities, Poles, and Residues",
+          "aliases": [
+            "Poles, Essential Singularities, and Residue Evaluation"
+          ],
+          "strong_phrases": [
+            "find the residue of",
+            "residue of f(z) at the pole",
+            "simple pole and pole of order",
+            "isolated singularity",
+            "essential singularity",
+            "removable singularity",
+            "find the poles and residues",
+            "residue at z ="
+          ],
+          "specific_keywords": [
+            "residue of",
+            "poles and residues",
+            "singular point"
+          ],
+          "negative_guards": [
+            "contour integration",
+            "residue theorem",
+            "bilinear transformation"
+          ],
+          "context_hints": [
+            "singularities",
+            "residues"
+          ]
+        },
+        {
+          "id": 337,
+          "name": "Cauchy's Residue Theorem",
+          "canonical_name": "Cauchy's Residue Theorem",
+          "aliases": [
+            "Evaluation of Integrals by Residue Theorem"
+          ],
+          "strong_phrases": [
+            "cauchy's residue theorem",
+            "cauchy residue theorem",
+            "using cauchy's residue theorem evaluate",
+            "by residue theorem evaluate",
+            "state and prove cauchy residue theorem",
+            "state cauchy residue theorem"
+          ],
+          "specific_keywords": [
+            "cauchy's residue theorem",
+            "residue theorem"
+          ],
+          "negative_guards": [
+            "contour integration"
+          ],
+          "context_hints": [
+            "residue calculus",
+            "closed contours"
+          ]
+        },
+        {
+          "id": 338,
+          "name": "Contour Integration",
+          "canonical_name": "Contour Integration",
+          "aliases": [
+            "Integration around Semicircle and Unit Circle"
+          ],
+          "strong_phrases": [
+            "contour integration",
+            "evaluate by contour integration",
+            "integration around the unit circle",
+            "integral from 0 to 2pi",
+            "semicircular contour",
+            "evaluate using contour integration",
+            "integral from -infinity to +infinity"
+          ],
+          "specific_keywords": [
+            "contour integration"
+          ],
+          "negative_guards": [
+            "bilinear transformation",
+            "analytic function"
+          ],
+          "context_hints": [
+            "contour integrals",
+            "improper integrals"
+          ]
+        }
+      ]
+    }
+  ]
+}
