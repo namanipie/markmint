@@ -18,6 +18,7 @@ from backend.services.taxonomy_rules.oodp_rules import OODP_TAXONOMY_RULES
 from backend.services.taxonomy_rules.espcb_rules import ESPCB_TAXONOMY_RULES
 from backend.services.taxonomy_rules.engmech_rules import ENGMECH_TAXONOMY_RULES
 from backend.services.taxonomy_rules.prob_rules import PROB_TAXONOMY_RULES
+from backend.services.taxonomy_rules.bldmat_rules import BLDMAT_TAXONOMY_RULES
 
 __all__ = [
     "CHEMISTRY_TAXONOMY_RULES",
@@ -37,6 +38,7 @@ __all__ = [
     "ESPCB_TAXONOMY_RULES",
     "ENGMECH_TAXONOMY_RULES",
     "PROB_TAXONOMY_RULES",
+    "BLDMAT_TAXONOMY_RULES",
 ]
 
 

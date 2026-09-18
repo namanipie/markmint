@@ -1,0 +1,761 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 23,
+    "name": "Building Materials in the Built Environment",
+    "canonical_code": "21CEB101T",
+    "code": "SEM2-BLDMAT",
+    "regulation_year": 2021,
+    "department": "Civil Engineering"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CEB101T Building Materials in the Built Environment",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Traditional Materials (Stones, Bricks, Cement, Steel, Timber), Finishing and Insulating Materials (Paints, Glass, Plastics, DPC), Building Construction and Safety (Masonry, Cavity Walls, Stairs, Fire & Termite Protection), Alternative & Modern Materials (Ferrocement, Fly Ash, Gypsum, Agro Waste), and Green Buildings & Ventilation (GRIHA, Air Quality, Natural Ventilation)."
+  },
+  "units": [
+    {
+      "id": 44,
+      "number": 1,
+      "name": "Stones, Bricks, Cement and Steel",
+      "topics": [
+        {
+          "id": 439,
+          "name": "Testing and Properties of Building Stones",
+          "canonical_name": "Testing and Properties of Building Stones",
+          "aliases": ["Building Stones and Testing"],
+          "strong_phrases": [
+            "testing of stones",
+            "moisture content in stone",
+            "smith test is performed on stones",
+            "smith test",
+            "limestone is example for",
+            "quarrying of stones",
+            "dressing of stones",
+            "crushing strength of stone",
+            "durability of stone"
+          ],
+          "specific_keywords": [
+            "smith test",
+            "testing of stones",
+            "building stones",
+            "quarrying"
+          ],
+          "negative_guards": [
+            "ferrocement",
+            "cavity wall",
+            "paint"
+          ],
+          "context_hints": ["civil engineering", "materials", "geology"]
+        },
+        {
+          "id": 440,
+          "name": "Brick Manufacturing, Quality, and Masonry Bonds",
+          "canonical_name": "Brick Manufacturing, Quality, and Masonry Bonds",
+          "aliases": ["Bricks and Brick Bonds"],
+          "strong_phrases": [
+            "brick is laid with its length in the direction",
+            "flemish bond",
+            "english bond",
+            "header bond",
+            "stretcher bond",
+            "manufacturing of bricks",
+            "efflorescence in bricks",
+            "qualities of good brick"
+          ],
+          "specific_keywords": [
+            "flemish bond",
+            "english bond",
+            "header bond",
+            "stretcher bond",
+            "brick manufacturing"
+          ],
+          "negative_guards": [
+            "ferrocement",
+            "staircase",
+            "griha"
+          ],
+          "context_hints": ["masonry", "brickwork", "construction"]
+        },
+        {
+          "id": 441,
+          "name": "Cement Manufacturing, Chemical Composition, and Bogue's Compounds",
+          "canonical_name": "Cement Manufacturing, Chemical Composition, and Bogue's Compounds",
+          "aliases": ["Cement Chemistry and Bogue's Compounds"],
+          "strong_phrases": [
+            "dry manufacturing process of cement",
+            "wet process of cement",
+            "bogue's compounds",
+            "compound in cement is primarily responsible for the development of early strength",
+            "reacts fast and generate large amount of heat is",
+            "loss on ignition",
+            "heat of hydration of cement",
+            "chemical compound called as gypsum added during the grinding process",
+            "tricalcium silicate",
+            "dicalcium silicate",
+            "tricalcium aluminate"
+          ],
+          "specific_keywords": [
+            "bogue's compounds",
+            "loss on ignition",
+            "heat of hydration",
+            "clinker",
+            "c3s",
+            "c2s",
+            "c3a"
+          ],
+          "negative_guards": [
+            "soil-cement blocks",
+            "ferrocement",
+            "cavity wall"
+          ],
+          "context_hints": ["cement chemistry", "kiln", "clinker"]
+        },
+        {
+          "id": 442,
+          "name": "Cement Types, Grades, and Physical Testing",
+          "canonical_name": "Cement Types, Grades, and Physical Testing",
+          "aliases": ["Types and Testing of Cement"],
+          "strong_phrases": [
+            "properties and uses of different types of cement",
+            "types of cement and its uses",
+            "specific gravity commonly used for ordinary portland cement",
+            "ordinary portland cement",
+            "sulphate resisting cement",
+            "rapid hardening cement",
+            "portland pozzolana cement",
+            "soundness test of cement",
+            "vicat apparatus",
+            "fineness of cement",
+            "initial setting time of cement",
+            "final setting time of cement"
+          ],
+          "specific_keywords": [
+            "ordinary portland cement",
+            "sulphate resisting cement",
+            "vicat apparatus",
+            "soundness test",
+            "fineness test"
+          ],
+          "negative_guards": [
+            "dry manufacturing process",
+            "bogue's compounds"
+          ],
+          "context_hints": ["cement tests", "grades", "opc"]
+        },
+        {
+          "id": 443,
+          "name": "Structural Timber and Steel (Mild Steel, TMT Bars, and Specific Gravity)",
+          "canonical_name": "Structural Timber and Steel (Mild Steel, TMT Bars, and Specific Gravity)",
+          "aliases": ["Timber and Structural Steel"],
+          "strong_phrases": [
+            "wood that is used for structural members without knots",
+            "cross section of trees",
+            "specific gravity of hard steel",
+            "specific gravity of mild steel",
+            "discuss different types of steel and its uses",
+            "types of steel and its uses",
+            "steel fibers in concrete are added primarily",
+            "seasoning of timber",
+            "defects in timber",
+            "tmt bars"
+          ],
+          "specific_keywords": [
+            "mild steel",
+            "tmt bar",
+            "structural timber",
+            "cross section of trees",
+            "seasoning of timber",
+            "steel fibers in concrete"
+          ],
+          "negative_guards": [
+            "ferrocement",
+            "wire mesh",
+            "wooden stairs"
+          ],
+          "context_hints": ["metallurgy", "forestry", "structural materials"]
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "number": 2,
+      "name": "Paints, Glass, Plastics and Insulating Materials",
+      "topics": [
+        {
+          "id": 444,
+          "name": "Paints: Composition, Types, and Painting Defects",
+          "canonical_name": "Paints: Composition, Types, and Painting Defects",
+          "aliases": ["Paints and Painting Defects"],
+          "strong_phrases": [
+            "paint defect is characterized by the peeling or flaking",
+            "various defects in paints",
+            "character of paint is determined by",
+            "coloring agent present in paint is called",
+            "dull patches are developed on the painted surface",
+            "constituents of paint",
+            "blistering in paint",
+            "peeling or flaking of the top layer of paint",
+            "pigment and vehicle in paint"
+          ],
+          "specific_keywords": [
+            "paint defect",
+            "defects in paints",
+            "character of paint",
+            "coloring agent present in paint",
+            "blistering",
+            "flaking"
+          ],
+          "negative_guards": [
+            "varnish",
+            "shellac",
+            "glass"
+          ],
+          "context_hints": ["finishing", "coatings", "defects"]
+        },
+        {
+          "id": 445,
+          "name": "Varnishes, Resins, and Distempers",
+          "canonical_name": "Varnishes, Resins, and Distempers",
+          "aliases": ["Varnishes and Surface Coatings"],
+          "strong_phrases": [
+            "shellac is a natural resin commonly used as a",
+            "shellac is a natural resin",
+            "types of varnish",
+            "ingredients of varnish",
+            "distemper and its application",
+            "french polish"
+          ],
+          "specific_keywords": [
+            "shellac",
+            "varnish",
+            "distemper",
+            "natural resin"
+          ],
+          "negative_guards": [
+            "paint defect",
+            "market forms of glass",
+            "plastics"
+          ],
+          "context_hints": ["finishing", "polishing", "coatings"]
+        },
+        {
+          "id": 446,
+          "name": "Types, Composition, and Market Forms of Glass",
+          "canonical_name": "Types, Composition, and Market Forms of Glass",
+          "aliases": ["Market Forms of Glass"],
+          "strong_phrases": [
+            "compound added for green tinted glass",
+            "market forms of glass",
+            "average content of silicon dioxide in glass",
+            "silicon dioxide in glass",
+            "types of glass used in construction",
+            "sheet glass and plate glass",
+            "float glass process",
+            "wired glass",
+            "bullet proof glass"
+          ],
+          "specific_keywords": [
+            "market forms of glass",
+            "green tinted glass",
+            "silicon dioxide in glass",
+            "float glass",
+            "sheet glass"
+          ],
+          "negative_guards": [
+            "paint",
+            "plastic",
+            "dpc"
+          ],
+          "context_hints": ["glazing", "silica", "fenestration"]
+        },
+        {
+          "id": 447,
+          "name": "Plastics and Polymers in Construction (PVC, Thermoplastics, Thermosets)",
+          "canonical_name": "Plastics and Polymers in Construction (PVC, Thermoplastics, Thermosets)",
+          "aliases": ["Plastics in Construction"],
+          "strong_phrases": [
+            "pvc is a type of",
+            "melting point of plastic is",
+            "specific gravity of plastic is",
+            "how are plastics classified",
+            "state the uses of plastic as a building material",
+            "uses of plastic as a building material",
+            "thermoplastic and thermoset",
+            "polyvinyl chloride in construction"
+          ],
+          "specific_keywords": [
+            "polyvinyl chloride",
+            "thermoplastic",
+            "thermoset",
+            "specific gravity of plastic",
+            "uses of plastic"
+          ],
+          "negative_guards": [
+            "paint",
+            "glass",
+            "dpc"
+          ],
+          "context_hints": ["polymers", "pvc", "piping"]
+        },
+        {
+          "id": 448,
+          "name": "Damp Proofing Courses (DPC) and Thermal Insulating Materials",
+          "canonical_name": "Damp Proofing Courses (DPC) and Thermal Insulating Materials",
+          "aliases": ["Damp Proofing and Thermal Insulation"],
+          "strong_phrases": [
+            "semi rigid dpc material",
+            "for dpc at plinth level which grade of concrete",
+            "treatment of building against dampness by interposing damp proof",
+            "damp proof course",
+            "how thermal insulating materials are applied in buildings",
+            "thermal insulating materials are applied in buildings and their role in energy",
+            "thermal insulating materials"
+          ],
+          "specific_keywords": [
+            "damp proof",
+            "dpc material",
+            "dpc at plinth level",
+            "thermal insulating",
+            "thermal insulation"
+          ],
+          "negative_guards": [
+            "ferrocement",
+            "fire alarm"
+          ],
+          "context_hints": ["insulation", "dampness", "dpc"]
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "number": 3,
+      "name": "Building Construction, Fire Safety and Termite Protection",
+      "topics": [
+        {
+          "id": 449,
+          "name": "Cavity Wall Construction and Masonry Types",
+          "canonical_name": "Cavity Wall Construction and Masonry Types",
+          "aliases": ["Cavity Walls and Composite Masonry"],
+          "strong_phrases": [
+            "cavity wall consists of",
+            "two separate walls in a cavity wall are called as",
+            "type of wall which consists of two separate walls with a gap in between",
+            "consists of two separate walls with a gap in between",
+            "explain the cavity wall with neat sketches",
+            "cavity wall with neat sketches",
+            "composite masonry",
+            "rubble masonry",
+            "ashlar masonry"
+          ],
+          "specific_keywords": [
+            "cavity wall",
+            "composite masonry",
+            "leaves of cavity wall"
+          ],
+          "negative_guards": [
+            "staircase",
+            "termite",
+            "fire alarm"
+          ],
+          "context_hints": ["walls", "masonry", "cavity"]
+        },
+        {
+          "id": 450,
+          "name": "Staircase Design, Components, and Types of Stairs",
+          "canonical_name": "Staircase Design, Components, and Types of Stairs",
+          "aliases": ["Staircases and Types of Stairs"],
+          "strong_phrases": [
+            "codes gives details about wooden stairs",
+            "what are all the requirements of a good staircase",
+            "requirements of a good staircase",
+            "different types of stairs with neat sketch",
+            "illustrate staircase components with neat sketches",
+            "explain types of staircases in details",
+            "types of staircases",
+            "dog-legged stair",
+            "open newel stair",
+            "tread and riser",
+            "staircase components"
+          ],
+          "specific_keywords": [
+            "staircase components",
+            "types of stairs",
+            "types of staircases",
+            "wooden stairs",
+            "requirements of a good staircase",
+            "is1634",
+            "is2634"
+          ],
+          "negative_guards": [
+            "cavity wall",
+            "termite"
+          ],
+          "context_hints": ["stairs", "vertical circulation", "building codes"]
+        },
+        {
+          "id": 451,
+          "name": "Fire Resisting Properties of Building Materials",
+          "canonical_name": "Fire Resisting Properties of Building Materials",
+          "aliases": ["Fire Resistance of Materials"],
+          "strong_phrases": [
+            "fire resisting properties of common building material",
+            "fire resisting properties of building materials",
+            "hazard due to fire spread into a building through the open air is known as",
+            "hazard due to fire spread",
+            "discuss in detail about the general measures of fire safety in buildings",
+            "general measures of fire safety in buildings",
+            "fire resistance of timber",
+            "fire resistance of concrete",
+            "fire retardant materials"
+          ],
+          "specific_keywords": [
+            "fire resisting properties",
+            "fire resistance",
+            "fire resisting",
+            "measures of fire safety in buildings",
+            "hazard due to fire spread"
+          ],
+          "negative_guards": [
+            "fire alarm systems in buildings",
+            "mechanical fire ventilation"
+          ],
+          "context_hints": ["fire safety", "combustibility", "fire endurance"]
+        },
+        {
+          "id": 452,
+          "name": "Fire Alarm Systems and Fire Ventilation",
+          "canonical_name": "Fire Alarm Systems and Fire Ventilation",
+          "aliases": ["Fire Alarms and Fire Ventilation"],
+          "strong_phrases": [
+            "mechanical fire ventilation can be done",
+            "mechanical fire ventilation",
+            "concept of fire alarm systems in buildings",
+            "fire alarm systems in buildings in details",
+            "fire alarm systems",
+            "smoke detectors in buildings"
+          ],
+          "specific_keywords": [
+            "fire alarm systems",
+            "mechanical fire ventilation",
+            "smoke detectors"
+          ],
+          "negative_guards": [
+            "fire resisting properties of common building material"
+          ],
+          "context_hints": ["fire safety", "active fire protection", "alarms"]
+        },
+        {
+          "id": 453,
+          "name": "Anti-Termite Treatment and Termite Protection Methods",
+          "canonical_name": "Anti-Termite Treatment and Termite Protection Methods",
+          "aliases": ["Anti-Termite Treatment"],
+          "strong_phrases": [
+            "termites are also known as",
+            "popularly known as the white ants",
+            "write short notes on anti termite treatment",
+            "anti termite treatment",
+            "anti-termite treatment",
+            "various methods of termite",
+            "methods of termite protection",
+            "pre-construction termite treatment"
+          ],
+          "specific_keywords": [
+            "anti termite treatment",
+            "anti-termite treatment",
+            "white ants",
+            "termite"
+          ],
+          "negative_guards": [
+            "fire alarm",
+            "staircase"
+          ],
+          "context_hints": ["pest control", "subterranean termites", "foundation treatment"]
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "number": 4,
+      "name": "Alternative, Modern and Waste-Based Building Materials",
+      "topics": [
+        {
+          "id": 454,
+          "name": "Ferrocement: Raw Materials, Wire Mesh Reinforcement, and Properties",
+          "canonical_name": "Ferrocement: Raw Materials, Wire Mesh Reinforcement, and Properties",
+          "aliases": ["Ferrocement Materials and Reinforcement"],
+          "strong_phrases": [
+            "main ingredients used in the construction of ferrocement",
+            "in ferro-cement concrete the reinforcement used is",
+            "reinforcement used is wire mesh",
+            "wire mesh in ferrocement",
+            "skeletal reinforcement and wire mesh",
+            "mortar for ferrocement"
+          ],
+          "specific_keywords": [
+            "ferrocement reinforcement",
+            "wire mesh in ferrocement",
+            "skeletal steel"
+          ],
+          "negative_guards": [
+            "construction procedure, applications, advantages, and disadvantages of ferrocement",
+            "ferro-cement and its uses"
+          ],
+          "context_hints": ["ferrocement", "wire mesh", "thin-shell"]
+        },
+        {
+          "id": 455,
+          "name": "Ferrocement Construction Procedure, Applications, and Advantages",
+          "canonical_name": "Ferrocement Construction Procedure, Applications, and Advantages",
+          "aliases": ["Ferrocement Applications and Construction"],
+          "strong_phrases": [
+            "explain in details of the construction procedure, applications, advantages, and disadvantages of ferrocement",
+            "explain the ferro-cement and its uses",
+            "ferro-cement and its uses",
+            "ferro cement and its uses",
+            "applications of ferrocement",
+            "advantages and disadvantages of ferrocement"
+          ],
+          "specific_keywords": [
+            "applications of ferrocement",
+            "ferrocement and its uses",
+            "ferro-cement and its uses"
+          ],
+          "negative_guards": [
+            "reinforcement used is wire mesh"
+          ],
+          "context_hints": ["ferrocement construction", "tanks", "roofing"]
+        },
+        {
+          "id": 456,
+          "name": "Fly Ash Properties and Soil-Cement Blocks",
+          "canonical_name": "Fly Ash Properties and Soil-Cement Blocks",
+          "aliases": ["Fly Ash and Soil-Cement Blocks"],
+          "strong_phrases": [
+            "application of soil-cement blocks made from fly ash",
+            "soil-cement blocks made from fly ash",
+            "explain the properties of flyash",
+            "pulverized fuel ash in concrete",
+            "fly ash bricks"
+          ],
+          "specific_keywords": [
+            "soil-cement blocks",
+            "fly ash bricks",
+            "pulverized fuel ash"
+          ],
+          "negative_guards": [
+            "ferrocement"
+          ],
+          "context_hints": ["pozzolanic", "thermal power plant", "stabilized earth"]
+        },
+        {
+          "id": 457,
+          "name": "Gypsum and Industrial Byproduct Utilization",
+          "canonical_name": "Gypsum and Industrial Byproduct Utilization",
+          "aliases": ["Gypsum Products and Plaster"],
+          "strong_phrases": [
+            "plaster of paris from gypsum",
+            "gypsum board partitions",
+            "calcination of gypsum",
+            "byproduct gypsum",
+            "properties of gypsum"
+          ],
+          "specific_keywords": [
+            "plaster of paris",
+            "gypsum board",
+            "calcined gypsum",
+            "properties of gypsum"
+          ],
+          "negative_guards": [
+            "soil-cement blocks",
+            "ferrocement",
+            "shellac",
+            "waterproofing material is"
+          ],
+          "context_hints": ["plaster", "retarder", "gypsum"]
+        },
+        {
+          "id": 458,
+          "name": "Agro-Industrial Waste and Artificial Aggregate Substitutes",
+          "canonical_name": "Agro-Industrial Waste and Artificial Aggregate Substitutes",
+          "aliases": ["Agro Waste and Aggregate Substitutes"],
+          "strong_phrases": [
+            "how can agro-waste be used in building, and why is it useful",
+            "agro-waste be used in building",
+            "discuss in detail about artificial aggregates substitutes",
+            "artificial aggregates substitutes",
+            "agro industrial waste",
+            "which among the following do not produce mud and tailings",
+            "produce mud and tailings",
+            "structural properties of alternate building materials",
+            "alternate building materials",
+            "blast furnace slag aggregate",
+            "rice husk ash in construction"
+          ],
+          "specific_keywords": [
+            "agro-waste",
+            "agro industrial waste",
+            "artificial aggregates substitutes",
+            "mud and tailings",
+            "alternate building materials"
+          ],
+          "negative_guards": [
+            "ferrocement",
+            "staircase"
+          ],
+          "context_hints": ["sustainability", "recycled aggregates", "waste utilization"]
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "number": 5,
+      "name": "Green Buildings, Ventilation and Environmental Quality",
+      "topics": [
+        {
+          "id": 459,
+          "name": "Green Building Concepts, Principles, and Zero Energy Buildings",
+          "canonical_name": "Green Building Concepts, Principles, and Zero Energy Buildings",
+          "aliases": ["Green Building and Zero Energy Buildings"],
+          "strong_phrases": [
+            "zero building produces",
+            "zero energy building",
+            "indians first net zero building",
+            "what is the definition of a energy efficient building",
+            "definition of a energy efficient building",
+            "energy efficient building",
+            "green construction materials",
+            "cost effective consumption",
+            "principles of green building design",
+            "net zero energy building"
+          ],
+          "specific_keywords": [
+            "zero building produces",
+            "zero energy building",
+            "net zero energy",
+            "energy efficient building",
+            "green construction materials"
+          ],
+          "negative_guards": [
+            "griha rating",
+            "green building rating systems",
+            "wind effect and stack effect"
+          ],
+          "context_hints": ["energy conservation", "zero energy", "embodied energy"]
+        },
+        {
+          "id": 460,
+          "name": "Green Building Rating Systems and GRIHA Certification",
+          "canonical_name": "Green Building Rating Systems and GRIHA Certification",
+          "aliases": ["GRIHA and Green Rating Systems"],
+          "strong_phrases": [
+            "griha rating is mandatory for all government buildings in india",
+            "griha rating mandatory for govt buildings",
+            "explain the application of green building rating systems in building certification",
+            "green building rating systems in building certification",
+            "griha certification",
+            "leed certification",
+            "igbc rating"
+          ],
+          "specific_keywords": [
+            "griha rating",
+            "griha",
+            "green building rating systems",
+            "building certification"
+          ],
+          "negative_guards": [
+            "stack effect",
+            "refrigerant"
+          ],
+          "context_hints": ["green rating", "griha", "certification"]
+        },
+        {
+          "id": 461,
+          "name": "Natural Ventilation: Wind Effect, Stack Effect, and Ventilators",
+          "canonical_name": "Natural Ventilation: Wind Effect, Stack Effect, and Ventilators",
+          "aliases": ["Natural Ventilation and Stack Effect"],
+          "strong_phrases": [
+            "explain the wind effect and stack effect with neat sketch",
+            "explain stack and wind effects in natural ventilation",
+            "stack and wind effects in natural ventilation",
+            "wind effect and stack effect",
+            "name the ventilator provided near the ceiling to allow hot air to escape",
+            "device used to exhaust air from the suction and casing",
+            "device used to exhaust air",
+            "louver and ventilator near ceiling",
+            "buoyancy driven ventilation",
+            "wind driven ventilation"
+          ],
+          "specific_keywords": [
+            "stack effect",
+            "wind effect",
+            "ventilator provided near the ceiling",
+            "device used to exhaust air",
+            "natural ventilation"
+          ],
+          "negative_guards": [
+            "fire alarm",
+            "refrigerant commonly used"
+          ],
+          "context_hints": ["thermal buoyancy", "ventilation", "passive cooling"]
+        },
+        {
+          "id": 462,
+          "name": "Indoor Air Quality (IAQ), Air Pollutants, and AQI",
+          "canonical_name": "Indoor Air Quality (IAQ), Air Pollutants, and AQI",
+          "aliases": ["Indoor Air Quality and AQI"],
+          "strong_phrases": [
+            "aqi value of 44 signify about air quality",
+            "what does an aqi value of 44 signify",
+            "threshold limit value refers to",
+            "smog is",
+            "excessive greenhouse gas emissions primarily cause",
+            "indoor air quality",
+            "refrigerant commonly used in air conditioning",
+            "airborne pollutants in buildings"
+          ],
+          "specific_keywords": [
+            "aqi value",
+            "air quality index",
+            "threshold limit value",
+            "indoor air quality",
+            "smog is",
+            "refrigerant commonly used"
+          ],
+          "negative_guards": [
+            "griha",
+            "stack effect"
+          ],
+          "context_hints": ["air quality", "pollutants", "environmental health"]
+        },
+        {
+          "id": 463,
+          "name": "Waterproofing Materials and Moisture Intrusion Control",
+          "canonical_name": "Waterproofing Materials and Moisture Intrusion Control",
+          "aliases": ["Waterproofing and Moisture Intrusion"],
+          "strong_phrases": [
+            "example of a waterproofing material is: tar",
+            "an example of a waterproofing material is",
+            "problems can arise from moisture intrusion in buildings",
+            "moisture intrusion in buildings",
+            "waterproofing membranes",
+            "bituminous waterproofing",
+            "moisture intrusion control"
+          ],
+          "specific_keywords": [
+            "waterproofing material",
+            "moisture intrusion",
+            "waterproofing membrane"
+          ],
+          "negative_guards": [
+            "semi rigid dpc material",
+            "damp proof course"
+          ],
+          "context_hints": ["waterproofing", "moisture barrier", "tar"]
+        }
+      ]
+    }
+  ]
+}
