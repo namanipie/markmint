@@ -1,0 +1,811 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 17,
+    "name": "Object Oriented Design and Programming",
+    "canonical_code": "21CSC102J",
+    "code": "SEM2-OODP",
+    "regulation_year": 2021,
+    "department": "Computing Technologies"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC102J Object Oriented Design and Programming",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering OOP Principles & Static Modeling, Constructors & Interaction Modeling, Inheritance & Behavioral Modeling, Generic Programming & Implementation Modeling, and STL & File Streams."
+  },
+  "units": [
+    {
+      "id": 38,
+      "number": 1,
+      "name": "Introduction to OOP and Static Modeling",
+      "topics": [
+        {
+          "id": 339,
+          "name": "Procedural vs Object Oriented Programming",
+          "canonical_name": "Procedural vs Object Oriented Programming",
+          "aliases": [
+            "POP vs OOP Paradigm Comparison"
+          ],
+          "strong_phrases": [
+            "procedural and object oriented programming",
+            "procedure oriented programming",
+            "difference between pop and oop",
+            "procedural programming language",
+            "object oriented paradigm",
+            "features of object oriented programming",
+            "characteristics of object oriented programming",
+            "developed object-oriented programming",
+            "object oriented programming language"
+          ],
+          "specific_keywords": [
+            "procedure oriented",
+            "procedural language"
+          ],
+          "negative_guards": [
+            "template",
+            "inheritance",
+            "exception",
+            "stl"
+          ],
+          "context_hints": [
+            "programming paradigm",
+            "oop basics"
+          ]
+        },
+        {
+          "id": 340,
+          "name": "Classes, Objects, and Data Encapsulation",
+          "canonical_name": "Classes, Objects, and Data Encapsulation",
+          "aliases": [
+            "Class Definition and Object Instantiation"
+          ],
+          "strong_phrases": [
+            "data encapsulation",
+            "data abstraction",
+            "class definition",
+            "instantiation of object",
+            "state and behavior of object",
+            "features of class"
+          ],
+          "specific_keywords": [
+            "encapsulation",
+            "abstraction"
+          ],
+          "negative_guards": [
+            "operator overloading",
+            "inheritance",
+            "virtual function",
+            "template",
+            "exception"
+          ],
+          "context_hints": [
+            "class concept",
+            "object model"
+          ]
+        },
+        {
+          "id": 341,
+          "name": "Access Specifiers and Member Functions",
+          "canonical_name": "Access Specifiers and Member Functions",
+          "aliases": [
+            "Access Modifiers and Class Members"
+          ],
+          "strong_phrases": [
+            "access specifiers",
+            "access modifier",
+            "public private protected",
+            "member function definition",
+            "scope resolution operator",
+            "static data member",
+            "static member function"
+          ],
+          "specific_keywords": [
+            "access specifier",
+            "scope resolution"
+          ],
+          "negative_guards": [
+            "friend function",
+            "virtual function",
+            "operator overloading"
+          ],
+          "context_hints": [
+            "class scope",
+            "member access"
+          ]
+        },
+        {
+          "id": 342,
+          "name": "UML Class Diagrams and Class Relationships",
+          "canonical_name": "UML Class Diagrams and Class Relationships",
+          "aliases": [
+            "Class Diagram Association Aggregation and Composition"
+          ],
+          "strong_phrases": [
+            "uml class diagram",
+            "class diagram",
+            "aggregation and composition",
+            "multiplicity in class diagram",
+            "generalization and realization",
+            "class relationships in uml"
+          ],
+          "specific_keywords": [
+            "class diagram",
+            "multiplicity",
+            "aggregation"
+          ],
+          "negative_guards": [
+            "use case diagram",
+            "sequence diagram",
+            "activity diagram",
+            "state chart diagram"
+          ],
+          "context_hints": [
+            "uml modeling",
+            "static structure"
+          ]
+        },
+        {
+          "id": 343,
+          "name": "UML Use Case Diagrams and Use Case Relationships",
+          "canonical_name": "UML Use Case Diagrams and Use Case Relationships",
+          "aliases": [
+            "Use Case Modeling Actors and Scenarios"
+          ],
+          "strong_phrases": [
+            "use case diagram",
+            "include relationship",
+            "extend relationship",
+            "actor in use case",
+            "use case scenario",
+            "system boundary in use case"
+          ],
+          "specific_keywords": [
+            "use case",
+            "use cases"
+          ],
+          "negative_guards": [
+            "class diagram",
+            "sequence diagram",
+            "state chart",
+            "activity diagram"
+          ],
+          "context_hints": [
+            "use case analysis",
+            "requirements modeling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "number": 2,
+      "name": "Constructors, Polymorphism, and Interaction Modeling",
+      "topics": [
+        {
+          "id": 344,
+          "name": "Constructors and Destructors",
+          "canonical_name": "Constructors and Destructors",
+          "aliases": [
+            "Object Initialization and Destruction"
+          ],
+          "strong_phrases": [
+            "constructor and destructor",
+            "destructor of base class",
+            "destructor syntax",
+            "default constructor",
+            "virtual destructor",
+            "order of constructor and destructor call"
+          ],
+          "specific_keywords": [
+            "destructor",
+            "destructors"
+          ],
+          "negative_guards": [
+            "copy constructor",
+            "constructor overloading",
+            "operator overloading"
+          ],
+          "context_hints": [
+            "object lifecycle",
+            "initialization"
+          ]
+        },
+        {
+          "id": 345,
+          "name": "Types of Constructors",
+          "canonical_name": "Types of Constructors",
+          "aliases": [
+            "Parameterized and Copy Constructors"
+          ],
+          "strong_phrases": [
+            "parameterized constructor",
+            "copy constructor",
+            "dynamic constructor",
+            "types of constructor",
+            "takes an object as argument"
+          ],
+          "specific_keywords": [
+            "copy constructor",
+            "parameterized constructor"
+          ],
+          "negative_guards": [
+            "destructor",
+            "operator overloading"
+          ],
+          "context_hints": [
+            "constructor types",
+            "object cloning"
+          ]
+        },
+        {
+          "id": 346,
+          "name": "Function and Constructor Overloading",
+          "canonical_name": "Function and Constructor Overloading",
+          "aliases": [
+            "Compile-Time Polymorphism and Overloading"
+          ],
+          "strong_phrases": [
+            "constructor overloading",
+            "function overloading",
+            "method overloading",
+            "compile time polymorphism",
+            "overloaded functions with different parameters"
+          ],
+          "specific_keywords": [
+            "constructor overloading",
+            "function overloading"
+          ],
+          "negative_guards": [
+            "operator overloading",
+            "function overriding",
+            "virtual function"
+          ],
+          "context_hints": [
+            "overloading",
+            "signature matching"
+          ]
+        },
+        {
+          "id": 347,
+          "name": "Operator Overloading and Friend Functions",
+          "canonical_name": "Operator Overloading and Friend Functions",
+          "aliases": [
+            "Unary and Binary Operator Overloading"
+          ],
+          "strong_phrases": [
+            "operator overloading",
+            "overloading unary operator",
+            "overloading binary operator",
+            "friend operator function",
+            "operator function syntax",
+            "operators cannot be overloaded"
+          ],
+          "specific_keywords": [
+            "operator overloading",
+            "overload operator"
+          ],
+          "negative_guards": [
+            "template",
+            "exception",
+            "inheritance"
+          ],
+          "context_hints": [
+            "operator overload",
+            "custom syntax"
+          ]
+        },
+        {
+          "id": 348,
+          "name": "UML Interaction Diagrams: Sequence and Collaboration Diagrams",
+          "canonical_name": "UML Interaction Diagrams: Sequence and Collaboration Diagrams",
+          "aliases": [
+            "Interaction Diagrams Sequence and Communication"
+          ],
+          "strong_phrases": [
+            "uml sequence diagram",
+            "sequence diagram",
+            "collaboration diagram",
+            "communication diagram",
+            "lifeline in sequence diagram",
+            "messages in sequence diagram",
+            "activation bar in sequence diagram"
+          ],
+          "specific_keywords": [
+            "sequence diagram",
+            "collaboration diagram"
+          ],
+          "negative_guards": [
+            "use case diagram",
+            "class diagram",
+            "activity diagram",
+            "state chart diagram"
+          ],
+          "context_hints": [
+            "dynamic modeling",
+            "message passing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "number": 3,
+      "name": "Inheritance, Advanced Functions, and Behavioral Modeling",
+      "topics": [
+        {
+          "id": 349,
+          "name": "Inheritance and Modes of Inheritance",
+          "canonical_name": "Inheritance and Modes of Inheritance",
+          "aliases": [
+            "Base and Derived Classes Access Modes"
+          ],
+          "strong_phrases": [
+            "modes of inheritance",
+            "public private and protected inheritance",
+            "base class and derived class",
+            "derived from class base",
+            "sub class and super class",
+            "inheritance access matrix"
+          ],
+          "specific_keywords": [
+            "derived class",
+            "base class"
+          ],
+          "negative_guards": [
+            "multiple inheritance",
+            "multilevel inheritance",
+            "hierarchical inheritance",
+            "hybrid inheritance",
+            "virtual function"
+          ],
+          "context_hints": [
+            "inheritance basics",
+            "subtyping"
+          ]
+        },
+        {
+          "id": 350,
+          "name": "Types of Inheritance and Virtual Base Classes",
+          "canonical_name": "Types of Inheritance and Virtual Base Classes",
+          "aliases": [
+            "Single Multiple Multilevel Hierarchical and Hybrid Inheritance"
+          ],
+          "strong_phrases": [
+            "multiple inheritance",
+            "multilevel inheritance",
+            "hierarchical inheritance",
+            "hybrid inheritance",
+            "virtual base class",
+            "diamond problem in inheritance",
+            "multipath inheritance"
+          ],
+          "specific_keywords": [
+            "multiple inheritance",
+            "multilevel inheritance",
+            "hierarchical inheritance",
+            "hybrid inheritance",
+            "virtual base class"
+          ],
+          "negative_guards": [
+            "friend function",
+            "inline function",
+            "state chart diagram"
+          ],
+          "context_hints": [
+            "inheritance hierarchy",
+            "diamond inheritance"
+          ]
+        },
+        {
+          "id": 351,
+          "name": "Inline Functions and Friend Functions",
+          "canonical_name": "Inline Functions and Friend Functions",
+          "aliases": [
+            "Inline Member Functions and Friend Classes"
+          ],
+          "strong_phrases": [
+            "friend function",
+            "friend class",
+            "inline function",
+            "inline member function",
+            "friend keyword in c++"
+          ],
+          "specific_keywords": [
+            "friend function",
+            "inline function"
+          ],
+          "negative_guards": [
+            "virtual function",
+            "pure virtual",
+            "operator overloading"
+          ],
+          "context_hints": [
+            "friendship",
+            "inlining optimization"
+          ]
+        },
+        {
+          "id": 352,
+          "name": "Virtual Functions, Dynamic Binding, and Abstract Classes",
+          "canonical_name": "Virtual Functions, Dynamic Binding, and Abstract Classes",
+          "aliases": [
+            "Runtime Polymorphism and Pure Virtual Functions"
+          ],
+          "strong_phrases": [
+            "virtual function",
+            "pure virtual function",
+            "abstract class",
+            "runtime polymorphism",
+            "dynamic binding",
+            "function overriding",
+            "vptr and vtable",
+            "late binding"
+          ],
+          "specific_keywords": [
+            "pure virtual",
+            "virtual function",
+            "abstract class",
+            "overriding"
+          ],
+          "negative_guards": [
+            "operator overloading",
+            "template",
+            "exception"
+          ],
+          "context_hints": [
+            "dynamic dispatch",
+            "polymorphism"
+          ]
+        },
+        {
+          "id": 353,
+          "name": "UML Behavioral Modeling: State Chart and Activity Diagrams",
+          "canonical_name": "UML Behavioral Modeling: State Chart and Activity Diagrams",
+          "aliases": [
+            "State Machine and Activity Modeling"
+          ],
+          "strong_phrases": [
+            "state chart diagram",
+            "state diagram",
+            "activity diagram",
+            "swimlane in activity diagram",
+            "fork and join in activity diagram",
+            "transitions and events in state diagram",
+            "elements of state chart diagrams"
+          ],
+          "specific_keywords": [
+            "state chart",
+            "activity diagram",
+            "swimlane"
+          ],
+          "negative_guards": [
+            "sequence diagram",
+            "class diagram",
+            "use case diagram"
+          ],
+          "context_hints": [
+            "behavioral modeling",
+            "state machines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "number": 4,
+      "name": "Generic Programming, Exception Handling, and Implementation Modeling",
+      "topics": [
+        {
+          "id": 354,
+          "name": "Generic Programming and Function Templates",
+          "canonical_name": "Generic Programming and Function Templates",
+          "aliases": [
+            "Function Templates and Generic Functions"
+          ],
+          "strong_phrases": [
+            "function template",
+            "syntax for template function",
+            "generic function in c++",
+            "overloading function template",
+            "template argument deduction"
+          ],
+          "specific_keywords": [
+            "function template",
+            "template function"
+          ],
+          "negative_guards": [
+            "class template",
+            "exception",
+            "try catch"
+          ],
+          "context_hints": [
+            "function templates",
+            "generic programming"
+          ]
+        },
+        {
+          "id": 355,
+          "name": "Class Templates and Template Specialization",
+          "canonical_name": "Class Templates and Template Specialization",
+          "aliases": [
+            "Class Templates and Generic Classes"
+          ],
+          "strong_phrases": [
+            "class template",
+            "generic class",
+            "template class syntax",
+            "template specialization",
+            "non type template parameters",
+            "template parameters in class"
+          ],
+          "specific_keywords": [
+            "class template",
+            "template class"
+          ],
+          "negative_guards": [
+            "function template",
+            "exception",
+            "try catch"
+          ],
+          "context_hints": [
+            "generic classes",
+            "template meta"
+          ]
+        },
+        {
+          "id": 356,
+          "name": "Exception Handling: try, throw, and catch Mechanism",
+          "canonical_name": "Exception Handling: try, throw, and catch Mechanism",
+          "aliases": [
+            "Basic Exception Handling Constructs"
+          ],
+          "strong_phrases": [
+            "try and catch",
+            "try throw catch",
+            "throw and throws",
+            "rethrowing an exception",
+            "catch block",
+            "throw statement"
+          ],
+          "specific_keywords": [
+            "exception handling",
+            "try block",
+            "catch block"
+          ],
+          "negative_guards": [
+            "user defined exception",
+            "package diagram",
+            "component diagram"
+          ],
+          "context_hints": [
+            "error handling",
+            "exceptions"
+          ]
+        },
+        {
+          "id": 357,
+          "name": "Multiple Catch, Standard Exceptions, and User Defined Exceptions",
+          "canonical_name": "Multiple Catch, Standard Exceptions, and User Defined Exceptions",
+          "aliases": [
+            "Advanced Exception Handling and Exception Hierarchies"
+          ],
+          "strong_phrases": [
+            "multiple catch",
+            "catch all exception",
+            "user defined exception",
+            "uncaught_exception",
+            "standard exceptions in c++",
+            "exception specification",
+            "std::exception"
+          ],
+          "specific_keywords": [
+            "user defined exception",
+            "uncaught_exception"
+          ],
+          "negative_guards": [
+            "package diagram",
+            "component diagram",
+            "deployment diagram"
+          ],
+          "context_hints": [
+            "exception classes",
+            "custom exceptions"
+          ]
+        },
+        {
+          "id": 358,
+          "name": "UML Implementation Modeling: Package, Component, and Deployment Diagrams",
+          "canonical_name": "UML Implementation Modeling: Package, Component, and Deployment Diagrams",
+          "aliases": [
+            "Architecture Diagrams Package Component Deployment"
+          ],
+          "strong_phrases": [
+            "package diagram",
+            "uml component diagram",
+            "component diagram",
+            "uml deployment diagram",
+            "deployment diagram",
+            "dynamic modelling package",
+            "nodes in deployment diagram"
+          ],
+          "specific_keywords": [
+            "package diagram",
+            "component diagram",
+            "deployment diagram"
+          ],
+          "negative_guards": [
+            "class diagram",
+            "sequence diagram",
+            "state chart"
+          ],
+          "context_hints": [
+            "implementation architecture",
+            "deployment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "number": 5,
+      "name": "Standard Template Library and File Streams",
+      "topics": [
+        {
+          "id": 359,
+          "name": "Standard Template Library (STL) Architecture",
+          "canonical_name": "Standard Template Library (STL) Architecture",
+          "aliases": [
+            "STL Components Containers Algorithms Iterators"
+          ],
+          "strong_phrases": [
+            "standard template library",
+            "stl architecture",
+            "components of stl",
+            "containers algorithms and iterators",
+            "advantages of stl"
+          ],
+          "specific_keywords": [
+            "standard template library"
+          ],
+          "negative_guards": [
+            "sequence container",
+            "associative container",
+            "file streams",
+            "ifstream"
+          ],
+          "context_hints": [
+            "stl overview",
+            "c++ standard library"
+          ]
+        },
+        {
+          "id": 360,
+          "name": "STL Sequence Containers: Vector, List, and Deque",
+          "canonical_name": "STL Sequence Containers: Vector, List, and Deque",
+          "aliases": [
+            "Sequential Containers Vector List Deque"
+          ],
+          "strong_phrases": [
+            "sequence container",
+            "stl vector",
+            "vector in stl",
+            "stl list",
+            "deque in stl",
+            "vector push_back",
+            "list operations in stl"
+          ],
+          "specific_keywords": [
+            "sequence container",
+            "vector list"
+          ],
+          "negative_guards": [
+            "file handling",
+            "ifstream",
+            "ofstream"
+          ],
+          "context_hints": [
+            "sequential storage",
+            "vector methods"
+          ]
+        },
+        {
+          "id": 361,
+          "name": "STL Associative Containers and Adapters: Map, Set, Stack, Queue",
+          "canonical_name": "STL Associative Containers and Adapters: Map, Set, Stack, Queue",
+          "aliases": [
+            "Associative Containers and Container Adapters"
+          ],
+          "strong_phrases": [
+            "associative container",
+            "stl map",
+            "stl multimap",
+            "stl set",
+            "stl stack",
+            "stl queue",
+            "container adapter in stl",
+            "priority queue in stl"
+          ],
+          "specific_keywords": [
+            "associative container",
+            "container adapter"
+          ],
+          "negative_guards": [
+            "file handling",
+            "streams",
+            "fstream"
+          ],
+          "context_hints": [
+            "key value storage",
+            "adapters"
+          ]
+        },
+        {
+          "id": 362,
+          "name": "STL Iterators, Algorithms, and Function Objects",
+          "canonical_name": "STL Iterators, Algorithms, and Function Objects",
+          "aliases": [
+            "Iterators Generic Algorithms and Functors"
+          ],
+          "strong_phrases": [
+            "stl iterators",
+            "types of iterators in stl",
+            "stl algorithm",
+            "function objects in stl",
+            "functors in c++",
+            "sort algorithm in stl",
+            "forward iterator bidirectional iterator random access iterator"
+          ],
+          "specific_keywords": [
+            "stl iterator",
+            "stl iterators",
+            "stl algorithm"
+          ],
+          "negative_guards": [
+            "file handling",
+            "file stream",
+            "fstream"
+          ],
+          "context_hints": [
+            "iterator categories",
+            "generic algorithms"
+          ]
+        },
+        {
+          "id": 363,
+          "name": "C++ Stream Classes and File I/O Operations",
+          "canonical_name": "C++ Stream Classes and File I/O Operations",
+          "aliases": [
+            "File Streams and File Handling in C++"
+          ],
+          "strong_phrases": [
+            "streams and files",
+            "file handling in c++",
+            "ifstream and ofstream",
+            "fstream class",
+            "tellg and seekg",
+            "tellp and seekp",
+            "opening and closing files in c++",
+            "file pointers in c++",
+            "binary file operations in c++"
+          ],
+          "specific_keywords": [
+            "ifstream",
+            "ofstream",
+            "fstream"
+          ],
+          "negative_guards": [
+            "stl container",
+            "vector list",
+            "template"
+          ],
+          "context_hints": [
+            "file stream",
+            "file i/o"
+          ]
+        }
+      ]
+    }
+  ]
+}
