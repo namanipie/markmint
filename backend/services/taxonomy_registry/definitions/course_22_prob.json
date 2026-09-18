@@ -1,0 +1,788 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 22,
+    "name": "Probability and Statistics",
+    "canonical_code": "21MAB201T",
+    "code": "SEM2-PROB",
+    "regulation_year": 2021,
+    "department": "Mathematics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB201T Probability and Statistics",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Probability & Random Variables, Standard Distributions, Testing of Hypothesis, Correlation & Regression & ANOVA, and Statistical Quality Control."
+  },
+  "units": [
+    {
+      "id": 43,
+      "number": 1,
+      "name": "Probability and Random Variables",
+      "topics": [
+        {
+          "id": 414,
+          "name": "Axioms of Probability, Conditional Probability, and Bayes' Theorem",
+          "canonical_name": "Axioms of Probability, Conditional Probability, and Bayes' Theorem",
+          "aliases": [
+            "Probability Axioms and Bayes' Rule"
+          ],
+          "strong_phrases": [
+            "axioms of probability",
+            "conditional probability",
+            "bayes' theorem",
+            "bayes theorem",
+            "coin is tossed twice",
+            "tossed twice then the probability",
+            "subset of the sample space",
+            "sample space s is defined as",
+            "company has two plants to manufacture"
+          ],
+          "specific_keywords": [
+            "bayes' theorem",
+            "bayes theorem",
+            "conditional probability",
+            "sample space"
+          ],
+          "negative_guards": [
+            "binomial distribution",
+            "poisson distribution",
+            "hypothesis"
+          ],
+          "context_hints": [
+            "probability fundamentals",
+            "events"
+          ]
+        },
+        {
+          "id": 415,
+          "name": "Discrete and Continuous Random Variables",
+          "canonical_name": "Discrete and Continuous Random Variables",
+          "aliases": [
+            "Random Variables Classification"
+          ],
+          "strong_phrases": [
+            "discrete random variable",
+            "continuous random variable",
+            "random variable x has the following probability function",
+            "calculate v(2x+3)",
+            "variance of random variable",
+            "if x is an random variable and v(x)"
+          ],
+          "specific_keywords": [
+            "random variable",
+            "random variables"
+          ],
+          "negative_guards": [
+            "binomial distribution",
+            "poisson distribution",
+            "normal distribution",
+            "control charts"
+          ],
+          "context_hints": [
+            "random variables",
+            "variates"
+          ]
+        },
+        {
+          "id": 416,
+          "name": "Probability Mass Function and Probability Density Function",
+          "canonical_name": "Probability Mass Function and Probability Density Function",
+          "aliases": [
+            "PMF and PDF Evaluation"
+          ],
+          "strong_phrases": [
+            "probability mass function",
+            "probability density function",
+            "find the value of k in probability density function",
+            "pdf of random variable",
+            "pmf of random variable"
+          ],
+          "specific_keywords": [
+            "probability mass function",
+            "probability density function"
+          ],
+          "negative_guards": [
+            "binomial",
+            "poisson",
+            "uniform distribution",
+            "exponential distribution"
+          ],
+          "context_hints": [
+            "density function",
+            "mass function"
+          ]
+        },
+        {
+          "id": 417,
+          "name": "Cumulative Distribution Functions",
+          "canonical_name": "Cumulative Distribution Functions",
+          "aliases": [
+            "CDF and Distribution Properties"
+          ],
+          "strong_phrases": [
+            "cumulative distribution function",
+            "cdf of x",
+            "properties of distribution function",
+            "find cdf from pdf"
+          ],
+          "specific_keywords": [
+            "cumulative distribution"
+          ],
+          "negative_guards": [
+            "normal distribution",
+            "testing of hypothesis"
+          ],
+          "context_hints": [
+            "cumulative probability",
+            "cdf"
+          ]
+        },
+        {
+          "id": 418,
+          "name": "Expectation, Variance, Moments, and Moment Generating Functions",
+          "canonical_name": "Expectation, Variance, Moments, and Moment Generating Functions",
+          "aliases": [
+            "Moments and MGF of Random Variables"
+          ],
+          "strong_phrases": [
+            "moment generating function",
+            "moments about the origin",
+            "first two moments about the origin",
+            "central moments",
+            "mathematical expectation",
+            "mean and variance of x",
+            "mgf of random variable"
+          ],
+          "specific_keywords": [
+            "moment generating function",
+            "moments about the origin",
+            "mathematical expectation"
+          ],
+          "negative_guards": [
+            "uniformly distributed random variable",
+            "normal distribution",
+            "poisson distribution"
+          ],
+          "context_hints": [
+            "moments",
+            "mgf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "number": 2,
+      "name": "Standard Probability Distributions",
+      "topics": [
+        {
+          "id": 419,
+          "name": "Binomial Distribution",
+          "canonical_name": "Binomial Distribution",
+          "aliases": [
+            "Binomial Distribution Mean and Variance"
+          ],
+          "strong_phrases": [
+            "binomial distribution",
+            "mean of a binomial distribution",
+            "parameters of binomial distribution",
+            "assumptions of the binomial distribution",
+            "fitted binomial distribution"
+          ],
+          "specific_keywords": [
+            "binomial distribution"
+          ],
+          "negative_guards": [
+            "poisson",
+            "normal distribution",
+            "chi square"
+          ],
+          "context_hints": [
+            "bernoulli trials",
+            "binomial"
+          ]
+        },
+        {
+          "id": 420,
+          "name": "Poisson Distribution",
+          "canonical_name": "Poisson Distribution",
+          "aliases": [
+            "Poisson Distribution as Limiting Case"
+          ],
+          "strong_phrases": [
+            "poisson distribution",
+            "variance of the poisson distribution",
+            "mean of poisson distribution",
+            "poisson variate",
+            "fit a poisson distribution",
+            "typist types 2 letters erroneously"
+          ],
+          "specific_keywords": [
+            "poisson distribution",
+            "poisson variate"
+          ],
+          "negative_guards": [
+            "binomial",
+            "normal distribution",
+            "chi square"
+          ],
+          "context_hints": [
+            "rare events",
+            "poisson process"
+          ]
+        },
+        {
+          "id": 421,
+          "name": "Geometric and Hypergeometric Distributions",
+          "canonical_name": "Geometric and Hypergeometric Distributions",
+          "aliases": [
+            "Geometric Distribution Memoryless Property"
+          ],
+          "strong_phrases": [
+            "geometric distribution",
+            "memoryless property of geometric distribution",
+            "hypergeometric distribution",
+            "mean and variance of geometric distribution"
+          ],
+          "specific_keywords": [
+            "geometric distribution",
+            "hypergeometric distribution"
+          ],
+          "negative_guards": [
+            "binomial",
+            "poisson",
+            "normal distribution"
+          ],
+          "context_hints": [
+            "waiting times",
+            "sampling without replacement"
+          ]
+        },
+        {
+          "id": 422,
+          "name": "Uniform and Exponential Distributions",
+          "canonical_name": "Uniform and Exponential Distributions",
+          "aliases": [
+            "Continuous Uniform and Exponential Models"
+          ],
+          "strong_phrases": [
+            "uniformly distributed random variable",
+            "uniform distribution over",
+            "exponential distribution",
+            "memoryless property of exponential distribution",
+            "mean of exponential distribution"
+          ],
+          "specific_keywords": [
+            "uniformly distributed",
+            "exponential distribution"
+          ],
+          "negative_guards": [
+            "normal distribution",
+            "binomial",
+            "poisson"
+          ],
+          "context_hints": [
+            "continuous distributions",
+            "uniform density"
+          ]
+        },
+        {
+          "id": 423,
+          "name": "Normal Distribution and Standard Normal Curves",
+          "canonical_name": "Normal Distribution and Standard Normal Curves",
+          "aliases": [
+            "Gaussian Distribution and Area Under Curve"
+          ],
+          "strong_phrases": [
+            "normal distribution",
+            "standard normal distribution",
+            "standard normal variate",
+            "area under normal curve",
+            "normally distributed with mean",
+            "properties of normal distribution",
+            "engineering examination if a student gets 30 or more marks"
+          ],
+          "specific_keywords": [
+            "normal distribution",
+            "standard normal"
+          ],
+          "negative_guards": [
+            "binomial",
+            "poisson",
+            "control charts"
+          ],
+          "context_hints": [
+            "gaussian curve",
+            "bell curve"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "number": 3,
+      "name": "Testing of Hypothesis",
+      "topics": [
+        {
+          "id": 424,
+          "name": "Null Hypothesis, Alternative Hypothesis, and Errors in Testing",
+          "canonical_name": "Null Hypothesis, Alternative Hypothesis, and Errors in Testing",
+          "aliases": [
+            "Type I and Type II Errors and Level of Significance"
+          ],
+          "strong_phrases": [
+            "null hypothesis",
+            "alternative hypothesis",
+            "type i error and type ii error",
+            "level of significance",
+            "critical region in hypothesis",
+            "level of rejection",
+            "level of acceptance",
+            "consider a hypothesis where h_0"
+          ],
+          "specific_keywords": [
+            "null hypothesis",
+            "alternative hypothesis",
+            "level of significance"
+          ],
+          "negative_guards": [
+            "chi-square",
+            "anova",
+            "control chart"
+          ],
+          "context_hints": [
+            "hypothesis testing",
+            "significance level"
+          ]
+        },
+        {
+          "id": 425,
+          "name": "Large Sample Tests: Z-Test for Means and Proportions",
+          "canonical_name": "Large Sample Tests: Z-Test for Means and Proportions",
+          "aliases": [
+            "Z-Test for Single Mean and Difference of Means"
+          ],
+          "strong_phrases": [
+            "large sample test",
+            "test for difference of means for large samples",
+            "z-test for single mean",
+            "test for equality of two proportions",
+            "standard error of difference of means"
+          ],
+          "specific_keywords": [
+            "large sample test",
+            "difference of proportions"
+          ],
+          "negative_guards": [
+            "student's t-test",
+            "f-test",
+            "anova"
+          ],
+          "context_hints": [
+            "z test",
+            "normal approximation"
+          ]
+        },
+        {
+          "id": 426,
+          "name": "Small Sample Tests: Student's t-Test",
+          "canonical_name": "Small Sample Tests: Student's t-Test",
+          "aliases": [
+            "t-Test for Single Mean and Paired t-Test"
+          ],
+          "strong_phrases": [
+            "student's t-test",
+            "student t-test",
+            "paired t-test",
+            "t-test for difference of means",
+            "t-test for single mean",
+            "machinist is expected to make engine parts",
+            "two random samples gave the following data"
+          ],
+          "specific_keywords": [
+            "student's t-test",
+            "paired t-test",
+            "t-test"
+          ],
+          "negative_guards": [
+            "chi-square",
+            "anova",
+            "control chart"
+          ],
+          "context_hints": [
+            "t distribution",
+            "small samples"
+          ]
+        },
+        {
+          "id": 427,
+          "name": "F-Test for Equality of Variances",
+          "canonical_name": "F-Test for Equality of Variances",
+          "aliases": [
+            "Variance Ratio Test"
+          ],
+          "strong_phrases": [
+            "f-test for equality of variances",
+            "variance ratio test",
+            "f-test",
+            "f-statistic for variances",
+            "test for equality of two population variances"
+          ],
+          "specific_keywords": [
+            "f-test",
+            "variance ratio test"
+          ],
+          "negative_guards": [
+            "chi-square",
+            "control charts",
+            "anova"
+          ],
+          "context_hints": [
+            "variance comparison",
+            "f distribution"
+          ]
+        },
+        {
+          "id": 428,
+          "name": "Chi-Square Test for Goodness of Fit and Contingency Tables",
+          "canonical_name": "Chi-Square Test for Goodness of Fit and Contingency Tables",
+          "aliases": [
+            "Chi-Square Independence and Goodness of Fit"
+          ],
+          "strong_phrases": [
+            "chi-square test",
+            "chi square test",
+            "goodness of fit is tested by",
+            "contingency table",
+            "m x n contingency table",
+            "test of independence of attributes",
+            "degrees of freedom in contingency table"
+          ],
+          "specific_keywords": [
+            "chi-square",
+            "chi square",
+            "contingency table",
+            "goodness of fit"
+          ],
+          "negative_guards": [
+            "control charts",
+            "regression",
+            "anova"
+          ],
+          "context_hints": [
+            "chi square distribution",
+            "cross tabulation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "number": 4,
+      "name": "Correlation, Regression, and Design of Experiments",
+      "topics": [
+        {
+          "id": 429,
+          "name": "Karl Pearson's and Spearman's Rank Correlation",
+          "canonical_name": "Karl Pearson's and Spearman's Rank Correlation",
+          "aliases": [
+            "Correlation Coefficient and Rank Correlation"
+          ],
+          "strong_phrases": [
+            "spearman's rank correlation",
+            "rank correlation coefficient",
+            "karl pearson's coefficient of correlation",
+            "correlation coefficient r",
+            "if r=0 the two variables",
+            "problems in correlation",
+            "uncorrelated variables"
+          ],
+          "specific_keywords": [
+            "rank correlation",
+            "correlation coefficient"
+          ],
+          "negative_guards": [
+            "control charts",
+            "hypothesis"
+          ],
+          "context_hints": [
+            "association",
+            "bivariate"
+          ]
+        },
+        {
+          "id": 430,
+          "name": "Lines of Regression and Regression Equations",
+          "canonical_name": "Lines of Regression and Regression Equations",
+          "aliases": [
+            "Linear Regression and Regression Coefficients"
+          ],
+          "strong_phrases": [
+            "lines of regression",
+            "regression equation of y on x",
+            "regression equation of x on y",
+            "regression coefficients b_yx and b_xy",
+            "angle between two lines of regression",
+            "two lines of regression are"
+          ],
+          "specific_keywords": [
+            "lines of regression",
+            "regression equation",
+            "regression coefficients"
+          ],
+          "negative_guards": [
+            "anova",
+            "control charts"
+          ],
+          "context_hints": [
+            "linear modeling",
+            "least squares"
+          ]
+        },
+        {
+          "id": 431,
+          "name": "One-Way Analysis of Variance (ANOVA)",
+          "canonical_name": "One-Way Analysis of Variance (ANOVA)",
+          "aliases": [
+            "Single Factor ANOVA"
+          ],
+          "strong_phrases": [
+            "one-way anova",
+            "one way classification",
+            "completely randomized design crd",
+            "analysis of variance for one-way",
+            "between columns sum of squares"
+          ],
+          "specific_keywords": [
+            "one-way anova",
+            "one-way classification"
+          ],
+          "negative_guards": [
+            "two-way classification",
+            "latin square",
+            "control charts"
+          ],
+          "context_hints": [
+            "single factor",
+            "anova"
+          ]
+        },
+        {
+          "id": 432,
+          "name": "Two-Way Analysis of Variance (ANOVA)",
+          "canonical_name": "Two-Way Analysis of Variance (ANOVA)",
+          "aliases": [
+            "Two Factor ANOVA with and without Replication"
+          ],
+          "strong_phrases": [
+            "two-way anova",
+            "two-way classification",
+            "two way classification the data are classified according to",
+            "analysis of variance for two-way",
+            "sum of squares for error sse",
+            "error derivatives with sse"
+          ],
+          "specific_keywords": [
+            "two-way anova",
+            "two-way classification"
+          ],
+          "negative_guards": [
+            "one-way",
+            "control charts"
+          ],
+          "context_hints": [
+            "two factors",
+            "interaction"
+          ]
+        },
+        {
+          "id": 433,
+          "name": "Design of Experiments: CRD, RBD, and Latin Square Design",
+          "canonical_name": "Design of Experiments: CRD, RBD, and Latin Square Design",
+          "aliases": [
+            "Experimental Designs CRD RBD LSD"
+          ],
+          "strong_phrases": [
+            "design of experiments",
+            "randomized block design",
+            "latin square design",
+            "rbd and lsd",
+            "difference in the durability of 3 makes"
+          ],
+          "specific_keywords": [
+            "randomized block design",
+            "latin square design",
+            "design of experiments"
+          ],
+          "negative_guards": [
+            "control charts",
+            "regression equation"
+          ],
+          "context_hints": [
+            "replication",
+            "randomization"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "number": 5,
+      "name": "Statistical Quality Control",
+      "topics": [
+        {
+          "id": 434,
+          "name": "Concepts of Statistical Quality Control and Shewhart Control Charts",
+          "canonical_name": "Concepts of Statistical Quality Control and Shewhart Control Charts",
+          "aliases": [
+            "Principles of SQC and Control Limits"
+          ],
+          "strong_phrases": [
+            "statistical quality control",
+            "technique of control charts was pioneered by",
+            "ucl stands for",
+            "upper control limit and lower control limit",
+            "typical control chart consists of",
+            "w.a.shewhart",
+            "shewhart control charts"
+          ],
+          "specific_keywords": [
+            "statistical quality control",
+            "shewhart",
+            "control limits"
+          ],
+          "negative_guards": [
+            "x-bar chart",
+            "r chart",
+            "p chart",
+            "c chart"
+          ],
+          "context_hints": [
+            "sqc",
+            "quality assurance"
+          ]
+        },
+        {
+          "id": 435,
+          "name": "Control Charts for Variables: Mean (X-bar) Chart",
+          "canonical_name": "Control Charts for Variables: Mean (X-bar) Chart",
+          "aliases": [
+            "X-bar Chart Construction and Control Limits"
+          ],
+          "strong_phrases": [
+            "x-bar chart",
+            "x bar chart",
+            "control chart for mean",
+            "sample means and sample range",
+            "mean chart control limits"
+          ],
+          "specific_keywords": [
+            "x-bar chart",
+            "x bar chart"
+          ],
+          "negative_guards": [
+            "p chart",
+            "c chart",
+            "np chart"
+          ],
+          "context_hints": [
+            "process mean",
+            "variable chart"
+          ]
+        },
+        {
+          "id": 436,
+          "name": "Control Charts for Variables: Range (R) and Standard Deviation (s) Charts",
+          "canonical_name": "Control Charts for Variables: Range (R) and Standard Deviation (s) Charts",
+          "aliases": [
+            "Range Chart and S Chart"
+          ],
+          "strong_phrases": [
+            "r chart",
+            "control chart for range",
+            "s chart",
+            "standard deviation chart",
+            "range chart control limits",
+            "values of sample means and sample range for ten samples"
+          ],
+          "specific_keywords": [
+            "r chart",
+            "control chart for range"
+          ],
+          "negative_guards": [
+            "p chart",
+            "c chart",
+            "np chart"
+          ],
+          "context_hints": [
+            "process dispersion",
+            "range limits"
+          ]
+        },
+        {
+          "id": 437,
+          "name": "Control Charts for Attributes: Fraction Defective (p and np) Charts",
+          "canonical_name": "Control Charts for Attributes: Fraction Defective (p and np) Charts",
+          "aliases": [
+            "p-Chart and np-Chart for Defectives"
+          ],
+          "strong_phrases": [
+            "p-chart",
+            "p chart",
+            "np-chart",
+            "np chart",
+            "control chart for fraction defective",
+            "control chart for number of defectives"
+          ],
+          "specific_keywords": [
+            "p-chart",
+            "p chart",
+            "np-chart",
+            "fraction defective"
+          ],
+          "negative_guards": [
+            "x-bar chart",
+            "r chart"
+          ],
+          "context_hints": [
+            "attribute inspection",
+            "proportion defective"
+          ]
+        },
+        {
+          "id": 438,
+          "name": "Control Charts for Attributes: Number of Defects (c and u) Charts",
+          "canonical_name": "Control Charts for Attributes: Number of Defects (c and u) Charts",
+          "aliases": [
+            "c-Chart and u-Chart for Defects per Unit"
+          ],
+          "strong_phrases": [
+            "c-chart",
+            "c chart",
+            "u-chart",
+            "u chart",
+            "control chart for number of defects",
+            "control chart for defects per unit",
+            "c chart is used when c is small"
+          ],
+          "specific_keywords": [
+            "c-chart",
+            "c chart",
+            "u-chart",
+            "defects per unit"
+          ],
+          "negative_guards": [
+            "x-bar chart",
+            "r chart"
+          ],
+          "context_hints": [
+            "defect count",
+            "poisson quality"
+          ]
+        }
+      ]
+    }
+  ]
+}
