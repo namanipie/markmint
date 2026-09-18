@@ -810,198 +810,112 @@ export default function MintAIPage() {
                     return (
                       <div
                         key={p.family_id ? `fam-${p.family_id}` : idx}
-                        className={`bg-card border rounded-xl p-5 shadow-sm transition-all ${
-                          isHighRecurrence
-                            ? "border-emerald-500/30 hover:border-emerald-500/50 bg-card/95"
-                            : isSinglePaper
-                            ? "border-border/60 hover:border-border bg-card/60"
-                            : "border-border hover:border-border/90"
-                        }`}
+                        className={`bg-card rounded-xl p-5 border transition-all ${isExpanded ? "border-accent/40 shadow-md" : "border-border shadow-sm hover:border-accent/30"}`}
                       >
-                        {/* Header Row */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border/50">
+                        {/* Primary & Secondary Structure */}
+                        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                           <div className="flex-1 pr-2">
-                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                              <span className="font-mono text-xs text-muted-foreground">#{p.rank}</span>
-                              {isFamily && (
-                                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-border">
-                                  {p.family_id ? `Family #${p.family_id}` : "Question Family"}
-                                </span>
-                              )}
+                            <div className="flex flex-wrap items-center gap-3 mb-2">
+                              <span className="font-mono text-sm font-bold text-muted-foreground">#{p.rank}</span>
+                              <h4 className="text-xl font-bold text-foreground leading-tight">
+                                <MathText content={p.name} />
+                              </h4>
+                            </div>
+                            
+                            <div className="flex flex-wrap items-center gap-4 text-sm mt-3 pb-3 border-b border-border/50">
+                              <div className="flex items-center gap-1.5">
+                                <span className={`h-2 w-2 rounded-full ${p.confidence === "HIGH" ? "bg-emerald-500" : p.confidence === "MEDIUM" ? "bg-amber-500" : "bg-red-500"}`} />
+                                <span className="font-medium text-foreground">{p.confidence} Confidence</span>
+                              </div>
+                              <div className="h-4 w-[1px] bg-border" />
+                              <div className="text-muted-foreground">
+                                {distinctPapers} / {totalPapers} Papers
+                              </div>
+                              
+                              {/* Semantic Tags */}
                               {p.repetition_type === "EXACT_REPEAT" && (
-                                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                                  Exact Repeat
-                                </span>
+                                <>
+                                  <div className="h-4 w-[1px] bg-border" />
+                                  <div className="text-purple-400 font-medium uppercase tracking-wider text-[10px]">
+                                    EXACT REPEAT
+                                  </div>
+                                </>
+                              )}
+                              {!isFamily && priorityInfo?.recommended_action && (
+                                <>
+                                  <div className="h-4 w-[1px] bg-border" />
+                                  <div className="text-muted-foreground font-medium uppercase tracking-wider text-[10px]">
+                                    {priorityInfo.recommended_action.replace(/_/g, " ")}
+                                  </div>
+                                </>
                               )}
                             </div>
-                            <h4 className="text-sm sm:text-base font-bold text-foreground leading-snug mb-2">
-                              <MathText content={p.name} />
-                            </h4>
-                            <div className="flex flex-wrap items-center gap-2 text-xs">
-                              {/* Probability Pill */}
-                              <span className="px-2 py-0.5 rounded bg-background font-mono text-[11px] border border-border" title="Laplace-smoothed empirical paper recurrence probability">
-                                Recurrence: <strong className="text-accent">{Math.round(p.probability * 100)}%</strong>
-                              </span>
-
-                              {/* Confidence Badge */}
-                              <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                                p.confidence === "HIGH"
-                                  ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
-                                  : p.confidence === "MEDIUM"
-                                  ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
-                                  : "bg-muted text-muted-foreground"
-                              }`}>
-                                {p.confidence} Confidence
-                              </span>
-
-                              {/* Paper Coverage Pill */}
-                              {isSinglePaper ? (
-                                <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-mono text-[10px] font-semibold border border-amber-500/20" title="Observed in 1 examination paper only">
-                                  1 Paper Only (Isolated Observation)
+                            
+                            {/* Tertiary Metadata */}
+                            <div className="flex flex-wrap items-center gap-2 mt-3 text-[11px] font-mono text-muted-foreground">
+                                {isFamily && p.family_id && (
+                                  <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Family ID: {p.family_id}</span>
+                                )}
+                                {p.last_seen_year && (
+                                  <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Last Seen: {p.last_seen_year}</span>
+                                )}
+                                {!isFamily && priorityBand && (
+                                  <span className="opacity-60">{priorityBand} PRIORITY</span>
+                                )}
+                                <span className="opacity-60">
+                                  {p.average_marks ? `~${p.average_marks} Marks` : p.total_marks_observed ? `${Math.round(p.total_marks_observed)} Marks` : p.marks_seen ? `${Math.round(p.marks_seen)} Marks` : "Marks Unspecified"}
                                 </span>
-                              ) : distinctPapers >= 4 ? (
-                                <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/25" title={`Verified across ${distinctPapers} distinct examination papers`}>
-                                  ✓ {distinctPapers} of {totalPapers > 0 ? `${totalPapers} Papers` : "Papers"}
-                                </span>
-                              ) : (
-                                <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
-                                  {distinctPapers} of {totalPapers > 0 ? `${totalPapers} Papers` : "Papers"}
-                                </span>
-                              )}
-
-                              {/* Marks Pill */}
-                              {(() => {
-                                if (p.average_marks != null && p.average_marks > 0) {
-                                  return (
-                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
-                                      ~{p.average_marks} Marks
-                                    </span>
-                                  );
-                                }
-                                if (p.total_marks_observed != null && p.total_marks_observed > 0) {
-                                  return (
-                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
-                                      {Math.round(p.total_marks_observed)} Marks
-                                    </span>
-                                  );
-                                }
-                                if (p.marks_seen != null && p.marks_seen > 0) {
-                                  return (
-                                    <span className="px-2 py-0.5 rounded bg-background/80 font-mono text-[10px] text-muted-foreground border border-border">
-                                      {Math.round(p.marks_seen)} Marks
-                                    </span>
-                                  );
-                                }
-                                return (
-                                  <span className="px-2 py-0.5 rounded bg-muted/30 font-mono text-[10px] text-muted-foreground/70 border border-border/40">
-                                    Marks Unspecified
-                                  </span>
-                                );
-                              })()}
-
-                              {/* Priority Band (Topic Mode) */}
-                              {!isFamily && (
-                                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                                  priorityBand === "VERY_HIGH"
-                                    ? "bg-rose-500/10 text-rose-500 border border-rose-500/20"
-                                    : priorityBand === "HIGH"
-                                    ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
-                                    : "bg-blue-500/10 text-blue-500 border border-blue-500/20"
-                                }`}>
-                                  Priority: {priorityBand.replace("_", " ")}
-                                </span>
-                              )}
-
-                              {/* Recommended Action Badge */}
-                              {!isFamily && priorityInfo?.recommended_action && (
-                                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                                  priorityInfo.recommended_action === "DEEP_STUDY_URGENT"
-                                    ? "bg-rose-500/15 text-rose-400 border border-rose-500/30"
-                                    : priorityInfo.recommended_action === "PRACTICE_QUESTIONS"
-                                    ? "bg-amber-500/15 text-amber-400 border border-amber-500/30"
-                                    : priorityInfo.recommended_action === "MAINTAIN_AND_REVIEW"
-                                    ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                                    : "bg-indigo-500/15 text-indigo-400 border border-indigo-500/30"
-                                }`}>
-                                  {priorityInfo.recommended_action.replace(/_/g, " ")}
-                                </span>
-                              )}
                             </div>
                           </div>
-
-                          {/* Quick Actions */}
-                          <div className="flex items-center gap-2 shrink-0">
-                            {isFamily ? (
-                              <>
-                                <button
-                                  onClick={() => handleOpenFamilyEvidence(p.family_id, p.name)}
-                                  className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors cursor-pointer"
-                                  title="Inspect Question Family Empirical Evidence"
-                                >
-                                  <Sparkles className="w-3.5 h-3.5" />
-                                  <span>Inspect Evidence</span>
-                                </button>
-
-                                <button
-                                  onClick={() => handleViewQuestions(undefined, p.family_id, p.name)}
-                                  className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1 cursor-pointer"
-                                  title="View past exam questions for this family"
-                                >
-                                  <BookOpen className="w-3.5 h-3.5" />
-                                  <span>Past Questions</span>
-                                </button>
-
-                                <a
-                                  href="/study-plan"
-                                  className="text-xs px-2.5 py-1 rounded font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border flex items-center gap-1 transition-colors cursor-pointer"
-                                  title="Open Study Intelligence for this course"
-                                >
-                                  <Target className="w-3.5 h-3.5" />
-                                  <span>Study</span>
-                                </a>
-                              </>
-                            ) : (
-                              <>
-                                <button
-                                  onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
-                                  className="text-xs px-2.5 py-1 rounded font-medium bg-accent/10 hover:bg-accent/20 text-accent border border-accent/25 flex items-center gap-1 transition-colors cursor-pointer"
-                                  title="Open deep Topic Intelligence Drilldown"
-                                >
-                                  <Sparkles className="w-3.5 h-3.5" />
-                                  <span>Intelligence</span>
-                                </button>
-
-                                <button
-                                  onClick={() => handleToggleTopicStatus(p.name, studentStatus)}
-                                  className={`text-xs px-2.5 py-1 rounded font-medium border transition-colors flex items-center gap-1 cursor-pointer ${
-                                    studentStatus === "COMPLETED"
-                                      ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                      : "bg-background text-muted-foreground hover:text-foreground border-border"
-                                  }`}
-                                  title="Toggle study progress"
-                                >
-                                  <CheckCircle2 className="w-3.5 h-3.5" />
-                                  <span>{studentStatus === "COMPLETED" ? "Mastered" : "Mark Done"}</span>
-                                </button>
-
-                                <button
-                                  onClick={() => handleViewQuestions(p.name)}
-                                  className="text-xs px-2.5 py-1 rounded font-medium bg-background text-muted-foreground hover:text-foreground border border-border flex items-center gap-1 cursor-pointer"
-                                  title="View past exam questions"
-                                >
-                                  <BookOpen className="w-3.5 h-3.5" />
-                                  <span>Past Questions</span>
-                                </button>
-                              </>
-                            )}
-
-                            <button
-                              onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
-                              className="p-1 rounded text-muted-foreground hover:text-foreground cursor-pointer"
-                              aria-label="Toggle details"
-                            >
-                              {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                            </button>
+                          
+                          <div className="flex flex-col items-end shrink-0 gap-3">
+                            <div className="flex flex-col items-end">
+                              <span className="text-2xl font-black text-foreground">{Math.round((p.probability || 0) * 100)}%</span>
+                              <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Recurrence</span>
+                            </div>
+                            
+                            {/* Quick Actions */}
+                            <div className="flex items-center gap-2 mt-2">
+                              {isFamily ? (
+                                <>
+                                  <button
+                                    onClick={() => handleOpenFamilyEvidence(p.family_id, p.name)}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-foreground text-background hover:bg-foreground/90 transition-colors"
+                                  >
+                                    Evidence
+                                  </button>
+                                  <button
+                                    onClick={() => handleViewQuestions(undefined, p.family_id, p.name)}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+                                  >
+                                    Questions
+                                  </button>
+                                </>
+                              ) : (
+                                <>
+                                  <button
+                                    onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-foreground text-background hover:bg-foreground/90 transition-colors"
+                                  >
+                                    Intelligence
+                                  </button>
+                                  <button
+                                    onClick={() => handleViewQuestions(p.name)}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+                                  >
+                                    Questions
+                                  </button>
+                                </>
+                              )}
+                              
+                              <button
+                                onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
+                                className="p-1.5 rounded-md text-muted-foreground hover:bg-secondary transition-colors"
+                                aria-label="Toggle details"
+                              >
+                                {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                              </button>
+                            </div>
                           </div>
                         </div>
 
