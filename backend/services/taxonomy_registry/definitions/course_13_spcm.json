@@ -1,0 +1,953 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 13,
+    "name": "Semiconductor Physics and Computational Methods",
+    "canonical_code": "21PYB102J",
+    "code": "SEM1-SPCM",
+    "regulation_year": 2021,
+    "department": "Physics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21PYB102J Semiconductor Physics and Computational Methods",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering free electron theory, semiconductor physics, optical processes, measurements, and nanostructures."
+  },
+  "units": [
+    {
+      "id": 45,
+      "number": 1,
+      "name": "Free Electron Theory and Energy Bands",
+      "topics": [
+        {
+          "id": 73,
+          "name": "Classical Free Electron Theory",
+          "canonical_name": "Classical Free Electron Theory",
+          "aliases": [],
+          "strong_phrases": [
+            "classical free electron theory",
+            "drude and lorentz",
+            "drude-lorentz",
+            "drude model",
+            "drude theory",
+            "lorentz theory",
+            "wiedemann-franz law",
+            "wiedemann franz",
+            "success of classical free electron",
+            "postulates of classical free electron",
+            "failures of classical free electron",
+            "failure of classical free electron"
+          ],
+          "specific_keywords": [
+            "drude"
+          ],
+          "negative_guards": [
+            "sommerfeld",
+            "quantum free electron",
+            "fermi-dirac",
+            "schrodinger",
+            "quantum well"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 74,
+          "name": "Quantum Free Electron Theory",
+          "canonical_name": "Quantum Free Electron Theory",
+          "aliases": [],
+          "strong_phrases": [
+            "quantum free electron theory",
+            "sommerfeld model",
+            "sommerfeld theory",
+            "fermi-dirac distribution",
+            "density of states in 3d",
+            "density of states for a given material is",
+            "fermi-dirac statistics",
+            "probability of occupation in a given energy level",
+            "postulates of quantum free electron",
+            "success of quantum free electron",
+            "fermi energy of electron",
+            "fermi temperature",
+            "fermi velocity"
+          ],
+          "specific_keywords": [
+            "sommerfeld",
+            "fermi-dirac"
+          ],
+          "negative_guards": [
+            "classical free electron",
+            "drude",
+            "low dimensional",
+            "joint density of states",
+            "quantum well",
+            "quantum wire",
+            "quantum dot"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 75,
+          "name": "Band Theory and Kronig-Penney Model",
+          "canonical_name": "Band Theory and Kronig-Penney Model",
+          "aliases": [],
+          "strong_phrases": [
+            "kronig-penney model",
+            "kronig penney model",
+            "kronig-penney",
+            "kronig penney",
+            "bloch theorem",
+            "periodic potential",
+            "splitting energy band in solids",
+            "energy band in solids",
+            "allowed and forbidden bands",
+            "allowed and forbidden energy",
+            "effective mass of an electron",
+            "effective mass of electron",
+            "band theory of solids",
+            "zero band gap",
+            "periodic field of 1d crystal",
+            "movement of electron in periodic potential"
+          ],
+          "specific_keywords": [
+            "kronig-penney",
+            "bloch theorem",
+            "periodic potential",
+            "band theory of solids"
+          ],
+          "negative_guards": [
+            "direct band gap",
+            "indirect band gap",
+            "e-k diagram"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 76,
+          "name": "Brillouin Zones and Band Gaps",
+          "canonical_name": "Brillouin Zones and Band Gaps",
+          "aliases": [],
+          "strong_phrases": [
+            "brillouin zone",
+            "brillouin zones",
+            "e-k diagram",
+            "e k diagram",
+            "e-k diagrams",
+            "direct and indirect band gap",
+            "direct band gap semiconductor",
+            "indirect band gap semiconductor",
+            "concept of phonons",
+            "concept of brillouin zone",
+            "first brillouin zone"
+          ],
+          "specific_keywords": [
+            "brillouin zone",
+            "direct bandgap",
+            "indirect bandgap",
+            "phonons"
+          ],
+          "negative_guards": [
+            "recombination",
+            "spontaneous emission",
+            "photocurrent",
+            "solar cell"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 77,
+          "name": "Fermi Surface and Computational Band Structure",
+          "canonical_name": "Fermi Surface and Computational Band Structure",
+          "aliases": [],
+          "strong_phrases": [
+            "fermi surface of a metal",
+            "fermi surface of cu",
+            "computational determination of band structure",
+            "tight binding approximation",
+            "lcao approximation",
+            "quantum espresso",
+            "vasp",
+            "computational band structure",
+            "fermi surface"
+          ],
+          "specific_keywords": [
+            "fermi surface",
+            "tight binding",
+            "lcao",
+            "quantum espresso",
+            "vasp"
+          ],
+          "negative_guards": [
+            "fermi's golden rule",
+            "fermi golden rule",
+            "fermi level in intrinsic",
+            "fermi level in extrinsic"
+          ],
+          "context_hints": []
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "number": 2,
+      "name": "Semiconductor Physics and Carrier Transport",
+      "topics": [
+        {
+          "id": 78,
+          "name": "Intrinsic Semiconductors",
+          "canonical_name": "Intrinsic Semiconductors",
+          "aliases": [],
+          "strong_phrases": [
+            "intrinsic semiconductor",
+            "intrinsic semiconductors",
+            "intrinsic carrier concentration",
+            "carrier concentration in intrinsic semiconductor",
+            "intrinsic fermi level",
+            "pure silicon and pure germanium",
+            "pure crystal of silicon",
+            "pure germanium crystal"
+          ],
+          "specific_keywords": [
+            "intrinsic semiconductor",
+            "intrinsic semiconductors",
+            "intrinsic carrier"
+          ],
+          "negative_guards": [
+            "extrinsic",
+            "donor",
+            "acceptor",
+            "doping",
+            "p-n junction",
+            "schottky",
+            "n-type",
+            "p-type"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 79,
+          "name": "Extrinsic Semiconductors and Doping",
+          "canonical_name": "Extrinsic Semiconductors and Doping",
+          "aliases": [],
+          "strong_phrases": [
+            "extrinsic semiconductor",
+            "extrinsic semiconductors",
+            "n-type semiconductor",
+            "p-type semiconductor",
+            "n type semiconductor",
+            "p type semiconductor",
+            "donor energy level",
+            "acceptor energy level",
+            "donor impurities",
+            "acceptor impurities",
+            "fermi level in p-type",
+            "fermi level in n-type",
+            "degenerate semiconductor",
+            "difference between p-type and n-type"
+          ],
+          "specific_keywords": [
+            "extrinsic semiconductor",
+            "extrinsic semiconductors",
+            "donor impurities",
+            "acceptor impurities"
+          ],
+          "negative_guards": [
+            "p-n junction",
+            "pn junction",
+            "photodiode",
+            "schottky",
+            "two point probe",
+            "four point probe",
+            "band theory of solids",
+            "zero band gap",
+            "periodic potential",
+            "optical absorption"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 80,
+          "name": "Carrier Generation, Recombination, and Continuity",
+          "canonical_name": "Carrier Generation, Recombination, and Continuity",
+          "aliases": [],
+          "strong_phrases": [
+            "continuity equation",
+            "continuity equation for electron",
+            "continuity equation for hole",
+            "carrier generation and recombination",
+            "shockley-read-hall",
+            "srh recombination",
+            "srh carrier generation",
+            "auger recombination",
+            "auger transitions",
+            "impact ionization",
+            "carrier lifetime",
+            "diffusion length of carriers"
+          ],
+          "specific_keywords": [
+            "continuity equation",
+            "srh recombination",
+            "auger transition",
+            "auger transitions",
+            "impact ionization"
+          ],
+          "negative_guards": [
+            "optical absorption process",
+            "spontaneous emission",
+            "stimulated emission",
+            "joint density of states"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 81,
+          "name": "Carrier Transport: Drift and Diffusion",
+          "canonical_name": "Carrier Transport: Drift and Diffusion",
+          "aliases": [],
+          "strong_phrases": [
+            "drift current",
+            "diffusion current",
+            "drift current density",
+            "diffusion current density",
+            "carrier transport",
+            "einstein relation",
+            "einstein's relation",
+            "drift velocity and mobility"
+          ],
+          "specific_keywords": [
+            "drift current",
+            "diffusion current",
+            "einstein relation"
+          ],
+          "negative_guards": [
+            "four probe",
+            "two probe",
+            "hall effect",
+            "van der pauw",
+            "boltzmann transport"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 82,
+          "name": "P-N Junction and Biasing",
+          "canonical_name": "P-N Junction and Biasing",
+          "aliases": [],
+          "strong_phrases": [
+            "p-n junction",
+            "pn junction",
+            "built-in potential",
+            "built in potential",
+            "depletion layer",
+            "depletion width",
+            "forward bias condition",
+            "reverse bias condition",
+            "junction capacitance",
+            "vi characteristics of p-n junction",
+            "p-n junction diode",
+            "pn junction diode"
+          ],
+          "specific_keywords": [
+            "built-in potential",
+            "depletion layer",
+            "forward bias",
+            "reverse bias"
+          ],
+          "negative_guards": [
+            "schottky",
+            "metal-semiconductor",
+            "photodiode",
+            "light emitting diode",
+            "led",
+            "oled",
+            "solar cell",
+            "extrinsic semiconductor"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 83,
+          "name": "Metal-Semiconductor Contacts",
+          "canonical_name": "Metal-Semiconductor Contacts",
+          "aliases": [],
+          "strong_phrases": [
+            "metal-semiconductor junction",
+            "metal-semiconductor contact",
+            "schottky barrier",
+            "schottky diode",
+            "schottky junction",
+            "ohmic contact",
+            "non-rectifying contact",
+            "rectifying junction",
+            "rectifying contact"
+          ],
+          "specific_keywords": [
+            "schottky barrier",
+            "ohmic contact",
+            "schottky junction",
+            "non-rectifying contact"
+          ],
+          "negative_guards": [
+            "p-n junction",
+            "pn junction diode",
+            "solar cell",
+            "photodiode"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 84,
+          "name": "Optoelectronic Devices and LEDs",
+          "canonical_name": "Optoelectronic Devices and LEDs",
+          "aliases": [],
+          "strong_phrases": [
+            "light emitting diode",
+            "light emitting diodes",
+            "organic light emitting diode",
+            "organic light emitting diodes",
+            "oled",
+            "optoelectronic integrated circuit",
+            "optoelectronic integrated circuits",
+            "oeic",
+            "photocurrent in a p-n junction",
+            "photodiode photocurrent",
+            "compound semiconductor for optoelectronic",
+            "optoelectronic devices",
+            "materials of interest for optoelectronic devices"
+          ],
+          "specific_keywords": [
+            "light emitting diode",
+            "light emitting diodes",
+            "oled",
+            "oeic",
+            "photodiode"
+          ],
+          "negative_guards": [
+            "solar cell",
+            "photovoltaic effect",
+            "photovoltaics",
+            "laser source"
+          ],
+          "context_hints": []
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "number": 3,
+      "name": "Optical Processes and Photovoltaic Devices",
+      "topics": [
+        {
+          "id": 85,
+          "name": "Optical Transitions and Absorption",
+          "canonical_name": "Optical Transitions and Absorption",
+          "aliases": [],
+          "strong_phrases": [
+            "optical transitions in bulk",
+            "optical absorption process",
+            "absorption coefficient of semiconductor",
+            "band to band transition",
+            "impurity level to band transition",
+            "impurity to band transition",
+            "interband optical transition",
+            "optical absorption in semiconductor"
+          ],
+          "specific_keywords": [
+            "absorption coefficient",
+            "band to band transition",
+            "impurity to band transition"
+          ],
+          "negative_guards": [
+            "spontaneous emission",
+            "stimulated emission",
+            "solar cell",
+            "photovoltaic effect",
+            "uv-vis",
+            "uv vis"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 86,
+          "name": "Radiative Recombination and Emission",
+          "canonical_name": "Radiative Recombination and Emission",
+          "aliases": [],
+          "strong_phrases": [
+            "spontaneous emission",
+            "stimulated emission",
+            "einstein coefficient",
+            "einstein's coefficient",
+            "einstein coefficients",
+            "einstein's coefficients",
+            "einstein a and b",
+            "optical recombination process",
+            "radiative recombination",
+            "population inversion"
+          ],
+          "specific_keywords": [
+            "spontaneous emission",
+            "stimulated emission",
+            "einstein coefficients",
+            "radiative recombination"
+          ],
+          "negative_guards": [
+            "srh recombination",
+            "auger recombination",
+            "impact ionization",
+            "solar cell",
+            "photovoltaic effect"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 87,
+          "name": "Joint Density of States and Transition Rates",
+          "canonical_name": "Joint Density of States and Transition Rates",
+          "aliases": [],
+          "strong_phrases": [
+            "joint density of states",
+            "optical joint density of states",
+            "density of states for photons",
+            "fermi's golden rule",
+            "fermi golden rule",
+            "transition rate per unit volume",
+            "transition rates in semiconductor"
+          ],
+          "specific_keywords": [
+            "joint density of states",
+            "fermi's golden rule",
+            "fermi golden rule"
+          ],
+          "negative_guards": [
+            "classical free electron",
+            "sommerfeld",
+            "quantum well",
+            "quantum wire",
+            "quantum dot"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 88,
+          "name": "Computational Optics and Optical Loss",
+          "canonical_name": "Computational Optics and Optical Loss",
+          "aliases": [],
+          "strong_phrases": [
+            "numerical computation of optical loss",
+            "computation of optical loss",
+            "optical loss",
+            "finite element method to calculate photon density",
+            "optical excitation in bn",
+            "optical excitations in boron nitride"
+          ],
+          "specific_keywords": [
+            "optical loss",
+            "photon density of states"
+          ],
+          "negative_guards": [
+            "fermi's golden rule",
+            "solar cell",
+            "photovoltaic effect"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 89,
+          "name": "Solar Cells and Photovoltaics",
+          "canonical_name": "Solar Cells and Photovoltaics",
+          "aliases": [],
+          "strong_phrases": [
+            "photovoltaic effect",
+            "efficiency of a pv cell",
+            "efficiency of a solar cell",
+            "solar cell converts",
+            "fill factor of solar cell",
+            "short circuit current and open circuit voltage",
+            "inverse square law of light using a photo cell",
+            "v-i characteristics of a solar cell",
+            "v-r characteristics of a solar cell",
+            "photovoltaics",
+            "pv cell",
+            "photovoltaic cell",
+            "photovoltaic cells"
+          ],
+          "specific_keywords": [
+            "photovoltaic effect",
+            "solar cell",
+            "photovoltaics",
+            "pv cell",
+            "fill factor",
+            "photovoltaic cell"
+          ],
+          "negative_guards": [
+            "photodiode",
+            "light emitting diode",
+            "led",
+            "oled",
+            "einstein",
+            "optical transition",
+            "optical transitions",
+            "density of states of photon"
+          ],
+          "context_hints": []
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "number": 4,
+      "name": "Semiconductor Measurements and Transport Equations",
+      "topics": [
+        {
+          "id": 90,
+          "name": "Two-Point and Four-Point Probe Measurements",
+          "canonical_name": "Two-Point and Four-Point Probe Measurements",
+          "aliases": [],
+          "strong_phrases": [
+            "two-point probe",
+            "two point probe",
+            "four-point probe",
+            "four point probe",
+            "van der pauw method",
+            "van der pauw",
+            "linear four probe",
+            "linear method four probe",
+            "sheet resistance measurement",
+            "resistivity measurement by four probe",
+            "resistivity determined using two probe",
+            "advantages of four point probe"
+          ],
+          "specific_keywords": [
+            "two-point probe",
+            "four-point probe",
+            "van der pauw",
+            "four probe",
+            "two probe"
+          ],
+          "negative_guards": [
+            "hall effect",
+            "c-v measurement",
+            "hot probe",
+            "hot-point probe",
+            "hot point probe"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 91,
+          "name": "Hall Effect and Carrier Mobility",
+          "canonical_name": "Hall Effect and Carrier Mobility",
+          "aliases": [],
+          "strong_phrases": [
+            "hall effect",
+            "hall coefficient",
+            "hall voltage",
+            "hall mobility",
+            "determine hall coefficient",
+            "lorentz force in semiconductor",
+            "hall probe",
+            "carrier density and hall mobility",
+            "hall coefficient of semiconductor"
+          ],
+          "specific_keywords": [
+            "hall effect",
+            "hall coefficient",
+            "hall voltage",
+            "hall mobility"
+          ],
+          "negative_guards": [
+            "van der pauw",
+            "two point probe",
+            "c-v measurement",
+            "capacitance-voltage"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 92,
+          "name": "Hot-Point Probe and Capacitance-Voltage Measurements",
+          "canonical_name": "Hot-Point Probe and Capacitance-Voltage Measurements",
+          "aliases": [],
+          "strong_phrases": [
+            "hot-point probe",
+            "hot point probe",
+            "hot probe method",
+            "capacitance-voltage measurement",
+            "capacitance-voltage measurements",
+            "c-v measurement",
+            "c-v measurements",
+            "thermoelectric probe",
+            "c-v profiling",
+            "determining quickly whether a semiconductor sample is n type",
+            "determine quickly whether a semiconductor sample is n type"
+          ],
+          "specific_keywords": [
+            "hot-point probe",
+            "hot point probe",
+            "hot probe",
+            "c-v measurement",
+            "c-v measurements"
+          ],
+          "negative_guards": [
+            "hall effect",
+            "four point probe",
+            "van der pauw"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 93,
+          "name": "Diode Parameter Extraction and TCAD",
+          "canonical_name": "Diode Parameter Extraction and TCAD",
+          "aliases": [],
+          "strong_phrases": [
+            "extraction of parameters in a diode",
+            "diode parameter extraction",
+            "introduction of tcad",
+            "technology cad",
+            "tcad simulation",
+            "ideality factor of diode",
+            "extraction of parameters in diode"
+          ],
+          "specific_keywords": [
+            "tcad",
+            "diode parameter extraction",
+            "parameter extraction in a diode"
+          ],
+          "negative_guards": [
+            "vi characteristics of p-n junction",
+            "built-in potential"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 94,
+          "name": "Boltzmann Transport Equation and Monte Carlo Method",
+          "canonical_name": "Boltzmann Transport Equation and Monte Carlo Method",
+          "aliases": [],
+          "strong_phrases": [
+            "boltzmann transport equation",
+            "boltzmann transport",
+            "monte carlo method for solution of bte",
+            "monte carlo methods for solution of bte",
+            "monte carlo method",
+            "monte carlo simulation",
+            "scattering mechanisms in semiconductors",
+            "boltzmann equation"
+          ],
+          "specific_keywords": [
+            "boltzmann transport equation",
+            "boltzmann transport",
+            "monte carlo method",
+            "bte"
+          ],
+          "negative_guards": [
+            "classical free electron",
+            "drude"
+          ],
+          "context_hints": []
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "number": 5,
+      "name": "Nanostructures and Characterization",
+      "topics": [
+        {
+          "id": 95,
+          "name": "Low-Dimensional Systems and Density of States",
+          "canonical_name": "Low-Dimensional Systems and Density of States",
+          "aliases": [],
+          "strong_phrases": [
+            "density of states in 2d 1d and 0d",
+            "density of states in 2d",
+            "density of states in 1d",
+            "density of states in 0d",
+            "density of states in lower-dimensional",
+            "quantum well",
+            "quantum wire",
+            "quantum dot",
+            "quantum dots",
+            "quantum wells",
+            "quantum wires",
+            "low dimensional systems",
+            "low-dimensional systems",
+            "quantum confinement",
+            "example of 0d material",
+            "0d material",
+            "1d material",
+            "2d material",
+            "nanoparticle",
+            "nanowire",
+            "nanosheet"
+          ],
+          "specific_keywords": [
+            "quantum well",
+            "quantum wire",
+            "quantum dot",
+            "low dimensional systems",
+            "quantum dots",
+            "quantum wells",
+            "0d material",
+            "nanoparticle",
+            "nanowire"
+          ],
+          "negative_guards": [
+            "carbon nanotube",
+            "cnt",
+            "sem",
+            "tem",
+            "afm",
+            "xrd"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 96,
+          "name": "Carbon Nanotubes (CNT)",
+          "canonical_name": "Carbon Nanotubes (CNT)",
+          "aliases": [],
+          "strong_phrases": [
+            "carbon nanotube",
+            "carbon nanotubes",
+            "cnt",
+            "cnts",
+            "armchair carbon nanotube",
+            "zigzag carbon nanotube",
+            "chiral carbon nanotube",
+            "chiral vector of cnt",
+            "swcnt",
+            "mwcnt",
+            "properties and synthesis of cnt",
+            "applications of cnts",
+            "applications of cnt",
+            "nanotube",
+            "nanotubes"
+          ],
+          "specific_keywords": [
+            "carbon nanotube",
+            "carbon nanotubes",
+            "cnt",
+            "swcnt",
+            "mwcnt",
+            "cnts",
+            "nanotubes"
+          ],
+          "negative_guards": [
+            "quantum well",
+            "quantum wire",
+            "c-v measurement"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 97,
+          "name": "Nanofabrication Techniques",
+          "canonical_name": "Nanofabrication Techniques",
+          "aliases": [],
+          "strong_phrases": [
+            "chemical vapor deposition",
+            "physical vapor deposition",
+            "chemical vapour deposition",
+            "physical vapour deposition",
+            "cvd technique",
+            "pvd technique",
+            "cvd synthesis",
+            "pvd synthesis",
+            "thermal evaporation",
+            "sputtering technique",
+            "nanofabrication technique",
+            "fabrication technique-cvd",
+            "cvd and pvd",
+            "cvd, pvd"
+          ],
+          "specific_keywords": [
+            "chemical vapor deposition",
+            "physical vapor deposition",
+            "chemical vapour deposition",
+            "physical vapour deposition",
+            "cvd",
+            "pvd"
+          ],
+          "negative_guards": [
+            "sem",
+            "tem",
+            "afm",
+            "xrd",
+            "microscopy"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 98,
+          "name": "Electron Microscopy and Surface Characterization",
+          "canonical_name": "Electron Microscopy and Surface Characterization",
+          "aliases": [],
+          "strong_phrases": [
+            "scanning electron microscopy",
+            "transmission electron microscopy",
+            "atomic force microscopy",
+            "atomic force microscope",
+            "powder xrd",
+            "lattice parameters using powder xrd",
+            "scanning electron microscope",
+            "transmission electron microscope",
+            "afm",
+            "x-ray diffraction for lattice parameters",
+            "electron microscope"
+          ],
+          "specific_keywords": [
+            "scanning electron microscopy",
+            "transmission electron microscopy",
+            "atomic force microscopy",
+            "atomic force microscope",
+            "sem",
+            "tem",
+            "afm",
+            "electron microscope"
+          ],
+          "negative_guards": [
+            "cvd",
+            "pvd",
+            "chemical vapor deposition",
+            "chemical vapour deposition",
+            "physical vapor deposition",
+            "physical vapour deposition",
+            "cnt",
+            "carbon nanotube",
+            "carbon nano tubes",
+            "nanotubes",
+            "optical absorption"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 99,
+          "name": "Computational Image Processing for Nanomaterials",
+          "canonical_name": "Computational Image Processing for Nanomaterials",
+          "aliases": [],
+          "strong_phrases": [
+            "computational and machine learning approach for electron microscopy",
+            "machine learning approach for electron microscopy",
+            "electron microscopy image processing",
+            "microscopy image processing",
+            "image processing of graphene",
+            "example of graphene image processing"
+          ],
+          "specific_keywords": [
+            "microscopy image processing",
+            "electron microscopy image processing"
+          ],
+          "negative_guards": [
+            "quantum well",
+            "cnt synthesis",
+            "cvd"
+          ],
+          "context_hints": []
+        }
+      ]
+    }
+  ]
+}
