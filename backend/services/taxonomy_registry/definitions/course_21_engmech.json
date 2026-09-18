@@ -1,0 +1,782 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 21,
+    "name": "Engineering Mechanics",
+    "canonical_code": "21MEB101T",
+    "code": "SEM2-ENGMECH",
+    "regulation_year": 2021,
+    "department": "Mechanical Engineering"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MEB101T Engineering Mechanics",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Statics of Particles and Rigid Bodies, Friction and Applications, Centroid and Moment of Inertia, Dynamics of Particles, and Kinematics & Kinetics of Rigid Bodies."
+  },
+  "units": [
+    {
+      "id": 42,
+      "number": 1,
+      "name": "Statics of Particles and Rigid Bodies",
+      "topics": [
+        {
+          "id": 389,
+          "name": "Force Systems, Resultant of Forces, and Parallelogram Law",
+          "canonical_name": "Force Systems, Resultant of Forces, and Parallelogram Law",
+          "aliases": [
+            "Concurrent Coplanar Forces and Parallelogram Law"
+          ],
+          "strong_phrases": [
+            "resultant of forces",
+            "parallelogram law of forces",
+            "triangle law of forces",
+            "polygon law of forces",
+            "coplanar concurrent forces",
+            "principle of transmissibility of forces",
+            "principle of transmissibility",
+            "resolution of a force",
+            "forces which meet at one joint"
+          ],
+          "specific_keywords": [
+            "parallelogram law",
+            "transmissibility",
+            "coplanar forces"
+          ],
+          "negative_guards": [
+            "friction",
+            "centroid",
+            "moment of inertia",
+            "rectilinear"
+          ],
+          "context_hints": [
+            "force vectors",
+            "statics"
+          ]
+        },
+        {
+          "id": 390,
+          "name": "Free Body Diagrams, Equilibrium of Particles, and Lami's Theorem",
+          "canonical_name": "Free Body Diagrams, Equilibrium of Particles, and Lami's Theorem",
+          "aliases": [
+            "Particle Equilibrium and Lami's Theorem"
+          ],
+          "strong_phrases": [
+            "free body diagram",
+            "lami's theorem",
+            "lamis theorem",
+            "equilibrium of a particle",
+            "equilibrium of particles",
+            "strings tied to a point",
+            "tension in the string",
+            "two cylinders of diameters"
+          ],
+          "specific_keywords": [
+            "lami's theorem",
+            "lamis theorem",
+            "free body diagram"
+          ],
+          "negative_guards": [
+            "moment of inertia",
+            "rigid body rotation",
+            "ladder friction"
+          ],
+          "context_hints": [
+            "equilibrium",
+            "tension"
+          ]
+        },
+        {
+          "id": 391,
+          "name": "Moments, Couples, and Varignon's Theorem",
+          "canonical_name": "Moments, Couples, and Varignon's Theorem",
+          "aliases": [
+            "Varignon's Principle of Moments and Couples"
+          ],
+          "strong_phrases": [
+            "varignon's theorem",
+            "varignons theorem",
+            "moment of a force",
+            "couple is a free vector",
+            "moment of a couple",
+            "equivalent force couple system",
+            "principle of moments"
+          ],
+          "specific_keywords": [
+            "varignon's theorem",
+            "varignons theorem",
+            "force couple"
+          ],
+          "negative_guards": [
+            "moment of inertia",
+            "friction",
+            "kinematics"
+          ],
+          "context_hints": [
+            "rotational statics",
+            "couples"
+          ]
+        },
+        {
+          "id": 392,
+          "name": "Equilibrium of Rigid Bodies and Types of Supports",
+          "canonical_name": "Equilibrium of Rigid Bodies and Types of Supports",
+          "aliases": [
+            "Support Reactions and Rigid Body Equilibrium"
+          ],
+          "strong_phrases": [
+            "equilibrium of rigid bodies",
+            "find the reactions at support",
+            "reactions at supports",
+            "types of supports in beams",
+            "roller support",
+            "hinged support",
+            "freely sliding collar",
+            "fixed support reaction"
+          ],
+          "specific_keywords": [
+            "support reactions",
+            "roller support",
+            "sliding collar"
+          ],
+          "negative_guards": [
+            "moment of inertia",
+            "dynamics of particles"
+          ],
+          "context_hints": [
+            "beam supports",
+            "rigid equilibrium"
+          ]
+        },
+        {
+          "id": 393,
+          "name": "Analysis of Simple Trusses and Method of Joints",
+          "canonical_name": "Analysis of Simple Trusses and Method of Joints",
+          "aliases": [
+            "Truss Analysis Method of Joints and Sections"
+          ],
+          "strong_phrases": [
+            "analysis of simple trusses",
+            "method of joints",
+            "method of sections",
+            "forces in the members of the truss",
+            "perfect truss",
+            "zero force members"
+          ],
+          "specific_keywords": [
+            "method of joints",
+            "method of sections",
+            "truss"
+          ],
+          "negative_guards": [
+            "friction",
+            "kinematics",
+            "moment of inertia"
+          ],
+          "context_hints": [
+            "structural mechanics",
+            "trusses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "number": 2,
+      "name": "Friction and Its Applications",
+      "topics": [
+        {
+          "id": 394,
+          "name": "Laws of Dry Friction, Limiting Friction, and Coefficient of Friction",
+          "canonical_name": "Laws of Dry Friction, Limiting Friction, and Coefficient of Friction",
+          "aliases": [
+            "Coulomb's Friction Laws"
+          ],
+          "strong_phrases": [
+            "laws of dry friction",
+            "coulomb friction",
+            "limiting force of friction",
+            "limiting friction",
+            "coefficient of friction depends on",
+            "ratio of the limiting force of friction to normal reaction",
+            "dynamic friction and static friction",
+            "force of friction acts in a direction"
+          ],
+          "specific_keywords": [
+            "limiting friction",
+            "coefficient of friction",
+            "dry friction"
+          ],
+          "negative_guards": [
+            "ladder",
+            "wedge",
+            "screw jack",
+            "belt friction"
+          ],
+          "context_hints": [
+            "friction fundamentals",
+            "normal reaction"
+          ]
+        },
+        {
+          "id": 395,
+          "name": "Angle of Friction, Cone of Friction, and Angle of Repose",
+          "canonical_name": "Angle of Friction, Cone of Friction, and Angle of Repose",
+          "aliases": [
+            "Friction Angle and Cone"
+          ],
+          "strong_phrases": [
+            "angle of friction",
+            "cone of friction",
+            "angle of repose",
+            "relationship between angle of friction and angle of repose"
+          ],
+          "specific_keywords": [
+            "angle of repose",
+            "cone of friction",
+            "angle of friction"
+          ],
+          "negative_guards": [
+            "ladder friction",
+            "screw jack"
+          ],
+          "context_hints": [
+            "repose angle",
+            "friction cones"
+          ]
+        },
+        {
+          "id": 396,
+          "name": "Friction on Horizontal and Inclined Planes",
+          "canonical_name": "Friction on Horizontal and Inclined Planes",
+          "aliases": [
+            "Blocks on Inclined and Horizontal Planes"
+          ],
+          "strong_phrases": [
+            "block on an inclined plane",
+            "motion impends up the plane",
+            "motion impends down the plane",
+            "block of weight rests on a horizontal surface",
+            "blocks connected by a string over a pulley",
+            "least force required to drag a body"
+          ],
+          "specific_keywords": [
+            "inclined plane",
+            "impending motion"
+          ],
+          "negative_guards": [
+            "ladder",
+            "wedge",
+            "screw jack"
+          ],
+          "context_hints": [
+            "inclined surface",
+            "sliding block"
+          ]
+        },
+        {
+          "id": 397,
+          "name": "Ladder Friction and Wedge Friction",
+          "canonical_name": "Ladder Friction and Wedge Friction",
+          "aliases": [
+            "Ladder and Wedge Applications"
+          ],
+          "strong_phrases": [
+            "ladder friction",
+            "ladder resting against a wall",
+            "ladder of weight",
+            "ladder leaning against a vertical wall",
+            "wedge friction",
+            "force required to raise the load using wedge"
+          ],
+          "specific_keywords": [
+            "ladder friction",
+            "wedge friction",
+            "ladder"
+          ],
+          "negative_guards": [
+            "belt friction",
+            "screw jack"
+          ],
+          "context_hints": [
+            "ladder equilibrium",
+            "wedges"
+          ]
+        },
+        {
+          "id": 398,
+          "name": "Belt Friction and Screw Jack Friction",
+          "canonical_name": "Belt Friction and Screw Jack Friction",
+          "aliases": [
+            "Flat Belts V-Belts and Screw Jacks"
+          ],
+          "strong_phrases": [
+            "belt friction",
+            "flat belt drive",
+            "ratio of belt tensions",
+            "t1/t2 = e^(mu theta)",
+            "screw jack",
+            "efficiency of screw jack",
+            "effort required to raise a load using screw jack"
+          ],
+          "specific_keywords": [
+            "screw jack",
+            "belt friction",
+            "belt tensions"
+          ],
+          "negative_guards": [
+            "ladder",
+            "centroid"
+          ],
+          "context_hints": [
+            "power transmission",
+            "screws"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "number": 3,
+      "name": "Centroid and Moment of Inertia",
+      "topics": [
+        {
+          "id": 399,
+          "name": "Centroid of Lines, Simple Areas, and Composite Figures",
+          "canonical_name": "Centroid of Lines, Simple Areas, and Composite Figures",
+          "aliases": [
+            "Centroid of Plane Areas and Composite Sections"
+          ],
+          "strong_phrases": [
+            "locate the centroid of plane area",
+            "centroid of a semi circle",
+            "centroid of a straight line",
+            "centroid of composite figure",
+            "centroid of t section",
+            "centroid of i section",
+            "centroid of plane area shown in figure"
+          ],
+          "specific_keywords": [
+            "centroid",
+            "centroids"
+          ],
+          "negative_guards": [
+            "centre of gravity of solid",
+            "mass moment of inertia"
+          ],
+          "context_hints": [
+            "centre of area",
+            "first moment"
+          ]
+        },
+        {
+          "id": 400,
+          "name": "Centre of Gravity of Solid Bodies",
+          "canonical_name": "Centre of Gravity of Solid Bodies",
+          "aliases": [
+            "Centre of Gravity of Volumes and Solids"
+          ],
+          "strong_phrases": [
+            "centre of gravity",
+            "center of gravity",
+            "centre of gravity of a semi circle",
+            "centre of gravity of right circular solid cone",
+            "point through which the entire weight of the body acts",
+            "centre of gravity of hemisphere"
+          ],
+          "specific_keywords": [
+            "centre of gravity",
+            "center of gravity"
+          ],
+          "negative_guards": [
+            "moment of inertia",
+            "polar moment of inertia"
+          ],
+          "context_hints": [
+            "mass center",
+            "gravity"
+          ]
+        },
+        {
+          "id": 401,
+          "name": "Moment of Inertia of Areas and Parallel Axis Theorem",
+          "canonical_name": "Moment of Inertia of Areas and Parallel Axis Theorem",
+          "aliases": [
+            "Second Moment of Area and Parallel Axis"
+          ],
+          "strong_phrases": [
+            "moment of inertia of plane area",
+            "find i_xx and i_yy",
+            "parallel axis theorem",
+            "state parallel axis theorem",
+            "moment of inertia of a hollow cylinder section",
+            "second moment of area",
+            "radius of gyration of area"
+          ],
+          "specific_keywords": [
+            "parallel axis theorem",
+            "radius of gyration",
+            "second moment of area"
+          ],
+          "negative_guards": [
+            "perpendicular axis theorem",
+            "polar moment of inertia",
+            "mass moment of inertia"
+          ],
+          "context_hints": [
+            "area moment",
+            "bending resistance"
+          ]
+        },
+        {
+          "id": 402,
+          "name": "Perpendicular Axis Theorem and Polar Moment of Inertia",
+          "canonical_name": "Perpendicular Axis Theorem and Polar Moment of Inertia",
+          "aliases": [
+            "Polar Moment and Perpendicular Axis"
+          ],
+          "strong_phrases": [
+            "perpendicular axis theorem",
+            "state perpendicular axis theorem",
+            "polar moment of inertia",
+            "polar section modulus",
+            "polar moment of inertia of a circular section"
+          ],
+          "specific_keywords": [
+            "perpendicular axis theorem",
+            "polar moment of inertia"
+          ],
+          "negative_guards": [
+            "parallel axis theorem",
+            "mass moment of inertia"
+          ],
+          "context_hints": [
+            "torsional resistance",
+            "polar axis"
+          ]
+        },
+        {
+          "id": 403,
+          "name": "Mass Moment of Inertia of Standard Geometries",
+          "canonical_name": "Mass Moment of Inertia of Standard Geometries",
+          "aliases": [
+            "Rotational Inertia of Solid Bodies"
+          ],
+          "strong_phrases": [
+            "mass moment of inertia",
+            "mass moment of inertia of a circular disc",
+            "mass moment of inertia of a cylinder",
+            "mass moment of inertia of a sphere",
+            "mass radius of gyration"
+          ],
+          "specific_keywords": [
+            "mass moment of inertia"
+          ],
+          "negative_guards": [
+            "area moment of inertia",
+            "centroid of a straight line"
+          ],
+          "context_hints": [
+            "rotational mass",
+            "dynamics inertia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "number": 4,
+      "name": "Dynamics of Particles: Kinematics and Kinetics",
+      "topics": [
+        {
+          "id": 404,
+          "name": "Rectilinear Motion: Position, Velocity, and Acceleration",
+          "canonical_name": "Rectilinear Motion: Position, Velocity, and Acceleration",
+          "aliases": [
+            "Linear Motion of Particles"
+          ],
+          "strong_phrases": [
+            "rectilinear motion of particles",
+            "rectilinear motion",
+            "motion along a straight path",
+            "motion of a particle along a straight line",
+            "uniform velocity",
+            "uniform acceleration",
+            "velocity and acceleration of particle",
+            "position velocity and acceleration"
+          ],
+          "specific_keywords": [
+            "rectilinear motion",
+            "straight path"
+          ],
+          "negative_guards": [
+            "curvilinear",
+            "projectile",
+            "rigid body"
+          ],
+          "context_hints": [
+            "1d kinematics",
+            "motion curves"
+          ]
+        },
+        {
+          "id": 405,
+          "name": "Curvilinear Motion and Projectile Motion",
+          "canonical_name": "Curvilinear Motion and Projectile Motion",
+          "aliases": [
+            "Curvilinear and Projectile Trajectories"
+          ],
+          "strong_phrases": [
+            "curvilinear motion",
+            "projectile motion",
+            "trajectory of a projectile",
+            "horizontal range of projectile",
+            "angle of projection",
+            "normal and tangential acceleration"
+          ],
+          "specific_keywords": [
+            "curvilinear motion",
+            "projectile motion",
+            "tangential acceleration"
+          ],
+          "negative_guards": [
+            "rectilinear motion",
+            "rigid body rotation"
+          ],
+          "context_hints": [
+            "2d motion",
+            "trajectories"
+          ]
+        },
+        {
+          "id": 406,
+          "name": "Newton's Second Law and D'Alembert's Principle for Particles",
+          "canonical_name": "Newton's Second Law and D'Alembert's Principle for Particles",
+          "aliases": [
+            "Kinetics of Particles and D'Alembert's Principle"
+          ],
+          "strong_phrases": [
+            "d'alembert's principle",
+            "dalembert's principle",
+            "study of bodies subjected to unbalanced forces",
+            "equation of dynamic equilibrium",
+            "inertia force on particle"
+          ],
+          "specific_keywords": [
+            "d'alembert's principle",
+            "dalembert's principle"
+          ],
+          "negative_guards": [
+            "work energy",
+            "impact of elastic"
+          ],
+          "context_hints": [
+            "particle kinetics",
+            "inertia"
+          ]
+        },
+        {
+          "id": 407,
+          "name": "Work-Energy Principle for Particles",
+          "canonical_name": "Work-Energy Principle for Particles",
+          "aliases": [
+            "Work Done Kinetic Energy and Potential Energy"
+          ],
+          "strong_phrases": [
+            "work energy principle",
+            "work-energy equation for particle",
+            "kinetic energy of particle",
+            "potential energy of particle",
+            "principle of conservation of energy"
+          ],
+          "specific_keywords": [
+            "work energy",
+            "work-energy",
+            "kinetic energy"
+          ],
+          "negative_guards": [
+            "rigid body",
+            "angular velocity",
+            "angular acceleration"
+          ],
+          "context_hints": [
+            "energy balance",
+            "work theorem"
+          ]
+        },
+        {
+          "id": 408,
+          "name": "Impulse-Momentum Principle and Impact of Elastic Bodies",
+          "canonical_name": "Impulse-Momentum Principle and Impact of Elastic Bodies",
+          "aliases": [
+            "Linear Impulse Momentum and Collision of Bodies"
+          ],
+          "strong_phrases": [
+            "coefficient of restitution",
+            "impact of elastic bodies",
+            "direct central impact",
+            "oblique central impact",
+            "linear impulse and momentum",
+            "impulse momentum equation",
+            "plastic and elastic impact"
+          ],
+          "specific_keywords": [
+            "coefficient of restitution",
+            "impulse momentum",
+            "central impact"
+          ],
+          "negative_guards": [
+            "angular momentum",
+            "rigid body"
+          ],
+          "context_hints": [
+            "collision",
+            "restitution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "number": 5,
+      "name": "Kinematics and Kinetics of Rigid Bodies",
+      "topics": [
+        {
+          "id": 409,
+          "name": "Translation and Rotation of Rigid Bodies About a Fixed Axis",
+          "canonical_name": "Translation and Rotation of Rigid Bodies About a Fixed Axis",
+          "aliases": [
+            "Rigid Body Fixed Axis Rotation"
+          ],
+          "strong_phrases": [
+            "kinematics of rigid bodies",
+            "rotation about a fixed axis",
+            "rotation about fixed point",
+            "distance between any two points do not change",
+            "angular velocity and angular acceleration",
+            "crank rotates with constant angular velocity",
+            "calculate alpha in rotation"
+          ],
+          "specific_keywords": [
+            "angular velocity",
+            "angular acceleration",
+            "fixed axis"
+          ],
+          "negative_guards": [
+            "instantaneous centre",
+            "rolling wheel",
+            "angular momentum"
+          ],
+          "context_hints": [
+            "pure rotation",
+            "angular kinematics"
+          ]
+        },
+        {
+          "id": 410,
+          "name": "General Plane Motion and Instantaneous Centre of Rotation",
+          "canonical_name": "General Plane Motion and Instantaneous Centre of Rotation",
+          "aliases": [
+            "ICR and Combined Motion of Rigid Bodies"
+          ],
+          "strong_phrases": [
+            "general plane motion",
+            "instantaneous centre of rotation",
+            "instantaneous center",
+            "rolling without slipping",
+            "rolling wheel is an example of"
+          ],
+          "specific_keywords": [
+            "general plane motion",
+            "instantaneous centre",
+            "rolling wheel"
+          ],
+          "negative_guards": [
+            "pure translation"
+          ],
+          "context_hints": [
+            "combined motion",
+            "icr"
+          ]
+        },
+        {
+          "id": 411,
+          "name": "Equations of Motion for Plane Motion of Rigid Bodies",
+          "canonical_name": "Equations of Motion for Plane Motion of Rigid Bodies",
+          "aliases": [
+            "Rigid Body Plane Kinetics"
+          ],
+          "strong_phrases": [
+            "equations of motion for plane motion",
+            "d'alembert's principle for rigid body",
+            "plane kinetics of rigid bodies",
+            "torque equals i alpha",
+            "unbalanced torque on rigid body"
+          ],
+          "specific_keywords": [
+            "equations of motion for rigid body",
+            "plane kinetics"
+          ],
+          "negative_guards": [
+            "particle"
+          ],
+          "context_hints": [
+            "dynamic force torque",
+            "rigid kinetics"
+          ]
+        },
+        {
+          "id": 412,
+          "name": "Work-Energy Principle for Rigid Bodies",
+          "canonical_name": "Work-Energy Principle for Rigid Bodies",
+          "aliases": [
+            "Work Energy in Translation and Rotation"
+          ],
+          "strong_phrases": [
+            "work-energy principle for rigid bodies",
+            "work energy of rigid body",
+            "rotational kinetic energy",
+            "kinetic energy of a rolling body",
+            "1/2 i omega^2"
+          ],
+          "specific_keywords": [
+            "rotational kinetic energy"
+          ],
+          "negative_guards": [
+            "particle"
+          ],
+          "context_hints": [
+            "rotational work",
+            "rolling energy"
+          ]
+        },
+        {
+          "id": 413,
+          "name": "Impulse and Angular Momentum for Rigid Bodies",
+          "canonical_name": "Impulse and Angular Momentum for Rigid Bodies",
+          "aliases": [
+            "Angular Impulse and Conservation of Angular Momentum"
+          ],
+          "strong_phrases": [
+            "angular momentum in terms of angular acceleration",
+            "conservation of angular momentum",
+            "angular impulse and angular momentum",
+            "rate of change of angular momentum"
+          ],
+          "specific_keywords": [
+            "angular momentum",
+            "angular impulse"
+          ],
+          "negative_guards": [
+            "particle"
+          ],
+          "context_hints": [
+            "angular impulse",
+            "spinning body"
+          ]
+        }
+      ]
+    }
+  ]
+}

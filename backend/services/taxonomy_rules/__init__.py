@@ -16,6 +16,7 @@ from backend.services.taxonomy_rules.eee_rules import EEE_TAXONOMY_RULES
 from backend.services.taxonomy_rules.acca_rules import ACCA_TAXONOMY_RULES
 from backend.services.taxonomy_rules.oodp_rules import OODP_TAXONOMY_RULES
 from backend.services.taxonomy_rules.espcb_rules import ESPCB_TAXONOMY_RULES
+from backend.services.taxonomy_rules.engmech_rules import ENGMECH_TAXONOMY_RULES
 
 __all__ = [
     "CHEMISTRY_TAXONOMY_RULES",
@@ -33,6 +34,7 @@ __all__ = [
     "ACCA_TAXONOMY_RULES",
     "OODP_TAXONOMY_RULES",
     "ESPCB_TAXONOMY_RULES",
+    "ENGMECH_TAXONOMY_RULES",
 ]
 
 
