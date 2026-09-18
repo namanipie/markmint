@@ -321,6 +321,13 @@ def get_intelligence_snapshot(
     explainable predictions, study priorities, coverage, and exam schedules.
     """
     t_start = time.time()
+    if not isinstance(target_year, int):
+        target_year = None
+    if not isinstance(target_exam_date, str):
+        target_exam_date = None
+    if not isinstance(student_id, str) or hasattr(student_id, "default"):
+        student_id = "anonymous"
+
     course = _find_course(db, course_id)
 
     # If course is not directly resolved, check if course_id matches curriculum_mapping

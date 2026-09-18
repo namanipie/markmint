@@ -52,12 +52,12 @@ def test_calculus_intelligence_unaffected() -> None:
 
 
 def test_unmapped_course_remains_family_mode() -> None:
-    """Verifies that a course without topic taxonomy (e.g. Course 5) remains in family mode."""
-    res = client.get("/api/intelligence/5")
+    """Verifies that a course without topic taxonomy (e.g. Course 8: Foreign Languages) remains in family mode."""
+    res = client.get("/api/intelligence/8")
     assert res.status_code == 200
     data = res.json()
 
-    assert data["course"]["id"] == 5
+    assert data["course"]["id"] == 8
     assert data["has_topic_taxonomy"] is False
     assert data["taxonomy_topic_count"] == 0
     assert data["prediction_mode"] == "family"
