@@ -1,0 +1,1259 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 14,
+    "name": "Electrical and Electronics Engineering",
+    "canonical_code": "21EEB101J",
+    "code": "SEM1-EEE",
+    "regulation_year": 2021,
+    "department": "Electrical & Electronics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21EES101T/21EEB101J Electrical and Electronics Engineering",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Electric Circuits, Electronics, Machines & Drives, Transducers & Sensors, and Power Engineering."
+  },
+  "units": [
+    {
+      "id": 35,
+      "number": 1,
+      "name": "Electric Circuits",
+      "topics": [
+        {
+          "id": 280,
+          "name": "DC Circuit Terminologies and Kirchhoff's Laws",
+          "canonical_name": "DC Circuit Terminologies and Kirchhoff's Laws",
+          "aliases": [
+            "Kirchhoff Laws and DC Circuits"
+          ],
+          "strong_phrases": [
+            "kirchhoff's current law",
+            "kirchhoff's voltage law",
+            "kirchhoff current law",
+            "kirchhoff voltage law",
+            "kirchhoffs law",
+            "kirchhoffs current law",
+            "kirchhoffs voltage law",
+            "kcl and kvl",
+            "state and explain kcl",
+            "state and explain kvl",
+            "basic terminologies in dc circuit"
+          ],
+          "specific_keywords": [
+            "kcl",
+            "kvl"
+          ],
+          "negative_guards": [
+            "mesh analysis",
+            "nodal analysis",
+            "thevenin",
+            "maximum power",
+            "superposition",
+            "ac circuit",
+            "transformer"
+          ],
+          "context_hints": [
+            "circuits",
+            "electrical"
+          ]
+        },
+        {
+          "id": 281,
+          "name": "Mesh Current and Nodal Voltage Analysis",
+          "canonical_name": "Mesh Current and Nodal Voltage Analysis",
+          "aliases": [
+            "Mesh and Nodal Analysis"
+          ],
+          "strong_phrases": [
+            "mesh current analysis",
+            "nodal voltage analysis",
+            "mesh analysis",
+            "nodal analysis",
+            "mesh current method",
+            "nodal voltage method",
+            "using nodal analysis",
+            "using mesh analysis",
+            "find the node voltage",
+            "find the node voltages",
+            "find the mesh currents",
+            "find mesh current",
+            "mesh equation",
+            "node voltage method"
+          ],
+          "specific_keywords": [
+            "mesh analysis",
+            "nodal analysis"
+          ],
+          "negative_guards": [
+            "thevenin",
+            "maximum power",
+            "superposition",
+            "kcl and kvl"
+          ],
+          "context_hints": [
+            "circuits",
+            "dc"
+          ]
+        },
+        {
+          "id": 282,
+          "name": "Network Theorems",
+          "canonical_name": "Network Theorems",
+          "aliases": [
+            "Thevenin and Maximum Power Transfer Theorems"
+          ],
+          "strong_phrases": [
+            "thevenin's theorem",
+            "thevenin theorem",
+            "thevenins theorem",
+            "thevenin equivalent",
+            "thevenin's equivalent",
+            "maximum power transfer theorem",
+            "maximum power transfer",
+            "max power transfer theorem",
+            "superposition theorem",
+            "state superposition theorem",
+            "state thevenin",
+            "state maximum power transfer theorem",
+            "thevenin resistance",
+            "rth and vth"
+          ],
+          "specific_keywords": [
+            "thevenin",
+            "thevenins",
+            "superposition theorem"
+          ],
+          "negative_guards": [
+            "mesh analysis",
+            "nodal analysis",
+            "transformer"
+          ],
+          "context_hints": [
+            "theorems",
+            "circuit analysis"
+          ]
+        },
+        {
+          "id": 283,
+          "name": "AC Circuit Fundamentals",
+          "canonical_name": "AC Circuit Fundamentals",
+          "aliases": [
+            "AC Fundamentals and Waveforms"
+          ],
+          "strong_phrases": [
+            "rms and average value",
+            "rms value of alternating",
+            "average value of alternating",
+            "form factor and peak factor",
+            "crest factor and form factor",
+            "peak factor of sine wave",
+            "form factor of sine wave",
+            "average value of sinusoidal",
+            "rms value of sinusoidal",
+            "half wave alternating quantity",
+            "full wave alternating quantity"
+          ],
+          "specific_keywords": [
+            "form factor",
+            "peak factor",
+            "crest factor"
+          ],
+          "negative_guards": [
+            "rlc",
+            "r-l-c",
+            "star connected",
+            "delta connected",
+            "three phase"
+          ],
+          "context_hints": [
+            "ac",
+            "alternating quantity"
+          ]
+        },
+        {
+          "id": 284,
+          "name": "Single-Phase AC Series Circuits",
+          "canonical_name": "Single-Phase AC Series Circuits",
+          "aliases": [
+            "RLC Series Circuits"
+          ],
+          "strong_phrases": [
+            "r-l-c series",
+            "rlc series circuit",
+            "r-l series circuit",
+            "r-c series circuit",
+            "rl series circuit",
+            "rc series circuit",
+            "single phase ac circuit",
+            "impedance of rlc",
+            "resonant frequency of rlc series",
+            "power factor of ac circuit",
+            "inductive reactance and capacitive reactance",
+            "apparent power and reactive power",
+            "true power and reactive power"
+          ],
+          "specific_keywords": [
+            "rlc series",
+            "r-l-c"
+          ],
+          "negative_guards": [
+            "three phase",
+            "delta connected",
+            "star connected",
+            "transformer",
+            "induction motor"
+          ],
+          "context_hints": [
+            "ac circuits",
+            "resonance"
+          ]
+        },
+        {
+          "id": 285,
+          "name": "Three-Phase AC Systems",
+          "canonical_name": "Three-Phase AC Systems",
+          "aliases": [
+            "Star and Delta Connections"
+          ],
+          "strong_phrases": [
+            "three-phase winding connections",
+            "relationship of line and phase",
+            "three phase star connected",
+            "three phase delta connected",
+            "star connected system",
+            "delta connected system",
+            "line voltage and phase voltage",
+            "line current and phase current",
+            "three phase balanced load",
+            "three phase ac system",
+            "star-connected system",
+            "delta-connected system"
+          ],
+          "specific_keywords": [
+            "three-phase star",
+            "three-phase delta",
+            "star-connected",
+            "delta-connected"
+          ],
+          "negative_guards": [
+            "induction motor",
+            "transformer",
+            "bldc"
+          ],
+          "context_hints": [
+            "three phase",
+            "power systems"
+          ]
+        },
+        {
+          "id": 286,
+          "name": "Rectifier Circuits",
+          "canonical_name": "Rectifier Circuits",
+          "aliases": [
+            "Half Wave and Bridge Rectifiers"
+          ],
+          "strong_phrases": [
+            "half wave rectifier",
+            "full wave bridge rectifier",
+            "halfwave rectifier",
+            "full wave rectifier",
+            "bridge rectifier circuit",
+            "rectifier circuit",
+            "ripple factor of half wave",
+            "ripple factor of full wave",
+            "efficiency of full wave rectifier",
+            "efficiency of half wave rectifier",
+            "piv of half wave",
+            "piv of bridge rectifier"
+          ],
+          "specific_keywords": [
+            "bridge rectifier",
+            "half-wave rectifier",
+            "full-wave rectifier"
+          ],
+          "negative_guards": [
+            "chopper",
+            "inverter",
+            "cycloconverter"
+          ],
+          "context_hints": [
+            "rectification",
+            "dc conversion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "number": 2,
+      "name": "Electronics",
+      "topics": [
+        {
+          "id": 287,
+          "name": "Semiconductors, Diodes, and BJT",
+          "canonical_name": "Semiconductors, Diodes, and BJT",
+          "aliases": [
+            "Diodes and BJT Fundamentals"
+          ],
+          "strong_phrases": [
+            "pn junction diode",
+            "zener diode",
+            "bipolar junction transistor",
+            "bjt characteristics",
+            "common emitter configuration",
+            "common base configuration",
+            "input and output characteristics of bjt",
+            "terminal of bjt",
+            "zener diode as voltage regulator",
+            "overview of semiconductors diodes and transistors"
+          ],
+          "specific_keywords": [
+            "zener diode",
+            "bjt",
+            "npn transistor",
+            "pnp transistor"
+          ],
+          "negative_guards": [
+            "jfet",
+            "mosfet",
+            "scr",
+            "igbt",
+            "photodiode",
+            "led"
+          ],
+          "context_hints": [
+            "semiconductor",
+            "analog electronics"
+          ]
+        },
+        {
+          "id": 288,
+          "name": "Field Effect Transistors",
+          "canonical_name": "Field Effect Transistors",
+          "aliases": [
+            "JFET and MOSFET"
+          ],
+          "strong_phrases": [
+            "junction field effect transistor",
+            "jfet characteristics",
+            "drain characteristics of jfet",
+            "transfer characteristics of jfet",
+            "metal oxide semiconductor field effect transistor",
+            "mosfet construction",
+            "enhancement mosfet",
+            "depletion mosfet",
+            "introduction to jfet and mosfet"
+          ],
+          "specific_keywords": [
+            "jfet",
+            "mosfet"
+          ],
+          "negative_guards": [
+            "power mosfet",
+            "scr",
+            "igbt",
+            "bjt"
+          ],
+          "context_hints": [
+            "fet",
+            "transistor"
+          ]
+        },
+        {
+          "id": 289,
+          "name": "Power Semiconductor Devices",
+          "canonical_name": "Power Semiconductor Devices",
+          "aliases": [
+            "SCR, Power BJT, and IGBT"
+          ],
+          "strong_phrases": [
+            "silicon controlled rectifier",
+            "power bjt",
+            "power mosfet",
+            "insulated gate bipolar transistor",
+            "construction and working of scr",
+            "construction and working of igbt",
+            "layers in scr",
+            "terminals of scr",
+            "terminals of igbt",
+            "anode cathode and gate"
+          ],
+          "specific_keywords": [
+            "scr",
+            "igbt"
+          ],
+          "negative_guards": [
+            "commutation",
+            "switching characteristics",
+            "linear regulator",
+            "smps"
+          ],
+          "context_hints": [
+            "power devices",
+            "thyristor"
+          ]
+        },
+        {
+          "id": 290,
+          "name": "SCR Switching and Commutation",
+          "canonical_name": "SCR Switching and Commutation",
+          "aliases": [
+            "SCR Characteristics and Commutation"
+          ],
+          "strong_phrases": [
+            "switching characteristics of scr",
+            "turn-on characteristics of scr",
+            "turn-off characteristics of scr",
+            "natural and forced commutation",
+            "natural commutation",
+            "forced commutation",
+            "latching current and holding current",
+            "holding current of scr",
+            "latching current of scr",
+            "commutation techniques"
+          ],
+          "specific_keywords": [
+            "latching current",
+            "holding current",
+            "forced commutation",
+            "natural commutation"
+          ],
+          "negative_guards": [
+            "smps",
+            "linear regulator",
+            "logic gates"
+          ],
+          "context_hints": [
+            "power electronics",
+            "commutation"
+          ]
+        },
+        {
+          "id": 291,
+          "name": "Power Converters and Regulators",
+          "canonical_name": "Power Converters and Regulators",
+          "aliases": [
+            "Linear Regulators and SMPS"
+          ],
+          "strong_phrases": [
+            "switched mode power supply",
+            "switching mode power supply",
+            "linear voltage regulator",
+            "types of power converters",
+            "smps block diagram",
+            "working of smps",
+            "series voltage regulator",
+            "shunt voltage regulator"
+          ],
+          "specific_keywords": [
+            "smps",
+            "voltage regulator",
+            "power converters"
+          ],
+          "negative_guards": [
+            "zener diode",
+            "chopper fed dc drive",
+            "karnaugh"
+          ],
+          "context_hints": [
+            "power supply",
+            "converter"
+          ]
+        },
+        {
+          "id": 292,
+          "name": "Digital Logic and Combinational Design",
+          "canonical_name": "Digital Logic and Combinational Design",
+          "aliases": [
+            "Logic Gates and Boolean Expressions"
+          ],
+          "strong_phrases": [
+            "realize the logic expression",
+            "combinational logic design",
+            "sum of product form",
+            "product of sum form",
+            "minterm and maxterm",
+            "minterms and maxterms",
+            "basic logic gates",
+            "universal logic gates",
+            "nand and nor as universal",
+            "boolean expression using logic gates"
+          ],
+          "specific_keywords": [
+            "minterm",
+            "maxterm",
+            "logic gates",
+            "universal gates"
+          ],
+          "negative_guards": [
+            "k-map",
+            "karnaugh map",
+            "fpga"
+          ],
+          "context_hints": [
+            "digital electronics",
+            "boolean"
+          ]
+        },
+        {
+          "id": 293,
+          "name": "Karnaugh Map Minimization",
+          "canonical_name": "Karnaugh Map Minimization",
+          "aliases": [
+            "K-Map Simplification"
+          ],
+          "strong_phrases": [
+            "karnaugh map",
+            "k-map representation",
+            "k-map minimization",
+            "two variables k-map",
+            "three variables k-map",
+            "four variables k-map",
+            "2 variable k-map",
+            "3 variable k-map",
+            "4 variable k-map",
+            "simplify using k-map",
+            "minimize using k-map",
+            "solve using k-map"
+          ],
+          "specific_keywords": [
+            "karnaugh",
+            "k-map",
+            "kmap"
+          ],
+          "negative_guards": [
+            "fpga",
+            "pcb"
+          ],
+          "context_hints": [
+            "boolean minimization",
+            "logic design"
+          ]
+        },
+        {
+          "id": 294,
+          "name": "FPGA and PCB Design",
+          "canonical_name": "FPGA and PCB Design",
+          "aliases": [
+            "FPGA and PCB Fundamentals"
+          ],
+          "strong_phrases": [
+            "field programmable gate array",
+            "introduction to fpga",
+            "pcb design",
+            "printed circuit board design",
+            "soldering and testing",
+            "pcb fabrication",
+            "fpga architecture"
+          ],
+          "specific_keywords": [
+            "fpga",
+            "pcb design"
+          ],
+          "negative_guards": [
+            "k-map",
+            "thevenin"
+          ],
+          "context_hints": [
+            "embedded",
+            "pcb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "number": 3,
+      "name": "Machines and Drives",
+      "topics": [
+        {
+          "id": 295,
+          "name": "DC Machines",
+          "canonical_name": "DC Machines",
+          "aliases": [
+            "DC Motor and DC Generator"
+          ],
+          "strong_phrases": [
+            "construction and working principle of dc machines",
+            "working principle of dc motor",
+            "working principle of dc generator",
+            "construction of dc machine",
+            "emf equation of dc generator",
+            "torque equation of dc motor",
+            "back emf in dc motor",
+            "dc series motor",
+            "dc shunt motor",
+            "commutator in dc machine",
+            "armature winding of dc machine"
+          ],
+          "specific_keywords": [
+            "dc machine",
+            "dc generator",
+            "dc motor",
+            "back emf"
+          ],
+          "negative_guards": [
+            "induction motor",
+            "transformer",
+            "chopper fed",
+            "bldc",
+            "stepper"
+          ],
+          "context_hints": [
+            "machines",
+            "dc"
+          ]
+        },
+        {
+          "id": 296,
+          "name": "Single-Phase Transformers",
+          "canonical_name": "Single-Phase Transformers",
+          "aliases": [
+            "Transformer Principles and Construction"
+          ],
+          "strong_phrases": [
+            "single-phase transformer",
+            "single phase transformer",
+            "construction and working principle of a single-phase transformer",
+            "emf equation of transformer",
+            "transformer turns ratio",
+            "transformation ratio of transformer",
+            "iron losses and copper losses in transformer",
+            "core type and shell type transformer",
+            "ideal transformer",
+            "step up and step down transformer"
+          ],
+          "specific_keywords": [
+            "transformer",
+            "transformers"
+          ],
+          "negative_guards": [
+            "lvdt",
+            "dc motor",
+            "induction motor",
+            "star delta trfm"
+          ],
+          "context_hints": [
+            "transformer",
+            "magnetic circuits"
+          ]
+        },
+        {
+          "id": 297,
+          "name": "Three-Phase Induction Motors",
+          "canonical_name": "Three-Phase Induction Motors",
+          "aliases": [
+            "Induction Motor Working and Slip"
+          ],
+          "strong_phrases": [
+            "three phase induction motor",
+            "three-phase induction motor",
+            "construction and working of three phase induction motor",
+            "squirrel cage induction motor",
+            "slip ring induction motor",
+            "rotating magnetic field",
+            "slip of induction motor",
+            "torque-slip characteristics",
+            "synchronous speed of induction motor"
+          ],
+          "specific_keywords": [
+            "induction motor",
+            "induction motors",
+            "slip ring",
+            "squirrel cage"
+          ],
+          "negative_guards": [
+            "dc motor",
+            "transformer",
+            "bldc",
+            "stepper motor",
+            "servo motor"
+          ],
+          "context_hints": [
+            "ac machines",
+            "induction"
+          ]
+        },
+        {
+          "id": 298,
+          "name": "Special Electrical Machines",
+          "canonical_name": "Special Electrical Machines",
+          "aliases": [
+            "BLDC, PMSM, Stepper and Servo Motors"
+          ],
+          "strong_phrases": [
+            "brushless dc motor",
+            "bldc motor",
+            "permanent magnet synchronous motor",
+            "pmsm",
+            "stepper motor",
+            "servo motor",
+            "construction and working of bldc",
+            "working principle of stepper motor",
+            "working principle of servo motor",
+            "step angle of stepper motor"
+          ],
+          "specific_keywords": [
+            "bldc",
+            "pmsm",
+            "stepper motor",
+            "servo motor"
+          ],
+          "negative_guards": [
+            "induction motor",
+            "dc generator",
+            "transformer"
+          ],
+          "context_hints": [
+            "special machines",
+            "control motors"
+          ]
+        },
+        {
+          "id": 299,
+          "name": "Electrical Drives and Choppers",
+          "canonical_name": "Electrical Drives and Choppers",
+          "aliases": [
+            "Chopper Fed DC Drives"
+          ],
+          "strong_phrases": [
+            "introduction to electrical drives",
+            "chopper fed dc drives",
+            "block diagram explanation of chopper fed",
+            "chopper fed dc drive",
+            "electrical drive system",
+            "four quadrant operation of drives",
+            "classification of electrical drives"
+          ],
+          "specific_keywords": [
+            "chopper fed",
+            "electrical drives",
+            "electric drives",
+            "chopper",
+            "choppers"
+          ],
+          "negative_guards": [
+            "cranes",
+            "pumping applications"
+          ],
+          "context_hints": [
+            "drives",
+            "power control"
+          ]
+        },
+        {
+          "id": 300,
+          "name": "Drive Applications",
+          "canonical_name": "Drive Applications",
+          "aliases": [
+            "Drives for Cranes, EV, and Pumps"
+          ],
+          "strong_phrases": [
+            "selection of drives for real time applications",
+            "selection of drives for cranes",
+            "selection of drives for electric vehicles",
+            "selection of drives for pumping",
+            "drives for ev",
+            "drives for cranes",
+            "drives for pumping applications",
+            "real time applications of electrical drives"
+          ],
+          "specific_keywords": [
+            "drive selection",
+            "drives for cranes"
+          ],
+          "negative_guards": [
+            "transformer",
+            "lvdt"
+          ],
+          "context_hints": [
+            "industrial drives",
+            "applications"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "number": 4,
+      "name": "Transducers and Sensors",
+      "topics": [
+        {
+          "id": 301,
+          "name": "Electrical Measuring Instruments",
+          "canonical_name": "Electrical Measuring Instruments",
+          "aliases": [
+            "PMMC and Moving Iron Instruments"
+          ],
+          "strong_phrases": [
+            "moving coil instruments",
+            "moving iron instruments",
+            "pmmc instrument",
+            "permanent magnet moving coil",
+            "moving iron attraction type",
+            "moving iron repulsion type",
+            "deflecting torque and controlling torque",
+            "damping torque in measuring instruments",
+            "classification of instruments"
+          ],
+          "specific_keywords": [
+            "moving coil",
+            "moving iron",
+            "pmmc"
+          ],
+          "negative_guards": [
+            "multimeter",
+            "oscilloscope",
+            "lvdt",
+            "thermocouple"
+          ],
+          "context_hints": [
+            "instruments",
+            "analog measurement"
+          ]
+        },
+        {
+          "id": 302,
+          "name": "Electronic Measuring Instruments",
+          "canonical_name": "Electronic Measuring Instruments",
+          "aliases": [
+            "Digital Multimeter and DSO"
+          ],
+          "strong_phrases": [
+            "digital multimeter",
+            "digital storage oscilloscope",
+            "dmm",
+            "dso",
+            "block diagram of dso",
+            "cathode ray oscilloscope",
+            "measurement using digital multimeter"
+          ],
+          "specific_keywords": [
+            "digital multimeter",
+            "oscilloscope",
+            "dso",
+            "dmm"
+          ],
+          "negative_guards": [
+            "moving coil",
+            "moving iron",
+            "pmmc"
+          ],
+          "context_hints": [
+            "electronic instrumentation",
+            "digital measurement"
+          ]
+        },
+        {
+          "id": 303,
+          "name": "Displacement and Position Transducers",
+          "canonical_name": "Displacement and Position Transducers",
+          "aliases": [
+            "LVDT and Inductive/Capacitive Transducers"
+          ],
+          "strong_phrases": [
+            "linear variable differential transformer",
+            "lvdt",
+            "working principle of lvdt",
+            "capacitive transducer",
+            "inductive transducer",
+            "differential transformer",
+            "displacement measurement using lvdt"
+          ],
+          "specific_keywords": [
+            "lvdt",
+            "capacitive transducer",
+            "inductive transducer"
+          ],
+          "negative_guards": [
+            "thermistor",
+            "thermocouple",
+            "piezoelectric"
+          ],
+          "context_hints": [
+            "transducers",
+            "displacement"
+          ]
+        },
+        {
+          "id": 304,
+          "name": "Temperature Transducers",
+          "canonical_name": "Temperature Transducers",
+          "aliases": [
+            "Thermistors and Thermocouples"
+          ],
+          "strong_phrases": [
+            "temperature transducer",
+            "thermistors",
+            "thermocouple",
+            "working of thermocouple",
+            "seeback effect in thermocouple",
+            "seebeck effect",
+            "ptc and ntc thermistor",
+            "resistance temperature detector",
+            "rtd"
+          ],
+          "specific_keywords": [
+            "thermistor",
+            "thermistors",
+            "thermocouple",
+            "thermocouples"
+          ],
+          "negative_guards": [
+            "lvdt",
+            "piezoelectric",
+            "hall effect"
+          ],
+          "context_hints": [
+            "thermal",
+            "temperature measurement"
+          ]
+        },
+        {
+          "id": 305,
+          "name": "Piezoelectric, Photoelectric, and Hall Effect Transducers",
+          "canonical_name": "Piezoelectric, Photoelectric, and Hall Effect Transducers",
+          "aliases": [
+            "Piezoelectric and Hall Effect Transducers"
+          ],
+          "strong_phrases": [
+            "piezoelectric transducer",
+            "piezoelectric effect",
+            "photoelectric transducer",
+            "hall effect transducer",
+            "hall effect in transducers",
+            "hall probe",
+            "hall voltage in transducers",
+            "piezoelectric sensor"
+          ],
+          "specific_keywords": [
+            "piezoelectric",
+            "photoelectric transducer",
+            "hall effect transducer"
+          ],
+          "negative_guards": [
+            "optocoupler",
+            "solar cell",
+            "lvdt",
+            "thermocouple"
+          ],
+          "context_hints": [
+            "special transducers",
+            "magnetic sensing"
+          ]
+        },
+        {
+          "id": 306,
+          "name": "Optoelectronic Devices and Photosensors",
+          "canonical_name": "Optoelectronic Devices and Photosensors",
+          "aliases": [
+            "LDR, Photodiode, Solar Cell, and Optocoupler"
+          ],
+          "strong_phrases": [
+            "light dependent resistor",
+            "ldr",
+            "photodiodes",
+            "phototransistors",
+            "photovoltaic cells",
+            "opto-couplers",
+            "optocoupler",
+            "liquid crystal display",
+            "lcd display",
+            "introduction to opto-electronics devices"
+          ],
+          "specific_keywords": [
+            "ldr",
+            "phototransistor",
+            "opto-coupler",
+            "optocoupler",
+            "opto-electronics"
+          ],
+          "negative_guards": [
+            "solar farm",
+            "smart grid",
+            "substation",
+            "piezoelectric"
+          ],
+          "context_hints": [
+            "optics",
+            "photo devices"
+          ]
+        },
+        {
+          "id": 307,
+          "name": "Industrial and Biomedical Sensors",
+          "canonical_name": "Industrial and Biomedical Sensors",
+          "aliases": [
+            "Proximity, IR, and Biosensors"
+          ],
+          "strong_phrases": [
+            "proximity sensor",
+            "ir sensor",
+            "infrared sensor",
+            "pressure sensor",
+            "introduction to bio sensor",
+            "biosensors",
+            "sensors for smart building",
+            "inductive proximity sensor",
+            "capacitive proximity sensor"
+          ],
+          "specific_keywords": [
+            "proximity sensor",
+            "biosensor",
+            "biosensors",
+            "smart building"
+          ],
+          "negative_guards": [
+            "moving coil",
+            "moving iron",
+            "thevenin"
+          ],
+          "context_hints": [
+            "sensors",
+            "automation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "number": 5,
+      "name": "Power Engineering",
+      "topics": [
+        {
+          "id": 308,
+          "name": "Electric Power Supply Systems",
+          "canonical_name": "Electric Power Supply Systems",
+          "aliases": [
+            "Generation, Transmission, and Distribution"
+          ],
+          "strong_phrases": [
+            "electrical supply system",
+            "generation transmission and distribution",
+            "layout of generation transmission",
+            "transmission and distribution of power",
+            "ac and dc power supply schemes",
+            "feeders distributors and service mains",
+            "single line diagram of power system"
+          ],
+          "specific_keywords": [
+            "power supply system",
+            "feeders and distributors",
+            "distribution of power"
+          ],
+          "negative_guards": [
+            "substation",
+            "earthing",
+            "solar pv",
+            "ev charging"
+          ],
+          "context_hints": [
+            "power transmission",
+            "grid layout"
+          ]
+        },
+        {
+          "id": 309,
+          "name": "Substations and Smart Grid",
+          "canonical_name": "Substations and Smart Grid",
+          "aliases": [
+            "Substations and Smart Grid Concepts"
+          ],
+          "strong_phrases": [
+            "substation equipment",
+            "key diagram of 11kv/400v",
+            "11kv/400 v indoor substation",
+            "11kv/400v substation",
+            "indoor substation",
+            "outdoor substation",
+            "introduction to smart grid",
+            "smart grid technology",
+            "components of substation"
+          ],
+          "specific_keywords": [
+            "substation",
+            "substations",
+            "smart grid"
+          ],
+          "negative_guards": [
+            "earthing",
+            "shock",
+            "ev charging"
+          ],
+          "context_hints": [
+            "substation",
+            "grid"
+          ]
+        },
+        {
+          "id": 310,
+          "name": "Electrical Safety and Earthing",
+          "canonical_name": "Electrical Safety and Earthing",
+          "aliases": [
+            "Earthing and Shock Precautions"
+          ],
+          "strong_phrases": [
+            "safety measures in electrical systems",
+            "basic principle and importance of earthing",
+            "importance of earthing",
+            "precautions for electric shock",
+            "methods of earthing",
+            "pipe earthing and plate earthing",
+            "pipe earthing",
+            "plate earthing",
+            "neutral earthing and equipment earthing"
+          ],
+          "specific_keywords": [
+            "earthing",
+            "electric shock"
+          ],
+          "negative_guards": [
+            "fuse",
+            "circuit breaker",
+            "mcb",
+            "elcb"
+          ],
+          "context_hints": [
+            "safety",
+            "grounding"
+          ]
+        },
+        {
+          "id": 311,
+          "name": "Electrical Safety Devices",
+          "canonical_name": "Electrical Safety Devices",
+          "aliases": [
+            "Fuses, Circuit Breakers, MCB and ELCB"
+          ],
+          "strong_phrases": [
+            "electrical safety devices",
+            "miniature circuit breaker",
+            "earth leakage circuit breaker",
+            "mcb and elcb",
+            "fuse and circuit breaker",
+            "types of fuses",
+            "hrc fuse",
+            "fuses and circuit breakers",
+            "protective devices in electrical"
+          ],
+          "specific_keywords": [
+            "circuit breaker",
+            "mcb",
+            "elcb",
+            "hrc fuse",
+            "fuses"
+          ],
+          "negative_guards": [
+            "pipe earthing",
+            "plate earthing",
+            "substation"
+          ],
+          "context_hints": [
+            "protection",
+            "breakers"
+          ]
+        },
+        {
+          "id": 312,
+          "name": "Renewable Energy and Solar Photovoltaic",
+          "canonical_name": "Renewable Energy and Solar Photovoltaic",
+          "aliases": [
+            "Solar PV and Renewable Sources"
+          ],
+          "strong_phrases": [
+            "introduction to renewable energy resources",
+            "solar photovoltaic system",
+            "renewable energy resources",
+            "solar pv system",
+            "solar cell working",
+            "wind power generation",
+            "non-conventional energy sources"
+          ],
+          "specific_keywords": [
+            "solar photovoltaic",
+            "renewable energy",
+            "solar pv"
+          ],
+          "negative_guards": [
+            "battery",
+            "fuel cell",
+            "ev charging"
+          ],
+          "context_hints": [
+            "solar",
+            "renewable energy"
+          ]
+        },
+        {
+          "id": 313,
+          "name": "Energy Storage and Batteries",
+          "canonical_name": "Energy Storage and Batteries",
+          "aliases": [
+            "Batteries and Fuel Cells"
+          ],
+          "strong_phrases": [
+            "energy storage systems",
+            "overview of battery",
+            "fuel cell technologies",
+            "lead acid battery",
+            "lithium ion battery",
+            "nickel cadmium battery",
+            "working of fuel cell",
+            "types of batteries in electrical"
+          ],
+          "specific_keywords": [
+            "fuel cell",
+            "fuel cells",
+            "lead acid battery",
+            "lithium ion battery"
+          ],
+          "negative_guards": [
+            "electric vehicle",
+            "charging station",
+            "solar pv"
+          ],
+          "context_hints": [
+            "battery storage",
+            "fuel cells"
+          ]
+        },
+        {
+          "id": 314,
+          "name": "Electric Vehicles and Charging",
+          "canonical_name": "Electric Vehicles and Charging",
+          "aliases": [
+            "EV, HEV, and Charging Infrastructure"
+          ],
+          "strong_phrases": [
+            "hybrid electric vehicles",
+            "hevs phevs and evs",
+            "ev charging station",
+            "electric vehicle charging",
+            "electric vehicles ev",
+            "types of wiring circuits",
+            "wiring circuits and safety measures",
+            "staircase wiring"
+          ],
+          "specific_keywords": [
+            "electric vehicle",
+            "electric vehicles",
+            "ev charging",
+            "phev",
+            "hevs"
+          ],
+          "negative_guards": [
+            "substation",
+            "moving iron",
+            "thevenin"
+          ],
+          "context_hints": [
+            "electric mobility",
+            "wiring"
+          ]
+        }
+      ]
+    }
+  ]
+}
