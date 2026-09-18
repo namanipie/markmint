@@ -1,0 +1,838 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 18,
+    "name": "Electronic System and PCB Design",
+    "canonical_code": "21ECC101J",
+    "code": "SEM2-ESPCB",
+    "regulation_year": 2021,
+    "department": "Electronics and Communication Engineering"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21ECC101J Electronic System and PCB Design",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Semiconductor Fundamentals & Devices, Power Devices & Fabrication, Power Supplies & Measurement Instruments, PCB Design Concepts, and Advanced PCB Design & Application."
+  },
+  "units": [
+    {
+      "id": 39,
+      "number": 1,
+      "name": "Semiconductor Fundamentals and Devices",
+      "topics": [
+        {
+          "id": 364,
+          "name": "Classification of Semiconductors and Doping",
+          "canonical_name": "Classification of Semiconductors and Doping",
+          "aliases": [
+            "Intrinsic and Extrinsic Semiconductors"
+          ],
+          "strong_phrases": [
+            "classification of semiconductors",
+            "doping in semiconductors",
+            "donor impurities",
+            "acceptor impurities",
+            "n-type silicon",
+            "p-type silicon",
+            "conductivity of semiconductors",
+            "dopant concentration"
+          ],
+          "specific_keywords": [
+            "doping",
+            "donor impurities",
+            "acceptor impurities"
+          ],
+          "negative_guards": [
+            "pn junction",
+            "bjt",
+            "mosfet",
+            "pcb"
+          ],
+          "context_hints": [
+            "semiconductor physics",
+            "materials"
+          ]
+        },
+        {
+          "id": 365,
+          "name": "Energy Bands, Fermi Level, and Mass-Action Law",
+          "canonical_name": "Energy Bands, Fermi Level, and Mass-Action Law",
+          "aliases": [
+            "Fermi Energy and Carrier Concentration"
+          ],
+          "strong_phrases": [
+            "fermi energy",
+            "fermi level",
+            "fermi energy level",
+            "mass action law",
+            "mass-action law",
+            "intrinsic carrier concentration",
+            "energy distribution and fermi level"
+          ],
+          "specific_keywords": [
+            "fermi level",
+            "fermi energy",
+            "mass action law"
+          ],
+          "negative_guards": [
+            "drift current",
+            "diffusion current",
+            "pcb"
+          ],
+          "context_hints": [
+            "energy bands",
+            "carrier statistics"
+          ]
+        },
+        {
+          "id": 366,
+          "name": "Drift, Diffusion Currents, and Einstein Relationship",
+          "canonical_name": "Drift, Diffusion Currents, and Einstein Relationship",
+          "aliases": [
+            "Carrier Transport in Semiconductors"
+          ],
+          "strong_phrases": [
+            "einstein relationship",
+            "einstein equation",
+            "drift and diffusion current",
+            "drift current",
+            "diffusion current",
+            "electron mobility",
+            "hole mobility",
+            "carrier mobility"
+          ],
+          "specific_keywords": [
+            "einstein relationship",
+            "diffusion current",
+            "drift current"
+          ],
+          "negative_guards": [
+            "bjt",
+            "mosfet",
+            "pcb"
+          ],
+          "context_hints": [
+            "transport mechanics",
+            "mobility"
+          ]
+        },
+        {
+          "id": 367,
+          "name": "PN Junction Diodes, BJT, and MOSFETs",
+          "canonical_name": "PN Junction Diodes, BJT, and MOSFETs",
+          "aliases": [
+            "Bipolar and Field Effect Transistors"
+          ],
+          "strong_phrases": [
+            "pn junction diode",
+            "pn-junction diode",
+            "reverse saturation current",
+            "common emitter transistor",
+            "ce-npn-bjt",
+            "npn-bjt",
+            "bjt act as the amplifier",
+            "depletion mosfet",
+            "enhancement mosfet",
+            "mosfet is in saturation mode"
+          ],
+          "specific_keywords": [
+            "pn junction",
+            "pn-junction",
+            "bjt",
+            "mosfet"
+          ],
+          "negative_guards": [
+            "power bjt",
+            "power mosfet",
+            "scaling of mosfet",
+            "finfet",
+            "soi mosfet"
+          ],
+          "context_hints": [
+            "electronic devices",
+            "transistors"
+          ]
+        },
+        {
+          "id": 368,
+          "name": "Advanced Nano-MOSFETs, SOI MOSFET, and FinFET",
+          "canonical_name": "Advanced Nano-MOSFETs, SOI MOSFET, and FinFET",
+          "aliases": [
+            "Nanoscale Transistors and Scaling Issues"
+          ],
+          "strong_phrases": [
+            "scaling of mosfet",
+            "scaling issues in mosfet",
+            "soi mosfet",
+            "double gate mosfet",
+            "finfet",
+            "nano mosfets",
+            "igfet"
+          ],
+          "specific_keywords": [
+            "finfet",
+            "soi mosfet",
+            "scaling of mosfet"
+          ],
+          "negative_guards": [
+            "power bjt",
+            "power mosfet",
+            "pcb"
+          ],
+          "context_hints": [
+            "nanotechnology",
+            "submicron devices"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "number": 2,
+      "name": "Power Devices and Fabrication",
+      "topics": [
+        {
+          "id": 369,
+          "name": "Power Semiconductor Devices and Power Electronics",
+          "canonical_name": "Power Semiconductor Devices and Power Electronics",
+          "aliases": [
+            "Introduction to Power Electronics"
+          ],
+          "strong_phrases": [
+            "power semiconductor devices",
+            "role of power electronics",
+            "applications of power electronics",
+            "power electronics system"
+          ],
+          "specific_keywords": [
+            "power electronics"
+          ],
+          "negative_guards": [
+            "schottky diode",
+            "gunn diode",
+            "impatt",
+            "thyristor",
+            "scr"
+          ],
+          "context_hints": [
+            "power systems",
+            "power electronics"
+          ]
+        },
+        {
+          "id": 370,
+          "name": "Power Diodes, Schottky Diode, Gunn Diode, and IMPATT Diode",
+          "canonical_name": "Power Diodes, Schottky Diode, Gunn Diode, and IMPATT Diode",
+          "aliases": [
+            "Microwave and Fast Recovery Power Diodes"
+          ],
+          "strong_phrases": [
+            "power diode",
+            "gunn diode",
+            "schottky diode",
+            "impatt diode",
+            "operating characteristics of power diodes",
+            "reverse recovery time of power diode"
+          ],
+          "specific_keywords": [
+            "schottky diode",
+            "gunn diode",
+            "impatt diode",
+            "power diode"
+          ],
+          "negative_guards": [
+            "thyristor",
+            "scr",
+            "pcb"
+          ],
+          "context_hints": [
+            "diode physics",
+            "high frequency diodes"
+          ]
+        },
+        {
+          "id": 371,
+          "name": "Thyristor, PNPN Diode, and Silicon Controlled Rectifier (SCR)",
+          "canonical_name": "Thyristor, PNPN Diode, and Silicon Controlled Rectifier (SCR)",
+          "aliases": [
+            "Thyristors and SCR Operation"
+          ],
+          "strong_phrases": [
+            "silicon controlled rectifier",
+            "scr rating",
+            "thyristor rating",
+            "pnpn diode",
+            "two transistor analogy of scr",
+            "turn on and turn off methods of thyristor",
+            "gate triggering of scr"
+          ],
+          "specific_keywords": [
+            "thyristor",
+            "silicon controlled rectifier",
+            "pnpn diode"
+          ],
+          "negative_guards": [
+            "fabrication process",
+            "monolithic",
+            "pcb"
+          ],
+          "context_hints": [
+            "thyristors",
+            "power switching"
+          ]
+        },
+        {
+          "id": 372,
+          "name": "Power BJT and Power MOSFET Switching Characteristics",
+          "canonical_name": "Power BJT and Power MOSFET Switching Characteristics",
+          "aliases": [
+            "Power Transistor Switching"
+          ],
+          "strong_phrases": [
+            "power bjt",
+            "power mosfet",
+            "switching characteristics of power bjt",
+            "switching characteristics of power mosfet",
+            "safe operating area of power bjt",
+            "quasi saturation in power bjt"
+          ],
+          "specific_keywords": [
+            "power bjt",
+            "power mosfet"
+          ],
+          "negative_guards": [
+            "monolithic fabrication",
+            "pcb"
+          ],
+          "context_hints": [
+            "power switching",
+            "conduction loss"
+          ]
+        },
+        {
+          "id": 373,
+          "name": "Monolithic IC Fabrication Processes",
+          "canonical_name": "Monolithic IC Fabrication Processes",
+          "aliases": [
+            "Integrated Circuit Monolithic Fabrication"
+          ],
+          "strong_phrases": [
+            "monolithic fabrication process",
+            "monolithic fabrication",
+            "fabrication of diodes in ic",
+            "fabrication of capacitors in ic",
+            "fabrication of resistors in ic",
+            "photolithography in ic fabrication",
+            "epitaxial growth in ic"
+          ],
+          "specific_keywords": [
+            "monolithic fabrication",
+            "ic fabrication"
+          ],
+          "negative_guards": [
+            "pcb manufacturing",
+            "pcb fabrication"
+          ],
+          "context_hints": [
+            "microfabrication",
+            "integrated circuits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "number": 3,
+      "name": "Power Supplies and Measurement Instruments",
+      "topics": [
+        {
+          "id": 374,
+          "name": "Regulated Power Supplies and Rectifiers",
+          "canonical_name": "Regulated Power Supplies and Rectifiers",
+          "aliases": [
+            "Half-Wave Full-Wave and Controlled Rectifiers"
+          ],
+          "strong_phrases": [
+            "half wave rectifier",
+            "half-wave rectifier",
+            "full wave rectifier",
+            "full-wave rectifier",
+            "bridge rectifier",
+            "rectifier using scr",
+            "ripple factor of rectifier",
+            "efficiency of rectifier"
+          ],
+          "specific_keywords": [
+            "half-wave rectifier",
+            "full-wave rectifier",
+            "bridge rectifier"
+          ],
+          "negative_guards": [
+            "smps",
+            "multivibrator",
+            "oscilloscope",
+            "cathode ray oscilloscope"
+          ],
+          "context_hints": [
+            "ac to dc",
+            "rectification"
+          ]
+        },
+        {
+          "id": 375,
+          "name": "Voltage Regulators and Line-Load Regulation",
+          "canonical_name": "Voltage Regulators and Line-Load Regulation",
+          "aliases": [
+            "Linear Voltage Regulators and Zener Regulation"
+          ],
+          "strong_phrases": [
+            "line regulation",
+            "load regulation",
+            "voltage regulator",
+            "zener voltage regulator",
+            "series voltage regulator",
+            "shunt voltage regulator",
+            "percentage regulation"
+          ],
+          "specific_keywords": [
+            "voltage regulator",
+            "line regulation",
+            "load regulation"
+          ],
+          "negative_guards": [
+            "smps",
+            "multivibrator",
+            "cathode ray oscilloscope",
+            "oscilloscope"
+          ],
+          "context_hints": [
+            "regulation",
+            "dc supply"
+          ]
+        },
+        {
+          "id": 376,
+          "name": "Switched Mode Power Supply (SMPS)",
+          "canonical_name": "Switched Mode Power Supply (SMPS)",
+          "aliases": [
+            "SMPS Classifications and Operation"
+          ],
+          "strong_phrases": [
+            "switched mode power supply",
+            "smps",
+            "classification of smps",
+            "flyback converter in smps",
+            "buck boost converter in smps",
+            "advantages of smps over linear power supply"
+          ],
+          "specific_keywords": [
+            "smps",
+            "switched mode power supply"
+          ],
+          "negative_guards": [
+            "multivibrator",
+            "cathode ray oscilloscope",
+            "multimeter"
+          ],
+          "context_hints": [
+            "switching regulator",
+            "efficiency"
+          ]
+        },
+        {
+          "id": 377,
+          "name": "Wave Shaping Circuits and Multivibrators",
+          "canonical_name": "Wave Shaping Circuits and Multivibrators",
+          "aliases": [
+            "Clippers Clampers and Multivibrator Circuits"
+          ],
+          "strong_phrases": [
+            "wave shaping circuits",
+            "astable multivibrator",
+            "monostable multivibrator",
+            "bistable multivibrator",
+            "clipping circuit",
+            "clamping circuit",
+            "negative clipper",
+            "negative clamper",
+            "biased negative clipper",
+            "schmitt trigger"
+          ],
+          "specific_keywords": [
+            "multivibrator",
+            "astable",
+            "monostable",
+            "bistable",
+            "clipping",
+            "clamping"
+          ],
+          "negative_guards": [
+            "oscilloscope",
+            "cathode ray oscilloscope",
+            "spectrum analyzer"
+          ],
+          "context_hints": [
+            "pulse shaping",
+            "multivibrators"
+          ]
+        },
+        {
+          "id": 378,
+          "name": "Electronic Measurement Instruments and Oscilloscopes",
+          "canonical_name": "Electronic Measurement Instruments and Oscilloscopes",
+          "aliases": [
+            "CRO DVM DMM and Spectrum Analyzers"
+          ],
+          "strong_phrases": [
+            "cathode ray oscilloscope",
+            "cro oscilloscope",
+            "digital voltmeter",
+            "digital multimeter",
+            "spectrum analyzer",
+            "distortion meter",
+            "energy meter and power meter",
+            "measurement instruments"
+          ],
+          "specific_keywords": [
+            "cathode ray oscilloscope",
+            "oscilloscope",
+            "multimeter",
+            "spectrum analyzer",
+            "distortion meter"
+          ],
+          "negative_guards": [
+            "pcb design",
+            "routing"
+          ],
+          "context_hints": [
+            "instrumentation",
+            "testing equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "number": 4,
+      "name": "PCB Design Concepts",
+      "topics": [
+        {
+          "id": 379,
+          "name": "PCB Classifications, Types of Boards, and Manufacturing",
+          "canonical_name": "PCB Classifications, Types of Boards, and Manufacturing",
+          "aliases": [
+            "Printed Circuit Board Classification and Fabrication"
+          ],
+          "strong_phrases": [
+            "concept of pcb design",
+            "classifications of pcb",
+            "manufacturing of pcb",
+            "single sided pcb",
+            "double sided pcb",
+            "multilayer pcb",
+            "flexible pcb",
+            "rigid flex pcb",
+            "types of boards in pcb"
+          ],
+          "specific_keywords": [
+            "multilayer pcb",
+            "flexible pcb",
+            "pcb manufacturing"
+          ],
+          "negative_guards": [
+            "high frequency pcb",
+            "microwave pcb"
+          ],
+          "context_hints": [
+            "board construction",
+            "laminate"
+          ]
+        },
+        {
+          "id": 380,
+          "name": "PCB Schematic Design and Layout Planning",
+          "canonical_name": "PCB Schematic Design and Layout Planning",
+          "aliases": [
+            "Schematic Capture and Floorplanning"
+          ],
+          "strong_phrases": [
+            "layout planning",
+            "pcb layout planning",
+            "schematic capture",
+            "netlist generation in pcb",
+            "pcb design block diagram",
+            "importance of pcb design"
+          ],
+          "specific_keywords": [
+            "layout planning",
+            "schematic capture",
+            "netlist"
+          ],
+          "negative_guards": [
+            "thermal cooling",
+            "cross talk",
+            "signal integrity"
+          ],
+          "context_hints": [
+            "eda tool",
+            "design flow"
+          ]
+        },
+        {
+          "id": 381,
+          "name": "Mechanical Design Considerations and Stress Analysis",
+          "canonical_name": "Mechanical Design Considerations and Stress Analysis",
+          "aliases": [
+            "PCB Mechanical Design and Board Dimensions"
+          ],
+          "strong_phrases": [
+            "mechanical design considerations for pcbs",
+            "mechanical design considerations",
+            "mechanical design of pcb",
+            "importance of stress analysis",
+            "stress analysis in pcb",
+            "stress analysis",
+            "vibration in pcb",
+            "board thickness and dimensions",
+            "mechanical mounting of pcb"
+          ],
+          "specific_keywords": [
+            "stress analysis",
+            "mechanical design of pcb"
+          ],
+          "negative_guards": [
+            "routing",
+            "soldering"
+          ],
+          "context_hints": [
+            "enclosure",
+            "mechanical stress"
+          ]
+        },
+        {
+          "id": 382,
+          "name": "Component Mounting, Assembly, and Soldering Techniques",
+          "canonical_name": "Component Mounting, Assembly, and Soldering Techniques",
+          "aliases": [
+            "SMT THT and Soldering in PCBs"
+          ],
+          "strong_phrases": [
+            "mounting techniques in pcb",
+            "component assembly in pcb",
+            "surface mount technology",
+            "smt and through hole",
+            "tht components",
+            "wave soldering and reflow soldering",
+            "soldering techniques in pcb"
+          ],
+          "specific_keywords": [
+            "surface mount technology",
+            "through hole",
+            "reflow soldering",
+            "wave soldering"
+          ],
+          "negative_guards": [
+            "signal integrity",
+            "cross talk"
+          ],
+          "context_hints": [
+            "component assembly",
+            "packaging"
+          ]
+        },
+        {
+          "id": 383,
+          "name": "Electrical Design Considerations, Component Placement, and Routing",
+          "canonical_name": "Electrical Design Considerations, Component Placement, and Routing",
+          "aliases": [
+            "PCB Component Placement and Trace Routing"
+          ],
+          "strong_phrases": [
+            "electrical design consideration of pcb",
+            "component placement rules in pcb",
+            "power supply and ground routing",
+            "ground plane in pcb",
+            "trace width calculation",
+            "connections layout in pcb",
+            "pcb routing techniques"
+          ],
+          "specific_keywords": [
+            "trace width",
+            "ground plane",
+            "component placement"
+          ],
+          "negative_guards": [
+            "microwave",
+            "cooling"
+          ],
+          "context_hints": [
+            "trace layout",
+            "power distribution"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "number": 5,
+      "name": "Advanced PCB Design and Application",
+      "topics": [
+        {
+          "id": 384,
+          "name": "Environmental Factors, Thermal Management, and Cooling of PCBs",
+          "canonical_name": "Environmental Factors, Thermal Management, and Cooling of PCBs",
+          "aliases": [
+            "Thermal Design and Packaging of PCBs"
+          ],
+          "strong_phrases": [
+            "environmental factors on pcb",
+            "cooling and packaging of pcb",
+            "thermal management in pcb",
+            "heat sinks on pcb",
+            "thermal vias",
+            "conformal coating for pcb"
+          ],
+          "specific_keywords": [
+            "thermal management",
+            "thermal vias",
+            "cooling of pcb"
+          ],
+          "negative_guards": [
+            "cross talk",
+            "reflections"
+          ],
+          "context_hints": [
+            "heat dissipation",
+            "reliability"
+          ]
+        },
+        {
+          "id": 385,
+          "name": "Layout Checklists and Design Rules for Analog and Digital PCBs",
+          "canonical_name": "Layout Checklists and Design Rules for Analog and Digital PCBs",
+          "aliases": [
+            "Analog vs Digital PCB Design Rules"
+          ],
+          "strong_phrases": [
+            "layout design checklist",
+            "design rules for analog pcb",
+            "design rules for digital pcb",
+            "analog and digital pcb",
+            "mixed signal pcb design rules",
+            "analog ground and digital ground"
+          ],
+          "specific_keywords": [
+            "layout design checklist",
+            "analog pcb",
+            "digital pcb"
+          ],
+          "negative_guards": [
+            "microwave pcb",
+            "thermal management",
+            "cross talk",
+            "cross-talk",
+            "reflections"
+          ],
+          "context_hints": [
+            "design guidelines",
+            "partitioning"
+          ]
+        },
+        {
+          "id": 386,
+          "name": "Signal Integrity, Noise, Cross-talk, and Reflections in PCBs",
+          "canonical_name": "Signal Integrity, Noise, Cross-talk, and Reflections in PCBs",
+          "aliases": [
+            "Signal Integrity and Electromagnetic Interference"
+          ],
+          "strong_phrases": [
+            "signal integrity in pcb",
+            "signal integrity issues",
+            "cross talk in pcb",
+            "cross-talk in pcb",
+            "cross-talk in a pcb",
+            "cross-talk",
+            "cross talk",
+            "reflections in digital pcb",
+            "signal noise in pcb",
+            "electromagnetic interference in pcb",
+            "transmission line effects in pcb"
+          ],
+          "specific_keywords": [
+            "signal integrity",
+            "cross talk",
+            "cross-talk"
+          ],
+          "negative_guards": [
+            "mechanical mounting",
+            "cooling"
+          ],
+          "context_hints": [
+            "high speed digital",
+            "emi emc"
+          ]
+        },
+        {
+          "id": 387,
+          "name": "High-Frequency and Fast-Pulse PCB Design",
+          "canonical_name": "High-Frequency and Fast-Pulse PCB Design",
+          "aliases": [
+            "Fast Pulse and High Speed Digital Routing"
+          ],
+          "strong_phrases": [
+            "high frequency circuits pcb",
+            "high frequency pcb design",
+            "fast pulse circuits pcb",
+            "high speed pcb design",
+            "controlled impedance routing",
+            "differential pair routing in pcb"
+          ],
+          "specific_keywords": [
+            "high frequency circuits",
+            "fast pulse circuits",
+            "controlled impedance"
+          ],
+          "negative_guards": [
+            "microwave circuits",
+            "microstrip antenna"
+          ],
+          "context_hints": [
+            "high speed routing",
+            "impedance control"
+          ]
+        },
+        {
+          "id": 388,
+          "name": "Microwave and RF PCB Design",
+          "canonical_name": "Microwave and RF PCB Design",
+          "aliases": [
+            "Microwave Circuits Strip Line and Microstrip"
+          ],
+          "strong_phrases": [
+            "microwave circuits pcb",
+            "microwave pcb design",
+            "rf pcb design",
+            "microstrip line in pcb",
+            "stripline design in pcb",
+            "dielectric substrate for microwave pcb"
+          ],
+          "specific_keywords": [
+            "microwave circuits",
+            "microwave pcb",
+            "microstrip line",
+            "stripline"
+          ],
+          "negative_guards": [
+            "power bjt",
+            "scr rating"
+          ],
+          "context_hints": [
+            "rf planar circuits",
+            "microwave substrate"
+          ]
+        }
+      ]
+    }
+  ]
+}
