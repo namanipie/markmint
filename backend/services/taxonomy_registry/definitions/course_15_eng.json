@@ -1,0 +1,848 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 15,
+    "name": "Communicative English",
+    "canonical_code": "21LEH101T",
+    "code": "SEM1-ENG",
+    "regulation_year": 2021,
+    "department": "English and Foreign Languages"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21LEH101T Communicative English",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Communication & Listening, Grammar & Vocabulary in Context, Professional Writing & Mechanics, Institutional Communication & Reports, and Presentation Skills, Academic Integrity & Workplace Ethics."
+  },
+  "units": [
+    {
+      "id": 36,
+      "number": 1,
+      "name": "Fundamentals of Communication and Listening Skills",
+      "topics": [
+        {
+          "id": 464,
+          "name": "Communication Process, Channels, and Models",
+          "canonical_name": "Communication Process, Channels, and Models",
+          "aliases": ["Communication Process and Channels"],
+          "strong_phrases": [
+            "communication is commonly defined as",
+            "process in which the receiver interprets and understands",
+            "decoding in the process of communication",
+            "encoding in communication",
+            "sender and receiver in communication",
+            "unclarified assumptions in a communication",
+            "assumptions in a communication",
+            "unofficial but effective way of communication",
+            "channels of communication",
+            "horizontal communication",
+            "vertical communication",
+            "grapevine communication",
+            "role of online communication",
+            "process of communication",
+            "communication cycle",
+            "imparting or interchange of thoughts"
+          ],
+          "specific_keywords": [
+            "grapevine communication",
+            "horizontal communication",
+            "vertical communication",
+            "channels of communication",
+            "communication cycle",
+            "process of communication",
+            "decoding",
+            "encoding"
+          ],
+          "negative_guards": [
+            "barriers to communication",
+            "communication barrier",
+            "barrier to business communication",
+            "listening",
+            "passive voice"
+          ],
+          "context_hints": ["communication theory", "channels", "encoding"]
+        },
+        {
+          "id": 465,
+          "name": "Barriers to Effective Communication",
+          "canonical_name": "Barriers to Effective Communication",
+          "aliases": ["Communication Barriers"],
+          "strong_phrases": [
+            "barrier to business communication",
+            "foremost barrier to business communication",
+            "not a communication barrier",
+            "which of the following is not a communication barrier",
+            "barriers to communication",
+            "barrier to communication",
+            "communication barrier",
+            "semantic barriers",
+            "psychological barriers",
+            "physical barriers in communication",
+            "physiological barriers",
+            "overcoming communication barriers"
+          ],
+          "specific_keywords": [
+            "barriers to communication",
+            "barrier to communication",
+            "communication barrier",
+            "barrier to business communication",
+            "semantic barrier",
+            "psychological barrier"
+          ],
+          "negative_guards": [
+            "public speaking",
+            "group discussion"
+          ],
+          "context_hints": ["barriers", "noise", "distortion"]
+        },
+        {
+          "id": 466,
+          "name": "Types of Listening (Active, Passive, Critical, Empathetic)",
+          "canonical_name": "Types of Listening (Active, Passive, Critical, Empathetic)",
+          "aliases": ["Listening Skills and Types"],
+          "strong_phrases": [
+            "listener puts himself in place of the speaker",
+            "empathetic listening",
+            "critical listening",
+            "active listening",
+            "evaluative listening",
+            "passive listening",
+            "types of listening",
+            "barriers to listening",
+            "effective listening skills"
+          ],
+          "specific_keywords": [
+            "empathetic listening",
+            "critical listening",
+            "active listening",
+            "evaluative listening",
+            "types of listening",
+            "listening skills"
+          ],
+          "negative_guards": [
+            "reading comprehension",
+            "précis writing"
+          ],
+          "context_hints": ["listening", "audio", "comprehension"]
+        },
+        {
+          "id": 467,
+          "name": "Listening Comprehension, Reading Techniques, and Note-Taking",
+          "canonical_name": "Listening Comprehension, Reading Techniques, and Note-Taking",
+          "aliases": ["Reading Techniques and Note-Taking"],
+          "strong_phrases": [
+            "make notes on the given passage",
+            "making notes on the passage",
+            "intensive and extensive reading",
+            "distinction between intensive and extensive reading",
+            "example of extensive reading",
+            "skimming and scanning",
+            "skimming is",
+            "scanning is",
+            "process of analyzing, interpreting, and evaluating",
+            "read the following passage carefully and choose the best answer",
+            "read the following passage and answer the questions",
+            "read the following passage",
+            "in the context of the passage",
+            "similar in meaning to the word",
+            "as used in the passage",
+            "according to the passage",
+            "critical reasoning, what does it mean to analyze the text",
+            "note-taking techniques",
+            "cornell method of note taking"
+          ],
+          "specific_keywords": [
+            "intensive and extensive reading",
+            "extensive reading",
+            "intensive reading",
+            "skimming",
+            "scanning",
+            "reading comprehension",
+            "read the following passage",
+            "make notes on the given passage",
+            "as used in the passage",
+            "according to the passage"
+          ],
+          "negative_guards": [
+            "active and passive voice",
+            "direct and indirect speech",
+            "flowchart"
+          ],
+          "context_hints": ["reading skills", "comprehension", "passages"]
+        },
+        {
+          "id": 468,
+          "name": "Non-Verbal Communication (Kinesics, Proxemics, Paralanguage)",
+          "canonical_name": "Non-Verbal Communication (Kinesics, Proxemics, Paralanguage)",
+          "aliases": ["Non-Verbal Communication"],
+          "strong_phrases": [
+            "use of paralanguage",
+            "efficient use of paralanguage",
+            "non-verbal communication",
+            "non verbal communication",
+            "kinesics",
+            "proxemics",
+            "paralanguage",
+            "haptics",
+            "chronemics",
+            "body language in communication",
+            "facial expressions and eye contact",
+            "postures and gestures"
+          ],
+          "specific_keywords": [
+            "kinesics",
+            "proxemics",
+            "paralanguage",
+            "non-verbal communication",
+            "non verbal communication",
+            "body language"
+          ],
+          "negative_guards": [
+            "written communication",
+            "email"
+          ],
+          "context_hints": ["body language", "gestures", "proxemics"]
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "number": 2,
+      "name": "Grammar and Vocabulary in Context",
+      "topics": [
+        {
+          "id": 469,
+          "name": "Subject-Verb Agreement (Concord)",
+          "canonical_name": "Subject-Verb Agreement (Concord)",
+          "aliases": ["Subject-Verb Concord"],
+          "strong_phrases": [
+            "subject-verb agreement",
+            "subject verb agreement",
+            "correct form of verb that agrees with the subject",
+            "verb that agrees with the subject",
+            "find out the grammatical error in the following sentence",
+            "grammatical error in the following sentence",
+            "the quality of the mangoes",
+            "a regiment of soldiers",
+            "the captain along with his team",
+            "neither of the candidates",
+            "one of the students",
+            "rules of concord in english"
+          ],
+          "specific_keywords": [
+            "subject-verb agreement",
+            "subject verb agreement",
+            "agrees with the subject",
+            "grammatical error in the following sentence",
+            "concord"
+          ],
+          "negative_guards": [
+            "direct speech",
+            "passive voice"
+          ],
+          "context_hints": ["grammar", "agreement", "syntax"]
+        },
+        {
+          "id": 470,
+          "name": "Tenses, Aspects, and Conditional Clauses",
+          "canonical_name": "Tenses, Aspects, and Conditional Clauses",
+          "aliases": ["Tenses and Conditional Sentences"],
+          "strong_phrases": [
+            "when carol called last night, i",
+            "we were late because we",
+            "arun was very upset yesterday because he",
+            "choose the correct verb forms for the following sentence",
+            "fill in the blanks with appropriate verb forms",
+            "appropriate verb forms",
+            "correct verb forms",
+            "if you work out regularly, you will",
+            "conditional clauses",
+            "past perfect continuous",
+            "simple present tense",
+            "sequence of tenses"
+          ],
+          "specific_keywords": [
+            "appropriate verb forms",
+            "correct verb forms",
+            "conditional clauses",
+            "sequence of tenses",
+            "verb forms"
+          ],
+          "negative_guards": [
+            "passive voice",
+            "indirect speech",
+            "agrees with the subject"
+          ],
+          "context_hints": ["tenses", "verb forms", "aspect"]
+        },
+        {
+          "id": 471,
+          "name": "Active and Passive Voice Transformations",
+          "canonical_name": "Active and Passive Voice Transformations",
+          "aliases": ["Voice Transformations"],
+          "strong_phrases": [
+            "change the following sentence into passive voice",
+            "change into passive voice",
+            "passive voice form of the given active voice sentence",
+            "active voice into passive voice",
+            "passive voice form",
+            "she was crafting an antique",
+            "the people were helping",
+            "passive construction"
+          ],
+          "specific_keywords": [
+            "passive voice",
+            "active voice",
+            "passive voice form"
+          ],
+          "negative_guards": [
+            "direct speech",
+            "degrees of comparison"
+          ],
+          "context_hints": ["voice", "agent", "transformation"]
+        },
+        {
+          "id": 472,
+          "name": "Direct and Indirect (Reported) Speech",
+          "canonical_name": "Direct and Indirect (Reported) Speech",
+          "aliases": ["Reported Speech"],
+          "strong_phrases": [
+            "change the following direct speech into indirect speech",
+            "direct speech into indirect speech",
+            "direct and indirect speech",
+            "reported speech rules",
+            "reporting verb",
+            "she said, will you come"
+          ],
+          "specific_keywords": [
+            "direct speech into indirect speech",
+            "direct and indirect speech",
+            "reported speech"
+          ],
+          "negative_guards": [
+            "passive voice",
+            "subject-verb agreement"
+          ],
+          "context_hints": ["speech", "narration", "reporting"]
+        },
+        {
+          "id": 473,
+          "name": "Degrees of Comparison, Conjunctions, and Question Tags",
+          "canonical_name": "Degrees of Comparison, Conjunctions, and Question Tags",
+          "aliases": ["Comparison, Conjunctions, and Question Tags"],
+          "strong_phrases": [
+            "identify the degree of comparison for the following sentence",
+            "degree of comparison",
+            "degrees of comparison",
+            "positive degree and comparative degree",
+            "choose the sentence with the correct question tag",
+            "correct question tag",
+            "question tag",
+            "fill in the blanks with appropriate conjunctions",
+            "fill in the blanks with appropriate connectives",
+            "appropriate conjunctions / connectives",
+            "appropriate connectives",
+            "subordinating conjunctions"
+          ],
+          "specific_keywords": [
+            "degree of comparison",
+            "degrees of comparison",
+            "question tag",
+            "conjunctions / connectives",
+            "appropriate connectives"
+          ],
+          "negative_guards": [
+            "direct speech",
+            "passive voice"
+          ],
+          "context_hints": ["comparison", "adjectives", "tags"]
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "number": 3,
+      "name": "Professional Correspondence and Mechanics of Writing",
+      "topics": [
+        {
+          "id": 474,
+          "name": "Mechanics of Writing (Punctuation, Capitalization, Parallelism)",
+          "canonical_name": "Mechanics of Writing (Punctuation, Capitalization, Parallelism)",
+          "aliases": ["Mechanics of Writing"],
+          "strong_phrases": [
+            "choose the correct parallel structure",
+            "parallel structure",
+            "parallelism in sentences",
+            "mechanics of writing",
+            "rules of punctuation",
+            "capitalization in formal writing",
+            "priya likes running, walking"
+          ],
+          "specific_keywords": [
+            "parallel structure",
+            "parallelism",
+            "mechanics of writing",
+            "punctuation"
+          ],
+          "negative_guards": [
+            "job application",
+            "email writing"
+          ],
+          "context_hints": ["mechanics", "syntax", "punctuation"]
+        },
+        {
+          "id": 475,
+          "name": "Paragraph Development, Topic Sentences, and Précis Writing",
+          "canonical_name": "Paragraph Development, Topic Sentences, and Précis Writing",
+          "aliases": ["Paragraph and Précis Writing"],
+          "strong_phrases": [
+            "write the precis for the following passage",
+            "write the pr?cis for the following passage",
+            "not a rule of precis writing",
+            "rules of precis writing",
+            "precis writing",
+            "précis writing",
+            "write a paragraph of 100 words",
+            "write a short paragraph on",
+            "write an essay of about 200 words on topics given below",
+            "write an essay of about 200 words",
+            "write an essay of 300 words",
+            "write a paragraph with a suitable title in about 200 words",
+            "topic sentence of a paragraph",
+            "paragraph development methods",
+            "abstracting in academic work"
+          ],
+          "specific_keywords": [
+            "precis writing",
+            "précis writing",
+            "abstracting in academic work",
+            "topic sentence",
+            "write an essay of about 200 words",
+            "write an essay of 300 words",
+            "write a paragraph of 100 words"
+          ],
+          "negative_guards": [
+            "curriculum vitae",
+            "formal letter"
+          ],
+          "context_hints": ["paragraph", "summary", "precis"]
+        },
+        {
+          "id": 476,
+          "name": "Formal Letters (Inquiry, Complaint, Permission)",
+          "canonical_name": "Formal Letters (Inquiry, Complaint, Permission)",
+          "aliases": ["Formal Letter Writing"],
+          "strong_phrases": [
+            "draft a letter to the passport office",
+            "draft a letter to the",
+            "letter of inquiry",
+            "letter of complaint",
+            "letter seeking permission",
+            "sales letter",
+            "formal letter format",
+            "salutation in formal letter",
+            "business letter writing"
+          ],
+          "specific_keywords": [
+            "letter of inquiry",
+            "letter of complaint",
+            "draft a letter to the",
+            "formal letter format",
+            "business letter"
+          ],
+          "negative_guards": [
+            "curriculum vitae",
+            "job application",
+            "netiquette"
+          ],
+          "context_hints": ["correspondence", "letters", "business"]
+        },
+        {
+          "id": 477,
+          "name": "Professional E-mail Writing and Netiquette",
+          "canonical_name": "Professional E-mail Writing and Netiquette",
+          "aliases": ["Email Writing and Netiquette"],
+          "strong_phrases": [
+            "etiquettes of social media are like life jackets",
+            "draft an email to the editor",
+            "send a mail to your team",
+            "draft an email",
+            "typing in all capitals in electronic communication means",
+            "netiquette guideline",
+            "netiquettes in the digital age",
+            "flaming in online communication",
+            "rules of netiquette",
+            "professional email writing",
+            "e-mail writing format",
+            "subject line of an email",
+            "email etiquette in workplace"
+          ],
+          "specific_keywords": [
+            "netiquette",
+            "netiquettes",
+            "email writing",
+            "e-mail writing",
+            "draft an email",
+            "send a mail to your team",
+            "flaming in online communication"
+          ],
+          "negative_guards": [
+            "job application",
+            "formal letter"
+          ],
+          "context_hints": ["email", "online communication", "etiquette"]
+        },
+        {
+          "id": 478,
+          "name": "Resume, Curriculum Vitae (CV), and Job Applications",
+          "canonical_name": "Resume, Curriculum Vitae (CV), and Job Applications",
+          "aliases": ["Resume and Job Application"],
+          "strong_phrases": [
+            "draft a curriculum vitae",
+            "curriculum vitae (cv) accompanied by a job application",
+            "job application addressed to",
+            "primary purpose of a resume",
+            "one-page document written to express why you're the best candidate",
+            "requires candidates with engineering background with a minimum",
+            "requires graduates from automobile department with a minimum",
+            "requires a software development project manager",
+            "cover letter for a job",
+            "chronological resume format",
+            "functional resume format"
+          ],
+          "specific_keywords": [
+            "curriculum vitae",
+            "job application",
+            "resume format",
+            "purpose of a resume",
+            "best candidate for a particular"
+          ],
+          "negative_guards": [
+            "precis writing",
+            "email netiquette"
+          ],
+          "context_hints": ["employment", "career", "applications"]
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "number": 4,
+      "name": "Institutional Documents, Reports and Proposals",
+      "topics": [
+        {
+          "id": 479,
+          "name": "Notice, Agenda, and Minutes of Meetings",
+          "canonical_name": "Notice, Agenda, and Minutes of Meetings",
+          "aliases": ["Meeting Documentation"],
+          "strong_phrases": [
+            "notice, agenda and minutes",
+            "agenda for a meeting",
+            "included in an agenda for a meeting",
+            "minutes of the meeting",
+            "agenda of meeting",
+            "drafting a notice for a meeting",
+            "quorum in a meeting",
+            "resolutions passed in a meeting"
+          ],
+          "specific_keywords": [
+            "notice, agenda and minutes",
+            "agenda for a meeting",
+            "minutes of the meeting",
+            "agenda of meeting",
+            "drafting a notice"
+          ],
+          "negative_guards": [
+            "curriculum vitae",
+            "job application"
+          ],
+          "context_hints": ["meetings", "minutes", "agenda"]
+        },
+        {
+          "id": 480,
+          "name": "Technical and Business Report Writing",
+          "canonical_name": "Technical and Business Report Writing",
+          "aliases": ["Technical Report Writing"],
+          "strong_phrases": [
+            "prepare an investigative report",
+            "write an investigative report",
+            "a report is an official document written for a specific purpose",
+            "report discusses a particular problem in a",
+            "elaborate on the types of reports and its significance",
+            "types of reports and its significance",
+            "write a report on",
+            "report in which reporters deal with a single topic",
+            "technical report writing",
+            "business report writing",
+            "structure of a technical report",
+            "feasibility report",
+            "progress report",
+            "survey report",
+            "elements of a report"
+          ],
+          "specific_keywords": [
+            "investigative report",
+            "technical report writing",
+            "report writing",
+            "write a report on",
+            "types of reports",
+            "feasibility report",
+            "structure of a report"
+          ],
+          "negative_guards": [
+            "project proposal writing",
+            "flowchart"
+          ],
+          "context_hints": ["reports", "technical writing", "investigation"]
+        },
+        {
+          "id": 481,
+          "name": "Project Proposal Writing and Feasibility Studies",
+          "canonical_name": "Project Proposal Writing and Feasibility Studies",
+          "aliases": ["Project Proposals"],
+          "strong_phrases": [
+            "the proposal should start with",
+            "what is a proposal and how is it different from a report",
+            "project proposal writing",
+            "draft a project proposal",
+            "solicited and unsolicited proposals",
+            "elements of a proposal",
+            "budget and timeline in a proposal",
+            "statement of work in proposal"
+          ],
+          "specific_keywords": [
+            "the proposal should start with",
+            "project proposal",
+            "proposal writing",
+            "solicited proposal",
+            "unsolicited proposal"
+          ],
+          "negative_guards": [
+            "technical report writing",
+            "curriculum vitae"
+          ],
+          "context_hints": ["proposals", "bidding", "grants"]
+        },
+        {
+          "id": 482,
+          "name": "Transcoding: Information Transfer from Charts/Graphs to Text",
+          "canonical_name": "Transcoding: Information Transfer from Charts/Graphs to Text",
+          "aliases": ["Transcoding and Information Transfer"],
+          "strong_phrases": [
+            "convert the following passage into a flowchart",
+            "convert into a flowchart",
+            "write a passage presenting the information contained in the bar graph",
+            "contained in the bar graph using expressions of comparison",
+            "observe the following bar graph carefully and interpret",
+            "interpret using expressions of comparison",
+            "transcoding information",
+            "interpreting pie charts into text",
+            "bar graph interpretation into paragraph",
+            "information transfer from table to text",
+            "flowchart representation of process"
+          ],
+          "specific_keywords": [
+            "flowchart",
+            "transcoding",
+            "information transfer",
+            "contained in the bar graph",
+            "bar graph carefully and interpret",
+            "interpreting pie chart"
+          ],
+          "negative_guards": [
+            "notice, agenda",
+            "minutes of meeting"
+          ],
+          "context_hints": ["visual to text", "flowcharts", "graphics"]
+        },
+        {
+          "id": 483,
+          "name": "Technical Vocabulary, Synonyms, Antonyms, and Word Formation (Prefixes/Suffixes)",
+          "canonical_name": "Technical Vocabulary, Synonyms, Antonyms, and Word Formation (Prefixes/Suffixes)",
+          "aliases": ["Vocabulary and Word Formation"],
+          "strong_phrases": [
+            "choose the correct homonym",
+            "words that have the same spelling but different meanings",
+            "verb form of 'etymology' is",
+            "write an extended definition for the following",
+            "extended definition for the following",
+            "extended definition",
+            "choose the appropriate synonym",
+            "choose the appropriate antonym",
+            "antonym of the word",
+            "synonym for",
+            "how does the suffix",
+            "prefix and suffix",
+            "word formation",
+            "not an example of initialism",
+            "initialism",
+            "groove or notch made by a cutting tool"
+          ],
+          "specific_keywords": [
+            "appropriate synonym",
+            "appropriate antonym",
+            "antonym of the word",
+            "extended definition",
+            "homonym",
+            "suffix",
+            "prefix",
+            "initialism"
+          ],
+          "negative_guards": [
+            "reading comprehension",
+            "read the following passage"
+          ],
+          "context_hints": ["lexis", "morphology", "etymology"]
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "number": 5,
+      "name": "Presentation Skills, Academic Integrity and Workplace Ethics",
+      "topics": [
+        {
+          "id": 484,
+          "name": "Public Speaking, Speech Delivery, and Audience Analysis",
+          "canonical_name": "Public Speaking, Speech Delivery, and Audience Analysis",
+          "aliases": ["Public Speaking and Speech Delivery"],
+          "strong_phrases": [
+            "speech delivered without any prior intimation and preparation",
+            "type of speech delivered without any prior intimation",
+            "find the odd one out with reference to public speaking",
+            "reference to public speaking",
+            "public speaking skills",
+            "speech delivery techniques",
+            "stage fright in public speaking",
+            "audience analysis in speech",
+            "impromptu speech",
+            "extempore speaking"
+          ],
+          "specific_keywords": [
+            "public speaking",
+            "speech delivery",
+            "stage fright",
+            "impromptu speech",
+            "extempore"
+          ],
+          "negative_guards": [
+            "group discussion",
+            "plagiarism"
+          ],
+          "context_hints": ["oratory", "speech", "podium"]
+        },
+        {
+          "id": 485,
+          "name": "Group Discussion (GD) Techniques and Leadership",
+          "canonical_name": "Group Discussion (GD) Techniques and Leadership",
+          "aliases": ["Group Discussion Skills"],
+          "strong_phrases": [
+            "elaborate on the essential skills for the effective-group discussion",
+            "essential skills for the effective-group discussion",
+            "group discussion techniques",
+            "initiating a group discussion",
+            "summarizing a group discussion",
+            "roles in group discussion",
+            "moderating a group discussion",
+            "gd etiquette",
+            "consensus building in gd"
+          ],
+          "specific_keywords": [
+            "group discussion",
+            "effective-group discussion",
+            "initiating a group discussion",
+            "gd etiquette"
+          ],
+          "negative_guards": [
+            "public speaking",
+            "plagiarism"
+          ],
+          "context_hints": ["discussion", "teamwork", "consensus"]
+        },
+        {
+          "id": 486,
+          "name": "Presentation Skills, Visual Aids, and Slide Design",
+          "canonical_name": "Presentation Skills, Visual Aids, and Slide Design",
+          "aliases": ["Presentation Skills and Visual Aids"],
+          "strong_phrases": [
+            "series is correct when making a presentation",
+            "making a presentation",
+            "project presentation skills",
+            "effective visual aids in presentation",
+            "slide design principles",
+            "presentation structure"
+          ],
+          "specific_keywords": [
+            "making a presentation",
+            "project presentation",
+            "visual aids in presentation",
+            "slide design"
+          ],
+          "negative_guards": [
+            "public speaking",
+            "plagiarism"
+          ],
+          "context_hints": ["slides", "pitch", "demonstration"]
+        },
+        {
+          "id": 487,
+          "name": "Academic Integrity, Plagiarism, Paraphrasing, and Referencing",
+          "canonical_name": "Academic Integrity, Plagiarism, Paraphrasing, and Referencing",
+          "aliases": ["Academic Integrity and Plagiarism"],
+          "strong_phrases": [
+            "self-plagiarism means",
+            "definition of plagiarism",
+            "avoiding plagiarism",
+            "paraphrasing techniques",
+            "citing sources in academic work",
+            "referencing styles apa mla",
+            "academic integrity"
+          ],
+          "specific_keywords": [
+            "plagiarism",
+            "self-plagiarism",
+            "academic integrity",
+            "paraphrasing",
+            "citing sources"
+          ],
+          "negative_guards": [
+            "workplace ethics",
+            "public speaking"
+          ],
+          "context_hints": ["ethics", "attribution", "citations"]
+        },
+        {
+          "id": 488,
+          "name": "Workplace Ethics, Interpersonal Skills, Synchronous and Asynchronous Communication",
+          "canonical_name": "Workplace Ethics, Interpersonal Skills, Synchronous and Asynchronous Communication",
+          "aliases": ["Workplace Ethics and Online Communication"],
+          "strong_phrases": [
+            "advantages and disadvantages of online communication",
+            "explain asynchronous communication and its significance",
+            "asynchronous communication",
+            "synchronous and asynchronous communication",
+            "workplace ethics",
+            "work ethics in modern organizations",
+            "interpersonal communication skills",
+            "cyber bullying in social media",
+            "hacking is compromising digital devices"
+          ],
+          "specific_keywords": [
+            "asynchronous communication",
+            "synchronous communication",
+            "workplace ethics",
+            "work ethics",
+            "interpersonal communication skills",
+            "cyber bullying"
+          ],
+          "negative_guards": [
+            "plagiarism",
+            "public speaking"
+          ],
+          "context_hints": ["workplace", "ethics", "professionalism"]
+        }
+      ]
+    }
+  ]
+}
