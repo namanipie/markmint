@@ -1,114 +1,104 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Leaf, Activity, ChevronRight, Calculator, BookOpen, Clock } from "lucide-react";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import { ArrowRight, BookOpen, BrainCircuit, LineChart, PencilRuler, PlayCircle, History } from "lucide-react";
 
 export default function Home() {
-  const [recentStudy, setRecentStudy] = useState<{ course: string; type: string } | null>(null);
-
-  useEffect(() => {
-    // Read from localStorage (simulate remembered state)
-    const stored = localStorage.getItem("markmint_recent");
-    if (stored) {
-      try {
-        setRecentStudy(JSON.parse(stored));
-      } catch (e) {}
-    }
-  }, []);
-
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-accent/20 font-sans">
-      <Navbar />
-      
-      <main id="main-content" className="flex-1 flex flex-col items-start justify-start w-full px-6 md:px-10 pt-4 pb-16">
+    <div className="flex flex-col gap-12 pb-20">
+      {/* Hero Section */}
+      <section className="bg-card rounded-3xl p-8 lg:p-12 border border-border shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         
-        {/* --- HERO SECTION --- */}
-        <section className="relative z-10 w-full pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-12">
-          
-          {/* Left: Text Content */}
-          <div className="w-full md:w-3/5 flex flex-col items-start">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MintAI Intelligence Engine
-            </p>
-            
-            <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
-              Predict your exams with <br/>
-              <span className="text-accent italic font-serif">historical evidence.</span>
+        <div className="relative z-10 max-w-2xl space-y-6">
+          <div>
+            <h1 className="text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-tight mb-2">
+              Good morning.
             </h1>
-            
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed mb-10">
-              MintAI analyzes previous year papers, recurring question families, section weightage, and historical volatility to forecast the most important topics for your SRMIST exams.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <Link 
-                href="/mintai"
-                className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium"
-              >
-                <Activity className="w-4 h-4 text-accent" strokeWidth={2.5} />
-                Try MintAI
-              </Link>
-              
-              <Link 
-                href="/calculator"
-                className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-transparent border border-border text-foreground rounded-md hover:border-foreground/50 transition-all duration-150 active:scale-[0.98] font-medium"
-              >
-                <Calculator className="w-4 h-4" />
-                Mint+ Calculator
-              </Link>
-            </div>
+            <p className="text-xl text-muted-foreground">Let's get you ready for your exams.</p>
           </div>
-
-          {/* Right: Botanical Mint Graphic */}
-          <div className="w-full md:w-2/5 flex justify-center md:justify-end items-center relative hidden sm:flex pointer-events-none">
-            <div className="relative flex items-center justify-center w-full max-w-[360px] aspect-square">
-              <div className="absolute inset-0 bg-accent/5 rounded-full blur-3xl opacity-50" />
-              <Leaf 
-                className="w-40 h-40 md:w-56 md:h-56 text-accent/60 -rotate-12 transition-transform duration-700" 
-                strokeWidth={0.5} 
-              />
-              <Leaf 
-                className="absolute top-[25%] right-[20%] w-20 h-20 md:w-28 md:h-28 text-accent/30 rotate-[45deg]" 
-                strokeWidth={1} 
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* --- CONTINUE STUDYING --- */}
-        {recentStudy && (
-          <section className="w-full max-w-xl mt-4">
-            <h2 className="text-xs font-semibold tracking-wider text-muted-foreground mb-4">Continue Studying</h2>
-            
-            <Link href="/mintai" className="group block bg-card border border-border hover:border-accent/40 rounded-xl p-5 transition-all duration-150 hover:-translate-y-[2px]">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors">
-                      {recentStudy.course}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-0.5 flex items-center gap-2">
-                      <BookOpen className="w-3 h-3" />
-                      {recentStudy.type} &bull; Last opened today
-                    </p>
-                  </div>
-                </div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-              </div>
+          
+          <div className="pt-4">
+            <Link 
+              href="/mintai" 
+              className="inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-all shadow-md group"
+            >
+              <span>Choose a subject to begin</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </section>
-        )}
+          </div>
+        </div>
+      </section>
 
-      </main>
+      {/* Quick Stats */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors">
+          <BookOpen className="w-6 h-6 text-primary mb-4" />
+          <div className="text-3xl font-black text-foreground mb-1">40+</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Branches</div>
+        </div>
+        <div className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors">
+          <BrainCircuit className="w-6 h-6 text-primary mb-4" />
+          <div className="text-3xl font-black text-foreground mb-1">800+</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Topics Mapped</div>
+        </div>
+        <div className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors">
+          <LineChart className="w-6 h-6 text-primary mb-4" />
+          <div className="text-3xl font-black text-foreground mb-1">500+</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Past Papers</div>
+        </div>
+        <div className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 transition-colors">
+          <PencilRuler className="w-6 h-6 text-primary mb-4" />
+          <div className="text-3xl font-black text-foreground mb-1">3k+</div>
+          <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Questions</div>
+        </div>
+      </section>
 
-      <Footer />
+      {/* What should you do next? */}
+      <section className="space-y-6">
+        <div>
+          <h2 className="text-2xl font-bold text-foreground">What should you do next?</h2>
+          <p className="text-muted-foreground mt-1">Jump right back into your workflow.</p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          <Link href="/study-plan" className="group bg-card p-6 rounded-2xl border border-border hover:border-primary/50 transition-all flex flex-col h-full">
+            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <PlayCircle className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Continue your Study Plan</h3>
+            <p className="text-sm text-muted-foreground flex-1">Follow the curated priority list of topics for your selected subjects.</p>
+            <div className="mt-6 flex items-center gap-2 text-sm font-bold text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+              <span>View Plan</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+          
+          <Link href="/practice" className="group bg-card p-6 rounded-2xl border border-border hover:border-primary/50 transition-all flex flex-col h-full">
+            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <PencilRuler className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Practice a Subject</h3>
+            <p className="text-sm text-muted-foreground flex-1">Test your knowledge against real historical exam questions.</p>
+            <div className="mt-6 flex items-center gap-2 text-sm font-bold text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+              <span>Start Practicing</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+
+          <Link href="/mintai" className="group bg-card p-6 rounded-2xl border border-border hover:border-primary/50 transition-all flex flex-col h-full">
+            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <History className="w-6 h-6" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Explore Repeated Questions</h3>
+            <p className="text-sm text-muted-foreground flex-1">See exactly what questions appear year after year.</p>
+            <div className="mt-6 flex items-center gap-2 text-sm font-bold text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+              <span>View Analytics</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

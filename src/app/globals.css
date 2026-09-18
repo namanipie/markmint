@@ -11,24 +11,24 @@
   --color-popover: var(--card);
   --color-popover-foreground: var(--foreground);
   
-  --color-primary: #006838;
-  --color-primary-foreground: #F3F0E8;
+  --color-primary: #8B5CF6; /* Lavender */
+  --color-primary-foreground: #FFFFFF;
   
-  --color-secondary: var(--card);
+  --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--foreground);
   
-  --color-muted: var(--card);
-  --color-muted-foreground: var(--muted);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   
-  --color-accent: #E6327A;
-  --color-accent-foreground: #F3F0E8;
+  --color-accent: #8B5CF6; /* Lavender */
+  --color-accent-foreground: #FFFFFF;
   
-  --color-destructive: #E6327A;
-  --color-destructive-foreground: #F3F0E8;
+  --color-destructive: #EC4899; /* Pink */
+  --color-destructive-foreground: #FFFFFF;
   
   --color-border: var(--border);
   --color-input: var(--border);
-  --color-ring: #006838;
+  --color-ring: #8B5CF6;
   
   --radius-lg: 1.5rem;
   --radius-xl: 1.5rem;
@@ -38,20 +38,24 @@
 }
 
 :root {
-  --background: #E9E8E1;
-  --foreground: #123327;
-  --card: #F7F6F2;
-  --muted: #3D5049;
-  --border: rgba(18, 51, 39, 0.1);
+  --background: #F9F8F4;
+  --foreground: #0D1612;
+  --card: #FFFFFF;
+  --secondary: #F3F1EA;
+  --muted: #EBE8DE;
+  --muted-foreground: #5B6D66;
+  --border: rgba(13, 22, 18, 0.08);
 }
 
 .dark {
   color-scheme: dark;
-  --background: #0B1110;
-  --foreground: #F3F0E8;
-  --card: #111917;
-  --muted: #B8C2BF;
-  --border: rgba(255, 255, 255, 0.08);
+  --background: #060908;
+  --foreground: #F0EFEA;
+  --card: #0A110D;
+  --secondary: #121E17;
+  --muted: #1A2920;
+  --muted-foreground: #8B9B94;
+  --border: rgba(240, 239, 234, 0.08);
 }
 
 * {
@@ -66,6 +70,15 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-load-animate {
+  animation: fadeInPage 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hide Next.js dev overlays */
 #nextjs-portal,
 nextjs-portal,
 [data-nextjs-toast],
@@ -78,61 +91,10 @@ nextjs-portal,
   pointer-events: none !important;
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px) rotate(-5deg); }
-  50% { transform: translateX(5px) rotate(5deg); }
-  75% { transform: translateX(-5px) rotate(-5deg); }
-}
-.animate-shake {
-  animation: shake 0.4s ease-in-out;
-}
-@media print {
-  nav, footer, .no-print, #nextjs-portal, .nextjs-toast, [data-nextjs-toast] {
-    display: none !important;
-  }
-  body {
-    background-color: white !important;
-    color: black !important;
-  }
-  * {
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-}
-
-/* Simple loading fade-in for pages (#6) */
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.page-load-animate {
-  animation: fadeInPage 0.4s ease-out forwards;
-}
-
-/* Add custom focus styles for skip to content */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary);
-  color: var(--primary-foreground);
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.2s;
-}
-.skip-link:focus {
-  top: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
+/* Utility classes for specific highlights requested */
+.text-highlight { color: #EC4899; }
+.bg-highlight { background-color: #EC4899; }
+.text-verified { color: #10B981; }
+.bg-verified { background-color: #10B981; }
+.text-warning { color: #F59E0B; }
+.bg-warning { background-color: #F59E0B; }

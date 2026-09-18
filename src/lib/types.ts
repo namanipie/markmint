@@ -287,6 +287,11 @@ export interface PredictionItem {
   recency_score?: number;
   marks_score?: number;
   evidence_count?: number;
+  priority_info?: {
+    priority_score: number;
+    priority_tier: string;
+    student_status?: string;
+  };
   reason_codes?: string[];
   explanation?: string;
   evidence_details?: any;
@@ -327,6 +332,7 @@ export interface HistoricalQuestion {
   source_document_url?: string | null;
   repetition_type?: string;
   topics?: string[];
+  mapped_topic_name?: string;
 }
 
 export interface CoverageSummary {
