@@ -65,6 +65,7 @@ class PaperObservedCoverage:
     known_marks_total: float = 0.0
     questions_with_known_marks: int = 0
     questions_with_unknown_marks: int = 0
+    mapping_rate: float = 0.0
     document_title: Optional[str] = None
     document_source: Optional[str] = None
     question_lineage: List[QuestionObservedLineage] = field(default_factory=list)
@@ -86,6 +87,7 @@ class CycleObservedCoverage:
     known_marks_total: float = 0.0
     questions_with_known_marks: int = 0
     questions_with_unknown_marks: int = 0
+    mapping_rate: float = 0.0
     papers: List[Dict[str, Any]] = field(default_factory=list)
 
 
@@ -163,7 +165,7 @@ def identify_exam_assessment(exam: Exam, course_id: int) -> AssessmentIdentity:
     # 3. Document Title / Header
     if doc and doc.title:
         title_upper = doc.title.upper()
-        if any(w in title_upper for w in ["CT1", "CT-1", "CYCLE TEST 1", "CLA-1", "CLA1"]):
+        if any(w in title_upper for w in ["CT1", "CT-1", "CYCLE TEST 1", "CLA-1", "CLA1", "FT1", "FT-1", "FT-I"]):
             return AssessmentIdentity(
                 normalized_code="CT1",
                 raw_type=raw_type or None,
@@ -172,7 +174,7 @@ def identify_exam_assessment(exam: Exam, course_id: int) -> AssessmentIdentity:
                 student_cycle="CT1",
                 evidence_text=f"Document title '{doc.title}' contains CT1 indicator",
             )
-        if any(w in title_upper for w in ["CT2", "CT-2", "CYCLE TEST 2", "CLA-2", "CLA2"]):
+        if any(w in title_upper for w in ["CT2", "CT-2", "CYCLE TEST 2", "CLA-2", "CLA2", "FT2", "FT-2", "FT-II", "TEST-FJ-II", "TEST FJ II"]):
             return AssessmentIdentity(
                 normalized_code="CT2",
                 raw_type=raw_type or None,
@@ -181,20 +183,24 @@ def identify_exam_assessment(exam: Exam, course_id: int) -> AssessmentIdentity:
                 student_cycle="CT2",
                 evidence_text=f"Document title '{doc.title}' contains CT2 indicator",
             )
-        if any(w in title_upper for w in ["END_SEM", "ENDSEM", "DEGREE EXAMINATION", "SEMESTER EXAMINATION", "END SEMESTER"]):
+        if (
+            any(w in title_upper for w in ["END_SEM", "ENDSEM", "DEGREE EXAMINATION", "SEMESTER EXAMINATION", "END SEMESTER"])
+            or ("MODEL" in title_upper and "QP" in title_upper)
+            or ("PYQ" in title_upper and any(m in title_upper for m in ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC", "202", "201"]))
+        ):
             return AssessmentIdentity(
                 normalized_code="ENDSEM",
                 raw_type=raw_type or None,
                 identification_source="document_title",
                 confidence=0.9,
                 student_cycle="ENDSEM",
-                evidence_text=f"Document title '{doc.title}' contains EndSem indicator",
+                evidence_text=f"Document title '{doc.title}' contains EndSem / University Examination indicator",
             )
 
     # 4. Filename / Path Indicators
     if doc and (doc.source or doc.original_url):
         path_str = f"{doc.source or ''} {doc.original_url or ''}".upper()
-        if any(w in path_str for w in ["CT1", "CT-1", "CYCLE_TEST_1", "CLA1"]):
+        if any(w in path_str for w in ["CT1", "CT-1", "CYCLE_TEST_1", "CLA1", "FT1", "FT-1"]):
             return AssessmentIdentity(
                 normalized_code="CT1",
                 raw_type=raw_type or None,
@@ -203,7 +209,7 @@ def identify_exam_assessment(exam: Exam, course_id: int) -> AssessmentIdentity:
                 student_cycle="CT1",
                 evidence_text="File path contains CT1 indicator",
             )
-        if any(w in path_str for w in ["CT2", "CT-2", "CYCLE_TEST_2", "CLA2"]):
+        if any(w in path_str for w in ["CT2", "CT-2", "CYCLE_TEST_2", "CLA2", "FT2", "FT-2", "FT-II", "TEST-FJ-II"]):
             return AssessmentIdentity(
                 normalized_code="CT2",
                 raw_type=raw_type or None,
@@ -311,6 +317,8 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
                 )
             )
 
+    paper_mapping_rate = round(mapped_questions_count / total_questions * 100, 2) if total_questions > 0 else 0.0
+
     return PaperObservedCoverage(
         exam_id=exam.id,
         year=exam.year,
@@ -327,6 +335,7 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
         known_marks_total=known_marks_total,
         questions_with_known_marks=questions_with_known_marks,
         questions_with_unknown_marks=questions_with_unknown_marks,
+        mapping_rate=paper_mapping_rate,
         document_title=doc.title if doc else None,
         document_source=doc.source if doc else None,
         question_lineage=question_lineage,
@@ -388,6 +397,7 @@ def compute_cycle_observed_coverage(
             "total_questions": paper_cov.total_questions,
             "mapped_questions": paper_cov.mapped_questions_count,
             "unmapped_questions": paper_cov.unmapped_questions_count,
+            "mapping_rate": paper_cov.mapping_rate,
             "known_marks_total": paper_cov.known_marks_total,
             "questions_with_known_marks": paper_cov.questions_with_known_marks,
             "questions_with_unknown_marks": paper_cov.questions_with_unknown_marks,
@@ -395,6 +405,8 @@ def compute_cycle_observed_coverage(
             "question_count_by_unit": paper_cov.question_count_by_unit,
             "marks_by_unit": paper_cov.marks_by_unit,
         })
+
+    cycle_mapping_rate = round(mapped_questions / total_questions * 100, 2) if total_questions > 0 else 0.0
 
     return CycleObservedCoverage(
         course_id=course_id,
@@ -411,6 +423,7 @@ def compute_cycle_observed_coverage(
         known_marks_total=cycle_known_marks_total,
         questions_with_known_marks=cycle_questions_with_known_marks,
         questions_with_unknown_marks=cycle_questions_with_unknown_marks,
+        mapping_rate=cycle_mapping_rate,
         papers=paper_summaries,
     )
 
@@ -478,6 +491,7 @@ def build_coverage_audit_chain(course_id: int, exam_id: int, db: Session) -> Dic
             "questions_with_known_marks": paper_cov.questions_with_known_marks,
             "questions_with_unknown_marks": paper_cov.questions_with_unknown_marks,
             "known_marks_total": paper_cov.known_marks_total,
+            "mapping_rate": paper_cov.mapping_rate,
         },
         "observed_units": paper_cov.observed_unit_numbers,
         "observed_topics": paper_cov.observed_topic_names,

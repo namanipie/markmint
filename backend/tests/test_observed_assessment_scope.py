@@ -280,7 +280,7 @@ def test_question_count_reconciliation_total_equals_mapped_plus_unmapped(db: Ses
             f"Exam {ex.id} count discrepancy: total={pcov.total_questions} != mapped({pcov.mapped_questions_count}) + unmapped({pcov.unmapped_questions_count})"
         )
 
-    # Calculus CT2 cycle reconciliation
+    # Calculus CT2 cycle reconciliation (Post-mapping: 17 mapped, 5 unmapped, total=22)
     calc_ct2_exams = [
         ex for ex in exams
         if identify_exam_assessment(ex, calc.id).student_cycle == "CT2"
@@ -288,9 +288,10 @@ def test_question_count_reconciliation_total_equals_mapped_plus_unmapped(db: Ses
     assert len(calc_ct2_exams) == 3
     ccov = compute_cycle_observed_coverage(calc.id, "CT2", calc_ct2_exams)
     assert ccov.total_questions == 22
-    assert ccov.mapped_questions_count == 3
-    assert ccov.unmapped_questions_count == 19
+    assert ccov.mapped_questions_count == 17
+    assert ccov.unmapped_questions_count == 5
     assert ccov.total_questions == ccov.mapped_questions_count + ccov.unmapped_questions_count
+    assert ccov.mapping_rate == round(17 / 22 * 100, 2)
 
 
 def test_marks_accounting_distinguishes_known_vs_unknown_marks(db: Session):
@@ -304,6 +305,8 @@ def test_marks_accounting_distinguishes_known_vs_unknown_marks(db: Session):
 
     # Every question has either known marks or unknown marks
     assert ccov.total_questions == ccov.questions_with_known_marks + ccov.questions_with_unknown_marks
+    assert ccov.questions_with_known_marks == 14
+    assert ccov.questions_with_unknown_marks == 8
 
     # Paper 3 (2015) has all 8 questions with unknown marks (marks=None in DB)
     p3 = [p for p in ccov.papers if p["exam_id"] == 3][0]
@@ -312,22 +315,99 @@ def test_marks_accounting_distinguishes_known_vs_unknown_marks(db: Session):
     assert p3["questions_with_known_marks"] == 0
     assert p3["known_marks_total"] == 0.0
 
-    # Since the 3 mapped questions belong to Paper 3 which has unknown marks, marks_by_unit is empty {}
-    assert ccov.marks_by_unit == {}
-    assert ccov.marks_by_unit.get(5, 0.0) == 0.0
-    assert ccov.marks_by_unit.get(6, 0.0) == 0.0
+    # Papers 17 and 18 have known marks (71.0 each)
+    p17 = [p for p in ccov.papers if p["exam_id"] == 17][0]
+    p18 = [p for p in ccov.papers if p["exam_id"] == 18][0]
+    assert p17["known_marks_total"] == 71.0
+    assert p18["known_marks_total"] == 71.0
+
+    # Cycle marks_by_unit reflects mapped questions with known marks
+    assert ccov.known_marks_total == 142.0
+    assert ccov.marks_by_unit.get(1) == 84.0
+    assert ccov.marks_by_unit.get(5) == 16.0
+    assert ccov.marks_by_unit.get(6) == 42.0
+    assert round(sum(ccov.marks_by_unit.values()), 2) == ccov.known_marks_total
 
 
 def test_fallback_assessment_identity_does_not_corrupt_cycle_predictions(db: Session):
     """Invariant: Fallback papers default to ALL and are excluded from CT1 / CT2 cycle predictions."""
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
-    # Find any exam classified as fallback
     all_exams = db.query(Exam).filter(Exam.course_id == calc.id).all()
     for ex in all_exams:
         ident = identify_exam_assessment(ex, calc.id)
         if ident.identification_source == "fallback":
             assert ident.student_cycle == "ALL"
             assert ident.confidence <= 0.5
-            # Must NOT be in CT1 or CT2 cycle
             assert ident.student_cycle not in ("CT1", "CT2")
+
+
+def test_successfully_resolved_fallback_papers_enter_correct_cycle(db: Session):
+    """Invariant: Documents with conclusive title/session evidence resolve to correct cycle with provenance."""
+    # Exam 25: Calculus PYQ 2024 Dec -> ENDSEM
+    ex25 = db.query(Exam).filter(Exam.id == 25).first()
+    assert ex25 is not None
+    ident25 = identify_exam_assessment(ex25, ex25.course_id)
+    assert ident25.normalized_code == "ENDSEM"
+    assert ident25.student_cycle == "ENDSEM"
+    assert ident25.identification_source == "document_title"
+    assert ident25.confidence == 0.9
+
+    # Exam 252: Electronic System And PCB Design test-fj-ii -> CT2
+    ex252 = db.query(Exam).filter(Exam.id == 252).first()
+    assert ex252 is not None
+    ident252 = identify_exam_assessment(ex252, ex252.course_id)
+    assert ident252.normalized_code == "CT2"
+    assert ident252.student_cycle == "CT2"
+    assert ident252.identification_source == "document_title"
+    assert ident252.confidence == 0.9
+
+    # Exam 6: Chem Q-Bank.pdf -> Must remain fallback UNKNOWN / ALL
+    ex6 = db.query(Exam).filter(Exam.id == 6).first()
+    assert ex6 is not None
+    ident6 = identify_exam_assessment(ex6, ex6.course_id)
+    assert ident6.normalized_code == "UNKNOWN"
+    assert ident6.student_cycle == "ALL"
+    assert ident6.identification_source == "fallback"
+
+
+def test_unmapped_questions_never_become_prediction_evidence(db: Session):
+    """Invariant: Questions without topic mapping are excluded from prediction evidence."""
+    calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
+    pred_resp = get_prediction(str(calc.id), assessment_cycle="CT2", db=db)
+    
+    # Predictions must come strictly from mapped topics
+    assert "predictions" in pred_resp
+    pred_topic_names = {p["name"] for p in pred_resp["predictions"]}
+    
+    # Exam 3 question 13 (Solve (D^2 + 6D + 9) y = 3e^{4x}) is unmapped
+    q13 = db.query(Question).filter(Question.id == 13).first()
+    assert q13 is not None
+    assert len(q13.topics) == 0  # Still unmapped
+    
+    # Unmapped topics must not receive fake prediction scores
+    assert "Second-Order ODE" not in pred_topic_names
+
+
+def test_provenance_survives_and_raw_data_unmutated(db: Session):
+    """Invariant: Dynamic assessment resolution never mutates raw Exam.assessment_type or Document fields."""
+    ex25 = db.query(Exam).filter(Exam.id == 25).first()
+    assert ex25.assessment_type is None  # Raw field remains unmutated!
+    
+    ident = identify_exam_assessment(ex25, ex25.course_id)
+    assert ident.normalized_code == "ENDSEM"
+    assert ident.raw_type is None
+    assert ident.identification_source == "document_title"
+
+
+def test_no_fake_topic_unit_mapping(db: Session):
+    """Invariant: All mapped questions resolve to valid canonical units through topic.unit, never question numbering."""
+    calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
+    # Question 460 is Q#5 in Exam 17 Part-B, but mapped to Quadratic Forms (Unit 1), NOT Unit 5!
+    q460 = db.query(Question).filter(Question.id == 460).first()
+    assert q460 is not None
+    assert q460.question_number == "5"
+    assert len(q460.topics) == 1
+    assert q460.topics[0].name == "Quadratic Forms"
+    assert q460.topics[0].unit.number == 1  # Strictly Unit 1, NOT Unit 5!
+
 
