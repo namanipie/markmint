@@ -27,6 +27,7 @@ from backend.services.prediction.engine import (
 from backend.services.prediction.backtester import BacktestEvaluator
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
 from backend.services.assessment_cycle import AssessmentCycle, normalize_assessment_cycle, filter_exams_by_cycle
+from backend.services.assessment_plan_registry import get_course_assessment_scope
 
 logger = logging.getLogger("markmint.intelligence")
 
@@ -85,7 +86,7 @@ def get_course_historical_questions(
     active_cycle = assessment_cycle or assessment_type
     norm_cycle = normalize_assessment_cycle(active_cycle)
     if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
-        query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle)
+        query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle, course_id=course.id)
 
     if year is not None:
         query = query.filter(Exam.year == year)
@@ -152,11 +153,15 @@ def get_course_historical_questions(
             "topics": topics,
         })
 
+    scope = get_course_assessment_scope(course.id, norm_cycle, db=db) if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else None
+
     return {
         "course_id": course.id,
         "course_name": course.name,
         "topic_filter": topic,
         "assessment_cycle": norm_cycle or "ALL",
+        "assessment_component": scope.component_code if scope else (norm_cycle or "ALL"),
+        "assessment_label": scope.component_label if scope else (norm_cycle or "All Assessments"),
         "assessment_type_filter": assessment_type,
         "year_filter": year,
         "total_returned": len(formatted_questions),
@@ -517,6 +522,32 @@ def get_intelligence_snapshot(
             "Intelligence snapshot resolved: course_id=%s, assessment_cycle=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
             course_id, norm_cycle, (time.time() - t_start) * 1000
         )
+        scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+        unobserved_in_scope = (
+            [
+                {
+                    "name": name,
+                    "status": "UNOBSERVED_IN_SCOPE",
+                    "message": "In syllabus scope, but no historical evidence available",
+                }
+                for name in sorted(list(scope.in_scope_topic_names))
+            ]
+            if (not scope.is_all and scope.in_scope_topic_names)
+            else []
+        )
+        assessment_scope_payload = {
+            "student_cycle": norm_cycle or "ALL",
+            "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "role": scope.role,
+            "marks": scope.marks,
+            "source_document": scope.source_document,
+            "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            "total_in_scope_topics": len(scope.in_scope_topic_names),
+            "observed_in_scope_topics": 0,
+            "unobserved_in_scope_topics": unobserved_in_scope,
+        }
         msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}'."
         if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
             msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}' under assessment cycle '{norm_cycle}'."
@@ -551,6 +582,9 @@ def get_intelligence_snapshot(
             "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
             "available_assessment_cycles": available_cycles,
             "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "assessment_scope": assessment_scope_payload,
             "message": msg,
             "predictions": [],
             "study_priorities": [],
@@ -574,6 +608,37 @@ def get_intelligence_snapshot(
     engine = ExamScopeCombinedModel(dna)
     topic_preds = engine.predict(PredictionTarget.TOPIC)
     family_preds = engine.predict(PredictionTarget.FAMILY)
+
+    # Resolve course-specific assessment plan scope & candidate restriction
+    scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+    if not scope.is_all and scope.in_scope_topic_names:
+        topic_preds = [p for p in topic_preds if p.name in scope.in_scope_topic_names]
+
+    unobserved_in_scope = (
+        [
+            {
+                "name": name,
+                "status": "UNOBSERVED_IN_SCOPE",
+                "message": "In syllabus scope, but no historical evidence available",
+            }
+            for name in sorted(list(scope.in_scope_topic_names - {p.name for p in topic_preds}))
+        ]
+        if (not scope.is_all and scope.in_scope_topic_names)
+        else []
+    )
+    assessment_scope_payload = {
+        "student_cycle": norm_cycle or "ALL",
+        "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+        "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "role": scope.role,
+        "marks": scope.marks,
+        "source_document": scope.source_document,
+        "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+        "total_in_scope_topics": len(scope.in_scope_topic_names),
+        "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(scope.in_scope_topic_names),
+        "unobserved_in_scope_topics": unobserved_in_scope,
+    }
 
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
@@ -799,6 +864,9 @@ def get_intelligence_snapshot(
         "available_assessment_types": available_assessment_types,
         "available_assessment_cycles": available_cycles,
         "assessment_cycle": norm_cycle or "ALL",
+        "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+        "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "assessment_scope": assessment_scope_payload,
         "predictions": predictions_payload,
         "topic_predictions": topic_predictions_payload,
         "family_predictions": family_predictions_payload,

@@ -7,7 +7,8 @@ from backend.services.prediction.context import HistoricalContext, PredictionTar
 from backend.services.prediction.repository import HistoricalRepository
 from backend.core.database import get_db
 from backend.models.core import Course, Exam, Topic, Unit, Syllabus
-from backend.services.assessment_cycle import normalize_assessment_cycle
+from backend.services.assessment_cycle import normalize_assessment_cycle, AssessmentCycle
+from backend.services.assessment_plan_registry import get_course_assessment_scope
 import re
 from typing import Any, Optional
 from fastapi import APIRouter, HTTPException, Query, Depends
@@ -46,12 +47,18 @@ def _find_course(db: Session, identifier: str) -> Optional[Course]:
     # 5. Normalized alphanumeric match (ignores spaces, punctuation, case)
     norm_id = re.sub(r'[^a-zA-Z0-9]', '', str(identifier)).lower()
     if norm_id:
-        for c in db.query(Course).all():
+        all_courses = db.query(Course).all()
+        for c in all_courses:
             if c.canonical_code and re.sub(r'[^a-zA-Z0-9]', '', c.canonical_code).lower() == norm_id:
                 return c
             if re.sub(r'[^a-zA-Z0-9]', '', c.name).lower() == norm_id:
                 return c
             if re.sub(r'[^a-zA-Z0-9]', '', c.code).lower() == norm_id:
+                return c
+
+        # 6. Prefix / substring match for course names (e.g. 'Calculus' -> 'Calculus And Linear Algebra')
+        for c in all_courses:
+            if norm_id in re.sub(r'[^a-zA-Z0-9]', '', c.name).lower():
                 return c
 
     return None
@@ -147,12 +154,41 @@ def get_prediction(
         repo = HistoricalRepository(db, context)
         
         hist_exams_orm = repo.get_historical_exams()
+        scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
         if not hist_exams_orm:
+            unobserved_in_scope = (
+                [
+                    {
+                        "name": name,
+                        "status": "UNOBSERVED_IN_SCOPE",
+                        "message": "In syllabus scope, but no historical evidence available",
+                    }
+                    for name in sorted(list(scope.in_scope_topic_names))
+                ]
+                if (not scope.is_all and scope.in_scope_topic_names)
+                else []
+            )
+            assessment_scope_payload = {
+                "student_cycle": norm_cycle or "ALL",
+                "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+                "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "role": scope.role,
+                "marks": scope.marks,
+                "source_document": scope.source_document,
+                "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+                "total_in_scope_topics": len(scope.in_scope_topic_names),
+                "observed_in_scope_topics": 0,
+                "unobserved_in_scope_topics": unobserved_in_scope,
+            }
             return {
                 "course_id": course.id,
                 "subject": course.name,
                 "target_year": target_year,
                 "assessment_cycle": norm_cycle or "ALL",
+                "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+                "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "assessment_scope": assessment_scope_payload,
                 "predictions": [],
                 "evidence": "Insufficient historical data",
                 "data_quality": f"No historical exams found prior to the cutoff year for assessment cycle '{norm_cycle or 'ALL'}'."
@@ -166,6 +202,36 @@ def get_prediction(
         engine = ExamScopeCombinedModel(dna)
         topic_preds = engine.predict(PredictionTarget.TOPIC)
         family_preds = engine.predict(PredictionTarget.FAMILY)
+
+        # Restrict topic predictions to assessment component scope if not ALL
+        if not scope.is_all and scope.in_scope_topic_names:
+            topic_preds = [p for p in topic_preds if p.name in scope.in_scope_topic_names]
+
+        unobserved_in_scope = (
+            [
+                {
+                    "name": name,
+                    "status": "UNOBSERVED_IN_SCOPE",
+                    "message": "In syllabus scope, but no historical evidence available",
+                }
+                for name in sorted(list(scope.in_scope_topic_names - {p.name for p in topic_preds}))
+            ]
+            if (not scope.is_all and scope.in_scope_topic_names)
+            else []
+        )
+        assessment_scope_payload = {
+            "student_cycle": norm_cycle or "ALL",
+            "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "role": scope.role,
+            "marks": scope.marks,
+            "source_document": scope.source_document,
+            "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            "total_in_scope_topics": len(scope.in_scope_topic_names),
+            "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(scope.in_scope_topic_names),
+            "unobserved_in_scope_topics": unobserved_in_scope,
+        }
         
         from datetime import datetime, timezone
         from backend.core.version import MODEL_VERSION, TAXONOMY_VERSION, ENGINE_VERSION
@@ -236,6 +302,9 @@ def get_prediction(
             "subject": course.name,
             "target_year": target_year,
             "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "assessment_scope": assessment_scope_payload,
             "predictions": predictions,
             "observed_years": observed_years,
             "unobserved_years": unobserved_years,

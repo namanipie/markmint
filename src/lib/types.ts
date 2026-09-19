@@ -393,6 +393,25 @@ export interface IntelligenceSnapshot {
   available_assessment_types?: string[];
   assessment_cycle?: string;
   available_assessment_cycles?: string[];
+  assessment_component?: string;
+  assessment_label?: string;
+  assessment_scope?: {
+    student_cycle: string;
+    component_code?: string;
+    component_label?: string;
+    student_label?: string;
+    role?: string;
+    marks?: number | null;
+    source_document?: string | null;
+    unit_numbers?: number[];
+    total_in_scope_topics?: number;
+    observed_in_scope_topics?: number;
+    unobserved_in_scope_topics?: Array<{
+      name: string;
+      status: string;
+      message: string;
+    }>;
+  } | null;
   predictions: PredictionItem[];
   family_predictions?: PredictionItem[];
   topic_predictions?: PredictionItem[];

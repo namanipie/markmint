@@ -147,19 +147,29 @@ def normalize_assessment_cycle(val: Any) -> Optional[str]:
     return upper
 
 
-def get_raw_types_for_cycle(canonical_cycle: Optional[str]) -> Set[str]:
-    """Return the set of raw database assessment_type strings for a canonical cycle."""
+def get_raw_types_for_cycle(canonical_cycle: Optional[str], course_id: Optional[int] = None) -> Set[str]:
+    """
+    Return the set of raw database assessment_type strings for a canonical cycle.
+    Uses course-specific assessment plan mapping when course_id is provided.
+    """
     if not canonical_cycle or canonical_cycle == AssessmentCycle.ALL.value:
         return set()
     
     norm = normalize_assessment_cycle(canonical_cycle)
+
+    if course_id is not None:
+        from backend.services.assessment_plan_registry import get_course_raw_types_for_cycle
+        course_raw = get_course_raw_types_for_cycle(course_id, norm or canonical_cycle)
+        if course_raw:
+            return course_raw
+    
     if norm in CYCLE_TO_RAW_TYPES:
         return CYCLE_TO_RAW_TYPES[norm]
     
     return {canonical_cycle.upper()}
 
 
-def is_exam_in_cycle(exam_assessment_type: Optional[str], canonical_cycle: Optional[str]) -> bool:
+def is_exam_in_cycle(exam_assessment_type: Optional[str], canonical_cycle: Optional[str], course_id: Optional[int] = None) -> bool:
     """Check whether a single exam's assessment_type matches the selected canonical cycle."""
     if not canonical_cycle or canonical_cycle == AssessmentCycle.ALL.value:
         return True
@@ -167,16 +177,16 @@ def is_exam_in_cycle(exam_assessment_type: Optional[str], canonical_cycle: Optio
     if not exam_assessment_type:
         return False
     
-    raw_types = get_raw_types_for_cycle(canonical_cycle)
+    raw_types = get_raw_types_for_cycle(canonical_cycle, course_id=course_id)
     return exam_assessment_type.upper() in {t.upper() for t in raw_types}
 
 
-def filter_exams_by_cycle(query, exam_col, canonical_cycle: Optional[str]):
+def filter_exams_by_cycle(query, exam_col, canonical_cycle: Optional[str], course_id: Optional[int] = None):
     """Apply assessment cycle filter to an existing SQLAlchemy query."""
     if not canonical_cycle or canonical_cycle == AssessmentCycle.ALL.value:
         return query
     
-    raw_types = get_raw_types_for_cycle(canonical_cycle)
+    raw_types = get_raw_types_for_cycle(canonical_cycle, course_id=course_id)
     if not raw_types:
         return query
     

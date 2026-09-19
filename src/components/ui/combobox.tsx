@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
-import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "cmdk";
 
 export function Combobox({ 
   options, 
@@ -24,62 +22,95 @@ export function Combobox({
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState("");
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label || placeholder;
 
+  const filteredOptions = React.useMemo(() => {
+    if (!search.trim()) return options;
+    const s = search.toLowerCase();
+    return options.filter((opt) => opt.label.toLowerCase().includes(s));
+  }, [options, search]);
+
+  React.useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
-    <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
-      <PopoverPrimitive.Trigger asChild>
-        <button
-          role="combobox"
-          aria-expanded={open}
-          disabled={disabled}
-          className={cn(
-            "flex w-full items-center justify-between rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm hover:bg-muted/50 focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50",
-            className
-          )}
-        >
-          <span className="truncate">{selectedLabel}</span>
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </button>
-      </PopoverPrimitive.Trigger>
-      <PopoverPrimitive.Portal>
-        <PopoverPrimitive.Content
-          align="start"
-          className="z-50 w-[var(--radix-popover-trigger-width)] min-w-[200px] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
-        >
-          <Command className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground">
-            <CommandInput 
-              placeholder="Search..." 
-              className="flex h-10 w-full rounded-md bg-transparent py-3 px-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-b border-border"
+    <div ref={containerRef} className="relative w-full">
+      <button
+        type="button"
+        role="combobox"
+        aria-expanded={open}
+        disabled={disabled}
+        onClick={() => setOpen(!open)}
+        className={cn(
+          "flex w-full items-center justify-between rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm hover:bg-muted/50 focus:outline-none focus:ring-1 focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+      >
+        <span className="truncate">{selectedLabel}</span>
+        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+      </button>
+
+      {open && (
+        <div className="absolute z-50 mt-1 w-full min-w-[200px] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none animate-in fade-in-0 zoom-in-95">
+          <div className="flex items-center border-b border-border px-3 py-2">
+            <Search className="mr-2 h-3.5 w-3.5 shrink-0 opacity-50" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search..."
+              className="flex h-7 w-full rounded-md bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+              autoFocus
             />
-            <CommandList className="max-h-[300px] overflow-y-auto overflow-x-hidden">
-              <CommandEmpty className="py-6 text-center text-sm">{emptyText}</CommandEmpty>
-              <CommandGroup className="p-1 text-foreground">
-                {options.map((option) => (
-                  <CommandItem
-                    key={option.value}
-                    value={option.label}
-                    onSelect={() => {
-                      onChange(option.value);
+          </div>
+          <div className="max-h-[250px] overflow-y-auto p-1">
+            {filteredOptions.length === 0 ? (
+              <div className="py-4 text-center text-xs text-muted-foreground">{emptyText}</div>
+            ) : (
+              filteredOptions.map((opt) => {
+                const isSelected = opt.value === value;
+                return (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => {
+                      onChange(opt.value);
                       setOpen(false);
+                      setSearch("");
                     }}
-                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent/15 aria-selected:text-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                    className={cn(
+                      "flex w-full items-center rounded-sm px-2 py-1.5 text-xs text-foreground hover:bg-accent/10 hover:text-accent transition-colors text-left",
+                      isSelected && "bg-accent/15 text-accent font-semibold"
+                    )}
                   >
                     <Check
                       className={cn(
-                        "mr-2 h-4 w-4",
-                        value === option.value ? "opacity-100 text-accent" : "opacity-0"
+                        "mr-2 h-3.5 w-3.5 shrink-0",
+                        isSelected ? "opacity-100" : "opacity-0"
                       )}
                     />
-                    {option.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverPrimitive.Content>
-      </PopoverPrimitive.Portal>
-    </PopoverPrimitive.Root>
+                    <span className="truncate">{opt.label}</span>
+                  </button>
+                );
+              })
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

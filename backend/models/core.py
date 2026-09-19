@@ -377,3 +377,7 @@ class StudentResourceProgress(Base):
     last_viewed_at = Column(DateTime, nullable=True)
     
     document = relationship('Document')
+
+
+# Course-specific assessment structure models
+from backend.models.assessment import CourseAssessmentPlan, AssessmentComponent, AssessmentCoverage

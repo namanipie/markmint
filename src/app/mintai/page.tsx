@@ -502,6 +502,27 @@ export default function MintAIPage() {
                     <option value="CT2">CT2</option>
                     <option value="ENDSEM">End Semester</option>
                   </select>
+                  {snapshot?.assessment_scope && (
+                    <div className="mt-2 p-2.5 rounded-lg bg-accent/5 border border-accent/20 text-[11px] space-y-1">
+                      <div className="flex items-center justify-between font-semibold">
+                        <span className="text-accent">
+                          {snapshot.assessment_label || snapshot.assessment_component || selectedExam}
+                        </span>
+                        {snapshot.assessment_scope.unit_numbers && snapshot.assessment_scope.unit_numbers.length > 0 && (
+                          <span className="font-mono text-[10px] text-muted-foreground">
+                            {snapshot.assessment_scope.unit_numbers.length === 1
+                              ? `Unit ${snapshot.assessment_scope.unit_numbers[0]}`
+                              : `Units ${snapshot.assessment_scope.unit_numbers.join(", ")}`}
+                          </span>
+                        )}
+                      </div>
+                      {snapshot.assessment_scope.unobserved_in_scope_topics && snapshot.assessment_scope.unobserved_in_scope_topics.length > 0 && (
+                        <div className="text-[10px] text-amber-500/90 flex items-center gap-1 pt-1 border-t border-accent/10">
+                          <span>{snapshot.assessment_scope.unobserved_in_scope_topics.length} syllabus topics in scope have no past exam questions.</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -641,6 +662,50 @@ export default function MintAIPage() {
 
                 return (
             <div className="flex flex-col gap-6">
+              {/* Course-Specific Assessment Structure Scope Banner */}
+              {snapshot.assessment_cycle && snapshot.assessment_cycle !== "ALL" && snapshot.assessment_scope && (
+                <div className="bg-card border border-accent/30 rounded-xl p-4 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gradient-to-r from-accent/5 to-transparent">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-accent/10 text-accent shrink-0">
+                      <Target className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-bold text-sm text-foreground">
+                          {snapshot.assessment_label || snapshot.assessment_cycle} Scope
+                        </h3>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/15 text-accent font-semibold border border-accent/20">
+                          {snapshot.assessment_component || snapshot.assessment_cycle}
+                        </span>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        {snapshot.assessment_scope.unit_numbers && snapshot.assessment_scope.unit_numbers.length > 0 ? (
+                          <>
+                            Grounded in syllabus units:{" "}
+                            <strong className="text-foreground">
+                              {snapshot.assessment_scope.unit_numbers.length === 1
+                                ? `Unit ${snapshot.assessment_scope.unit_numbers[0]}`
+                                : `Units ${snapshot.assessment_scope.unit_numbers.join(", ")}`}
+                            </strong>
+                            {snapshot.assessment_scope.total_in_scope_topics
+                              ? ` (${snapshot.assessment_scope.total_in_scope_topics} cataloged topics)`
+                              : ""}
+                          </>
+                        ) : (
+                          "Course-specific assessment scope active."
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                  {snapshot.assessment_scope.unobserved_in_scope_topics && snapshot.assessment_scope.unobserved_in_scope_topics.length > 0 && (
+                    <div className="text-[11px] text-amber-500 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-lg flex items-center gap-1.5 shrink-0">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>{snapshot.assessment_scope.unobserved_in_scope_topics.length} syllabus topics in scope have no past exam appearances.</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Preparation & Coverage / Evidence Meter */}
               {isFamilyMode ? (
                 <div className="bg-card border border-border rounded-xl p-5 shadow-sm">

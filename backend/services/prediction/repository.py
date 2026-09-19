@@ -32,7 +32,7 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
-        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle)
+        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.order_by(Exam.year.asc()).all()
 
     def get_historical_questions(self) -> List[Question]:
@@ -42,7 +42,7 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
-        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle)
+        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()
 
     def get_historical_family_memberships(self) -> List[QuestionFamilyMembership]:
@@ -52,7 +52,7 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
-        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle)
+        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()
 
     def get_target_exams(self) -> List[Exam]:
@@ -60,7 +60,8 @@ class HistoricalRepository:
         q = self.db.query(Exam).options(
             selectinload(Exam.sections)
             .selectinload(Section.questions)
-            .selectinload(Question.topics),
+            .selectinload(Question.topics)
+            .selectinload(Topic.unit),
             selectinload(Exam.sections)
             .selectinload(Section.questions)
             .selectinload(Question.family),
@@ -71,7 +72,5 @@ class HistoricalRepository:
             Exam.course_id == self.context.course_id,
             Exam.year == self.context.cutoff_year
         )
-        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle)
+        q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()
-
-

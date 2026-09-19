@@ -27,8 +27,11 @@ def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Opti
             .filter(Exam.course_id == course.id)
         )
 
+        scope = None
         if norm_cycle and norm_cycle != "ALL":
-            query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle)
+            from backend.services.assessment_plan_registry import get_course_assessment_scope
+            scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+            query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle, course_id=course.id)
 
         questions = (
             query
@@ -50,6 +53,17 @@ def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Opti
         return {
             "subject": subject,
             "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code if scope else (norm_cycle or "ALL"),
+            "assessment_label": scope.component_label if scope else (norm_cycle or "All Assessments"),
+            "assessment_scope": {
+                "student_cycle": norm_cycle or "ALL",
+                "component_code": scope.component_code,
+                "component_label": scope.component_label,
+                "student_label": scope.student_label,
+                "role": scope.role,
+                "marks": scope.marks,
+                "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            } if scope else None,
             "questions": formatted_questions
         }
     finally:
