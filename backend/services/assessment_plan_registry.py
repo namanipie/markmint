@@ -58,6 +58,9 @@ class AssessmentScope:
     has_authoritative_plan: bool = False
     source_document: Optional[str] = None
     notes: Optional[str] = None
+    evidence_status: str = "ALL_SCOPE"  # "EVIDENCE_BACKED" | "INTENDED_ONLY_NO_PAPERS" | "OUT_OF_SCOPE_OBSERVED" | "UNPLANNED_OBSERVED_ONLY" | "ALL_SCOPE"
+    intended_scope: Dict[str, Any] = field(default_factory=dict)
+    observed_scope: Dict[str, Any] = field(default_factory=dict)
 
 
 # ==============================================================================
@@ -575,24 +578,43 @@ def is_exam_in_course_cycle(course_id: int, exam_assessment_type: Optional[str],
 
 def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db: Optional[Session] = None) -> AssessmentScope:
     """
-    Computes the authoritative AssessmentScope (in-scope units, topic IDs, and topic names)
-    for a given course and student assessment cycle.
+    Computes the authoritative AssessmentScope:
+    - intended_scope: syllabus units & topics from authoritative course plan
+    - observed_scope: paper-derived units, topics, questions, & marks from historical exam papers
+    - evidence_status: EVIDENCE_BACKED | INTENDED_ONLY_NO_PAPERS | OUT_OF_SCOPE_OBSERVED | UNPLANNED_OBSERVED_ONLY | ALL_SCOPE
     """
     is_all = not student_cycle or student_cycle.strip().upper() == "ALL"
     cycle_clean = "ALL" if is_all else student_cycle.strip().upper()
 
     plan = get_course_assessment_plan(course_id)
+    matched_comp = None
+
     if not plan:
-        return AssessmentScope(
+        # No registered plan; derive canonical taxonomy from syllabus if db provided
+        syl_units = set()
+        if db:
+            syl_units = {
+                row[0] for row in (
+                    db.query(Unit.number)
+                    .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+                    .filter(Syllabus.course_id == course_id)
+                    .all()
+                )
+            }
+
+        scope = AssessmentScope(
             course_id=course_id,
             student_cycle=cycle_clean,
             is_all=is_all,
+            student_label="All Assessments" if is_all else cycle_clean,
+            component_code="ALL" if is_all else cycle_clean,
+            component_label="All Assessments" if is_all else cycle_clean,
+            in_scope_unit_numbers=syl_units,
             has_authoritative_plan=False,
-            notes="No authoritative course assessment plan found."
+            notes="No authoritative course assessment plan registered.",
         )
-
-    if is_all:
-        # ALL cycle covers all units in the syllabus
+    elif is_all:
+        # ALL cycle covers all units in the syllabus plan
         all_units = set()
         for comp in plan.components:
             all_units.update(comp.syllabus_units)
@@ -607,39 +629,41 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
             in_scope_unit_numbers=all_units,
             has_authoritative_plan=True,
             source_document=plan.source_document,
-            notes=plan.notes
+            notes=plan.notes,
         )
     else:
-        # Find matching component
-        matched_comp = None
+        # Find matching component by code or student_label
         for comp in plan.components:
             if comp.code.upper() == cycle_clean or comp.student_label.upper() == cycle_clean:
                 matched_comp = comp
                 break
 
         if not matched_comp:
-            return AssessmentScope(
+            scope = AssessmentScope(
                 course_id=course_id,
                 student_cycle=cycle_clean,
                 is_all=False,
+                student_label=cycle_clean,
+                component_code=cycle_clean,
+                component_label=cycle_clean,
                 has_authoritative_plan=True,
-                notes=f"Component '{cycle_clean}' does not exist in course {course_id} assessment plan."
+                notes=f"Component '{cycle_clean}' does not exist in course {course_id} assessment plan.",
             )
-
-        scope = AssessmentScope(
-            course_id=course_id,
-            student_cycle=cycle_clean,
-            is_all=False,
-            component_code=matched_comp.code,
-            component_label=matched_comp.canonical_label,
-            student_label=matched_comp.student_label,
-            role=matched_comp.role,
-            marks=matched_comp.marks,
-            in_scope_unit_numbers=set(matched_comp.syllabus_units),
-            has_authoritative_plan=True,
-            source_document=plan.source_document,
-            notes=matched_comp.notes
-        )
+        else:
+            scope = AssessmentScope(
+                course_id=course_id,
+                student_cycle=cycle_clean,
+                is_all=False,
+                component_code=matched_comp.code,
+                component_label=matched_comp.canonical_label,
+                student_label=matched_comp.student_label,
+                role=matched_comp.role,
+                marks=matched_comp.marks,
+                in_scope_unit_numbers=set(matched_comp.syllabus_units),
+                has_authoritative_plan=True,
+                source_document=plan.source_document,
+                notes=matched_comp.notes,
+            )
 
     # Expand in-scope topic IDs and topic names from db if provided
     if db and scope.in_scope_unit_numbers:
@@ -655,5 +679,82 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
         )
         scope.in_scope_topic_ids = {t_id for t_id, _ in topics_query}
         scope.in_scope_topic_names = {t_name for _, t_name in topics_query}
+
+    # Intended Scope dictionary
+    intended_units = sorted(list(scope.in_scope_unit_numbers))
+    scope.intended_scope = {
+        "unit_numbers": intended_units,
+        "topic_names": sorted(list(scope.in_scope_topic_names)),
+        "source_document": scope.source_document,
+        "notes": scope.notes,
+    }
+
+    # Derive Paper-Derived Observed Scope if DB session provided
+    if db:
+        from backend.models.core import Exam, Section, Question
+        from backend.services.observed_assessment_coverage import (
+            identify_exam_assessment,
+            compute_cycle_observed_coverage,
+        )
+        from sqlalchemy.orm import selectinload
+
+        all_course_exams = (
+            db.query(Exam)
+            .options(
+                selectinload(Exam.document),
+                selectinload(Exam.sections)
+                .selectinload(Section.questions)
+                .selectinload(Question.topics)
+                .selectinload(Topic.unit),
+            )
+            .filter(Exam.course_id == course_id)
+            .all()
+        )
+
+        if is_all:
+            cycle_exams = all_course_exams
+        else:
+            cycle_exams = []
+            for ex in all_course_exams:
+                ident = identify_exam_assessment(ex, course_id)
+                if ident.student_cycle == cycle_clean:
+                    cycle_exams.append(ex)
+                elif matched_comp and ex.assessment_type and ex.assessment_type.strip().upper() in [r.strip().upper() for r in matched_comp.raw_labels]:
+                    cycle_exams.append(ex)
+
+        cycle_cov = compute_cycle_observed_coverage(course_id, cycle_clean, cycle_exams)
+
+        scope.observed_scope = {
+            "paper_count": cycle_cov.paper_count,
+            "unit_numbers": cycle_cov.observed_unit_numbers,
+            "topic_names": cycle_cov.observed_topic_names,
+            "question_count_by_unit": cycle_cov.question_count_by_unit,
+            "marks_by_unit": cycle_cov.marks_by_unit,
+            "papers": cycle_cov.papers,
+        }
+
+        # Compute evidence status
+        if is_all:
+            scope.evidence_status = "ALL_SCOPE"
+        elif not scope.has_authoritative_plan:
+            scope.evidence_status = "UNPLANNED_OBSERVED_ONLY"
+        elif cycle_cov.paper_count == 0:
+            scope.evidence_status = "INTENDED_ONLY_NO_PAPERS"
+        else:
+            out_of_scope = [u for u in cycle_cov.observed_unit_numbers if u not in intended_units]
+            if out_of_scope:
+                scope.evidence_status = "OUT_OF_SCOPE_OBSERVED"
+            else:
+                scope.evidence_status = "EVIDENCE_BACKED"
+    else:
+        scope.observed_scope = {
+            "paper_count": 0,
+            "unit_numbers": [],
+            "topic_names": [],
+            "question_count_by_unit": {},
+            "marks_by_unit": {},
+            "papers": [],
+        }
+        scope.evidence_status = "ALL_SCOPE" if is_all else ("INTENDED_ONLY_NO_PAPERS" if scope.has_authoritative_plan else "UNPLANNED_OBSERVED_ONLY")
 
     return scope

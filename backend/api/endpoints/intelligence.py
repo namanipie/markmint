@@ -542,11 +542,15 @@ def get_intelligence_snapshot(
             "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
             "role": scope.role,
             "marks": scope.marks,
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
             "source_document": scope.source_document,
             "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
             "total_in_scope_topics": len(scope.in_scope_topic_names),
             "observed_in_scope_topics": 0,
             "unobserved_in_scope_topics": unobserved_in_scope,
+            "out_of_scope_observed_topics": [],
         }
         msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}'."
         if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
@@ -584,6 +588,9 @@ def get_intelligence_snapshot(
             "assessment_cycle": norm_cycle or "ALL",
             "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
             "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
             "assessment_scope": assessment_scope_payload,
             "message": msg,
             "predictions": [],
@@ -606,13 +613,18 @@ def get_intelligence_snapshot(
     sufficiency = getattr(dna.sample_size, "sufficiency", DataSufficiency.LIMITED)
 
     engine = ExamScopeCombinedModel(dna)
-    topic_preds = engine.predict(PredictionTarget.TOPIC)
+    all_topic_preds = engine.predict(PredictionTarget.TOPIC)
     family_preds = engine.predict(PredictionTarget.FAMILY)
 
     # Resolve course-specific assessment plan scope & candidate restriction
     scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+    
     if not scope.is_all and scope.in_scope_topic_names:
-        topic_preds = [p for p in topic_preds if p.name in scope.in_scope_topic_names]
+        topic_preds = [p for p in all_topic_preds if p.name in scope.in_scope_topic_names]
+        out_of_scope_preds = [p for p in all_topic_preds if p.name not in scope.in_scope_topic_names]
+    else:
+        topic_preds = all_topic_preds
+        out_of_scope_preds = []
 
     unobserved_in_scope = (
         [
@@ -633,11 +645,23 @@ def get_intelligence_snapshot(
         "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
         "role": scope.role,
         "marks": scope.marks,
+        "evidence_status": scope.evidence_status,
+        "intended_scope": scope.intended_scope,
+        "observed_scope": scope.observed_scope,
         "source_document": scope.source_document,
         "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
         "total_in_scope_topics": len(scope.in_scope_topic_names),
-        "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(scope.in_scope_topic_names),
+        "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(all_topic_preds),
         "unobserved_in_scope_topics": unobserved_in_scope,
+        "out_of_scope_observed_topics": [
+            {
+                "name": p.name,
+                "status": "OUT_OF_SCOPE_OBSERVED",
+                "score": round(float(p.score or 0.0), 4),
+                "message": "Observed on historical examination papers despite being outside intended syllabus plan.",
+            }
+            for p in out_of_scope_preds
+        ],
     }
 
     # 6. Generate Study Priorities & Coverage
@@ -866,6 +890,9 @@ def get_intelligence_snapshot(
         "assessment_cycle": norm_cycle or "ALL",
         "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
         "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "evidence_status": scope.evidence_status,
+        "intended_scope": scope.intended_scope,
+        "observed_scope": scope.observed_scope,
         "assessment_scope": assessment_scope_payload,
         "predictions": predictions_payload,
         "topic_predictions": topic_predictions_payload,

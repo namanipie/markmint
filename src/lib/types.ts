@@ -395,6 +395,21 @@ export interface IntelligenceSnapshot {
   available_assessment_cycles?: string[];
   assessment_component?: string;
   assessment_label?: string;
+  evidence_status?: string;
+  intended_scope?: {
+    unit_numbers: number[];
+    topic_names: string[];
+    source_document?: string | null;
+    notes?: string | null;
+  } | null;
+  observed_scope?: {
+    paper_count: number;
+    unit_numbers: number[];
+    topic_names: string[];
+    question_count_by_unit: Record<string, number>;
+    marks_by_unit: Record<string, number>;
+    papers?: any[];
+  } | null;
   assessment_scope?: {
     student_cycle: string;
     component_code?: string;
@@ -406,9 +421,30 @@ export interface IntelligenceSnapshot {
     unit_numbers?: number[];
     total_in_scope_topics?: number;
     observed_in_scope_topics?: number;
+    evidence_status?: string;
+    intended_scope?: {
+      unit_numbers: number[];
+      topic_names: string[];
+      source_document?: string | null;
+      notes?: string | null;
+    } | null;
+    observed_scope?: {
+      paper_count: number;
+      unit_numbers: number[];
+      topic_names: string[];
+      question_count_by_unit: Record<string, number>;
+      marks_by_unit: Record<string, number>;
+      papers?: any[];
+    } | null;
     unobserved_in_scope_topics?: Array<{
       name: string;
       status: string;
+      message: string;
+    }>;
+    out_of_scope_observed_topics?: Array<{
+      name: string;
+      status: string;
+      score: number;
       message: string;
     }>;
   } | null;

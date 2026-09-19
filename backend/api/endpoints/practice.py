@@ -55,6 +55,9 @@ def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Opti
             "assessment_cycle": norm_cycle or "ALL",
             "assessment_component": scope.component_code if scope else (norm_cycle or "ALL"),
             "assessment_label": scope.component_label if scope else (norm_cycle or "All Assessments"),
+            "evidence_status": scope.evidence_status if scope else "ALL_SCOPE",
+            "intended_scope": scope.intended_scope if scope else None,
+            "observed_scope": scope.observed_scope if scope else None,
             "assessment_scope": {
                 "student_cycle": norm_cycle or "ALL",
                 "component_code": scope.component_code,
@@ -62,6 +65,9 @@ def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Opti
                 "student_label": scope.student_label,
                 "role": scope.role,
                 "marks": scope.marks,
+                "evidence_status": scope.evidence_status,
+                "intended_scope": scope.intended_scope,
+                "observed_scope": scope.observed_scope,
                 "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
             } if scope else None,
             "questions": formatted_questions
