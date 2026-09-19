@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Home, Leaf } from "lucide-react";
+import { Navbar } from "@/components/layout/navbar";
+
 type Stage = "NORMAL" | "ASTEROID" | "DESTRUCTION" | "BEAM" | "VOID" | "RESOLVED";
 
 export default function NotFound() {

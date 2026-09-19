@@ -1,8 +1,12 @@
-"use client";
+﻿"use client";
+
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 
 export default function TermsPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <Navbar />
       <main className="flex-1 w-full px-6 md:px-10 pt-8 pb-32">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Terms and Conditions</h1>
         
@@ -49,6 +53,7 @@ export default function TermsPage() {
           </p>
         </div>
       </main>
-      </div>
+      <Footer />
+    </div>
   );
 }

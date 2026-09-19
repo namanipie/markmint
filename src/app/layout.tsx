@@ -3,11 +3,8 @@ import { Geist, Geist_Mono, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 import { Toaster } from "sonner";
+import { CommandPalette } from "@/components/ui/command-palette";
 import { GlobalFeatures } from "@/components/ui/GlobalFeatures";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { AppShell } from "@/components/layout/app-shell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +22,14 @@ const dancingScript = Dancing_Script({
   weight: ["400", "700"],
 });
 
+import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.vercel.app"),
   title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
-  description: "Forecast high-yield topics using verified historical exam evidence.",
+  description: "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
   alternates: {
     canonical: "/",
   },
@@ -80,26 +80,23 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full bg-background text-foreground relative">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <AppShell>
-            {children}
-          </AppShell>
-          <Toaster
-            theme="dark"
-            position="bottom-right"
-            toastOptions={{
-              style: {
-                background: "#0A110D",
-                border: "1px solid rgba(240, 239, 234, 0.08)",
-                color: "#F0EFEA",
-              },
-            }}
-          />
-          <GlobalFeatures />
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
+      <body className="min-h-full flex flex-col bg-background text-foreground relative">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        {children}
+        <Toaster
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#18181b",
+              border: "1px solid #27272a",
+              color: "#fafafa",
+            },
+          }}
+        />
+                <GlobalFeatures />
+      </ThemeProvider>
+      <Analytics />
+      <SpeedInsights />
       </body>
     </html>
   );
