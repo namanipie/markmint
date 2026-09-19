@@ -1,0 +1,892 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 5,
+    "name": "Programming For Problem Solving",
+    "canonical_code": "21CSS101J",
+    "code": "SEM1-PPS",
+    "regulation_year": 2021,
+    "department": "Computer Science and Engineering"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSS101J Programming For Problem Solving",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Problem Solving & C Basics, Control Flow & Pointers, Strings & Functions, Python Basics, and NumPy/Pandas."
+  },
+  "units": [
+    {
+      "id": 5,
+      "number": 1,
+      "name": "Problem Solving and C Basics",
+      "topics": [
+        {
+          "id": 140,
+          "name": "Problem Solving Process, Algorithms, and Flowcharts",
+          "canonical_name": "Problem Solving Process, Algorithms, and Flowcharts",
+          "aliases": [
+            "Problem Solving Process, Algorithms, and Flowcharts"
+          ],
+          "strong_phrases": [
+            "problem-solving process",
+            "problem solving process",
+            "steps in problem solving",
+            "characteristic of a good algorithm",
+            "characteristics of an algorithm",
+            "draw a flowchart",
+            "flowchart symbol",
+            "flow chart",
+            "decision point in a process",
+            "step-by-step procedure to solve a problem",
+            "define algorithm",
+            "draw flowchart",
+            "draw a flowchart to find the largest of three numbers",
+            "algorithm to calculate factorial of a number",
+            "flowchart symbols start stop decision process",
+            "steps in problem solving process using computers"
+          ],
+          "specific_keywords": [
+            "flowchart",
+            "algorithm",
+            "flowchart to find",
+            "algorithm to find",
+            "flowchart symbols"
+          ],
+          "negative_guards": [
+            "pseudocode",
+            "genetic algorithm",
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 141,
+          "name": "Pseudocode and Program Design Techniques",
+          "canonical_name": "Pseudocode and Program Design Techniques",
+          "aliases": [
+            "Pseudocode and Program Design Techniques"
+          ],
+          "strong_phrases": [
+            "output of the following pseudocode",
+            "pseudocode",
+            "pseudo code",
+            "writing pseudocode",
+            "program design techniques"
+          ],
+          "specific_keywords": [
+            "pseudocode"
+          ],
+          "negative_guards": [
+            "flowchart",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 142,
+          "name": "C Program Structure, Tokens, Keywords, and Identifiers",
+          "canonical_name": "C Program Structure, Tokens, Keywords, and Identifiers",
+          "aliases": [
+            "C Program Structure, Tokens, Keywords, and Identifiers"
+          ],
+          "strong_phrases": [
+            "basic structure of c program",
+            "structure of a c program",
+            "valid identifier in c",
+            "keywords in c",
+            "c tokens",
+            "single line and multiline comments",
+            "main function in c",
+            "scanf function",
+            "printf function",
+            "header file is used for",
+            "clrscr",
+            "main function is mandatory",
+            "format identifier"
+          ],
+          "specific_keywords": [
+            "identifier",
+            "identifiers",
+            "tokens",
+            "token",
+            "scanf",
+            "printf",
+            "header file"
+          ],
+          "negative_guards": [
+            "pseudocode",
+            "flowchart",
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 143,
+          "name": "Data Types, Variables, Constants, Operators, and Expressions",
+          "canonical_name": "Data Types, Variables, Constants, Operators, and Expressions",
+          "aliases": [
+            "Data Types, Variables, Constants, Operators, and Expressions"
+          ],
+          "strong_phrases": [
+            "datatypes handled in c",
+            "data types in c",
+            "size of the data types",
+            "int datatype in c",
+            "float data type",
+            "format identifier",
+            "pre-incremental",
+            "post-increment",
+            "pre-increment",
+            "++i, i++",
+            "output of the expression 11 ^ 5",
+            "output of the expression 11^5",
+            "scanf() function",
+            "sizeof",
+            "bitwise operator",
+            "arithmetic operator",
+            "input and output statement in c",
+            "hexadecimal values",
+            "format identifier %d",
+            "%d data type",
+            "ternary operator",
+            "bitwise operator",
+            "logical operator &&",
+            "sizeof operator",
+            "type casting in c"
+          ],
+          "specific_keywords": [
+            "sizeof",
+            "scanf",
+            "printf",
+            "datatype",
+            "datatypes",
+            "format identifier",
+            "hexadecimal",
+            "bitwise operator",
+            "ternary operator"
+          ],
+          "negative_guards": [
+            "array",
+            "pointer",
+            "string",
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "number": 2,
+      "name": "Control Flow, Arrays, and Pointers",
+      "topics": [
+        {
+          "id": 144,
+          "name": "Conditional Branching: if, if-else, nested if, and switch-case",
+          "canonical_name": "Conditional Branching: if, if-else, nested if, and switch-case",
+          "aliases": [
+            "Conditional Branching: if, if-else, nested if, and switch-case"
+          ],
+          "strong_phrases": [
+            "switch statement",
+            "switch case",
+            "switch-case",
+            "nested if",
+            "if-else",
+            "if...else",
+            "conditional control statements",
+            "simple if",
+            "switch statement causes immediate exit",
+            "switch-case statement",
+            "switch case",
+            "nested if statement",
+            "if-else statement",
+            "check whether a given number is armstrong number or not",
+            "check whether a number is palindrome or not",
+            "check whether a given year is leap year or not",
+            "roots of a quadratic equation using if-else",
+            "menu driven program using switch case in c",
+            "check whether a number is even or odd"
+          ],
+          "specific_keywords": [
+            "switch",
+            "armstrong number",
+            "leap year",
+            "switch case",
+            "roots of a quadratic"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 145,
+          "name": "Iteration and Loops: for, while, do-while, and Jump Statements",
+          "canonical_name": "Iteration and Loops: for, while, do-while, and Jump Statements",
+          "aliases": [
+            "Iteration and Loops: for, while, do-while, and Jump Statements"
+          ],
+          "strong_phrases": [
+            "while is an entry controlled",
+            "entry-controlled loop",
+            "exit controlled",
+            "for loop",
+            "while loop",
+            "do-while",
+            "do..while",
+            "looping control statements",
+            "break, continue, goto",
+            "break statement",
+            "continue statement",
+            "skip a part of the statements in a loop",
+            "entry controlled loop",
+            "exit controlled loop",
+            "entry-controlled",
+            "exit-controlled",
+            "do-while loop",
+            "while is an entry",
+            "infinite loop in c",
+            "break and continue in c",
+            "program to print fibonacci series up to n terms",
+            "program to print prime numbers between 1 and n",
+            "check whether a number is prime or not using loop",
+            "sum of digits of a number using while loop",
+            "print the following star pattern using nested loops",
+            "calculate the sum of digits of a five digit number",
+            "sum of digits of a five digit number"
+          ],
+          "specific_keywords": [
+            "looping",
+            "iteration",
+            "entry controlled",
+            "exit controlled",
+            "entry-controlled",
+            "exit-controlled",
+            "fibonacci series up to",
+            "prime numbers between",
+            "sum of digits of a number"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 146,
+          "name": "One-Dimensional and Multi-Dimensional Arrays",
+          "canonical_name": "One-Dimensional and Multi-Dimensional Arrays",
+          "aliases": [
+            "One-Dimensional and Multi-Dimensional Arrays"
+          ],
+          "strong_phrases": [
+            "array elements are always stored",
+            "transpose of matrix",
+            "1d array",
+            "2d array",
+            "one-dimensional array",
+            "two-dimensional array",
+            "multidimensional array",
+            "initializing and accessing 2d array",
+            "value of an array element which is not initialized",
+            "array manipulation",
+            "program to multiply two matrices in c",
+            "program to find transpose of a matrix",
+            "find the largest and smallest element in an array",
+            "addition of two matrices in c",
+            "linear search and binary search in an array"
+          ],
+          "specific_keywords": [
+            "array",
+            "arrays",
+            "matrix",
+            "multiply two matrices",
+            "transpose of a matrix",
+            "element in an array"
+          ],
+          "negative_guards": [
+            "numpy",
+            "pandas",
+            "python",
+            "string",
+            "character array"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 147,
+          "name": "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic",
+          "canonical_name": "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic",
+          "aliases": [
+            "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic"
+          ],
+          "strong_phrases": [
+            "pointer and address-of operators",
+            "pointer declaration and dereferencing",
+            "void pointers",
+            "null pointers",
+            "pointer arithmetic",
+            "dereferencing",
+            "size of integer pointer and character pointer",
+            "address-of operator",
+            "swap two numbers using call by reference pointers",
+            "pointer to an array and array of pointers in c",
+            "pointer arithmetic and dereferencing in c",
+            "dynamic memory allocation malloc calloc realloc free"
+          ],
+          "specific_keywords": [
+            "pointers",
+            "pointer",
+            "dereferencing",
+            "call by reference pointers",
+            "pointer arithmetic",
+            "malloc and calloc"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "number": 3,
+      "name": "Strings, Functions, and Storage Classes",
+      "topics": [
+        {
+          "id": 148,
+          "name": "Character Arrays and String Handling Functions",
+          "canonical_name": "Character Arrays and String Handling Functions",
+          "aliases": [
+            "Character Arrays and String Handling Functions"
+          ],
+          "strong_phrases": [
+            "strcmp",
+            "strlen",
+            "strcpy",
+            "strcat",
+            "sprintf",
+            "sscanf",
+            "string handling functions",
+            "string in c programming",
+            "string basics",
+            "string declaration and initialization",
+            "string always terminated with null",
+            "declare a string variable in c",
+            "replace all vowels with star",
+            "given string is palindrome",
+            "compare two strings in c",
+            "string handling functions",
+            "strlen",
+            "strcpy",
+            "strcat",
+            "strcmp",
+            "string in c",
+            "null character in string",
+            "string handling functions strlen strcpy strcat strcmp in c",
+            "check whether string is palindrome without using string",
+            "count vowels consonants digits and special characters",
+            "concatenate two strings without using strcat",
+            "string function converts a character into an integer",
+            "with respect to string operation the + operator"
+          ],
+          "specific_keywords": [
+            "strcmp",
+            "strlen",
+            "strcpy",
+            "strcat",
+            "string.h",
+            "string handling functions",
+            "strlen strcpy",
+            "palindrome string"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 149,
+          "name": "User-Defined Functions and Parameter Passing Techniques",
+          "canonical_name": "User-Defined Functions and Parameter Passing Techniques",
+          "aliases": [
+            "User-Defined Functions and Parameter Passing Techniques"
+          ],
+          "strong_phrases": [
+            "function and its types in c",
+            "function call by value",
+            "call by reference",
+            "parameter passing mechanism in c",
+            "actual parameters",
+            "formal parameters",
+            "user-defined functions",
+            "function prototypes",
+            "passing array to function",
+            "user-defined functions",
+            "call by value",
+            "call by reference",
+            "actual and formal arguments",
+            "parameter passing in c",
+            "parameter passing mechanism in c creates a copy of the actual",
+            "creates a copy of the actual arguments"
+          ],
+          "specific_keywords": [
+            "call by value",
+            "call by reference"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas",
+            "recursion",
+            "recursive"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 150,
+          "name": "Recursion and Recursive Problem Solving",
+          "canonical_name": "Recursion and Recursive Problem Solving",
+          "aliases": [
+            "Recursion and Recursive Problem Solving"
+          ],
+          "strong_phrases": [
+            "recursion function with an example",
+            "recursion function with example",
+            "recursive function",
+            "recursion in c",
+            "recursive problem solving",
+            "factorial using recursion",
+            "base case in recursion",
+            "recursion function",
+            "recursive function in c",
+            "base case in recursion",
+            "calculate the sum of digits using recursion",
+            "factorial using recursion",
+            "factorial of a number using recursion in c",
+            "tower of hanoi problem using recursive function",
+            "fibonacci series using recursion in c",
+            "gcd of two numbers using recursion"
+          ],
+          "specific_keywords": [
+            "recursion",
+            "recursive",
+            "using recursion in c",
+            "tower of hanoi",
+            "recursive function in c"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 151,
+          "name": "Storage Classes, Variable Scope, and Linkage",
+          "canonical_name": "Storage Classes, Variable Scope, and Linkage",
+          "aliases": [
+            "Storage Classes, Variable Scope, and Linkage"
+          ],
+          "strong_phrases": [
+            "storage classes in c",
+            "storage class",
+            "auto, register, static, extern",
+            "static variable",
+            "extern variable",
+            "global variable declaration",
+            "scope of variables in c",
+            "storage classes with suitable examples",
+            "storage classes in c",
+            "auto extern static register",
+            "static storage class",
+            "register storage class",
+            "extern storage class",
+            "variable scope and linkage"
+          ],
+          "specific_keywords": [
+            "storage class",
+            "storage classes",
+            "extern",
+            "storage classes",
+            "storage class"
+          ],
+          "negative_guards": [
+            "python",
+            "numpy",
+            "pandas"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "number": 4,
+      "name": "Introduction to Python and Data Structures",
+      "topics": [
+        {
+          "id": 152,
+          "name": "Python Language Basics, Variables, and Built-in Data Types",
+          "canonical_name": "Python Language Basics, Variables, and Built-in Data Types",
+          "aliases": [
+            "Python Language Basics, Variables, and Built-in Data Types"
+          ],
+          "strong_phrases": [
+            "introduction to python",
+            "google colaboratory",
+            "google colab",
+            "basic data types in python",
+            "python programs can be executed",
+            "python language",
+            "print statement in python",
+            "comments in python",
+            "in python string indexing",
+            "ord function",
+            "chr function",
+            "python built-in data types",
+            "s = 'foobar'",
+            "concatenate strings in python"
+          ],
+          "specific_keywords": [
+            "colab",
+            "colaboratory"
+          ],
+          "negative_guards": [
+            "numpy",
+            "pandas",
+            "dataframe",
+            "series"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 153,
+          "name": "Python Control Structures and Comprehensions",
+          "canonical_name": "Python Control Structures and Comprehensions",
+          "aliases": [
+            "Python Control Structures and Comprehensions"
+          ],
+          "strong_phrases": [
+            "conditional & looping statements in python",
+            "if, for, while statements in python",
+            "while loop in python",
+            "for loop in python",
+            "sum of n natural numbers",
+            "list comprehension in python",
+            "following python code. i = 1 while",
+            "while true"
+          ],
+          "specific_keywords": [
+            "while true"
+          ],
+          "negative_guards": [
+            "c program",
+            "scanf",
+            "printf",
+            "stdio.h"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 154,
+          "name": "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+          "canonical_name": "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+          "aliases": [
+            "Python Data Structures: Lists, Tuples, Sets, and Dictionaries"
+          ],
+          "strong_phrases": [
+            "list and tuple with suitable example",
+            "python dictionaries",
+            "what is dictionary? explain python dictionaries",
+            "working with list structures",
+            "working with tuples data structures",
+            "working with sets",
+            "working with dictionaries",
+            "types of data structures in python",
+            "length of the following list in python",
+            "insert values in a dictionary",
+            "check whether the given list is in sorted order",
+            "python list tuple set and dictionary differences",
+            "list comprehension in python with examples",
+            "python dictionary keys values and items methods",
+            "set operations union intersection in python"
+          ],
+          "specific_keywords": [
+            "tuple",
+            "tuples",
+            "dictionary",
+            "dictionaries",
+            "list comprehension",
+            "python dictionary",
+            "tuple set and dictionary"
+          ],
+          "negative_guards": [
+            "numpy",
+            "pandas",
+            "c program"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 155,
+          "name": "Python Functions, Modules, and Exception Handling",
+          "canonical_name": "Python Functions, Modules, and Exception Handling",
+          "aliases": [
+            "Python Functions, Modules, and Exception Handling"
+          ],
+          "strong_phrases": [
+            "keyword used for function in python",
+            "explain function and module with suitable example",
+            "function and module with suitable example",
+            "function in python language",
+            "function in python",
+            "python functions",
+            "error handling in python",
+            "exception handling in python",
+            "def keyword in python",
+            "modules in python",
+            "keyword used for function in python language is"
+          ],
+          "specific_keywords": [
+            "function in python",
+            "modules in python"
+          ],
+          "negative_guards": [
+            "numpy",
+            "pandas",
+            "c program",
+            "c language"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "number": 5,
+      "name": "Data Analysis with NumPy and Pandas",
+      "topics": [
+        {
+          "id": 156,
+          "name": "NumPy Array Creation, Attributes, Indexing, and Slicing",
+          "canonical_name": "NumPy Array Creation, Attributes, Indexing, and Slicing",
+          "aliases": [
+            "NumPy Array Creation, Attributes, Indexing, and Slicing"
+          ],
+          "strong_phrases": [
+            "creating numpy array",
+            "numpy indexing",
+            "numpy array attributes",
+            "slicing using numpy",
+            "reshape a numpy array",
+            "size attribute in numpy",
+            "convert numpy array to a list",
+            "introduction to numpy",
+            "high dimensional arrays",
+            "create a numpy array using np.array and np.arange",
+            "numpy array indexing slicing and reshaping",
+            "two dimensional numpy array operations"
+          ],
+          "specific_keywords": [
+            "numpy",
+            "ndarray",
+            "numpy array",
+            "np.arange",
+            "numpy indexing"
+          ],
+          "negative_guards": [
+            "pandas",
+            "dataframe",
+            "series",
+            "statistical"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 157,
+          "name": "Numerical Operations and Descriptive Statistics with NumPy",
+          "canonical_name": "Numerical Operations and Descriptive Statistics with NumPy",
+          "aliases": [
+            "Numerical Operations and Descriptive Statistics with NumPy"
+          ],
+          "strong_phrases": [
+            "descriptive statistics in numpy",
+            "percentile in numpy",
+            "variance in numpy",
+            "statistical functions in numpy",
+            "numerical operations in numpy",
+            "explain statistical functions in numpy"
+          ],
+          "specific_keywords": [
+            "statistical functions in numpy",
+            "percentile",
+            "variance in numpy"
+          ],
+          "negative_guards": [
+            "pandas",
+            "dataframe"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 158,
+          "name": "Pandas Series and DataFrame Data Structures",
+          "canonical_name": "Pandas Series and DataFrame Data Structures",
+          "aliases": [
+            "Pandas Series and DataFrame Data Structures"
+          ],
+          "strong_phrases": [
+            "introduction to pandas",
+            "creating series objects",
+            "data frame objects",
+            "module is to be imported to create series",
+            "in pandas, data frame can be defined",
+            "data is in tabular format",
+            "pandas data frame",
+            "pandas dataframe",
+            "create a pandas dataframe from dictionary in python",
+            "pandas series and dataframe differences",
+            "pandas dataframe head tail and describe methods"
+          ],
+          "specific_keywords": [
+            "dataframe",
+            "series object",
+            "pandas",
+            "pandas dataframe",
+            "pandas series",
+            "dataframe from dictionary"
+          ],
+          "negative_guards": [
+            "c program",
+            "flowchart"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        },
+        {
+          "id": 159,
+          "name": "Data Manipulation, Querying, and Tabular Operations in Pandas",
+          "canonical_name": "Data Manipulation, Querying, and Tabular Operations in Pandas",
+          "aliases": [
+            "Data Manipulation, Querying, and Tabular Operations in Pandas"
+          ],
+          "strong_phrases": [
+            "operations that can be performed on a python data frame",
+            "querying from data frames",
+            "applying functions to data frames",
+            "simple operations with data frames",
+            "comparison between numpy and pandas",
+            "speed testing between numpy and pandas",
+            "pandas querying from data frame"
+          ],
+          "specific_keywords": [
+            "querying from data frame",
+            "operations on a python data frame"
+          ],
+          "negative_guards": [
+            "c program"
+          ],
+          "context_hints": [
+            "c programming",
+            "python",
+            "problem solving"
+          ]
+        }
+      ]
+    }
+  ]
+}

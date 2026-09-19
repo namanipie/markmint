@@ -38,10 +38,19 @@
             "success of classical free electron",
             "postulates of classical free electron",
             "failures of classical free electron",
-            "failure of classical free electron"
+            "failure of classical free electron",
+            "assumptions of classical free electron theory",
+            "merits and demerits of classical free electron",
+            "postulates of classical free electron theory",
+            "classical free electron theory of metals",
+            "classical free electron theory write any two merits",
+            "the resistance of a material is inversely proportional to",
+            "what are the assumptions of classical free electron theory write any two merits and demerits"
           ],
           "specific_keywords": [
-            "drude"
+            "drude",
+            "classical free electron theory",
+            "drude-lorentz theory"
           ],
           "negative_guards": [
             "sommerfeld",
@@ -70,11 +79,23 @@
             "success of quantum free electron",
             "fermi energy of electron",
             "fermi temperature",
-            "fermi velocity"
+            "fermi velocity",
+            "the fermi level is",
+            "fermi level for potassium",
+            "velocity of the electron at the fermi",
+            "density of states for a semiconductor",
+            "expression for density of states for a metal",
+            "density of states for a free electron",
+            "sommerfeld quantum free electron",
+            "derive an expression for density of states for a 3d",
+            "derive an expression for density of states for a metal"
           ],
           "specific_keywords": [
             "sommerfeld",
-            "fermi-dirac"
+            "fermi-dirac",
+            "sommerfeld model",
+            "fermi-dirac distribution",
+            "density of states in 3d"
           ],
           "negative_guards": [
             "classical free electron",
@@ -108,13 +129,20 @@
             "band theory of solids",
             "zero band gap",
             "periodic field of 1d crystal",
-            "movement of electron in periodic potential"
+            "movement of electron in periodic potential",
+            "behaviour of electron in a periodic potential",
+            "kroing penny model",
+            "kronig penney model origin of band gaps",
+            "origin of energy bands in solids",
+            "movement of electron in a periodic potential",
+            "electron in a periodic potential and hence"
           ],
           "specific_keywords": [
             "kronig-penney",
             "bloch theorem",
             "periodic potential",
-            "band theory of solids"
+            "band theory of solids",
+            "kroing penny"
           ],
           "negative_guards": [
             "direct band gap",
@@ -139,13 +167,18 @@
             "indirect band gap semiconductor",
             "concept of phonons",
             "concept of brillouin zone",
-            "first brillouin zone"
+            "first brillouin zone",
+            "differentiate direct band gap and indirect band gap",
+            "differentiate neatly direct band gap and indirect band gap",
+            "direct band gap and indirect band gap semiconductor",
+            "e-k diagram and band gaps"
           ],
           "specific_keywords": [
             "brillouin zone",
             "direct bandgap",
             "indirect bandgap",
-            "phonons"
+            "phonons",
+            "direct and indirect band gap"
           ],
           "negative_guards": [
             "recombination",
@@ -169,14 +202,20 @@
             "quantum espresso",
             "vasp",
             "computational band structure",
-            "fermi surface"
+            "fermi surface",
+            "uses primitive cell approach to compute electronic band",
+            "primitive cell approach to compute electronic band structure",
+            "fermi surface of copper",
+            "fermi surface of noble metals"
           ],
           "specific_keywords": [
             "fermi surface",
             "tight binding",
             "lcao",
             "quantum espresso",
-            "vasp"
+            "vasp",
+            "primitive cell approach",
+            "tight-binding method"
           ],
           "negative_guards": [
             "fermi's golden rule",
@@ -206,7 +245,10 @@
             "intrinsic fermi level",
             "pure silicon and pure germanium",
             "pure crystal of silicon",
-            "pure germanium crystal"
+            "pure germanium crystal",
+            "intrinsic carrier concentration derivation",
+            "variation of fermi level in intrinsic",
+            "law of mass action in intrinsic semiconductor"
           ],
           "specific_keywords": [
             "intrinsic semiconductor",
@@ -244,7 +286,12 @@
             "fermi level in p-type",
             "fermi level in n-type",
             "degenerate semiconductor",
-            "difference between p-type and n-type"
+            "difference between p-type and n-type",
+            "fermi level in a n-type semi conductor",
+            "fermi level in an n-type semiconductor",
+            "variation of fermi level with carrier concentration and temperature in n-type",
+            "variation of fermi level in n-type",
+            "variation of fermi level in p-type"
           ],
           "specific_keywords": [
             "extrinsic semiconductor",
@@ -262,7 +309,15 @@
             "band theory of solids",
             "zero band gap",
             "periodic potential",
-            "optical absorption"
+            "optical absorption",
+            "hall effect",
+            "hall coefficient",
+            "four-point probe",
+            "two-point probe",
+            "hot-point probe",
+            "led",
+            "light emitting diode",
+            "solar cell"
           ],
           "context_hints": []
         },
@@ -283,14 +338,19 @@
             "auger transitions",
             "impact ionization",
             "carrier lifetime",
-            "diffusion length of carriers"
+            "diffusion length of carriers",
+            "carrier generation and recombination rate",
+            "electron hole pair generation",
+            "continuity equation for electrons and holes",
+            "carrier lifetime and recombination"
           ],
           "specific_keywords": [
             "continuity equation",
             "srh recombination",
             "auger transition",
             "auger transitions",
-            "impact ionization"
+            "impact ionization",
+            "electron-hole pair recombination"
           ],
           "negative_guards": [
             "optical absorption process",
@@ -313,12 +373,17 @@
             "carrier transport",
             "einstein relation",
             "einstein's relation",
-            "drift velocity and mobility"
+            "drift velocity and mobility",
+            "drift and diffusion currents in semiconductor",
+            "einstein relation between mobility and diffusivity",
+            "carrier mobility and drift velocity",
+            "drift current density and diffusion current density"
           ],
           "specific_keywords": [
             "drift current",
             "diffusion current",
-            "einstein relation"
+            "einstein relation",
+            "drift and diffusion"
           ],
           "negative_guards": [
             "four probe",
@@ -346,7 +411,10 @@
             "junction capacitance",
             "vi characteristics of p-n junction",
             "p-n junction diode",
-            "pn junction diode"
+            "pn junction diode",
+            "p-n junction under forward and reverse bias",
+            "built-in potential of p-n junction",
+            "depletion width and junction capacitance of pn junction"
           ],
           "specific_keywords": [
             "built-in potential",
@@ -414,14 +482,21 @@
             "photodiode photocurrent",
             "compound semiconductor for optoelectronic",
             "optoelectronic devices",
-            "materials of interest for optoelectronic devices"
+            "materials of interest for optoelectronic devices",
+            "principle construction and working of led",
+            "working of led with merits and demerits",
+            "explain the principle construction and working of led",
+            "light emitting diode with merits and demerits",
+            "emission of light from led",
+            "organic light emitting diode oled"
           ],
           "specific_keywords": [
             "light emitting diode",
             "light emitting diodes",
             "oled",
             "oeic",
-            "photodiode"
+            "photodiode",
+            "working of led"
           ],
           "negative_guards": [
             "solar cell",
@@ -451,12 +526,19 @@
             "impurity level to band transition",
             "impurity to band transition",
             "interband optical transition",
-            "optical absorption in semiconductor"
+            "optical absorption in semiconductor",
+            "optical absorption in semiconductors",
+            "direct and indirect optical transitions",
+            "absorption coefficient as a function of photon energy",
+            "interband optical transitions",
+            "process directly involves absorption and emission of photons",
+            "optical processes directly involve"
           ],
           "specific_keywords": [
             "absorption coefficient",
             "band to band transition",
-            "impurity to band transition"
+            "impurity to band transition",
+            "optical absorption"
           ],
           "negative_guards": [
             "spontaneous emission",
@@ -483,7 +565,10 @@
             "einstein a and b",
             "optical recombination process",
             "radiative recombination",
-            "population inversion"
+            "population inversion",
+            "spontaneous and stimulated emission of radiation",
+            "einstein coefficients a and b relation",
+            "radiative and non-radiative recombination processes"
           ],
           "specific_keywords": [
             "spontaneous emission",
@@ -512,12 +597,17 @@
             "fermi's golden rule",
             "fermi golden rule",
             "transition rate per unit volume",
-            "transition rates in semiconductor"
+            "transition rates in semiconductor",
+            "optical transition rate due to electron-photon interaction",
+            "derive an expression for optical transition rate",
+            "optical transition rate using fermi golden rule",
+            "joint density of states derivation"
           ],
           "specific_keywords": [
             "joint density of states",
             "fermi's golden rule",
-            "fermi golden rule"
+            "fermi golden rule",
+            "optical transition rate"
           ],
           "negative_guards": [
             "classical free electron",
@@ -570,7 +660,11 @@
             "photovoltaics",
             "pv cell",
             "photovoltaic cell",
-            "photovoltaic cells"
+            "photovoltaic cells",
+            "open circuit voltage and short circuit current of solar cell",
+            "fill factor and efficiency of a solar cell",
+            "i-v characteristics of solar cell",
+            "working principle of photovoltaic solar cell"
           ],
           "specific_keywords": [
             "photovoltaic effect",
@@ -616,14 +710,23 @@
             "sheet resistance measurement",
             "resistivity measurement by four probe",
             "resistivity determined using two probe",
-            "advantages of four point probe"
+            "advantages of four point probe",
+            "explain the four-point probe technique-linear method",
+            "four-point probe technique-linear method",
+            "four point collinear probe method",
+            "discuss the four point collinear probe method",
+            "four-point probe method for resistivity measurement",
+            "two-point and four-point probe methods"
           ],
           "specific_keywords": [
             "two-point probe",
             "four-point probe",
             "van der pauw",
             "four probe",
-            "two probe"
+            "two probe",
+            "four point collinear",
+            "collinear probe",
+            "linear four probe"
           ],
           "negative_guards": [
             "hall effect",
@@ -648,7 +751,13 @@
             "lorentz force in semiconductor",
             "hall probe",
             "carrier density and hall mobility",
-            "hall coefficient of semiconductor"
+            "hall coefficient of semiconductor",
+            "explain the hall effect with necessary diagram",
+            "hall effect with necessary diagram",
+            "derive the expression for hall coefficient",
+            "derive the expression for hall coefficient of an n-type",
+            "determine hall coefficient and carrier concentration",
+            "hall coefficient derivation"
           ],
           "specific_keywords": [
             "hall effect",
@@ -680,7 +789,11 @@
             "thermoelectric probe",
             "c-v profiling",
             "determining quickly whether a semiconductor sample is n type",
-            "determine quickly whether a semiconductor sample is n type"
+            "determine quickly whether a semiconductor sample is n type",
+            "hot point probe method to determine type of semiconductor",
+            "hot-point probe method",
+            "capacitance voltage cv measurement of semiconductor",
+            "is a method of determining quickly whether a semiconductor sample is n type"
           ],
           "specific_keywords": [
             "hot-point probe",
@@ -781,7 +894,11 @@
             "2d material",
             "nanoparticle",
             "nanowire",
-            "nanosheet"
+            "nanosheet",
+            "nanostructures have sizes in between",
+            "density of states in 2d 1d and 0d nanostructures",
+            "quantum well quantum wire and quantum dot density of states",
+            "density of states in low dimensional systems"
           ],
           "specific_keywords": [
             "quantum well",
@@ -792,15 +909,16 @@
             "quantum wells",
             "0d material",
             "nanoparticle",
-            "nanowire"
+            "nanowire",
+            "low-dimensional systems"
           ],
           "negative_guards": [
             "carbon nanotube",
             "cnt",
-            "sem",
             "tem",
             "afm",
-            "xrd"
+            "xrd",
+            "scanning electron microscopy"
           ],
           "context_hints": []
         },
@@ -824,7 +942,11 @@
             "applications of cnts",
             "applications of cnt",
             "nanotube",
-            "nanotubes"
+            "nanotubes",
+            "carbon nanotubes structure and properties",
+            "single walled and multi walled carbon nanotubes",
+            "applications of carbon nanotubes cnt",
+            "armchair zigzag and chiral carbon nanotubes"
           ],
           "specific_keywords": [
             "carbon nanotube",
@@ -838,7 +960,9 @@
           "negative_guards": [
             "quantum well",
             "quantum wire",
-            "c-v measurement"
+            "c-v measurement",
+            "chemical vapour deposition method",
+            "physical vapour deposition method"
           ],
           "context_hints": []
         },
@@ -861,7 +985,13 @@
             "nanofabrication technique",
             "fabrication technique-cvd",
             "cvd and pvd",
-            "cvd, pvd"
+            "cvd, pvd",
+            "with neat sketch explain the synthesis of material by chemical vapour deposition",
+            "explain the working concept of physical vapour deposition method (pvd)",
+            "synthesis of material by chemical vapour deposition method",
+            "in chemical vapour deposition the precessors are introduced",
+            "chemical vapour deposition method (cvd)",
+            "physical vapour deposition method (pvd)"
           ],
           "specific_keywords": [
             "chemical vapor deposition",
@@ -869,14 +999,16 @@
             "chemical vapour deposition",
             "physical vapour deposition",
             "cvd",
-            "pvd"
+            "pvd",
+            "cvd method",
+            "pvd method"
           ],
           "negative_guards": [
-            "sem",
             "tem",
             "afm",
             "xrd",
-            "microscopy"
+            "microscopy",
+            "scanning electron microscopy"
           ],
           "context_hints": []
         },
@@ -896,7 +1028,10 @@
             "transmission electron microscope",
             "afm",
             "x-ray diffraction for lattice parameters",
-            "electron microscope"
+            "electron microscope",
+            "working principle of scanning electron microscope sem",
+            "transmission electron microscopy tem working principle",
+            "atomic force microscopy afm principle and instrumentation"
           ],
           "specific_keywords": [
             "scanning electron microscopy",

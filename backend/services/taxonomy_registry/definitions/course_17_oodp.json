@@ -67,11 +67,24 @@
             "class definition",
             "instantiation of object",
             "state and behavior of object",
-            "features of class"
+            "features of class",
+            "access specifiers is used in a class definition by default",
+            "default access specifier in class",
+            "private by default in class",
+            "an operation can be described as object behavior",
+            "data hiding and encapsulation in c++",
+            "data encapsulation and data abstraction in c++",
+            "class and object instantiation in c++",
+            "memory allocation for objects of a class"
           ],
           "specific_keywords": [
             "encapsulation",
-            "abstraction"
+            "abstraction",
+            "default access specifier",
+            "access specifiers is used",
+            "data encapsulation",
+            "class definition",
+            "object instantiation"
           ],
           "negative_guards": [
             "operator overloading",
@@ -99,11 +112,16 @@
             "member function definition",
             "scope resolution operator",
             "static data member",
-            "static member function"
+            "static member function",
+            "which access specifier is used by default in a class",
+            "public private and protected member access",
+            "member functions inside and outside class definition",
+            "static member variables and static functions"
           ],
           "specific_keywords": [
             "access specifier",
-            "scope resolution"
+            "scope resolution",
+            "access specifiers"
           ],
           "negative_guards": [
             "friend function",
@@ -128,12 +146,25 @@
             "aggregation and composition",
             "multiplicity in class diagram",
             "generalization and realization",
-            "class relationships in uml"
+            "class relationships in uml",
+            "destructor of base class should always be virtual",
+            "destructor of base class",
+            "virtual destructor in base class",
+            "find the o p of the following code class cube",
+            "parameterized constructor in c++",
+            "copy constructor syntax",
+            "draw the class diagram for library management system",
+            "class diagram showing generalization and association",
+            "aggregation and composition in uml class diagrams"
           ],
           "specific_keywords": [
             "class diagram",
             "multiplicity",
-            "aggregation"
+            "aggregation",
+            "destructor of base class",
+            "class cube public int side",
+            "uml class diagram",
+            "aggregation and composition"
           ],
           "negative_guards": [
             "use case diagram",
@@ -159,17 +190,24 @@
             "extend relationship",
             "actor in use case",
             "use case scenario",
-            "system boundary in use case"
+            "system boundary in use case",
+            "draw use case diagram for online examination system",
+            "include and extend relationships in use case diagram",
+            "actor and system boundary in use case modeling"
           ],
           "specific_keywords": [
             "use case",
-            "use cases"
+            "use cases",
+            "use case diagram",
+            "use case relationships",
+            "include and extend"
           ],
           "negative_guards": [
             "class diagram",
             "sequence diagram",
             "state chart",
-            "activity diagram"
+            "activity diagram",
+            "behaviour diagram"
           ],
           "context_hints": [
             "use case analysis",
@@ -196,11 +234,24 @@
             "destructor syntax",
             "default constructor",
             "virtual destructor",
-            "order of constructor and destructor call"
+            "order of constructor and destructor call",
+            "program using operator overloading for",
+            "operator overloading for class time",
+            "overload binary + operator",
+            "overload stream insertion operator",
+            "destructor of base class should always be virtual",
+            "order of execution of constructors and destructors",
+            "copy constructor and deep copy vs shallow copy",
+            "destructor cannot take arguments"
           ],
           "specific_keywords": [
             "destructor",
-            "destructors"
+            "destructors",
+            "operator overloading for",
+            "operator+ overloading",
+            "virtual destructor",
+            "constructors and destructors",
+            "destructor of base class"
           ],
           "negative_guards": [
             "copy constructor",
@@ -251,7 +302,10 @@
             "function overloading",
             "method overloading",
             "compile time polymorphism",
-            "overloaded functions with different parameters"
+            "overloaded functions with different parameters",
+            "function overloading and constructor overloading",
+            "constructor overloading in c++ with example",
+            "overloaded functions with different parameter types"
           ],
           "specific_keywords": [
             "constructor overloading",
@@ -280,11 +334,17 @@
             "overloading binary operator",
             "friend operator function",
             "operator function syntax",
-            "operators cannot be overloaded"
+            "operators cannot be overloaded",
+            "overload binary plus operator using friend function",
+            "overload stream insertion and extraction operators",
+            "operator overloading unary minus operator",
+            "friend function accessing private members of class"
           ],
           "specific_keywords": [
             "operator overloading",
-            "overload operator"
+            "overload operator",
+            "friend function",
+            "overload binary"
           ],
           "negative_guards": [
             "template",
@@ -310,11 +370,16 @@
             "communication diagram",
             "lifeline in sequence diagram",
             "messages in sequence diagram",
-            "activation bar in sequence diagram"
+            "activation bar in sequence diagram",
+            "draw sequence diagram for atm cash withdrawal",
+            "sequence diagram showing lifelines and synchronous messages",
+            "collaboration diagram showing objects and numbered links",
+            "uml interaction diagrams sequence and communication"
           ],
           "specific_keywords": [
             "sequence diagram",
-            "collaboration diagram"
+            "collaboration diagram",
+            "uml interaction diagram"
           ],
           "negative_guards": [
             "use case diagram",
@@ -347,11 +412,16 @@
             "base class and derived class",
             "derived from class base",
             "sub class and super class",
-            "inheritance access matrix"
+            "inheritance access matrix",
+            "collection of model elements called uml packages",
+            "uml package members",
+            "package diagram in uml"
           ],
           "specific_keywords": [
             "derived class",
-            "base class"
+            "base class",
+            "uml packages",
+            "collection of model elements"
           ],
           "negative_guards": [
             "multiple inheritance",
@@ -379,14 +449,19 @@
             "hybrid inheritance",
             "virtual base class",
             "diamond problem in inheritance",
-            "multipath inheritance"
+            "multipath inheritance",
+            "virtual base class to avoid diamond problem",
+            "multiple inheritance ambiguity in c++",
+            "multilevel and hierarchical inheritance with code example",
+            "modes of inheritance public protected private"
           ],
           "specific_keywords": [
             "multiple inheritance",
             "multilevel inheritance",
             "hierarchical inheritance",
             "hybrid inheritance",
-            "virtual base class"
+            "virtual base class",
+            "diamond problem"
           ],
           "negative_guards": [
             "friend function",
@@ -410,11 +485,19 @@
             "friend class",
             "inline function",
             "inline member function",
-            "friend keyword in c++"
+            "friend keyword in c++",
+            "reactive system uml diagrams statechart",
+            "model life time of a reactive system",
+            "statechart diagram in uml",
+            "combines two concurrent activities fork join",
+            "activity diagram merge and join"
           ],
           "specific_keywords": [
             "friend function",
-            "inline function"
+            "inline function",
+            "reactive system uml",
+            "statechart diagrams",
+            "concurrent activities"
           ],
           "negative_guards": [
             "virtual function",
@@ -441,13 +524,21 @@
             "dynamic binding",
             "function overriding",
             "vptr and vtable",
-            "late binding"
+            "late binding",
+            "pure virtual function and abstract base class",
+            "runtime polymorphism dynamic binding using virtual functions",
+            "vtable and vptr mechanism in c++",
+            "late binding vs early binding"
           ],
           "specific_keywords": [
             "pure virtual",
             "virtual function",
             "abstract class",
-            "overriding"
+            "overriding",
+            "pure virtual function",
+            "abstract base class",
+            "runtime polymorphism",
+            "vtable"
           ],
           "negative_guards": [
             "operator overloading",
@@ -473,12 +564,17 @@
             "swimlane in activity diagram",
             "fork and join in activity diagram",
             "transitions and events in state diagram",
-            "elements of state chart diagrams"
+            "elements of state chart diagrams",
+            "draw state chart diagram for order fulfillment process",
+            "state chart diagram states transitions and events",
+            "activity diagram showing fork join and swimlanes"
           ],
           "specific_keywords": [
             "state chart",
             "activity diagram",
-            "swimlane"
+            "swimlane",
+            "state chart diagram",
+            "behavioral modeling"
           ],
           "negative_guards": [
             "sequence diagram",
@@ -509,11 +605,15 @@
             "syntax for template function",
             "generic function in c++",
             "overloading function template",
-            "template argument deduction"
+            "template argument deduction",
+            "function template to swap two variables of any type",
+            "generic programming using function templates in c++",
+            "function template with multiple parameters"
           ],
           "specific_keywords": [
             "function template",
-            "template function"
+            "template function",
+            "generic programming"
           ],
           "negative_guards": [
             "class template",
@@ -567,12 +667,17 @@
             "throw and throws",
             "rethrowing an exception",
             "catch block",
-            "throw statement"
+            "throw statement",
+            "exception handling mechanism using try throw and catch",
+            "re-throwing an exception in c++",
+            "standard exceptions in c++ exception hierarchy",
+            "catching all exceptions using catch block"
           ],
           "specific_keywords": [
             "exception handling",
             "try block",
-            "catch block"
+            "catch block",
+            "try throw catch"
           ],
           "negative_guards": [
             "user defined exception",
@@ -628,7 +733,10 @@
             "uml deployment diagram",
             "deployment diagram",
             "dynamic modelling package",
-            "nodes in deployment diagram"
+            "nodes in deployment diagram",
+            "draw deployment diagram for three tier web application",
+            "component diagram showing interfaces and dependencies",
+            "package diagram showing subsystems and dependencies"
           ],
           "specific_keywords": [
             "package diagram",
@@ -660,14 +768,20 @@
             "STL Components Containers Algorithms Iterators"
           ],
           "strong_phrases": [
-            "standard template library",
             "stl architecture",
             "components of stl",
             "containers algorithms and iterators",
-            "advantages of stl"
+            "advantages of stl",
+            "template class t return type",
+            "template <class t>",
+            "template <typename t>",
+            "template <int i>",
+            "generic programming using template",
+            "template specialization in c++"
           ],
           "specific_keywords": [
-            "standard template library"
+            "template <class",
+            "template <int"
           ],
           "negative_guards": [
             "sequence container",
@@ -694,11 +808,16 @@
             "stl list",
             "deque in stl",
             "vector push_back",
-            "list operations in stl"
+            "list operations in stl",
+            "std::vector sequence container push_back pop_back",
+            "std::list doubly linked list operations in stl",
+            "std::deque double ended queue in c++ stl"
           ],
           "specific_keywords": [
             "sequence container",
-            "vector list"
+            "vector list",
+            "std::vector",
+            "std::deque"
           ],
           "negative_guards": [
             "file handling",
@@ -725,11 +844,17 @@
             "stl stack",
             "stl queue",
             "container adapter in stl",
-            "priority queue in stl"
+            "priority queue in stl",
+            "std::map associative container key value pairs",
+            "std::set unique elements in sorted order",
+            "container adapters std::stack and std::queue"
           ],
           "specific_keywords": [
             "associative container",
-            "container adapter"
+            "container adapter",
+            "std::map",
+            "std::set",
+            "container adapters"
           ],
           "negative_guards": [
             "file handling",
@@ -755,12 +880,18 @@
             "function objects in stl",
             "functors in c++",
             "sort algorithm in stl",
-            "forward iterator bidirectional iterator random access iterator"
+            "forward iterator bidirectional iterator random access iterator",
+            "iterators are used to iterate over elements of a container",
+            "forward bidirectional and random access iterators",
+            "std::sort std::find stl algorithms",
+            "functors function objects in c++ stl"
           ],
           "specific_keywords": [
             "stl iterator",
             "stl iterators",
-            "stl algorithm"
+            "stl algorithm",
+            "stl algorithms",
+            "iterators are used"
           ],
           "negative_guards": [
             "file handling",

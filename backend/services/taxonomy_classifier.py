@@ -67,6 +67,16 @@ class TaxonomyClassifierService:
             .decode("ascii")
             .lower()
         )
+        # Normalize mathematical LaTeX operators before stripping symbols
+        ascii_text = re.sub(r'\\iiint\b', ' triple integral ', ascii_text)
+        ascii_text = re.sub(r'\\iint\b', ' double integral ', ascii_text)
+        ascii_text = re.sub(r'\\nabla\s*\\cdot|\\nabla\s*\.', ' divergence ', ascii_text)
+        ascii_text = re.sub(r'\\nabla\s*\\times|\\nabla\s*x\b', ' curl ', ascii_text)
+        ascii_text = re.sub(r'\\nabla\^2', ' laplacian ', ascii_text)
+        ascii_text = re.sub(r'\\nabla\b', ' gradient ', ascii_text)
+        ascii_text = re.sub(r'\\frac\{\\partial|\\partial\b', ' partial derivative ', ascii_text)
+        ascii_text = re.sub(r'\\oint\b', ' contour integral ', ascii_text)
+        ascii_text = re.sub(r'\\sum\b', ' summation series ', ascii_text)
         # Clean latex and math symbols into spaced tokens
         cleaned = re.sub(r'[\$\\_{}\[\]\(\)]', ' ', ascii_text)
         # Normalize hyphens surrounded by whitespace (e.g. 'uv- vis' -> 'uv-vis', 'pilling - bedworth' -> 'pilling-bedworth')
@@ -108,7 +118,7 @@ class TaxonomyClassifierService:
             guard_matched = False
             for neg in rule.negative_guards:
                 neg_norm = self.normalize_text(neg)
-                if neg_norm and (f" {neg_norm} " in padded_norm or neg_norm in norm_text):
+                if neg_norm and f" {neg_norm} " in padded_norm:
                     guardrail_rejections.append(f"Topic '{rule.topic_name}' rejected by guardrail: '{neg}'")
                     guard_matched = True
                     break
@@ -120,7 +130,7 @@ class TaxonomyClassifierService:
             matched_strong = []
             for phrase in rule.strong_phrases:
                 p_norm = self.normalize_text(phrase)
-                if p_norm and (f" {p_norm} " in padded_norm or p_norm in norm_text):
+                if p_norm and f" {p_norm} " in padded_norm:
                     matched_strong.append(phrase)
 
             # 3. Check specific keywords (distinctive single or double tokens with word boundaries)

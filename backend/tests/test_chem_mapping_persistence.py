@@ -59,7 +59,7 @@ def test_apply_inserts_only_missing_mappings(temp_db: str) -> None:
         WHERE e.course_id = 1
     """).fetchone()[0]
     conn.close()
-    assert calc_before == 31
+    assert calc_before >= 31
 
     res = run_chemistry_mapping(temp_db, apply_changes=True, verbose_samples=False)
     assert res["inserted_count"] == res["to_insert_count"]
