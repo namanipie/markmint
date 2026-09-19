@@ -56,7 +56,7 @@ export default function MintAIPage() {
   const [selectedBranch, setSelectedBranch] = useState<string>("");
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
-  const [selectedExam, setSelectedExam] = useState<string>("");
+  const [selectedExam, setSelectedExam] = useState<string>("ALL");
   const [targetExamDate, setTargetExamDate] = useState<string>("");
   const [mainView, setMainView] = useState<"forecast" | "analytics">("forecast");
 
@@ -201,7 +201,7 @@ export default function MintAIPage() {
     setSelectedSemester("");
     setSubjects([]);
     setSelectedSubject(null);
-    setSelectedExam("");
+    setSelectedExam("ALL");
     setSnapshot(null);
 
     getCurriculumSemesters(selectedBranch)
@@ -238,7 +238,7 @@ export default function MintAIPage() {
     setIsLoadingSubjects(true);
     setSubjectLoadError("");
     setSelectedSubject(null);
-    setSelectedExam("");
+    setSelectedExam("ALL");
     setSnapshot(null);
 
     getCurriculumSubjects(selectedBranch, selectedSemester)
@@ -280,17 +280,40 @@ export default function MintAIPage() {
         selectedSubject.course_id,
         undefined,
         targetExamDate || undefined,
-        "anonymous"
+        "anonymous",
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined
       );
       setSnapshot(data);
-      if (data.available_assessment_types && data.available_assessment_types.length > 0 && !selectedExam) {
-        setSelectedExam(data.available_assessment_types[0]);
-      }
     } catch (err: any) {
       console.error("Intelligence snapshot generation failed", err);
       setError(err?.message || "Failed to synthesize academic intelligence.");
     } finally {
       setIsAnalyzing(false);
+    }
+  };
+
+  // 4b. Change Assessment Cycle & Automatically Refresh Forecast
+  const handleAssessmentCycleChange = async (newCycle: string) => {
+    setSelectedExam(newCycle);
+    if (!selectedSubject || !selectedSubject.course_id || !isSubjectAvailable) return;
+    if (snapshot || isAnalyzing) {
+      setIsAnalyzing(true);
+      setError("");
+      try {
+        const data = await getIntelligenceSnapshot(
+          selectedSubject.course_id,
+          undefined,
+          targetExamDate || undefined,
+          "anonymous",
+          newCycle !== "ALL" ? newCycle : undefined
+        );
+        setSnapshot(data);
+      } catch (err: any) {
+        console.error("Intelligence snapshot generation failed for cycle", err);
+        setError(err?.message || "Failed to synthesize academic intelligence.");
+      } finally {
+        setIsAnalyzing(false);
+      }
     }
   };
 
@@ -308,7 +331,7 @@ export default function MintAIPage() {
       const res = await getHistoricalQuestions(
         selectedSubject.course_id,
         familyId ? undefined : topicName,
-        selectedExam || undefined,
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
         50,
         familyId ? { family_id: familyId } : (familyName ? { family_name: familyName } : undefined)
       );
@@ -359,7 +382,8 @@ export default function MintAIPage() {
         selectedSubject.course_id,
         undefined,
         targetExamDate || undefined,
-        "anonymous"
+        "anonymous",
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined
       );
       setSnapshot(updated);
     } catch (err) {
@@ -461,8 +485,8 @@ export default function MintAIPage() {
                 </div>
               </div>
 
-              {/* Assessment Type (Dynamic from Snapshot or DNA) */}
-              {snapshot?.available_assessment_types && snapshot.available_assessment_types.length > 0 && (
+              {/* Assessment Cycle Selector */}
+              {selectedSubject && (
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
                     Assessment Cycle
@@ -470,14 +494,13 @@ export default function MintAIPage() {
                   <select
                     aria-label="Assessment Cycle"
                     className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono"
-                    value={selectedExam}
-                    onChange={(e) => setSelectedExam(e.target.value)}
+                    value={selectedExam || "ALL"}
+                    onChange={(e) => handleAssessmentCycleChange(e.target.value)}
                   >
-                    {snapshot.available_assessment_types.map((et) => (
-                      <option key={et} value={et}>
-                        {et}
-                      </option>
-                    ))}
+                    <option value="ALL">All Assessments</option>
+                    <option value="CT1">CT1</option>
+                    <option value="CT2">CT2</option>
+                    <option value="ENDSEM">End Semester</option>
                   </select>
                 </div>
               )}

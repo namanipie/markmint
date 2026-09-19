@@ -7,6 +7,7 @@ from backend.services.prediction.context import HistoricalContext, PredictionTar
 from backend.services.prediction.repository import HistoricalRepository
 from backend.core.database import get_db
 from backend.models.core import Course, Exam, Topic, Unit, Syllabus
+from backend.services.assessment_cycle import normalize_assessment_cycle
 import re
 from typing import Any, Optional
 from fastapi import APIRouter, HTTPException, Query, Depends
@@ -116,11 +117,21 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
     ]
 
 @router.get("/predictions/{subject}")
-def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: Session = Depends(get_db)):
+def get_prediction(
+    subject: str,
+    target_year: Optional[int] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
     try:
         course = _find_course(db, subject)
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
+
+        norm_cycle = normalize_assessment_cycle(assessment_cycle)
+
+        if hasattr(target_year, "default"):
+            target_year = None
 
         # Determine target year dynamically if not provided.
         # Rule: Target the next unseen exam year (most_recent_year + 1)
@@ -131,18 +142,20 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
             else:
                 target_year = 2024
 
-        # Temporal isolation constraint
-        context = HistoricalContext(course_id=course.id, cutoff_year=target_year)
+        # Temporal isolation constraint with assessment cycle scoping
+        context = HistoricalContext(course_id=course.id, cutoff_year=target_year, assessment_cycle=norm_cycle)
         repo = HistoricalRepository(db, context)
         
         hist_exams_orm = repo.get_historical_exams()
         if not hist_exams_orm:
             return {
+                "course_id": course.id,
                 "subject": course.name,
                 "target_year": target_year,
+                "assessment_cycle": norm_cycle or "ALL",
                 "predictions": [],
                 "evidence": "Insufficient historical data",
-                "data_quality": "No historical exams found prior to the cutoff year."
+                "data_quality": f"No historical exams found prior to the cutoff year for assessment cycle '{norm_cycle or 'ALL'}'."
             }
 
         hist_exams_dicts = _build_historical_exam_payloads(hist_exams_orm)
@@ -222,6 +235,7 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
             "course_id": course.id,
             "subject": course.name,
             "target_year": target_year,
+            "assessment_cycle": norm_cycle or "ALL",
             "predictions": predictions,
             "observed_years": observed_years,
             "unobserved_years": unobserved_years,

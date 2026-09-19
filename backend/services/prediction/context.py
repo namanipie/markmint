@@ -1,10 +1,11 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 @dataclass(frozen=True)
 class HistoricalContext:
     course_id: int
     cutoff_year: int
+    assessment_cycle: Optional[str] = None
     
 class PredictionTarget:
     TOPIC = "topic"

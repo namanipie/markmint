@@ -391,6 +391,8 @@ export interface IntelligenceSnapshot {
     target_year?: number;
   } | null;
   available_assessment_types?: string[];
+  assessment_cycle?: string;
+  available_assessment_cycles?: string[];
   predictions: PredictionItem[];
   family_predictions?: PredictionItem[];
   topic_predictions?: PredictionItem[];

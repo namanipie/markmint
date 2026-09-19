@@ -64,11 +64,15 @@ export async function getIntelligenceSnapshot(
   courseId: string | number,
   targetYear?: number,
   targetExamDate?: string,
-  studentId: string = "anonymous"
+  studentId: string = "anonymous",
+  assessmentCycle?: string
 ): Promise<IntelligenceSnapshot> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}?student_id=${encodeURIComponent(studentId)}`;
   if (targetYear) url += `&target_year=${encodeURIComponent(targetYear)}`;
   if (targetExamDate) url += `&target_exam_date=${encodeURIComponent(targetExamDate)}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `&assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
   return fetchAPI(url);
 }
 
@@ -84,11 +88,15 @@ export async function getHistoricalQuestions(
     family_id?: number;
     family_name?: string;
     repetition_type?: string;
+    assessment_cycle?: string;
   }
 ): Promise<{ course_id: number; course_name: string; total_returned: number; questions: HistoricalQuestion[] }> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}/questions?limit=${limit}`;
   if (topic) url += `&topic=${encodeURIComponent(topic)}`;
-  if (assessmentType) url += `&assessment_type=${encodeURIComponent(assessmentType)}`;
+  const activeCycle = filters?.assessment_cycle || assessmentType;
+  if (activeCycle && activeCycle !== "ALL") {
+    url += `&assessment_cycle=${encodeURIComponent(activeCycle)}`;
+  }
   if (filters?.year) url += `&year=${encodeURIComponent(filters.year)}`;
   if (filters?.min_marks !== undefined) url += `&min_marks=${encodeURIComponent(filters.min_marks)}`;
   if (filters?.max_marks !== undefined) url += `&max_marks=${encodeURIComponent(filters.max_marks)}`;
@@ -122,12 +130,20 @@ export async function getCourse(id: string | number) {
   return fetchAPI(`/courses/${id}`);
 }
 
-export async function getPredictions(subjectOrCourseId: string | number) {
-  return fetchAPI(`/predictions/${encodeURIComponent(String(subjectOrCourseId))}`);
+export async function getPredictions(subjectOrCourseId: string | number, assessmentCycle?: string) {
+  let url = `/predictions/${encodeURIComponent(String(subjectOrCourseId))}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
-export async function getExamPredictions(id: string | number) {
-  return fetchAPI(`/predictions/${encodeURIComponent(String(id))}`);
+export async function getExamPredictions(id: string | number, assessmentCycle?: string) {
+  let url = `/predictions/${encodeURIComponent(String(id))}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
 export async function getExamQuestions(
@@ -138,16 +154,28 @@ export async function getExamQuestions(
   return fetchAPI(`/exams/${encodeURIComponent(String(id))}/questions?page=${page}&size=${size}`);
 }
 
-export async function getExamDNA(course_id: string | number) {
-  return fetchAPI(`/analysis/dna?course_id=${encodeURIComponent(String(course_id))}`);
+export async function getExamDNA(course_id: string | number, assessmentCycle?: string) {
+  let url = `/analysis/dna?course_id=${encodeURIComponent(String(course_id))}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `&assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
-export async function getStudyPriorities(course_name: string) {
-  return fetchAPI(`/study/priorities/${encodeURIComponent(course_name)}`);
+export async function getStudyPriorities(course_name: string, assessmentCycle?: string) {
+  let url = `/study/priorities/${encodeURIComponent(course_name)}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
-export async function getStudyPlan(course_name: string) {
-  return fetchAPI(`/study/plan/${encodeURIComponent(course_name)}`);
+export async function getStudyPlan(course_name: string, assessmentCycle?: string) {
+  let url = `/study/plan/${encodeURIComponent(course_name)}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
 export async function getStudyResources(course_name: string, topic_name: string) {
@@ -182,8 +210,12 @@ export async function updateStudyProgress(course_id: string | number, data: any)
   });
 }
 
-export async function getPractice(subject: string) {
-  return fetchAPI(`/practice/${encodeURIComponent(subject)}`);
+export async function getPractice(subject: string, assessmentCycle?: string) {
+  let url = `/practice/${encodeURIComponent(subject)}`;
+  if (assessmentCycle && assessmentCycle !== "ALL") {
+    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  return fetchAPI(url);
 }
 
 // Global dashboard stats (if backend provides a summary, else we'll fetch courses and use that)

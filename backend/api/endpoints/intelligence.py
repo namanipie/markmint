@@ -26,6 +26,7 @@ from backend.services.prediction.engine import (
 )
 from backend.services.prediction.backtester import BacktestEvaluator
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
+from backend.services.assessment_cycle import AssessmentCycle, normalize_assessment_cycle, filter_exams_by_cycle
 
 logger = logging.getLogger("markmint.intelligence")
 
@@ -36,6 +37,7 @@ router = APIRouter()
 def get_course_historical_questions(
     course_id: str,
     topic: Optional[str] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
     assessment_type: Optional[str] = Query(None),
     year: Optional[int] = Query(None),
     min_marks: Optional[float] = Query(None),
@@ -58,11 +60,32 @@ def get_course_historical_questions(
         .filter(Exam.course_id == course.id)
     )
 
+    if hasattr(topic, "default"):
+        topic = None
+    if hasattr(year, "default"):
+        year = None
+    if hasattr(min_marks, "default"):
+        min_marks = None
+    if hasattr(max_marks, "default"):
+        max_marks = None
+    if hasattr(family_id, "default"):
+        family_id = None
+    if hasattr(family_name, "default"):
+        family_name = None
+    if hasattr(repetition_type, "default"):
+        repetition_type = None
+    if hasattr(limit, "default"):
+        limit = limit.default or 50
+    else:
+        limit = int(limit)
+
     if topic:
         query = query.join(Question.topics).filter(func.lower(Topic.name) == topic.lower())
 
-    if assessment_type:
-        query = query.filter(func.lower(Exam.assessment_type) == assessment_type.lower())
+    active_cycle = assessment_cycle or assessment_type
+    norm_cycle = normalize_assessment_cycle(active_cycle)
+    if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
+        query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle)
 
     if year is not None:
         query = query.filter(Exam.year == year)
@@ -133,6 +156,7 @@ def get_course_historical_questions(
         "course_id": course.id,
         "course_name": course.name,
         "topic_filter": topic,
+        "assessment_cycle": norm_cycle or "ALL",
         "assessment_type_filter": assessment_type,
         "year_filter": year,
         "total_returned": len(formatted_questions),
@@ -313,6 +337,7 @@ def get_intelligence_snapshot(
     target_year: Optional[int] = Query(None),
     target_exam_date: Optional[str] = Query(None),
     student_id: str = Query("anonymous"),
+    assessment_cycle: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -465,20 +490,36 @@ def get_intelligence_snapshot(
             }
         }
 
-    # 4. Target year resolution
+    # 4. Target year and assessment cycle resolution
+    norm_cycle = normalize_assessment_cycle(assessment_cycle)
+
+    # Detect available assessment cycles across all exams for this course
+    cycles_found = set()
+    for e in exam_rows:
+        c = normalize_assessment_cycle(e.assessment_type)
+        if c and c in [AssessmentCycle.CT1.value, AssessmentCycle.CT2.value, AssessmentCycle.ENDSEM.value]:
+            cycles_found.add(c)
+    available_cycles = ["ALL"]
+    for c in ["CT1", "CT2", "ENDSEM"]:
+        if c in cycles_found:
+            available_cycles.append(c)
+
     if target_year is None:
         max_year = max([e.year for e in exam_rows if e.year is not None], default=None)
         target_year = (max_year + 1) if max_year else 2024
 
-    context = HistoricalContext(course_id=course.id, cutoff_year=target_year)
+    context = HistoricalContext(course_id=course.id, cutoff_year=target_year, assessment_cycle=norm_cycle)
     repo = HistoricalRepository(db, context)
     hist_exams_orm = repo.get_historical_exams()
 
     if not hist_exams_orm:
         logger.info(
-            "Intelligence snapshot resolved: course_id=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
-            course_id, (time.time() - t_start) * 1000
+            "Intelligence snapshot resolved: course_id=%s, assessment_cycle=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
+            course_id, norm_cycle, (time.time() - t_start) * 1000
         )
+        msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}'."
+        if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
+            msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}' under assessment cycle '{norm_cycle}'."
         return {
             "data_availability_status": "INSUFFICIENT_EVIDENCE",
             "course": {
@@ -496,16 +537,21 @@ def get_intelligence_snapshot(
                 "semester": curriculum_row.semester if curriculum_row else None,
                 "credits": curriculum_row.credits if curriculum_row else 3,
                 "status": "MATCHED",
-                "notes": "No historical exams found prior to target cutoff year.",
+                "notes": f"No historical exams found prior to target cutoff year for assessment cycle '{norm_cycle or 'ALL'}'.",
             },
             "exam_history": {
-                "total_papers": total_papers,
+                "total_papers": 0,
+                "historical_papers_analyzed": 0,
                 "total_questions": 0,
-                "years": [e.year for e in exam_rows if e.year],
+                "years": [],
                 "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
+                "available_assessment_cycles": available_cycles,
+                "assessment_cycle": norm_cycle or "ALL",
             },
             "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
-            "message": "Insufficient historical data prior to cutoff year.",
+            "available_assessment_cycles": available_cycles,
+            "assessment_cycle": norm_cycle or "ALL",
+            "message": msg,
             "predictions": [],
             "study_priorities": [],
             "coverage_summary": None,
@@ -590,6 +636,8 @@ def get_intelligence_snapshot(
     }))
 
     all_years = sorted(list({e.year for e in exam_rows if e.year}))
+    cycle_years = sorted(list({e.year for e in hist_exams_orm if e.year is not None}))
+    cycle_papers_count = len(hist_exams_orm)
 
     topic_predictions_payload = []
     for p in topic_preds[:10]:
@@ -619,7 +667,7 @@ def get_intelligence_snapshot(
                 "present": y in topic_years,
                 "status": "TOPIC_PRESENT" if (y in topic_years) else "TOPIC_ABSENT",
             }
-            for y in all_years
+            for y in (cycle_years if cycle_years else all_years)
         ]
         p_dict["historical_years"] = sorted(list(topic_years))
         topic_predictions_payload.append(p_dict)
@@ -667,8 +715,8 @@ def get_intelligence_snapshot(
         p_dict["distinct_paper_count"] = distinct_papers
         p_dict["papers_with_family"] = distinct_papers
         p_dict["papers_with_topic"] = distinct_papers
-        p_dict["papers_analyzed"] = total_papers
-        p_dict["paper_coverage"] = round(distinct_papers / total_papers, 4) if total_papers > 0 else 0.0
+        p_dict["papers_analyzed"] = cycle_papers_count
+        p_dict["paper_coverage"] = round(distinct_papers / cycle_papers_count, 4) if cycle_papers_count > 0 else 0.0
         p_dict["observed_years"] = sorted(list(fam_years))
         p_dict["historical_years"] = sorted(list(fam_years))
         p_dict["timeline"] = [
@@ -680,7 +728,7 @@ def get_intelligence_snapshot(
                 "present": y in fam_years,
                 "status": "FAMILY_PRESENT" if (y in fam_years) else "FAMILY_ABSENT",
             }
-            for y in all_years
+            for y in (cycle_years if cycle_years else all_years)
         ]
         family_predictions_payload.append(p_dict)
 
@@ -703,8 +751,8 @@ def get_intelligence_snapshot(
 
     predictions_payload = topic_predictions_payload if prediction_mode == "topic" else family_predictions_payload
 
-    all_span_years = list(range(all_years[0], all_years[-1] + 1)) if all_years else []
-    gap_years = [y for y in all_span_years if y not in all_years]
+    all_span_years = list(range(cycle_years[0], cycle_years[-1] + 1)) if cycle_years else []
+    gap_years = [y for y in all_span_years if y not in cycle_years]
 
     availability_status = "READY"
     if sufficiency == DataSufficiency.INSUFFICIENT:
@@ -735,17 +783,22 @@ def get_intelligence_snapshot(
             "notes": None,
         },
         "exam_history": {
-            "total_papers": total_papers,
-            "historical_papers_analyzed": len(hist_exams_orm),
+            "total_papers": cycle_papers_count if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else total_papers,
+            "all_course_papers": total_papers,
+            "historical_papers_analyzed": cycle_papers_count,
             "total_questions": total_q_count,
-            "years": all_years,
-            "observed_years": all_years,
+            "years": cycle_years if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else all_years,
+            "observed_years": cycle_years if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else all_years,
             "unobserved_years": gap_years,
             "gap_years": gap_years,
             "available_assessment_types": available_assessment_types,
+            "available_assessment_cycles": available_cycles,
+            "assessment_cycle": norm_cycle or "ALL",
             "target_year": target_year,
         },
         "available_assessment_types": available_assessment_types,
+        "available_assessment_cycles": available_cycles,
+        "assessment_cycle": norm_cycle or "ALL",
         "predictions": predictions_payload,
         "topic_predictions": topic_predictions_payload,
         "family_predictions": family_predictions_payload,

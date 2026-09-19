@@ -33,8 +33,8 @@ def _course(db: Session, course_name: str) -> Course:
     return course
 
 
-def _topic_predictions(course_name: str, target_year: Optional[int], db: Session):
-    prediction_payload = get_prediction(course_name, target_year, db)
+def _topic_predictions(course_name: str, target_year: Optional[int], assessment_cycle: Optional[str], db: Session):
+    prediction_payload = get_prediction(course_name, target_year, assessment_cycle, db)
     return prediction_payload, prediction_payload.get("predictions", [])
 
 
@@ -42,11 +42,12 @@ def _topic_predictions(course_name: str, target_year: Optional[int], db: Session
 def get_study_priorities(
     course_name: str,
     target_year: Optional[int] = None,
+    assessment_cycle: Optional[str] = None,
     user_id: str = "anonymous",
     db: Session = Depends(get_db),
 ):
     course = _course(db, course_name)
-    payload, predictions = _topic_predictions(course.name, target_year, db)
+    payload, predictions = _topic_predictions(course.name, target_year, assessment_cycle, db)
     topic_predictions = [p for p in predictions if p.get("category") == "topic"]
     family_predictions = [p for p in predictions if p.get("category") == "family"]
     from backend.services.prediction.engine import PredictionResult
@@ -134,6 +135,7 @@ def get_study_priorities(
         "plan_mode": plan_mode,
         "priorities": plan,
         "topics": plan,
+        "assessment_cycle": payload.get("assessment_cycle", "ALL"),
         "has_topic_taxonomy": has_topic_taxonomy,
         "taxonomy_topic_count": taxonomy_topic_count,
         "topic_predictions_count": len(topic_predictions),
@@ -147,10 +149,11 @@ def get_study_priorities(
 def get_study_plan(
     course_name: str,
     target_year: Optional[int] = None,
+    assessment_cycle: Optional[str] = None,
     user_id: str = "anonymous",
     db: Session = Depends(get_db),
 ):
-    return get_study_priorities(course_name, target_year, user_id, db)
+    return get_study_priorities(course_name, target_year, assessment_cycle, user_id, db)
 
 
 @router.get("/resources/{course_name}/{topic_name}")
