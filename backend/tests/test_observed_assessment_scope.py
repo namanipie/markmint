@@ -266,3 +266,68 @@ def test_end_to_end_api_endpoints_scope_exposure(db: Session):
     assert "intended_scope" in study
     assert "observed_scope" in study
     assert "evidence_status" in study
+
+
+def test_question_count_reconciliation_total_equals_mapped_plus_unmapped(db: Session):
+    """Invariant: total_questions == mapped_questions_count + unmapped_questions_count for all papers and cycles."""
+    calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
+    assert calc is not None
+
+    exams = db.query(Exam).filter(Exam.course_id == calc.id).all()
+    for ex in exams:
+        pcov = compute_paper_observed_coverage(ex)
+        assert pcov.total_questions == pcov.mapped_questions_count + pcov.unmapped_questions_count, (
+            f"Exam {ex.id} count discrepancy: total={pcov.total_questions} != mapped({pcov.mapped_questions_count}) + unmapped({pcov.unmapped_questions_count})"
+        )
+
+    # Calculus CT2 cycle reconciliation
+    calc_ct2_exams = [
+        ex for ex in exams
+        if identify_exam_assessment(ex, calc.id).student_cycle == "CT2"
+    ]
+    assert len(calc_ct2_exams) == 3
+    ccov = compute_cycle_observed_coverage(calc.id, "CT2", calc_ct2_exams)
+    assert ccov.total_questions == 22
+    assert ccov.mapped_questions_count == 3
+    assert ccov.unmapped_questions_count == 19
+    assert ccov.total_questions == ccov.mapped_questions_count + ccov.unmapped_questions_count
+
+
+def test_marks_accounting_distinguishes_known_vs_unknown_marks(db: Session):
+    """Invariant: total_questions == questions_with_known_marks + questions_with_unknown_marks; never fabricate marks."""
+    calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
+    calc_ct2_exams = [
+        ex for ex in db.query(Exam).filter(Exam.course_id == calc.id).all()
+        if identify_exam_assessment(ex, calc.id).student_cycle == "CT2"
+    ]
+    ccov = compute_cycle_observed_coverage(calc.id, "CT2", calc_ct2_exams)
+
+    # Every question has either known marks or unknown marks
+    assert ccov.total_questions == ccov.questions_with_known_marks + ccov.questions_with_unknown_marks
+
+    # Paper 3 (2015) has all 8 questions with unknown marks (marks=None in DB)
+    p3 = [p for p in ccov.papers if p["exam_id"] == 3][0]
+    assert p3["total_questions"] == 8
+    assert p3["questions_with_unknown_marks"] == 8
+    assert p3["questions_with_known_marks"] == 0
+    assert p3["known_marks_total"] == 0.0
+
+    # Since the 3 mapped questions belong to Paper 3 which has unknown marks, marks_by_unit is empty {}
+    assert ccov.marks_by_unit == {}
+    assert ccov.marks_by_unit.get(5, 0.0) == 0.0
+    assert ccov.marks_by_unit.get(6, 0.0) == 0.0
+
+
+def test_fallback_assessment_identity_does_not_corrupt_cycle_predictions(db: Session):
+    """Invariant: Fallback papers default to ALL and are excluded from CT1 / CT2 cycle predictions."""
+    calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
+    # Find any exam classified as fallback
+    all_exams = db.query(Exam).filter(Exam.course_id == calc.id).all()
+    for ex in all_exams:
+        ident = identify_exam_assessment(ex, calc.id)
+        if ident.identification_source == "fallback":
+            assert ident.student_cycle == "ALL"
+            assert ident.confidence <= 0.5
+            # Must NOT be in CT1 or CT2 cycle
+            assert ident.student_cycle not in ("CT1", "CT2")
+

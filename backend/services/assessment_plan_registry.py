@@ -726,6 +726,12 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
 
         scope.observed_scope = {
             "paper_count": cycle_cov.paper_count,
+            "total_questions": cycle_cov.total_questions,
+            "mapped_questions_count": cycle_cov.mapped_questions_count,
+            "unmapped_questions_count": cycle_cov.unmapped_questions_count,
+            "questions_with_known_marks": cycle_cov.questions_with_known_marks,
+            "questions_with_unknown_marks": cycle_cov.questions_with_unknown_marks,
+            "known_marks_total": cycle_cov.known_marks_total,
             "unit_numbers": cycle_cov.observed_unit_numbers,
             "topic_names": cycle_cov.observed_topic_names,
             "question_count_by_unit": cycle_cov.question_count_by_unit,
@@ -749,6 +755,12 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
     else:
         scope.observed_scope = {
             "paper_count": 0,
+            "total_questions": 0,
+            "mapped_questions_count": 0,
+            "unmapped_questions_count": 0,
+            "questions_with_known_marks": 0,
+            "questions_with_unknown_marks": 0,
+            "known_marks_total": 0.0,
             "unit_numbers": [],
             "topic_names": [],
             "question_count_by_unit": {},

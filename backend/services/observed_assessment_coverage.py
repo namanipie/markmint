@@ -62,6 +62,9 @@ class PaperObservedCoverage:
     observed_topic_names: List[str]
     question_count_by_unit: Dict[int, int]
     marks_by_unit: Dict[int, float]
+    known_marks_total: float = 0.0
+    questions_with_known_marks: int = 0
+    questions_with_unknown_marks: int = 0
     document_title: Optional[str] = None
     document_source: Optional[str] = None
     question_lineage: List[QuestionObservedLineage] = field(default_factory=list)
@@ -80,6 +83,9 @@ class CycleObservedCoverage:
     observed_topic_names: List[str]
     question_count_by_unit: Dict[int, int]
     marks_by_unit: Dict[int, float]
+    known_marks_total: float = 0.0
+    questions_with_known_marks: int = 0
+    questions_with_unknown_marks: int = 0
     papers: List[Dict[str, Any]] = field(default_factory=list)
 
 
@@ -247,6 +253,9 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
     total_questions = 0
     mapped_questions_count = 0
     unmapped_questions_count = 0
+    known_marks_total = 0.0
+    questions_with_known_marks = 0
+    questions_with_unknown_marks = 0
     question_lineage: List[QuestionObservedLineage] = []
 
     sections = getattr(exam, "sections", []) or []
@@ -254,6 +263,13 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
         questions = getattr(sec, "questions", []) or []
         for q in questions:
             total_questions += 1
+            if q.marks is not None:
+                questions_with_known_marks += 1
+                if not q.is_alternative:
+                    known_marks_total = round(known_marks_total + float(q.marks), 2)
+            else:
+                questions_with_unknown_marks += 1
+
             q_topics = getattr(q, "topics", []) or []
             
             t_ids = [t.id for t in q_topics]
@@ -276,7 +292,7 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
                 for un in u_numbers:
                     observed_unit_numbers_set.add(un)
                     question_count_by_unit[un] = question_count_by_unit.get(un, 0) + 1
-                    if q.marks and not q.is_alternative:
+                    if q.marks is not None and not q.is_alternative:
                         marks_by_unit[un] = round(marks_by_unit.get(un, 0.0) + float(q.marks), 2)
             else:
                 unmapped_questions_count += 1
@@ -308,6 +324,9 @@ def compute_paper_observed_coverage(exam: Exam) -> PaperObservedCoverage:
         observed_topic_names=sorted(list(observed_topic_names_set)),
         question_count_by_unit=dict(sorted(question_count_by_unit.items())),
         marks_by_unit=dict(sorted(marks_by_unit.items())),
+        known_marks_total=known_marks_total,
+        questions_with_known_marks=questions_with_known_marks,
+        questions_with_unknown_marks=questions_with_unknown_marks,
         document_title=doc.title if doc else None,
         document_source=doc.source if doc else None,
         question_lineage=question_lineage,
@@ -335,6 +354,9 @@ def compute_cycle_observed_coverage(
     total_questions = 0
     mapped_questions = 0
     unmapped_questions = 0
+    cycle_known_marks_total = 0.0
+    cycle_questions_with_known_marks = 0
+    cycle_questions_with_unknown_marks = 0
     paper_summaries: List[Dict[str, Any]] = []
 
     for exam in exams:
@@ -342,6 +364,9 @@ def compute_cycle_observed_coverage(
         total_questions += paper_cov.total_questions
         mapped_questions += paper_cov.mapped_questions_count
         unmapped_questions += paper_cov.unmapped_questions_count
+        cycle_known_marks_total = round(cycle_known_marks_total + paper_cov.known_marks_total, 2)
+        cycle_questions_with_known_marks += paper_cov.questions_with_known_marks
+        cycle_questions_with_unknown_marks += paper_cov.questions_with_unknown_marks
 
         all_observed_units.update(paper_cov.observed_unit_numbers)
         all_observed_topic_ids.update(paper_cov.observed_topic_ids)
@@ -363,6 +388,9 @@ def compute_cycle_observed_coverage(
             "total_questions": paper_cov.total_questions,
             "mapped_questions": paper_cov.mapped_questions_count,
             "unmapped_questions": paper_cov.unmapped_questions_count,
+            "known_marks_total": paper_cov.known_marks_total,
+            "questions_with_known_marks": paper_cov.questions_with_known_marks,
+            "questions_with_unknown_marks": paper_cov.questions_with_unknown_marks,
             "observed_units": paper_cov.observed_unit_numbers,
             "question_count_by_unit": paper_cov.question_count_by_unit,
             "marks_by_unit": paper_cov.marks_by_unit,
@@ -380,6 +408,9 @@ def compute_cycle_observed_coverage(
         observed_topic_names=sorted(list(all_observed_topic_names)),
         question_count_by_unit=dict(sorted(total_q_count_by_unit.items())),
         marks_by_unit=dict(sorted(total_marks_by_unit.items())),
+        known_marks_total=cycle_known_marks_total,
+        questions_with_known_marks=cycle_questions_with_known_marks,
+        questions_with_unknown_marks=cycle_questions_with_unknown_marks,
         papers=paper_summaries,
     )
 
@@ -444,6 +475,9 @@ def build_coverage_audit_chain(course_id: int, exam_id: int, db: Session) -> Dic
             "total_questions": paper_cov.total_questions,
             "mapped_questions": paper_cov.mapped_questions_count,
             "unmapped_questions": paper_cov.unmapped_questions_count,
+            "questions_with_known_marks": paper_cov.questions_with_known_marks,
+            "questions_with_unknown_marks": paper_cov.questions_with_unknown_marks,
+            "known_marks_total": paper_cov.known_marks_total,
         },
         "observed_units": paper_cov.observed_unit_numbers,
         "observed_topics": paper_cov.observed_topic_names,
