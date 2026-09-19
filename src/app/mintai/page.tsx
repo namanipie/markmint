@@ -555,7 +555,7 @@ export default function MintAIPage() {
                     className="w-full text-muted-foreground hover:text-foreground hover:underline flex items-center justify-center gap-1 text-[11px] py-0.5"
                   >
                     <BookOpen className="w-3 h-3" />
-                    <span>Browse All Historical Questions</span>
+                    <span>Browse All Historical Questions {selectedExam ? `(${selectedExam})` : ''}</span>
                   </button>
                 </div>
               )}
@@ -852,7 +852,7 @@ export default function MintAIPage() {
                               onClick={() => handleViewQuestions(isFamily ? undefined : p.name, isFamily ? p.family_id : undefined, p.name)}
                               className="px-4 py-2.5 rounded-xl font-bold bg-accent text-accent-foreground hover:opacity-90 transition-opacity flex items-center gap-2 text-sm shadow-sm"
                             >
-                              <span>Practice</span>
+                              <span>Practice {selectedExam ? `(${selectedExam})` : ''}</span>
                               <ArrowRight className="w-4 h-4" />
                             </button>
                           </div>
@@ -905,7 +905,7 @@ export default function MintAIPage() {
                 className="px-4 py-2 bg-background border border-border rounded-lg text-xs font-semibold hover:border-accent flex items-center gap-2"
               >
                 <BookOpen className="w-4 h-4 text-accent" />
-                <span>Browse {selectedSubject?.question_count || 0} Historical Questions</span>
+                <span>Browse {selectedSubject?.question_count || 0} Historical Questions {selectedExam ? `for ${selectedExam}` : ''}</span>
               </button>
             </div>
           ) : selectedSubject?.status === "AMBIGUOUS" ? (
@@ -938,7 +938,7 @@ export default function MintAIPage() {
           ) : selectedSubject?.status === "MATCHED" && !selectedSubject.has_exams ? (
             <div className="h-full min-h-[400px] border border-dashed border-border rounded-xl flex flex-col items-center justify-center text-center p-8 bg-card/30">
               <FileText className="w-10 h-10 text-muted-foreground mb-4 opacity-30" />
-              <h3 className="text-lg font-bold text-foreground mb-2">Catalog Indexed — No Examination Papers</h3>
+              <h3 className="text-lg font-bold text-foreground mb-2">No Past Papers Found</h3>
               <p className="text-sm text-muted-foreground max-w-sm mb-2">
                 <strong>{selectedSubject.subject_name}</strong> is verified in the academic registry, but 0 historical examination papers are currently uploaded.
               </p>

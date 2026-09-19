@@ -63,20 +63,22 @@ export function Combobox({
                 className="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
               />
             </div>
-            <div className="max-h-[300px] overflow-y-auto overflow-x-hidden p-1">
+            <div role="listbox" className="max-h-[300px] overflow-y-auto overflow-x-hidden p-1">
               {filteredOptions.length === 0 ? (
                 <div className="py-6 text-center text-sm">{emptyText}</div>
               ) : (
                 filteredOptions.map((option) => (
-                  <div
+                  <button
                     key={option.value}
+                    role="option"
+                    aria-selected={value === option.value}
                     onClick={() => {
                       onChange(option.value);
                       setOpen(false);
                       setSearch("");
                     }}
                     className={cn(
-                      "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-2 text-sm outline-none hover:bg-accent/15 hover:text-accent transition-colors",
+                      "relative flex cursor-pointer select-none items-center rounded-md px-3 py-3 text-sm outline-none w-full text-left hover:bg-accent/15 hover:text-accent transition-colors",
                       value === option.value && "bg-accent/10 text-accent font-medium"
                     )}
                   >
@@ -87,7 +89,7 @@ export function Combobox({
                       )}
                     />
                     <span className="truncate">{option.label}</span>
-                  </div>
+                  </button>
                 ))
               )}
             </div>
