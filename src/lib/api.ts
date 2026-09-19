@@ -1,24 +1,42 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
-async function fetchAPI(path: string, options?: RequestInit) {
-  const res = await fetch(`${API_BASE}${path}`, options);
-  if (!res.ok) {
-    let errorDetail = `${res.status} ${res.statusText}`;
+async function fetchAPI(path: string, options?: RequestInit, retries = 2) {
+  let attempt = 0;
+  while (attempt <= retries) {
     try {
-      const data = await res.json();
-      if (data?.detail) {
-        errorDetail = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail);
-      } else if (data?.message) {
-        errorDetail = data.message;
+      const res = await fetch(`${API_BASE}${path}`, options);
+      if (!res.ok) {
+        // Retry on 5xx errors or 429 Too Many Requests
+        if ((res.status >= 500 || res.status === 429) && attempt < retries) {
+          attempt++;
+          await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+          continue;
+        }
+        let errorDetail = `${res.status} ${res.statusText}`;
+        try {
+          const data = await res.json();
+          if (data?.detail) {
+            errorDetail = typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail);
+          } else if (data?.message) {
+            errorDetail = data.message;
+          }
+        } catch {
+          // ignore json parse error on non-json error responses
+        }
+        const err = new Error(errorDetail);
+        (err as any).status = res.status;
+        throw err;
       }
-    } catch {
-      // ignore json parse error on non-json error responses
+      return await res.json();
+    } catch (err: any) {
+      if (attempt < retries) {
+        attempt++;
+        await new Promise(resolve => setTimeout(resolve, 500 * attempt));
+        continue;
+      }
+      throw err;
     }
-    const err = new Error(errorDetail);
-    (err as any).status = res.status;
-    throw err;
   }
-  return res.json();
 }
 
 import {

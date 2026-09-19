@@ -431,12 +431,12 @@ export default function MintAIPage() {
                 </label>
                 <Combobox
                   options={subjects.map((s) => ({ 
-                    value: s.curriculum_id, 
+                    value: String(s.curriculum_id), 
                     label: `${s.canonical_code ? `[${s.canonical_code}] ` : ""}${s.subject_name}${s.status === "MATCHED" && s.has_exams ? ` (${s.exam_count} exams)` : s.status === "AMBIGUOUS" ? " [Ambiguous]" : " [Awaiting Papers]"}` 
                   }))}
-                  value={selectedSubject?.curriculum_id || ""}
+                  value={selectedSubject?.curriculum_id ? String(selectedSubject.curriculum_id) : ""}
                   onChange={(val: string) => {
-                    const match = subjects.find((s) => s.curriculum_id === val);
+                    const match = subjects.find((s) => String(s.curriculum_id) === String(val));
                     setSelectedSubject(match || null);
                     setSnapshot(null);
                   }}
