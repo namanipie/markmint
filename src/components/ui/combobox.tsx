@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "cmdk";
 
 export function Combobox({ 
   options, 
@@ -24,8 +23,14 @@ export function Combobox({
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
+  const [search, setSearch] = React.useState("");
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label || placeholder;
+  
+  const filteredOptions = options.filter(opt => 
+    opt.label.toLowerCase().includes(search.toLowerCase()) || 
+    opt.value.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
@@ -46,38 +51,47 @@ export function Combobox({
       <PopoverPrimitive.Portal>
         <PopoverPrimitive.Content
           align="start"
-          className="z-50 w-[var(--radix-popover-trigger-width)] min-w-[200px] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2"
+          className="z-50 w-[var(--radix-popover-trigger-width)] min-w-[200px] overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
         >
-          <Command className="flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground">
-            <CommandInput 
-              placeholder="Search..." 
-              className="flex h-10 w-full rounded-md bg-transparent py-3 px-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 border-b border-border"
-            />
-            <CommandList className="max-h-[300px] overflow-y-auto overflow-x-hidden">
-              <CommandEmpty className="py-6 text-center text-sm">{emptyText}</CommandEmpty>
-              <CommandGroup className="p-1 text-foreground">
-                {options.map((option) => (
-                  <CommandItem
+          <div className="flex h-full w-full flex-col bg-popover text-popover-foreground">
+            <div className="flex items-center border-b border-border px-3">
+              <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+              <input 
+                placeholder="Search..." 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+              />
+            </div>
+            <div className="max-h-[300px] overflow-y-auto overflow-x-hidden p-1">
+              {filteredOptions.length === 0 ? (
+                <div className="py-6 text-center text-sm">{emptyText}</div>
+              ) : (
+                filteredOptions.map((option) => (
+                  <div
                     key={option.value}
-                    value={option.label}
-                    onSelect={() => {
+                    onClick={() => {
                       onChange(option.value);
                       setOpen(false);
+                      setSearch("");
                     }}
-                    className="relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none aria-selected:bg-accent/15 aria-selected:text-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                    className={cn(
+                      "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-2 text-sm outline-none hover:bg-accent/15 hover:text-accent transition-colors",
+                      value === option.value && "bg-accent/10 text-accent font-medium"
+                    )}
                   >
                     <Check
                       className={cn(
                         "mr-2 h-4 w-4",
-                        value === option.value ? "opacity-100 text-accent" : "opacity-0"
+                        value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />
-                    {option.label}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
+                    <span className="truncate">{option.label}</span>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
         </PopoverPrimitive.Content>
       </PopoverPrimitive.Portal>
     </PopoverPrimitive.Root>

@@ -144,9 +144,10 @@ export default function StudyIntelligencePage() {
 
         {/* Configuration Section */}
         <div className="bg-card rounded-2xl p-6 border border-border">
-          <h2 className="text-xl font-semibold mb-6 flex items-center gap-2 text-foreground">
-            <Zap className="w-5 h-5 text-accent" /> Configure Your Intelligence Plan
-          </h2>
+          <div className="mb-6">
+            <h2 className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground mb-1">Your Subject</h2>
+              <h3 className="text-xl font-bold text-foreground">Configure Your Study Plan</h3>
+          </div>
           
           <div className="flex flex-col md:flex-row gap-6 mb-6">
             <div className="flex-1">
@@ -251,7 +252,7 @@ export default function StudyIntelligencePage() {
                     <div className="lg:col-span-2 space-y-6">
                       <h3 className="font-bold text-lg flex items-center gap-2 text-foreground">
                         <Target className="w-5 h-5 text-primary" />
-                        {isFamilyPlan ? "Priority Question Family Targets" : "Priority Study Targets"}
+                        {"STUDY THESE FIRST"}
                       </h3>
                       
                       {studyData.topics && studyData.topics.length > 0 ? studyData.topics.map((topic: any, idx: number) => (
@@ -269,7 +270,7 @@ export default function StudyIntelligencePage() {
                                   topic.priority?.toLowerCase() === 'medium' ? 'bg-primary/20 text-primary' : 
                                   'bg-muted/20 text-muted-foreground'
                                 }`}>
-                                  {topic.priority || 'Medium'} Priority
+                                  {topic.priority?.toLowerCase() === 'high' ? 'Study First' : topic.priority?.toLowerCase() === 'medium' ? 'Study Next' : 'Study Later'}
                                 </span>
                               </div>
                               <h4 className="text-base font-bold text-foreground leading-snug">

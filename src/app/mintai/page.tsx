@@ -382,9 +382,9 @@ export default function MintAIPage() {
         {/* Left Sidebar: Controls & Hierarchy */}
         <div className="lg:col-span-4 flex flex-col gap-6">
           <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
-            <div className="flex items-center gap-2 mb-6">
-              <Leaf className="w-5 h-5 text-accent" />
-              <h2 className="text-xl font-bold tracking-tight">Academic Scope</h2>
+            <div className="mb-6">
+              <h2 className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground mb-1">Your Subject</h2>
+              <h3 className="text-lg font-bold text-foreground">Choose your course to see what has appeared in past exams.</h3>
             </div>
 
             {/* Error notifications */}
@@ -543,7 +543,7 @@ export default function MintAIPage() {
                     className="w-full text-accent hover:underline flex items-center justify-center gap-1.5 font-medium text-xs py-1.5 rounded bg-accent/5 hover:bg-accent/10 border border-accent/20 transition-colors"
                   >
                     <Repeat className="w-3.5 h-3.5" />
-                    <span>Repetition Analytics (&ldquo;What Repeated?&rdquo;)</span>
+                    <span>What Repeated (&ldquo;What Repeated?&rdquo;)</span>
                   </button>
                   <button
                     onClick={() => handleViewQuestions()}
@@ -570,7 +570,7 @@ export default function MintAIPage() {
             </div>
           )}
 
-          {/* Top Switcher: Forecast vs Repetition Analytics */}
+          {/* Top Switcher: Forecast vs What Repeated */}
           {selectedSubject?.has_exams && selectedSubject.course_id && (
             <div className="flex items-center gap-2 border-b border-border pb-3">
               <button
@@ -582,7 +582,7 @@ export default function MintAIPage() {
                 }`}
               >
                 <Target className="w-3.5 h-3.5" />
-                <span>Predictive Forecast &amp; Study Plan</span>
+                <span>What to Study &amp; Study Plan</span>
               </button>
               <button
                 onClick={() => setMainView("analytics")}
@@ -593,7 +593,7 @@ export default function MintAIPage() {
                 }`}
               >
                 <Repeat className="w-3.5 h-3.5" />
-                <span>Repetition Analytics (&ldquo;What Repeated?&rdquo;)</span>
+                <span>What Repeated (&ldquo;What Repeated?&rdquo;)</span>
                 <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-500/10 text-emerald-500 font-mono font-bold">
                   Factual
                 </span>
@@ -675,7 +675,7 @@ export default function MintAIPage() {
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Target className="w-4 h-4 text-accent" />
-                      <h3 className="text-sm font-bold tracking-tight">Preparation Coverage</h3>
+                      <h3 className="text-sm font-bold tracking-tight">Your Progress</h3>
                     </div>
                     <div className="font-mono font-bold text-sm text-accent">
                       {snapshot.coverage_summary.student_preparation_coverage}% Prepared
@@ -747,7 +747,7 @@ export default function MintAIPage() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-base font-bold tracking-tight">
-                    {isFamilyMode ? "Predicted High-Yield Question Families" : "Predicted High-Yield Topics"}
+                    {isFamilyMode ? "Predicted High-Yield Question Families" : "Study These First"}
                   </h3>
                   {snapshot.metadata && (
                     <span className="text-[10px] font-mono text-muted-foreground">
@@ -765,239 +765,94 @@ export default function MintAIPage() {
                     const priorityBand = priorityInfo?.priority || "MEDIUM";
                     const distinctPapers = p.distinct_paper_count ?? p.papers_with_topic ?? 0;
                     const totalPapers = p.papers_analyzed ?? snapshot.exam_history?.total_papers ?? 0;
-                    const isHighRecurrence = distinctPapers >= 4 || p.confidence === "HIGH";
-                    const isSinglePaper = distinctPapers === 1;
+                    const marksStr = p.average_marks ? `~${p.average_marks} marks` : (p.total_marks_observed ? `~${Math.round(p.total_marks_observed)} marks` : p.marks_seen ? `~${Math.round(p.marks_seen)} marks` : "");
+
+                    let explanation = "";
+                    if (distinctPapers >= 4) {
+                      explanation = "A highly recurring pattern across multiple past exams.";
+                    } else if (distinctPapers > 1) {
+                      explanation = "This has appeared in several past exam papers.";
+                    } else if (distinctPapers === 1) {
+                      explanation = "This appeared exactly once in the papers we analysed.";
+                    } else {
+                      explanation = "Predicted as highly probable based on syllabus weighting.";
+                    }
+
+                    const percent = totalPapers > 0 ? Math.min(100, Math.round((distinctPapers / totalPapers) * 100)) : 0;
+                    const totalBlocks = 12;
+                    const filledBlocks = Math.round((percent / 100) * totalBlocks);
+                    const visualBar = "?".repeat(filledBlocks) + "?".repeat(totalBlocks - filledBlocks);
+
+                    let priorityLabel = "";
+                    if (priorityInfo?.priority_tier === "P0" || p.confidence === "HIGH") priorityLabel = "Study First";
+                    else if (priorityInfo?.priority_tier === "P1" || p.confidence === "MEDIUM") priorityLabel = "Study Next";
+                    else if (priorityInfo?.priority_tier === "P2" || p.confidence === "LOW") priorityLabel = "Study Later";
 
                     return (
                       <div
                         key={p.family_id ? `fam-${p.family_id}` : idx}
-                        className={`bg-card rounded-xl p-5 border transition-all ${isExpanded ? "border-accent/40 shadow-md" : "border-border shadow-sm hover:border-accent/30"}`}
+                        className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all relative group overflow-hidden mb-4"
                       >
-                        {/* Primary & Secondary Structure */}
-                        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                          <div className="flex-1 pr-2">
-                            <div className="flex flex-wrap items-center gap-3 mb-2">
-                              <span className="font-mono text-sm font-bold text-muted-foreground">#{p.rank}</span>
-                              <h4 className="text-xl font-bold text-foreground leading-tight">
+                        {p.confidence === "HIGH" && (
+                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500" />
+                        )}
+                        <div className="flex flex-col md:flex-row gap-6">
+                          <div className="flex-1 space-y-4">
+                            <div className="space-y-1.5">
+                              <div className="flex items-center gap-3 mb-1">
+                                <span className="font-mono text-xs font-bold text-muted-foreground">#{p.rank}</span>
+                                {priorityLabel && (
+                                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${priorityLabel === 'Study First' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-secondary text-muted-foreground'}`}>
+                                    {priorityLabel}
+                                  </span>
+                                )}
+                              </div>
+                              <h4 className="text-xl font-bold text-foreground leading-tight pr-4">
                                 <MathText content={p.name} />
                               </h4>
+                              <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground mt-2">
+                                {distinctPapers > 0 && (
+                                  <span className={distinctPapers >= 3 ? "text-accent" : ""}>
+                                    Seen in {distinctPapers} {totalPapers > 0 ? `of ${totalPapers}` : ''} past {distinctPapers === 1 ? "paper" : "papers"}
+                                  </span>
+                                )}
+                                {distinctPapers > 0 && marksStr && <span className="w-1 h-1 rounded-full bg-border" />}
+                                {marksStr && <span>{marksStr}</span>}
+                              </div>
                             </div>
                             
-                            <div className="flex flex-wrap items-center gap-4 text-sm mt-3 pb-3 border-b border-border/50">
-                              <div className="flex items-center gap-1.5">
-                                <span className={`h-2 w-2 rounded-full ${p.confidence === "HIGH" ? "bg-emerald-500" : p.confidence === "MEDIUM" ? "bg-amber-500" : "bg-red-500"}`} />
-                                <span className="font-medium text-foreground">{p.confidence} Confidence</span>
-                              </div>
-                              <div className="h-4 w-[1px] bg-border" />
-                              <div className="text-muted-foreground">
-                                {distinctPapers} / {totalPapers} Papers
-                              </div>
-                              
-                              {/* Semantic Tags */}
-                              {p.repetition_type === "EXACT_REPEAT" && (
-                                <>
-                                  <div className="h-4 w-[1px] bg-border" />
-                                  <div className="text-purple-400 font-medium uppercase tracking-wider text-[10px]">
-                                    EXACT REPEAT
-                                  </div>
-                                </>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              {distinctPapers > 0 && (
+                                <div className="font-mono text-xs tracking-widest flex" title={`${percent}% paper coverage`}>
+                                  <span className="text-accent/60">{visualBar.substring(0, filledBlocks)}</span>
+                                  <span className="text-border">{visualBar.substring(filledBlocks)}</span>
+                                </div>
                               )}
-                              {!isFamily && priorityInfo?.recommended_action && (
-                                <>
-                                  <div className="h-4 w-[1px] bg-border" />
-                                  <div className="text-muted-foreground font-medium uppercase tracking-wider text-[10px]">
-                                    {priorityInfo.recommended_action.replace(/_/g, " ")}
-                                  </div>
-                                </>
-                              )}
-                            </div>
-                            
-                            {/* Tertiary Metadata */}
-                            <div className="flex flex-wrap items-center gap-2 mt-3 text-[11px] font-mono text-muted-foreground">
-                                {isFamily && p.family_id && (
-                                  <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Family ID: {p.family_id}</span>
-                                )}
-                                {p.last_seen_year && (
-                                  <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Last Seen: {p.last_seen_year}</span>
-                                )}
-                                {!isFamily && priorityBand && (
-                                  <span className="opacity-60">{priorityBand} PRIORITY</span>
-                                )}
-                                <span className="opacity-60">
-                                  {p.average_marks ? `~${p.average_marks} Marks` : p.total_marks_observed ? `${Math.round(p.total_marks_observed)} Marks` : p.marks_seen ? `${Math.round(p.marks_seen)} Marks` : "Marks Unspecified"}
-                                </span>
+                              <p className="text-sm text-foreground/80 max-w-xl">
+                                {explanation}
+                              </p>
                             </div>
                           </div>
-                          
-                          <div className="flex flex-col items-end shrink-0 gap-3">
-                            <div className="flex flex-col items-end">
-                              <span className="text-2xl font-black text-foreground">{Math.round((p.probability || 0) * 100)}%</span>
-                              <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Recurrence</span>
-                            </div>
+
+                          <div className="flex items-end md:items-center gap-3 shrink-0 mt-2 md:mt-0">
+                            <button
+                              onClick={() => isFamily ? handleOpenFamilyEvidence(p.family_id, p.name) : handleOpenTopicIntelligence(p.topic_id, p.name)}
+                              className="px-4 py-2.5 rounded-xl font-bold bg-secondary text-foreground hover:bg-secondary/80 transition-colors flex items-center gap-2 text-sm"
+                            >
+                              <span>Why?</span>
+                            </button>
                             
-                            {/* Quick Actions */}
-                            <div className="flex items-center gap-2 mt-2">
-                              {isFamily ? (
-                                <>
-                                  <button
-                                    onClick={() => handleOpenFamilyEvidence(p.family_id, p.name)}
-                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-foreground text-background hover:bg-foreground/90 transition-colors"
-                                  >
-                                    Evidence
-                                  </button>
-                                  <button
-                                    onClick={() => handleViewQuestions(undefined, p.family_id, p.name)}
-                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
-                                  >
-                                    Questions
-                                  </button>
-                                </>
-                              ) : (
-                                <>
-                                  <button
-                                    onClick={() => handleOpenTopicIntelligence(p.topic_id, p.name)}
-                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-foreground text-background hover:bg-foreground/90 transition-colors"
-                                  >
-                                    Intelligence
-                                  </button>
-                                  <button
-                                    onClick={() => handleViewQuestions(p.name)}
-                                    className="text-xs px-3 py-1.5 rounded-lg font-bold bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
-                                  >
-                                    Questions
-                                  </button>
-                                </>
-                              )}
-                              
-                              <button
-                                onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
-                                className="p-1.5 rounded-md text-muted-foreground hover:bg-secondary transition-colors"
-                                aria-label="Toggle details"
-                              >
-                                {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                              </button>
-                            </div>
+                            <button
+                              onClick={() => handleViewQuestions(isFamily ? undefined : p.name, isFamily ? p.family_id : undefined, p.name)}
+                              className="px-4 py-2.5 rounded-xl font-bold bg-accent text-accent-foreground hover:opacity-90 transition-opacity flex items-center gap-2 text-sm shadow-sm"
+                            >
+                              <span>Practice</span>
+                              <ArrowRight className="w-4 h-4" />
+                            </button>
                           </div>
                         </div>
-
-                        {/* Expandable Explanation Section */}
-                        {isExpanded && (
-                          <div className="mt-4 pt-4 border-t border-border/50 text-xs space-y-3">
-                            <div className="text-muted-foreground font-semibold text-[10px] uppercase tracking-wider">
-                              Historical Evidence Rationale
-                            </div>
-
-                            {/* Deterministic Explanation Text */}
-                            {p.explanation && (
-                              <p className="text-sm text-foreground/90 bg-background/80 p-3 rounded-lg border border-border/40">
-                                {p.explanation}
-                              </p>
-                            )}
-
-                            {/* Reason Codes */}
-                            {p.reason_codes && p.reason_codes.length > 0 && (
-                              <div className="flex flex-wrap gap-1.5 pt-1">
-                                {p.reason_codes.map((code) => (
-                                  <span
-                                    key={code}
-                                    className="px-2 py-0.5 bg-accent/10 text-accent rounded font-mono text-[10px] border border-accent/20"
-                                  >
-                                    {code}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
-
-                            {/* Empirical Evidence Grid */}
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Occurrences</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.historical_occurrences ?? p.historyCount ?? 0} Questions
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Paper Coverage</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {totalPapers > 0 ? `${distinctPapers}/${totalPapers} Papers` : "—"}
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Marks Seen</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.average_marks != null
-                                    ? `~${p.average_marks} Marks (${p.total_marks_observed ?? p.marks_seen} Total)`
-                                    : p.marks_seen
-                                    ? `${Math.round(p.marks_seen)} Marks`
-                                    : "Marks Unspecified"}
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Last Seen</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.last_seen_year || p.lastSeen || "Multiple"}
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* Visual Multi-Year Historical Timeline */}
-                            {p.timeline && p.timeline.length > 0 && (
-                              <div className="space-y-1.5 bg-background/50 p-2.5 rounded-lg border border-border/40">
-                                <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-                                  <span className="font-medium">Historical Paper Timeline</span>
-                                  <span className="font-mono text-[10px]">● = Present &nbsp; ○ = Exam Held, Absent &nbsp; ┄ = Gap Year</span>
-                                </div>
-                                <div className="flex flex-wrap gap-1.5">
-                                  {p.timeline.map((entry) => (
-                                    <span
-                                      key={entry.year}
-                                      title={
-                                        entry.present
-                                          ? `Exam Present: Tested in ${entry.year}`
-                                          : entry.exam_exists === false
-                                          ? `No exam archived for ${entry.year} (unobserved gap year)`
-                                          : `Exam held in ${entry.year}, but this topic was not examined`
-                                      }
-                                      className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-[11px] font-mono font-medium ${
-                                        entry.present
-                                          ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
-                                          : entry.exam_exists === false
-                                          ? "bg-muted/20 text-muted-foreground/40 border border-dashed border-border/30"
-                                          : "bg-muted/40 text-muted-foreground/60 border border-border/30"
-                                      }`}
-                                    >
-                                      <span
-                                        className={`h-1.5 w-1.5 rounded-full ${
-                                          entry.present
-                                            ? "bg-emerald-500"
-                                            : entry.exam_exists === false
-                                            ? "bg-transparent border border-muted-foreground/40"
-                                            : "bg-muted-foreground/30"
-                                        }`}
-                                      />
-                                      {entry.year}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
-
-                            {/* Resources Trigger */}
-                            {priorityInfo?.resources && priorityInfo.resources.length > 0 && (
-                              <div className="pt-2 flex justify-end">
-                                <button
-                                  onClick={() => handleViewResources(p.name, priorityInfo.resources)}
-                                  className="text-accent hover:underline flex items-center gap-1 font-medium cursor-pointer"
-                                >
-                                  <span>View {priorityInfo.resources.length} Linked Study Resource(s)</span>
-                                  <ArrowRight className="w-3 h-3" />
-                                </button>
-                              </div>
-                            )}
-                          </div>
-                        )}
                       </div>
-                    );
+                    )
                   })
                 ) : (
                   <div className="border border-dashed border-border/80 bg-card/60 rounded-xl p-6 text-center space-y-3">
@@ -1020,7 +875,7 @@ export default function MintAIPage() {
                         className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-xs font-semibold hover:bg-accent/90 transition-colors cursor-pointer"
                       >
                         <Repeat className="w-3.5 h-3.5" />
-                        <span>Explore Repetition Analytics</span>
+                        <span>Explore What Repeated</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
