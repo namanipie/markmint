@@ -9,6 +9,7 @@ import { BackendCourse } from "@/lib/types";
 import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers } from "lucide-react";
 import { motion } from "framer-motion";
 import { MathText } from "@/components/ui/math-text";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 export default function StudyIntelligencePage() {
   const [courses, setCourses] = useState<BackendCourse[]>([]);

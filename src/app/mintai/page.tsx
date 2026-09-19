@@ -29,6 +29,7 @@ import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analy
 import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
 import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
 import { MathText } from "@/components/ui/math-text";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 export type MintAIState =
   | "loading_branches"
@@ -47,6 +48,7 @@ export type MintAIState =
   | "idle";
 
 export default function MintAIPage() {
+  const { trackEvent, trackOnce } = useAnalytics();
   // Curriculum hierarchy states from backend
   const [branches, setBranches] = useState<string[]>([]);
   const [semesters, setSemesters] = useState<number[]>([]);
@@ -98,6 +100,7 @@ export default function MintAIPage() {
     setSelectedTopicIdForModal(topicId || null);
     setSelectedTopicNameForModal(topicName || "");
     setIsTopicModalOpen(true);
+    trackEvent("why_opened", { type: "topic", item_id: topicId, item_name: topicName, course_id: selectedSubject?.curriculum_id });
   };
 
   // Family Evidence Drilldown Modal
@@ -109,6 +112,7 @@ export default function MintAIPage() {
     setSelectedFamilyIdForModal(familyId || null);
     setSelectedFamilyNameForModal(familyName || "");
     setIsFamilyModalOpen(true);
+    trackEvent("why_opened", { type: "family", item_id: familyId, item_name: familyName, course_id: selectedSubject?.curriculum_id });
   };
 
   // Subject analytical readiness
@@ -439,6 +443,7 @@ export default function MintAIPage() {
                     const match = subjects.find((s) => String(s.curriculum_id) === String(val));
                     setSelectedSubject(match || null);
                     setSnapshot(null);
+                    if (match) trackEvent("course_selected", { course_id: match.curriculum_id, course_name: match.subject_name });
                   }}
                   placeholder={isLoadingSubjects ? "Loading courses..." : "Search courses..."}
                   disabled={isLoadingSubjects || subjects.length === 0}
@@ -791,7 +796,8 @@ export default function MintAIPage() {
                     return (
                       <div
                         key={p.family_id ? `fam-${p.family_id}` : idx}
-                        className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all relative group overflow-hidden mb-4"
+                        className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-md transition-all relative group overflow-hidden mb-4 cursor-pointer"
+                          onClick={() => trackOnce("prediction_opened", String(p.name), { course_id: selectedSubject?.curriculum_id, item_name: p.name })}
                       >
                         {p.confidence === "HIGH" && (
                           <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500" />

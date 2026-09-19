@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { MathText } from "@/components/ui/math-text";
+import { CourseLandingTracker } from "@/components/analytics/course-landing-tracker";
 import { 
   BookOpen, ArrowRight, CheckCircle2, ShieldCheck, 
   BarChart3, Brain, Database, Target, Sparkles
@@ -96,6 +97,7 @@ export default async function CourseLandingPage({ params }: { params: { course: 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground selection:bg-accent/20">
       <Navbar />
+      <CourseLandingTracker courseId={course.id} courseSlug={courseSlug} />
 
       <main className="flex-1 w-full pb-20">
         {/* Hero Section */}

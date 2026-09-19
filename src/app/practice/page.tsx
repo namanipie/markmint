@@ -9,8 +9,10 @@ import { getCurriculumBranches, getCurriculumSemesters, getCurriculumSubjects, g
 import { MathText } from "@/components/ui/math-text";
 import { Activity, Search, AlertCircle, BookOpen } from "lucide-react";
 import Link from "next/link";
+import { useAnalytics } from "@/hooks/use-analytics";
 
 export default function PracticePage() {
+  const { trackEvent, trackOnce } = useAnalytics();
   const [branches, setBranches] = useState<string[]>([]);
   const [semesters, setSemesters] = useState<number[]>([]);
   const [subjects, setSubjects] = useState<CurriculumSubject[]>([]);
@@ -24,6 +26,7 @@ export default function PracticePage() {
   const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
+    trackOnce("practice_started", "page_load", { method: "direct_navigation" });
     let active = true;
     getCurriculumBranches().then((branchList) => {
       if (!active) return;
