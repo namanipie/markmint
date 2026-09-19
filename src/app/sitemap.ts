@@ -1,32 +1,55 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next'
+import { getCourses } from '@/lib/api'
+import { generateSlug } from '@/lib/slugs'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://markmint.vercel.app";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://markmint.vercel.app'
   
-  return [
+  // Base routes
+  const routes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: 'daily',
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/mintai`,
       lastModified: new Date(),
-      changeFrequency: "daily",
+      changeFrequency: 'always',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/developers`,
+      url: `${baseUrl}/study-plan`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
+      changeFrequency: 'always',
+      priority: 0.8,
     },
-  ];
+    {
+      url: `${baseUrl}/practice`,
+      lastModified: new Date(),
+      changeFrequency: 'always',
+      priority: 0.8,
+    }
+  ]
+
+  // Dynamic course routes
+  try {
+    const courses = await getCourses()
+    
+    if (courses && Array.isArray(courses)) {
+      const courseRoutes = courses.map((course: any) => ({
+        url: `${baseUrl}/srm/${generateSlug(course.name)}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      }))
+      
+      return [...routes, ...courseRoutes]
+    }
+  } catch (error) {
+    console.error('Failed to generate sitemap for courses:', error)
+  }
+
+  return routes
 }
