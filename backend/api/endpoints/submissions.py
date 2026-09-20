@@ -281,6 +281,24 @@ def list_submissions(
     return [_format_submission_response(s) for s in submissions]
 
 
+@router.get("/quality-metrics")
+def get_submission_quality_metrics_endpoint(
+    db: Session = Depends(get_db),
+) -> Any:
+    """
+    Publicly safe quality metrics tracking submission health:
+    - submissions
+    - approved
+    - rejected
+    - duplicate
+    - mapping rate
+    - questions added
+    - questions unresolved
+    Does not expose PII, internal reviewer identities, or moderation audit comments.
+    """
+    return SubmissionApprovalService.get_submission_quality_metrics(db)
+
+
 @router.get("/{submission_id}", response_model=PaperSubmissionResponse)
 def get_submission(submission_id: int, db: Session = Depends(get_db)) -> Any:
     """Retrieve details of a single submission for moderation."""

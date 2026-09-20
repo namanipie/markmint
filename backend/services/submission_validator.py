@@ -197,13 +197,13 @@ def check_for_duplicates(db: Session, file_hash: str) -> Tuple[bool, Optional[in
     Checks if a file with this hash already exists in production documents or previous submissions.
     Returns: (is_duplicate, duplicate_of_doc_id, duplicate_of_sub_id, message)
     """
-    # 1. Check existing production documents
     existing_doc = db.query(Document).filter(Document.document_hash == file_hash).first()
-    if existing_doc:
-        return True, existing_doc.id, None, f"Duplicate paper: already exists in production corpus as Document #{existing_doc.id} ({existing_doc.title or 'Untitled'})."
-
-    # 2. Check pending or reviewed submissions
     existing_sub = db.query(PaperSubmission).filter(PaperSubmission.file_hash == file_hash).first()
+
+    if existing_doc:
+        sub_id = existing_sub.id if existing_sub else None
+        return True, existing_doc.id, sub_id, f"Duplicate paper: already exists in production corpus as Document #{existing_doc.id} ({existing_doc.title or 'Untitled'})."
+
     if existing_sub:
         return True, None, existing_sub.id, f"Duplicate submission: already submitted on {existing_sub.created_at.strftime('%Y-%m-%d')} with status '{existing_sub.status}' (Submission #{existing_sub.id})."
 

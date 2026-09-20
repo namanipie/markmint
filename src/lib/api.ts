@@ -40,7 +40,8 @@ import {
   SubmissionPreview,
   PaperSubmissionRecord,
   AdminReviewSummary,
-  SubmitterFeedback
+  SubmitterFeedback,
+  SubmissionQualityMetrics
 } from "./types";
 
 // Real Backend Endpoints
@@ -441,6 +442,10 @@ export async function getSubmissionFeedback(id: number): Promise<SubmitterFeedba
 
 export async function getSubmissionByTracking(tracking: string): Promise<SubmitterFeedback> {
   return fetchAPI(`/submissions/tracking/${encodeURIComponent(tracking)}`);
+}
+
+export async function getSubmissionQualityMetrics(): Promise<SubmissionQualityMetrics> {
+  return fetchAPI(`/submissions/quality-metrics`);
 }
 
 

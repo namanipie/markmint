@@ -926,3 +926,17 @@ export interface SubmitterFeedback {
   actionable_tip: string;
   is_contributed_to_corpus: boolean;
 }
+
+export interface SubmissionQualityMetrics {
+  submissions: number;
+  approved: number;
+  rejected: number;
+  pending: number;
+  under_review: number;
+  duplicate: number;
+  questions_added: number;
+  questions_mapped: number;
+  questions_unresolved: number;
+  mapping_rate: number;
+  mapping_rate_formatted: string;
+}

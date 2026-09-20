@@ -3,7 +3,10 @@ from datetime import datetime
 from typing import Optional, Dict, Any, List
 from sqlalchemy.orm import Session
 
-from backend.models.core import Document, Course, CourseTrack, Exam, Section, Question, question_topic
+from backend.models.core import (
+    Document, Course, CourseTrack, Exam, Section, Question, question_topic,
+    QuestionFamily, QuestionFamilyMembership
+)
 from backend.models.submission import PaperSubmission, SubmissionStatus
 from backend.services.document import DocumentService
 from backend.services.extraction.pdf_parser import PDFParser
@@ -184,6 +187,9 @@ class SubmissionApprovalService:
             # Attempt conservative taxonomy mapping (unresolved questions remain explicitly unmapped)
             mapped_count = self._try_map_taxonomy(course.id, exam.id, track_id=target_track_id)
 
+            # Link questions into QuestionFamily and QuestionFamilyMembership
+            families_linked = self._link_question_families(course, exam)
+
             # Compute Paper-derived observed coverage
             coverage = compute_paper_observed_coverage(exam)
 
@@ -360,12 +366,22 @@ class SubmissionApprovalService:
             "exam_id": exam.id if exam else None,
         }
 
+        doc_obj = self.db.query(Document).get(submission.ingested_document_id) if submission.ingested_document_id else None
+        doc_info = {
+            "id": doc_obj.id,
+            "document_hash": doc_obj.document_hash,
+            "title": doc_obj.title,
+            "source": doc_obj.source,
+        } if doc_obj else None
+
         return {
             "submission_id": submission.id,
+            "document": doc_info,
             "course": course_data,
             "track": track_data,
             "assessment": assessment_label,
             "year": exam_year,
+            "detected_year": submission.detected_year,
             "duplicate_state": duplicate_state,
             "question_count": {
                 "total": total_questions,
@@ -374,7 +390,9 @@ class SubmissionApprovalService:
             },
             "mapping_rate": round(mapping_rate, 4),
             "mapping_rate_formatted": f"{round(mapping_rate * 100, 1)}%",
+            "unresolved_question_count": unmapped_questions,
             "provenance": provenance,
+            "approval_status": submission.status,
             "approval_state": approval_state,
             "observed_coverage": observed_coverage_summary,
         }
@@ -528,3 +546,180 @@ class SubmissionApprovalService:
             import logging
             logging.getLogger("markmint").warning(f"Taxonomy auto-mapping deferred for Exam #{exam_id}: {e}")
             return 0
+
+    def _link_question_families(self, course: Course, exam: Exam) -> int:
+        """
+        Assigns newly extracted questions to QuestionFamily and QuestionFamilyMembership.
+        If a question matches an existing historical family in the subject, it joins that family.
+        Otherwise, a new QuestionFamily is spawned (as a singleton) anchored to the exam year.
+        """
+        questions = (
+            self.db.query(Question)
+            .join(Section, Question.section_id == Section.id)
+            .filter(Section.exam_id == exam.id)
+            .all()
+        )
+        if not questions:
+            return 0
+
+        # Load existing candidate families for this course/subject
+        existing_families = (
+            self.db.query(QuestionFamily)
+            .filter(QuestionFamily.subject == course.name)
+            .all()
+        )
+
+        from backend.services.families.normalizer import QuestionNormalizer
+        norm_to_family = {}
+        for fam in existing_families:
+            fn = QuestionNormalizer.normalize(fam.canonical_name)
+            if fn and len(fn) > 10:
+                norm_to_family[fn] = fam
+
+        count_linked = 0
+        for q in questions:
+            if q.family_id is not None:
+                count_linked += 1
+                continue
+
+            q_norm = QuestionNormalizer.normalize(q.original_text or "")
+            matched_fam = norm_to_family.get(q_norm) if len(q_norm) > 10 else None
+
+            if matched_fam:
+                q.family_id = matched_fam.id
+                if exam.year:
+                    if matched_fam.latest_seen_year is None or exam.year > matched_fam.latest_seen_year:
+                        matched_fam.latest_seen_year = exam.year
+                if matched_fam.repetition_type in ("singleton", None):
+                    matched_fam.repetition_type = "exact_repeat"
+
+                membership = QuestionFamilyMembership(
+                    question_id=q.id,
+                    family_id=matched_fam.id,
+                    match_type="exact",
+                    similarity_score=1.0,
+                    decision_method="lexical_hash",
+                    algorithm_version="v1.0",
+                )
+                self.db.add(membership)
+            else:
+                new_family = QuestionFamily(
+                    canonical_name=q.original_text or f"Question #{q.id}",
+                    subject=course.name,
+                    first_seen_year=exam.year,
+                    latest_seen_year=exam.year,
+                    repetition_type="singleton",
+                )
+                self.db.add(new_family)
+                self.db.flush()
+
+                q.family_id = new_family.id
+                if len(q_norm) > 10:
+                    norm_to_family[q_norm] = new_family
+
+                membership = QuestionFamilyMembership(
+                    question_id=q.id,
+                    family_id=new_family.id,
+                    match_type="exact",
+                    similarity_score=1.0,
+                    decision_method="spawn",
+                    algorithm_version="v1.0",
+                )
+                self.db.add(membership)
+
+            count_linked += 1
+
+        self.db.flush()
+        return count_linked
+
+    @classmethod
+    def get_submission_quality_metrics(cls, db: Session) -> Dict[str, Any]:
+        """
+        Aggregates system-wide submission health and corpus contribution metrics:
+        - submissions (total received)
+        - approved (approved into production)
+        - rejected (declined during moderation)
+        - duplicate (identified duplicates)
+        - mapping rate (taxonomy mapping success rate on approved questions)
+        - questions added (total questions extracted into corpus)
+        - questions unresolved (questions remaining unmapped)
+        
+        Zero PII or internal moderation secrets exposed.
+        """
+        from sqlalchemy import func
+        from backend.models.core import Question, Section, Exam, Document, question_topic
+
+        total_submissions = db.query(func.count(PaperSubmission.id)).scalar() or 0
+        approved_submissions = (
+            db.query(func.count(PaperSubmission.id))
+            .filter(PaperSubmission.status == SubmissionStatus.APPROVED.value)
+            .scalar()
+            or 0
+        )
+        rejected_submissions = (
+            db.query(func.count(PaperSubmission.id))
+            .filter(PaperSubmission.status == SubmissionStatus.REJECTED.value)
+            .scalar()
+            or 0
+        )
+        pending_submissions = (
+            db.query(func.count(PaperSubmission.id))
+            .filter(PaperSubmission.status == SubmissionStatus.PENDING.value)
+            .scalar()
+            or 0
+        )
+        review_submissions = (
+            db.query(func.count(PaperSubmission.id))
+            .filter(PaperSubmission.status == SubmissionStatus.REVIEW.value)
+            .scalar()
+            or 0
+        )
+        duplicate_submissions = (
+            db.query(func.count(PaperSubmission.id))
+            .filter(PaperSubmission.is_duplicate.is_(True))
+            .scalar()
+            or 0
+        )
+
+        # Questions added via student submissions
+        from sqlalchemy import select
+        submission_doc_ids = (
+            select(Document.id)
+            .filter(Document.source == "STUDENT_SUBMISSION")
+        )
+
+        questions_query = (
+            db.query(Question.id)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .filter(Exam.document_id.in_(submission_doc_ids))
+        )
+        questions_added = questions_query.count()
+
+        if questions_added > 0:
+            mapped_questions = (
+                db.query(func.count(func.distinct(question_topic.c.question_id)))
+                .filter(question_topic.c.question_id.in_(questions_query))
+                .scalar()
+                or 0
+            )
+            questions_unresolved = max(0, questions_added - mapped_questions)
+            mapping_rate = mapped_questions / questions_added
+        else:
+            mapped_questions = 0
+            questions_unresolved = 0
+            mapping_rate = 0.0
+
+        return {
+            "submissions": total_submissions,
+            "approved": approved_submissions,
+            "rejected": rejected_submissions,
+            "pending": pending_submissions,
+            "under_review": review_submissions,
+            "duplicate": duplicate_submissions,
+            "questions_added": questions_added,
+            "questions_mapped": mapped_questions,
+            "questions_unresolved": questions_unresolved,
+            "mapping_rate": round(mapping_rate, 4),
+            "mapping_rate_formatted": f"{round(mapping_rate * 100, 1)}%",
+        }
