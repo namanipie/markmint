@@ -36,7 +36,9 @@ import {
   AssessmentComparisonResponse,
   TopicIntelligenceResponse,
   SingleFamilyResponse,
-  CourseTrack
+  CourseTrack,
+  SubmissionPreview,
+  PaperSubmissionRecord
 } from "./types";
 
 // Real Backend Endpoints
@@ -349,6 +351,82 @@ export async function getSingleFamilyEvidence(
   return fetchAPI(
     `/analytics/${encodeURIComponent(String(courseId))}/families/${encodeURIComponent(String(familyId))}`
   );
+}
+
+// Student Paper Submission & Moderation Pipeline
+export async function validateSubmissionPreview(formData: FormData): Promise<SubmissionPreview> {
+  const res = await fetch(`${API_BASE}/submissions/validate-preview`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) {
+    let errorMsg = `${res.status} ${res.statusText}`;
+    try {
+      const err = await res.json();
+      if (err.detail) errorMsg = typeof err.detail === "string" ? err.detail : JSON.stringify(err.detail);
+    } catch {}
+    throw new Error(errorMsg);
+  }
+  return res.json();
+}
+
+export async function createPaperSubmission(formData: FormData): Promise<PaperSubmissionRecord> {
+  const res = await fetch(`${API_BASE}/submissions`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) {
+    let errorMsg = `${res.status} ${res.statusText}`;
+    try {
+      const err = await res.json();
+      if (err.detail) errorMsg = typeof err.detail === "string" ? err.detail : JSON.stringify(err.detail);
+    } catch {}
+    throw new Error(errorMsg);
+  }
+  return res.json();
+}
+
+export async function listPaperSubmissions(
+  status?: string,
+  courseId?: number
+): Promise<PaperSubmissionRecord[]> {
+  const params: string[] = [];
+  if (status) params.push(`status=${encodeURIComponent(status)}`);
+  if (courseId) params.push(`course_id=${encodeURIComponent(courseId)}`);
+  const query = params.length > 0 ? `?${params.join("&")}` : "";
+  return fetchAPI(`/submissions${query}`);
+}
+
+export async function getPaperSubmission(id: number): Promise<PaperSubmissionRecord> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}`);
+}
+
+export async function approvePaperSubmission(
+  id: number,
+  payload?: {
+    reviewer?: string;
+    override_course_id?: number;
+    override_assessment?: string;
+    override_year?: number;
+  }
+): Promise<{ status: string; result: any }> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}/approve`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload || { reviewer: "moderator" }),
+  });
+}
+
+export async function rejectPaperSubmission(
+  id: number,
+  reason: string,
+  reviewer: string = "moderator"
+): Promise<{ status: string; result: any }> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}/reject`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ reason, reviewer }),
+  });
 }
 
 

@@ -412,3 +412,7 @@ class StudentResourceProgress(Base):
 
 # Course-specific assessment structure models
 from backend.models.assessment import CourseAssessmentPlan, AssessmentComponent, AssessmentCoverage
+
+# Verified student paper submission models
+from backend.models.submission import PaperSubmission, SubmissionStatus, ConsistencyStatus
+

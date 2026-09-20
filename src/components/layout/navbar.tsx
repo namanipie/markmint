@@ -17,6 +17,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
     { href: "/mintai", label: "MintAI" },
+    { href: "/submit-paper", label: "Submit Paper" },
     { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },

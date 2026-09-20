@@ -815,3 +815,48 @@ export interface SingleFamilyResponse {
   appearances: SingleFamilyAppearance[];
   timeline: TimelineEntry[];
 }
+
+export interface SubmissionPreview {
+  filename: string;
+  file_size: number;
+  file_hash: string;
+  page_count: number;
+  extracted_snippet: string;
+  detected_year: number | null;
+  detected_assessment: string | null;
+  detected_course_code: string | null;
+  consistency_score: number;
+  consistency_status: "CONSISTENT" | "MISMATCH" | "UNCERTAIN";
+  consistency_notes: string | null;
+  is_duplicate: boolean;
+  duplicate_message: string;
+  duplicate_of_document_id: number | null;
+  duplicate_of_submission_id: number | null;
+}
+
+export interface PaperSubmissionRecord {
+  id: number;
+  original_filename: string;
+  file_hash: string;
+  file_size: number;
+  branch_name: string | null;
+  semester: number | null;
+  subject_name: string;
+  course_id: number | null;
+  declared_assessment: string | null;
+  page_count: number;
+  detected_year: number | null;
+  detected_assessment: string | null;
+  detected_course_code: string | null;
+  consistency_score: number;
+  consistency_status: "CONSISTENT" | "MISMATCH" | "UNCERTAIN";
+  consistency_notes: string | null;
+  is_duplicate: boolean;
+  status: "PENDING" | "REVIEW" | "APPROVED" | "REJECTED";
+  source: string;
+  created_at: string;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  rejection_reason: string | null;
+  ingested_document_id: number | null;
+}

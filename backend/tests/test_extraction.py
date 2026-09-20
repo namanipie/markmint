@@ -1,34 +1,45 @@
 import pytest
 from fastapi.testclient import TestClient
 import os
-from reportlab.pdfgen import canvas
 from io import BytesIO
-
 from backend.main import app
 
-
 def generate_synthetic_pdf() -> BytesIO:
-    buffer = BytesIO()
-    c = canvas.Canvas(buffer)
+    c1 = "BT /F1 12 Tf 72 720 Td 15 TL (EXAM 101 - Introduction to CS) Tj T* (SECTION A - Core Concepts) Tj T* (1. Explain BFS. [5 marks]) Tj T* (This is a detailed question.) Tj T* (Q2. Implement DFS. \\(10\\)) Tj T* (Provide Python code.) Tj ET"
+    c2 = "BT /F1 12 Tf 72 720 Td 15 TL (SECTION B) Tj T* (3\\) Compare trees and graphs. [15]) Tj ET"
+    pdf_str = f"""%PDF-1.4
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R 6 0 R] /Count 2 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+4 0 obj << /Length {len(c1)} >>
+stream
+{c1}
+endstream
+endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+6 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 7 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+7 0 obj << /Length {len(c2)} >>
+stream
+{c2}
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000056 00000 n 
+0000000119 00000 n 
+0000000232 00000 n 
+0000000288 00000 n 
+0000000358 00000 n 
+0000000471 00000 n 
+trailer << /Size 8 /Root 1 0 R >>
+startxref
+530
+%%EOF"""
+    return BytesIO(pdf_str.encode("latin1"))
 
-    # Page 1
-    c.drawString(100, 800, "EXAM 101 - Introduction to CS")
-    c.drawString(100, 750, "SECTION A - Core Concepts")
 
-    c.drawString(100, 700, "1. Explain BFS. [5 marks]")
-    c.drawString(100, 680, "This is a detailed question.")
-
-    c.drawString(100, 630, "Q2. Implement DFS. (10)")
-    c.drawString(100, 610, "Provide Python code.")
-    c.showPage()
-
-    # Page 2
-    c.drawString(100, 800, "SECTION B")
-    c.drawString(100, 750, "3) Compare trees and graphs. [15]")
-    c.save()
-
-    buffer.seek(0)
-    return buffer
 
 
 def test_extract_questions_from_pdf(client: TestClient) -> None:
