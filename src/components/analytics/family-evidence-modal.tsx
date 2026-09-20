@@ -114,6 +114,30 @@ export function FamilyEvidenceModal({
           </div>
         ) : data ? (
           <>
+            {/* Evidence-limited state banner */}
+            {data.total_papers_analyzed <= 1 && (
+              <div className="flex items-start gap-2.5 rounded-xl border border-rose-500/20 bg-rose-500/5 p-3.5 text-xs">
+                <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-rose-500">Evidence Limited:</span>{" "}
+                  <span className="text-muted-foreground">
+                    Only {data.total_papers_analyzed} examination paper archived. Recurring pattern detection
+                    requires at least 2 historical exams to be statistically meaningful.
+                  </span>
+                </div>
+              </div>
+            )}
+            {data.total_papers_analyzed === 2 && (
+              <div className="flex items-start gap-2.5 rounded-xl border border-amber-500/20 bg-amber-500/5 p-3.5 text-xs">
+                <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-amber-500">Small Sample:</span>{" "}
+                  <span className="text-muted-foreground">
+                    Only {data.total_papers_analyzed} papers archived. The pattern is confirmed but the historical depth is limited.
+                  </span>
+                </div>
+              </div>
+            )}
             {/* "Why is MarkMint showing this Question Family?" Concise Student Evidence Card */}
             <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5 space-y-4">
               <div className="flex items-center justify-between">

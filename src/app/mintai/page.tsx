@@ -31,6 +31,7 @@ import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analy
 import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
 import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
 import { MathText } from "@/components/ui/math-text";
+import { EvidenceCalibratedPanel } from "@/components/ui/evidence-calibration-panel";
 
 export type MintAIState =
   | "loading_branches"
@@ -1237,8 +1238,24 @@ export default function MintAIPage() {
                           
                           <div className="flex flex-col items-end shrink-0 gap-3">
                             <div className="flex flex-col items-end">
-                              <span className="text-2xl font-black text-foreground">{Math.round((p.probability || 0) * 100)}%</span>
-                              <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Recurrence</span>
+                              {/* Paper coverage — never shown as a probability % */}
+                              {totalPapers > 0 ? (
+                                <>
+                                  <span className="text-2xl font-black text-foreground">
+                                    {distinctPapers}/{totalPapers}
+                                  </span>
+                                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
+                                    Papers
+                                  </span>
+                                </>
+                              ) : (
+                                <>
+                                  <span className="text-xl font-black text-muted-foreground">—</span>
+                                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
+                                    No Papers
+                                  </span>
+                                </>
+                              )}
                             </div>
                             
                             {/* Quick Actions */}
@@ -1293,107 +1310,40 @@ export default function MintAIPage() {
                         {/* Expandable Explanation Section */}
                         {isExpanded && (
                           <div className="mt-4 pt-4 border-t border-border/50 text-xs space-y-3">
-                            {/* "Why is MarkMint showing me this?" Concise Evidence Block */}
-                            <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 space-y-2.5">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                  <HelpCircle className="w-4 h-4 text-accent" />
-                                  <span className="font-bold text-xs text-foreground uppercase tracking-wide">
-                                    Why is MarkMint showing me this?
-                                  </span>
-                                </div>
-                                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-medium border border-accent/20">
-                                  Factual Past Paper Evidence
-                                </span>
-                              </div>
-
-                              {/* Concise Student Explanation */}
-                              {p.explanation && (
-                                <p className="text-xs text-foreground/90 leading-relaxed bg-background/70 p-2.5 rounded-lg border border-border/40 font-medium">
-                                  {p.explanation}
-                                </p>
-                              )}
-
-                              {/* Concise Evidence Checklist */}
-                              <ul className="space-y-1.5 text-muted-foreground text-xs list-disc list-inside pt-1">
-                                <li>
-                                  <strong className="text-foreground">Past Paper Recurrence:</strong> Seen in{" "}
-                                  <span className="font-mono text-foreground font-semibold">
-                                    {distinctPapers} of {totalPapers}
-                                  </span>{" "}
-                                  relevant examination papers ({totalPapers > 0 ? Math.round((distinctPapers / totalPapers) * 100) : 0}% paper coverage).
-                                </li>
-                                {(p.last_seen_year || p.lastSeen) && (
-                                  <li>
-                                    <strong className="text-foreground">Last Seen:</strong> Tested in{" "}
-                                    <span className="font-mono text-foreground font-semibold">
-                                      {p.last_seen_year || p.lastSeen}
-                                    </span>
-                                    {p.timeline && p.timeline.some(t => t.present && (t.year === 2024 || t.year === 2025))
-                                      ? " (recent recurrence in latest exam cycle)."
-                                      : "."}
-                                  </li>
-                                )}
-                                {(p.average_marks != null || p.total_marks_observed != null || p.marks_seen != null) && (
-                                  <li>
-                                    <strong className="text-foreground">Exam Marks:</strong> Carries{" "}
-                                    <span className="font-mono text-foreground font-semibold">
-                                      {p.average_marks ? `~${p.average_marks} average marks` : `${Math.round(p.total_marks_observed ?? p.marks_seen ?? 0)} marks observed`}
-                                    </span>
-                                    {p.total_marks_observed ? ` (${p.total_marks_observed} marks total across all appearances)` : ""}.
-                                  </li>
-                                )}
-                                {p.repetition_type && (
-                                  <li>
-                                    <strong className="text-foreground">Repetition Archetype:</strong>{" "}
-                                    <span className="font-semibold text-purple-400">
-                                      {p.repetition_type === "EXACT_REPEAT" || p.repetition_type === "exact_repeat"
-                                        ? "Exact Verbatim Repeat (identical question repeated across exams)"
-                                        : p.repetition_type === "PARAMETER_VARIATION" || p.repetition_type === "parameter_variation"
-                                        ? "Parameter Variation (identical formula/structure with changed values)"
-                                        : p.repetition_type.replace(/_/g, " ")}
-                                    </span>.
-                                  </li>
-                                )}
-                                {totalPapers <= 2 && (
-                                  <li className="text-amber-500">
-                                    <strong className="text-amber-500">Evidence Limitation:</strong> Small empirical archive ({totalPapers} exam paper{totalPapers === 1 ? "" : "s"}).
-                                  </li>
-                                )}
-                              </ul>
-                            </div>
-
-                            {/* Empirical Evidence Grid */}
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Occurrences</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.historical_occurrences ?? p.historyCount ?? 0} Questions
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Paper Coverage</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {totalPapers > 0 ? `${distinctPapers}/${totalPapers} Papers` : "—"}
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Marks Seen</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.average_marks != null
-                                    ? `~${p.average_marks} Marks (${p.total_marks_observed ?? p.marks_seen} Total)`
-                                    : p.marks_seen
-                                    ? `${Math.round(p.marks_seen)} Marks`
-                                    : "Marks Unspecified"}
-                                </div>
-                              </div>
-                              <div className="bg-background/60 p-2.5 rounded border border-border/30">
-                                <div className="text-muted-foreground text-[10px]">Last Seen</div>
-                                <div className="font-mono font-bold text-foreground">
-                                  {p.last_seen_year || p.lastSeen || "Multiple"}
-                                </div>
-                              </div>
-                            </div>
+                            {/* Calibrated Evidence Panel — never shows probability as a % */}
+                            <EvidenceCalibratedPanel
+                              data={{
+                                name: p.name,
+                                category: p.category,
+                                confidence: p.confidence,
+                                evidence_sufficiency: p.evidence_sufficiency,
+                                papers_analyzed: totalPapers,
+                                papers_with_topic: p.papers_with_topic,
+                                distinct_paper_count: distinctPapers,
+                                historical_occurrences: p.historical_occurrences ?? p.historyCount ?? 0,
+                                recent_occurrences: p.recent_occurrences ?? 0,
+                                last_seen_year: p.last_seen_year ?? null,
+                                average_marks: p.average_marks ?? null,
+                                total_marks_observed: p.total_marks_observed ?? null,
+                                marks_seen: p.marks_seen ?? null,
+                                repetition_type: p.repetition_type ?? null,
+                                family_id: p.family_id ?? null,
+                                reason_codes: p.reason_codes ?? [],
+                                explanation: p.explanation,
+                                supporting_questions: (p.supporting_questions ?? []).map((sq: any) => ({
+                                  id: sq.id,
+                                  question_number: sq.question_number,
+                                  original_text: sq.original_text ?? sq.text,
+                                  year: sq.year,
+                                  marks: sq.marks,
+                                  assessment_type: sq.assessment_type,
+                                  repeat_type: sq.repeat_type ?? sq.repetition_type,
+                                })),
+                                observed_years: p.observed_years ?? [],
+                                timeline: p.timeline ?? [],
+                              }}
+                              showSupportingQuestions={true}
+                            />
 
                             {/* Visual Multi-Year Historical Timeline */}
                             {p.timeline && p.timeline.length > 0 && (
@@ -1451,6 +1401,7 @@ export default function MintAIPage() {
                             )}
                           </div>
                         )}
+
                       </div>
                     );
                   })

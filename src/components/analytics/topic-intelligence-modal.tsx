@@ -235,8 +235,10 @@ export function TopicIntelligenceModal({
 
                   <div>
                     <div className="flex justify-between text-xs text-muted-foreground mb-1.5">
-                      <span>Historical Recurrence Probability</span>
-                      <span className="font-semibold text-foreground">{data.forecast.probability}%</span>
+                      <span>Paper Coverage Rate</span>
+                      <span className="font-semibold text-foreground">
+                        {data.repetition_metrics.paper_count} of {data.repetition_metrics.total_papers} papers
+                      </span>
                     </div>
                     <div className="h-2.5 w-full overflow-hidden rounded-full bg-secondary">
                       <div
@@ -244,6 +246,9 @@ export function TopicIntelligenceModal({
                         style={{ width: `${data.forecast.probability}%` }}
                       />
                     </div>
+                    <p className="text-[10px] text-muted-foreground mt-1 italic">
+                      This bar shows what fraction of past papers contained this topic — not a prediction of future exam occurrence.
+                    </p>
                   </div>
 
                   {data.timeline && data.timeline.length > 0 ? (
