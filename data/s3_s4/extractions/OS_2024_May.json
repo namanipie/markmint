@@ -1,0 +1,564 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. __________ of the following in NOT an operating system? (A) Oracle (B) Windows (C) Linux (D) DOS [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "__________ of the following in NOT an operating system? (A) Oracle (B) Windows (C) Linux (D) DOS",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. BIOS is used by __________. (A) Compiler (B) Operating system (C) Application software (D) Interpreter [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "BIOS is used by __________. (A) Compiler (B) Operating system (C) Application software (D) Interpreter",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. When several processes access the same data concurrently and the outcomes of the execution depends on the particular order in which the access takes place is called __________ (A) Essential condition (B) Critical condition (C) Race condition (D) Dynamic condition [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "When several processes access the same data concurrently and the outcomes of the execution depends on the particular order in which the access takes place is called __________ (A) Essential condition (B) Critical condition (C) Race condition (D) Dynamic condition",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Identify the process that can be affected by other process executing in the system. (A) Child process (B) Parent process (C) Init process (D) Cooperating process [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Identify the process that can be affected by other process executing in the system. (A) Child process (B) Parent process (C) Init process (D) Cooperating process",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Find the major problem with priority scheduling. (A) Starvation (B) Low priority (C) Deadlock (D) Definite blocking [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Find the major problem with priority scheduling. (A) Starvation (B) Low priority (C) Deadlock (D) Definite blocking",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Performance of the CPU is measured by __________. (A) Flaps (B) GHz (C) Throughput (D) MHz [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Performance of the CPU is measured by __________. (A) Flaps (B) GHz (C) Throughput (D) MHz",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. __________ is a solution to the problem of low-priority processes being blocked indefinitely. (A) Aging (B) Starvation (C) Deadlocks (D) Wait queue [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "__________ is a solution to the problem of low-priority processes being blocked indefinitely. (A) Aging (B) Starvation (C) Deadlocks (D) Wait queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. A __________ stores the state of a process, so that it can be recovered and resumed later. (A) Multi programming (B) Context switch (C) State (D) Uni programming [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "A __________ stores the state of a process, so that it can be recovered and resumed later. (A) Multi programming (B) Context switch (C) State (D) Uni programming",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. The purpose of the disks swap space is to __________. (A) Saving temporary HTML (B) Storing the super block pages (C) Storing device drivers (D) Saving process data [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "The purpose of the disks swap space is to __________. (A) Saving temporary HTML (B) Storing the super block pages (C) Storing device drivers (D) Saving process data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Page fault occurs __________. (A) When a requested page is in memory (B) When a page is corrupted (C) When a requested page is not in memory (D) When an exception is thrown [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Page fault occurs __________. (A) When a requested page is in memory (B) When a page is corrupted (C) When a requested page is not in memory (D) When an exception is thrown",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. __________ performs run time mapping from virtual to physical addresses. (A) CPU (B) PCI (C) PCB (D) Memory Management Unit [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "__________ performs run time mapping from virtual to physical addresses. (A) CPU (B) PCI (C) PCB (D) Memory Management Unit",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. The __________ points to the address of a page table in memory. (A) Page table base register (B) Stack pointer (C) Program counter (D) Page register [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "The __________ points to the address of a page table in memory. (A) Page table base register (B) Stack pointer (C) Program counter (D) Page register",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. __________ is a memory management strategy that involves the system storing and retrieving data from secondary storage for usage in main memory. (A) Mapping (B) Fragmentation (C) Paging (D) Buffer [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "__________ is a memory management strategy that involves the system storing and retrieving data from secondary storage for usage in main memory. (A) Mapping (B) Fragmentation (C) Paging (D) Buffer",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. A solution to the problem of external fragmentation is __________. (A) Larger memory space (B) Smaller memory space (C) Compaction (D) Secondary memory space [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "A solution to the problem of external fragmentation is __________. (A) Larger memory space (B) Smaller memory space (C) Compaction (D) Secondary memory space",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The page table contains __________. (A) Page offset (B) Page size (C) Logical addresses (D) Base address of each page in physical memory [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The page table contains __________. (A) Page offset (B) Page size (C) Logical addresses (D) Base address of each page in physical memory",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. __________ of the following statements deals with associative memory. (A) There is no need for an address (B) The address of the data is supplied by the users (C) The data are accessed sequentially (D) The address of the data is generated by the CPU [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "__________ of the following statements deals with associative memory. (A) There is no need for an address (B) The address of the data is supplied by the users (C) The data are accessed sequentially (D) The address of the data is generated by the CPU",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Information about a file can be found in the __________ include the owner, permission in location of the file. (A) Device drivers (B) File (C) File control block (FCB) (D) File system [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Information about a file can be found in the __________ include the owner, permission in location of the file. (A) Device drivers (B) File (C) File control block (FCB) (D) File system",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. __________ is the file system used by windows 95. (A) FAT 32 (B) FAT 16 (C) LMFS (D) NTFS [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "__________ is the file system used by windows 95. (A) FAT 32 (B) FAT 16 (C) LMFS (D) NTFS",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. For real-time operating systems, interrupt latency should be __________. (A) Zero (B) Minimal (C) Dependent on the scheduling (D) Maximum [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "For real-time operating systems, interrupt latency should be __________. (A) Zero (B) Minimal (C) Dependent on the scheduling (D) Maximum",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. __________ is one that processes data instructions without any delay. (A) Real-time system (B) Instruction system (C) Offline system (D) Online system [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "__________ is one that processes data instructions without any delay. (A) Real-time system (B) Instruction system (C) Offline system (D) Online system",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Describe the different services provided by the operating system and their significance in managing computer resources effectively. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Describe the different services provided by the operating system and their significance in managing computer resources effectively.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "Recall the concept of system calls and elaborate different types of system calls that various applications can make to request services from the operating system.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Recall the concept of system calls and elaborate different types of system calls that various applications can make to request services from the operating system. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Recall the concept of system calls and elaborate different types of system calls that various applications can make to request services from the operating system.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Illustrate the three types of thread models using diagrams and explain how they influence program execution and resource management in modern operating systems. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Illustrate the three types of thread models using diagrams and explain how they influence program execution and resource management in modern operating systems.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Demonstrate how synchronization hardware handles critical section problems, ensuring mutual exclusion and preventing race conditions in concurrent processes.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Demonstrate how synchronization hardware handles critical section problems, ensuring mutual exclusion and preventing race conditions in concurrent processes. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Demonstrate how synchronization hardware handles critical section problems, ensuring mutual exclusion and preventing race conditions in concurrent processes.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Explain the First Come First Served (FCFS) and Shortest Job First (SJF) disk scheduling algorithms with examples and highlight their advantages and limitations. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Explain the First Come First Served (FCFS) and Shortest Job First (SJF) disk scheduling algorithms with examples and highlight their advantages and limitations.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Describe how the wait-for graph is utilized in detecting and resolving deadlocks in concurrent systems with an example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Describe how the wait-for graph is utilized in detecting and resolving deadlocks in concurrent systems with an example. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Describe how the wait-for graph is utilized in detecting and resolving deadlocks in concurrent systems with an example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Discuss the concept of contiguous memory allocation in operating system. Explain its disadvantages. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Discuss the concept of contiguous memory allocation in operating system. Explain its disadvantages.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Elaborate the linked allocation and indexed allocation methods used in file systems, outlining their structures and performance characteristics.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Elaborate the linked allocation and indexed allocation methods used in file systems, outlining their structures and performance characteristics. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Elaborate the linked allocation and indexed allocation methods used in file systems, outlining their structures and performance characteristics.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss how the access matrix is utilized in enforcing protection policies and controlling access to system resources in multi-user environments. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss how the access matrix is utilized in enforcing protection policies and controlling access to system resources in multi-user environments.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Consider the statement \"A capability-based system provides greater flexibility than a ping protection scheme in enforcing protection policies\". Justify.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Consider the statement \"A capability-based system provides greater flexibility than a ping protection scheme in enforcing protection policies\". Justify. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Consider the statement \"A capability-based system provides greater flexibility than a ping protection scheme in enforcing protection policies\". Justify.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider the following processes with its arrival time, burst time and priority. Process | Arrival time | Burst time | Priority \nP1 | 0 | 12 | 2 \nP2 | 1 | 16 | 5 \nP3 | 2 | 5 | 1 \nP4 | 3 | 8 | 4 \nP5 | 4 | 12 | 3 \nSketch Gantt chart and compute average turn around time and average waiting time for the following scheduling algorithm: [15]\n  i. First Come First Served (FCFS)\n  ii. SJF (Shortest Job First)\n  iii. Preemptive Scheduling\n  iv. Round Robin (RR)",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider the following processes with its arrival time, burst time and priority. Process | Arrival time | Burst time | Priority \nP1 | 0 | 12 | 2 \nP2 | 1 | 16 | 5 \nP3 | 2 | 5 | 1 \nP4 | 3 | 8 | 4 \nP5 | 4 | 12 | 3 \nSketch Gantt chart and compute average turn around time and average waiting time for the following scheduling algorithm:",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "First Come First Served (FCFS)"
+              },
+              {
+                "number": "ii",
+                "text": "SJF (Shortest Job First)"
+              },
+              {
+                "number": "iii",
+                "text": "Preemptive Scheduling"
+              },
+              {
+                "number": "iv",
+                "text": "Round Robin (RR)"
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Consider the following page-reference string: 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2 \nCompute how many page faults would occur for the following Page. Replacement algorithms. The total frame size is 4 and frames are initially empty. [15]\n  i. FIFO page replacement\n  ii. Optimal page replacement\n  iii. LRU page replacement",
+          "structured_content": {
+            "number": "27",
+            "text": "Consider the following page-reference string: 7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2 \nCompute how many page faults would occur for the following Page. Replacement algorithms. The total frame size is 4 and frames are initially empty.",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "FIFO page replacement"
+              },
+              {
+                "number": "ii",
+                "text": "Optimal page replacement"
+              },
+              {
+                "number": "iii",
+                "text": "LRU page replacement"
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

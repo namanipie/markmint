@@ -49,7 +49,12 @@ COURSE_SLUGS = {
     20: 'physics-mechanics',
     21: 'engineering-mechanics',
     22: 'probability-and-statistics',
-    23: 'building-materials-in-the-built-environment'
+    23: 'building-materials-in-the-built-environment',
+    24: 'data-structures-and-algorithms',
+    25: 'operating-systems',
+    26: 'computer-organization-and-architecture',
+    27: 'design-and-analysis-of-algorithms',
+    28: 'database-management-systems'
 }
 
 def clean_question_snippet(text: str, max_len: int = 180) -> str:

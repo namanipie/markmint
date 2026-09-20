@@ -1,0 +1,552 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Assume that f(n) and g(n) are asymptotically positive, then which of the following relation holds good?\nA) f(n)=O(g(n)) and g(n) = O(h(n)) then f(n)=\\Omega(g(n)) and g(n) = O(h(n)) then f(n)=O(h(n))\nB) f(n)=\\Omega(h(n))\nC) f(n)=\\Omega(g(n)) and g(n)=\\Theta(h(n)) then f(n)=\\Theta(h(n))\nD) f(n)=O(g(n)) and g(n)=\\Theta(h(n)) then f(n)=\\Omega(h(n)) [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Assume that f(n) and g(n) are asymptotically positive, then which of the following relation holds good?\nA) f(n)=O(g(n)) and g(n) = O(h(n)) then f(n)=\\Omega(g(n)) and g(n) = O(h(n)) then f(n)=O(h(n))\nB) f(n)=\\Omega(h(n))\nC) f(n)=\\Omega(g(n)) and g(n)=\\Theta(h(n)) then f(n)=\\Theta(h(n))\nD) f(n)=O(g(n)) and g(n)=\\Theta(h(n)) then f(n)=\\Omega(h(n))",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. The number of comparisons required to search x=18 in the list A = [5,44,89,22,18,9,3,15,8] using Linear search\nA) 3\nB) 1\nC) 4\nD) 5 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "The number of comparisons required to search x=18 in the list A = [5,44,89,22,18,9,3,15,8] using Linear search\nA) 3\nB) 1\nC) 4\nD) 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. What is the time complexity of the following code. Assume that n>0?\nint segment(int n) {\nif(n==1)\nreturn 1;\nelse\nreturn (n+ segment(n-1)); }\nA) O(n)\nB) O(log n)\nC) O(n^2)\nD) O(n!) [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "What is the time complexity of the following code. Assume that n>0?\nint segment(int n) {\nif(n==1)\nreturn 1;\nelse\nreturn (n+ segment(n-1)); }\nA) O(n)\nB) O(log n)\nC) O(n^2)\nD) O(n!)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Which of the following functions provides the maximum asymptotic complexity?\nA) f1(n) = n^(3/2)\nB) f2(n) = n^(logn)\nC) f3(n) = nlogn\nD) f4(n) = 2^n. [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Which of the following functions provides the maximum asymptotic complexity?\nA) f1(n) = n^(3/2)\nB) f2(n) = n^(logn)\nC) f3(n) = nlogn\nD) f4(n) = 2^n.",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. If for an algorithm, the time complexity is given by O(log^2 100) then upper bounded complexity will be --------------------\nA) Polynomial\nB) Constant\nC) Linear\nD) Hyperbolic [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "If for an algorithm, the time complexity is given by O(log^2 100) then upper bounded complexity will be --------------------\nA) Polynomial\nB) Constant\nC) Linear\nD) Hyperbolic",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. What is the optimal time required for solving the closest pair problem using divide and conquer approach?\nA) O(N)\nB) O(log N)\nC) O(N log N)\nD) O(N^2) [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "What is the optimal time required for solving the closest pair problem using divide and conquer approach?\nA) O(N)\nB) O(log N)\nC) O(N log N)\nD) O(N^2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. The ----------- is a set of points in the plane forms the smallest convex polygon for which each point is either on the boundary or in the interior of the polygon.\nA) Vertices\nB) Convex Hull\nC) Collinear\nD) Bridge [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "The ----------- is a set of points in the plane forms the smallest convex polygon for which each point is either on the boundary or in the interior of the polygon.\nA) Vertices\nB) Convex Hull\nC) Collinear\nD) Bridge",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following sorting algorithms provide the best time complexity in the worst - case scenario?\nA) Merge Sort\nB) Quick Sort\nC) Bubble Sort\nD) Selection Sort [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following sorting algorithms provide the best time complexity in the worst - case scenario?\nA) Merge Sort\nB) Quick Sort\nC) Bubble Sort\nD) Selection Sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. A city planner needs to connect all new residential areas with roads in such a way that the total length of the roads are minimized, but every area can be reached from any other. Which of the graph theory concept is more suitable for this kind of road planning approach?.\nA) Dijkstra's Shortest Path\nB) Minimum Spanning Tree\nC) Eulerian Path\nD) Maximal Flow [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "A city planner needs to connect all new residential areas with roads in such a way that the total length of the roads are minimized, but every area can be reached from any other. Which of the graph theory concept is more suitable for this kind of road planning approach?.\nA) Dijkstra's Shortest Path\nB) Minimum Spanning Tree\nC) Eulerian Path\nD) Maximal Flow",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. What is the worst- case time complexity of Prim's algorithm if the adjacency matrix is used?\nA) (log V)\nB) O(E^2)\nC) \\Omega(V^2)\nD) O (V log E) [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "What is the worst- case time complexity of Prim's algorithm if the adjacency matrix is used?\nA) (log V)\nB) O(E^2)\nC) \\Omega(V^2)\nD) O (V log E)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. If the keys of Optimal binary Search tree are {10,20,30}, then how many number of trees are possible?\nA) 3\nB) 7\nC) 5\nD) 4 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "If the keys of Optimal binary Search tree are {10,20,30}, then how many number of trees are possible?\nA) 3\nB) 7\nC) 5\nD) 4",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Consider a chain of matrices with dimension 2x3, 3x6, and 6x4. What is the minimum number of scalar multiplications needed to multiply these three matrices together?\nA) 72\nB) 96\nC) 144\nD) 64 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Consider a chain of matrices with dimension 2x3, 3x6, and 6x4. What is the minimum number of scalar multiplications needed to multiply these three matrices together?\nA) 72\nB) 96\nC) 144\nD) 64",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. How many solutions exists for placing 4 queens on a 4x4 chessboard so that no two queens threaten each other?\nA) 1\nB) 2\nC) 4\nD) 5 [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "How many solutions exists for placing 4 queens on a 4x4 chessboard so that no two queens threaten each other?\nA) 1\nB) 2\nC) 4\nD) 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Choose the correct statement from the following.\nA) branch and bound is more efficient than backtracking\nB) branch and bound is not suitable where a greedy algorithm is not applicable\nC) branch and bound divides a problem into at least 2 new restricted sub problems\nD) backtracking divides a problem into at least 2 new restricted sub problems [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Choose the correct statement from the following.\nA) branch and bound is more efficient than backtracking\nB) branch and bound is not suitable where a greedy algorithm is not applicable\nC) branch and bound divides a problem into at least 2 new restricted sub problems\nD) backtracking divides a problem into at least 2 new restricted sub problems",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. If a data analyst is working with a graph to model website traffic, involving various paths through which users can navigate from one page to another, and needs to analyze potential improvements to user navigation, which algorithm would provide the most comprehensive insight?\nA) Floyd-Warshall Algorithm\nB) Dijkstra's Algorithm\nC) BFS Algorithm\nD) DFS Algorithm [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "If a data analyst is working with a graph to model website traffic, involving various paths through which users can navigate from one page to another, and needs to analyze potential improvements to user navigation, which algorithm would provide the most comprehensive insight?\nA) Floyd-Warshall Algorithm\nB) Dijkstra's Algorithm\nC) BFS Algorithm\nD) DFS Algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Breadth first search is started on a binary tree beginning from a root vertex. There is a vertex at a distance 4 from the root. If t is the n-th vertex in this BFS traversal, then the maximum possible value of n is ---------------------\nA) 15\nB) 31\nC) 7\nD) 63 [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Breadth first search is started on a binary tree beginning from a root vertex. There is a vertex at a distance 4 from the root. If t is the n-th vertex in this BFS traversal, then the maximum possible value of n is ---------------------\nA) 15\nB) 31\nC) 7\nD) 63",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Consider a simple graph G with 18 vertices. What will be the size of the maximum independent set of G, if the size of the minimum vertex cover of G is 10?\nA) 8\nB) 18\nC) 28\nD) 10 [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Consider a simple graph G with 18 vertices. What will be the size of the maximum independent set of G, if the size of the minimum vertex cover of G is 10?\nA) 8\nB) 18\nC) 28\nD) 10",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. During a series of interviews, a company utilizes a strategy that combines both random selection and ranking to decide on hires. This is to minimize the total hiring cost. What concept from algorithm design does this most closely resemble?\nA) Greedy algorithm\nB) Dynamic programming\nC) Las Vegas algorithm\nD) Monte Carlo algorithm [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "During a series of interviews, a company utilizes a strategy that combines both random selection and ranking to decide on hires. This is to minimize the total hiring cost. What concept from algorithm design does this most closely resemble?\nA) Greedy algorithm\nB) Dynamic programming\nC) Las Vegas algorithm\nD) Monte Carlo algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Problems that can be solved in polynomial time are known as ---------------------\nA) Decision\nB) Complete\nC) Tractable\nD) Intractable [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Problems that can be solved in polynomial time are known as ---------------------\nA) Decision\nB) Complete\nC) Tractable\nD) Intractable",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Which of the following is the application of Maximum Sum Sub-Array problem?\nA) Image Processing\nB) Cryptography\nC) Computer Networks\nD) Cyber Security [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Which of the following is the application of Maximum Sum Sub-Array problem?\nA) Image Processing\nB) Cryptography\nC) Computer Networks\nD) Cyber Security",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Answer both subquestions.\n  a. Illustrate Big oh Notation, Omega Notation and Theta Notations. Depict the same graphically and explain. [8]\n  b. Find the time complexity of the below recurrence relation\ni) T(n) = \\{2T(n-1) if n > 0 \n1 otherwise\nii) T(n) = \\{2T(n/2)+1 if n > 1\n1 otherwise [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Answer both subquestions.",
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Illustrate Big oh Notation, Omega Notation and Theta Notations. Depict the same graphically and explain.",
+                "marks": 8
+              },
+              {
+                "number": "b",
+                "text": "Find the time complexity of the below recurrence relation\ni) T(n) = \\{2T(n-1) if n > 0 \n1 otherwise\nii) T(n) = \\{2T(n/2)+1 if n > 1\n1 otherwise",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "OR alternative for Q21 (Not explicitly numbered separately on page 3, grouped under OR)"
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. OR alternative for Q21 (Not explicitly numbered separately on page 3, grouped under OR)",
+          "structured_content": {
+            "number": "21",
+            "text": "OR alternative for Q21 (Not explicitly numbered separately on page 3, grouped under OR)"
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Answer both subquestions.\n  a.i. Solve using substitution method. T(n)=T(n-1)+3; t(1)=4. [8]\n  ii. Compare and contrast Merge sort and Quick sort. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Answer both subquestions.",
+            "subquestions": [
+              {
+                "number": "a.i",
+                "text": "Solve using substitution method. T(n)=T(n-1)+3; t(1)=4.",
+                "marks": 8
+              },
+              {
+                "number": "ii",
+                "text": "Compare and contrast Merge sort and Quick sort.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "b. Illustrate Strassen matrix multiplication. Explain how Strassen Matrix Multiplication algorithms reduces time complexity of matrix multiplication. Write the recurrence relation of Strassen Matrix Multiplication and solve it to find its time complexity.",
+              "marks": 8
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. b. Illustrate Strassen matrix multiplication. Explain how Strassen Matrix Multiplication algorithms reduces time complexity of matrix multiplication. Write the recurrence relation of Strassen Matrix Multiplication and solve it to find its time complexity. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "b. Illustrate Strassen matrix multiplication. Explain how Strassen Matrix Multiplication algorithms reduces time complexity of matrix multiplication. Write the recurrence relation of Strassen Matrix Multiplication and solve it to find its time complexity.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Suppose you are a software engineer working for a digital library that needs to efficiently store and transmit text documents. One of the key challenges is to minimize the amount of storage space required while ensuring fast access to the documents. To address this challenge, you are decided to implement a greedy algorithm. To start with Your client has provided a large document containing the minutes of important meetings, which needs to be stored efficiently. The document consists of 100k characters, with varying frequencies say 'P': 45k, 'Q': 13k, 'R': 12k, 'S': 16k, 'T': 9k, 'U': 5k times of each character. Develop a suitable algorithm to find a solution to reduce storage capacity and analyse its time complexity. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Suppose you are a software engineer working for a digital library that needs to efficiently store and transmit text documents. One of the key challenges is to minimize the amount of storage space required while ensuring fast access to the documents. To address this challenge, you are decided to implement a greedy algorithm. To start with Your client has provided a large document containing the minutes of important meetings, which needs to be stored efficiently. The document consists of 100k characters, with varying frequencies say 'P': 45k, 'Q': 13k, 'R': 12k, 'S': 16k, 'T': 9k, 'U': 5k times of each character. Develop a suitable algorithm to find a solution to reduce storage capacity and analyse its time complexity.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "b. Illustrate the concept of Optimal Binary Search tree using dynamic programming with suitable example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. b. Illustrate the concept of Optimal Binary Search tree using dynamic programming with suitable example. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "b. Illustrate the concept of Optimal Binary Search tree using dynamic programming with suitable example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. In the kingdom of Chessland, the royal gardener is tasked with designing a new garden for the princess's palace. The garden is in the shape of a M x M square, where each square represents a potential location for a flower bed. However, due to the royal decree, no two flowers should be planted in the same row, column, or diagonal. Your task as the royal gardener's assistant is to determine how many different ways there are to plant M flowers in the garden such that no two flowers are in the same row, column, or diagonal. Write an algorithm to calculate the number of valid arrangements for M = 8, and provide the solution with its algorithm using backtracking designing strategy and analysis its time complexity. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "In the kingdom of Chessland, the royal gardener is tasked with designing a new garden for the princess's palace. The garden is in the shape of a M x M square, where each square represents a potential location for a flower bed. However, due to the royal decree, no two flowers should be planted in the same row, column, or diagonal. Your task as the royal gardener's assistant is to determine how many different ways there are to plant M flowers in the garden such that no two flowers are in the same row, column, or diagonal. Write an algorithm to calculate the number of valid arrangements for M = 8, and provide the solution with its algorithm using backtracking designing strategy and analysis its time complexity.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "b. Imagine you're a logistics manager for a distribution company responsible for planning delivery routes for your fleet of trucks. Your company operates in a city with multiple warehouses and delivery locations. Your goal is to minimize the total distance traveled by your trucks while ensuring that each delivery location is visited exactly once. Using the branch and bound algorithm, outline the steps you would take to find the optimal delivery route for your trucks. Consider factors such as the number of delivery locations, the distances between them, and how you would efficiently explore the solution space to find the best route.\n\n[ 1 2 3 4 5 \n 1 [ \\infty 20 30 10 11 ]\n 2 [ 15 \\infty 30 10 11 ]\n 3 [ 3 5 \\infty 2 4 ]\n 4 [ 19 6 18 \\infty 3 ]\n 5 [ 16 4 7 16 \\infty ] ]",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. b. Imagine you're a logistics manager for a distribution company responsible for planning delivery routes for your fleet of trucks. Your company operates in a city with multiple warehouses and delivery locations. Your goal is to minimize the total distance traveled by your trucks while ensuring that each delivery location is visited exactly once. Using the branch and bound algorithm, outline the steps you would take to find the optimal delivery route for your trucks. Consider factors such as the number of delivery locations, the distances between them, and how you would efficiently explore the solution space to find the best route.\n\n[ 1 2 3 4 5 \n 1 [ \\infty 20 30 10 11 ]\n 2 [ 15 \\infty 30 10 11 ]\n 3 [ 3 5 \\infty 2 4 ]\n 4 [ 19 6 18 \\infty 3 ]\n 5 [ 16 4 7 16 \\infty ] ] [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "b. Imagine you're a logistics manager for a distribution company responsible for planning delivery routes for your fleet of trucks. Your company operates in a city with multiple warehouses and delivery locations. Your goal is to minimize the total distance traveled by your trucks while ensuring that each delivery location is visited exactly once. Using the branch and bound algorithm, outline the steps you would take to find the optimal delivery route for your trucks. Consider factors such as the number of delivery locations, the distances between them, and how you would efficiently explore the solution space to find the best route.\n\n[ 1 2 3 4 5 \n 1 [ \\infty 20 30 10 11 ]\n 2 [ 15 \\infty 30 10 11 ]\n 3 [ 3 5 \\infty 2 4 ]\n 4 [ 19 6 18 \\infty 3 ]\n 5 [ 16 4 7 16 \\infty ] ]",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain about NP-Hard and NP-Complete problems. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain about NP-Hard and NP-Complete problems.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "b. Construct an algorithm for randomized quick sort and perform the complexity analysis of randomized quick sort algorithm.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. b. Construct an algorithm for randomized quick sort and perform the complexity analysis of randomized quick sort algorithm. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "b. Construct an algorithm for randomized quick sort and perform the complexity analysis of randomized quick sort algorithm.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Construct an algorithm for Fractional knapsack problem. Illustrate the same for the given set of items and knapsack capacity = 60 kg. Find the optimal solution for the fractional knapsack problem making use of greedy approach.\n\nItem | Weight | Value\n1 | 5 | 30\n2 | 10 | 40\n3 | 15 | 45\n4 | 22 | 77\n5 | 25 | 90 [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Construct an algorithm for Fractional knapsack problem. Illustrate the same for the given set of items and knapsack capacity = 60 kg. Find the optimal solution for the fractional knapsack problem making use of greedy approach.\n\nItem | Weight | Value\n1 | 5 | 30\n2 | 10 | 40\n3 | 15 | 45\n4 | 22 | 77\n5 | 25 | 90",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Explain Vertex Cover Problem briefly. Develop a greedy based approach to determine the minimum size vertex cover of a graph with n nodes and m edges of the following graph. Also find its time complexity.\n[Graph with nodes a, b, c, d, e, f, g] [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Explain Vertex Cover Problem briefly. Develop a greedy based approach to determine the minimum size vertex cover of a graph with n nodes and m edges of the following graph. Also find its time complexity.\n[Graph with nodes a, b, c, d, e, f, g]",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

@@ -1,0 +1,576 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 25,
+    "name": "Operating Systems",
+    "canonical_code": "21CSC202J",
+    "code": "SEM3-OS",
+    "regulation_year": 2021,
+    "department": "Computing Technologies"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC202J Operating Systems",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Introduction & OS Structures, Process Management & Threads, CPU Scheduling & Deadlocks, Memory Management & Storage, and Protection & Security."
+  },
+  "units": [
+    {
+      "id": 161,
+      "number": 1,
+      "name": "Introduction and Operating System Structures",
+      "topics": [
+        {
+          "id": 764,
+          "name": "Operating System Services and Architecture",
+          "canonical_name": "Operating System Services and Architecture",
+          "aliases": ["OS Services", "Computer-System Architecture"],
+          "strong_phrases": [
+            "operating system services",
+            "operating system structure",
+            "layered approach",
+            "microkernel",
+            "monolithic kernel",
+            "computer system organization",
+            "dual mode operation",
+            "kernel mode",
+            "user mode"
+          ],
+          "specific_keywords": ["microkernel", "monolithic", "dual mode", "system services"],
+          "negative_guards": ["scheduling algorithm", "page replacement", "deadlock"],
+          "context_hints": ["os architecture", "operating system overview"]
+        },
+        {
+          "id": 765,
+          "name": "System Calls and OS Interface",
+          "canonical_name": "System Calls and OS Interface",
+          "aliases": ["System Calls", "User and OS Interface"],
+          "strong_phrases": [
+            "system calls",
+            "types of system calls",
+            "fork system call",
+            "exec system call",
+            "system call parameter passing",
+            "system call interface",
+            "application programming interface"
+          ],
+          "specific_keywords": ["system call", "fork()", "exec()"],
+          "negative_guards": ["sql", "dijkstra", "relational"],
+          "context_hints": ["system calls", "os interface"]
+        },
+        {
+          "id": 766,
+          "name": "Operating System Design, Debugging and Booting",
+          "canonical_name": "Operating System Design, Debugging and Booting",
+          "aliases": ["System Boot", "OS Debugging and Generation"],
+          "strong_phrases": [
+            "system boot",
+            "bootstrap loader",
+            "operating system debugging",
+            "system generation",
+            "core dump",
+            "crash dump",
+            "firmware bios"
+          ],
+          "specific_keywords": ["bootstrap", "booting", "core dump", "sysgen"],
+          "negative_guards": ["banker", "paging", "semaphore"],
+          "context_hints": ["system boot", "debugging"]
+        }
+      ]
+    },
+    {
+      "id": 162,
+      "number": 2,
+      "name": "Process Management, Threads and Synchronization",
+      "topics": [
+        {
+          "id": 767,
+          "name": "Process Concept and Process Control Block",
+          "canonical_name": "Process Concept and Process Control Block",
+          "aliases": ["Process Concept", "PCB", "Process Scheduling States"],
+          "strong_phrases": [
+            "process control block",
+            "pcb",
+            "process state diagram",
+            "process states",
+            "context switch",
+            "operations on processes",
+            "process creation and termination"
+          ],
+          "specific_keywords": ["process control block", "pcb", "context switch"],
+          "negative_guards": ["page table", "access matrix", "tlb"],
+          "context_hints": ["processes", "process states"]
+        },
+        {
+          "id": 768,
+          "name": "Interprocess Communication and Client-Server",
+          "canonical_name": "Interprocess Communication and Client-Server",
+          "aliases": ["IPC", "Message Passing and Shared Memory"],
+          "strong_phrases": [
+            "interprocess communication",
+            "ipc",
+            "shared memory",
+            "message passing",
+            "pipes and fifos",
+            "sockets and rpc",
+            "remote procedure call"
+          ],
+          "specific_keywords": ["shared memory", "message passing", "pipes", "rpc"],
+          "negative_guards": ["normalization", "functional dependency"],
+          "context_hints": ["interprocess communication", "message passing"]
+        },
+        {
+          "id": 769,
+          "name": "Multithreading Models and Threading Issues",
+          "canonical_name": "Multithreading Models and Threading Issues",
+          "aliases": ["Threads", "Multithreading Models"],
+          "strong_phrases": [
+            "multithreading models",
+            "many to one model",
+            "one to one model",
+            "many to many model",
+            "user level threads",
+            "kernel level threads",
+            "thread libraries",
+            "posix pthread",
+            "thread pools"
+          ],
+          "specific_keywords": ["multithreading", "kernel threads", "user threads", "pthreads"],
+          "negative_guards": ["binary search", "matrix multiplication"],
+          "context_hints": ["threads", "multithreading"]
+        },
+        {
+          "id": 770,
+          "name": "Critical-Section Problem and Peterson's Solution",
+          "canonical_name": "Critical-Section Problem and Peterson's Solution",
+          "aliases": ["Critical Section", "Peterson Algorithm"],
+          "strong_phrases": [
+            "critical section problem",
+            "critical-section",
+            "mutual exclusion",
+            "progress requirement",
+            "bounded waiting",
+            "peterson solution",
+            "peterson's algorithm",
+            "test and set instruction",
+            "compare and swap"
+          ],
+          "specific_keywords": ["critical section", "peterson", "mutual exclusion", "bounded waiting"],
+          "negative_guards": ["virtual memory", "demand paging"],
+          "context_hints": ["synchronization", "critical section"]
+        },
+        {
+          "id": 771,
+          "name": "Semaphores, Mutex Locks and Monitors",
+          "canonical_name": "Semaphores, Mutex Locks and Monitors",
+          "aliases": ["Semaphores", "Mutex", "Monitors"],
+          "strong_phrases": [
+            "counting semaphore",
+            "binary semaphore",
+            "wait and signal",
+            "semaphore operations",
+            "mutex lock",
+            "spinlocks",
+            "monitors synchronization",
+            "condition variables"
+          ],
+          "specific_keywords": ["semaphores", "wait()", "signal()", "mutex", "monitors"],
+          "negative_guards": ["b-tree", "avl tree"],
+          "context_hints": ["synchronization tools", "locks"]
+        },
+        {
+          "id": 772,
+          "name": "Classical Synchronization Problems",
+          "canonical_name": "Classical Synchronization Problems",
+          "aliases": ["Classic Problems of Synchronization"],
+          "strong_phrases": [
+            "producer consumer problem",
+            "bounded buffer problem",
+            "readers writers problem",
+            "dining philosophers problem",
+            "sleeping barber problem"
+          ],
+          "specific_keywords": ["producer consumer", "readers writers", "dining philosophers"],
+          "negative_guards": ["shortest path", "minimum spanning tree"],
+          "context_hints": ["synchronization problems", "classic problems"]
+        }
+      ]
+    },
+    {
+      "id": 163,
+      "number": 3,
+      "name": "CPU Scheduling and Deadlocks",
+      "topics": [
+        {
+          "id": 773,
+          "name": "CPU Scheduling Criteria and Dispatcher",
+          "canonical_name": "CPU Scheduling Criteria and Dispatcher",
+          "aliases": ["Scheduling Criteria", "CPU Dispatcher"],
+          "strong_phrases": [
+            "cpu scheduling criteria",
+            "cpu utilization",
+            "throughput",
+            "turnaround time",
+            "waiting time",
+            "response time",
+            "dispatcher latency",
+            "preemptive scheduling",
+            "non-preemptive scheduling"
+          ],
+          "specific_keywords": ["turnaround time", "waiting time", "dispatcher latency", "preemptive"],
+          "negative_guards": ["deadlock prevention", "banker"],
+          "context_hints": ["cpu scheduling", "scheduling criteria"]
+        },
+        {
+          "id": 774,
+          "name": "CPU Scheduling Algorithms",
+          "canonical_name": "CPU Scheduling Algorithms",
+          "aliases": ["Scheduling Algorithms", "FCFS SJF Round Robin"],
+          "strong_phrases": [
+            "first come first served",
+            "fcfs scheduling",
+            "shortest job first",
+            "sjf scheduling",
+            "shortest remaining time first",
+            "srtf scheduling",
+            "round robin scheduling",
+            "time quantum",
+            "priority scheduling",
+            "multilevel queue scheduling",
+            "multilevel feedback queue",
+            "gantt chart"
+          ],
+          "specific_keywords": ["fcfs", "sjf", "round robin", "srtf", "time quantum", "gantt chart"],
+          "negative_guards": ["disk scheduling", "c-scan", "sstf"],
+          "context_hints": ["cpu scheduling algorithms", "scheduling"]
+        },
+        {
+          "id": 775,
+          "name": "Real-Time and Multiprocessor Scheduling",
+          "canonical_name": "Real-Time and Multiprocessor Scheduling",
+          "aliases": ["Multiple-Processor Scheduling", "Real-Time Scheduling"],
+          "strong_phrases": [
+            "multiple processor scheduling",
+            "multiprocessor scheduling",
+            "symmetric multiprocessing",
+            "processor affinity",
+            "load balancing",
+            "rate monotonic scheduling",
+            "earliest deadline first",
+            "edf scheduling"
+          ],
+          "specific_keywords": ["rate monotonic", "earliest deadline first", "processor affinity"],
+          "negative_guards": ["relational algebra", "sql"],
+          "context_hints": ["real-time scheduling", "multiprocessor"]
+        },
+        {
+          "id": 776,
+          "name": "Deadlock Characterization and Resource Allocation Graph",
+          "canonical_name": "Deadlock Characterization and Resource Allocation Graph",
+          "aliases": ["Deadlock Necessary Conditions", "RAG"],
+          "strong_phrases": [
+            "deadlock characterization",
+            "necessary conditions for deadlock",
+            "mutual exclusion hold and wait",
+            "no preemption",
+            "circular wait",
+            "resource allocation graph",
+            "rag deadlock"
+          ],
+          "specific_keywords": ["deadlock conditions", "hold and wait", "circular wait", "resource allocation graph"],
+          "negative_guards": ["page replacement", "belady anomaly"],
+          "context_hints": ["deadlocks", "deadlock conditions"]
+        },
+        {
+          "id": 777,
+          "name": "Deadlock Prevention and Avoidance",
+          "canonical_name": "Deadlock Prevention and Avoidance",
+          "aliases": ["Banker's Algorithm", "Deadlock Avoidance"],
+          "strong_phrases": [
+            "deadlock prevention",
+            "deadlock avoidance",
+            "safe state",
+            "unsafe state",
+            "banker algorithm",
+            "banker's algorithm",
+            "resource request algorithm",
+            "safety algorithm"
+          ],
+          "specific_keywords": ["banker's algorithm", "safe state", "deadlock avoidance", "deadlock prevention"],
+          "negative_guards": ["arm architecture", "8086"],
+          "context_hints": ["deadlock avoidance", "banker's algorithm"]
+        },
+        {
+          "id": 778,
+          "name": "Deadlock Detection and Recovery",
+          "canonical_name": "Deadlock Detection and Recovery",
+          "aliases": ["Deadlock Detection", "Deadlock Recovery"],
+          "strong_phrases": [
+            "deadlock detection",
+            "wait for graph",
+            "detection algorithm",
+            "recovery from deadlock",
+            "process termination",
+            "resource preemption",
+            "deadlock rollback"
+          ],
+          "specific_keywords": ["wait-for graph", "deadlock detection", "deadlock recovery"],
+          "negative_guards": ["huffman coding", "fractional knapsack"],
+          "context_hints": ["deadlock recovery", "wait for graph"]
+        }
+      ]
+    },
+    {
+      "id": 164,
+      "number": 4,
+      "name": "Memory Management and Storage",
+      "topics": [
+        {
+          "id": 779,
+          "name": "Main Memory and Contiguous Memory Allocation",
+          "canonical_name": "Main Memory and Contiguous Memory Allocation",
+          "aliases": ["Contiguous Allocation", "Logical vs Physical Address"],
+          "strong_phrases": [
+            "logical address space",
+            "physical address space",
+            "memory management unit",
+            "mmu",
+            "contiguous memory allocation",
+            "fixed partitioning",
+            "variable partitioning",
+            "first fit best fit worst fit",
+            "internal fragmentation",
+            "external fragmentation",
+            "compaction"
+          ],
+          "specific_keywords": ["mmu", "first fit", "best fit", "worst fit", "fragmentation", "compaction"],
+          "negative_guards": ["demand paging", "page replacement"],
+          "context_hints": ["contiguous allocation", "memory fragmentation"]
+        },
+        {
+          "id": 780,
+          "name": "Paging, Segmentation and TLB",
+          "canonical_name": "Paging, Segmentation and TLB",
+          "aliases": ["Paging", "Segmentation", "Page Table Structure"],
+          "strong_phrases": [
+            "paging technique",
+            "page table",
+            "frame and page",
+            "page table structure",
+            "hierarchical paging",
+            "inverted page table",
+            "translation lookaside buffer",
+            "tlb hit ratio",
+            "effective memory access time",
+            "segmentation architecture",
+            "segment table"
+          ],
+          "specific_keywords": ["paging", "page table", "tlb", "segmentation", "frames"],
+          "negative_guards": ["disk scheduling", "raid"],
+          "context_hints": ["paging", "segmentation", "tlb"]
+        },
+        {
+          "id": 781,
+          "name": "Virtual Memory and Demand Paging",
+          "canonical_name": "Virtual Memory and Demand Paging",
+          "aliases": ["Virtual Memory", "Demand Paging", "Page Fault"],
+          "strong_phrases": [
+            "virtual memory",
+            "demand paging",
+            "page fault",
+            "page fault rate",
+            "page fault service time",
+            "copy on write",
+            "cow virtual memory"
+          ],
+          "specific_keywords": ["virtual memory", "demand paging", "page fault", "copy-on-write"],
+          "negative_guards": ["cpu scheduling", "gantt chart"],
+          "context_hints": ["virtual memory", "page faults"]
+        },
+        {
+          "id": 782,
+          "name": "Page Replacement Algorithms",
+          "canonical_name": "Page Replacement Algorithms",
+          "aliases": ["Page Replacement", "FIFO LRU Optimal"],
+          "strong_phrases": [
+            "page replacement algorithm",
+            "fifo page replacement",
+            "optimal page replacement",
+            "least recently used",
+            "lru page replacement",
+            "belady anomaly",
+            "counting page replacement",
+            "second chance algorithm",
+            "reference string"
+          ],
+          "specific_keywords": ["fifo", "lru", "belady's anomaly", "optimal page replacement", "reference string"],
+          "negative_guards": ["fcfs", "round robin"],
+          "context_hints": ["page replacement", "lru", "belady"]
+        },
+        {
+          "id": 783,
+          "name": "Thrashing and Frame Allocation",
+          "canonical_name": "Thrashing and Frame Allocation",
+          "aliases": ["Thrashing", "Working Set Model"],
+          "strong_phrases": [
+            "thrashing",
+            "working set model",
+            "working set strategy",
+            "page fault frequency",
+            "allocation of frames",
+            "local vs global allocation"
+          ],
+          "specific_keywords": ["thrashing", "working set model", "page fault frequency"],
+          "negative_guards": ["booth multiplier", "ieee 754"],
+          "context_hints": ["thrashing", "frame allocation"]
+        },
+        {
+          "id": 784,
+          "name": "Disk Scheduling Algorithms and RAID",
+          "canonical_name": "Disk Scheduling Algorithms and RAID",
+          "aliases": ["Disk Scheduling", "RAID Structure"],
+          "strong_phrases": [
+            "disk scheduling",
+            "fcfs disk scheduling",
+            "sstf disk scheduling",
+            "scan disk scheduling",
+            "elevator algorithm",
+            "c scan disk scheduling",
+            "look and c look",
+            "disk head movement",
+            "raid levels",
+            "raid 0 raid 1 raid 5",
+            "striping and mirroring",
+            "swap space management"
+          ],
+          "specific_keywords": ["sstf", "scan", "c-scan", "look", "c-look", "raid", "seek time"],
+          "negative_guards": ["srtf", "sjf"],
+          "context_hints": ["disk scheduling", "raid"]
+        },
+        {
+          "id": 785,
+          "name": "File System Interface and Implementation",
+          "canonical_name": "File System Interface and Implementation",
+          "aliases": ["File System", "Directory Structure", "File Allocation Methods"],
+          "strong_phrases": [
+            "file system interface",
+            "file attributes and operations",
+            "access methods sequential direct",
+            "directory structure single two level tree acyclic",
+            "file system mounting",
+            "file allocation methods",
+            "contiguous allocation linked allocation indexed allocation",
+            "free space management bit vector",
+            "inode structure"
+          ],
+          "specific_keywords": ["file system", "inode", "indexed allocation", "free space management"],
+          "negative_guards": ["sql joins", "tuple relational calculus"],
+          "context_hints": ["file systems", "file allocation"]
+        }
+      ]
+    },
+    {
+      "id": 165,
+      "number": 5,
+      "name": "Protection and Security",
+      "topics": [
+        {
+          "id": 786,
+          "name": "Goals and Principles of Protection",
+          "canonical_name": "Goals and Principles of Protection",
+          "aliases": ["Protection Goals", "Principle of Least Privilege"],
+          "strong_phrases": [
+            "goals of protection",
+            "principles of protection",
+            "principle of least privilege",
+            "domain of protection",
+            "domain structure",
+            "dual mode protection"
+          ],
+          "specific_keywords": ["least privilege", "domain of protection", "protection goals"],
+          "negative_guards": ["normal forms", "bcnf"],
+          "context_hints": ["protection principles", "security"]
+        },
+        {
+          "id": 787,
+          "name": "Access Matrix and Access Control",
+          "canonical_name": "Access Matrix and Access Control",
+          "aliases": ["Access Matrix", "ACL and Capabilities"],
+          "strong_phrases": [
+            "access matrix",
+            "implementation of access matrix",
+            "access control list",
+            "acl",
+            "capability list",
+            "capability based systems",
+            "revocation of access rights",
+            "role based access control"
+          ],
+          "specific_keywords": ["access matrix", "access control list", "capability list", "revocation"],
+          "negative_guards": ["matrix chain multiplication", "strassen"],
+          "context_hints": ["access matrix", "access control"]
+        },
+        {
+          "id": 788,
+          "name": "Program and System Threats",
+          "canonical_name": "Program and System Threats",
+          "aliases": ["Security Threats", "Malware and Attacks"],
+          "strong_phrases": [
+            "the security problem",
+            "program threats",
+            "trojan horse",
+            "trap door",
+            "logic bomb",
+            "buffer overflow attack",
+            "system and network threats",
+            "worms and viruses",
+            "denial of service dos",
+            "port scanning"
+          ],
+          "specific_keywords": ["trojan horse", "buffer overflow", "denial of service", "worms", "viruses"],
+          "negative_guards": ["pipeline hazards", "data hazards"],
+          "context_hints": ["security threats", "attacks"]
+        },
+        {
+          "id": 789,
+          "name": "Cryptography and User Authentication",
+          "canonical_name": "Cryptography and User Authentication",
+          "aliases": ["Cryptography in OS", "Authentication"],
+          "strong_phrases": [
+            "cryptography as a security tool",
+            "symmetric key encryption",
+            "asymmetric key encryption",
+            "rsa algorithm",
+            "digital signatures",
+            "user authentication",
+            "passwords and salt",
+            "biometrics authentication",
+            "multi factor authentication"
+          ],
+          "specific_keywords": ["cryptography", "encryption", "user authentication", "passwords", "digital signatures"],
+          "negative_guards": ["bubble sort", "insertion sort"],
+          "context_hints": ["cryptography", "authentication"]
+        },
+        {
+          "id": 790,
+          "name": "Security Defenses and Classifications",
+          "canonical_name": "Security Defenses and Classifications",
+          "aliases": ["Firewalls", "Security Classifications"],
+          "strong_phrases": [
+            "implementing security defenses",
+            "firewalling to protect systems",
+            "firewalls packet filtering",
+            "intrusion detection systems",
+            "computer security classifications",
+            "orange book classifications",
+            "trusted computing base"
+          ],
+          "specific_keywords": ["firewalls", "intrusion detection", "security classifications", "orange book"],
+          "negative_guards": ["divide and conquer", "master theorem"],
+          "context_hints": ["firewalls", "security defenses"]
+        }
+      ]
+    }
+  ]
+}

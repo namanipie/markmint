@@ -1,0 +1,532 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Elements in an array are accessed\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Elements in an array are accessed\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. What will be the output of the following 'c' code?\nstruct student\n{\nchar *c;\n};\nvoid main()\n{\nstruct student *s;\ns = c = \"hello\";\nprintf(\"%s\", s->c);\n}\n(A) hello\n(B) Segmentation fault\n(C) Run time error\n(D) Nothing [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "What will be the output of the following 'c' code?\nstruct student\n{\nchar *c;\n};\nvoid main()\n{\nstruct student *s;\ns = c = \"hello\";\nprintf(\"%s\", s->c);\n}\n(A) hello\n(B) Segmentation fault\n(C) Run time error\n(D) Nothing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Consider a hash table with 98 slots. The has function is h(k) = k mod 9. The collisions are resolved by chaining. The following 9 keys are inserted in the order: 5, 28, 19, 15, 20, 33, 12, 17, 10. The maximum, minimum and average chain lengths in the hash table, respectively are\n(A) 3, 0 and 1\n(B) 3, 3 and 3\n(C) 4, 0 and 1\n(D) 3, 0 and 2 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Consider a hash table with 98 slots. The has function is h(k) = k mod 9. The collisions are resolved by chaining. The following 9 keys are inserted in the order: 5, 28, 19, 15, 20, 33, 12, 17, 10. The maximum, minimum and average chain lengths in the hash table, respectively are\n(A) 3, 0 and 1\n(B) 3, 3 and 3\n(C) 4, 0 and 1\n(D) 3, 0 and 2",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. A priority queue is implements as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is: 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted into the heap in that order. The level-order traversal of the heap after the insertion of the element is\n(A) 10, 8, 7, 3, 2, 1, 5\n(B) 10, 8, 7, 2, 3, 1, 5\n(C) 10, 8, 7, 1, 2, 3, 5\n(D) 10, 8, 7, 5, 3, 2, 1 [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "A priority queue is implements as a Max-Heap. Initially, it has 5 elements. The level-order traversal of the heap is: 10, 8, 5, 3, 2. Two new elements 1 and 7 are inserted into the heap in that order. The level-order traversal of the heap after the insertion of the element is\n(A) 10, 8, 7, 3, 2, 1, 5\n(B) 10, 8, 7, 2, 3, 1, 5\n(C) 10, 8, 7, 1, 2, 3, 5\n(D) 10, 8, 7, 5, 3, 2, 1",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Which of the following is an example of linear DS?\n(A) Tree\n(B) Linked list\n(C) Queue\n(D) Linked list and queue [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Which of the following is an example of linear DS?\n(A) Tree\n(B) Linked list\n(C) Queue\n(D) Linked list and queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Let G be a graph with 'n' vertices and 'm' edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.\n(A) O(n)\n(B) O(n+m)\n(C) O(n^2)\n(D) O(mn) [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Let G be a graph with 'n' vertices and 'm' edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.\n(A) O(n)\n(B) O(n+m)\n(C) O(n^2)\n(D) O(mn)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following is false about a circular linked list?\n(A) Every node has a successor\n(B) Time complexity of inserting a new node at the head of the list is O(1)\n(C) Time complexity for deleting the last node is O(n)\n(D) We can traverse the whole circular linked list starting from any point [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following is false about a circular linked list?\n(A) Every node has a successor\n(B) Time complexity of inserting a new node at the head of the list is O(1)\n(C) Time complexity for deleting the last node is O(n)\n(D) We can traverse the whole circular linked list starting from any point",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The following postfix expression with single digit operands is evaluated using a stack:\n8 2 ^ / 2 3 * + 5 1 * -\nNote that ^ is the exponentiation operator. The top two elements of the stack after the * is evaluated are\n(A) 6, 1\n(B) 5, 7\n(C) 3, 2\n(D) 1, 5 [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The following postfix expression with single digit operands is evaluated using a stack:\n8 2 ^ / 2 3 * + 5 1 * -\nNote that ^ is the exponentiation operator. The top two elements of the stack after the * is evaluated are\n(A) 6, 1\n(B) 5, 7\n(C) 3, 2\n(D) 1, 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What is the maximum height of any AVL-tree with 7 nodes? Assume that the height of a tree with a single node is 0.\n(A) 2\n(B) 3\n(C) 4\n(D) 5 [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What is the maximum height of any AVL-tree with 7 nodes? Assume that the height of a tree with a single node is 0.\n(A) 2\n(B) 3\n(C) 4\n(D) 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which one of the following in place sorting algorithms needs the minimum number of swaps?\n(A) Quick sort\n(B) Insertion sort\n(C) Selection sort\n(D) Heap sort [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which one of the following in place sorting algorithms needs the minimum number of swaps?\n(A) Quick sort\n(B) Insertion sort\n(C) Selection sort\n(D) Heap sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. A queue follows\n(A) FIFO (First In First Out) principle\n(B) LIFO (Last In Last Out) principle\n(C) Ordered array\n(D) Linear tree [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "A queue follows\n(A) FIFO (First In First Out) principle\n(B) LIFO (Last In Last Out) principle\n(C) Ordered array\n(D) Linear tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. The best data structure to check whether an arithmetic expression has balanced parentheses is\n(A) Queue\n(B) Stack\n(C) Linked list\n(D) Tree [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "The best data structure to check whether an arithmetic expression has balanced parentheses is\n(A) Queue\n(B) Stack\n(C) Linked list\n(D) Tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. What is complete binary tree?\n(A) Each node has exactly zero or two children\n(B) Binary tree, which is completely filled with possible exception of the bottom level which is filled from right to left\n(C) A binary tree, which is completely filled with the possible exception of the bottom level, which is filled from left to right\n(D) A tree in which all nodes have degree Z [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "What is complete binary tree?\n(A) Each node has exactly zero or two children\n(B) Binary tree, which is completely filled with possible exception of the bottom level which is filled from right to left\n(C) A binary tree, which is completely filled with the possible exception of the bottom level, which is filled from left to right\n(D) A tree in which all nodes have degree Z",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Level order traversal of a rooted tree can be done by starting from the root and performing?\n(A) Pre order traversal\n(B) In order traversal\n(C) Depth first search\n(D) Breadth first search [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Level order traversal of a rooted tree can be done by starting from the root and performing?\n(A) Pre order traversal\n(B) In order traversal\n(C) Depth first search\n(D) Breadth first search",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Find the post order traversal of the binary tree shown below?\n(A) PQRSTUVWXT\n(B) WRSQPVTUX\n(C) SWTQXUVRP\n(D) STWUXVQRP [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Find the post order traversal of the binary tree shown below?\n(A) PQRSTUVWXT\n(B) WRSQPVTUX\n(C) SWTQXUVRP\n(D) STWUXVQRP",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What is a hash function?\n(A) A function has allocated memory to keys\n(B) A function that computes the location of the key in the array\n(C) A function that creates an array\n(D) A function that computes the location of the values in the array [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What is a hash function?\n(A) A function has allocated memory to keys\n(B) A function that computes the location of the key in the array\n(C) A function that creates an array\n(D) A function that computes the location of the values in the array",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. For the adjacency matrix of a directed graph, the row sum is the ______ degree and the column sum is the ______ degree.\n(A) In, out\n(B) Out, in\n(C) In, total\n(D) Total, out [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "For the adjacency matrix of a directed graph, the row sum is the ______ degree and the column sum is the ______ degree.\n(A) In, out\n(B) Out, in\n(C) In, total\n(D) Total, out",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. When new data are to be inserted into a data structure, but there is not available space, this situation is usually called\n(A) Underflow\n(B) Overflow\n(C) Saturated\n(D) Houseful [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "When new data are to be inserted into a data structure, but there is not available space, this situation is usually called\n(A) Underflow\n(B) Overflow\n(C) Saturated\n(D) Houseful",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. In an unweighted, undirected connected graph, the shortest path from a node S to every other node is computed most efficiently, in term of time complexity by\n(A) Dijkstra's algorithm starting from S\n(B) Warshall's algorithm\n(C) Performing a DFS starting from S\n(D) Performing a BFS starting from S [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "In an unweighted, undirected connected graph, the shortest path from a node S to every other node is computed most efficiently, in term of time complexity by\n(A) Dijkstra's algorithm starting from S\n(B) Warshall's algorithm\n(C) Performing a DFS starting from S\n(D) Performing a BFS starting from S",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Which of the following sorting algorithm has the lowest worst-case complexity?\n(A) Merge sort\n(B) Quick sort\n(C) Bubble sort\n(D) Selection sort [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Which of the following sorting algorithm has the lowest worst-case complexity?\n(A) Merge sort\n(B) Quick sort\n(C) Bubble sort\n(D) Selection sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. How arrays can be created dynamically? Prove how it improves the performance of a program. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "How arrays can be created dynamically? Prove how it improves the performance of a program.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "Write a 'C' program to store students information using structures. How effectively improved using pointers?",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Write a 'C' program to store students information using structures. How effectively improved using pointers? [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Write a 'C' program to store students information using structures. How effectively improved using pointers?",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Write an algorithm to demonstrate a polynomial using a linked list for addition of two polynomials. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Write an algorithm to demonstrate a polynomial using a linked list for addition of two polynomials.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "How an element can be deleted from a doubly linked list? Explain with suitable routine and diagram.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. How an element can be deleted from a doubly linked list? Explain with suitable routine and diagram. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "How an element can be deleted from a doubly linked list? Explain with suitable routine and diagram.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Develop and show the simulation using stack for evaluation of the following expression: 12 + 3 * 14 - (5 * 16) + 7. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Develop and show the simulation using stack for evaluation of the following expression: 12 + 3 * 14 - (5 * 16) + 7.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Give algorithm for PUSH and POP operations on stack using a linked list with suitable pictorial representations.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Give algorithm for PUSH and POP operations on stack using a linked list with suitable pictorial representations. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Give algorithm for PUSH and POP operations on stack using a linked list with suitable pictorial representations.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Construct the AVL tree for the given data:\n22, 25, 31, 10, 5, 15, 29, 19, 16, 11, 3, 4, 8 [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Construct the AVL tree for the given data:\n22, 25, 31, 10, 5, 15, 29, 19, 16, 11, 3, 4, 8",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Construct the binary search tree for the following data:\n50, 30, 10, 90, 100, 40, 60, 20, 110, 5",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Construct the binary search tree for the following data:\n50, 30, 10, 90, 100, 40, 60, 20, 110, 5 [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Construct the binary search tree for the following data:\n50, 30, 10, 90, 100, 40, 60, 20, 110, 5",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. How DFS be performed on an undirected graph. Illustrate with an example. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "How DFS be performed on an undirected graph. Illustrate with an example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Consider the given directed acyclic graph D. Sort the nodes D by applying topological sort on 'D'.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Consider the given directed acyclic graph D. Sort the nodes D by applying topological sort on 'D'. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Consider the given directed acyclic graph D. Sort the nodes D by applying topological sort on 'D'.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. The keys 2, 4, 13, 5, 26, 7, 19, 21, 9 are to be sorted. Use any two data structure to store these keys, Discuss the advantages and disadvantages of each of the proposed structure. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "The keys 2, 4, 13, 5, 26, 7, 19, 21, 9 are to be sorted. Use any two data structure to store these keys, Discuss the advantages and disadvantages of each of the proposed structure.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2025
+}

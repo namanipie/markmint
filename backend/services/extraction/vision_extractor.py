@@ -132,12 +132,14 @@ class VisionExtractor:
                             temperature=0.1
                         )
                     )
+                    if not response.text:
+                        raise ValueError(f"Empty response from Gemini: finish_reason={response.candidates[0].finish_reason if response.candidates else 'None'}")
                     data = json.loads(response.text)
                     return cls._transform_to_domain(data)
                 except Exception as e:
                     err_str = str(e)
                     last_error = err_str
-                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out"])
+                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out", "Empty response", "NoneType"])
                     if is_transient and attempt < max_retries - 1:
                         sleep_time = min(60.0, (base_delay * (2 ** attempt)) + random.uniform(0.1, 1.0))
                         print(f"[VisionExtractor] Transient error ({err_str[:60]}). Retrying in {sleep_time:.2f}s...")

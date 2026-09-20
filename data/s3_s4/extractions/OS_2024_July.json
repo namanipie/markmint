@@ -1,0 +1,644 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. To access the services of the operating system, the interface is provided by the \n(A) Library \n(B) System calls \n(C) Assembly instructions \n(D) API [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "To access the services of the operating system, the interface is provided by the \n(A) Library \n(B) System calls \n(C) Assembly instructions \n(D) API",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. ________ of the following is not true. \n(A) Kernel is the program that constitutes the central core of the operating system \n(B) Kernel is the first part of operating system to load into memory during booting \n(C) Kernel is made of various modules with cannot be loaded in running operating system \n(D) Kernel remains in the memory during the entire computer session [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "________ of the following is not true. \n(A) Kernel is the program that constitutes the central core of the operating system \n(B) Kernel is the first part of operating system to load into memory during booting \n(C) Kernel is made of various modules with cannot be loaded in running operating system \n(D) Kernel remains in the memory during the entire computer session",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. A ________ is an active entity whereas ________ is said to be a passive entity. \n(A) Process, program \n(B) Program, process \n(C) Processor, process \n(D) Program, processor [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "A ________ is an active entity whereas ________ is said to be a passive entity. \n(A) Process, program \n(B) Program, process \n(C) Processor, process \n(D) Program, processor",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The time taken to switch between user and kernel modes of execution be $t_2$ while the time taken to switch between two processes be $t_1$. Identify the true statement. \n(A) $t_2 > t_1$ \n(B) $t_2 = t_1$ \n(C) $t_2 < t_1$ \n(D) Nothing can be said about the relation between $t_1$ and $t_2$ [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The time taken to switch between user and kernel modes of execution be $t_2$ while the time taken to switch between two processes be $t_1$. Identify the true statement. \n(A) $t_2 > t_1$ \n(B) $t_2 = t_1$ \n(C) $t_2 < t_1$ \n(D) Nothing can be said about the relation between $t_1$ and $t_2$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. List of processes that are prepared to be executed and waiting are in ________. \n(A) Job queue \n(B) Ready queue \n(C) Execution queue \n(D) Process queue [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "List of processes that are prepared to be executed and waiting are in ________. \n(A) Job queue \n(B) Ready queue \n(C) Execution queue \n(D) Process queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. The segment of code in which the process may change common variables, update tables, write into file is known as ________. \n(A) Program \n(B) Non-critical section \n(C) Critical section \n(D) Synchronizing [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "The segment of code in which the process may change common variables, update tables, write into file is known as ________. \n(A) Program \n(B) Non-critical section \n(C) Critical section \n(D) Synchronizing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. ________ is referred to as the collection of data section, text section stack and memory limits of a process. \n(A) Process control block \n(B) Process state block \n(C) Process status block \n(D) Process information block [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "________ is referred to as the collection of data section, text section stack and memory limits of a process. \n(A) Process control block \n(B) Process state block \n(C) Process status block \n(D) Process information block",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. ________ of the following is called job scheduling? \n(A) Long-term scheduling \n(B) Short-term scheduling \n(C) CPU scheduling \n(D) Medium term scheduling [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "________ of the following is called job scheduling? \n(A) Long-term scheduling \n(B) Short-term scheduling \n(C) CPU scheduling \n(D) Medium term scheduling",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Consider several processes access the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place is called ________. \n(A) Dynamic condition \n(B) Face condition \n(C) Essential condition \n(D) Critical condition [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Consider several processes access the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place is called ________. \n(A) Dynamic condition \n(B) Face condition \n(C) Essential condition \n(D) Critical condition",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. A semaphore is a shared integer variable and ________. \n(A) That can not drop below zero \n(B) That can not be more than zero \n(C) That can not drop below one \n(D) That can not be more than one [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "A semaphore is a shared integer variable and ________. \n(A) That can not drop below zero \n(B) That can not be more than zero \n(C) That can not drop below one \n(D) That can not be more than one",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Round Robin scheduling is ________ in a time shared system. \n(A) Using very large time slices converts it into first come first served scheduling algorithm \n(B) Using very small time slices converts it into first come first served scheduling algorithm \n(C) Using extremely small time slices increases performance \n(D) Using very small time slices converts into shortest job first algorithm [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Round Robin scheduling is ________ in a time shared system. \n(A) Using very large time slices converts it into first come first served scheduling algorithm \n(B) Using very small time slices converts it into first come first served scheduling algorithm \n(C) Using extremely small time slices increases performance \n(D) Using very small time slices converts into shortest job first algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Mutual exclusion implies that ________. \n(A) If a process is executing in its critical section, then no other process must be executing in their critical section \n(B) If a process is executing in its critical section, then other processes must be executing in their critical sections \n(C) If a process is executing in its critical section, then all the resources of the system must be blocked until it finishes execution \n(D) Process not executing in critical section [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Mutual exclusion implies that ________. \n(A) If a process is executing in its critical section, then no other process must be executing in their critical section \n(B) If a process is executing in its critical section, then other processes must be executing in their critical sections \n(C) If a process is executing in its critical section, then all the resources of the system must be blocked until it finishes execution \n(D) Process not executing in critical section",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. In the bounded buffer problem ________. \n(A) There is only one buffer \n(B) There are 'n' buffers (n being greater than one but finite) \n(C) There are infinite buffers \n(D) The buffer size is bounded [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "In the bounded buffer problem ________. \n(A) There is only one buffer \n(B) There are 'n' buffers (n being greater than one but finite) \n(C) There are infinite buffers \n(D) The buffer size is bounded",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. The Dining-Philosophers problem will occur in case of ________. \n(A) 5 philosophers and 5 chopsticks \n(B) 4 philosophers and 5 chopsticks \n(C) 3 philosophers and 5 chopsticks \n(D) 6 philosophers and 5 chopsticks [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "The Dining-Philosophers problem will occur in case of ________. \n(A) 5 philosophers and 5 chopsticks \n(B) 4 philosophers and 5 chopsticks \n(C) 3 philosophers and 5 chopsticks \n(D) 6 philosophers and 5 chopsticks",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________. \n(A) Paging \n(B) The principle of locality \n(C) Thrashing \n(D) Swapping [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________. \n(A) Paging \n(B) The principle of locality \n(C) Thrashing \n(D) Swapping",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. ________ of the following is the main drawback of FIFO page replacement algorithm? \n(A) Requirement of large memory \n(B) Frame allocation \n(C) Reduction in multiprogramming \n(D) Reduced optimality [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "________ of the following is the main drawback of FIFO page replacement algorithm? \n(A) Requirement of large memory \n(B) Frame allocation \n(C) Reduction in multiprogramming \n(D) Reduced optimality",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. The Light Directory Access Protocol (LDAP) doesn't store ________. \n(A) Users \n(B) Address \n(C) Passwords \n(D) Security keys [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "The Light Directory Access Protocol (LDAP) doesn't store ________. \n(A) Users \n(B) Address \n(C) Passwords \n(D) Security keys",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. ________ is an approach to restrict system access to authorized users. \n(A) Role-based access control \n(B) Process-based access control \n(C) Job-based access control \n(D) Program based access control [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "________ is an approach to restrict system access to authorized users. \n(A) Role-based access control \n(B) Process-based access control \n(C) Job-based access control \n(D) Program based access control",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The bankers algorithm is ________ than the resource allocation graph algorithm. \n(A) Less efficient \n(B) More efficient \n(C) Equal \n(D) Zero [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The bankers algorithm is ________ than the resource allocation graph algorithm. \n(A) Less efficient \n(B) More efficient \n(C) Equal \n(D) Zero",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. A monitor is a type of ________. \n(A) Semaphore \n(B) Low level synchronization construct \n(C) High level synchronization construct \n(D) Medium level synchronization construct [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "A monitor is a type of ________. \n(A) Semaphore \n(B) Low level synchronization construct \n(C) High level synchronization construct \n(D) Medium level synchronization construct",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Explain the essential properties of the following operating systems.\n  i. Batch [2]\n  ii. Time sharing [2]\n  iii. Parallel [2]\n  iv. Distributed [2]",
+          "structured_content": {
+            "number": "21",
+            "text": "Explain the essential properties of the following operating systems.",
+            "marks": null,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Batch",
+                "marks": 2
+              },
+              {
+                "number": "ii",
+                "text": "Time sharing",
+                "marks": 2
+              },
+              {
+                "number": "iii",
+                "text": "Parallel",
+                "marks": 2
+              },
+              {
+                "number": "iv",
+                "text": "Distributed",
+                "marks": 2
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Explain in detail about the various reasons involved in process creation and termination.",
+              "marks": 4,
+              "subquestions": [
+                {
+                  "number": "b.i",
+                  "text": "Explain in detail about the various reasons involved in process creation and termination.",
+                  "marks": 4
+                },
+                {
+                  "number": "ii",
+                  "text": "Compare mode switching and process switching.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Explain in detail about the various reasons involved in process creation and termination. [4]\n  b.i. Explain in detail about the various reasons involved in process creation and termination. [4]\n  ii. Compare mode switching and process switching. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Explain in detail about the various reasons involved in process creation and termination.",
+            "marks": 4,
+            "subquestions": [
+              {
+                "number": "b.i",
+                "text": "Explain in detail about the various reasons involved in process creation and termination.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Compare mode switching and process switching.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": 4.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Describe the solution using semaphores to solve dinning philosopher problem. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Describe the solution using semaphores to solve dinning philosopher problem.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Discuss how wait( ) and signal( ) semaphore operations should be implemented in multiprocessor environments, using test and set instructions. The solution should exhibit minimal busy waiting. Develop pseudo code for implementing operations.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Discuss how wait( ) and signal( ) semaphore operations should be implemented in multiprocessor environments, using test and set instructions. The solution should exhibit minimal busy waiting. Develop pseudo code for implementing operations. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Discuss how wait( ) and signal( ) semaphore operations should be implemented in multiprocessor environments, using test and set instructions. The solution should exhibit minimal busy waiting. Develop pseudo code for implementing operations.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Consider the following set of processes with the length of the CPU-burst time in given ms. \nProcess | Arrival time | Burst time \nP1 | 8 | 0 \nP2 | 4 | 1 \nP3 | 9 | 2 \nP4 | 5 | 3 \nP5 | 3 | 4 \nDraw four Gantt charts illustrating the execution of these processes using FCFS, SJF, priority scheduling. Also calculate waiting time and turn around time for each scheduling algorithms. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Consider the following set of processes with the length of the CPU-burst time in given ms. \nProcess | Arrival time | Burst time \nP1 | 8 | 0 \nP2 | 4 | 1 \nP3 | 9 | 2 \nP4 | 5 | 3 \nP5 | 3 | 4 \nDraw four Gantt charts illustrating the execution of these processes using FCFS, SJF, priority scheduling. Also calculate waiting time and turn around time for each scheduling algorithms.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Compare and explain internal fragmentation and external fragmentation.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Compare and explain internal fragmentation and external fragmentation. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Compare and explain internal fragmentation and external fragmentation.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Given six memory partitions of 300 kB, 600 kB, 350 kB, 200 kB, 750 kB and 125 kB (in order). How would the first-fit, best-fit and worst-fit algorithms place processes of size 115 kB, 500 kB, 358 kB, 200 kB and 375 kB (in order)? Rank the algorithms in terms of how efficiently they use memory. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Given six memory partitions of 300 kB, 600 kB, 350 kB, 200 kB, 750 kB and 125 kB (in order). How would the first-fit, best-fit and worst-fit algorithms place processes of size 115 kB, 500 kB, 358 kB, 200 kB and 375 kB (in order)? Rank the algorithms in terms of how efficiently they use memory.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Consider page reference string 1, 3, 0, 3, 5, 6, 3 with 3 page frames. Find the number of page faults.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Consider page reference string 1, 3, 0, 3, 5, 6, 3 with 3 page frames. Find the number of page faults. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Consider page reference string 1, 3, 0, 3, 5, 6, 3 with 3 page frames. Find the number of page faults.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Describe the following in detail with respect to disk: [8]\n  i. Seek time\n  ii. Latency\n  iii. Access time\n  iv. Transfer time",
+          "structured_content": {
+            "number": "25",
+            "text": "Describe the following in detail with respect to disk:",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Seek time",
+                "marks": null
+              },
+              {
+                "number": "ii",
+                "text": "Latency",
+                "marks": null
+              },
+              {
+                "number": "iii",
+                "text": "Access time",
+                "marks": null
+              },
+              {
+                "number": "iv",
+                "text": "Transfer time",
+                "marks": null
+              }
+            ],
+            "or_alternative": {
+              "number": "25",
+              "text": "Discuss various file organization methods with an example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss various file organization methods with an example. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss various file organization methods with an example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY One Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider a system that contains five processes P1, P2, P3, P4, P5 and three resources types A, B and C. The resources types A has 10, B has 5 and C has 7 instances. Answer the following questions using the banker's algorithm. \nProcess | Allocation A B C | Max A B C | Available A B C \nP1 | 0 1 0 | 7 5 3 | 3 3 2 \nP2 | 2 0 0 | 3 2 2 | \nP3 | 3 0 2 | 9 0 2 | \nP4 | 2 1 1 | 2 2 2 | \nP5 | 0 0 2 | 4 3 3 | [15]\n  i. Construct the need matrix.\n  ii. Determine if the system is safe or not.",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider a system that contains five processes P1, P2, P3, P4, P5 and three resources types A, B and C. The resources types A has 10, B has 5 and C has 7 instances. Answer the following questions using the banker's algorithm. \nProcess | Allocation A B C | Max A B C | Available A B C \nP1 | 0 1 0 | 7 5 3 | 3 3 2 \nP2 | 2 0 0 | 3 2 2 | \nP3 | 3 0 2 | 9 0 2 | \nP4 | 2 1 1 | 2 2 2 | \nP5 | 0 0 2 | 4 3 3 |",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Construct the need matrix.",
+                "marks": null
+              },
+              {
+                "number": "ii",
+                "text": "Determine if the system is safe or not.",
+                "marks": null
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Consider that a disk drive has 5000 cylinders, numbered 0 to 4999. The drive is currently serving request at cylinder 143, and the previous request was at cylinder 125. The queue of pending requests, in FIFO order is 86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130. Starting from the current head position, find is the total distance (in cylinders) that the disk arm moves to satisfy all pending, request for each of the following disk scheduling algorithm: [15]\n  i. FCFS\n  ii. SSTF\n  iii. SCAN\n  iv. C-SCAN\n  v. LOOK\n  vi. C-LOOK",
+          "structured_content": {
+            "number": "27",
+            "text": "Consider that a disk drive has 5000 cylinders, numbered 0 to 4999. The drive is currently serving request at cylinder 143, and the previous request was at cylinder 125. The queue of pending requests, in FIFO order is 86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130. Starting from the current head position, find is the total distance (in cylinders) that the disk arm moves to satisfy all pending, request for each of the following disk scheduling algorithm:",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "FCFS",
+                "marks": null
+              },
+              {
+                "number": "ii",
+                "text": "SSTF",
+                "marks": null
+              },
+              {
+                "number": "iii",
+                "text": "SCAN",
+                "marks": null
+              },
+              {
+                "number": "iv",
+                "text": "C-SCAN",
+                "marks": null
+              },
+              {
+                "number": "v",
+                "text": "LOOK",
+                "marks": null
+              },
+              {
+                "number": "vi",
+                "text": "C-LOOK",
+                "marks": null
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "UNKNOWN",
+  "year": 2024
+}

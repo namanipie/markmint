@@ -1,0 +1,591 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. If an array A contains the items 10, 4, 7, 23, 67, 12 and 5 in that order, what will be the resultant array A after the third pass of insertion sort?\n(A) 67, 12, 10, 5, 4, 7, 23\n(B) 4, 7, 10, 23, 67, 12, 5\n(C) 4, 5, 7, 67, 10, 12, 23\n(D) 10, 7, 4, 67, 23, 12, 5 [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "If an array A contains the items 10, 4, 7, 23, 67, 12 and 5 in that order, what will be the resultant array A after the third pass of insertion sort?\n(A) 67, 12, 10, 5, 4, 7, 23\n(B) 4, 7, 10, 23, 67, 12, 5\n(C) 4, 5, 7, 67, 10, 12, 23\n(D) 10, 7, 4, 67, 23, 12, 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. ________ is the formal way to express the upper bound of an algorithm's running time.\n(A) Omega Notation\n(B) Theta Notation\n(C) Big Oh Notation\n(D) All of the above [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "________ is the formal way to express the upper bound of an algorithm's running time.\n(A) Omega Notation\n(B) Theta Notation\n(C) Big Oh Notation\n(D) All of the above",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Consider the recurrence relation a_n = a_{n-1} + n with the initial condition a_1 = 1. The value of a_{13} is ______.\n(A) 91\n(B) 101\n(C) 85\n(D) 113 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Consider the recurrence relation a_n = a_{n-1} + n with the initial condition a_1 = 1. The value of a_{13} is ______.\n(A) 91\n(B) 101\n(C) 85\n(D) 113",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. An algorithm has two phases. The first phase, initialization, takes time O(n^3). The second phase, which is the main computation, takes time O(n^2). What is the most accurate description of the complexity of the overall algorithm?\n(A) O(n^6)\n(B) O(n^5)\n(C) O(n^3)\n(D) O(n^2) [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "An algorithm has two phases. The first phase, initialization, takes time O(n^3). The second phase, which is the main computation, takes time O(n^2). What is the most accurate description of the complexity of the overall algorithm?\n(A) O(n^6)\n(B) O(n^5)\n(C) O(n^3)\n(D) O(n^2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. A divide and conquer algorithm splits a problem of size n into 3 subproblems of size n/3 and does O(n^2) operations to combine the solutions. What is the time complexity?\n(A) O(n^2)\n(B) O(n \\log n)\n(C) O(n^2 \\log n)\n(D) O(n \\log \\log n) [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "A divide and conquer algorithm splits a problem of size n into 3 subproblems of size n/3 and does O(n^2) operations to combine the solutions. What is the time complexity?\n(A) O(n^2)\n(B) O(n \\log n)\n(C) O(n^2 \\log n)\n(D) O(n \\log \\log n)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. If quicksort is applied to an array size of 10 and if pivot is always chosen as the first element, how many comparisons will be made in the worst case?\n(A) 20\n(B) 25\n(C) 45\n(D) 90 [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "If quicksort is applied to an array size of 10 and if pivot is always chosen as the first element, how many comparisons will be made in the worst case?\n(A) 20\n(B) 25\n(C) 45\n(D) 90",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Strassen's Algorithm is more efficient that the naive \\Theta(n^3) matrix multiplication method. This statement is\n(A) False\n(B) True\n(C) False only for small matrices\n(D) True only for large matrices [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Strassen's Algorithm is more efficient that the naive \\Theta(n^3) matrix multiplication method. This statement is\n(A) False\n(B) True\n(C) False only for small matrices\n(D) True only for large matrices",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following is true about the Quickhull algorithm for computing the convex hull?\n(A) It is guaranteed to run in O(n \\log n) time\n(B) It only works for 2-dimensional data\n(C) It works by recursively finding extreme points of a set\n(D) It is not suitable for large data sets due to high space complexity [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following is true about the Quickhull algorithm for computing the convex hull?\n(A) It is guaranteed to run in O(n \\log n) time\n(B) It only works for 2-dimensional data\n(C) It works by recursively finding extreme points of a set\n(D) It is not suitable for large data sets due to high space complexity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. A text is made up of the characters a, b, c, d, e each occurring with the probability 0.11, 0.40, 0.16, 0.09 and 0.24 respectively. The Huffman coding technique will have the average length of:\n(A) 2.40\n(B) 2.15\n(C) 2.26\n(D) 2.16 [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "A text is made up of the characters a, b, c, d, e each occurring with the probability 0.11, 0.40, 0.16, 0.09 and 0.24 respectively. The Huffman coding technique will have the average length of:\n(A) 2.40\n(B) 2.15\n(C) 2.26\n(D) 2.16",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which of the following problems is equivalent to the 0-1 Knapsack problem?\n(A) You are given a bag that can carry a maximum weight of W. You are given N items which have a weight of \\{w_1, w_2, w_3, \\dots, w_n\\} and a value of \\{v_1, v_2, v_3, \\dots, v_n\\}. You can break the items into smaller pieces. Choose the items in such a way that you get the maximum value\n(B) You are studying for an exam and you have to study N questions. The questions take \\{t_1, t_2, t_3, \\dots, t_n\\} time (in hours) and carry \\{m_1, m_2, m_3, \\dots, m_n\\} marks. You can study for a maximum of T hours. You can either study a question or leave it. Choose the questions in such a way that your score is maximized\n(C) You are given infinite coins of denominations \\{v_1, v_2, v_3, \\dots, v_n\\} and a sum S. You have to find the minimum number of coins required to get the sum S\n(D) You are given a suitcase that can carry a maximum weight of 15kg. You are given 4 items which have a weight of \\{10, 20, 15, 40\\} and a value of \\{1, 2, 3, 4\\}. You can break the items into smaller pieces. Choose the items in such a way that you get the maximum value [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which of the following problems is equivalent to the 0-1 Knapsack problem?\n(A) You are given a bag that can carry a maximum weight of W. You are given N items which have a weight of \\{w_1, w_2, w_3, \\dots, w_n\\} and a value of \\{v_1, v_2, v_3, \\dots, v_n\\}. You can break the items into smaller pieces. Choose the items in such a way that you get the maximum value\n(B) You are studying for an exam and you have to study N questions. The questions take \\{t_1, t_2, t_3, \\dots, t_n\\} time (in hours) and carry \\{m_1, m_2, m_3, \\dots, m_n\\} marks. You can study for a maximum of T hours. You can either study a question or leave it. Choose the questions in such a way that your score is maximized\n(C) You are given infinite coins of denominations \\{v_1, v_2, v_3, \\dots, v_n\\} and a sum S. You have to find the minimum number of coins required to get the sum S\n(D) You are given a suitcase that can carry a maximum weight of 15kg. You are given 4 items which have a weight of \\{10, 20, 15, 40\\} and a value of \\{1, 2, 3, 4\\}. You can break the items into smaller pieces. Choose the items in such a way that you get the maximum value",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Which of the following is not a characteristic of dynamic programming?\n(A) It solves a problem by breaking it into smaller subproblems\n(B) It stores the results of subproblems to avoid re-computation\n(C) It uses the greedy method for optimization\n(D) It is used to solve problems with overlapping subproblems [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Which of the following is not a characteristic of dynamic programming?\n(A) It solves a problem by breaking it into smaller subproblems\n(B) It stores the results of subproblems to avoid re-computation\n(C) It uses the greedy method for optimization\n(D) It is used to solve problems with overlapping subproblems",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Consider the matrices P, Q and R which are 10 \\times 20, 20 \\times 30 and 30 \\times 40 matrices respectively. What is the minimum number of multiplications required to multiply the three matrices?\n(A) 18000\n(B) 12000\n(C) 24000\n(D) 32000 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Consider the matrices P, Q and R which are 10 \\times 20, 20 \\times 30 and 30 \\times 40 matrices respectively. What is the minimum number of multiplications required to multiply the three matrices?\n(A) 18000\n(B) 12000\n(C) 24000\n(D) 32000",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. What is a subset sum problem?\n(A) Finding a subset of a set that has sum of elements equal to a given number\n(B) Finding the sum of elements present in a set\n(C) Finding the sum of all the subsets of a set\n(D) Checking for the presence of a subset that has sum of elements equal to a given number and printing true or false based on the result [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "What is a subset sum problem?\n(A) Finding a subset of a set that has sum of elements equal to a given number\n(B) Finding the sum of elements present in a set\n(C) Finding the sum of all the subsets of a set\n(D) Checking for the presence of a subset that has sum of elements equal to a given number and printing true or false based on the result",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Which of the problems cannot be solved by backtracking method?\n(A) n-queen problem\n(B) Subset sum problem\n(C) Hamiltonian circuit problem\n(D) Traveling salesman problem [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Which of the problems cannot be solved by backtracking method?\n(A) n-queen problem\n(B) Subset sum problem\n(C) Hamiltonian circuit problem\n(D) Traveling salesman problem",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Choose the correct statement from the following.\n(A) Branch and bound is more efficient than backtracking\n(B) Branch and bound is not suitable where a greedy algorithm is not applicable\n(C) Branch and bound divides a problem into at least 2 new restricted sub problems\n(D) Backtracking divides a problem into at least 2 new restricted sub problems [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Choose the correct statement from the following.\n(A) Branch and bound is more efficient than backtracking\n(B) Branch and bound is not suitable where a greedy algorithm is not applicable\n(C) Branch and bound divides a problem into at least 2 new restricted sub problems\n(D) Backtracking divides a problem into at least 2 new restricted sub problems",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What is the running time of the Floyd Warshall Algorithm?\n(A) Big Oh(V)\n(B) Theta(V^2)\n(C) Big Oh(VE)\n(D) Theta(V^3) [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What is the running time of the Floyd Warshall Algorithm?\n(A) Big Oh(V)\n(B) Theta(V^2)\n(C) Big Oh(VE)\n(D) Theta(V^3)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What is the pre-processing time of Rabin and Karp Algorithm?\n(A) Theta(m^2)\n(B) Theta(m \\log n)\n(C) Theta(m)\n(D) Big Oh(n) [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What is the pre-processing time of Rabin and Karp Algorithm?\n(A) Theta(m^2)\n(B) Theta(m \\log n)\n(C) Theta(m)\n(D) Big Oh(n)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Vertex covering can be a good approach to which type of the problems?\n(A) Where all the vertex in the graph need to be included\n(B) Where all the edges in the graph need to be included\n(C) Only half edges in the graph need to be included\n(D) Only half of the total vertices need to be included [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Vertex covering can be a good approach to which type of the problems?\n(A) Where all the vertex in the graph need to be included\n(B) Where all the edges in the graph need to be included\n(C) Only half edges in the graph need to be included\n(D) Only half of the total vertices need to be included",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. _________ is the class of decision problems that can be solved by non-deterministic polynomial algorithm.\n(A) NP\n(B) P\n(C) NP-hard\n(D) NP-Complete [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "_________ is the class of decision problems that can be solved by non-deterministic polynomial algorithm.\n(A) NP\n(B) P\n(C) NP-hard\n(D) NP-Complete",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this.\n(A) There is a polynomial time reduction from B to SAT\n(B) There is a polynomial time reduction from SAT to B\n(C) There is a polynomial time reduction from B to SAT, and B has a checking algorithm.\n(D) There is a polynomial time reduction from SAT to B, and B has a checking algorithm. [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this.\n(A) There is a polynomial time reduction from B to SAT\n(B) There is a polynomial time reduction from SAT to B\n(C) There is a polynomial time reduction from B to SAT, and B has a checking algorithm.\n(D) There is a polynomial time reduction from SAT to B, and B has a checking algorithm.",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Answer either (a) or (b): [8]\n  a. Consider a simple sorting algorithm that works by iteratively inserting each element of the unsorted portion of a list into its correct position in the sorted portion of the list. We start with second element of the array as first element in the array is assumed to be sorted. Give a suitable algorithm for the same; sort the sequence 3, 1, 4, 1, 5, 9, 2, 6, 5 using the algorithm. What is the running time of the algorithm if all keys are equal? [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Answer either (a) or (b):",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Consider a simple sorting algorithm that works by iteratively inserting each element of the unsorted portion of a list into its correct position in the sorted portion of the list. We start with second element of the array as first element in the array is assumed to be sorted. Give a suitable algorithm for the same; sort the sequence 3, 1, 4, 1, 5, 9, 2, 6, 5 using the algorithm. What is the running time of the algorithm if all keys are equal?",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Solve the following Recurrence Relation using Recursive Tree Method",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "a",
+                  "text": "T(n) = 3T(n/4) + cn",
+                  "marks": 4
+                },
+                {
+                  "number": "b",
+                  "text": "T(n) = T(n/3) + T(2n/3) + cn",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Solve the following Recurrence Relation using Recursive Tree Method [8]\n  a. T(n) = 3T(n/4) + cn [4]\n  b. T(n) = T(n/3) + T(2n/3) + cn [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Solve the following Recurrence Relation using Recursive Tree Method",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "T(n) = 3T(n/4) + cn",
+                "marks": 4
+              },
+              {
+                "number": "b",
+                "text": "T(n) = T(n/3) + T(2n/3) + cn",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Answer either (a) or (b): [8]\n  a. Write an algorithm FIND-MAXIMUM-SUBARRAY to find the maximum sum subarray using Divide and Conquer. Analyse the Divide and Conquer Algorithm by writing the Recurrence Relation. What does FIND-MAXIMUM-SUBARRAY return when all elements of A are negative? [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Answer either (a) or (b):",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Write an algorithm FIND-MAXIMUM-SUBARRAY to find the maximum sum subarray using Divide and Conquer. Analyse the Divide and Conquer Algorithm by writing the Recurrence Relation. What does FIND-MAXIMUM-SUBARRAY return when all elements of A are negative?",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Give an O(n \\log n) Divide and Conquer Algorithm that solves the Convex Hull Problem. Analyse the Divide, Conquer and Combine steps and formulate the Recurrence Relation along with complexity analysis of the algorithm.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Give an O(n \\log n) Divide and Conquer Algorithm that solves the Convex Hull Problem. Analyse the Divide, Conquer and Combine steps and formulate the Recurrence Relation along with complexity analysis of the algorithm. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Give an O(n \\log n) Divide and Conquer Algorithm that solves the Convex Hull Problem. Analyse the Divide, Conquer and Combine steps and formulate the Recurrence Relation along with complexity analysis of the algorithm.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Answer either (a) or (b): [8]\n  a. Formulate an encoding scheme with the minimum number of bits using only 0s and 1s for each character in \"MISSISSIPPI\". How many bits are required in this encoding scheme? Give the compression ratio for the same when compared to a fixed-length encoding. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Answer either (a) or (b):",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Formulate an encoding scheme with the minimum number of bits using only 0s and 1s for each character in \"MISSISSIPPI\". How many bits are required in this encoding scheme? Give the compression ratio for the same when compared to a fixed-length encoding.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "23",
+              "text": "If we have two strings X and Y; where X = A G G T A B and Y = G X T X A Y B; find the Longest Common Subsequence using Dynamic Programming. What is the length of the Longest Common Subsequence. How many subsequences can you find if the length of the LCS is reduced by 1.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. If we have two strings X and Y; where X = A G G T A B and Y = G X T X A Y B; find the Longest Common Subsequence using Dynamic Programming. What is the length of the Longest Common Subsequence. How many subsequences can you find if the length of the LCS is reduced by 1. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "If we have two strings X and Y; where X = A G G T A B and Y = G X T X A Y B; find the Longest Common Subsequence using Dynamic Programming. What is the length of the Longest Common Subsequence. How many subsequences can you find if the length of the LCS is reduced by 1.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Answer either (a) or (b): [8]\n  a. Find the first possible solution using backtracking to the five-queens problem. Backtrack the solution space and find two more solutions. Use the board's symmetry on the first solution and find at least three other solutions to the problem. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Answer either (a) or (b):",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Find the first possible solution using backtracking to the five-queens problem. Backtrack the solution space and find two more solutions. Use the board's symmetry on the first solution and find at least three other solutions to the problem.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "A salesperson starts at city A and wants to visit every other city once and come back to city A at a minimum cost. Apply the branch-and-bound algorithm to solve the following graph representing the cities and the cost to travel between the cities. How many optimal paths exist and what is their cost.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. A salesperson starts at city A and wants to visit every other city once and come back to city A at a minimum cost. Apply the branch-and-bound algorithm to solve the following graph representing the cities and the cost to travel between the cities. How many optimal paths exist and what is their cost. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "A salesperson starts at city A and wants to visit every other city once and come back to city A at a minimum cost. Apply the branch-and-bound algorithm to solve the following graph representing the cities and the cost to travel between the cities. How many optimal paths exist and what is their cost.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Answer either (a) or (b): [8]\n  a. Mention the Rabin-Karp Algorithm for String-matching. Illustrate with an example and analyze its worst case time complexity. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Answer either (a) or (b):",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Mention the Rabin-Karp Algorithm for String-matching. Illustrate with an example and analyze its worst case time complexity.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "25",
+              "text": "Show that the Hamiltonian-cycle decision problem is NP complete.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Show that the Hamiltonian-cycle decision problem is NP complete. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Show that the Hamiltonian-cycle decision problem is NP complete.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Design an algorithm that partitions elements of the list on the basis of a pivot element. The pivot element is chosen as the first element of the list. Apply the sorting algorithm to sort the list of elements S, O, R, T, I, N, G in alphabetical order. Draw the tree of the recursive calls made. Analyse the algorithm using its Recurrence Relation. What happens to the Recurrence Relation and the Time Complexity when the elements of the list are already in sorted order? [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Design an algorithm that partitions elements of the list on the basis of a pivot element. The pivot element is chosen as the first element of the list. Apply the sorting algorithm to sort the list of elements S, O, R, T, I, N, G in alphabetical order. Draw the tree of the recursive calls made. Analyse the algorithm using its Recurrence Relation. What happens to the Recurrence Relation and the Time Complexity when the elements of the list are already in sorted order?",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. If we have four matrices A_1, A_2, A_3 and A_4; in how many ways can they be parenthesized for multiplication? Mention them. If the dimensions for the matrices A_1, A_2, A_3 and A_4 are 5 \\times 6, 6 \\times 4, 4 \\times 2 and 2 \\times 3 respectively; use dynamic programming to find the parenthesization that gives the minimum number of scalar multiplications. Mention the algorithm used and analyze it complexity. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "If we have four matrices A_1, A_2, A_3 and A_4; in how many ways can they be parenthesized for multiplication? Mention them. If the dimensions for the matrices A_1, A_2, A_3 and A_4 are 5 \\times 6, 6 \\times 4, 4 \\times 2 and 2 \\times 3 respectively; use dynamic programming to find the parenthesization that gives the minimum number of scalar multiplications. Mention the algorithm used and analyze it complexity.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2025
+}

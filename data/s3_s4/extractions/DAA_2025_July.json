@@ -1,0 +1,582 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Which of the following sorting algorithms has the best worst-case time complexity? (A) Quick sort (B) Heap sort (C) Merge sort (D) Bubble sort [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Which of the following sorting algorithms has the best worst-case time complexity? (A) Quick sort (B) Heap sort (C) Merge sort (D) Bubble sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which of the following problems is best solved using recursion instead of an iterative stack-based approach? (A) Balancing parentheses in an expression (B) Evaluating a postfix expression (C) Tower of Hanoi (D) Implementing an undo feature in a text editor [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which of the following problems is best solved using recursion instead of an iterative stack-based approach? (A) Balancing parentheses in an expression (B) Evaluating a postfix expression (C) Tower of Hanoi (D) Implementing an undo feature in a text editor",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Consider a chain of matrices with dimensions $3 \\times 4$, $4 \\times 5$, and $5 \\times 6$. What is the minimum number of scalar multiplications needed to multiply these three matrices together? (A) 120 (B) 90 (C) 60 (D) 150 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Consider a chain of matrices with dimensions $3 \\times 4$, $4 \\times 5$, and $5 \\times 6$. What is the minimum number of scalar multiplications needed to multiply these three matrices together? (A) 120 (B) 90 (C) 60 (D) 150",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. In the best-case scenario, how many comparisons are needed to find an element using linear search if the array is already sorted? (A) n (B) n+1 (C) 1 (D) n-1 [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "In the best-case scenario, how many comparisons are needed to find an element using linear search if the array is already sorted? (A) n (B) n+1 (C) 1 (D) n-1",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. In a max heap, which of the following is ALWAYS true? (A) The root node has the smallest value. (B) The left child of any node is always smaller than the right child. (C) The left and right subtrees must be balanced in height. (D) The parent node is always greater than or equal to its children. [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "In a max heap, which of the following is ALWAYS true? (A) The root node has the smallest value. (B) The left child of any node is always smaller than the right child. (C) The left and right subtrees must be balanced in height. (D) The parent node is always greater than or equal to its children.",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Find the maximum sub-array sum for the given elements. $\\{3,-2,4,-1,2,-3,6,-5\\}$ (A) 7 (B) 9 (C) 8 (D) 6 [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Find the maximum sub-array sum for the given elements. $\\{3,-2,4,-1,2,-3,6,-5\\}$ (A) 7 (B) 9 (C) 8 (D) 6",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following is NOT true about randomized quicksort? (A) Its time complexity matches that of standard quicksort (B) It is an in-place sorting algorithm (C) Its space complexity is greater than standard quicksort (D) Its worst-case time complexity could still be $O(n^2)$ [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following is NOT true about randomized quicksort? (A) Its time complexity matches that of standard quicksort (B) It is an in-place sorting algorithm (C) Its space complexity is greater than standard quicksort (D) Its worst-case time complexity could still be $O(n^2)$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Consider the matrices P, Q, and R which are $15 \\times 25$, $25 \\times 35$, and $35 \\times 45$ matrices respectively. What is the minimum number of multiplications required to multiply the three matrices? (A) 30000 (B) 39375 (C) 42000 (D) 50000 [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Consider the matrices P, Q, and R which are $15 \\times 25$, $25 \\times 35$, and $35 \\times 45$ matrices respectively. What is the minimum number of multiplications required to multiply the three matrices? (A) 30000 (B) 39375 (C) 42000 (D) 50000",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. If the keys of the Optimal Binary Search Tree are $\\{15, 25, 35\\}$, then how many trees are possible? (A) 3 (B) 7 (C) 5 (D) 4 [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "If the keys of the Optimal Binary Search Tree are $\\{15, 25, 35\\}$, then how many trees are possible? (A) 3 (B) 7 (C) 5 (D) 4",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which of the following traversal methods will always return a sorted sequence if applied to a Binary Search Tree (BST)? (A) Preorder Traversal (B) Level Order Traversal (C) Postorder Traversal (D) Inorder Traversal [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which of the following traversal methods will always return a sorted sequence if applied to a Binary Search Tree (BST)? (A) Preorder Traversal (B) Level Order Traversal (C) Postorder Traversal (D) Inorder Traversal",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Which of the following recurrence relations represents the worst-case time complexity of Quick Sort? (A) $T(n) = 2T(n/2) + \\Theta(n)$ (B) $T(n) = T(n-1) + \\Theta(n)$ (C) $T(n) = 2T(n/3) + \\Theta(n)$ (D) $T(n) = 2T(n/2) + \\Theta(\\log n)$ [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Which of the following recurrence relations represents the worst-case time complexity of Quick Sort? (A) $T(n) = 2T(n/2) + \\Theta(n)$ (B) $T(n) = T(n-1) + \\Theta(n)$ (C) $T(n) = 2T(n/3) + \\Theta(n)$ (D) $T(n) = 2T(n/2) + \\Theta(\\log n)$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. When analyzing an algorithm's performance, which notation expresses the worst-case time complexity? (A) Big-omega (B) Theta (C) Little-o (D) Big-O [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "When analyzing an algorithm's performance, which notation expresses the worst-case time complexity? (A) Big-omega (B) Theta (C) Little-o (D) Big-O",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. For a problem of size n, an algorithm follows $T(n) = 3T(n/3) + O(n)$. What is its asymptotic time complexity? (A) $O(n \\log n)$ (B) $O(n^2)$ (C) $O(n)$ (D) $O(n^{\\log_3 3})$ [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "For a problem of size n, an algorithm follows $T(n) = 3T(n/3) + O(n)$. What is its asymptotic time complexity? (A) $O(n \\log n)$ (B) $O(n^2)$ (C) $O(n)$ (D) $O(n^{\\log_3 3})$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. A divide and conquer algorithm breaks a problem into subproblems of size $n/4$ and $n/2$. The recurrence relation is $T(n) = T(n/4) + T(n/2) + O(n)$. What is the time complexity? (A) $O(n \\log n)$ (B) $O(n^2)$ (C) $O(n)$ (D) $O(n^{1.32})$ [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "A divide and conquer algorithm breaks a problem into subproblems of size $n/4$ and $n/2$. The recurrence relation is $T(n) = T(n/4) + T(n/2) + O(n)$. What is the time complexity? (A) $O(n \\log n)$ (B) $O(n^2)$ (C) $O(n)$ (D) $O(n^{1.32})$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. The N-queens problem is a classic example from which board game? (A) Chess (B) Carroms (C) Ludo (D) Cards [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "The N-queens problem is a classic example from which board game? (A) Chess (B) Carroms (C) Ludo (D) Cards",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Backtracking is mainly used for solving which type of problems? (A) Optimization problems (B) Graph traversal problems (C) Constraint satisfaction problems (D) Searching problems [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Backtracking is mainly used for solving which type of problems? (A) Optimization problems (B) Graph traversal problems (C) Constraint satisfaction problems (D) Searching problems",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following problems is classified as NP-hard? (A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following problems is classified as NP-hard? (A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. A sorting algorithm takes 2 ms to sort 1000 elements. If the algorithm follows $O(n^2)$ time complexity, how much time will it take to sort 5000 elements (approximately)? (A) 10 ms (B) 50 ms (C) 100 ms (D) 500 ms [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "A sorting algorithm takes 2 ms to sort 1000 elements. If the algorithm follows $O(n^2)$ time complexity, how much time will it take to sort 5000 elements (approximately)? (A) 10 ms (B) 50 ms (C) 100 ms (D) 500 ms",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. If the number of keys in an optimal binary search tree is 4, how many binary search trees are possible? (A) 1 (B) 8 (C) 14 (D) 12 [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "If the number of keys in an optimal binary search tree is 4, how many binary search trees are possible? (A) 1 (B) 8 (C) 14 (D) 12",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Determine the time complexity of the following recurrence relation using the Recursion Tree Method:\n$T(n) = T(n/4) + T(3n/4) + n, n > 1$\n$T(1) = 1$ [8]\n  a. Determine the time complexity of the following recurrence relation using the Recursion Tree Method:\n$T(n) = T(n/4) + T(3n/4) + n, n > 1$\n$T(1) = 1$\n  b. Illustrate all asymptotic notations with graphical representation.",
+          "structured_content": {
+            "number": "21",
+            "text": "Determine the time complexity of the following recurrence relation using the Recursion Tree Method:\n$T(n) = T(n/4) + T(3n/4) + n, n > 1$\n$T(1) = 1$",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Determine the time complexity of the following recurrence relation using the Recursion Tree Method:\n$T(n) = T(n/4) + T(3n/4) + n, n > 1$\n$T(1) = 1$"
+              },
+              {
+                "number": "b",
+                "text": "Illustrate all asymptotic notations with graphical representation."
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Illustrate all asymptotic notations with graphical representation.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Illustrate all asymptotic notations with graphical representation. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Illustrate all asymptotic notations with graphical representation.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity [8]\n  a. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity\n  b. Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+          "structured_content": {
+            "number": "22",
+            "text": "Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity"
+              },
+              {
+                "number": "b",
+                "text": "Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication."
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. You have a backpack with a weight limit of 15 kg. You are given the following items:\nItem | Weight | Value\nA | 5 | 30\nB | 8 | 40\nC | 3 | 20\nD | 6 | 36\nE | 4 | 24\nFind the maximum value you can obtain by selecting items to include in the backpack without exceeding the weight limit. Use the 0/1 Knapsack Dynamic Programming approach and show the step-by-step process. [8]\n  a. You have a backpack with a weight limit of 15 kg. You are given the following items:\nItem | Weight | Value\nA | 5 | 30\nB | 8 | 40\nC | 3 | 20\nD | 6 | 36\nE | 4 | 24\nFind the maximum value you can obtain by selecting items to include in the backpack without exceeding the weight limit. Use the 0/1 Knapsack Dynamic Programming approach and show the step-by-step process.\n  b. Consider the following set of characters with their frequencies:\nCharacter | Frequency\nA | 10\nB | 15\nC | 30\nD | 5\nE | 20\nUsing the Huffman Coding (Greedy Method),\n1. Construct the Huffman Tree.\n2. Generate the binary codes for each character.\n3. Calculate the average code length.\n4. Compare the original encoding size (assuming 3 bits per character) with the compressed size.",
+          "structured_content": {
+            "number": "23",
+            "text": "You have a backpack with a weight limit of 15 kg. You are given the following items:\nItem | Weight | Value\nA | 5 | 30\nB | 8 | 40\nC | 3 | 20\nD | 6 | 36\nE | 4 | 24\nFind the maximum value you can obtain by selecting items to include in the backpack without exceeding the weight limit. Use the 0/1 Knapsack Dynamic Programming approach and show the step-by-step process.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "You have a backpack with a weight limit of 15 kg. You are given the following items:\nItem | Weight | Value\nA | 5 | 30\nB | 8 | 40\nC | 3 | 20\nD | 6 | 36\nE | 4 | 24\nFind the maximum value you can obtain by selecting items to include in the backpack without exceeding the weight limit. Use the 0/1 Knapsack Dynamic Programming approach and show the step-by-step process."
+              },
+              {
+                "number": "b",
+                "text": "Consider the following set of characters with their frequencies:\nCharacter | Frequency\nA | 10\nB | 15\nC | 30\nD | 5\nE | 20\nUsing the Huffman Coding (Greedy Method),\n1. Construct the Huffman Tree.\n2. Generate the binary codes for each character.\n3. Calculate the average code length.\n4. Compare the original encoding size (assuming 3 bits per character) with the compressed size."
+              }
+            ],
+            "or_alternative": {
+              "number": "23",
+              "text": "Consider the following set of characters with their frequencies:\nCharacter | Frequency\nA | 10\nB | 15\nC | 30\nD | 5\nE | 20\nUsing the Huffman Coding (Greedy Method),\n1. Construct the Huffman Tree.\n2. Generate the binary codes for each character.\n3. Calculate the average code length.\n4. Compare the original encoding size (assuming 3 bits per character) with the compressed size.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Consider the following set of characters with their frequencies:\nCharacter | Frequency\nA | 10\nB | 15\nC | 30\nD | 5\nE | 20\nUsing the Huffman Coding (Greedy Method),\n1. Construct the Huffman Tree.\n2. Generate the binary codes for each character.\n3. Calculate the average code length.\n4. Compare the original encoding size (assuming 3 bits per character) with the compressed size. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Consider the following set of characters with their frequencies:\nCharacter | Frequency\nA | 10\nB | 15\nC | 30\nD | 5\nE | 20\nUsing the Huffman Coding (Greedy Method),\n1. Construct the Huffman Tree.\n2. Generate the binary codes for each character.\n3. Calculate the average code length.\n4. Compare the original encoding size (assuming 3 bits per character) with the compressed size.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. A salesman needs to visit the following cities exactly once and return to the starting city. The distance matrix (in km) between the cities is given below:\n  | A | B | C | D | E\nA | 0 | 29 | 20 | 21 | 16\nB | 29 | 0 | 15 | 17 | 28\nC | 20 | 15 | 0 | 35 | 25\nD | 21 | 17 | 35 | 0 | 30\nE | 16 | 28 | 25 | 30 | 0\nUsing the Dynamic Programming Approach for the Travelling Salesman Problem (TSP):\nFind the minimum travel cost to visit all cities and return to the starting city.\nShow all steps of your calculation.\nCompare this solution with the brute-force approach in terms of complexity. [8]\n  a. A salesman needs to visit the following cities exactly once and return to the starting city. The distance matrix (in km) between the cities is given below:\n  | A | B | C | D | E\nA | 0 | 29 | 20 | 21 | 16\nB | 29 | 0 | 15 | 17 | 28\nC | 20 | 15 | 0 | 35 | 25\nD | 21 | 17 | 35 | 0 | 30\nE | 16 | 28 | 25 | 30 | 0\nUsing the Dynamic Programming Approach for the Travelling Salesman Problem (TSP):\nFind the minimum travel cost to visit all cities and return to the starting city.\nShow all steps of your calculation.\nCompare this solution with the brute-force approach in terms of complexity.\n  b. Explain the 4-Queens Problem using the Backtracking approach.\nDescribe the problem statement clearly.\nDefine the state space tree for the 4-Queens problem.\nExplain how backtracking is used to find all possible valid solutions.",
+          "structured_content": {
+            "number": "24",
+            "text": "A salesman needs to visit the following cities exactly once and return to the starting city. The distance matrix (in km) between the cities is given below:\n  | A | B | C | D | E\nA | 0 | 29 | 20 | 21 | 16\nB | 29 | 0 | 15 | 17 | 28\nC | 20 | 15 | 0 | 35 | 25\nD | 21 | 17 | 35 | 0 | 30\nE | 16 | 28 | 25 | 30 | 0\nUsing the Dynamic Programming Approach for the Travelling Salesman Problem (TSP):\nFind the minimum travel cost to visit all cities and return to the starting city.\nShow all steps of your calculation.\nCompare this solution with the brute-force approach in terms of complexity.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "A salesman needs to visit the following cities exactly once and return to the starting city. The distance matrix (in km) between the cities is given below:\n  | A | B | C | D | E\nA | 0 | 29 | 20 | 21 | 16\nB | 29 | 0 | 15 | 17 | 28\nC | 20 | 15 | 0 | 35 | 25\nD | 21 | 17 | 35 | 0 | 30\nE | 16 | 28 | 25 | 30 | 0\nUsing the Dynamic Programming Approach for the Travelling Salesman Problem (TSP):\nFind the minimum travel cost to visit all cities and return to the starting city.\nShow all steps of your calculation.\nCompare this solution with the brute-force approach in terms of complexity."
+              },
+              {
+                "number": "b",
+                "text": "Explain the 4-Queens Problem using the Backtracking approach.\nDescribe the problem statement clearly.\nDefine the state space tree for the 4-Queens problem.\nExplain how backtracking is used to find all possible valid solutions."
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "Explain the 4-Queens Problem using the Backtracking approach.\nDescribe the problem statement clearly.\nDefine the state space tree for the 4-Queens problem.\nExplain how backtracking is used to find all possible valid solutions.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Explain the 4-Queens Problem using the Backtracking approach.\nDescribe the problem statement clearly.\nDefine the state space tree for the 4-Queens problem.\nExplain how backtracking is used to find all possible valid solutions. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Explain the 4-Queens Problem using the Backtracking approach.\nDescribe the problem statement clearly.\nDefine the state space tree for the 4-Queens problem.\nExplain how backtracking is used to find all possible valid solutions.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss about NP, NP- Hard and NP-Complete in detailed with examples [8]\n  a. Discuss about NP, NP- Hard and NP-Complete in detailed with examples\n  b. Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss about NP, NP- Hard and NP-Complete in detailed with examples",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Discuss about NP, NP- Hard and NP-Complete in detailed with examples"
+              },
+              {
+                "number": "b",
+                "text": "Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\"."
+              }
+            ],
+            "or_alternative": {
+              "number": "25",
+              "text": "Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\". [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider a matrix multiplication chain F1 F2 F3 F4 F5, where matrices F1, F2, F3, F4, and F5 are of dimensions $2 \\times 25$, $25 \\times 3, 16 \\times 1$, and $1 \\times 1000$, respectively. In the parenthesization of F1F2F3F4F5 that minimizes the total number of scalar multiplications, the explicitly computed pairs are? [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider a matrix multiplication chain F1 F2 F3 F4 F5, where matrices F1, F2, F3, F4, and F5 are of dimensions $2 \\times 25$, $25 \\times 3, 16 \\times 1$, and $1 \\times 1000$, respectively. In the parenthesization of F1F2F3F4F5 that minimizes the total number of scalar multiplications, the explicitly computed pairs are?",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. You are given 10 keys with their corresponding frequencies of access:\nKey (i) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10\nFrequency (f(i)) | 4 | 8 | 15 | 16 | 23 | 42 | 7 | 10 | 12 | 20\nTasks:\nConstruct the Optimal Binary Search Tree (OBST) using Dynamic Programming. Calculate the Cost Matrix and Root Matrix using the given frequencies. Show all intermediate steps and calculations in your solution. Find the minimum average search cost. Draw the final OBST. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "You are given 10 keys with their corresponding frequencies of access:\nKey (i) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10\nFrequency (f(i)) | 4 | 8 | 15 | 16 | 23 | 42 | 7 | 10 | 12 | 20\nTasks:\nConstruct the Optimal Binary Search Tree (OBST) using Dynamic Programming. Calculate the Cost Matrix and Root Matrix using the given frequencies. Show all intermediate steps and calculations in your solution. Find the minimum average search cost. Draw the final OBST.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2025
+}

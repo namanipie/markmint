@@ -1,0 +1,581 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The representation of hexadecimal number (6DE)H is decimal is ________.\n(A) $6*16^2+13*16^1+14*16^0$\n(B) $6*16^2+12*16^1+13*16^0$\n(C) $6*16^2+11*16^1+14*16^0$\n(D) $6*16^2+14*16^1+15*16^0$ [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "The representation of hexadecimal number (6DE)H is decimal is ________.\n(A) $6*16^2+13*16^1+14*16^0$\n(B) $6*16^2+12*16^1+13*16^0$\n(C) $6*16^2+11*16^1+14*16^0$\n(D) $6*16^2+14*16^1+15*16^0$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. 1's complement of $1011101$ is ________.\n(A) $0101110$\n(B) $1001101$\n(C) $0100010$\n(D) $1100101$ [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "1's complement of $1011101$ is ________.\n(A) $0101110$\n(B) $1001101$\n(C) $0100010$\n(D) $1100101$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following gate will give a 0 when both of its inputs are 1?\n(A) AND\n(B) OR\n(C) NAND\n(D) EXOR [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following gate will give a 0 when both of its inputs are 1?\n(A) AND\n(B) OR\n(C) NAND\n(D) EXOR",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. ________ are universal gates.\n(A) NOT\n(B) NAND & NOR\n(C) AND\n(D) NOT, AND & OR [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "________ are universal gates.\n(A) NOT\n(B) NAND & NOR\n(C) AND\n(D) NOT, AND & OR",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. ________ is the sequence of operation performed by CPU in processing an instruction.\n(A) Execute cycle\n(B) Fetch cycle\n(C) Decode\n(D) Instruction cycle [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "________ is the sequence of operation performed by CPU in processing an instruction.\n(A) Execute cycle\n(B) Fetch cycle\n(C) Decode\n(D) Instruction cycle",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. A register capable of shifting its binary information either to the right or the left is called a ________.\n(A) Parallel register\n(B) Serial register\n(C) Shift register\n(D) Storage register [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "A register capable of shifting its binary information either to the right or the left is called a ________.\n(A) Parallel register\n(B) Serial register\n(C) Shift register\n(D) Storage register",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which interrupt services save all the register and flags\n(A) Save interrupt\n(B) Input/output interrupt\n(C) Service interrupt\n(D) Save and service interrupt [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which interrupt services save all the register and flags\n(A) Save interrupt\n(B) Input/output interrupt\n(C) Service interrupt\n(D) Save and service interrupt",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. In multiple bus organization, the registers are collectively placed and referred as ________\n(A) Set registers\n(B) Register file\n(C) Register block\n(D) Map registers [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "In multiple bus organization, the registers are collectively placed and referred as ________\n(A) Set registers\n(B) Register file\n(C) Register block\n(D) Map registers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Which of the following is used for binary multiplication?\n(A) Restoring multiplication\n(B) Booth's algorithm\n(C) Pascal's rule\n(D) Digit-by-digit multiplication [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Which of the following is used for binary multiplication?\n(A) Restoring multiplication\n(B) Booth's algorithm\n(C) Pascal's rule\n(D) Digit-by-digit multiplication",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. According to De-Morgan's theorem: NAND = ________\n(A) Bubbled AND\n(B) Bubbled NOR\n(C) Bubbled XOR\n(D) Bubbled OR [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "According to De-Morgan's theorem: NAND = ________\n(A) Bubbled AND\n(B) Bubbled NOR\n(C) Bubbled XOR\n(D) Bubbled OR",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The sign followed by the string of digits is called as ________.\n(A) Significant\n(B) Determinant\n(C) Mantissa\n(D) Exponent [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "The sign followed by the string of digits is called as ________.\n(A) Significant\n(B) Determinant\n(C) Mantissa\n(D) Exponent",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. In 32 bit representation the scale factor as a range of ________.\n(A) $-128$ to $127$\n(B) $-256$ to $255$\n(C) $0$ to $255$\n(D) $-128$ to $255$ [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "In 32 bit representation the scale factor as a range of ________.\n(A) $-128$ to $127$\n(B) $-256$ to $255$\n(C) $0$ to $255$\n(D) $-128$ to $255$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. What does the RUN signal do?\n(A) It causes the termination of a signal\n(B) It causes a particular signal to performs its operation\n(C) It causes a particular signal to end\n(D) It increments the step counter by one [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "What does the RUN signal do?\n(A) It causes the termination of a signal\n(B) It causes a particular signal to performs its operation\n(C) It causes a particular signal to end\n(D) It increments the step counter by one",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. The disadvantage/s of the hardwired approach is ________.\n(A) It is less flexible\n(B) It cannot be used for complex instructions\n(C) It is costly\n(D) Less flexile and cannot be used for complex instructions [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "The disadvantage/s of the hardwired approach is ________.\n(A) It is less flexible\n(B) It cannot be used for complex instructions\n(C) It is costly\n(D) Less flexile and cannot be used for complex instructions",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. In pipelining each stage is given ________ time for the operation.\n(A) Equal\n(B) Different\n(C) Infinite\n(D) No / zero [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "In pipelining each stage is given ________ time for the operation.\n(A) Equal\n(B) Different\n(C) Infinite\n(D) No / zero",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. The instruction processing unit fetches and decodes ________ and ________ instructions.\n(A) Vector, sub vector\n(B) Pipelines, parallel task\n(C) Scalar, vector\n(D) Pipelines, scalar [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "The instruction processing unit fetches and decodes ________ and ________ instructions.\n(A) Vector, sub vector\n(B) Pipelines, parallel task\n(C) Scalar, vector\n(D) Pipelines, scalar",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. MIMD stands for ________\n(A) Multiple input multiple data\n(B) Memory input multiple data\n(C) Multiple instruction multiple data\n(D) Memory instruction multiple data [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "MIMD stands for ________\n(A) Multiple input multiple data\n(B) Memory input multiple data\n(C) Multiple instruction multiple data\n(D) Memory instruction multiple data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. When the processor is executing in ARM stage, then all instructions are ________ wide.\n(A) $8$ bits\n(B) $16$ bits\n(C) $32$ bits\n(D) $64$ bits [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "When the processor is executing in ARM stage, then all instructions are ________ wide.\n(A) $8$ bits\n(B) $16$ bits\n(C) $32$ bits\n(D) $64$ bits",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The frequency of load / store instruction is around ________.\n(A) $20\\%$\n(B) $10\\%$\n(C) $40\\%$\n(D) $67\\%$ [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The frequency of load / store instruction is around ________.\n(A) $20\\%$\n(B) $10\\%$\n(C) $40\\%$\n(D) $67\\%$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. During a write operation if the required block is not present in the cache then ________ occurs\n(A) Write miss\n(B) Write latency\n(C) Write hit\n(D) Write delay [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "During a write operation if the required block is not present in the cache then ________ occurs\n(A) Write miss\n(B) Write latency\n(C) Write hit\n(D) Write delay",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Differentiate between decimal, binary, octal and hexadecimal. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Differentiate between decimal, binary, octal and hexadecimal.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "",
+              "subquestions": [
+                {
+                  "number": "b.i",
+                  "text": "Subtract $111001_2$ from $101011_2$ using the 1's complement method.",
+                  "marks": 4
+                },
+                {
+                  "number": "ii",
+                  "text": "Subtract $101011_2$ from $111001_2$ using the 2's complement method.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. \n  b.i. Subtract $111001_2$ from $101011_2$ using the 1's complement method. [4]\n  ii. Subtract $101011_2$ from $111001_2$ using the 2's complement method. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "",
+            "subquestions": [
+              {
+                "number": "b.i",
+                "text": "Subtract $111001_2$ from $101011_2$ using the 1's complement method.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Subtract $101011_2$ from $111001_2$ using the 2's complement method.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Give the control sequence for execution of instruction. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Give the control sequence for execution of instruction.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Describe the importance of different addressing modes in computer architecture.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Describe the importance of different addressing modes in computer architecture. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Describe the importance of different addressing modes in computer architecture.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Assume A = $(+8)$ and B = $(+5)$. Multiple these two numbers using booth algorithm show the step-by-step multiplication process. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Assume A = $(+8)$ and B = $(+5)$. Multiple these two numbers using booth algorithm show the step-by-step multiplication process.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Write the IEEE 754 format for representing floating point number in single precision and double precision format represent the decimal number 10.25 using IEEE 754 single precision floating point format.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Write the IEEE 754 format for representing floating point number in single precision and double precision format represent the decimal number 10.25 using IEEE 754 single precision floating point format. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Write the IEEE 754 format for representing floating point number in single precision and double precision format represent the decimal number 10.25 using IEEE 754 single precision floating point format.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Find the complete control sequence for execution of the instruction Add(R3), R1 for the single bus CPU. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Find the complete control sequence for execution of the instruction Add(R3), R1 for the single bus CPU.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Discuss about branch prediction with example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Discuss about branch prediction with example. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Discuss about branch prediction with example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain in detail about MESI protocol with a neat diagram. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain in detail about MESI protocol with a neat diagram.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "The parallel computer architecture adds a new dimension in the development of computer system by using more and more number of processor. In principle, performance of a single processor at a given point of time. Justify and describe the need of parallelism. Compare which types of parallelism is need for the real time scenario.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. The parallel computer architecture adds a new dimension in the development of computer system by using more and more number of processor. In principle, performance of a single processor at a given point of time. Justify and describe the need of parallelism. Compare which types of parallelism is need for the real time scenario. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "The parallel computer architecture adds a new dimension in the development of computer system by using more and more number of processor. In principle, performance of a single processor at a given point of time. Justify and describe the need of parallelism. Compare which types of parallelism is need for the real time scenario.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. An instruction is stores at location 300 with its address field at location 301. The address field has the value 400. A processor register R1 contains the number 200. Evaluate the effective address if the addressing mode of the instruction is. [15]\n  i. direct\n  ii. immediate\n  iii. relative\n  iv. register indirect\n  v. index with R1 as the index register",
+          "structured_content": {
+            "number": "26",
+            "text": "An instruction is stores at location 300 with its address field at location 301. The address field has the value 400. A processor register R1 contains the number 200. Evaluate the effective address if the addressing mode of the instruction is.",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "direct"
+              },
+              {
+                "number": "ii",
+                "text": "immediate"
+              },
+              {
+                "number": "iii",
+                "text": "relative"
+              },
+              {
+                "number": "iv",
+                "text": "register indirect"
+              },
+              {
+                "number": "v",
+                "text": "index with R1 as the index register"
+              }
+            ],
+            "or_alternative": {
+              "number": "27",
+              "text": "Demonstrate the general configuration of micro programmed control unit with a neat block diagram.",
+              "marks": 15
+            }
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Demonstrate the general configuration of micro programmed control unit with a neat block diagram. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Demonstrate the general configuration of micro programmed control unit with a neat block diagram.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

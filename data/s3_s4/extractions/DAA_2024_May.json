@@ -1,0 +1,585 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. _____ of the algorithm is the function defined by the minimum number of steps taken on any instance of size n.\n(A) Worst-case complexity\n(B) Best-case complexity\n(C) Average-case complexity\n(D) Average-best case complexity [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "_____ of the algorithm is the function defined by the minimum number of steps taken on any instance of size n.\n(A) Worst-case complexity\n(B) Best-case complexity\n(C) Average-case complexity\n(D) Average-best case complexity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Compute the time complexity for the following code:\nsum = 0;\nfor (i = 0; i < n; i++)\n  for (j = 0; j < n; j++)\n    sum ++;\n(A) O(n)\n(B) O(n log n)\n(C) O(log n)\n(D) O(n^2) [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Compute the time complexity for the following code:\nsum = 0;\nfor (i = 0; i < n; i++)\n  for (j = 0; j < n; j++)\n    sum ++;\n(A) O(n)\n(B) O(n log n)\n(C) O(log n)\n(D) O(n^2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following is linear asymptotic notations?\n(A) O(1)\n(B) O(log n)\n(C) O(n)\n(D) O(n log n) [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following is linear asymptotic notations?\n(A) O(1)\n(B) O(log n)\n(C) O(n)\n(D) O(n log n)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The master theorem\n(A) Assumes the subproblems are unequal sizes\n(B) Can be used if the subproblems are of equal sizes\n(C) Cannot be used for divide and conquer algorithms\n(D) Cannot be used for asymptotic complexity analysis [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The master theorem\n(A) Assumes the subproblems are unequal sizes\n(B) Can be used if the subproblems are of equal sizes\n(C) Cannot be used for divide and conquer algorithms\n(D) Cannot be used for asymptotic complexity analysis",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Merge sort uses which of the following technique to implement sorting?\n(A) Back tracking\n(B) Greedy algorithm\n(C) Divide and conquer\n(D) Dynamic partitioning [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Merge sort uses which of the following technique to implement sorting?\n(A) Back tracking\n(B) Greedy algorithm\n(C) Divide and conquer\n(D) Dynamic partitioning",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. What is the recurrence relation used in Strassen's matrix multiplication?\n(A) T(n/2) + \\theta(n^2)\n(B) 8T(n/2) + \\theta(n^2)\n(C) 7T(n/2) + O(n^2)\n(D) 8T(n/2) + O(n^2) [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "What is the recurrence relation used in Strassen's matrix multiplication?\n(A) T(n/2) + \\theta(n^2)\n(B) 8T(n/2) + \\theta(n^2)\n(C) 7T(n/2) + O(n^2)\n(D) 8T(n/2) + O(n^2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Find the maximum sub-array sum for the given elements.\n{2, -1, 3, -4, 1, -2, -1, 5, -4}\n(A) 3\n(B) 5\n(C) 8\n(D) 6 [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Find the maximum sub-array sum for the given elements.\n{2, -1, 3, -4, 1, -2, -1, 5, -4}\n(A) 3\n(B) 5\n(C) 8\n(D) 6",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The time taken to find the 'n' points that lie in a convex hull is _____\n(A) O(n)\n(B) O(n log n)\n(C) O(n^2)\n(D) O(log n) [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The time taken to find the 'n' points that lie in a convex hull is _____\n(A) O(n)\n(B) O(n log n)\n(C) O(n^2)\n(D) O(log n)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Using Huffman coding, compute the codeword for character 'a' in the given tree.\n(A) 010\n(B) 100\n(C) 011\n(D) 101 [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Using Huffman coding, compute the codeword for character 'a' in the given tree.\n(A) 010\n(B) 100\n(C) 011\n(D) 101",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which of the following is false in the case of a spanning tree of a graph G?\n(A) It is tree that spans G\n(B) It can be either cyclic or acyclic\n(C) It is a subgraph of G\n(D) It includes every vertex of G [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which of the following is false in the case of a spanning tree of a graph G?\n(A) It is tree that spans G\n(B) It can be either cyclic or acyclic\n(C) It is a subgraph of G\n(D) It includes every vertex of G",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Which of the following can be solved using dynamic programming?\n(A) Merge sort\n(B) Binary search\n(C) Longest common subsequence\n(D) Quick sort [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Which of the following can be solved using dynamic programming?\n(A) Merge sort\n(B) Binary search\n(C) Longest common subsequence\n(D) Quick sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Consider the matrices P, Q and R which are 10x20, 20x30 and 30x40 matrices respectively. What is the minimum number of multiplications required to multiple the three matrices?\n(A) 12000\n(B) 18000\n(C) 24000\n(D) 32000 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Consider the matrices P, Q and R which are 10x20, 20x30 and 30x40 matrices respectively. What is the minimum number of multiplications required to multiple the three matrices?\n(A) 12000\n(B) 18000\n(C) 24000\n(D) 32000",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. What happens when a backtracking algorithm reaches a complete solution?\n(A) It backtracks to the root\n(B) It continues searching for the other possible solutions\n(C) It traverses from a different route\n(D) Recursively traverses through the same route [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "What happens when a backtracking algorithm reaches a complete solution?\n(A) It backtracks to the root\n(B) It continues searching for the other possible solutions\n(C) It traverses from a different route\n(D) Recursively traverses through the same route",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Travelling salesman problem is an example of _____\n(A) Divide and conquer\n(B) Recursive approach\n(C) Dynamic algorithm\n(D) Greedy algorithm [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Travelling salesman problem is an example of _____\n(A) Divide and conquer\n(B) Recursive approach\n(C) Dynamic algorithm\n(D) Greedy algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. A person wants to visit some places. He starts from a vertex and then wants to visit every place connected to this vertex and so on. What algorithm should use?\n(A) Breadth first search\n(B) Depth first search\n(C) Prim's algorithm\n(D) Kruskal's algorithm [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "A person wants to visit some places. He starts from a vertex and then wants to visit every place connected to this vertex and so on. What algorithm should use?\n(A) Breadth first search\n(B) Depth first search\n(C) Prim's algorithm\n(D) Kruskal's algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. In what time can the Hamiltonian path problem can be solved using dynamic programming?\n(A) O(N)\n(B) O(N^2)\n(C) O(N^2 2^N)\n(D) O(N log N) [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "In what time can the Hamiltonian path problem can be solved using dynamic programming?\n(A) O(N)\n(B) O(N^2)\n(C) O(N^2 2^N)\n(D) O(N log N)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What is the purpose of using randomized quick sort over standard quick sort?\n(A) To avoid worst case time complexity\n(B) To avoid worst case space complexity\n(C) To improve average case time complexity\n(D) To improve accuracy of output complexity [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What is the purpose of using randomized quick sort over standard quick sort?\n(A) To avoid worst case time complexity\n(B) To avoid worst case space complexity\n(C) To improve average case time complexity\n(D) To improve accuracy of output complexity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Pick the correct basic principle in Rabin Karp algorithm.\n(A) Sorting\n(B) Augmenting\n(C) Dynamic programming\n(D) Hashing [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Pick the correct basic principle in Rabin Karp algorithm.\n(A) Sorting\n(B) Augmenting\n(C) Dynamic programming\n(D) Hashing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. _____ is the class of decision problems that can be solved by non-deterministic polynomial algorithm.\n(A) NP\n(B) P\n(C) NP-hard\n(D) NP-Complete [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "_____ is the class of decision problems that can be solved by non-deterministic polynomial algorithm.\n(A) NP\n(B) P\n(C) NP-hard\n(D) NP-Complete",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Under what condition any set A will be a subset of B?\n(A) If all elements of set B are also present in set A\n(B) If all elements of set A are also present in set B\n(C) If A contains more elements than B\n(D) If B contains more elements than A [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Under what condition any set A will be a subset of B?\n(A) If all elements of set B are also present in set A\n(B) If all elements of set A are also present in set B\n(C) If A contains more elements than B\n(D) If B contains more elements than A",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Solve the following recurrence relation and compute the time complexity\n  i. T(n) = 2T(n/2) + cn [4]\n  ii. T(n) = 2T(n-1) + c [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Solve the following recurrence relation and compute the time complexity",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "T(n) = 2T(n/2) + cn",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "T(n) = 2T(n-1) + c",
+                "marks": 4
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Write the algorithm of insertion sort and trace the algorithm for the array elements listed below.\narr [ ] = {21, 7, 12, 10, 6, 16, 24}",
+              "marks": 8
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Write the algorithm of insertion sort and trace the algorithm for the array elements listed below.\narr [ ] = {21, 7, 12, 10, 6, 16, 24} [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Write the algorithm of insertion sort and trace the algorithm for the array elements listed below.\narr [ ] = {21, 7, 12, 10, 6, 16, 24}",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Apply mastered theorem and find the time complexity for the following\n  i. T(n) = 3T(n/2) + n^2 [2]\n  ii. T(n) = 4T(n/2) + n^2 [2]\n  iii. T(n) = 16T(n/4) + n [2]\n  iv. T(n) = 2^n T(n/2) + n^5 [2]",
+          "structured_content": {
+            "number": "22",
+            "text": "Apply mastered theorem and find the time complexity for the following",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "T(n) = 3T(n/2) + n^2",
+                "marks": 2
+              },
+              {
+                "number": "ii",
+                "text": "T(n) = 4T(n/2) + n^2",
+                "marks": 2
+              },
+              {
+                "number": "iii",
+                "text": "T(n) = 16T(n/4) + n",
+                "marks": 2
+              },
+              {
+                "number": "iv",
+                "text": "T(n) = 2^n T(n/2) + n^5",
+                "marks": 2
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Illustrate quick sort algorithm for the example given below and explain the time complexity for best case, average case and worst case.\na [ ] = {56, 26, 93, 17, 77, 31, 44, 55, 20}",
+              "marks": 8
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Illustrate quick sort algorithm for the example given below and explain the time complexity for best case, average case and worst case.\na [ ] = {56, 26, 93, 17, 77, 31, 44, 55, 20} [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Illustrate quick sort algorithm for the example given below and explain the time complexity for best case, average case and worst case.\na [ ] = {56, 26, 93, 17, 77, 31, 44, 55, 20}",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Write the greedy fractional knapsack algorithm and solve the following problem using knapsack algorithm,\nNumber of items : 5\nSack capacity : 100\nValue: 20, 30, 66, 40, 60\nWeight: 10, 20, 30, 40, 50 [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Write the greedy fractional knapsack algorithm and solve the following problem using knapsack algorithm,\nNumber of items : 5\nSack capacity : 100\nValue: 20, 30, 66, 40, 60\nWeight: 10, 20, 30, 40, 50",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Construct the longest common subsequence table for the sequence X = {A, B, C, B, D, A, B} and Y = {B, D, C, A, B, A}",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Construct the longest common subsequence table for the sequence X = {A, B, C, B, D, A, B} and Y = {B, D, C, A, B, A} [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Construct the longest common subsequence table for the sequence X = {A, B, C, B, D, A, B} and Y = {B, D, C, A, B, A}",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Write the algorithm for N-queen's problem and illustrate the same with appropriate example for 4x4 board. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Write the algorithm for N-queen's problem and illustrate the same with appropriate example for 4x4 board.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Obtain the transitive closure for the following digraph using Floyd-Warshall algorithm.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Obtain the transitive closure for the following digraph using Floyd-Warshall algorithm. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Obtain the transitive closure for the following digraph using Floyd-Warshall algorithm.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss the following terms with suitable example\n  i. P\n  ii. NP\n  iii. NP-complete\n  iv. NP-Hard problems",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss the following terms with suitable example",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "P",
+                "marks": null
+              },
+              {
+                "number": "ii",
+                "text": "NP",
+                "marks": null
+              },
+              {
+                "number": "iii",
+                "text": "NP-complete",
+                "marks": null
+              },
+              {
+                "number": "iv",
+                "text": "NP-Hard problems",
+                "marks": null
+              }
+            ],
+            "or_alternative": {
+              "number": "25",
+              "text": "What is Hamiltonian cycle? Explain the algorithm to find the Hamiltonian cycle in a given connected graph.",
+              "marks": 8
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. What is Hamiltonian cycle? Explain the algorithm to find the Hamiltonian cycle in a given connected graph. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "What is Hamiltonian cycle? Explain the algorithm to find the Hamiltonian cycle in a given connected graph.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider the following cityscape challenge. Imagine a miniature archipelago of seven islands (lets name them A thro G). The local government want to build bridges between there islands to ensure connectivity. However, the cost of bridge construction varies based on the distance and the terrain between each pair of islands. Apply minimum spanning tree (Prim's / Kruskal's) algorithms and device a optimal solution for the problem. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider the following cityscape challenge. Imagine a miniature archipelago of seven islands (lets name them A thro G). The local government want to build bridges between there islands to ensure connectivity. However, the cost of bridge construction varies based on the distance and the terrain between each pair of islands. Apply minimum spanning tree (Prim's / Kruskal's) algorithms and device a optimal solution for the problem.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. A fruit seller visited a street in a city. He started selling various fruits to people who live there. A buyer bought 1 kg of apple and 2 kgs of oranges for rupees 90 and 70 respectively. The buyer gave 200 rupees to the fruit seller. And he is waiting for the seller to give the remaining amount to him. Seller is having the following denomination of coins with him. Device a subset sum algorithm to help the fruit seller to reader the exact change to the buyer.\nDenominations of coins: 1, 2, 5, 10\nCount of coins: 7, 5, 3, 2 [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "A fruit seller visited a street in a city. He started selling various fruits to people who live there. A buyer bought 1 kg of apple and 2 kgs of oranges for rupees 90 and 70 respectively. The buyer gave 200 rupees to the fruit seller. And he is waiting for the seller to give the remaining amount to him. Seller is having the following denomination of coins with him. Device a subset sum algorithm to help the fruit seller to reader the exact change to the buyer.\nDenominations of coins: 1, 2, 5, 10\nCount of coins: 7, 5, 3, 2",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "UNKNOWN",
+  "year": 2024
+}

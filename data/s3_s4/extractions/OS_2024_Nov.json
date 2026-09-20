@@ -1,0 +1,642 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. To access the services of the operating system, the interface is provided by the _____\nA) Library\nB) System calls\nC) Assembly instructions\nD) API [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "To access the services of the operating system, the interface is provided by the _____\nA) Library\nB) System calls\nC) Assembly instructions\nD) API",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which system call is used by the parent process to wait for the child process to complete?\nA) wait\nB) exec\nC) fork\nD) exit [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which system call is used by the parent process to wait for the child process to complete?\nA) wait\nB) exec\nC) fork\nD) exit",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which scheduler is used to load the processes from secondary memory to main memory?\nA) short-term scheduler\nB) long-term scheduler\nC) medium-term scheduler\nD) CPU scheduler [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which scheduler is used to load the processes from secondary memory to main memory?\nA) short-term scheduler\nB) long-term scheduler\nC) medium-term scheduler\nD) CPU scheduler",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Assume we have an application that is performed 80% in parallel. If we run this application in a system with 4 processing cores, then what will be the speedup?\nA) 1.6 times\nB) 1.8 times\nC) 2.25 times\nD) 2.5 times [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Assume we have an application that is performed 80% in parallel. If we run this application in a system with 4 processing cores, then what will be the speedup?\nA) 1.6 times\nB) 1.8 times\nC) 2.25 times\nD) 2.5 times",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Where are placed the list of processes that are prepared to be executed and waiting?\nA) Job queue\nB) Ready queue\nC) Execution queue\nD) Process queue [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Where are placed the list of processes that are prepared to be executed and waiting?\nA) Job queue\nB) Ready queue\nC) Execution queue\nD) Process queue",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. When two or more process access a shared memory and then try to change the data is called _____\nA) critical session\nB) synchronization\nC) race condition\nD) deadlock [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "When two or more process access a shared memory and then try to change the data is called _____\nA) critical session\nB) synchronization\nC) race condition\nD) deadlock",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. A process executes the following code:\nfor (i = 0; i < n; i++) fork();\nThe total number of processes (including the first Parent Process) is\nA) n\nB) 2^n\nC) 2^(n-1)\nD) 2^(n+1) [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "A process executes the following code:\nfor (i = 0; i < n; i++) fork();\nThe total number of processes (including the first Parent Process) is\nA) n\nB) 2^n\nC) 2^(n-1)\nD) 2^(n+1)",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. ----- is referred to as the collection of data section, text section, stack and memory limits of a process.\nA) process state block\nB) process status block\nC) process control block\nD) process information block [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "----- is referred to as the collection of data section, text section, stack and memory limits of a process.\nA) process state block\nB) process status block\nC) process control block\nD) process information block",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. In multiple-processor scheduling, what is the main challenge associated with Load Balancing?\nA) Overloading a single processor\nB) Minimizing context switches\nC) Distributing the workload evenly across all processors\nD) Ensuring all processors run at the same clock speed [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "In multiple-processor scheduling, what is the main challenge associated with Load Balancing?\nA) Overloading a single processor\nB) Minimizing context switches\nC) Distributing the workload evenly across all processors\nD) Ensuring all processors run at the same clock speed",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which CPU scheduling algorithm can result in \"starvation\" of some processes?\nA) First-Come, First-Served (FCFS)\nB) Shortest Job Next (SJN)\nC) Round Robin (RR)\nD) Multilevel Queue Scheduling [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which CPU scheduling algorithm can result in \"starvation\" of some processes?\nA) First-Come, First-Served (FCFS)\nB) Shortest Job Next (SJN)\nC) Round Robin (RR)\nD) Multilevel Queue Scheduling",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Which of the following is not a necessary condition for a deadlock to occur?\nA) Mutual exclusion\nB) Hold and wait\nC) Preemption\nD) Circular wait [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Which of the following is not a necessary condition for a deadlock to occur?\nA) Mutual exclusion\nB) Hold and wait\nC) Preemption\nD) Circular wait",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. In the context of deadlocks, what is a resource allocation graph used for?\nA) To allocate resources to processes\nB) To detect potential deadlocks\nC) To manage processor scheduling\nD) To determine system throughput [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "In the context of deadlocks, what is a resource allocation graph used for?\nA) To allocate resources to processes\nB) To detect potential deadlocks\nC) To manage processor scheduling\nD) To determine system throughput",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. What is the primary purpose of memory management in an operating system?\nA) To maximize CPU usage\nB) To provide efficient disk usage\nC) To allocate and deallocate memory to processes as needed\nD) To manage user input [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "What is the primary purpose of memory management in an operating system?\nA) To maximize CPU usage\nB) To provide efficient disk usage\nC) To allocate and deallocate memory to processes as needed\nD) To manage user input",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. In paging, what is a page frame?\nA) A variable-size block of logical memory\nB) A fixed-size block of physical memory\nC) A logical segment of memory\nD) A pointer to the next memory page [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "In paging, what is a page frame?\nA) A variable-size block of logical memory\nB) A fixed-size block of physical memory\nC) A logical segment of memory\nD) A pointer to the next memory page",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Which disk scheduling algorithm is designed to minimize the seek time of read/write head movement?\nA) First-Come, First-Served (FCFS)\nB) Shortest Seek Time First (SSTF)\nC) SCAN (Elevator Algorithm)\nD) Round Robin (RR) [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Which disk scheduling algorithm is designed to minimize the seek time of read/write head movement?\nA) First-Come, First-Served (FCFS)\nB) Shortest Seek Time First (SSTF)\nC) SCAN (Elevator Algorithm)\nD) Round Robin (RR)",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What is thrashing in the context of virtual memory management?\nA) The process of swapping pages to disk continuously\nB) The process of executing a page fault from disk continuously\nC) The process of allocating frames to processes\nD) The process of fragmenting memory into non-contiguous sections [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What is thrashing in the context of virtual memory management?\nA) The process of swapping pages to disk continuously\nB) The process of executing a page fault from disk continuously\nC) The process of allocating frames to processes\nD) The process of fragmenting memory into non-contiguous sections",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What is the primary goal of protection in a computer system?\nA) To maximize system performance\nB) To prevent unauthorized access to resources\nC) To enhance system usability\nD) To increase system memory [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What is the primary goal of protection in a computer system?\nA) To maximize system performance\nB) To prevent unauthorized access to resources\nC) To enhance system usability\nD) To increase system memory",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. The Principle of Least Privilege in protection mechanisms ensures that\nA) A user has unlimited access to all resources\nB) A user has limited access to all resources\nC) Only administrators have access to system resources\nD) A user has access to as many resources as possible for flexibility [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "The Principle of Least Privilege in protection mechanisms ensures that\nA) A user has unlimited access to all resources\nB) A user has limited access to all resources\nC) Only administrators have access to system resources\nD) A user has access to as many resources as possible for flexibility",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The Access Matrix model is used to\nA) Allocate CPU time to processes\nB) Represent the set of access rights for each user-object pair in a system\nC) Control physical memory allocation\nD) Encrypt data on a storage device [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The Access Matrix model is used to\nA) Allocate CPU time to processes\nB) Represent the set of access rights for each user-object pair in a system\nC) Control physical memory allocation\nD) Encrypt data on a storage device",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. What is the main purpose of user authentication in computer systems?\nA) To restrict user access to high-memory processes\nB) To verify the identity of a user attempting to access a system\nC) To enhance system performance\nD) To encrypt all user data [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "What is the main purpose of user authentication in computer systems?\nA) To restrict user access to high-memory processes\nB) To verify the identity of a user attempting to access a system\nC) To enhance system performance\nD) To encrypt all user data",
+            "marks": 1,
+            "subquestions": []
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Consider a computing cluster consisting of two nodes running a database. Describe two ways in which the cluster software can manage access to the data on the disk. Discuss the benefits and disadvantages of each. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Consider a computing cluster consisting of two nodes running a database. Describe two ways in which the cluster software can manage access to the data on the disk. Discuss the benefits and disadvantages of each.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "21",
+              "text": "Classify the following applications as batch-oriented or interactive. Justify your answer.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "a",
+                  "text": "Word processing",
+                  "subquestions": []
+                },
+                {
+                  "number": "b",
+                  "text": "Generating monthly bank statements",
+                  "subquestions": []
+                },
+                {
+                  "number": "c",
+                  "text": "Credit card companies' bill generation",
+                  "subquestions": []
+                },
+                {
+                  "number": "ii",
+                  "text": "Differentiate between system call and Library function.",
+                  "subquestions": []
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Classify the following applications as batch-oriented or interactive. Justify your answer. [8]\n  a. Word processing\n  b. Generating monthly bank statements\n  c. Credit card companies' bill generation\n  ii. Differentiate between system call and Library function.",
+          "structured_content": {
+            "number": "21",
+            "text": "Classify the following applications as batch-oriented or interactive. Justify your answer.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Word processing",
+                "subquestions": []
+              },
+              {
+                "number": "b",
+                "text": "Generating monthly bank statements",
+                "subquestions": []
+              },
+              {
+                "number": "c",
+                "text": "Credit card companies' bill generation",
+                "subquestions": []
+              },
+              {
+                "number": "ii",
+                "text": "Differentiate between system call and Library function.",
+                "subquestions": []
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Let us consider a scenario in which a process P1 tries changing data in a particular memory location. At the same time another process P2 tries reading data from the same memory location. [8]\n  i. Mention the rules to be following for preserving data consistency?\n  ii. Explain the solutions for preserving data consistency?",
+          "structured_content": {
+            "number": "22",
+            "text": "Let us consider a scenario in which a process P1 tries changing data in a particular memory location. At the same time another process P2 tries reading data from the same memory location.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Mention the rules to be following for preserving data consistency?"
+              },
+              {
+                "number": "ii",
+                "text": "Explain the solutions for preserving data consistency?"
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Design and describe the activity of the process manager that handles the removal of the running process from the CPU and the selects another process based on any strategy with respect to processes scheduling.",
+              "marks": 8,
+              "subquestions": []
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Design and describe the activity of the process manager that handles the removal of the running process from the CPU and the selects another process based on any strategy with respect to processes scheduling. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Design and describe the activity of the process manager that handles the removal of the running process from the CPU and the selects another process based on any strategy with respect to processes scheduling.",
+            "marks": 8,
+            "subquestions": []
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Consider the following jobs A, B, C, D and E. They arrived at different times as follows 1, 3, 4, 6, and 8. They have estimated running times of 7,6,12,14 and 5 minutes respectively. They have their priorities as 2,1,4,5 and 3 respectively, with 1 being the highest priority. For each of the following scheduling algorithm determine the turnaround time and waiting time of each process. Ignore the time required for context switching overhead. Mention which algorithm results in minimal average turn around time. [8]\n  1. Round Robin\n  2. Priority scheduling",
+          "structured_content": {
+            "number": "23",
+            "text": "Consider the following jobs A, B, C, D and E. They arrived at different times as follows 1, 3, 4, 6, and 8. They have estimated running times of 7,6,12,14 and 5 minutes respectively. They have their priorities as 2,1,4,5 and 3 respectively, with 1 being the highest priority. For each of the following scheduling algorithm determine the turnaround time and waiting time of each process. Ignore the time required for context switching overhead. Mention which algorithm results in minimal average turn around time.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "1",
+                "text": "Round Robin"
+              },
+              {
+                "number": "2",
+                "text": "Priority scheduling"
+              }
+            ],
+            "or_alternative": {
+              "number": "23",
+              "text": "A single processor system has three resource types A, B and C, which are shared by three processes. There are 5 units of each resource type. Consider the following scenario, where the column alloc denotes the number of units of each resource type allocated to each process, and the column request denotes the number of units of each resource type requested by a process in order to complete execution. Which of these processes will finish last?\nalloc request\nABC ABC\nP0 121 103\nP1 201 012\nP2 221 120",
+              "marks": 8,
+              "subquestions": []
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. A single processor system has three resource types A, B and C, which are shared by three processes. There are 5 units of each resource type. Consider the following scenario, where the column alloc denotes the number of units of each resource type allocated to each process, and the column request denotes the number of units of each resource type requested by a process in order to complete execution. Which of these processes will finish last?\nalloc request\nABC ABC\nP0 121 103\nP1 201 012\nP2 221 120 [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "A single processor system has three resource types A, B and C, which are shared by three processes. There are 5 units of each resource type. Consider the following scenario, where the column alloc denotes the number of units of each resource type allocated to each process, and the column request denotes the number of units of each resource type requested by a process in order to complete execution. Which of these processes will finish last?\nalloc request\nABC ABC\nP0 121 103\nP1 201 012\nP2 221 120",
+            "marks": 8,
+            "subquestions": []
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. The memory can be allocated to processes using three different dynamic memory allocation algorithms. They are first fit, best fit and worst fit algorithms. A scenario arises where the six different processes with different sizes should be allocated with available memory holes by the memory allocator. The available memory holes are 720, 112, 345, 412, 505, 245 and 600 sequentially (in KBs). The sizes of the processes are 330, 98, 350, 500, 580 and 680 in KBs respectively. The memory allocator thought of using Best fit or worst fit algorithm. Help the memory allocator to decide the suitable memory allocation algorithm for this scenario. Justify your choice with evident proof to the memory allocator in terms of resultant fragmentation of the above said algorithm. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "The memory can be allocated to processes using three different dynamic memory allocation algorithms. They are first fit, best fit and worst fit algorithms. A scenario arises where the six different processes with different sizes should be allocated with available memory holes by the memory allocator. The available memory holes are 720, 112, 345, 412, 505, 245 and 600 sequentially (in KBs). The sizes of the processes are 330, 98, 350, 500, 580 and 680 in KBs respectively. The memory allocator thought of using Best fit or worst fit algorithm. Help the memory allocator to decide the suitable memory allocation algorithm for this scenario. Justify your choice with evident proof to the memory allocator in terms of resultant fragmentation of the above said algorithm.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "24",
+              "text": "Consider the following page reference string. 1,2,3,4,5,3,4,1,6,7,8,9,7,8,9,5,4,5,4,2. Find the number of page faults for LRU and FIFO page replacement algorithm if number of frames = 4. Explain it and also Calculate the hit and miss ratio.",
+              "marks": 8,
+              "subquestions": []
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Consider the following page reference string. 1,2,3,4,5,3,4,1,6,7,8,9,7,8,9,5,4,5,4,2. Find the number of page faults for LRU and FIFO page replacement algorithm if number of frames = 4. Explain it and also Calculate the hit and miss ratio. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Consider the following page reference string. 1,2,3,4,5,3,4,1,6,7,8,9,7,8,9,5,4,5,4,2. Find the number of page faults for LRU and FIFO page replacement algorithm if number of frames = 4. Explain it and also Calculate the hit and miss ratio.",
+            "marks": 8,
+            "subquestions": []
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the Access Matrix model for access control. What are its components, and how does it enforce security policies in a computer system? Discuss its advantages and limitations. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the Access Matrix model for access control. What are its components, and how does it enforce security policies in a computer system? Discuss its advantages and limitations.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "25",
+              "text": "Describe various types of program threats in computer systems. Provide examples of how these threats can be exploited and discuss the potential impact on system security.",
+              "marks": 8,
+              "subquestions": []
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Describe various types of program threats in computer systems. Provide examples of how these threats can be exploited and discuss the potential impact on system security. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Describe various types of program threats in computer systems. Provide examples of how these threats can be exploited and discuss the potential impact on system security.",
+            "marks": 8,
+            "subquestions": []
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider the following disk request sequence for a disk with 100 tracks 45, 21, 67, 90, 15, 4, 50, 89, 52, 61, 87, 25. Head pointer starting at 50.\n\nCalculate the average seek length using SCAN, C-SCAN, LOOK and C-LOOK scheduling with its explanation. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider the following disk request sequence for a disk with 100 tracks 45, 21, 67, 90, 15, 4, 50, 89, 52, 61, 87, 25. Head pointer starting at 50.\n\nCalculate the average seek length using SCAN, C-SCAN, LOOK and C-LOOK scheduling with its explanation.",
+            "marks": 15,
+            "subquestions": []
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Consider the following snapshot of a system:\nAllocation Max Available\nABCD ABCD ABCD\nT0 0012 0012 1520\nT1 1000 1750\nT2 1354 2356\nT3 0632 0652\nT4 0014 0656\n\nAnswer the following questions using the banker's algorithm: [15]\n  a. What is the content of the matrix Need and explai it.\n  b. Is the system in a safe state , Justify.\n  c. If a request from thread T1 arrives for (0,4,2,0), can the request be granted immediately? Give reason.",
+          "structured_content": {
+            "number": "27",
+            "text": "Consider the following snapshot of a system:\nAllocation Max Available\nABCD ABCD ABCD\nT0 0012 0012 1520\nT1 1000 1750\nT2 1354 2356\nT3 0632 0652\nT4 0014 0656\n\nAnswer the following questions using the banker's algorithm:",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "What is the content of the matrix Need and explai it."
+              },
+              {
+                "number": "b",
+                "text": "Is the system in a safe state , Justify."
+              },
+              {
+                "number": "c",
+                "text": "If a request from thread T1 arrives for (0,4,2,0), can the request be granted immediately? Give reason."
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

@@ -36,7 +36,12 @@ DESCRIPTIONS = {
     20: 'Physics: Mechanics covers Newtonian particle dynamics, rotational mechanics, conservation theorems, harmonic oscillations, gravitation, and continuum mechanical elasticity.',
     21: 'Engineering Mechanics teaches statics and dynamics of rigid bodies, concurrent force equilibrium, structural trusses, friction, centroid/moment of inertia, and kinematic equations of motion.',
     22: 'Probability and Statistics covers probability axioms, random variables, probability density distributions, sampling theory, hypothesis testing, ANOVA, and regression modeling.',
-    23: 'Building Materials in the Built Environment analyzes mechanical properties and testing standards for cement, concrete, aggregates, steel, timber, masonry, and sustainable construction composites.'
+    23: 'Building Materials in the Built Environment analyzes mechanical properties and testing standards for cement, concrete, aggregates, steel, timber, masonry, and sustainable construction composites.',
+    24: 'Data Structures and Algorithms covers linear lists, stacks, queues, trees, binary search trees, AVL trees, hashing, heaps, graph traversals, and shortest path algorithms under SRMIST Regulation 2021.',
+    25: 'Operating Systems covers operating system architecture, process scheduling, interprocess communication, synchronization, deadlocks, virtual memory, paging, page replacement, disk scheduling, and access control under SRMIST Regulation 2021.',
+    26: 'Computer Organization and Architecture covers binary number systems, digital logic gates, functional computer units, addressing modes, 8086 architecture, ALU design, multiplication/division hardware, control unit design, pipelining, and ARM processors under SRMIST Regulation 2021.',
+    27: 'Design and Analysis of Algorithms covers algorithm asymptotic analysis, recurrence relations, divide-and-conquer, greedy algorithms, dynamic programming, backtracking, branch-and-bound, and NP-completeness under SRMIST Regulation 2021.',
+    28: 'Database Management Systems covers relational database modeling, ER diagrams, relational algebra and calculus, SQL queries, normalization (1NF-5NF), transaction management, concurrency control (2PL), recovery protocols, and NoSQL databases under SRMIST Regulation 2021.'
 }
 
 SLUG_MAP = {
@@ -58,11 +63,16 @@ SLUG_MAP = {
     16: ('advanced-calculus-and-complex-analysis', ['acca', '21mab102t', 'sem2-acca', 'advanced-calculus']),
     17: ('object-oriented-design-and-programming', ['oodp', '21csc102j', 'sem2-oodp', 'oop']),
     18: ('electronic-system-and-pcb-design', ['espcb', '21ecc101j', 'sem2-espcb', 'pcb']),
-    19: ('electromagnetic-theory-and-quantum-mechanics', ['emphy', '21pyb101j', 'sem1-emphy', 'electromagnetics']),
-    20: ('physics-mechanics', ['phymech', '21pyb104j', 'sem1-phymech', 'mechanics']),
+    19: ('electromagnetic-theory-and-quantum-mechanics', ['emphy', '21pyb101j', 'sem2-emphy', 'physics']),
+    20: ('physics-mechanics', ['phymech', '18pyb103j', 'sem2-phymech', 'mechanics']),
     21: ('engineering-mechanics', ['engmech', '21meb101t', 'sem2-engmech']),
-    22: ('probability-and-statistics', ['prob', '21mab201t', 'sem2-prob', 'statistics']),
-    23: ('building-materials-in-the-built-environment', ['bldmat', '21ceb101t', 'sem2-bldmat', 'building-materials'])
+    22: ('probability-and-statistics', ['prob', '21mab204t', 'sem2-prob', 'statistics']),
+    23: ('building-materials-in-the-built-environment', ['bldmat', '21ceb102t', 'sem2-bldmat', 'building-materials']),
+    24: ('data-structures-and-algorithms', ['dsa', '21csc201j', 'sem3-dsa', 'data-structures']),
+    25: ('operating-systems', ['os', '21csc202j', 'sem3-os', 'operating-system']),
+    26: ('computer-organization-and-architecture', ['coa', '21css201t', 'sem3-coa', 'computer-architecture']),
+    27: ('design-and-analysis-of-algorithms', ['daa', '21csc204j', 'sem4-daa', 'algorithms']),
+    28: ('database-management-systems', ['dbms', '21csc205p', 'sem4-dbms', 'database'])
 }
 
 CREDITS_MAP = {

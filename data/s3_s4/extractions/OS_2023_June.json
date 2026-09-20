@@ -1,0 +1,607 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Which of the following is not a real time operating system?\n(A) Vx works\n(B) Windows CE\n(C) RT Linux\n(D) Palm OS [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Which of the following is not a real time operating system?\n(A) Vx works\n(B) Windows CE\n(C) RT Linux\n(D) Palm OS",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. If a process is executing in its critical section, then no other processes can be executing in its critical section. This condition is called\n(A) Race condition\n(B) Process exclusion\n(C) Mutual exclusion\n(D) Starvation [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "If a process is executing in its critical section, then no other processes can be executing in its critical section. This condition is called\n(A) Race condition\n(B) Process exclusion\n(C) Mutual exclusion\n(D) Starvation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. A process executes the following code\nfor (i = 0; i < n; i++) fork ();\nHow many child processes will be created?\n(A) n\n(B) 2n\n(C) 2n-1\n(D) 2n+1 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "A process executes the following code\nfor (i = 0; i < n; i++) fork ();\nHow many child processes will be created?\n(A) n\n(B) 2n\n(C) 2n-1\n(D) 2n+1",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The time taken to switch between user and kernel nodes of execution be t2, while the time taken to switch between two processes be t1. Which of the following is true?\n(A) t1 < t2\n(B) t1 > t2\n(C) t1 = t2\n(D) Cannot say any relation between t1 and t2 [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The time taken to switch between user and kernel nodes of execution be t2, while the time taken to switch between two processes be t1. Which of the following is true?\n(A) t1 < t2\n(B) t1 > t2\n(C) t1 = t2\n(D) Cannot say any relation between t1 and t2",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Process synchronization can be done on\n(A) Software level\n(B) Hardware level\n(C) Both hardware and software\n(D) Process level [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Process synchronization can be done on\n(A) Software level\n(B) Hardware level\n(C) Both hardware and software\n(D) Process level",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Peterson solution is restricted to processes that alternate execution between their critical section and remainder section.\n(A) Four\n(B) Two\n(C) Three\n(D) Five [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Peterson solution is restricted to processes that alternate execution between their critical section and remainder section.\n(A) Four\n(B) Two\n(C) Three\n(D) Five",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following is not a condition for deadlock?\n(A) Mutual exclusion\n(B) Hold and wait\n(C) Preemption\n(D) Circular wait [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following is not a condition for deadlock?\n(A) Mutual exclusion\n(B) Hold and wait\n(C) Preemption\n(D) Circular wait",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The number of processes that are completed per unit time is called\n(A) Throughput\n(B) Turnaround time\n(C) Response time\n(D) CPU utilization [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The number of processes that are completed per unit time is called\n(A) Throughput\n(B) Turnaround time\n(C) Response time\n(D) CPU utilization",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What is compaction?\n(A) Technique for overcoming internal fragmentation\n(B) Technique for overcoming external fragmentation\n(C) Technique for overcoming fatal error\n(D) Technique for overcoming page fault [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What is compaction?\n(A) Technique for overcoming internal fragmentation\n(B) Technique for overcoming external fragmentation\n(C) Technique for overcoming fatal error\n(D) Technique for overcoming page fault",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Smaller page tables are implemented as a set of\n(A) Queues\n(B) Stacks\n(C) Counters\n(D) Registers [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Smaller page tables are implemented as a set of\n(A) Queues\n(B) Stacks\n(C) Counters\n(D) Registers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. If there are 32 segments, each of size 1 KB, then the logical address should have bits.\n(A) 13\n(B) 14\n(C) 15\n(D) 16 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "If there are 32 segments, each of size 1 KB, then the logical address should have bits.\n(A) 13\n(B) 14\n(C) 15\n(D) 16",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. A is a continuous virtual memory block with a set length.\n(A) Frame\n(B) Ram block\n(C) Memory frame\n(D) Page [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "A is a continuous virtual memory block with a set length.\n(A) Frame\n(B) Ram block\n(C) Memory frame\n(D) Page",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory\n(A) Virtual memory\n(B) Main memory\n(C) Paging\n(D) Page table [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory\n(A) Virtual memory\n(B) Main memory\n(C) Paging\n(D) Page table",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Page fault occurs when\n(A) The page is in the memory\n(B) The process enters into blocked state\n(C) The process is in ready state\n(D) The page is not in the memory [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Page fault occurs when\n(A) The page is in the memory\n(B) The process enters into blocked state\n(C) The process is in ready state\n(D) The page is not in the memory",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. When a process is swapped in, its pages are not swapped in all at once. Rather they are swapped in only when the process needs then. This method is called\n(A) Busy swapper\n(B) Lazy swapper\n(C) Smart swapper\n(D) Late swapper [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "When a process is swapped in, its pages are not swapped in all at once. Rather they are swapped in only when the process needs then. This method is called\n(A) Busy swapper\n(B) Lazy swapper\n(C) Smart swapper\n(D) Late swapper",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Working set model for page replacement is based on the assumption of\n(A) Random access\n(B) Modularity\n(C) Globalization\n(D) Locality [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Working set model for page replacement is based on the assumption of\n(A) Random access\n(B) Modularity\n(C) Globalization\n(D) Locality",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. The is the additional time for the disk to rotate the desired sector to the disk head.\n(A) Disk arm\n(B) Track\n(C) Cylinder\n(D) Sector [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "The is the additional time for the disk to rotate the desired sector to the disk head.\n(A) Disk arm\n(B) Track\n(C) Cylinder\n(D) Sector",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. The operating system keeps a small table containing information about all open files is called\n(A) Open file table\n(B) System table\n(C) File table\n(D) Directory table [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "The operating system keeps a small table containing information about all open files is called\n(A) Open file table\n(B) System table\n(C) File table\n(D) Directory table",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Free space list cannot be implemented as\n(A) Bit map\n(B) Grouping\n(C) Indexed\n(D) Counting [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Free space list cannot be implemented as\n(A) Bit map\n(B) Grouping\n(C) Indexed\n(D) Counting",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Suppose requests have recently arrived for data on cylinders 25, 46, 12 and 3 in order. The read-write head in currently at cylinder 20. If SSTF scheduling is used, then the requests will be serviced in the order.\n(A) 25, 46, 12, 3\n(B) 25, 46, 3, 12\n(C) 3, 12, 25, 46\n(D) 25, 13, 3, 46 [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Suppose requests have recently arrived for data on cylinders 25, 46, 12 and 3 in order. The read-write head in currently at cylinder 20. If SSTF scheduling is used, then the requests will be serviced in the order.\n(A) 25, 46, 12, 3\n(B) 25, 46, 3, 12\n(C) 3, 12, 25, 46\n(D) 25, 13, 3, 46",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ANY FIVE Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Discuss the role of operating system from different perspective. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Discuss the role of operating system from different perspective.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. What do you mean by operating processes? Describe its four advantages. [4]",
+          "structured_content": {
+            "number": "22",
+            "text": "What do you mean by operating processes? Describe its four advantages.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. What do you mean by PCB? Where it is used? What are its contents? [4]",
+          "structured_content": {
+            "number": "23",
+            "text": "What do you mean by PCB? Where it is used? What are its contents?",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Give difference between job scheduling and CPU scheduling. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "Give difference between job scheduling and CPU scheduling.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. With a neat diagram, discuss the steps involved in handling a page fault. [4]",
+          "structured_content": {
+            "number": "25",
+            "text": "With a neat diagram, discuss the steps involved in handling a page fault.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. What is thrashing? What are the causes of thrashing? [4]",
+          "structured_content": {
+            "number": "26",
+            "text": "What is thrashing? What are the causes of thrashing?",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Differentiate between protection and security in file system. How they are implemented? [4]",
+          "structured_content": {
+            "number": "27",
+            "text": "Differentiate between protection and security in file system. How they are implemented?",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "28",
+          "original_text": "28. Differentiate among the following types of OS by defining their essential properties\n(i) Time sharing (ii) Batch system (iii) Real time (iv) Embedded [12]",
+          "structured_content": {
+            "number": "28",
+            "text": "Differentiate among the following types of OS by defining their essential properties\n(i) Time sharing (ii) Batch system (iii) Real time (iv) Embedded",
+            "marks": 12,
+            "or_alternative": {
+              "number": "28",
+              "text": "Discuss the essential features of the following structure of operating systems\n(i) Monolithic system (ii) Micro kernels (iii) Virtual machines (iv) Layered systems",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Discuss the essential features of the following structure of operating systems\n(i) Monolithic system (ii) Micro kernels (iii) Virtual machines (iv) Layered systems [12]",
+          "structured_content": {
+            "number": "28",
+            "text": "Discuss the essential features of the following structure of operating systems\n(i) Monolithic system (ii) Micro kernels (iii) Virtual machines (iv) Layered systems",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Consider the following processes of CPU burst in milliseconds. All processes arrived at the same time in order P1, P2, P3 and P4\nProcess | Burst time\nP1 | 5\nP2 | 10\nP3 | 2\nP4 | 1\n(i) Draw Gantt chart for SJF and Round Robin (time quantum = 1)\n(ii) Calculate average waiting time\n(iii) Calculate average turnaround time [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "Consider the following processes of CPU burst in milliseconds. All processes arrived at the same time in order P1, P2, P3 and P4\nProcess | Burst time\nP1 | 5\nP2 | 10\nP3 | 2\nP4 | 1\n(i) Draw Gantt chart for SJF and Round Robin (time quantum = 1)\n(ii) Calculate average waiting time\n(iii) Calculate average turnaround time",
+            "marks": 12,
+            "or_alternative": {
+              "number": "29",
+              "text": "Consider the following processes with CPU burst in milliseconds\nProcess | Burst time | Priority\nP1 | 10 | 3\nP2 | 1 | 1\nP3 | 2 | 3\nP4 | 1 | 4\nP5 | 5 | 2\nAssume lower number indicates higher priority. Using priority scheduling (pre-emptive), do the following\n(i) Draw Gantt chart\n(ii) Calculate average waiting time\n(iii) Calculate average turnaround time",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Consider the following processes with CPU burst in milliseconds\nProcess | Burst time | Priority\nP1 | 10 | 3\nP2 | 1 | 1\nP3 | 2 | 3\nP4 | 1 | 4\nP5 | 5 | 2\nAssume lower number indicates higher priority. Using priority scheduling (pre-emptive), do the following\n(i) Draw Gantt chart\n(ii) Calculate average waiting time\n(iii) Calculate average turnaround time [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "Consider the following processes with CPU burst in milliseconds\nProcess | Burst time | Priority\nP1 | 10 | 3\nP2 | 1 | 1\nP3 | 2 | 3\nP4 | 1 | 4\nP5 | 5 | 2\nAssume lower number indicates higher priority. Using priority scheduling (pre-emptive), do the following\n(i) Draw Gantt chart\n(ii) Calculate average waiting time\n(iii) Calculate average turnaround time",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Discuss the following memory allocation technique in detail.\n(i) First fit\n(ii) Best fit\n(iii) Worst fit\n(iv) Next fit [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Discuss the following memory allocation technique in detail.\n(i) First fit\n(ii) Best fit\n(iii) Worst fit\n(iv) Next fit",
+            "marks": 12,
+            "or_alternative": {
+              "number": "30",
+              "text": "Illustrate the paging technique in intel architecture with neat diagram.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Illustrate the paging technique in intel architecture with neat diagram. [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Illustrate the paging technique in intel architecture with neat diagram.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Consider the following page reference string.\n1, 2, 3, 4, 5, 3, 4, 1, 6, 7, 8, 7, 8, 9, 5, 4, 5, 4, 2.\nFind the number of page faults for LRU and FIFO page replacement algorithms. [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Consider the following page reference string.\n1, 2, 3, 4, 5, 3, 4, 1, 6, 7, 8, 7, 8, 9, 5, 4, 5, 4, 2.\nFind the number of page faults for LRU and FIFO page replacement algorithms.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "31",
+              "text": "Discuss the following page replacement algorithm in detail\n(i) Optimal page replacement\n(ii) Most frequently used page replacement",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Discuss the following page replacement algorithm in detail\n(i) Optimal page replacement\n(ii) Most frequently used page replacement [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Discuss the following page replacement algorithm in detail\n(i) Optimal page replacement\n(ii) Most frequently used page replacement",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. Suppose, a disk has 400 cylinders numbered 0 to 399. The driver is currently services a request at cylinder 143 and previous request was to cylinder125. The queue of pending request in FIFO order is 86, 147, 312, 91, 177, 48, 309, 222, 175, 130.\nFind the total cylinder movement for the following scheduling algorithms.\n(i) SSTS\n(ii) SCAN\n(iii) C-SCAN [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "Suppose, a disk has 400 cylinders numbered 0 to 399. The driver is currently services a request at cylinder 143 and previous request was to cylinder125. The queue of pending request in FIFO order is 86, 147, 312, 91, 177, 48, 309, 222, 175, 130.\nFind the total cylinder movement for the following scheduling algorithms.\n(i) SSTS\n(ii) SCAN\n(iii) C-SCAN",
+            "marks": 12,
+            "or_alternative": {
+              "number": "32",
+              "text": "Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

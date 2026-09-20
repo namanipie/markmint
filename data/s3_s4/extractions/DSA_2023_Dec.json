@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "assessment_type": "END_SEM",
+    "year": 2023
+  },
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions (20 x 1 = 20 Marks)",
+      "questions": [
+        {
+          "number": "1",
+          "text": "We can certainly get a conclusion about an algorithm's ___________ scenario from asymptotic analysis.\n(A) best case\n(B) best case, average case, and worst case\n(C) worst case\n(D) average case",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "2",
+          "text": "If 'p' is declared as integer pointer, then an array 'a' can be pointed by the following assignment\n(A) p = &a[0]\n(B) p++\n(C) p = &amp;a[0]\n(D) p == a[0]",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "3",
+          "text": "Which of the following is the correct declaration of self-referential structure?\n(A) struct node* {int data; node *link;}\n(B) struct node {int data; struct node *link;};\n(C) struct node {int data; node *link;}\n(D) struct node* {int data; struct node *link;}",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "4",
+          "text": "How do you initialize an array in C?\n(A) int arr[3] = (1,2,3);\n(B) int arr(3) = {1,2,3};\n(C) int arr[3] = {1,2,3};\n(D) int arr(3) = (1,2,3);",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "5",
+          "text": "Which of the following c code is used to create a new node?\n(A) ptr=(NODE*)malloc(sizeof(NODE));\n(B) ptr=(NODE*)malloc(NODE);\n(C) ptr=(NODE*)malloc(sizeof(NODE*));\n(D) ptr=(NODE)malloc(sizeof(NODE));",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "6",
+          "text": "Which of the following is a practical example of a doubly linked list?\n(A) A browser cookie file\n(B) A quest in a game that lets users retry stages.\n(C) A game in which the player runs forward.\n(D) A first-in-first out scheduling system.",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "7",
+          "text": "Polynomial addition can be implemented using which of the following data structures?\n(A) Linked List\n(B) Trees\n(C) Stacks\n(D) Priority Queue",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "8",
+          "text": "In a Circular linked list organization, insertion of a record involves the modification of\n(A) No pointer\n(B) 1 pointer\n(C) 2 pointer\n(D) 3 pointer",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "9",
+          "text": "The following sequence of operations is performed on stack: PUSH (30), PUSH (40), POP, PUSH (30), PUSH(40), POP, POP, POP, PUSH (40), POP. The sequence of the value popped out is:\n(A) 40,30,40,30,40\n(B) 30,40,40,30,40\n(C) 40,40,30,40,30\n(D) 40,40,30,30,40",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "10",
+          "text": "The ___________ operation displays the topmost value but will not delete it from the stack\n(A) Peek\n(B) Push\n(C) Pop\n(D) Enqueue",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "11",
+          "text": "A circular queue is implemented using an array of size 10. The array index starts with 0, front is 6, and rear is 9. The insertion of next element takes place at the array index.\n(A) 0\n(B) 7\n(C) 9\n(D) 10",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "12",
+          "text": "Which is the most appropriate data structure for reversing a word?\n(A) queue\n(B) stack\n(C) tree\n(D) graph",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "13",
+          "text": "In Binary tree traversing first visit the root node, then left sub tree and right sub tree is called ___________\n(A) Inorder\n(B) Preorder\n(C) Postorder\n(D) Levelorder",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "14",
+          "text": "What is the formula used in quadratic probing?\n(A) Hash key = key mod table size\n(B) Hash key = (hash(x)+F(i)) mod table size\n(C) Hash key = (hash(x)+F(i^2)) mod table size\n(D) H(x) = x mod 17",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "15",
+          "text": "Find the postorder traversal of the binary tree shown below with root P, children Q and R, subtrees S, T, U, V, W, X.\n(A) P Q R S T U V W X\n(B) W R S Q P V T U X\n(C) S W T Q X U V R P\n(D) S T W U X V Q R P",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "16",
+          "text": "Select the correct definition for balancing factor of a tree\n(A) Difference between left subtree and right subtree\n(B) Difference between leaf node and non-leaf node\n(C) Difference between root and degree of a tree\n(D) Difference between height and depth of a tree",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "17",
+          "text": "Select the indegree and outdegree of a node E for the given graph.\n(A) Indegree 1 and Outdegree 1\n(B) Indegree 2 and Outdegree 2\n(C) Indegree: 0, Outdegree: 2\n(D) Indegree: 1, Outdegree: 3",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "18",
+          "text": "A person wants to visit some places. He starts from a vertex and then wants to visit every vertex till it finishes from one vertex, backtracks, and then explores another vertex from the same vertex. What algorithm he should use?\n(A) Depth First Search\n(B) Breadth-First Search\n(C) Trim's algorithm\n(D) Kruskal's Algorithm",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "19",
+          "text": "Identify the number of edges that a completed graph with 'n' vertices have?\n(A) (n*(n-1))/2\n(B) (n*(n+1))/2\n(C) n\n(D) 2n",
+          "marks": 1.0,
+          "subquestions": []
+        },
+        {
+          "number": "20",
+          "text": "A man wants to go different places in the world. He has listed them down all. But there are some places where he wants to visit before some other places. What application of graph can he use to determine that?\n(A) Depth First Search\n(B) Breadth First Search\n(C) Topological Sorting\n(D) Dijkstra's Shortest path algorithm",
+          "marks": 1.0,
+          "subquestions": []
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer any 4 Questions (4 x 10 = 40 Marks)",
+      "questions": [
+        {
+          "number": "21",
+          "text": "a) Find the tight bound of running time of a cubic function. f(n) = 2n^3+3n+6; g(n) = n^3\nb) Prove that 10n^3 + 20n != O(n^2).",
+          "marks": 10.0,
+          "subquestions": []
+        },
+        {
+          "number": "22",
+          "text": "Consider a goods train, which initially has an engine as a header. Later compartments are linked with engines one by one in series. The compartments can be attached or detached with the engine or in between. Implement a data structure for the following operations in the goods train:\n1. Attaching a compartment with the engine\n2. Detaching a compartment from the engine",
+          "marks": 10.0,
+          "subquestions": []
+        },
+        {
+          "number": "23",
+          "text": "Sunil wants to rearrange his expression. He is familiar with the expression in which operator comes between variables. He wants to process the variables first then the operators. Help him to convert the expression given as follows: A+(B*C-(D/E^F)*G)*H.",
+          "marks": 10.0,
+          "subquestions": []
+        },
+        {
+          "number": "24",
+          "text": "Construct a binary search tree for the given data 45,39,56,12,34,78,32,10,89,54,67,81. After constructing the tree, insert the elements 93 and 16 in the tree with proper pseudocode.",
+          "marks": 10.0,
+          "subquestions": []
+        },
+        {
+          "number": "25",
+          "text": "An IT company uses a 3-digit employee ID as a primary key. The employee ID of 10 employees are 100,201,303,405,602,600,702,801,927,829. Consider a hash table of size 10 and insert the employee ID's in the hash table using division method. Apply linear probing method when 2 ID's map to the same location.",
+          "marks": 10.0,
+          "subquestions": []
+        },
+        {
+          "number": "26",
+          "text": "Apply Dijkstra's algorithm to find the shortest path cost from node A to C in the graph with nodes A, B, C, D, E, F and edge weights: (A,B)=2, (A,D)=8, (B,E)=6, (B,D)=5, (D,E)=3, (D,F)=2, (E,C)=9, (E,F)=1, (F,C)=3.",
+          "marks": 10.0,
+          "subquestions": []
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions (1 x 15 = 15 Marks)",
+      "questions": [
+        {
+          "number": "27",
+          "text": "Consider a data structure with the elements 22,32,44,51,65,71,80 which are stored in adjacent memory locations. The element 44 needs to be deleted first and after that you want to insert the data element 92 at the 4th position. Write the appropriate pseudo code to perform the aforementioned operations and provide a pictorial representation of it.",
+          "marks": 15.0,
+          "subquestions": []
+        },
+        {
+          "number": "28",
+          "text": "Harish plans to have a small library at his home. He has lot of books and he wants to assign a unique number to each book. This unique number helps him in identifying the position of the books on the bookshelf. The size of the bookshelf is 10. Help him to place the books in the bookshelf without any collision. The entries are 69,08,39,48,15,77,19 and discuss the collision avoidance strategies.",
+          "marks": 15.0,
+          "subquestions": []
+        }
+      ]
+    }
+  ]
+}

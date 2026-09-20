@@ -3462,8 +3462,8 @@
     "aliases": [
       "emphy",
       "21pyb101j",
-      "sem1-emphy",
-      "electromagnetics"
+      "sem2-emphy",
+      "physics"
     ],
     "name": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
     "code": "SEM1-EMPHY",
@@ -3557,8 +3557,8 @@
     "slug": "physics-mechanics",
     "aliases": [
       "phymech",
-      "21pyb104j",
-      "sem1-phymech",
+      "18pyb103j",
+      "sem2-phymech",
       "mechanics"
     ],
     "name": "Physics: Mechanics",
@@ -3874,7 +3874,7 @@
     "slug": "probability-and-statistics",
     "aliases": [
       "prob",
-      "21mab201t",
+      "21mab204t",
       "sem2-prob",
       "statistics"
     ],
@@ -4031,7 +4031,7 @@
     "slug": "building-materials-in-the-built-environment",
     "aliases": [
       "bldmat",
-      "21ceb101t",
+      "21ceb102t",
       "sem2-bldmat",
       "building-materials"
     ],
@@ -4182,5 +4182,794 @@
     ],
     "mintAiUrl": "/mintai?course=SEM2-BLDMAT",
     "practiceUrl": "/mintai?course=SEM2-BLDMAT&tab=practice"
+  },
+  {
+    "id": 24,
+    "slug": "data-structures-and-algorithms",
+    "aliases": [
+      "dsa",
+      "21csc201j",
+      "sem3-dsa",
+      "data-structures"
+    ],
+    "name": "Data Structures and Algorithms",
+    "code": "SEM3-DSA",
+    "canonicalCode": "21CSC201J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Data Structures and Algorithms covers linear lists, stacks, queues, trees, binary search trees, AVL trees, hashing, heaps, graph traversals, and shortest path algorithms under SRMIST Regulation 2021.",
+    "paperCount": 7,
+    "questionCount": 220,
+    "mappedQuestionCount": 112,
+    "mappingRate": 0.509,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction and Complexity",
+        "topicCount": 4,
+        "topics": [
+          "C Memory Management and Pointers",
+          "Abstract Data Types and Operations",
+          "Asymptotic Complexity and Notations",
+          "Matrix Multiplication and Array Algorithms"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "List Structures and Applications",
+        "topicCount": 6,
+        "topics": [
+          "List ADT and Operations",
+          "Singly Linked List",
+          "Doubly and Circular Linked Lists",
+          "Cursor-Based Implementation of Lists",
+          "Polynomial Arithmetic Using Linked Lists",
+          "Sparse Matrix and Josephus Problem"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Stacks and Queues",
+        "topicCount": 6,
+        "topics": [
+          "Stack ADT and Operations",
+          "Infix to Postfix Conversion and Evaluation",
+          "Balancing Symbols and Recursion Stack",
+          "Queue ADT and Operations",
+          "Circular Queue and Deque",
+          "Priority Queue and Scheduling Applications"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Trees and Hashing",
+        "topicCount": 7,
+        "topics": [
+          "Binary Trees and Tree Traversals",
+          "Binary Search Trees (BST)",
+          "AVL Trees and Rotations",
+          "B-Trees and Multi-Way Trees",
+          "Heaps and Priority Trees",
+          "Hash Functions and Table Structure",
+          "Collision Resolution Techniques"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Graphs and Applications",
+        "topicCount": 4,
+        "topics": [
+          "Graph Representations and Traversals (BFS and DFS)",
+          "Topological Sorting",
+          "Minimum Spanning Tree: Prim's and Kruskal's",
+          "Shortest Path: Dijkstra's Algorithm"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Binary Trees and Tree Traversals",
+        "unitNumber": 4,
+        "questionCount": 11,
+        "paperCount": 6
+      },
+      {
+        "topic": "C Memory Management and Pointers",
+        "unitNumber": 1,
+        "questionCount": 10,
+        "paperCount": 6
+      },
+      {
+        "topic": "Binary Search Trees (BST)",
+        "unitNumber": 4,
+        "questionCount": 8,
+        "paperCount": 5
+      },
+      {
+        "topic": "AVL Trees and Rotations",
+        "unitNumber": 4,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Asymptotic Complexity and Notations",
+        "unitNumber": 1,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Graph Representations and Traversals (BFS and DFS)",
+        "unitNumber": 5,
+        "questionCount": 7,
+        "paperCount": 5
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM3-DSA",
+    "practiceUrl": "/mintai?course=SEM3-DSA&tab=practice"
+  },
+  {
+    "id": 25,
+    "slug": "operating-systems",
+    "aliases": [
+      "os",
+      "21csc202j",
+      "sem3-os",
+      "operating-system"
+    ],
+    "name": "Operating Systems",
+    "code": "SEM3-OS",
+    "canonicalCode": "21CSC202J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Operating Systems covers operating system architecture, process scheduling, interprocess communication, synchronization, deadlocks, virtual memory, paging, page replacement, disk scheduling, and access control under SRMIST Regulation 2021.",
+    "paperCount": 6,
+    "questionCount": 198,
+    "mappedQuestionCount": 99,
+    "mappingRate": 0.5,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction and Operating System Structures",
+        "topicCount": 3,
+        "topics": [
+          "Operating System Services and Architecture",
+          "System Calls and OS Interface",
+          "Operating System Design, Debugging and Booting"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Process Management, Threads and Synchronization",
+        "topicCount": 6,
+        "topics": [
+          "Process Concept and Process Control Block",
+          "Interprocess Communication and Client-Server",
+          "Multithreading Models and Threading Issues",
+          "Critical-Section Problem and Peterson's Solution",
+          "Semaphores, Mutex Locks and Monitors",
+          "Classical Synchronization Problems"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "CPU Scheduling and Deadlocks",
+        "topicCount": 6,
+        "topics": [
+          "CPU Scheduling Criteria and Dispatcher",
+          "CPU Scheduling Algorithms",
+          "Real-Time and Multiprocessor Scheduling",
+          "Deadlock Characterization and Resource Allocation Graph",
+          "Deadlock Prevention and Avoidance",
+          "Deadlock Detection and Recovery"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Memory Management and Storage",
+        "topicCount": 7,
+        "topics": [
+          "Main Memory and Contiguous Memory Allocation",
+          "Paging, Segmentation and TLB",
+          "Virtual Memory and Demand Paging",
+          "Page Replacement Algorithms",
+          "Thrashing and Frame Allocation",
+          "Disk Scheduling Algorithms and RAID",
+          "File System Interface and Implementation"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Protection and Security",
+        "topicCount": 5,
+        "topics": [
+          "Goals and Principles of Protection",
+          "Access Matrix and Access Control",
+          "Program and System Threats",
+          "Cryptography and User Authentication",
+          "Security Defenses and Classifications"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Main Memory and Contiguous Memory Allocation",
+        "unitNumber": 4,
+        "questionCount": 10,
+        "paperCount": 5
+      },
+      {
+        "topic": "Critical-Section Problem and Peterson's Solution",
+        "unitNumber": 2,
+        "questionCount": 7,
+        "paperCount": 4
+      },
+      {
+        "topic": "Disk Scheduling Algorithms and RAID",
+        "unitNumber": 4,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Process Concept and Process Control Block",
+        "unitNumber": 2,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "System Calls and OS Interface",
+        "unitNumber": 1,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Paging, Segmentation and TLB",
+        "unitNumber": 4,
+        "questionCount": 6,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM3-OS",
+    "practiceUrl": "/mintai?course=SEM3-OS&tab=practice"
+  },
+  {
+    "id": 26,
+    "slug": "computer-organization-and-architecture",
+    "aliases": [
+      "coa",
+      "21css201t",
+      "sem3-coa",
+      "computer-architecture"
+    ],
+    "name": "Computer Organization and Architecture",
+    "code": "SEM3-COA",
+    "canonicalCode": "21CSS201T",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Computer Organization and Architecture covers binary number systems, digital logic gates, functional computer units, addressing modes, 8086 architecture, ALU design, multiplication/division hardware, control unit design, pipelining, and ARM processors under SRMIST Regulation 2021.",
+    "paperCount": 4,
+    "questionCount": 128,
+    "mappedQuestionCount": 63,
+    "mappingRate": 0.492,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Number Systems and Logic Gates",
+        "topicCount": 5,
+        "topics": [
+          "Number Systems and Conversions",
+          "Binary Codes and Parity",
+          "Binary Arithmetic and Complements",
+          "Logic Gates and Universal Gates",
+          "Exclusive Gates and Boolean Algebra"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Architectures and Instruction Sets",
+        "topicCount": 5,
+        "topics": [
+          "Functional Units and Operational Concepts",
+          "Bus Structures and Memory Operations",
+          "Instructions and Instruction Sequencing",
+          "Addressing Modes",
+          "Assembly Language and 8086 Case Study"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Design of ALU and Arithmetic Operations",
+        "topicCount": 5,
+        "topics": [
+          "De Morgan's Theorem and Logic Minimization",
+          "Adders and High Speed Addition",
+          "Multiplication Algorithms and Booth's Multiplier",
+          "Division Algorithms: Restoring and Non-Restoring",
+          "IEEE 754 Floating Point Representation and Operations"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Control Unit and Pipelining",
+        "topicCount": 5,
+        "topics": [
+          "Basic Processing Unit and Multiple Bus Organization",
+          "Hardwired Control Unit Design",
+          "Micro-programmed Control Unit Design",
+          "Pipelining Concepts and Performance",
+          "Pipeline Hazards and Mitigation"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Parallelism and ARM Processor",
+        "topicCount": 5,
+        "topics": [
+          "Parallel Processing and Flynn's Classification",
+          "ARM Processor Architecture and CPU Cores",
+          "Thumb Instruction Set and Encoding",
+          "ARM Memory Load-Store and I/O Operations",
+          "ARM 5 and ARM 7 Architecture Case Studies"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Binary Arithmetic and Complements",
+        "unitNumber": 1,
+        "questionCount": 7,
+        "paperCount": 4
+      },
+      {
+        "topic": "Multiplication Algorithms and Booth's Multiplier",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 4
+      },
+      {
+        "topic": "IEEE 754 Floating Point Representation and Operations",
+        "unitNumber": 3,
+        "questionCount": 5,
+        "paperCount": 4
+      },
+      {
+        "topic": "Parallel Processing and Flynn's Classification",
+        "unitNumber": 5,
+        "questionCount": 5,
+        "paperCount": 3
+      },
+      {
+        "topic": "Basic Processing Unit and Multiple Bus Organization",
+        "unitNumber": 4,
+        "questionCount": 4,
+        "paperCount": 3
+      },
+      {
+        "topic": "Functional Units and Operational Concepts",
+        "unitNumber": 2,
+        "questionCount": 4,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM3-COA",
+    "practiceUrl": "/mintai?course=SEM3-COA&tab=practice"
+  },
+  {
+    "id": 27,
+    "slug": "design-and-analysis-of-algorithms",
+    "aliases": [
+      "daa",
+      "21csc204j",
+      "sem4-daa",
+      "algorithms"
+    ],
+    "name": "Design and Analysis of Algorithms",
+    "code": "SEM4-DAA",
+    "canonicalCode": "21CSC204J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Design and Analysis of Algorithms covers algorithm asymptotic analysis, recurrence relations, divide-and-conquer, greedy algorithms, dynamic programming, backtracking, branch-and-bound, and NP-completeness under SRMIST Regulation 2021.",
+    "paperCount": 8,
+    "questionCount": 255,
+    "mappedQuestionCount": 102,
+    "mappingRate": 0.4,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Algorithm Design and Asymptotic Analysis",
+        "topicCount": 5,
+        "topics": [
+          "Algorithm Fundamentals and Correctness",
+          "Time and Space Complexity Analysis",
+          "Asymptotic Notations and Growth Functions",
+          "Recurrence Relations and Substitution Method",
+          "Recursion Tree Method and Mathematical Induction"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Divide and Conquer Paradigms",
+        "topicCount": 5,
+        "topics": [
+          "Binary Search and Maximum Subarray Problem",
+          "Merge Sort, Quick Sort and Order Statistics",
+          "Strassen's Matrix Multiplication",
+          "Master Theorem and Recurrence Proofs",
+          "Geometric Algorithms: Closest Pair and Convex Hull"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Greedy Algorithms and Dynamic Programming",
+        "topicCount": 5,
+        "topics": [
+          "Greedy Paradigm and Huffman Coding",
+          "Fractional Knapsack and Activity Selection",
+          "Minimum Spanning Trees: Kruskal and Prim",
+          "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+          "Longest Common Subsequence and Optimal Binary Search Trees"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Backtracking and Branch and Bound",
+        "topicCount": 5,
+        "topics": [
+          "State Space Trees and Backtracking Principles",
+          "N-Queens and Sum of Subsets Problems",
+          "Graph Coloring and Hamiltonian Cycles",
+          "Branch and Bound Search Strategies",
+          "Travelling Salesperson and 0/1 Knapsack via Branch and Bound"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Randomized Algorithms and NP-Completeness",
+        "topicCount": 5,
+        "topics": [
+          "Randomized Algorithms: Quicksort and String Matching",
+          "Complexity Classes P and NP",
+          "NP-Completeness and NP-Hardness",
+          "Polynomial-Time Reductions",
+          "Approximation Algorithms"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Time and Space Complexity Analysis",
+        "unitNumber": 1,
+        "questionCount": 20,
+        "paperCount": 8
+      },
+      {
+        "topic": "State Space Trees and Backtracking Principles",
+        "unitNumber": 4,
+        "questionCount": 9,
+        "paperCount": 6
+      },
+      {
+        "topic": "Greedy Paradigm and Huffman Coding",
+        "unitNumber": 3,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Minimum Spanning Trees: Kruskal and Prim",
+        "unitNumber": 3,
+        "questionCount": 7,
+        "paperCount": 5
+      },
+      {
+        "topic": "Recurrence Relations and Substitution Method",
+        "unitNumber": 1,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Randomized Algorithms: Quicksort and String Matching",
+        "unitNumber": 5,
+        "questionCount": 6,
+        "paperCount": 5
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM4-DAA",
+    "practiceUrl": "/mintai?course=SEM4-DAA&tab=practice"
+  },
+  {
+    "id": 28,
+    "slug": "database-management-systems",
+    "aliases": [
+      "dbms",
+      "21csc205p",
+      "sem4-dbms",
+      "database"
+    ],
+    "name": "Database Management Systems",
+    "code": "SEM4-DBMS",
+    "canonicalCode": "21CSC205P",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Database Management Systems covers relational database modeling, ER diagrams, relational algebra and calculus, SQL queries, normalization (1NF-5NF), transaction management, concurrency control (2PL), recovery protocols, and NoSQL databases under SRMIST Regulation 2021.",
+    "paperCount": 4,
+    "questionCount": 143,
+    "mappedQuestionCount": 55,
+    "mappingRate": 0.385,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction and Conceptual Data Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Database System Concepts and Architecture",
+          "Data Independence and DBMS Components",
+          "Data Models and Schemas",
+          "Entity Relationship (ER) Model and Diagrams",
+          "Extended ER (EER) Features: Specialization and Generalization"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Relational Data Model and Relational Languages",
+        "topicCount": 5,
+        "topics": [
+          "Relational Model Concepts and Integrity Constraints",
+          "ER-to-Relational Mapping",
+          "Relational Algebra: Selection, Projection and Set Operations",
+          "Relational Algebra: Joins, Division and Aggregate Operations",
+          "Relational Calculus: Tuple and Domain Relational Calculus"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "SQL and Advanced Database Programming",
+        "topicCount": 5,
+        "topics": [
+          "SQL Data Definition (DDL) and Integrity Constraints",
+          "SQL Queries (DML), Joins and Nested Subqueries",
+          "SQL Views, Set Operations and Assertions",
+          "PL/SQL Programming: Blocks, Procedures and Functions",
+          "Cursors, Triggers and Exception Handling in PL/SQL"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Database Design Theory and Normalization",
+        "topicCount": 5,
+        "topics": [
+          "Functional Dependencies and Armstrong's Axioms",
+          "First Normal Form (1NF) and Second Normal Form (2NF)",
+          "Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+          "Multivalued Dependencies and Fourth Normal Form (4NF)",
+          "Join Dependencies, Fifth Normal Form (5NF) and Lossless Decomposition"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Transaction Management, Concurrency Control and Storage",
+        "topicCount": 5,
+        "topics": [
+          "Transaction Concepts and ACID Properties",
+          "Serializability and Schedule Types",
+          "Concurrency Control and Locking Protocols",
+          "Timestamp Protocols and Database Recovery Techniques",
+          "Storage Structures and Introduction to NoSQL Databases"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "SQL Data Definition (DDL) and Integrity Constraints",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 2
+      },
+      {
+        "topic": "Entity Relationship (ER) Model and Diagrams",
+        "unitNumber": 1,
+        "questionCount": 5,
+        "paperCount": 3
+      },
+      {
+        "topic": "Extended ER (EER) Features: Specialization and Generalization",
+        "unitNumber": 1,
+        "questionCount": 5,
+        "paperCount": 3
+      },
+      {
+        "topic": "Transaction Concepts and ACID Properties",
+        "unitNumber": 5,
+        "questionCount": 5,
+        "paperCount": 4
+      },
+      {
+        "topic": "Functional Dependencies and Armstrong's Axioms",
+        "unitNumber": 4,
+        "questionCount": 4,
+        "paperCount": 4
+      },
+      {
+        "topic": "PL/SQL Programming: Blocks, Procedures and Functions",
+        "unitNumber": 3,
+        "questionCount": 4,
+        "paperCount": 2
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM4-DBMS",
+    "practiceUrl": "/mintai?course=SEM4-DBMS&tab=practice"
   }
 ]

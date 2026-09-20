@@ -1,0 +1,687 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The binary equivalent of the decimal number 26.2 is (A) 10010.1101 (B) 11010.0011 (C) 11110.1110 (D) 01110.0011 [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "The binary equivalent of the decimal number 26.2 is (A) 10010.1101 (B) 11010.0011 (C) 11110.1110 (D) 01110.0011",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Find the hexadecimal value for the decimal number 264 (A) 128 (B) 108 (C) 2A1 (D) 761 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Find the hexadecimal value for the decimal number 264 (A) 128 (B) 108 (C) 2A1 (D) 761",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. The 2's complement of the binary number 101101 is (A) 011010 (B) 100010 (C) 001010 (D) 010011 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "The 2's complement of the binary number 101101 is (A) 011010 (B) 100010 (C) 001010 (D) 010011",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Signed 2's complement of -16 in 8-bit representation is (A) 10111011 (B) 10001100 (C) 01110000 (D) 00110101 [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Signed 2's complement of -16 in 8-bit representation is (A) 10111011 (B) 10001100 (C) 01110000 (D) 00110101",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. __________ performs the desired operations on the input information. (A) Arithmetic and logic unit (B) Input unit (C) Output unit (D) Control unit [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "__________ performs the desired operations on the input information. (A) Arithmetic and logic unit (B) Input unit (C) Output unit (D) Control unit",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. __________ convert the information in binary form to a form understood by user. (A) Input unit (B) ALU (C) Output unit (D) Memory unit [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "__________ convert the information in binary form to a form understood by user. (A) Input unit (B) ALU (C) Output unit (D) Memory unit",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. __________ holds the instructions that is currently being executed. (A) Program counter (B) Instruction register (C) Registers (D) Memory address register [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "__________ holds the instructions that is currently being executed. (A) Program counter (B) Instruction register (C) Registers (D) Memory address register",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. __________ operations are required in memory access. (A) Add (B) Move (C) Load and store (D) Halt [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "__________ operations are required in memory access. (A) Add (B) Move (C) Load and store (D) Halt",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. __________ is a combinational logic circuit with two input and two output. (A) Full adder (B) Half adder (C) Multiplexer (D) Decoder [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "__________ is a combinational logic circuit with two input and two output. (A) Full adder (B) Half adder (C) Multiplexer (D) Decoder",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. __________ reduces the number of summands by a factor of 2. (A) Bit pair recoding (B) Binary pair recoding (C) Single bit recoding (D) Multiple bit recoding [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "__________ reduces the number of summands by a factor of 2. (A) Bit pair recoding (B) Binary pair recoding (C) Single bit recoding (D) Multiple bit recoding",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Where does the multiplier operand is stored? (A) Cache (B) Instruction register (C) Program counter (D) Shift register [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Where does the multiplier operand is stored? (A) Cache (B) Instruction register (C) Program counter (D) Shift register",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. How many bits are needed to represent floating point number in a single precision form? (A) 16 (B) 32 (C) 64 (D) 50 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "How many bits are needed to represent floating point number in a single precision form? (A) 16 (B) 32 (C) 64 (D) 50",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. A set of microinstructions for a single machine instruction is called (A) Application program (B) Command (C) Micro program (D) System files [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "A set of microinstructions for a single machine instruction is called (A) Application program (B) Command (C) Micro program (D) System files",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. What approach is used to identify the data dependencies when dealing with software? (A) Operand forwarding (B) Bubbling (C) NOP (D) Wait signal [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "What approach is used to identify the data dependencies when dealing with software? (A) Operand forwarding (B) Bubbling (C) NOP (D) Wait signal",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Branch instruction 'JUMP IF ZERO' is an example of (A) Transferring the control (B) Conditional branch (C) Unconditional branch (D) Arithmetic branch [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Branch instruction 'JUMP IF ZERO' is an example of (A) Transferring the control (B) Conditional branch (C) Unconditional branch (D) Arithmetic branch",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. __________ memory is used in pipelining to increase the memory access speed. (A) Special memory locations (B) Special purpose register (C) Cache (D) Buffers [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "__________ memory is used in pipelining to increase the memory access speed. (A) Special memory locations (B) Special purpose register (C) Cache (D) Buffers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. In __________ parallelism the computer architecture has multiple nodes, multiple CPUs and multiple threads. (A) Processor (B) Memory (C) Control (D) Data [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "In __________ parallelism the computer architecture has multiple nodes, multiple CPUs and multiple threads. (A) Processor (B) Memory (C) Control (D) Data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. __________ is a measure of how many operations can be performed in parallel at the same time. (A) Data parallelism (B) Task level parallelism (C) Instruction level parallelism (D) Transaction level parallelism [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "__________ is a measure of how many operations can be performed in parallel at the same time. (A) Data parallelism (B) Task level parallelism (C) Instruction level parallelism (D) Transaction level parallelism",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Type of computer where a single instruction would operate or execute on multiple data values is called (A) Single instruction and multiple (B) Single instruction and single data stream data stream (C) Multiple instruction and single (D) Multiple instruction and data stream multiple data stream [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Type of computer where a single instruction would operate or execute on multiple data values is called (A) Single instruction and multiple (B) Single instruction and single data stream data stream (C) Multiple instruction and single (D) Multiple instruction and data stream multiple data stream",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. __________ method is used to design the control unit of ARM processor. (A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "__________ method is used to design the control unit of ARM processor. (A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. a. The binary numbers listed have a sign in the leftmost position and if negative are in 2's complement form. Perform the arithmetic operations indicated and verify the answer. [8]\n  i. 101011 + 111000\n  ii. 001110 + 110010\n  iii. 111001 - 001010\n  iv. 101011 - 100110",
+          "structured_content": {
+            "number": "21",
+            "text": "a. The binary numbers listed have a sign in the leftmost position and if negative are in 2's complement form. Perform the arithmetic operations indicated and verify the answer.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "101011 + 111000"
+              },
+              {
+                "number": "ii",
+                "text": "001110 + 110010"
+              },
+              {
+                "number": "iii",
+                "text": "111001 - 001010"
+              },
+              {
+                "number": "iv",
+                "text": "101011 - 100110"
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "b. Draw the graphic symbol, algebraic function and truth table for the following logic gates.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "AND"
+                },
+                {
+                  "number": "ii",
+                  "text": "OR"
+                },
+                {
+                  "number": "iii",
+                  "text": "NAND"
+                },
+                {
+                  "number": "iv",
+                  "text": "EX-OR"
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. b. Draw the graphic symbol, algebraic function and truth table for the following logic gates. [8]\n  i. AND\n  ii. OR\n  iii. NAND\n  iv. EX-OR",
+          "structured_content": {
+            "number": "21",
+            "text": "b. Draw the graphic symbol, algebraic function and truth table for the following logic gates.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "AND"
+              },
+              {
+                "number": "ii",
+                "text": "OR"
+              },
+              {
+                "number": "iii",
+                "text": "NAND"
+              },
+              {
+                "number": "iv",
+                "text": "EX-OR"
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. a. i. Define instructions and data. [2]\n  ii. Write about the operational concepts of the following instructions. [6]\n    i. Add R_0, LOCA\n    ii. Load R_2, LOC\n    iii. Store R_4, LOC",
+          "structured_content": {
+            "number": "22",
+            "text": "a. i. Define instructions and data.",
+            "marks": 2,
+            "subquestions": [
+              {
+                "number": "ii",
+                "text": "Write about the operational concepts of the following instructions.",
+                "marks": 6,
+                "subquestions": [
+                  {
+                    "number": "i",
+                    "text": "Add R_0, LOCA"
+                  },
+                  {
+                    "number": "ii",
+                    "text": "Load R_2, LOC"
+                  },
+                  {
+                    "number": "iii",
+                    "text": "Store R_4, LOC"
+                  }
+                ]
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "b. i. A computer has 32 MB of memory. How many bits are needed to address any single byte in memory?",
+              "marks": 2,
+              "subquestions": [
+                {
+                  "number": "ii",
+                  "text": "Write about the following instruction types with an example.",
+                  "marks": 6,
+                  "subquestions": [
+                    {
+                      "number": "i",
+                      "text": "Data transfer instructions"
+                    },
+                    {
+                      "number": "ii",
+                      "text": "Data manipulation instructions"
+                    },
+                    {
+                      "number": "iii",
+                      "text": "Arithmetic instructions"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "marks": 2.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. b. i. A computer has 32 MB of memory. How many bits are needed to address any single byte in memory? [2]\n  ii. Write about the following instruction types with an example. [6]\n    i. Data transfer instructions\n    ii. Data manipulation instructions\n    iii. Arithmetic instructions",
+          "structured_content": {
+            "number": "22",
+            "text": "b. i. A computer has 32 MB of memory. How many bits are needed to address any single byte in memory?",
+            "marks": 2,
+            "subquestions": [
+              {
+                "number": "ii",
+                "text": "Write about the following instruction types with an example.",
+                "marks": 6,
+                "subquestions": [
+                  {
+                    "number": "i",
+                    "text": "Data transfer instructions"
+                  },
+                  {
+                    "number": "ii",
+                    "text": "Data manipulation instructions"
+                  },
+                  {
+                    "number": "iii",
+                    "text": "Arithmetic instructions"
+                  }
+                ]
+              }
+            ]
+          },
+          "marks": 2.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. a. Write about the 4-bit binary parallel adder/subtractor with its diagram. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "a. Write about the 4-bit binary parallel adder/subtractor with its diagram.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "b. i. What are the advantages of bit pair recoding of multipliers?",
+              "marks": 3,
+              "subquestions": [
+                {
+                  "number": "ii",
+                  "text": "Multiply (+13) \u00d7 (-6) by using bit pair recoding method.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. b. i. What are the advantages of bit pair recoding of multipliers? [3]\n  ii. Multiply (+13) \u00d7 (-6) by using bit pair recoding method. [5]",
+          "structured_content": {
+            "number": "23",
+            "text": "b. i. What are the advantages of bit pair recoding of multipliers?",
+            "marks": 3,
+            "subquestions": [
+              {
+                "number": "ii",
+                "text": "Multiply (+13) \u00d7 (-6) by using bit pair recoding method.",
+                "marks": 5
+              }
+            ]
+          },
+          "marks": 3.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. a. What are the control signals generated by control unit to execute [8]\n  i. Add (R_3), R_1\n  ii. Unconditional branching",
+          "structured_content": {
+            "number": "24",
+            "text": "a. What are the control signals generated by control unit to execute",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Add (R_3), R_1"
+              },
+              {
+                "number": "ii",
+                "text": "Unconditional branching"
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "b.i. Define control word, control variables, microinstructions and microprogram.",
+              "marks": 4,
+              "subquestions": [
+                {
+                  "number": "ii",
+                  "text": "What is the format of a microinstruction and explain its fields briefly with diagram.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. b.i. Define control word, control variables, microinstructions and microprogram. [4]\n  ii. What is the format of a microinstruction and explain its fields briefly with diagram. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "b.i. Define control word, control variables, microinstructions and microprogram.",
+            "marks": 4,
+            "subquestions": [
+              {
+                "number": "ii",
+                "text": "What is the format of a microinstruction and explain its fields briefly with diagram.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": 4.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. a. Write in detail about any two types of software parallelism. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "a. Write in detail about any two types of software parallelism.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "b. Explain about the cache coherence problem and give solutions for this problem.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. b. Explain about the cache coherence problem and give solutions for this problem. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "b. Explain about the cache coherence problem and give solutions for this problem.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Explain the procedure of constructing a fast adder, carry look-ahead adder with its diagram. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Explain the procedure of constructing a fast adder, carry look-ahead adder with its diagram.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Explain floating point arithmetic addition / subtraction with its flow chart. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Explain floating point arithmetic addition / subtraction with its flow chart.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

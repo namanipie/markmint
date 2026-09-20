@@ -1,0 +1,473 @@
+﻿=== COA_page_1.png ===
+Based on the provided syllabus page, here is the extracted information:
+
+* **Course Code:** 21CSS201T
+* **Course Title:** COMPUTER ORGANIZATION AND ARCHITECTURE
+
+---
+
+### **Units and Topics**
+
+* **Unit-1 � Introduction to Number System**
+  * **Topics:** Introduction to Number System and Logic Gates: Number Systems- Binary, Decimal, Octal, Hexadecimal; Codes- Grey, BCD, Excess-3, ASCII, Parity, Binary Arithmetic- Addition, Subtraction, Multiplication, Division using Sign Magnitude,1�s compliment, 2�s compliment, BCD Arithmetic; Logic Gates-AND, OR, NOT, NAND, NOR, EX-OR, EX-NOR.
+
+* **Unit-2 � Architectures**
+  * **Topics:** Basic structure of computers: Functional Units of a computer, Operational concepts, Bus structures, Memory addresses and operations, assembly language, Instructions, Instruction sequencing, Addressing modes. Case study: 8086.
+
+* **Unit-3 � Design of ALU**
+  * **Topics:** De Morgan�s Theorem, Adders, Multiplier � Unsigned, Signed, Fast, Carry Save Addition of summands; Division-Restoring and Non-Restoring; IEEE 754 Floating point numbers and operations
+
+* **Unit-4 � Control Unit**
+  * **Topics:** Basic processing unit, ALU operations, Instruction execution, Branch instruction, Multiple bus organization, Hardwired control, Hardwired control, Generation of control signals, Micro-programmed control; Pipelining: Basic concepts of pipelining, Performance, Hazards-Data, Instruction and Control, Influence on instruction sets.
+
+* **Unit-5 � Parallelism**
+  * **Topics:** Need, types, applications and challenges, Architecture of Parallel Systems-Flynn�s classification; ARM Processor: The thumb instruction set, Processor and CPU cores, Instruction Encoding format, Memory load and Store instruction, Basics of I/O operations. Case study: ARM 5 and ARM 7 Architecture.
+
+==================================================
+
+=== COA_page_2.png ===
+Based on the provided image, here is the extracted information:
+
+*   **Course Code:** Not visible on this specific page.
+*   **Course Title:** Not explicitly displayed as a single course title, but the learning resources and headers indicate subjects related to **Computer Organization and Architecture** (e.g., *Computer Organization and Architecture, 5th ed., McGraw-Hill, 2015*; *Computer Architecture and Parallel Processing*, etc.).
+
+---
+
+### **Learning Assessment Mapping Table Data**
+
+The image displays a continuous learning assessment and curriculum mapping table based on Bloom's Taxonomy rather than a standard topic-by-topic unit syllabus. Here is the breakdown of the table structure shown:
+
+#### **Bloom's Level of Thinking Breakdown (Percentages across assessments):**
+
+*   **Level 1 (Remember):**
+    *   Formative CLA-1 (Theory): 30%
+    *   Life-Long Learning CLA-2 (Theory): 30%
+    *   Summative Final Examination (Theory): 30%
+    *   *Practice:* - (None)
+
+*   **Level 2 (Understand):**
+    *   Formative CLA-1 (Theory): 30%
+    *   Life-Long Learning CLA-2 (Theory): 30%
+    *   Summative Final Examination (Theory): 30%
+    *   *Practice:* - (None)
+
+*   **Level 3 (Apply):**
+    *   Formative CLA-1 (Theory): 20%
+    *   Life-Long Learning CLA-2 (Theory): 20%
+    *   Summative Final Examination (Theory): 20%
+    *   *Practice:* - (None)
+
+*   **Level 4 (Analyze):**
+    *   Formative CLA-1 (Theory): 20%
+    *   Life-Long Learning CLA-2 (Theory): 20%
+    *   Summative Final Examination (Theory): 20%
+    *   *Practice:* - (None)
+
+*   **Level 5 (Evaluate):**
+    *   *Values:* - (None specified)
+
+*   **Level 6 (Create):**
+    *   *Values:* - (None specified)
+
+*   **Total Weightage:**
+    *   Formative CLA-1 (50%): Theory 100%
+    *   Life-Long Learning CLA-2 (10%): Theory 100%
+    *   Summative Final Examination (40%): Theory 100%
+
+---
+
+### **Learning Resources (Verbatim)**
+
+1. Carl Hamacher, Zvonko Vranesic, Safwat Zaky, "Computer Organization", 5th ed., McGraw-Hill, 2015.
+2. Kai Hwang, Faye A. Briggs, "Computer Architecture and Parallel Processing", 3rd ed., McGraw Hill, 2016.
+3. Ghosh T. K., "Computer Organization and Architecture", 3rd ed., Tata McGraw-Hill, 2011.
+4. P. Hayes, "Computer Architecture and Organization", 3rd ed., McGraw Hill, 2015.
+5. William Stallings, "Computer Organization and Architecture - Designing for Performance", 10th ed., Pearson Education, 2015.
+6. David A. Patterson and John L. Hennessy, "Computer Organization and Design - A Hardware software interface", 5th ed., Morgan Kaufmann, 2014.
+
+---
+
+### **Course Designers / Experts**
+
+*   **Experts from Industry:**
+    1. Mr. Saminath Sanjai, Borgs Technologies, Inc. Bengaluru
+*   **Internal Experts:**
+    1. Dr. K. Vijaya, SRMIST
+    2. Dr. Anitha D., SRMIST
+
+==================================================
+
+=== DAA_page_1.png ===
+Based on the syllabus page provided, here is the extracted information:
+
+*   **Course Code:** Not visible on this specific page (although footer indicates B.Tech / M.Tech - Regulations 2021-Volume-11-CSE-Higher Semester Syllabi-Control Copy, and the page number is 19).
+*   **Course Title:** Formal and Symbolic Programming Paradigm (implied by the Unit-5 header).
+
+---
+
+### **Unit-5**
+
+*   **Unit Name:** Formal and Symbolic Programming Paradigm
+*   **Topics / Subtopics (Verbatim):**
+    1. Automata Based programming Paradigm: Finite Automata � DFA and NFA
+    2. Implementing using Automaton Library
+    3. Symbolic Programming Paradigm: Algebraic manipulations and calculus
+    4. Sympy Library
+    5. Event Programming Paradigm: Event Handler
+    6. Trigger functions and Events � Tkinter Library
+    7. Develop a python-based project dissertation based on the programming paradigm.
+
+==================================================
+
+=== DAA_page_2.png ===
+Based on the syllabus page provided, here is the extracted information:
+
+*   **Course Code:** 21CSC204J
+*   **Course Name:** DESIGN AND ANALYSIS OF ALGORITHMS
+
+---
+
+### **Unit-1: Introduction to Algorithm Design**
+**Topics/Subtopics (Verbatim):**
+* Fundamentals of Algorithms
+* Correctness of algorithm
+* Time complexity analysis
+* Insertion sort-line count
+* Operation count
+* Algorithm Design paradigms
+* Designing an algorithm and its analysis-Best, Worst and Average case
+* Asymptotic notations Based on growth functions
+* $O, O, \Theta, \omega, \Omega$
+* Mathematical analysis - Induction
+* Recurrence relations
+* Solution of recurrence relations - Substitution method
+* Solution of recurrence relations - Recursion Tree
+* Solution of recurrence relations - examples
+
+---
+
+### **Unit-2: Divide and Conquer**
+**Topics/Subtopics (Verbatim):**
+* Maximum Subarray Problem
+* Binary Search
+* Complexity of binary search
+* Merge sort
+* Time complexity analysis
+* Quick sort and its Time complexity analysis
+* Best case, Worst case, Average case analysis
+* Strassen�s Matrix multiplication and its recurrence relation
+* Time complexity analysis of Merge sort
+* Largest sub-array sum
+* Largest sub-array sum - Master Theorem Proof
+* Master theorem examples
+* Finding Maximum and Minimum in an array
+* Time complexity analysis-Examples
+* Algorithm for finding closest pair problem
+* Convex Hull problem
+
+---
+
+### **Unit-3: Greedy and Dynamic Programming**
+**Topics/Subtopics (Verbatim):**
+* Examples of problems that can be solved by using greedy and dynamic approach
+* Huffman coding using greedy approach
+* Comparison of brute force and Huffman method of encoding
+* Knapsack problem using greedy approach
+* Complexity derivation of knapsack using greedy
+* Tree traversals
+* Minimum spanning tree � greedy Kruskal�s algorithm
+* Greedy - Minimum spanning tree - Prims algorithm
+* Introduction to dynamic programming - 0/1 knapsack problem
+* Complexity calculation of knapsack problem
+* Matrix chain multiplication using dynamic programming
+* Complexity of matrix chain multiplication
+* Longest common subsequence using dynamic programming
+* Explanation of LCS with an example
+* Optimal binary search tree (OBST) using dynamic programming
+* Explanation of OBST with an example
+
+---
+
+*(Note: Units 4 and 5 are not explicitly separated or presented on this specific page layout, as the syllabus text groups the course content under Units 1, 2, and 3 with expanded detail).*
+
+==================================================
+
+=== DBMS_page_1.png ===
+Based on the provided syllabus page, here is the extracted information:
+
+*   **Course Code:** 21CSC205P
+*   **Course Title:** DATABASE MANAGEMENT SYSTEMS
+
+---
+
+### **Units & Topics (Verbatim from the syllabus):**
+
+*   **Unit-1: Introduction**
+    *   Issues in File Processing System
+    *   Need for DBMS
+    *   Basic terminologies of Database
+    *   Database system Architecture
+    *   Various Data models
+    *   ER diagram basics and extensions
+    *   Case study: Construction of Database design using Entity Relationship diagram for an application such as University Database, Banking System, Information System
+
+*   **Unit-2: Relational DBMS**
+    *   Conversion of ER model to Relational Table
+    *   Case study: Apply conversion concept
+    *   Discussion of various design issues
+    *   Pitfalls in Relational Database systems
+    *   Understanding various Relational languages such as Tuple Relational calculus, Domain relational calculus, Calculus Vs Algebra, Computational capabilities
+    *   Case Study: Applying Relational Algebra for all the queries of application Designed.
+
+*   **Unit-3: SQL**
+    *   SQL commands
+    *   Constraints
+    *   Joins
+    *   set operations
+    *   Sub queries
+    *   Views
+    *   PL � SQL
+    *   Triggers
+    *   Cursors
+    *   Case Study: Implement all the queries using SQL, PL-SQL, Cursor and Triggers
+
+*   **Unit-4: Normalization**
+    *   Normalization
+    *   Need for Normalization
+    *   NF1, NF2, NF3, NF4, NF5
+    *   Case study: Apply Conversion rules and normalize the Database
+
+*   **Unit-5: Concurrency Control**
+    *   Storage Structure
+    *   Transaction control
+    *   Concurrency control algorithms
+    *   Issues In Concurrent execution
+    *   Failures and Recovery algorithms
+    *   Case study: Demonstration of Entire project by applying all the concepts learnt with minimum Front end requirements, NoSQL Databases-Document Oriented, Key value pairs, Column Oriented and Graph
+
+==================================================
+
+=== DBMS_page_2.png ===
+Based on the provided syllabus page image, here is the extracted information:
+
+---
+
+### **Header Information**
+* **Page Number at Bottom Right:** `23`
+* **Footer:** `B.Tech / M.Tech (Integrated) Programmes-Regulations 2021-Volume-11-CSE-Higher Semester Syllabi-Control Copy`
+
+---
+
+### **Learning Assessment Table Structure**
+*(This page outlines the continuous learning assessment scheme mapped to Bloom's Taxonomy levels rather than traditional text units)*
+
+* **Formative Assessment (CLA-1 Average of unit test - 20%):**
+  * **Level 1 (Remember):** Theory (20%), Practice (-)
+  * **Level 2 (Understand):** Theory (40%), Practice (-)
+  * **Level 3 (Apply):** Theory (40%), Practice (-)
+  * **Level 4 (Analyze):** Theory (-), Practice (-)
+  * **Level 5 (Evaluate):** Theory (-), Practice (-)
+  * **Level 6 (Create):** Theory (-), Practice (-)
+  * **Total:** Theory (100%), Practice (-)
+
+* **Project Based Learning (CLA-2 - 60%):**
+  * **Level 3 (Apply):** Theory (-), Practice (30%)
+  * **Level 4 (Analyze):** Theory (-), Practice (30%)
+  * **Level 5 (Evaluate):** Theory (-), Practice (40%)
+  * **Total:** Theory (-), Practice (100%)
+
+* **Report and Viva Voce (20% weightage):**
+  * **Level 5 (Evaluate):** Theory (-), Practice (50%)
+  * **Level 6 (Create):** Theory (-), Practice (50%)
+  * **Total:** Theory (-), Practice (100%)
+
+* **Final Examination (0% weightage):**
+  * All levels list `-` (No final exam component listed on this page).
+
+---
+
+### **Learning Resources (Textbooks / References)**
+1. Abraham Silberschatz, Henry F. Korth, S. Sudharshan, **Database System Concepts**, Seventh Edition, Tata McGraw Hill, 2019.
+2. Ramez Elmasri, Shamkant B. Navathe, **Fundamentals of Database Systems**, Sixth Edition, Pearson Education, 2011.
+3. C.J Date, A Kannan, S Swamynathan, **An Introduction to Database Systems**, Eight Edition, Pearson Education, 2006.
+4. RaghuramaKrishnan, Johannes Gehrke, **Database Management Systems**, 3rdEdition, McGrawHill Education, 2003.
+5. **Principles of Database Systems**, J.D. Ullman, Galgoti, 1982
+6. **NoSQL Distilled, A brief guide to the emerging world of Polygot persistence**, First Edition, Promod J,Sadalage Martin Fowler, 2012
+
+---
+
+### **Course Designers & Experts**
+
+* **Experts from Industry:**
+  1. Ms. Sangeetha Jayaprakash, Database Architect, BOSCH India
+  2. Dr. M. Manipoonchelvi, Senior Technical Manager, HCL Technologies
+
+* **Experts from Higher Technical Institutions:**
+  1. Dr. J. Sheeba Rani, Indian Institute of Space Science and Technology, Trivandrum
+  2. Dr. K. Nandhini, Central University of Thiruvarur
+
+* **Internal Experts:**
+  1. Dr. M. Thenmozhi, SRIMIST
+  2. Ms. K. Srividya, SRMIST
+
+*(Note: Course Code, Course Title, and traditional Unit breakdowns with subtopics are not present on this specific page fragment).*
+
+==================================================
+
+=== DSA_page_1.png ===
+Based on the syllabus page provided, here is the extracted information:
+
+* **Course Code:** 21CSCSC201J
+* **Course Title:** DATA STRUCTURES AND ALGORITHMS
+
+---
+
+### **Unit-1: Introduction**
+* **Topics:**
+  * Programming in C
+  * Primitive data types
+  * Structures
+  * Self-referential structures
+  * Pointers and structures
+  * Dynamic memory allocation
+  * Matrix multiplication
+  * Data Structure � Definition, Types, ADT, Operations
+  * Mathematical notations � Big O, Omega and Theta
+  * Complexity � Time, Space, Trade off
+
+---
+
+### **Unit-2: List Structure**
+* **Topics:**
+  * Operations on List ADT � Create, Insert, Search, Delete, Display elements
+  * Implementation of List ADT � Array, Cursor based and Linked
+  * Types � Singly, Doubly, Circular
+  * Applications � Sparse Matrix, Polynomial Arithmetic, Joseph Problem
+
+---
+
+### **Unit-3: Stack and Queue**
+* **Topics:**
+  * Operations on Stack ADT � Create, Push, Pop, Top
+  * Implementation of Stack ADT � Array and Linked
+  * Applications � Infix to Postfix Conversion, Postfix Evaluation, Balancing symbols, Function Calls, Tower of Hanoi
+  * Operations on Queue ADT � Create, Enqueue and Dequeue
+  * Implementation of Queue ADT � Array and Linked
+  * Types of Queue � Circular, Double ended and Priority Queue
+  * Applications � Scheduling
+
+---
+
+### **Unit-4: Trees and Hashing**
+* **Topics:**
+  * Introduction to Trees
+  * Tree traversals
+  * Complete Binary Tree and its height
+  * Binary Search Trees
+  * Need for Balance
+  * Rotation
+  * AVL trees
+  * B Trees, heaps and array implementations and applications
+  * Hash functions � Introduction, functions
+  * Collision avoidance
+  * Separate chaining
+  * Open Addressing
+  * Linear Probing
+  * Quadratic probing
+
+---
+
+### **Unit-5: Graph**
+* **Topics:**
+  * Introduction to Graph
+  * Graph Traversal
+  * Topological sorting
+  * Minimum spanning tree � Prims Algorithm, Kruskal�s Algorithm
+  * Shortest Path Algorithm � Dijkstra�s Algorithm
+
+==================================================
+
+=== DSA_page_2.png ===
+Based on the provided syllabus page, here is the extracted information:
+
+* **Course Code:** Not visible on this specific page (the page is numbered 15 at the bottom right).
+* **Course Title:** Not explicitly stated as a single course title heading, but the reference textbooks point to a course in **Data Structures and Algorithms**.
+
+---
+
+### **Lab Experiments**
+*(Listed instead of standard theory units on this page)*
+
+* **Lab 1:** Implementation of Structures
+* **Lab 2:** Implementation of Structures using Pointers
+* **Lab 3:** Implementation of Matrix Multiplication � Dynamic Memory allocation
+* **Lab 4:** Array Implementation of List
+* **Lab 5:** Implementation of Linked List
+* **Lab 6:** Implementation of Doubly linked List
+* **Lab 7:** Implementation of Stack using array and Linked List
+* **Lab 8:** Implementation of Queue using array and Linked list
+* **Lab 9:** Applications of Stack, Queue
+* **Lab 10:** Implementation of Tree using array
+* **Lab 11:** Implementation of BST using linked list
+* **Lab 12:** Implementation of B-Trees
+* **Lab 13:** Implementation of Graph using Array
+* **Lab 14:** Implementation of Shortest path Algorithm
+* **Lab 15:** Implementation of Minimal Spanning Tree
+
+==================================================
+
+=== OS_page_1.png ===
+Based on the syllabus page provided, here is the extracted information:
+
+*   **Course Code:** 21CSC202J
+*   **Course Title:** OPERATING SYSTEMS
+
+---
+
+### **Units and Topics**
+
+#### **Unit-1 - Introduction**
+*   **Topics:** Computer-System Organization, Computer-System Architecture, Operating-System Structure, Operating-System Operations, Process Management, Memory Management, Storage Management, Protection and Security, Kernel Data Structures, Computing Environments, Open-Source Operating Systems, Operating-System Services, User and Operating-System Interface, System Calls, Types of System Calls, System Programs, Operating-System Design and Implementation, Operating-System Structure, Operating-System Debugging, Operating-System Generation, System Boot.
+
+#### **Unit-2 - Process Management**
+*   **Topics:** Process Concept, Process Scheduling, Operations on Processes, Interprocess Communication, Communication in Client- Server Systems, Threads: Multicore Programming, Multithreading Models, Thread Libraries, Implicit Threading, Threading Issues. Process Synchronization: The Critical-Section Problem, Peterson�s Solution, Synchronization Hardware, Mutex Locks, Semaphores, Classic Problems of Synchronization, Monitors.
+
+#### **Unit-3 - CPU Scheduling**
+*   **Topics:** Basic Concepts, Scheduling Criteria, Scheduling Algorithms, Thread Scheduling, Multiple-Processor Scheduling, Real-Time CPU Scheduling. Deadlocks: System Model, Deadlock Characterization, Methods for Handling Deadlocks, Deadlock Prevention, Deadlock Avoidance, Deadlock Detection, Recovery from Deadlock.
+
+#### **Unit-4 - Memory Management**
+*   **Topics:** Main Memory, Swapping, Contiguous Memory Allocation, Segmentation, Paging, Structure of the Page Table. Virtual Memory: Introduction, Demand Paging, Copy-on-Write, Page Replacement, Allocation of Frames, Thrashing, Memory-Mapped Files, Allocating Kernel Memory. STORAGE MANAGEMENT: Disk Structure, Disk Attachment, Disk Scheduling, Disk Management, Swap-Space Management, RAID Structure. File-System Interface: File Concept, Access Methods, Directory and Disk Structure, File-System Mounting, File Sharing, Protection.
+
+==================================================
+
+=== OS_page_2.png ===
+Based on the provided syllabus page, here is the extracted information:
+
+*   **Course Code:** Not explicitly stated in the header of this specific page (Page header indicates part of a larger document: "B.Tech / M.Tech (Integrated) Programmes-Regulations 2021-Volume-11-CSE-Higher Semester Syllabi-Control Copy").
+*   **Course Title:** Protection and Security
+
+---
+
+### **Unit-5**
+*   **Unit Name:** Protection and Security
+*   **Topics / Subtopics (Verbatim):**
+    *   Goals of Protection
+    *   Principles of Protection
+    *   Domain of Protection
+    *   Access Matrix
+    *   Implementation of the Access Matrix
+    *   Access Control
+    *   Revocation of Access Rights
+    *   Capability-Based Systems
+    *   Language-Based Protection
+    *   The Security Problem
+    *   Program Threats
+    *   System and Network Threats
+    *   Cryptography as a Security Tool
+    *   User Authentication
+    *   Implementing Security Defenses
+    *   Firewalling to Protect Systems and Networks
+    *   Computer-Security Classifications
+
+==================================================
+

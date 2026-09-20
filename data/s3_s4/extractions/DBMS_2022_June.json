@@ -1,0 +1,617 @@
+{
+  "sections": [
+    {
+      "name": "PART A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Database is a\n(A) Collection of inter related data\n(C) Collection of binary data\n(B) Collection of raw data\n(D) Collection of unstructured data [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Database is a\n(A) Collection of inter related data\n(C) Collection of binary data\n(B) Collection of raw data\n(D) Collection of unstructured data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Arrange in the correct order\n(A) View level, physical level, logical level\n(C) Physical level, view level, logical level\n(B) Logical level, view level, physical level\n(D) View level, logical level, physical level [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Arrange in the correct order\n(A) View level, physical level, logical level\n(C) Physical level, view level, logical level\n(B) Logical level, view level, physical level\n(D) View level, logical level, physical level",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Create and insert are\n(A) DDL and DML respectively\n(C) DML and DDL respectively\n(B) DML and DCL respectively\n(D) DDL and TCL respectively [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Create and insert are\n(A) DDL and DML respectively\n(C) DML and DDL respectively\n(B) DML and DCL respectively\n(D) DDL and TCL respectively",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Drop table, table name is a\n(A) DDL command\n(C) TCL command\n(B) DCL command\n(D) DML command [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Drop table, table name is a\n(A) DDL command\n(C) TCL command\n(B) DCL command\n(D) DML command",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. DDL Datas are _________ automatically without ______\n(A) Committed, manual commit\n(C) Recovered, manual recovery\n(B) Deleted, delete\n(D) Executed, manual execution [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "DDL Datas are _________ automatically without ______\n(A) Committed, manual commit\n(C) Recovered, manual recovery\n(B) Deleted, delete\n(D) Executed, manual execution",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. ER is defined as\n(A) Entity relationship\n(C) Enterprise relation\n(B) Enterprise relationship\n(D) Enterprise recovery [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "ER is defined as\n(A) Entity relationship\n(C) Enterprise relation\n(B) Enterprise relationship\n(D) Enterprise recovery",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Write the correct function for\nselect round (sysdate, 'year') from dual;\n(A) Round (d, format)\n(C) Round (SD, YEAR)\n(B) Round (d, 'format')\n(D) Round ('DD-MM-YY', 'YEAR') [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Write the correct function for\nselect round (sysdate, 'year') from dual;\n(A) Round (d, format)\n(C) Round (SD, YEAR)\n(B) Round (d, 'format')\n(D) Round ('DD-MM-YY', 'YEAR')",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Converts the string in a given format in to oracle data format\n(A) TO_DATE (Str, 'DATE')\n(C) TO_Month (Str, 'Str')\n(B) TO_DATE (Str, 'format')\n(D) TO_DATE (DATE, Str) [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Converts the string in a given format in to oracle data format\n(A) TO_DATE (Str, 'DATE')\n(C) TO_Month (Str, 'Str')\n(B) TO_DATE (Str, 'format')\n(D) TO_DATE (DATE, Str)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Power (m, n)\n(A) n power m\n(C) mxn power\n(B) m power n\n(D) m power m [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Power (m, n)\n(A) n power m\n(C) mxn power\n(B) m power n\n(D) m power m",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Column data type references table (column) is an example syntax of\n(A) Primary key\n(C) Unique key\n(B) Foreign key\n(D) Super key [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Column data type references table (column) is an example syntax of\n(A) Primary key\n(C) Unique key\n(B) Foreign key\n(D) Super key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. How many primary keys are possible in a table?\n(A) Any number\n(C) 5\n(B) 2\n(D) 1 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "How many primary keys are possible in a table?\n(A) Any number\n(C) 5\n(B) 2\n(D) 1",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Which is the wrong one\n(A) Select * from employee where (B) Select max (salary) from salary > 10000;\nemployees;\n(C) Select * from employees (D) Select min (salary) from where salary > avg (salary);\nemployees; [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Which is the wrong one\n(A) Select * from employee where (B) Select max (salary) from salary > 10000;\nemployees;\n(C) Select * from employees (D) Select min (salary) from where salary > avg (salary);\nemployees;",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Choose the correct one\n(A) Select salary from employees (B) Select salary from employees where salary > avg (salary);\n(salary>10000);\n(C) Select salary from employees (D) Select salary = avg (salary) from where salary > (select avg employees;\n(salary) from employees); [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Choose the correct one\n(A) Select salary from employees (B) Select salary from employees where salary > avg (salary);\n(salary>10000);\n(C) Select salary from employees (D) Select salary = avg (salary) from where salary > (select avg employees;\n(salary) from employees);",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. To apply set operations in 'Table A' and 'Table B'\n(A) Different column names can be (B) Common column names alone be used in table A and B\n(C) Common column names with (D) Different column names with matching data types alone be different data types can be used\nused in table A and B [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "To apply set operations in 'Table A' and 'Table B'\n(A) Different column names can be (B) Common column names alone be used in table A and B\n(C) Common column names with (D) Different column names with matching data types alone be different data types can be used\nused in table A and B",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. A DDL command after any number of DML command\n(A) Stores the data permanently (B) No affect with DML commands\n(C) No effect with DDL command (D) Stores the DDL statement data\nalone [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "A DDL command after any number of DML command\n(A) Stores the data permanently (B) No affect with DML commands\n(C) No effect with DDL command (D) Stores the DDL statement data\nalone",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Eliminating partial dependency is equal to\n(A) 2NF\n(C) Zero\n(B) INF\n(D) None of the above [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Eliminating partial dependency is equal to\n(A) 2NF\n(C) Zero\n(B) INF\n(D) None of the above",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Normalization is the process of\n(A) Eliminating (or) avoiding data (B) Re-structuring the tables\nredundancy\n(C) Works with DBMS program (D) Works with transaction level\nlevel [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Normalization is the process of\n(A) Eliminating (or) avoiding data (B) Re-structuring the tables\nredundancy\n(C) Works with DBMS program (D) Works with transaction level\nlevel",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Functional dependency is a relationship between\n(A) Entities\n(C) Attributes\n(B) Rows\n(D) Tables [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Functional dependency is a relationship between\n(A) Entities\n(C) Attributes\n(B) Rows\n(D) Tables",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. A table is in BCNF if it is in 3NF and if every determinant is a _______ key.\n(A) Dependent\n(C) Candidate\n(B) Normal\n(D) Both normal and candidate [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "A table is in BCNF if it is in 3NF and if every determinant is a _______ key.\n(A) Dependent\n(C) Candidate\n(B) Normal\n(D) Both normal and candidate",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Choose the correct symbol for the relational algebra operator 'SELECT'\n(A) \u0300\n(C) x\n(B) \u222a\n(D) \u0303 [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Choose the correct symbol for the relational algebra operator 'SELECT'\n(A) \u0300\n(C) x\n(B) \u222a\n(D) \u0303",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Collections of operations that form a single logical unit of work are called\n(A) Views\n(C) Units\n(B) Networks\n(D) Transactions [1]",
+          "structured_content": {
+            "number": "21",
+            "text": "Collections of operations that form a single logical unit of work are called\n(A) Views\n(C) Units\n(B) Networks\n(D) Transactions",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. The 'all of none' is referred as\n(A) Isolation\n(C) Atomicity\n(B) Durability\n(D) Reliability [1]",
+          "structured_content": {
+            "number": "22",
+            "text": "The 'all of none' is referred as\n(A) Isolation\n(C) Atomicity\n(B) Durability\n(D) Reliability",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Which of the following system is responsible for ensuring durability?\n(A) Recovery system\n(C) Concurrency control system\n(B) Atomic system\n(D) Complier system [1]",
+          "structured_content": {
+            "number": "23",
+            "text": "Which of the following system is responsible for ensuring durability?\n(A) Recovery system\n(C) Concurrency control system\n(B) Atomic system\n(D) Complier system",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. A transaction that has not been completed successfully is called as\n(A) Compensating transaction\n(C) Active transaction\n(B) Aborted transaction\n(D) Partially committed transaction [1]",
+          "structured_content": {
+            "number": "24",
+            "text": "A transaction that has not been completed successfully is called as\n(A) Compensating transaction\n(C) Active transaction\n(B) Aborted transaction\n(D) Partially committed transaction",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. The execution sequence in concurrency control are termed as\n(A) Serials\n(C) Organizations\n(B) Schedules\n(D) Time tables [1]",
+          "structured_content": {
+            "number": "25",
+            "text": "The execution sequence in concurrency control are termed as\n(A) Serials\n(C) Organizations\n(B) Schedules\n(D) Time tables",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Answer the following subquestions:\n  a.i. Differentiate between DBMS and file processing system. List any two advantages with DBMS. [5]\n  ii. Draw the DBMS system architecture with its all the components. [5]",
+          "structured_content": {
+            "number": "26",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "a.i",
+                "text": "Differentiate between DBMS and file processing system. List any two advantages with DBMS.",
+                "marks": 5
+              },
+              {
+                "number": "ii",
+                "text": "Draw the DBMS system architecture with its all the components.",
+                "marks": 5
+              }
+            ],
+            "or_alternative": {
+              "number": "26",
+              "text": "What is the significance of mapping cardinalities? Explain all the types with pictorial representations.",
+              "marks": 10
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. What is the significance of mapping cardinalities? Explain all the types with pictorial representations. [10]",
+          "structured_content": {
+            "number": "26",
+            "text": "What is the significance of mapping cardinalities? Explain all the types with pictorial representations.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Draw an extended ER diagram for Microsoft campus club (MCC) connected by an ABC college\n- An ABC college has decided to setup a MC club\n- MCC can be categorized based on the type. Quiz club, creater club\n- A student can join in any one of the MC clubs\n- Each MC club has a faculty advisor who trains the students\n- Each student can be identified by using id_no\nInclude all the above requirement and model the MC club appropriately. [10]",
+          "structured_content": {
+            "number": "27",
+            "text": "Draw an extended ER diagram for Microsoft campus club (MCC) connected by an ABC college\n- An ABC college has decided to setup a MC club\n- MCC can be categorized based on the type. Quiz club, creater club\n- A student can join in any one of the MC clubs\n- Each MC club has a faculty advisor who trains the students\n- Each student can be identified by using id_no\nInclude all the above requirement and model the MC club appropriately.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. How user query is executed in the query processing engine? Give a detail on the operations involved with neat sketch. [10]",
+          "structured_content": {
+            "number": "28",
+            "text": "How user query is executed in the query processing engine? Give a detail on the operations involved with neat sketch.",
+            "marks": 10,
+            "or_alternative": {
+              "number": "28",
+              "text": "Answer the following subquestions:",
+              "subquestions": [
+                {
+                  "number": "b.i",
+                  "text": "Write an example for using AFTER UPDATE TRIGGER using any employee relation.",
+                  "marks": 5
+                },
+                {
+                  "number": "ii",
+                  "text": "Explain with example\n- Commit\n- Roll back\n- Save point",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Answer the following subquestions:\n  b.i. Write an example for using AFTER UPDATE TRIGGER using any employee relation. [5]\n  ii. Explain with example\n- Commit\n- Roll back\n- Save point [5]",
+          "structured_content": {
+            "number": "28",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "b.i",
+                "text": "Write an example for using AFTER UPDATE TRIGGER using any employee relation.",
+                "marks": 5
+              },
+              {
+                "number": "ii",
+                "text": "Explain with example\n- Commit\n- Roll back\n- Save point",
+                "marks": 5
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Define functional dependency with respect to normal forms. How 2NF and 3NF can be resolved? Give an example scenario for the above situation, using 'STUDENT' relation.\nNote: column names can be generated with respect to student relation. [10]",
+          "structured_content": {
+            "number": "29",
+            "text": "Define functional dependency with respect to normal forms. How 2NF and 3NF can be resolved? Give an example scenario for the above situation, using 'STUDENT' relation.\nNote: column names can be generated with respect to student relation.",
+            "marks": 10,
+            "or_alternative": {
+              "number": "29",
+              "text": "Answer the following subquestions:",
+              "subquestions": [
+                {
+                  "number": "b.i",
+                  "text": "Give an example table structure for multi-valued dependency and define with required explanations.",
+                  "marks": 5
+                },
+                {
+                  "number": "ii",
+                  "text": "Analyze the syntax for writing 'cursors' and list any two real time examples of cursors.",
+                  "marks": 5
+                }
+              ]
+            }
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Answer the following subquestions:\n  b.i. Give an example table structure for multi-valued dependency and define with required explanations. [5]\n  ii. Analyze the syntax for writing 'cursors' and list any two real time examples of cursors. [5]",
+          "structured_content": {
+            "number": "29",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "b.i",
+                "text": "Give an example table structure for multi-valued dependency and define with required explanations.",
+                "marks": 5
+              },
+              {
+                "number": "ii",
+                "text": "Analyze the syntax for writing 'cursors' and list any two real time examples of cursors.",
+                "marks": 5
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Answer the following subquestions:\n  a.i. Correlate system recovery and serializability, analyze the effect of cascading rollbacks. [5]\n  ii. How two phase commit protocol works in transaction management systems? [5]",
+          "structured_content": {
+            "number": "30",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "a.i",
+                "text": "Correlate system recovery and serializability, analyze the effect of cascading rollbacks.",
+                "marks": 5
+              },
+              {
+                "number": "ii",
+                "text": "How two phase commit protocol works in transaction management systems?",
+                "marks": 5
+              }
+            ],
+            "or_alternative": {
+              "number": "30",
+              "text": "Draw an example scenario for dead lock. (Using transaction states (or) units). How dead lock prevention, detection and recovery works on different situations?",
+              "marks": 10
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Draw an example scenario for dead lock. (Using transaction states (or) units). How dead lock prevention, detection and recovery works on different situations? [10]",
+          "structured_content": {
+            "number": "30",
+            "text": "Draw an example scenario for dead lock. (Using transaction states (or) units). How dead lock prevention, detection and recovery works on different situations?",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2022
+}

@@ -1,0 +1,47 @@
+{
+  "21CSC201J": {
+    "course_id": 24,
+    "course_name": "Data Structures and Algorithms",
+    "total_mapped": 112,
+    "total_unmapped": 108,
+    "sample_mapped_verified": 30,
+    "sample_unmapped_verified": 5,
+    "leakage_free": true
+  },
+  "21CSC202J": {
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "total_mapped": 99,
+    "total_unmapped": 99,
+    "sample_mapped_verified": 30,
+    "sample_unmapped_verified": 5,
+    "leakage_free": true
+  },
+  "21CSS201T": {
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "total_mapped": 63,
+    "total_unmapped": 65,
+    "sample_mapped_verified": 30,
+    "sample_unmapped_verified": 5,
+    "leakage_free": true
+  },
+  "21CSC204J": {
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "total_mapped": 102,
+    "total_unmapped": 153,
+    "sample_mapped_verified": 30,
+    "sample_unmapped_verified": 5,
+    "leakage_free": true
+  },
+  "21CSC205P": {
+    "course_id": 28,
+    "course_name": "Database Management Systems",
+    "total_mapped": 55,
+    "total_unmapped": 88,
+    "sample_mapped_verified": 30,
+    "sample_unmapped_verified": 5,
+    "leakage_free": true
+  }
+}

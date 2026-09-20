@@ -1,0 +1,614 @@
+{
+  "sections": [
+    {
+      "name": "PART A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. An unsophisticated user who interact with the system by invoking one of the application programs that have been written previously.\n(A) Application programmers\n(B) Naive user\n(C) Specialized users\n(D) Maintenance user [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "An unsophisticated user who interact with the system by invoking one of the application programs that have been written previously.\n(A) Application programmers\n(B) Naive user\n(C) Specialized users\n(D) Maintenance user",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which manages the allocation of space on disk storage and the data structures used to represent information stored on disk.\n(A) File manager\n(B) Buffer manager\n(C) Transaction manager\n(D) Integrity manager [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which manages the allocation of space on disk storage and the data structures used to represent information stored on disk.\n(A) File manager\n(B) Buffer manager\n(C) Transaction manager\n(D) Integrity manager",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. The lowest level of abstraction describes how the data are actually stored.\n(A) Logical level\n(B) View level\n(C) Data independence\n(D) Physical level [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "The lowest level of abstraction describes how the data are actually stored.\n(A) Logical level\n(B) View level\n(C) Data independence\n(D) Physical level",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. SQL provides a rich language that allows one to define tables, integrity constraints, assertions\n(A) Application programs\n(B) Design language\n(C) Data manipulation language\n(D) Data definition language [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "SQL provides a rich language that allows one to define tables, integrity constraints, assertions\n(A) Application programs\n(B) Design language\n(C) Data manipulation language\n(D) Data definition language",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. An entity set that does not have sufficient attributes to form a primary key.\n(A) Strong entity set\n(B) Weak entity set\n(C) Cardinality set\n(D) Relationship set [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "An entity set that does not have sufficient attributes to form a primary key.\n(A) Strong entity set\n(B) Weak entity set\n(C) Cardinality set\n(D) Relationship set",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which of the following is a derived attribute?\n(A) Street name\n(B) Phone number\n(C) City\n(D) Age [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which of the following is a derived attribute?\n(A) Street name\n(B) Phone number\n(C) City\n(D) Age",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. An important property of the higher and lower level entities created by specialization and generalization.\n(A) Cardinality\n(B) Transform\n(C) Schema\n(D) Attribute inheritance [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "An important property of the higher and lower level entities created by specialization and generalization.\n(A) Cardinality\n(B) Transform\n(C) Schema\n(D) Attribute inheritance",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. For each attribute of a relation, there is a set of permitted values called the ________ of that attribute.\n(A) Domain\n(B) Tuple\n(C) Instance\n(D) Schema [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "For each attribute of a relation, there is a set of permitted values called the ________ of that attribute.\n(A) Domain\n(B) Tuple\n(C) Instance\n(D) Schema",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Which of the following best describes the process of parsing in query processing?\n(A) Checking the syntax of the SQL query\n(B) Translating the SQL query into an internal representation\n(C) Executing the SQL query\n(D) Optimizing the SQL query [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Which of the following best describes the process of parsing in query processing?\n(A) Checking the syntax of the SQL query\n(B) Translating the SQL query into an internal representation\n(C) Executing the SQL query\n(D) Optimizing the SQL query",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Identify the statement that best describes a view in a database.\n(A) A view is a type of index\n(B) A view is a stored procedure\n(C) A view is a virtual table that is based on the result of a select statement\n(D) A view is a type of table that contains data [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Identify the statement that best describes a view in a database.\n(A) A view is a type of index\n(B) A view is a stored procedure\n(C) A view is a virtual table that is based on the result of a select statement\n(D) A view is a type of table that contains data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Transaction control language commands such as ________ are used to manage transactions in a database.\n(A) COMMIT, ROLLBACK and SAVE POINT\n(B) EXIT and CLOSE\n(C) LOCK and TIME\n(D) GRANT and REVOKE [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Transaction control language commands such as ________ are used to manage transactions in a database.\n(A) COMMIT, ROLLBACK and SAVE POINT\n(B) EXIT and CLOSE\n(C) LOCK and TIME\n(D) GRANT and REVOKE",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. A ________ constraint is a constraint that ensures that a column or set of columns satisfies a specified condition.\n(A) Participation\n(B) Referential\n(C) Count\n(D) Check [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "A ________ constraint is a constraint that ensures that a column or set of columns satisfies a specified condition.\n(A) Participation\n(B) Referential\n(C) Count\n(D) Check",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. A relation is said to be in 2NF if it is 1NF and if all of its non-key attributes are ________ dependent on the entire primary key.\n(A) Fully functionally\n(B) Closure\n(C) Decomposition\n(D) Join [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "A relation is said to be in 2NF if it is 1NF and if all of its non-key attributes are ________ dependent on the entire primary key.\n(A) Fully functionally\n(B) Closure\n(C) Decomposition\n(D) Join",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Which of the following operators in relational algebra is used to combine two relations and return a relation that contain all the rows from both the relations, with duplicates removed?\n(A) Union\n(B) Intersection\n(C) Difference\n(D) Prolog [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Which of the following operators in relational algebra is used to combine two relations and return a relation that contain all the rows from both the relations, with duplicates removed?\n(A) Union\n(B) Intersection\n(C) Difference\n(D) Prolog",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The ________ refers to the set of all functional dependencies that can be inferred from the given set of dependencies.\n(A) Isolation\n(B) Redundancy\n(C) Inverse\n(D) Closure [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The ________ refers to the set of all functional dependencies that can be inferred from the given set of dependencies.\n(A) Isolation\n(B) Redundancy\n(C) Inverse\n(D) Closure",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Which of the following is a primary goal of normalization in database design?\n(A) To reduce data redundancy\n(B) To improve data access speed\n(C) To increase the number of attributes\n(D) To reduces the number of relations [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Which of the following is a primary goal of normalization in database design?\n(A) To reduce data redundancy\n(B) To improve data access speed\n(C) To increase the number of attributes\n(D) To reduces the number of relations",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. This property ensures that a transaction once committed will persist even in the event of a system failure.\n(A) Atomicity\n(B) Consistency\n(C) Isolation\n(D) Durability [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "This property ensures that a transaction once committed will persist even in the event of a system failure.\n(A) Atomicity\n(B) Consistency\n(C) Isolation\n(D) Durability",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following is used in database to prevent data inconsistency caused by concurrent access to the same data?\n(A) Locking\n(B) Blocking\n(C) Indexing\n(D) Clustering [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following is used in database to prevent data inconsistency caused by concurrent access to the same data?\n(A) Locking\n(B) Blocking\n(C) Indexing\n(D) Clustering",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. ________ is a property of schedule in database that ensures that the schedule is equivalent to same serial execution of transactions in the schedule.\n(A) Ordering\n(B) Conflict\n(C) Serializability\n(D) Deadlock [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "________ is a property of schedule in database that ensures that the schedule is equivalent to same serial execution of transactions in the schedule.\n(A) Ordering\n(B) Conflict\n(C) Serializability\n(D) Deadlock",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. In two phase locking protocol a transaction can release locks but it cannot acquire any new locks in this phase.\n(A) Shrinking\n(B) Growing\n(C) Time stamp\n(D) Serial [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "In two phase locking protocol a transaction can release locks but it cannot acquire any new locks in this phase.\n(A) Shrinking\n(B) Growing\n(C) Time stamp\n(D) Serial",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART B",
+      "instructions": "Answer ANY Five Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. List three responsibilities of a database management system. For each responsibility, explain the problems that would arise if the responsibility were not discharged. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "List three responsibilities of a database management system. For each responsibility, explain the problems that would arise if the responsibility were not discharged.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Explain the distinctions among the terms primary key, candidate key and super key. [4]",
+          "structured_content": {
+            "number": "22",
+            "text": "Explain the distinctions among the terms primary key, candidate key and super key.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Provide an example to illustrate the relationship between a weak entity and its owner entity. [4]",
+          "structured_content": {
+            "number": "23",
+            "text": "Provide an example to illustrate the relationship between a weak entity and its owner entity.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Examine why it is important to include a logical level in the database architecture and what role this level plays in data abstraction. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "Examine why it is important to include a logical level in the database architecture and what role this level plays in data abstraction.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Define check constraints and provide an example of how they can be used to enforced data integrity. [4]",
+          "structured_content": {
+            "number": "25",
+            "text": "Define check constraints and provide an example of how they can be used to enforced data integrity.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Define first normal form in DBMS with an example. [4]",
+          "structured_content": {
+            "number": "26",
+            "text": "Define first normal form in DBMS with an example.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Discuss the properties of a transaction in a DBMS. [4]",
+          "structured_content": {
+            "number": "27",
+            "text": "Discuss the properties of a transaction in a DBMS.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART C",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "28",
+          "original_text": "28. Since many database system users are not computer trained, developers hide the complexity from users through several levels of abstraction to simplify users interaction with the system. Illustrate the various levels of abstraction with an analogy, to the concept of data types in programming languages. [12]",
+          "structured_content": {
+            "number": "28",
+            "text": "Since many database system users are not computer trained, developers hide the complexity from users through several levels of abstraction to simplify users interaction with the system. Illustrate the various levels of abstraction with an analogy, to the concept of data types in programming languages.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "28",
+              "text": "Keeping organizational information in a file processing system has a number of major disadvantages. Explain them in detail to understand the purpose of database systems.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Keeping organizational information in a file processing system has a number of major disadvantages. Explain them in detail to understand the purpose of database systems. [12]",
+          "structured_content": {
+            "number": "28",
+            "text": "Keeping organizational information in a file processing system has a number of major disadvantages. Explain them in detail to understand the purpose of database systems.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. a. The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended ER features of specialization and generalization with examples. [12]\n  a. The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended ER features of specialization and generalization with examples. [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "a. The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended ER features of specialization and generalization with examples.",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended ER features of specialization and generalization with examples.",
+                "marks": 12
+              }
+            ],
+            "or_alternative": {
+              "number": "29",
+              "text": "b. A university has multiple departments, each of which offers several courses. Each course is taught by a professor who may teach multiple courses. Based on this scenario, construct an ER model for the university and explain its various entities and relationships. Also show the mapping cardinalities.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. b. A university has multiple departments, each of which offers several courses. Each course is taught by a professor who may teach multiple courses. Based on this scenario, construct an ER model for the university and explain its various entities and relationships. Also show the mapping cardinalities. [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "b. A university has multiple departments, each of which offers several courses. Each course is taught by a professor who may teach multiple courses. Based on this scenario, construct an ER model for the university and explain its various entities and relationships. Also show the mapping cardinalities.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Show how developers can write their own functions and procedures, store them in the database and then invoke them from SQL statements. Demonstrate with syntax and examples. [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Show how developers can write their own functions and procedures, store them in the database and then invoke them from SQL statements. Demonstrate with syntax and examples.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "30",
+              "text": "Demonstrate the steps involved in processing a query with examples.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Demonstrate the steps involved in processing a query with examples. [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Demonstrate the steps involved in processing a query with examples.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Define tuple relational calculus and state the formal syntax of the expression form with examples. [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Define tuple relational calculus and state the formal syntax of the expression form with examples.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "31",
+              "text": "Discuss the concepts of functional dependency that are required for a database to be in third normal form. Illustrate them with proper examples.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Discuss the concepts of functional dependency that are required for a database to be in third normal form. Illustrate them with proper examples. [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Discuss the concepts of functional dependency that are required for a database to be in third normal form. Illustrate them with proper examples.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. Explain the two phase locking protocol and define how does it provide solutions to concurrency related problems. [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "Explain the two phase locking protocol and define how does it provide solutions to concurrency related problems.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "32",
+              "text": "Discuss the basic concepts of serializability in transactions and suggest methods for testing a given schedule.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. Discuss the basic concepts of serializability in transactions and suggest methods for testing a given schedule. [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "Discuss the basic concepts of serializability in transactions and suggest methods for testing a given schedule.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}
