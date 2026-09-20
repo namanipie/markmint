@@ -8,6 +8,7 @@ import {
   getAllSlugsAndAliases, 
   CourseCatalogItem 
 } from "@/lib/courses";
+import { findTopicSlug } from "@/lib/topics";
 import { ForeignLanguageTracks } from "@/components/courses/foreign-language-tracks";
 import { SyllabusUnitExplorer } from "@/components/courses/syllabus-unit-explorer";
 import { CourseTracker } from "@/components/courses/course-tracker";
@@ -343,7 +344,7 @@ export default async function CoursePage({ params }: PageProps) {
                   Authoritative SRMIST curriculum breakdown organized by unit and topic.
                 </p>
               </div>
-              <SyllabusUnitExplorer units={course.units} />
+              <SyllabusUnitExplorer units={course.units} courseSlug={course.slug} />
             </section>
 
             {/* Right: High-Yield Topics & Quick Actions (5 cols) */}
@@ -359,25 +360,37 @@ export default async function CoursePage({ params }: PageProps) {
 
                 {course.highYieldTopics && course.highYieldTopics.length > 0 ? (
                   <div className="space-y-3">
-                    {course.highYieldTopics.map((top, idx) => (
-                      <div
-                        key={idx}
-                        className="p-3.5 rounded-xl bg-secondary/30 border border-border/40 flex items-start justify-between gap-3 text-xs"
-                      >
-                        <div className="space-y-1">
-                          <div className="font-semibold text-foreground text-sm line-clamp-1">
-                            {top.topic}
+                    {course.highYieldTopics.map((top, idx) => {
+                      const topicSlug = findTopicSlug(course.slug, top.topic);
+                      const content = (
+                        <div className="p-3.5 rounded-xl bg-secondary/30 hover:bg-secondary/50 border border-border/40 hover:border-accent/40 transition-all flex items-start justify-between gap-3 text-xs group">
+                          <div className="space-y-1">
+                            <div className="font-semibold text-foreground group-hover:text-accent transition-colors text-sm line-clamp-1">
+                              {top.topic}
+                            </div>
+                            <span className="inline-block px-2 py-0.5 rounded bg-muted text-muted-foreground text-[10px] font-mono">
+                              Unit {top.unitNumber}
+                            </span>
                           </div>
-                          <span className="inline-block px-2 py-0.5 rounded bg-muted text-muted-foreground text-[10px] font-mono">
-                            Unit {top.unitNumber}
-                          </span>
+                          <div className="text-right shrink-0">
+                            <div className="font-semibold text-accent">{top.questionCount} questions</div>
+                            <div className="text-[11px] text-muted-foreground">{top.paperCount} papers</div>
+                          </div>
                         </div>
-                        <div className="text-right shrink-0">
-                          <div className="font-semibold text-accent">{top.questionCount} questions</div>
-                          <div className="text-[11px] text-muted-foreground">{top.paperCount} papers</div>
-                        </div>
-                      </div>
-                    ))}
+                      );
+
+                      return topicSlug ? (
+                        <Link
+                          key={idx}
+                          href={`/courses/${course.slug}/topics/${topicSlug}`}
+                          className="block"
+                        >
+                          {content}
+                        </Link>
+                      ) : (
+                        <div key={idx}>{content}</div>
+                      );
+                    })}
                   </div>
                 ) : (
                   <div className="p-4 rounded-xl bg-secondary/20 border border-border/40 text-xs text-muted-foreground">

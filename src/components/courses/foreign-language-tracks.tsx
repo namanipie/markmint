@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { CourseTrackCatalogItem } from "@/lib/courses";
+import { findTopicSlug } from "@/lib/topics";
 import { 
   Languages, 
   ExternalLink, 
@@ -12,7 +13,8 @@ import {
   ChevronDown, 
   ChevronRight,
   TrendingUp,
-  GraduationCap
+  GraduationCap,
+  ArrowUpRight
 } from "lucide-react";
 
 interface ForeignLanguageTracksProps {
@@ -160,25 +162,37 @@ export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
               <span>High-Yield Recurring Topics in {activeTrack.trackName}</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {activeTrack.highYieldTopics.map((top, idx) => (
-                <div
-                  key={idx}
-                  className="p-3.5 rounded-xl bg-secondary/20 border border-border/40 flex items-start justify-between gap-3 text-xs"
-                >
-                  <div className="space-y-1">
-                    <span className="font-medium text-foreground text-sm line-clamp-1">
-                      {top.topic}
-                    </span>
-                    <span className="inline-block px-2 py-0.5 rounded bg-muted text-muted-foreground text-[10px] font-mono">
-                      Unit {top.unitNumber}
-                    </span>
+              {activeTrack.highYieldTopics.map((top, idx) => {
+                const topicSlug = findTopicSlug(activeTrack.trackKey, top.topic);
+                const content = (
+                  <div className="p-3.5 rounded-xl bg-secondary/20 hover:bg-secondary/40 border border-border/40 hover:border-accent/40 transition-all flex items-start justify-between gap-3 text-xs group">
+                    <div className="space-y-1">
+                      <span className="font-medium text-foreground group-hover:text-accent transition-colors text-sm line-clamp-1">
+                        {top.topic}
+                      </span>
+                      <span className="inline-block px-2 py-0.5 rounded bg-muted text-muted-foreground text-[10px] font-mono">
+                        Unit {top.unitNumber}
+                      </span>
+                    </div>
+                    <div className="text-right shrink-0">
+                      <div className="font-semibold text-accent">{top.questionCount} questions</div>
+                      <div className="text-[11px] text-muted-foreground">{top.paperCount} papers</div>
+                    </div>
                   </div>
-                  <div className="text-right shrink-0">
-                    <div className="font-semibold text-accent">{top.questionCount} questions</div>
-                    <div className="text-[11px] text-muted-foreground">{top.paperCount} papers</div>
-                  </div>
-                </div>
-              ))}
+                );
+
+                return topicSlug ? (
+                  <Link
+                    key={idx}
+                    href={`/courses/foreign-languages/${activeTrack.trackKey}/topics/${topicSlug}`}
+                    className="block"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <div key={idx}>{content}</div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -225,15 +239,32 @@ export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
                   {isExpanded && unit.topics && unit.topics.length > 0 && (
                     <div className="px-5 pb-4 pt-2 border-t border-border/30 bg-background/40">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
-                        {unit.topics.map((t, tidx) => (
-                          <div
-                            key={tidx}
-                            className="flex items-start gap-2 text-xs text-muted-foreground py-1"
-                          >
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                            <span>{t}</span>
-                          </div>
-                        ))}
+                        {unit.topics.map((t, tidx) => {
+                          const topicSlug = findTopicSlug(activeTrack.trackKey, t);
+                          return topicSlug ? (
+                            <Link
+                              key={tidx}
+                              href={`/courses/foreign-languages/${activeTrack.trackKey}/topics/${topicSlug}`}
+                              className="flex items-start justify-between gap-2 text-xs text-muted-foreground hover:text-foreground group py-1 transition-colors rounded-md hover:bg-secondary/30 px-2 -mx-2"
+                            >
+                              <div className="flex items-start gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
+                                <span className="group-hover:text-accent transition-colors">{t}</span>
+                              </div>
+                              <span className="text-[10px] text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0 flex items-center">
+                                PYQs <ArrowUpRight className="w-3 h-3 ml-0.5" />
+                              </span>
+                            </Link>
+                          ) : (
+                            <div
+                              key={tidx}
+                              className="flex items-start gap-2 text-xs text-muted-foreground py-1 px-2 -mx-2"
+                            >
+                              <span className="w-1.5 h-1.5 rounded-full bg-muted mt-1.5 shrink-0" />
+                              <span>{t}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   )}

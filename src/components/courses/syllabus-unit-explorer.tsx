@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CourseUnitCatalogItem } from "@/lib/courses";
-import { BookOpen, ChevronDown, ChevronRight } from "lucide-react";
+import { findTopicSlug } from "@/lib/topics";
+import { BookOpen, ChevronDown, ChevronRight, ArrowUpRight } from "lucide-react";
 
 interface SyllabusUnitExplorerProps {
   units: CourseUnitCatalogItem[];
+  courseSlug?: string;
 }
 
-export function SyllabusUnitExplorer({ units }: SyllabusUnitExplorerProps) {
+export function SyllabusUnitExplorer({ units, courseSlug }: SyllabusUnitExplorerProps) {
   const [expandedUnits, setExpandedUnits] = useState<Record<number, boolean>>({ 1: true, 2: true });
 
   const toggleUnit = (num: number) => {
@@ -94,15 +97,32 @@ export function SyllabusUnitExplorer({ units }: SyllabusUnitExplorerProps) {
               {isExpanded && unit.topics && unit.topics.length > 0 && (
                 <div className="px-5 pb-4 pt-3 border-t border-border/30 bg-background/50">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {unit.topics.map((t, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2 text-xs text-muted-foreground py-1"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                        <span>{t}</span>
-                      </div>
-                    ))}
+                    {unit.topics.map((t, idx) => {
+                      const topicSlug = courseSlug ? findTopicSlug(courseSlug, t) : undefined;
+                      return topicSlug ? (
+                        <Link
+                          key={idx}
+                          href={`/courses/${courseSlug}/topics/${topicSlug}`}
+                          className="flex items-start justify-between gap-2 text-xs text-muted-foreground hover:text-foreground group py-1 transition-colors rounded-md hover:bg-secondary/30 px-2 -mx-2"
+                        >
+                          <div className="flex items-start gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
+                            <span className="group-hover:text-accent transition-colors">{t}</span>
+                          </div>
+                          <span className="text-[10px] text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0 flex items-center">
+                            PYQs <ArrowUpRight className="w-3 h-3 ml-0.5" />
+                          </span>
+                        </Link>
+                      ) : (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground py-1 px-2 -mx-2"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted mt-1.5 shrink-0" />
+                          <span>{t}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               )}

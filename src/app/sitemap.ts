@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllCourses } from "@/lib/courses";
+import { getAllTopics } from "@/lib/topics";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://markmint.vercel.app";
@@ -65,5 +66,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticPages, ...coursePages, ...languageTrackPages];
+  const topics = getAllTopics();
+  const topicPages: MetadataRoute.Sitemap = topics.map((topic) => ({
+    url: topic.canonicalUrl,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...coursePages, ...languageTrackPages, ...topicPages];
 }
