@@ -419,6 +419,7 @@ export interface IntelligenceSnapshot {
   } | null;
   observed_scope?: {
     paper_count: number;
+    total_questions?: number;
     unit_numbers: number[];
     topic_names: string[];
     question_count_by_unit: Record<string, number>;
@@ -445,6 +446,7 @@ export interface IntelligenceSnapshot {
     } | null;
     observed_scope?: {
       paper_count: number;
+      total_questions?: number;
       unit_numbers: number[];
       topic_names: string[];
       question_count_by_unit: Record<string, number>;
