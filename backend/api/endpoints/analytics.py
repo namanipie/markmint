@@ -27,6 +27,10 @@ from backend.api.endpoints.predictions import _find_course, _build_historical_ex
 from backend.services.dna.analyzer import DNAAnalyzerService
 from backend.services.prediction.engine import ExamScopeCombinedModel
 from backend.services.prediction.context import PredictionTarget
+from backend.models.beta_telemetry import BetaEvent, BetaFeedback, BetaError
+from pydantic import BaseModel, Field
+import re
+from datetime import datetime
 
 router = APIRouter()
 
@@ -1310,3 +1314,255 @@ def get_topic_intelligence(
             "recommended_action": recommended_action,
         }
     }
+
+
+# ==============================================================================
+# PHASE 13: PRIVATE STUDENT BETA INSTRUMENTATION & OBSERVABILITY
+# ==============================================================================
+
+class BetaEventItem(BaseModel):
+    session_id: str = Field(..., max_length=64)
+    event_name: str = Field(..., max_length=64)
+    route: Optional[str] = Field(None, max_length=128)
+    course_id: Optional[int] = None
+    course_code: Optional[str] = Field(None, max_length=32)
+    assessment_cycle: Optional[str] = Field(None, max_length=32)
+    metadata: Optional[Dict[str, Any]] = None
+
+
+class BetaEventsBatchRequest(BaseModel):
+    events: List[BetaEventItem]
+
+
+class BetaFeedbackRequest(BaseModel):
+    session_id: str = Field(..., max_length=64)
+    useful: bool
+    confusion_reason: Optional[str] = Field(None, max_length=500)
+    route: Optional[str] = Field(None, max_length=128)
+    course_code: Optional[str] = Field(None, max_length=32)
+
+
+class BetaErrorRequest(BaseModel):
+    session_id: Optional[str] = Field(None, max_length=64)
+    route: Optional[str] = Field(None, max_length=128)
+    error_type: str = Field(..., max_length=64)
+    message: Optional[str] = Field(None, max_length=500)
+    context: Optional[Dict[str, Any]] = None
+
+
+def _sanitize_string(val: Optional[str], max_chars: int = 500) -> Optional[str]:
+    if not val:
+        return None
+    # Strip potential emails, tokens, secrets
+    cleaned = re.sub(r'[\w\.-]+@[\w\.-]+\.\w+', '[REDACTED_EMAIL]', str(val))
+    cleaned = re.sub(r'(bearer|token|secret|password|auth)[\s:=]+[\w\.-]+', '[REDACTED_AUTH]', cleaned, flags=re.IGNORECASE)
+    return cleaned[:max_chars].strip()
+
+
+def _sanitize_dict(data: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    if not data or not isinstance(data, dict):
+        return None
+    sanitized: Dict[str, Any] = {}
+    blocked_keys = {"token", "auth", "password", "secret", "cookie", "question_text", "original_text", "email"}
+    for k, v in data.items():
+        if any(bk in k.lower() for bk in blocked_keys):
+            continue
+        if isinstance(v, str):
+            sanitized[k] = _sanitize_string(v, 200)
+        elif isinstance(v, (int, float, bool)):
+            sanitized[k] = v
+        elif isinstance(v, list) and len(v) <= 20:
+            sanitized[k] = [
+                _sanitize_string(item, 100) if isinstance(item, str) else item
+                for item in v if isinstance(item, (str, int, float, bool))
+            ]
+    return sanitized
+
+
+@router.post("/events")
+def record_beta_events(
+    payload: BetaEventsBatchRequest,
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Records anonymous funnel and friction telemetry events."""
+    recorded_count = 0
+    for evt in payload.events:
+        clean_meta = _sanitize_dict(evt.metadata)
+        record = BetaEvent(
+            session_id=_sanitize_string(evt.session_id, 64) or "anonymous",
+            event_name=_sanitize_string(evt.event_name, 64) or "unknown",
+            route=_sanitize_string(evt.route, 128),
+            course_id=evt.course_id,
+            course_code=_sanitize_string(evt.course_code, 32),
+            assessment_cycle=_sanitize_string(evt.assessment_cycle, 32),
+            metadata_json=clean_meta,
+            created_at=datetime.utcnow()
+        )
+        db.add(record)
+        recorded_count += 1
+
+    db.commit()
+    return {"status": "ok", "recorded": recorded_count}
+
+
+@router.post("/feedback")
+def submit_beta_feedback(
+    payload: BetaFeedbackRequest,
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Records anonymous non-intrusive micro-feedback."""
+    clean_reason = _sanitize_string(payload.confusion_reason, 500)
+    feedback_record = BetaFeedback(
+        session_id=_sanitize_string(payload.session_id, 64) or "anonymous",
+        useful=payload.useful,
+        confusion_reason=clean_reason,
+        route=_sanitize_string(payload.route, 128),
+        course_code=_sanitize_string(payload.course_code, 32),
+        created_at=datetime.utcnow()
+    )
+    db.add(feedback_record)
+    db.commit()
+    return {"status": "ok", "message": "Feedback recorded anonymously"}
+
+
+@router.post("/errors")
+def report_beta_error(
+    payload: BetaErrorRequest,
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Records lightweight client/server error strictly stripped of PII and question text."""
+    clean_msg = _sanitize_string(payload.message, 500)
+    clean_ctx = _sanitize_dict(payload.context)
+    error_record = BetaError(
+        session_id=_sanitize_string(payload.session_id, 64),
+        route=_sanitize_string(payload.route, 128),
+        error_type=_sanitize_string(payload.error_type, 64) or "UnhandledError",
+        message=clean_msg,
+        context_json=clean_ctx,
+        created_at=datetime.utcnow()
+    )
+    db.add(error_record)
+    db.commit()
+    return {"status": "ok"}
+
+
+@router.get("/beta-metrics")
+def get_beta_success_metrics(
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Computes actionable beta funnel conversion, interaction, and friction metrics."""
+    # 1. Total Sessions
+    total_sessions = db.query(func.count(distinct(BetaEvent.session_id))).scalar() or 0
+
+    # 2. Funnel Stage Distinct Session Counts
+    funnel_event_names = [
+        "landing",
+        "course_selection",
+        "assessment_selection",
+        "intelligence_view",
+        "prediction_opened",
+        "why_opened",
+        "practice_started",
+        "question_opened",
+        "study_plan_opened"
+    ]
+
+    funnel_counts: Dict[str, int] = {}
+    for ev in funnel_event_names:
+        c = db.query(func.count(distinct(BetaEvent.session_id))).filter(BetaEvent.event_name == ev).scalar() or 0
+        funnel_counts[ev] = c
+
+    # 3. Conversions and Interaction Rates
+    course_sessions = funnel_counts.get("course_selection", 0)
+    intel_sessions = funnel_counts.get("intelligence_view", 0)
+    practice_sessions = funnel_counts.get("practice_started", 0)
+    why_sessions = funnel_counts.get("why_opened", 0)
+    study_plan_sessions = funnel_counts.get("study_plan_opened", 0)
+    assessment_sessions = funnel_counts.get("assessment_selection", 0)
+
+    course_to_intel_conv = round((intel_sessions / course_sessions), 4) if course_sessions > 0 else 0.0
+    intel_to_practice_conv = round((practice_sessions / intel_sessions), 4) if intel_sessions > 0 else 0.0
+    why_rate = round((why_sessions / intel_sessions), 4) if intel_sessions > 0 else 0.0
+    study_plan_rate = round((study_plan_sessions / intel_sessions), 4) if intel_sessions > 0 else 0.0
+    assessment_selection_rate = round((assessment_sessions / course_sessions), 4) if course_sessions > 0 else 0.0
+
+    # Return usage: sessions with events on more than 1 distinct calendar day
+    return_sessions = (
+        db.query(BetaEvent.session_id)
+        .group_by(BetaEvent.session_id)
+        .having(func.count(distinct(func.date(BetaEvent.created_at))) > 1)
+        .count()
+    )
+    return_usage_rate = round((return_sessions / total_sessions), 4) if total_sessions > 0 else 0.0
+
+    # 4. Friction Events
+    friction_types = [
+        "course_selection_abandoned",
+        "assessment_selection_abandoned",
+        "practice_empty",
+        "study_plan_empty",
+        "prediction_no_evidence",
+        "api_error",
+        "page_error"
+    ]
+    friction_counts: Dict[str, int] = {}
+    for ft in friction_types:
+        fc = db.query(func.count(BetaEvent.id)).filter(BetaEvent.event_name == ft).scalar() or 0
+        friction_counts[ft] = fc
+
+    # 5. Feedback Summary
+    total_feedback = db.query(func.count(BetaFeedback.id)).scalar() or 0
+    useful_count = db.query(func.count(BetaFeedback.id)).filter(BetaFeedback.useful == True).scalar() or 0
+    useful_pct = round((useful_count / total_feedback) * 100, 1) if total_feedback > 0 else 0.0
+
+    recent_confusions = (
+        db.query(BetaFeedback.confusion_reason)
+        .filter(BetaFeedback.confusion_reason != None, BetaFeedback.confusion_reason != "")
+        .order_by(desc(BetaFeedback.created_at))
+        .limit(10)
+        .all()
+    )
+    confusion_samples = [c[0] for c in recent_confusions if c[0]]
+
+    # 6. Error Log Summary
+    total_logged_errors = db.query(func.count(BetaError.id)).scalar() or 0
+    recent_errors = (
+        db.query(BetaError.route, BetaError.error_type, BetaError.message, BetaError.created_at)
+        .order_by(desc(BetaError.created_at))
+        .limit(5)
+        .all()
+    )
+    error_samples = [
+        {
+            "route": e[0],
+            "error_type": e[1],
+            "message": e[2],
+            "timestamp": e[3].isoformat() if e[3] else None
+        }
+        for e in recent_errors
+    ]
+
+    return {
+        "total_beta_sessions": total_sessions,
+        "funnel_sessions": funnel_counts,
+        "conversion_rates": {
+            "course_to_intelligence": course_to_intel_conv,
+            "intelligence_to_practice": intel_to_practice_conv,
+            "why_interaction_rate": why_rate,
+            "study_plan_usage_rate": study_plan_rate,
+            "assessment_selection_rate": assessment_selection_rate,
+            "return_usage_rate": return_usage_rate
+        },
+        "friction_events": friction_counts,
+        "feedback_summary": {
+            "total_feedback": total_feedback,
+            "useful_count": useful_count,
+            "useful_percentage": useful_pct,
+            "recent_confusion_samples": confusion_samples
+        },
+        "error_summary": {
+            "total_logged_errors": total_logged_errors,
+            "recent_error_samples": error_samples
+        }
+    }
+

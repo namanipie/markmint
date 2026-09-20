@@ -32,6 +32,8 @@ import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligenc
 import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
 import { MathText } from "@/components/ui/math-text";
 import { EvidenceCalibratedPanel } from "@/components/ui/evidence-calibration-panel";
+import { trackBetaEvent, trackFrictionEvent } from "@/lib/telemetry";
+import { BetaFeedbackWidget } from "@/components/ui/beta-feedback-widget";
 
 export type MintAIState =
   | "loading_branches"
@@ -108,6 +110,12 @@ export default function MintAIPage() {
     setSelectedTopicIdForModal(topicId || null);
     setSelectedTopicNameForModal(topicName || "");
     setIsTopicModalOpen(true);
+    trackBetaEvent("why_opened", {
+      course_id: selectedSubject?.course_id || undefined,
+      course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
+      assessment_cycle: selectedExam,
+      metadata: { target_type: "topic", topic_id: topicId, topic_name: topicName }
+    });
   };
 
   // Family Evidence Drilldown Modal
@@ -119,6 +127,12 @@ export default function MintAIPage() {
     setSelectedFamilyIdForModal(familyId || null);
     setSelectedFamilyNameForModal(familyName || "");
     setIsFamilyModalOpen(true);
+    trackBetaEvent("why_opened", {
+      course_id: selectedSubject?.course_id || undefined,
+      course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
+      assessment_cycle: selectedExam,
+      metadata: { target_type: "family", family_id: familyId, family_name: familyName }
+    });
   };
 
   // Subject analytical readiness
@@ -355,6 +369,11 @@ export default function MintAIPage() {
 
     // Guard against running predictions on unverified courses
     if (selectedSubject.status !== "MATCHED" || !selectedSubject.course_id || !selectedSubject.has_exams) {
+      trackFrictionEvent("course_selection_abandoned", {
+        course_id: selectedSubject.course_id || undefined,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        metadata: { reason: "Unmatched or catalog-only course" }
+      });
       return;
     }
 
@@ -371,9 +390,45 @@ export default function MintAIPage() {
         availableTracks.length > 0 ? selectedLanguage : undefined
       );
       setSnapshot(data);
+
+      trackBetaEvent("intelligence_view", {
+        course_id: selectedSubject.course_id,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        assessment_cycle: selectedExam,
+        metadata: {
+          predictions_count: data.predictions?.length || 0,
+          priorities_count: data.study_priorities?.length || 0
+        }
+      });
+
+      if (!data.predictions || data.predictions.length === 0) {
+        trackFrictionEvent("prediction_no_evidence", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
+      }
+      if (!data.study_priorities || data.study_priorities.length === 0) {
+        trackFrictionEvent("study_plan_empty", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
+      } else {
+        trackBetaEvent("study_plan_opened", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
+      }
     } catch (err: any) {
       console.error("Intelligence snapshot generation failed", err);
       setError(err?.message || "Failed to synthesize academic intelligence.");
+      trackFrictionEvent("api_error", {
+        course_id: selectedSubject?.course_id,
+        course_code: selectedSubject?.canonical_code,
+        metadata: { endpoint: "getIntelligenceSnapshot", message: err?.message || "Unknown error" }
+      });
     } finally {
       setIsAnalyzing(false);
     }
@@ -382,6 +437,12 @@ export default function MintAIPage() {
   // 4b. Change Assessment Cycle & Automatically Refresh Forecast
   const handleAssessmentCycleChange = async (newCycle: string) => {
     setSelectedExam(newCycle);
+    trackBetaEvent("assessment_selection", {
+      assessment_cycle: newCycle,
+      course_id: selectedSubject?.course_id,
+      course_code: selectedSubject?.canonical_code
+    });
+
     if (!selectedSubject || !selectedSubject.course_id || !isSubjectAvailable) return;
     if (snapshot || isAnalyzing) {
       setIsAnalyzing(true);
@@ -399,6 +460,11 @@ export default function MintAIPage() {
       } catch (err: any) {
         console.error("Intelligence snapshot generation failed for cycle", err);
         setError(err?.message || "Failed to synthesize academic intelligence.");
+        trackFrictionEvent("api_error", {
+          course_id: selectedSubject?.course_id,
+          course_code: selectedSubject?.canonical_code,
+          metadata: { endpoint: "getIntelligenceSnapshotCycle", message: err?.message }
+        });
       } finally {
         setIsAnalyzing(false);
       }
@@ -415,6 +481,13 @@ export default function MintAIPage() {
     setQuestionFilterRepetition("");
     setIsQuestionsModalOpen(true);
 
+    trackBetaEvent("practice_started", {
+      course_id: selectedSubject.course_id,
+      course_code: selectedSubject.canonical_code,
+      assessment_cycle: selectedExam,
+      metadata: { topic: topicName, family: familyName }
+    });
+
     try {
       const res = await getHistoricalQuestions(
         selectedSubject.course_id,
@@ -428,10 +501,23 @@ export default function MintAIPage() {
           language: availableTracks.length > 0 ? selectedLanguage : undefined
         }
       );
-      setHistoricalQuestions(res.questions || []);
-    } catch (err) {
+      const qList = res.questions || [];
+      setHistoricalQuestions(qList);
+      if (qList.length === 0) {
+        trackFrictionEvent("practice_empty", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          metadata: { topic: topicName, family: familyName }
+        });
+      }
+    } catch (err: any) {
       console.error("Failed to load historical questions", err);
       setHistoricalQuestions([]);
+      trackFrictionEvent("api_error", {
+        course_id: selectedSubject.course_id,
+        course_code: selectedSubject.canonical_code,
+        metadata: { endpoint: "getHistoricalQuestions", message: err?.message }
+      });
     } finally {
       setIsLoadingQuestions(false);
     }
@@ -556,6 +642,19 @@ export default function MintAIPage() {
                     const match = subjects.find((s) => s.curriculum_id === val);
                     setSelectedSubject(match || null);
                     setSnapshot(null);
+                    if (match) {
+                      trackBetaEvent("course_selection", {
+                        course_id: match.course_id || undefined,
+                        course_code: match.canonical_code || match.curriculum_id,
+                        metadata: {
+                          subject_name: match.subject_name,
+                          status: match.status,
+                          has_exams: match.has_exams,
+                          exam_count: match.exam_count,
+                          question_count: match.question_count
+                        }
+                      });
+                    }
                   }}
                   placeholder={isLoadingSubjects ? "Loading courses..." : "Search courses..."}
                   disabled={isLoadingSubjects || subjects.length === 0}
@@ -1297,7 +1396,23 @@ export default function MintAIPage() {
                               )}
                               
                               <button
-                                onClick={() => setExpandedTopic(isExpanded ? null : p.name)}
+                                onClick={() => {
+                                  const nextState = isExpanded ? null : p.name;
+                                  setExpandedTopic(nextState);
+                                  if (nextState) {
+                                    trackBetaEvent("prediction_opened", {
+                                      course_id: selectedSubject?.course_id || undefined,
+                                      course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
+                                      assessment_cycle: selectedExam,
+                                      metadata: {
+                                        topic_name: p.name,
+                                        rank: p.rank,
+                                        category: p.category,
+                                        confidence: p.confidence
+                                      }
+                                    });
+                                  }
+                                }}
                                 className="p-1.5 rounded-md text-muted-foreground hover:bg-secondary transition-colors"
                                 aria-label="Toggle details"
                               >
@@ -1503,35 +1618,66 @@ export default function MintAIPage() {
               </p>
             </div>
           ) : (
-            <div className="h-full min-h-[400px] rounded-xl flex flex-col justify-center p-8 lg:p-12 bg-card border border-border shadow-sm">
-              <div className="max-w-xl">
-                <h3 className="text-2xl font-bold text-foreground mb-4">MintAI Prediction Engine</h3>
-                <p className="text-base text-muted-foreground mb-10 leading-relaxed">
-                  Select a course from the curriculum catalog to unlock highly probable examination topics based on deterministic historical patterns.
-                </p>
-                
-                <div className="flex flex-col gap-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent font-bold text-sm shrink-0 border border-accent/20">1</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Select Scope</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Choose your academic branch, semester, and target course.</p>
-                    </div>
+            <div className="h-full min-h-[420px] rounded-2xl flex flex-col justify-center p-6 sm:p-10 bg-card border border-border shadow-sm">
+              <div className="max-w-2xl space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase mb-3">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>How MarkMint Intelligence Works</span>
                   </div>
-                  <div className="flex items-start gap-4 opacity-70">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">2</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Analyze Evidence</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Explore recurring exam patterns and historical frequency.</p>
+                  <h3 className="text-2xl font-bold text-foreground leading-tight">
+                    Evidence-Calibrated Exam Preparation
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                    MarkMint transforms archived SRMIST past examination papers into structured exam intelligence. Select any course on the left to start.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <Target className="w-4 h-4 text-accent" />
+                      <span>&ldquo;What to Study&rdquo;</span>
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      High-yield syllabus topics and recurring question families ranked by historical repetition and exam marks.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-4 opacity-70">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">3</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Study & Practice</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Focus on high-yield topics directly matched to syllabus objectives.</p>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <HelpCircle className="w-4 h-4 text-accent" />
+                      <span>&ldquo;Why?&rdquo; Evidence</span>
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Every prediction cites exact past examination papers, years tested, question counts, and historical mark weight.
+                    </p>
                   </div>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <Calendar className="w-4 h-4 text-accent" />
+                      <span>Assessment Selector</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Tailor your forecast to <strong>CT1</strong> (Units 1–2), <strong>CT2</strong> (Units 3–4), or comprehensive <strong>End Semester</strong> (Units 1–5).
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <BookOpen className="w-4 h-4 text-accent" />
+                      <span>Practice &amp; Study Plan</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Solve cataloged past exam questions directly mapped to syllabus units, with actionable study priority recommendations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 text-xs text-muted-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                  <span>Verified across 28+ SRMIST B.Tech courses with strict temporal backtesting.</span>
                 </div>
               </div>
             </div>
@@ -1747,6 +1893,12 @@ export default function MintAIPage() {
           onViewQuestions={(famId, famName) => handleViewQuestions(undefined, famId, famName)}
         />
       )}
+
+      {/* Beta Student Feedback Widget */}
+      <BetaFeedbackWidget
+        courseCode={selectedSubject?.canonical_code || selectedSubject?.curriculum_id}
+        hasMeaningfulUsage={Boolean(snapshot && (snapshot.predictions?.length > 0 || snapshot.study_priorities?.length > 0))}
+      />
 
       <Footer />
     </div>

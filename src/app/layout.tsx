@@ -5,6 +5,7 @@ import "katex/dist/katex.min.css";
 import { Toaster } from "sonner";
 import { CommandPalette } from "@/components/ui/command-palette";
 import { GlobalFeatures } from "@/components/ui/GlobalFeatures";
+import { BetaObservabilityProvider } from "@/components/ui/BetaObservabilityProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -94,6 +95,7 @@ export default function RootLayout({
           }}
         />
                 <GlobalFeatures />
+        <BetaObservabilityProvider />
       </ThemeProvider>
       <Analytics />
       <SpeedInsights />
