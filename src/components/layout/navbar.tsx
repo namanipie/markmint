@@ -15,6 +15,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
 
   const links = [
     { href: "/", label: "Home" },
+    { href: "/courses", label: "Courses" },
     { href: "/mintai", label: "MintAI" },
     { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
@@ -43,7 +44,9 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
         
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname?.startsWith(link.href));
             return (
               <Link
                 key={link.href}

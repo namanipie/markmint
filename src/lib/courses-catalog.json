@@ -1,0 +1,4174 @@
+[
+  {
+    "id": 1,
+    "slug": "calculus-and-linear-algebra",
+    "aliases": [
+      "calc",
+      "21mab101t",
+      "sem1-calc",
+      "calculus"
+    ],
+    "name": "Calculus And Linear Algebra",
+    "code": "SEM1-CALC",
+    "canonicalCode": "21MAB101T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Calculus and Linear Algebra covers matrices, eigenvalues, multi-variable partial differentiation, vector calculus, ordinary differential equations, and infinite series under SRMIST Regulation 2021.",
+    "paperCount": 14,
+    "questionCount": 282,
+    "mappedQuestionCount": 164,
+    "mappingRate": 0.582,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Matrices and Linear Algebra",
+        "topicCount": 5,
+        "topics": [
+          "Eigenvalues and Eigenvectors",
+          "Matrix Operations",
+          "Linear Systems",
+          "Cayley-Hamilton Theorem",
+          "Quadratic Forms"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Ordinary Differential Equations",
+        "topicCount": 3,
+        "topics": [
+          "First-Order ODE",
+          "Second-Order ODE",
+          "ODE Solutions"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Partial Differential Equations",
+        "topicCount": 2,
+        "topics": [
+          "PDE Classification",
+          "Separation of Variables"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Laplace Transforms",
+        "topicCount": 2,
+        "topics": [
+          "Laplace Transform Tables",
+          "Inverse Laplace Transforms"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Sequence and Series",
+        "topicCount": 4,
+        "topics": [
+          "Convergence Tests",
+          "Power Series",
+          "Fourier Series",
+          "Taylor Series"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Functions of Several Variables",
+        "topicCount": 4,
+        "topics": [
+          "Partial Derivatives",
+          "Gradient",
+          "Directional Derivatives",
+          "Extrema and Optimization"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Multiple Integrals",
+        "topicCount": 3,
+        "topics": [
+          "Double Integrals",
+          "Triple Integrals",
+          "Change of Variables"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Vector Calculus",
+        "topicCount": 1,
+        "topics": [
+          "Vector Calculus"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Complex Analysis",
+        "topicCount": 3,
+        "topics": [
+          "Complex Variables and Analytic Functions",
+          "Conformal Mapping",
+          "Residues and Laurent Series"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Second-Order ODE",
+        "unitNumber": 2,
+        "questionCount": 28,
+        "paperCount": 7
+      },
+      {
+        "topic": "Convergence Tests",
+        "unitNumber": 5,
+        "questionCount": 25,
+        "paperCount": 7
+      },
+      {
+        "topic": "Partial Derivatives",
+        "unitNumber": 6,
+        "questionCount": 24,
+        "paperCount": 10
+      },
+      {
+        "topic": "Quadratic Forms",
+        "unitNumber": 1,
+        "questionCount": 21,
+        "paperCount": 10
+      },
+      {
+        "topic": "Eigenvalues and Eigenvectors",
+        "unitNumber": 1,
+        "questionCount": 19,
+        "paperCount": 11
+      },
+      {
+        "topic": "Cayley-Hamilton Theorem",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 10
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-CALC",
+    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice"
+  },
+  {
+    "id": 2,
+    "slug": "chemistry",
+    "aliases": [
+      "chem",
+      "21cyb101j",
+      "sem1-chem"
+    ],
+    "name": "Chemistry",
+    "code": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Engineering Chemistry provides rigorous foundational understanding of water treatment, polymer chemistry, thermodynamics, electrochemistry, and advanced analytical instrumentation.",
+    "paperCount": 11,
+    "questionCount": 331,
+    "mappedQuestionCount": 192,
+    "mappingRate": 0.58,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Periodic Properties",
+        "topicCount": 8,
+        "topics": [
+          "Periodic Trends",
+          "Atomic Radius",
+          "Ionization Energy",
+          "Electron Affinity",
+          "Electronegativity",
+          "Ionic Radius",
+          "Effective Nuclear Charge and Screening",
+          "Polarizability and Polarizing Power"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Chemical Equilibria",
+        "topicCount": 3,
+        "topics": [
+          "Equilibrium Constant",
+          "Le Chatelier Principle",
+          "Free Energy in Equilibria"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Stereo Chemistry And Organic Reactions",
+        "topicCount": 8,
+        "topics": [
+          "Stereoisomers",
+          "Organic Reaction Mechanisms",
+          "Optical Activity and Chirality",
+          "Conformational Analysis",
+          "Stereochemical Projections",
+          "Organic Reagents and Reaction Types",
+          "Organic Oxidation and Reduction",
+          "Organic Synthesis and Condensation"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Polymers",
+        "topicCount": 2,
+        "topics": [
+          "Polymer Types",
+          "Polymerization Processes"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Advanced Engineering Materials",
+        "topicCount": 2,
+        "topics": [
+          "Material Properties",
+          "Corrosion Resistance"
+        ]
+      },
+      {
+        "number": 6,
+        "name": "Quantum and Atomic Structure",
+        "topicCount": 3,
+        "topics": [
+          "Quantum Mechanics and Atomic Structure",
+          "Particle in a Box",
+          "Hydrogen Atomic Orbitals"
+        ]
+      },
+      {
+        "number": 7,
+        "name": "Molecular Orbital Theory",
+        "topicCount": 2,
+        "topics": [
+          "Molecular Orbital Theory",
+          "Aromaticity and Pi Molecular Orbitals"
+        ]
+      },
+      {
+        "number": 8,
+        "name": "Coordination and Crystal Field Theory",
+        "topicCount": 4,
+        "topics": [
+          "Coordination Chemistry",
+          "Crystal Field Theory",
+          "Coordination Isomerism",
+          "Molecular Symmetry"
+        ]
+      },
+      {
+        "number": 9,
+        "name": "Spectroscopy",
+        "topicCount": 6,
+        "topics": [
+          "Spectroscopy Fundamentals",
+          "Electronic and UV-Visible Spectroscopy",
+          "Rotational Spectroscopy",
+          "Vibrational and Infrared Spectroscopy",
+          "Nuclear Magnetic Resonance",
+          "Photoelectron Spectroscopy"
+        ]
+      },
+      {
+        "number": 10,
+        "name": "Solid State and Diffraction",
+        "topicCount": 1,
+        "topics": [
+          "X-ray Diffraction and Crystal Structure"
+        ]
+      },
+      {
+        "number": 11,
+        "name": "Thermodynamics and Intermolecular Forces",
+        "topicCount": 4,
+        "topics": [
+          "Chemical Thermodynamics",
+          "Hard and Soft Acids and Bases",
+          "Intermolecular Forces",
+          "Real Gases and Critical Phenomena"
+        ]
+      },
+      {
+        "number": 12,
+        "name": "Electrochemistry",
+        "topicCount": 2,
+        "topics": [
+          "Electrochemical Cells and Electrode Potentials",
+          "Solubility Equilibria"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Crystal Field Theory",
+        "unitNumber": 8,
+        "questionCount": 22,
+        "paperCount": 8
+      },
+      {
+        "topic": "Molecular Orbital Theory",
+        "unitNumber": 7,
+        "questionCount": 18,
+        "paperCount": 3
+      },
+      {
+        "topic": "Electrochemical Cells and Electrode Potentials",
+        "unitNumber": 12,
+        "questionCount": 13,
+        "paperCount": 6
+      },
+      {
+        "topic": "X-ray Diffraction and Crystal Structure",
+        "unitNumber": 10,
+        "questionCount": 11,
+        "paperCount": 4
+      },
+      {
+        "topic": "Polymer Types",
+        "unitNumber": 4,
+        "questionCount": 9,
+        "paperCount": 3
+      },
+      {
+        "topic": "Optical Activity and Chirality",
+        "unitNumber": 3,
+        "questionCount": 8,
+        "paperCount": 5
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice"
+  },
+  {
+    "id": 3,
+    "slug": "philosophy-of-engineering",
+    "aliases": [
+      "poe",
+      "phil",
+      "21gnh101j",
+      "sem1-phil"
+    ],
+    "name": "Philosophy Of Engineering",
+    "code": "SEM1-PHIL",
+    "canonicalCode": "21GNH101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Philosophy of Engineering explores engineering ethics, holistic engineering design methodologies, professional responsibility, epistemological models, and societal sustainability frameworks.",
+    "paperCount": 10,
+    "questionCount": 273,
+    "mappedQuestionCount": 118,
+    "mappingRate": 0.432,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Philosophy of Engineering",
+        "topicCount": 4,
+        "topics": [
+          "Definition and Scope of Engineering",
+          "STEAM Pyramid and Interdisciplinary Education",
+          "Engineering Habits of Mind and Professional Attributes",
+          "Historical Evolution and Eras of Engineering"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Ontology of Engineering",
+        "topicCount": 4,
+        "topics": [
+          "Philosophical Ontology and Nature of Artifacts",
+          "Reference Ontology and Application Ontology",
+          "Product Life Cycle and Developmental Stages",
+          "System Classification and Domain Modeling"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Epistemology of Engineering",
+        "topicCount": 4,
+        "topics": [
+          "Relations Between Science, Technology, and Engineering",
+          "Four Dimensions of Engineering Practice",
+          "RIASEC Model and Engineering Typology",
+          "Design Epistemology and Engineering Knowledge Base"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Methodology of Engineering",
+        "topicCount": 4,
+        "topics": [
+          "Scientific Method vs Engineering Design Process",
+          "ADDIE Model and Instructional System Design",
+          "CDIO Framework in Industry and Practice",
+          "Engineering Modeling and Problem Formulation"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Axiology of Engineering",
+        "topicCount": 4,
+        "topics": [
+          "Engineering Ethics and Professional Codes of Conduct",
+          "Sustainable Development and Ecological Stewardship",
+          "Concept of 3Es: Engineering, Economics, and Ethics",
+          "Professional Engineering Societies and Social Responsibility"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Product Life Cycle and Developmental Stages",
+        "unitNumber": 2,
+        "questionCount": 21,
+        "paperCount": 8
+      },
+      {
+        "topic": "ADDIE Model and Instructional System Design",
+        "unitNumber": 4,
+        "questionCount": 12,
+        "paperCount": 8
+      },
+      {
+        "topic": "Engineering Ethics and Professional Codes of Conduct",
+        "unitNumber": 5,
+        "questionCount": 11,
+        "paperCount": 6
+      },
+      {
+        "topic": "STEAM Pyramid and Interdisciplinary Education",
+        "unitNumber": 1,
+        "questionCount": 9,
+        "paperCount": 6
+      },
+      {
+        "topic": "Sustainable Development and Ecological Stewardship",
+        "unitNumber": 5,
+        "questionCount": 9,
+        "paperCount": 6
+      },
+      {
+        "topic": "CDIO Framework in Industry and Practice",
+        "unitNumber": 4,
+        "questionCount": 8,
+        "paperCount": 6
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-PHIL",
+    "practiceUrl": "/mintai?course=SEM1-PHIL&tab=practice"
+  },
+  {
+    "id": 4,
+    "slug": "introduction-to-computational-biology",
+    "aliases": [
+      "icb",
+      "21btb102t",
+      "sem1-intr",
+      "comp-bio"
+    ],
+    "name": "Introduction To Computational Biology",
+    "code": "SEM1-INTR",
+    "canonicalCode": "21BTB102T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Introduction to Computational Biology integrates biological data science, nucleic acid informatics, sequence alignment algorithms, protein structure analysis, and genomics databases.",
+    "paperCount": 8,
+    "questionCount": 228,
+    "mappedQuestionCount": 173,
+    "mappingRate": 0.759,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Cell and Evolution",
+        "topicCount": 4,
+        "topics": [
+          "Cell Theory and Whittaker's Kingdom Classification",
+          "Cell Organelles and Cellular Homeostasis",
+          "Cell Division, Replication, and Tissue Differentiation",
+          "Stem Cells and Genetic Algorithms in Evolution"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Basics in Biochemistry",
+        "topicCount": 4,
+        "topics": [
+          "Biomolecules: Carbohydrates, Lipids, and Proteins",
+          "Nucleic Acids, Enzymes, and Hormones",
+          "Human Genome Project and Genomics",
+          "Sequence Databases and BLAST Search Tool"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Structure Biology",
+        "topicCount": 4,
+        "topics": [
+          "Protein Synthesis: Transcription and Translation",
+          "Protein Secondary and Tertiary Structure",
+          "Structural Databases and Molecular Visualizing Tools",
+          "Secondary Structure Prediction Algorithms"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Neurobiology",
+        "topicCount": 4,
+        "topics": [
+          "Neuronal Anatomy, Glial Cells, and Brain Organization",
+          "Biological Neural Mechanisms and Synaptic Transmission",
+          "Artificial Neural Networks and Biological Comparison",
+          "Machine Learning and Data Mining in Biology"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Immunobiology",
+        "topicCount": 4,
+        "topics": [
+          "Elements of the Immune System and Immune Responses",
+          "Active and Passive Immunity and Antibodies",
+          "Immunoinformatics and Epitope Prediction",
+          "Computational Vaccine Design and Target Discovery"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Protein Synthesis: Transcription and Translation",
+        "unitNumber": 3,
+        "questionCount": 19,
+        "paperCount": 7
+      },
+      {
+        "topic": "Stem Cells and Genetic Algorithms in Evolution",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 8
+      },
+      {
+        "topic": "Computational Vaccine Design and Target Discovery",
+        "unitNumber": 5,
+        "questionCount": 13,
+        "paperCount": 6
+      },
+      {
+        "topic": "Elements of the Immune System and Immune Responses",
+        "unitNumber": 5,
+        "questionCount": 12,
+        "paperCount": 6
+      },
+      {
+        "topic": "Cell Organelles and Cellular Homeostasis",
+        "unitNumber": 1,
+        "questionCount": 11,
+        "paperCount": 6
+      },
+      {
+        "topic": "Neuronal Anatomy, Glial Cells, and Brain Organization",
+        "unitNumber": 4,
+        "questionCount": 11,
+        "paperCount": 6
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-INTR",
+    "practiceUrl": "/mintai?course=SEM1-INTR&tab=practice"
+  },
+  {
+    "id": 5,
+    "slug": "programming-for-problem-solving",
+    "aliases": [
+      "pps",
+      "21css101j",
+      "sem1-prog",
+      "programming"
+    ],
+    "name": "Programming For Problem Solving",
+    "code": "SEM1-PROG",
+    "canonicalCode": "21CSS101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Programming for Problem Solving covers C programming foundations, control flow structures, modular procedural design, arrays, pointers, memory allocation, and foundational algorithmic problem-solving.",
+    "paperCount": 20,
+    "questionCount": 362,
+    "mappedQuestionCount": 210,
+    "mappingRate": 0.58,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Problem Solving and C Basics",
+        "topicCount": 4,
+        "topics": [
+          "Problem Solving Process, Algorithms, and Flowcharts",
+          "Pseudocode and Program Design Techniques",
+          "C Program Structure, Tokens, Keywords, and Identifiers",
+          "Data Types, Variables, Constants, Operators, and Expressions"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Control Flow, Arrays, and Pointers",
+        "topicCount": 4,
+        "topics": [
+          "Conditional Branching: if, if-else, nested if, and switch-case",
+          "Iteration and Loops: for, while, do-while, and Jump Statements",
+          "One-Dimensional and Multi-Dimensional Arrays",
+          "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Strings, Functions, and Storage Classes",
+        "topicCount": 4,
+        "topics": [
+          "Character Arrays and String Handling Functions",
+          "User-Defined Functions and Parameter Passing Techniques",
+          "Recursion and Recursive Problem Solving",
+          "Storage Classes, Variable Scope, and Linkage"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Introduction to Python and Data Structures",
+        "topicCount": 4,
+        "topics": [
+          "Python Language Basics, Variables, and Built-in Data Types",
+          "Python Control Structures and Comprehensions",
+          "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+          "Python Functions, Modules, and Exception Handling"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Data Analysis with NumPy and Pandas",
+        "topicCount": 4,
+        "topics": [
+          "NumPy Array Creation, Attributes, Indexing, and Slicing",
+          "Numerical Operations and Descriptive Statistics with NumPy",
+          "Pandas Series and DataFrame Data Structures",
+          "Data Manipulation, Querying, and Tabular Operations in Pandas"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Data Types, Variables, Constants, Operators, and Expressions",
+        "unitNumber": 1,
+        "questionCount": 54,
+        "paperCount": 13
+      },
+      {
+        "topic": "One-Dimensional and Multi-Dimensional Arrays",
+        "unitNumber": 2,
+        "questionCount": 29,
+        "paperCount": 13
+      },
+      {
+        "topic": "Character Arrays and String Handling Functions",
+        "unitNumber": 3,
+        "questionCount": 22,
+        "paperCount": 8
+      },
+      {
+        "topic": "Problem Solving Process, Algorithms, and Flowcharts",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 6
+      },
+      {
+        "topic": "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 9
+      },
+      {
+        "topic": "Pandas Series and DataFrame Data Structures",
+        "unitNumber": 5,
+        "questionCount": 12,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-PROG",
+    "practiceUrl": "/mintai?course=SEM1-PROG&tab=practice"
+  },
+  {
+    "id": 6,
+    "slug": "fundamental-of-economics",
+    "aliases": [
+      "foe",
+      "18mss101t",
+      "sem1-fund",
+      "economics"
+    ],
+    "name": "Fundamental Of Economics (FOE)",
+    "code": "SEM1-FUND",
+    "canonicalCode": "18MSS101T",
+    "semester": 1,
+    "regulation": "2018",
+    "credits": 3,
+    "description": "Fundamental of Economics (FOE) analyzes micro and macro-economic theory, demand elasticity, production cost functions, market competition structures, and national engineering fiscal frameworks.",
+    "paperCount": 4,
+    "questionCount": 128,
+    "mappedQuestionCount": 75,
+    "mappingRate": 0.586,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Economics and Consumer Behaviour",
+        "topicCount": 4,
+        "topics": [
+          "Definitions, Nature, and Scope of Economics",
+          "Microeconomics, Macroeconomics, and Central Economic Problems",
+          "Cardinal Utility Analysis and Law of Diminishing Marginal Utility",
+          "Consumer Preferences and Indifference Curve Analysis"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Demand, Supply, and Market Equilibrium",
+        "topicCount": 4,
+        "topics": [
+          "Theory of Demand, Law of Demand, and Demand Elasticity",
+          "Income Elasticity and Cross Elasticity of Demand",
+          "Theory of Supply, Law of Supply, and Elasticity of Supply",
+          "Market Equilibrium and Consumer Surplus"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Production and Cost Analysis",
+        "topicCount": 4,
+        "topics": [
+          "Factors of Production and Short-Run Production Function",
+          "Law of Variable Proportions and Returns to Scale",
+          "Cost Analysis: Short-Run and Long-Run Cost Curves",
+          "Revenue Concepts, Cost Minimization, and Profit Maximization"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Market Structures and Pricing",
+        "topicCount": 4,
+        "topics": [
+          "Perfect Competition: Features and Equilibrium Analysis",
+          "Monopoly: Characteristics, Pricing, and Price Discrimination",
+          "Monopolistic Competition: Product Differentiation and Equilibrium",
+          "Oligopoly: Characteristics, Cartels, and Price Rigidity"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Money, Banking, and Macroeconomic Aggregates",
+        "topicCount": 4,
+        "topics": [
+          "Money: Functions, Evolution, and Quantity Theory",
+          "Commercial Banking, Credit Creation, and Central Bank Monetary Policy",
+          "Inflation, Deflation, and Business Cycles",
+          "National Income Accounting and Balance of Payments"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "National Income Accounting and Balance of Payments",
+        "unitNumber": 5,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Commercial Banking, Credit Creation, and Central Bank Monetary Policy",
+        "unitNumber": 5,
+        "questionCount": 7,
+        "paperCount": 4
+      },
+      {
+        "topic": "Theory of Demand, Law of Demand, and Demand Elasticity",
+        "unitNumber": 2,
+        "questionCount": 7,
+        "paperCount": 4
+      },
+      {
+        "topic": "Theory of Supply, Law of Supply, and Elasticity of Supply",
+        "unitNumber": 2,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Inflation, Deflation, and Business Cycles",
+        "unitNumber": 5,
+        "questionCount": 6,
+        "paperCount": 2
+      },
+      {
+        "topic": "Microeconomics, Macroeconomics, and Central Economic Problems",
+        "unitNumber": 1,
+        "questionCount": 6,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-FUND",
+    "practiceUrl": "/mintai?course=SEM1-FUND&tab=practice"
+  },
+  {
+    "id": 7,
+    "slug": "biomedical-sensors",
+    "aliases": [
+      "bmb",
+      "21bmb101t",
+      "sem1-biom",
+      "sensors"
+    ],
+    "name": "Biomedical Sensors",
+    "code": "SEM1-BIOM",
+    "canonicalCode": "21BMB101T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Biomedical Sensors introduces biomedical transducer mechanisms, physiological signal recording, bio-potential electrodes, optical sensors, and biosensing instrumentation.",
+    "paperCount": 1,
+    "questionCount": 27,
+    "mappedQuestionCount": 24,
+    "mappingRate": 0.889,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Measurement System and Medical Instrumentation",
+        "topicCount": 4,
+        "topics": [
+          "Functional Elements and Terminologies of Measurement Systems",
+          "Classification and Display of Electrical Parameters",
+          "Advantages and Architecture of Electronic Instruments",
+          "Functional Elements and Salient Features of Medical Instruments"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Temperature Transducers",
+        "topicCount": 4,
+        "topics": [
+          "Principles, Types, and Classification of Transducers",
+          "Resistance Temperature Detectors (RTD): Principles and Applications",
+          "Thermistors: Characteristics, Construction, and Working",
+          "Thermocouples: Seebeck Effect, Operating Principles, and Applications"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Pressure and Magnetic Transducers",
+        "topicCount": 4,
+        "topics": [
+          "Strain Gauges and Load Cells: Principles and Construction",
+          "Capacitive Transducers: Working Principles and Operation",
+          "Piezoelectric Transducers: Piezoelectric Effect and Applications",
+          "Linear Variable Differential Transformers (LVDT): Construction and Operation"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Optical Transducers",
+        "topicCount": 4,
+        "topics": [
+          "Photodiodes: Operating Principles and Characteristic Curves",
+          "Phototransistors: Construction and Working Principles",
+          "Light Dependent Resistors (LDR) and Photoconductive Cells",
+          "Photovoltaic Cells and Optical Sensor Applications"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Medical Applications of Sensors",
+        "topicCount": 4,
+        "topics": [
+          "Pulse Oximetry and Blood Oxygen Saturation (SpO2) Monitoring",
+          "Heart Rate Sensors and Photoplethysmography (PPG)",
+          "Blood Pressure Sensors: Systolic and Diastolic Measurement",
+          "Infrared (IR) Sensors in Clinical and Biomedical Diagnostics"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Classification and Display of Electrical Parameters",
+        "unitNumber": 1,
+        "questionCount": 2,
+        "paperCount": 1
+      },
+      {
+        "topic": "Heart Rate Sensors and Photoplethysmography (PPG)",
+        "unitNumber": 5,
+        "questionCount": 2,
+        "paperCount": 1
+      },
+      {
+        "topic": "Linear Variable Differential Transformers (LVDT): Construction and Operation",
+        "unitNumber": 3,
+        "questionCount": 2,
+        "paperCount": 1
+      },
+      {
+        "topic": "Photovoltaic Cells and Optical Sensor Applications",
+        "unitNumber": 4,
+        "questionCount": 2,
+        "paperCount": 1
+      },
+      {
+        "topic": "Principles, Types, and Classification of Transducers",
+        "unitNumber": 2,
+        "questionCount": 2,
+        "paperCount": 1
+      },
+      {
+        "topic": "Advantages and Architecture of Electronic Instruments",
+        "unitNumber": 1,
+        "questionCount": 1,
+        "paperCount": 1
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-BIOM",
+    "practiceUrl": "/mintai?course=SEM1-BIOM&tab=practice"
+  },
+  {
+    "id": 8,
+    "slug": "foreign-languages",
+    "aliases": [
+      "fl",
+      "fore",
+      "21leh-elective",
+      "sem1-fore",
+      "languages"
+    ],
+    "name": "Foreign Languages",
+    "code": "SEM1-FORE",
+    "canonicalCode": "21LEH-ELECTIVE",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Foreign Languages offers track-isolated elective foreign language pathways at SRMIST, comprising German, French, Spanish, Japanese, Korean, and Chinese with dedicated syllabuses and examinations.",
+    "paperCount": 32,
+    "questionCount": 1050,
+    "mappedQuestionCount": 204,
+    "mappingRate": 0.194,
+    "hasTracks": true,
+    "tracks": [
+      {
+        "trackKey": "german",
+        "trackName": "German",
+        "trackCode": "21LEH104T",
+        "paperCount": 6,
+        "questionCount": 191,
+        "units": [
+          {
+            "number": 1,
+            "name": "Begrüßungen, Sich Vorstellen und Grundlagen",
+            "topicCount": 6,
+            "topics": [
+              "Begrüßungen und Verabschiedungen",
+              "Sich Vorstellen und Persönliche Angaben",
+              "Alphabet, Zahlen bis 100 und Buchstabieren",
+              "Länder, Sprachen und Wohnort",
+              "W-Fragen und Fragewörter",
+              "Wochentage, Monate und Jahreszeiten"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Personalpronomen, Verben und Satzbau",
+            "topicCount": 5,
+            "topics": [
+              "Personalpronomen im Nominativ",
+              "Konjugation Regelmäßiger und Unregelmäßiger Verben",
+              "Zahlen bis eine Million",
+              "Satzbau: Aussagesatz und Fragesätze",
+              "Formulare und Steckbriefe Ausfüllen"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Wortschatz, Artikel und Wegbeschreibung",
+            "topicCount": 6,
+            "topics": [
+              "Wortschatz: Gebäude, Plätze und Verkehrsmittel",
+              "Gegenstände, Schulsachen und Geräte",
+              "Bestimmte und Unbestimmte Artikel im Nominativ",
+              "Negation mit kein und nicht",
+              "Wegbeschreibung, Orientierung und Himmelsrichtungen",
+              "Ordinalzahlen und Datumsangaben"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Lebensmittel, Einkaufen, Akkusativ und Uhrzeit",
+            "topicCount": 5,
+            "topics": [
+              "Lebensmittel, Mahlzeiten und Getränke",
+              "Preise, Einkaufen und Maßeinheiten",
+              "Akkusativ: Bestimmte, Unbestimmte Artikel und Negation",
+              "Verben mit Akkusativ-Ergänzung",
+              "Uhrzeit: Offizielle und Inoffizielle Zeitangaben"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Modalverben, Trennbare Verben und Familie",
+            "topicCount": 5,
+            "topics": [
+              "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+              "Trennbare und Untrennbare Verben",
+              "Possessivpronomen im Nominativ",
+              "Familie und Verwandtschaftsverhältnisse",
+              "Präteritum von sein und haben"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+            "unitNumber": 5,
+            "questionCount": 9,
+            "paperCount": 5
+          },
+          {
+            "topic": "Länder, Sprachen und Wohnort",
+            "unitNumber": 1,
+            "questionCount": 4,
+            "paperCount": 4
+          },
+          {
+            "topic": "Negation mit kein und nicht",
+            "unitNumber": 3,
+            "questionCount": 3,
+            "paperCount": 2
+          },
+          {
+            "topic": "Präteritum von sein und haben",
+            "unitNumber": 5,
+            "questionCount": 2,
+            "paperCount": 2
+          },
+          {
+            "topic": "Wochentage, Monate und Jahreszeiten",
+            "unitNumber": 1,
+            "questionCount": 2,
+            "paperCount": 2
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice"
+      },
+      {
+        "trackKey": "french",
+        "trackName": "French",
+        "trackCode": "21LEH103T",
+        "paperCount": 6,
+        "questionCount": 207,
+        "units": [
+          {
+            "number": 1,
+            "name": "Alphabet, Phonétique et Communication en Classe",
+            "topicCount": 4,
+            "topics": [
+              "L'Alphabet Français et la Phonétique",
+              "Les Accents et la Ponctuation",
+              "L'Orthographe et les Règles de Prononciation",
+              "La Communication et les Consignes en Classe"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Salutations, Pronoms Sujets, Verbes de Base et Nombres",
+            "topicCount": 7,
+            "topics": [
+              "Les Salutations et Formules de Politesse",
+              "Les Pronoms Personnels Sujets",
+              "Verbes Fondamentaux: être, avoir, s'appeler, habiter",
+              "Se Présenter et Présenter Quelqu'un",
+              "Les Articles Définis et Indéfinis",
+              "Les Nombres de 0 à 69, Jours et Mois",
+              "Les Pronoms Toniques"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Verbes du 1er Groupe, Nationalités et Famille",
+            "topicCount": 8,
+            "topics": [
+              "Les Nombres de 70 à 1000",
+              "Verbes Réguliers du 1er Groupe en -er",
+              "Verbes Aller et Venir",
+              "Les Professions et Métiers",
+              "Pays, Villes et Nationalités",
+              "Genre et Nombre des Adjectifs Qualificatifs",
+              "Les Prépositions de Lieu",
+              "Les Adjectifs Possessifs et la Famille"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Mots Interrogatifs, Verbes Modaux, Loisirs et Heure",
+            "topicCount": 7,
+            "topics": [
+              "Les Mots et Structures Interrogatives",
+              "Les Verbes Modaux: vouloir, pouvoir, devoir",
+              "Les Verbes Pronominaux et la Routine",
+              "Verbes du 2ème Groupe en -ir",
+              "Les Loisirs, Goûts et Préférences",
+              "Le Futur Proche",
+              "L'Heure et les Horaires"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Adjectifs Démonstratifs, Quantités, Vêtements et Sorties",
+            "topicCount": 7,
+            "topics": [
+              "Les Adjectifs Démonstratifs: ce, cette, ces",
+              "Les Expressions de Quantité et Articles Partitifs",
+              "Verbes Particuliers en -ger, -cer, -yer",
+              "Verbes du 3ème Groupe Irréguliers",
+              "Les Vêtements, Couleurs et la Mode",
+              "Adverbes de Fréquence et de Temps",
+              "Proposer, Accepter ou Refuser une Sortie"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Pays, Villes et Nationalités",
+            "unitNumber": 3,
+            "questionCount": 20,
+            "paperCount": 4
+          },
+          {
+            "topic": "Les Nombres de 70 à 1000",
+            "unitNumber": 3,
+            "questionCount": 5,
+            "paperCount": 2
+          },
+          {
+            "topic": "L'Heure et les Horaires",
+            "unitNumber": 4,
+            "questionCount": 3,
+            "paperCount": 3
+          },
+          {
+            "topic": "Les Nombres de 0 à 69, Jours et Mois",
+            "unitNumber": 2,
+            "questionCount": 3,
+            "paperCount": 3
+          },
+          {
+            "topic": "Les Mots et Structures Interrogatives",
+            "unitNumber": 4,
+            "questionCount": 2,
+            "paperCount": 2
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice"
+      },
+      {
+        "trackKey": "spanish",
+        "trackName": "Spanish",
+        "trackCode": "21LEH107T",
+        "paperCount": 3,
+        "questionCount": 97,
+        "units": [
+          {
+            "number": 1,
+            "name": "Abecedario, Saludos, Presentación y Verbos Básicos",
+            "topicCount": 8,
+            "topics": [
+              "El Abecedario y Pronunciación",
+              "Saludos y Despedidas",
+              "Nacionalidades y Profesiones",
+              "Números del 1 al 100",
+              "Presentación Personal y Datos de Contacto",
+              "Pronombres Personales y Artículos Definidos",
+              "Verbos Auxiliares: ser, tener, llamarse",
+              "La Familia y Relaciones"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Artículos Indefinidos, Direcciones y Presente Regular",
+            "topicCount": 8,
+            "topics": [
+              "Artículos Indefinidos y Números hasta 1000",
+              "Estructuras de Negación y Traducción",
+              "Direcciones Cardinales y Medios de Transporte",
+              "Preguntar por Direcciones y Ubicaciones",
+              "Presente de Indicativo: Verbos Regulares -ar, -er, -ir",
+              "El Verbo Hay y Expresión de Existencia",
+              "El Superlativo y Cuantificadores",
+              "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Verbos Ser y Estar, Clima y Verbos Irregulares",
+            "topicCount": 5,
+            "topics": [
+              "Diferenciación entre Ser y Estar",
+              "Números Ordinales y Días de la Semana",
+              "Verbos Irregulares en Tiempo Presente",
+              "Expresiones del Clima y Estaciones del Año",
+              "Comprensión Lectora y Expresión Escrita"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Compras, Precios, Demostrativos y Perífrasis Obligativa",
+            "topicCount": 6,
+            "topics": [
+              "Vocabulario Escolar y Académico",
+              "Compras en Tiendas y Pedir Precios",
+              "Demostrativos: este, esta, estos, estas, esto",
+              "Perífrasis Obligativa: tener que + infinitivo",
+              "El Verbo Ir y Lugares",
+              "Prendas de Vestir y Colores"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Aspecto, Carácter, Gustos con Gustar y Restaurante",
+            "topicCount": 5,
+            "topics": [
+              "Descripción del Aspecto Físico y Carácter",
+              "Expresar Gustos e Intereses con el Verbo Gustar",
+              "En el Restaurante: Ordenar Comida y Pagar",
+              "Adjetivos Posesivos y Pertenencia",
+              "Rutina Diaria y Actividades Cotidianas"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
+            "unitNumber": 2,
+            "questionCount": 15,
+            "paperCount": 3
+          },
+          {
+            "topic": "Números del 1 al 100",
+            "unitNumber": 1,
+            "questionCount": 4,
+            "paperCount": 3
+          },
+          {
+            "topic": "La Familia y Relaciones",
+            "unitNumber": 1,
+            "questionCount": 3,
+            "paperCount": 3
+          },
+          {
+            "topic": "Descripción del Aspecto Físico y Carácter",
+            "unitNumber": 5,
+            "questionCount": 2,
+            "paperCount": 2
+          },
+          {
+            "topic": "Artículos Indefinidos y Números hasta 1000",
+            "unitNumber": 2,
+            "questionCount": 1,
+            "paperCount": 1
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice"
+      },
+      {
+        "trackKey": "japanese",
+        "trackName": "Japanese",
+        "trackCode": "21LEH105T",
+        "paperCount": 5,
+        "questionCount": 145,
+        "units": [
+          {
+            "number": 1,
+            "name": "Self-Introduction, Hiragana Script and Basic Grammar",
+            "topicCount": 9,
+            "topics": [
+              "Japanese Language, Culture and Self-Introduction",
+              "Greetings and Classroom Expressions",
+              "Basic Particles: wa, ka, mo, no",
+              "Sentence Patterns: desu and ja arimasen",
+              "Hiragana Writing System: Lessons 1 to 4",
+              "Demonstrative Pronouns: kono, sono, ano, dono, kore, sore, are, dore",
+              "Existence Sentences: arimasu, imasu with ni, ga particles",
+              "Days of the Week, Months, and Numbers",
+              "Kanji for Days of the Week and Numbers"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Time Expressions, Locations, Prices and Culture",
+            "topicCount": 8,
+            "topics": [
+              "Time Expressions: Hours, Minutes, Gozen and Gogo",
+              "Location Markers: ue, shita, naka and Directions",
+              "Location Pronouns: koko, soko, asoko, doko",
+              "Asking Prices and Requesting with o kudasai",
+              "Numbers up to One Lakh (100,000)",
+              "Japanese Seasons, Weather, Origami, Ikebana and Culture",
+              "Hiragana Lessons 5 to 10: Double Consonants and Long Vowels",
+              "Kanji: Numbers, Yen, Colours and Directions"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Counters, Family, Living Style and Katakana",
+            "topicCount": 6,
+            "topics": [
+              "Keeki o Yattsu Kudasai and General Counters (~tsu)",
+              "Specialized Counters: -nin, -hiki, -dai, -kai",
+              "Family Members: Plain vs Polite Forms",
+              "Japanese House, Living Style and Architecture",
+              "Katakana Rules, Characters and Writing System",
+              "Kanji: otoko, onna, ko, hito"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Verbs, Tenses, Particles and Adjectives",
+            "topicCount": 6,
+            "topics": [
+              "Action Verbs: ikimasu, okimasu, nemasu, tabemasu",
+              "Verb Tenses: Past Tense and Negative Forms (~masen deshita)",
+              "Particles in Context: e, de, to, ni, o, ga",
+              "Adjectives: -i and -na Ending Adjectives",
+              "Kanji: ikimasu, mimasu, yasumimasu, kaimasu",
+              "Daily Expressions, Body Parts and Religious Beliefs"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Invitational Forms, Te-Form, Tai-Form and Kanji",
+            "topicCount": 7,
+            "topics": [
+              "Invitational Expressions: ~masen ka and ~mashou",
+              "Adjectives: Present, Past, Affirmative and Negative Forms",
+              "Stationery and Transport Vocabulary",
+              "Grammar: Usage of ~te Form",
+              "Grammar: Desire and Want with ~tai Form",
+              "Kanji: ookii, chiisai, eki, chuui",
+              "Japanese Tea Ceremony, Political System and Economy"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Existence Sentences: arimasu, imasu with ni, ga particles",
+            "unitNumber": 1,
+            "questionCount": 7,
+            "paperCount": 3
+          },
+          {
+            "topic": "Sentence Patterns: desu and ja arimasen",
+            "unitNumber": 1,
+            "questionCount": 7,
+            "paperCount": 3
+          },
+          {
+            "topic": "Katakana Rules, Characters and Writing System",
+            "unitNumber": 3,
+            "questionCount": 3,
+            "paperCount": 3
+          },
+          {
+            "topic": "Adjectives: -i and -na Ending Adjectives",
+            "unitNumber": 4,
+            "questionCount": 2,
+            "paperCount": 2
+          },
+          {
+            "topic": "Japanese Language, Culture and Self-Introduction",
+            "unitNumber": 1,
+            "questionCount": 2,
+            "paperCount": 2
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=japanese",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=japanese&tab=practice"
+      },
+      {
+        "trackKey": "korean",
+        "trackName": "Korean",
+        "trackCode": "21LEH106T",
+        "paperCount": 8,
+        "questionCount": 279,
+        "units": [
+          {
+            "number": 1,
+            "name": "Hangul Alphabet, Vowels, Consonants and Self-Introduction",
+            "topicCount": 6,
+            "topics": [
+              "Introduction to Korea and Korean Culture",
+              "Hangul Writing System (한글 소개)",
+              "Single Vowels and Double Vowels (단모음, 이중모음)",
+              "Basic, Aspirated and Tense Consonants",
+              "Final Consonants / Batchim (받침)",
+              "Self-Introduction and Daily Greetings (자기 소개, 인사말)"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Particles, Sentence Endings and Demonstratives",
+            "topicCount": 6,
+            "topics": [
+              "Topic Marking Particles: eun / neun (은/는)",
+              "Subject Marking Particles: i / ga (이/가)",
+              "Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
+              "Formal Polite Sentence Endings: bipnida / seupnida (ㅂ니다/습니다)",
+              "Demonstrative Pronouns: i, geu, jeo (이, 그, 저)",
+              "Sino-Korean Number System and Applications"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Verb Conjugations, Tenses and Weather",
+            "topicCount": 5,
+            "topics": [
+              "Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
+              "Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
+              "Native Korean Numbers and Counting Units",
+              "Weather, Seasons and Daily Vocabulary",
+              "Location Particles: e and eseo (에, 에서)"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Time System, Calendar, Future Tense and Honorifics",
+            "topicCount": 5,
+            "topics": [
+              "Telling Time: Hours, Minutes and Periods of the Day",
+              "Days of the Week and Months of the Year",
+              "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+              "Object Marking Particles: eul / reul (을/를)",
+              "Honorific Particle: kkeseo and Subject Honorifics (시/으시)"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Ability, Obligations, Requests and Daily Activities",
+            "topicCount": 6,
+            "topics": [
+              "Expressing Ability and Possibility: (eu)l su itda / eopda ((으)ㄹ 수 있다/없다)",
+              "Imperatives and Requests: (eu)seyo ((으)세요)",
+              "Prohibitions: ji maseyo (지 마세요)",
+              "Expressing Desire and Wants: go sipda (고 싶다)",
+              "Complex Sentences with Connective Particles (고, 서)",
+              "Daily Activities, Hobbies and Campus Life"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
+            "unitNumber": 4,
+            "questionCount": 17,
+            "paperCount": 7
+          },
+          {
+            "topic": "Self-Introduction and Daily Greetings (자기 소개, 인사말)",
+            "unitNumber": 1,
+            "questionCount": 7,
+            "paperCount": 6
+          },
+          {
+            "topic": "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+            "unitNumber": 4,
+            "questionCount": 6,
+            "paperCount": 3
+          },
+          {
+            "topic": "Basic, Aspirated and Tense Consonants",
+            "unitNumber": 1,
+            "questionCount": 4,
+            "paperCount": 4
+          },
+          {
+            "topic": "Complex Sentences with Connective Particles (고, 서)",
+            "unitNumber": 5,
+            "questionCount": 4,
+            "paperCount": 3
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice"
+      },
+      {
+        "trackKey": "chinese",
+        "trackName": "Chinese",
+        "trackCode": "21LEH102T",
+        "paperCount": 4,
+        "questionCount": 131,
+        "units": [
+          {
+            "number": 1,
+            "name": "Pinyin, Tones, Basic Strokes and Daily Greetings",
+            "topicCount": 7,
+            "topics": [
+              "Introduction to Mandarin Chinese and Geography",
+              "Pinyin System: Initials, Finals and Combinations",
+              "The Four Tones and Tone Neutralization",
+              "Eight Basic Strokes and Stroke Order of Characters",
+              "Personal Pronouns and Plural Forms (我, 你, 他, 们)",
+              "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+              "Basic Daily Greetings and Politeness Phrases"
+            ]
+          },
+          {
+            "number": 2,
+            "name": "Numbers, Currency, Time and Simple Sentence Patterns",
+            "topicCount": 7,
+            "topics": [
+              "Chinese Number System and Counting",
+              "Chinese Currency and Monetary Terms (元, 角, 分)",
+              "Telephone Numbers and Conversational Needs",
+              "Time Telling, Calendar, Days, Months and Seasons",
+              "Basic S-V-O Sentence Patterns in Mandarin",
+              "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+              "Asking and Introducing Nationalities"
+            ]
+          },
+          {
+            "number": 3,
+            "name": "Question Words, Prices, Locations and Professions",
+            "topicCount": 6,
+            "topics": [
+              "Interrogative Words: ji (几) and duo shao (多少)",
+              "Asking and Bargaining Prices in Chinese",
+              "Asking Names Formally and Expressing Apologies",
+              "Location Prepositions with zai (在)",
+              "Spatial Demonstratives: zher (这儿), nar (那儿), nar (哪儿)",
+              "Occupations, Professions and Workplace Vocabulary"
+            ]
+          },
+          {
+            "number": 4,
+            "name": "Suggestions, Comments, Food and Sports",
+            "topicCount": 5,
+            "topics": [
+              "Making, Accepting and Declining Suggestions",
+              "Subject-Predicate as Predicate Constructions",
+              "Food, Fruits and Ordering Meals Vocabulary",
+              "Action Verbs and Adverbial Modifiers",
+              "Sports, Games, Hobbies and Leisure Vocabulary"
+            ]
+          },
+          {
+            "number": 5,
+            "name": "Family, University, Time Sequence and Modal Verbs",
+            "topicCount": 6,
+            "topics": [
+              "Describing Family Members and Relatives",
+              "University, Academic Departments and Student Life",
+              "Time Sequencing Words: yiqian (以前), yihou (以后), haishi (还是)",
+              "Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
+              "Expressing Likes, Dislikes and Color Preferences",
+              "Traditional Chinese Festivals and Culture"
+            ]
+          }
+        ],
+        "highYieldTopics": [
+          {
+            "topic": "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+            "unitNumber": 2,
+            "questionCount": 13,
+            "paperCount": 4
+          },
+          {
+            "topic": "Describing Family Members and Relatives",
+            "unitNumber": 5,
+            "questionCount": 7,
+            "paperCount": 4
+          },
+          {
+            "topic": "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+            "unitNumber": 1,
+            "questionCount": 5,
+            "paperCount": 2
+          },
+          {
+            "topic": "Chinese Number System and Counting",
+            "unitNumber": 2,
+            "questionCount": 4,
+            "paperCount": 2
+          },
+          {
+            "topic": "Pinyin System: Initials, Finals and Combinations",
+            "unitNumber": 1,
+            "questionCount": 2,
+            "paperCount": 2
+          }
+        ],
+        "mintAiUrl": "/mintai?course=SEM1-FORE&language=chinese",
+        "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice"
+      }
+    ],
+    "units": [],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [],
+    "mintAiUrl": "/mintai?course=SEM1-FORE",
+    "practiceUrl": "/mintai?course=SEM1-FORE&tab=practice"
+  },
+  {
+    "id": 9,
+    "slug": "cell-biology",
+    "aliases": [
+      "cellbio",
+      "21btc102j",
+      "sem1-cell"
+    ],
+    "name": "Cell Biology",
+    "code": "SEM1-CELL",
+    "canonicalCode": "21BTC102J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Cell Biology investigates cellular organelles, biomembrane transport dynamics, intracellular signaling cascades, cell cycle regulation, and molecular bioenergetics.",
+    "paperCount": 2,
+    "questionCount": 65,
+    "mappedQuestionCount": 58,
+    "mappingRate": 0.892,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Overview of Cells and Cell Research",
+        "topicCount": 4,
+        "topics": [
+          "Origin, Evolution, and Organization of Prokaryotic and Eukaryotic Cells",
+          "Experimental Model Organisms and Microscopy Tools in Cell Biology",
+          "Molecular Composition of Cells: Macromolecules and Water",
+          "Structure, Composition, and Dynamics of the Plasma Membrane"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Cell Structure and Function: Organelles",
+        "topicCount": 4,
+        "topics": [
+          "Nuclear Structure, Nuclear Envelope, and Nucleolus",
+          "Endoplasmic Reticulum and Golgi Apparatus in Protein Processing",
+          "Lysosomes, Peroxisomes, and Endocytic Sorting",
+          "Bioenergetics of Mitochondria and Chloroplasts"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Cytoskeleton and Cellular Transport",
+        "topicCount": 4,
+        "topics": [
+          "Actin and Myosin Filaments: Structure and Muscle Contraction",
+          "Microtubules, Centrosomes, and Intermediate Filaments",
+          "Passive and Active Membrane Transport and Ion Channels",
+          "Cell-Cell Interactions: Adhesion, Tight Junctions, and Gap Junctions"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Cell Signaling and Transduction Pathways",
+        "topicCount": 4,
+        "topics": [
+          "Principles and Modes of Intercellular Signaling: Autocrine, Paracrine, Endocrine",
+          "Cell Surface Receptors and Ligand Binding Mechanisms",
+          "G-Protein Coupled Receptor (GPCR) Pathways and Second Messengers",
+          "Receptor Tyrosine Kinases and MAPK Signaling Cascades"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Cell Regulation, Cancer, and Stem Cells",
+        "topicCount": 4,
+        "topics": [
+          "Cell Cycle Checkpoints, Cyclins, and CDKs",
+          "Mechanisms of Mitosis, Meiosis, and Chromosome Segregation",
+          "Programmed Cell Death: Apoptosis vs Necrosis Pathways",
+          "Molecular Biology of Cancer, Oncogenes, and Stem Cell Therapeutics"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Molecular Biology of Cancer, Oncogenes, and Stem Cell Therapeutics",
+        "unitNumber": 5,
+        "questionCount": 17,
+        "paperCount": 2
+      },
+      {
+        "topic": "Microtubules, Centrosomes, and Intermediate Filaments",
+        "unitNumber": 3,
+        "questionCount": 5,
+        "paperCount": 2
+      },
+      {
+        "topic": "Bioenergetics of Mitochondria and Chloroplasts",
+        "unitNumber": 2,
+        "questionCount": 4,
+        "paperCount": 2
+      },
+      {
+        "topic": "Nuclear Structure, Nuclear Envelope, and Nucleolus",
+        "unitNumber": 2,
+        "questionCount": 4,
+        "paperCount": 2
+      },
+      {
+        "topic": "Passive and Active Membrane Transport and Ion Channels",
+        "unitNumber": 3,
+        "questionCount": 4,
+        "paperCount": 2
+      },
+      {
+        "topic": "Structure, Composition, and Dynamics of the Plasma Membrane",
+        "unitNumber": 1,
+        "questionCount": 4,
+        "paperCount": 2
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-CELL",
+    "practiceUrl": "/mintai?course=SEM1-CELL&tab=practice"
+  },
+  {
+    "id": 10,
+    "slug": "microbiology",
+    "aliases": [
+      "microbio",
+      "21btc201t",
+      "sem1-micr"
+    ],
+    "name": "Microbiology",
+    "code": "SEM1-MICR",
+    "canonicalCode": "21BTC201T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Microbiology covers microbial taxonomy, bacterial ultrastructure, viral biology, culture techniques, antimicrobial mechanisms, and industrial fermentation applications.",
+    "paperCount": 4,
+    "questionCount": 115,
+    "mappedQuestionCount": 93,
+    "mappingRate": 0.809,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Cell: Basic Unit of Life",
+        "topicCount": 4,
+        "topics": [
+          "Cell Structure and Organelles: Organization and Functions",
+          "Cell Cycle, Division, and Meiotic Recombination",
+          "Cell Differentiation and Stem Cell Biology",
+          "Stem Cell Applications and Ethical Considerations"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Macromolecules and Metabolism",
+        "topicCount": 4,
+        "topics": [
+          "Carbohydrate Structure, Classification, and Glucose Metabolism",
+          "Lipids and Fatty Acid Metabolism",
+          "Amino Acids, Protein Architecture, and Enzymes",
+          "Nucleic Acids (DNA and RNA) and Photosynthesis"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Microbiology in Human Life",
+        "topicCount": 4,
+        "topics": [
+          "Pathogenic Microorganisms: Bacteria and Viruses",
+          "Antibiotics and Antibiotic Resistance Mechanisms",
+          "Vaccines and Communicable Disease Control Strategies",
+          "Environmental and Industrial Microbiology"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Basics of Biosensors and Molecular Motors",
+        "topicCount": 4,
+        "topics": [
+          "Biosensors: Components, Transducers, and Principles",
+          "Glucose Sensors and Clinical Diagnostic Applications",
+          "Linear Molecular Motors: Actin and Myosin Systems",
+          "Rotary Molecular Motors: Flagellar Motor and ATPase"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Basics of Biomaterial and its Applications",
+        "topicCount": 4,
+        "topics": [
+          "Classification and Characterization of Biomaterials",
+          "Biocompatibility and Mechanical Properties of Scaffolds",
+          "Biomaterials for Organ Replacement and Medical Devices",
+          "Biomimetic Materials in Dental and Bone Applications"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Biomimetic Materials in Dental and Bone Applications",
+        "unitNumber": 5,
+        "questionCount": 9,
+        "paperCount": 3
+      },
+      {
+        "topic": "Carbohydrate Structure, Classification, and Glucose Metabolism",
+        "unitNumber": 2,
+        "questionCount": 8,
+        "paperCount": 4
+      },
+      {
+        "topic": "Cell Structure and Organelles: Organization and Functions",
+        "unitNumber": 1,
+        "questionCount": 8,
+        "paperCount": 4
+      },
+      {
+        "topic": "Biosensors: Components, Transducers, and Principles",
+        "unitNumber": 4,
+        "questionCount": 7,
+        "paperCount": 4
+      },
+      {
+        "topic": "Antibiotics and Antibiotic Resistance Mechanisms",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 4
+      },
+      {
+        "topic": "Cell Cycle, Division, and Meiotic Recombination",
+        "unitNumber": 1,
+        "questionCount": 5,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-MICR",
+    "practiceUrl": "/mintai?course=SEM1-MICR&tab=practice"
+  },
+  {
+    "id": 11,
+    "slug": "physical-and-analytical-chemistry",
+    "aliases": [
+      "pac",
+      "21chc101j",
+      "sem1-phys"
+    ],
+    "name": "Physical And Analytical Chemistry",
+    "code": "SEM1-PHYS",
+    "canonicalCode": "21CHC101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Physical and Analytical Chemistry delves into chemical kinetics, spectroscopy, phase equilibria, chromatographic separation techniques, and electroanalytical quantification.",
+    "paperCount": 1,
+    "questionCount": 32,
+    "mappedQuestionCount": 30,
+    "mappingRate": 0.938,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Properties of Solutions",
+        "topicCount": 4,
+        "topics": [
+          "Ideal and Non-Ideal Solutions: Raoult's Law and Deviations",
+          "Vapor Pressure-Composition and Boiling Point Phase Diagrams",
+          "Distillation Techniques: Fractional, Immiscible, and Steam Distillation",
+          "Colligative Properties and Molecular Weight Determination"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Chemical Equilibrium",
+        "topicCount": 4,
+        "topics": [
+          "Gibbs Free Energy, Chemical Potential, and Reaction Spontaneity",
+          "Law of Mass Action and Thermodynamic Equilibrium Constants (Kp, Kc, Kx)",
+          "Temperature and Pressure Dependence: Van't Hoff Equation",
+          "Le Chatelier's Principle and Dynamic Physical-Chemical Equilibria"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Phase Equilibrium",
+        "topicCount": 4,
+        "topics": [
+          "Gibbs Phase Rule: Phases, Components, and Degrees of Freedom",
+          "One-Component Systems: Water, CO2, and Sulphur Phase Diagrams",
+          "Three-Component Systems and Triangular Phase Diagrams",
+          "Nernst Distribution Law and Solute Association/Dissociation"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Colloids and Photochemistry",
+        "topicCount": 4,
+        "topics": [
+          "Colloidal Dispersions: Classification, Tyndall Effect, and Brownian Movement",
+          "Electrical and Electrokinetic Properties: Zeta Potential and Electrophoresis",
+          "Laws of Photochemistry and Quantum Yield",
+          "Photochemical Kinetics: Hydrogen-Chlorine and Hydrogen-Bromine Reactions"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Instrumental Methods of Analysis",
+        "topicCount": 4,
+        "topics": [
+          "Analytical Measurement Errors, Accuracy, Precision, and Calibration",
+          "Molecular Spectroscopy: UV-Vis and Infrared (IR) Spectroscopy",
+          "Atomic Absorption Spectroscopy and Optical Instrumentation",
+          "Chromatographic Separation Techniques: TLC, GC, and HPLC"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Distillation Techniques: Fractional, Immiscible, and Steam Distillation",
+        "unitNumber": 1,
+        "questionCount": 3,
+        "paperCount": 1
+      },
+      {
+        "topic": "Gibbs Free Energy, Chemical Potential, and Reaction Spontaneity",
+        "unitNumber": 2,
+        "questionCount": 3,
+        "paperCount": 1
+      },
+      {
+        "topic": "Gibbs Phase Rule: Phases, Components, and Degrees of Freedom",
+        "unitNumber": 3,
+        "questionCount": 3,
+        "paperCount": 1
+      },
+      {
+        "topic": "Ideal and Non-Ideal Solutions: Raoult's Law and Deviations",
+        "unitNumber": 1,
+        "questionCount": 3,
+        "paperCount": 1
+      },
+      {
+        "topic": "Laws of Photochemistry and Quantum Yield",
+        "unitNumber": 4,
+        "questionCount": 3,
+        "paperCount": 1
+      },
+      {
+        "topic": "Molecular Spectroscopy: UV-Vis and Infrared (IR) Spectroscopy",
+        "unitNumber": 5,
+        "questionCount": 3,
+        "paperCount": 1
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-PHYS",
+    "practiceUrl": "/mintai?course=SEM1-PHYS&tab=practice"
+  },
+  {
+    "id": 12,
+    "slug": "biochemistry",
+    "aliases": [
+      "biochem",
+      "21btc101t",
+      "sem1-bioc"
+    ],
+    "name": "Biochemistry",
+    "code": "SEM1-BIOC",
+    "canonicalCode": "21BTC101T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Biochemistry explores structural and functional properties of biomolecules, enzymatic kinetics, bioenergetics, metabolic pathways (glycolysis, Krebs cycle), and nucleic acid metabolism.",
+    "paperCount": 3,
+    "questionCount": 101,
+    "mappedQuestionCount": 88,
+    "mappingRate": 0.871,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Biochemistry",
+        "topicCount": 4,
+        "topics": [
+          "Chemical Bonds, pH, Buffers, and Water in Biological Systems",
+          "Carbohydrate Architecture: Monosaccharides, Polysaccharides, and Glycoproteins",
+          "Amino Acids and Protein Organization: Primary to Quaternary Structure",
+          "Lipids, Biological Membranes, and Nucleic Acid Structure"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Introduction to Metabolism, Bioenergetics and Photosynthesis",
+        "topicCount": 4,
+        "topics": [
+          "Bioenergetics, High Energy Compounds, and Thermodynamics of Metabolism",
+          "Mitochondrial Electron Transport Chain and Complexes",
+          "Oxidative Phosphorylation, Chemiosmotic Theory, and Shuttle Pathways",
+          "Photosynthesis: Light Reactions, Photophosphorylation, and Carbon Fixation"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Carbohydrate Metabolism",
+        "topicCount": 4,
+        "topics": [
+          "Glycolysis and Pyruvate Dehydrogenase Complex",
+          "Citric Acid Cycle (TCA Cycle) and Amphibolic Nature",
+          "Gluconeogenesis and Glycogen Metabolism (Glycogenesis and Glycogenolysis)",
+          "Hormonal Regulation of Blood Glucose: Insulin, Glucagon, and Diabetes"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Protein Turnover and Amino Acids Metabolism",
+        "topicCount": 4,
+        "topics": [
+          "Protein Turnover, Proteolysis, and PEST Sequences",
+          "Transamination, Deamination, and Decarboxylation of Amino Acids",
+          "Urea Cycle, Ammonia Toxicity, and Inborn Errors of Metabolism",
+          "Biosynthesis and Degradation of Essential and Non-Essential Amino Acids"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Fatty Acid and Nucleic Acids Metabolisms",
+        "topicCount": 4,
+        "topics": [
+          "Mobilization of Lipids and Beta-Oxidation of Fatty Acids",
+          "Ketogenesis, Ketone Bodies, and Lipid Metabolism Disorders",
+          "Biosynthesis of Fatty Acids, Cholesterol, Eicosanoids, and Lipoproteins",
+          "Purine and Pyrimidine Nucleotide Biosynthesis and Degradation"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Amino Acids and Protein Organization: Primary to Quaternary Structure",
+        "unitNumber": 1,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Mobilization of Lipids and Beta-Oxidation of Fatty Acids",
+        "unitNumber": 5,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Purine and Pyrimidine Nucleotide Biosynthesis and Degradation",
+        "unitNumber": 5,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Urea Cycle, Ammonia Toxicity, and Inborn Errors of Metabolism",
+        "unitNumber": 4,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Citric Acid Cycle (TCA Cycle) and Amphibolic Nature",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 2
+      },
+      {
+        "topic": "Glycolysis and Pyruvate Dehydrogenase Complex",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 2
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-BIOC",
+    "practiceUrl": "/mintai?course=SEM1-BIOC&tab=practice"
+  },
+  {
+    "id": 13,
+    "slug": "semiconductor-physics-and-computational-methods",
+    "aliases": [
+      "spcm",
+      "21pyb102j",
+      "sem1-spcm",
+      "semiconductor-physics"
+    ],
+    "name": "Semiconductor Physics and Computational Methods",
+    "code": "SEM1-SPCM",
+    "canonicalCode": "21PYB102J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Semiconductor Physics and Computational Methods covers quantum mechanics principles, energy band theory, semiconductor transport mechanics, carrier dynamics, and numerical modeling methods.",
+    "paperCount": 36,
+    "questionCount": 1027,
+    "mappedQuestionCount": 673,
+    "mappingRate": 0.655,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Free Electron Theory and Energy Bands",
+        "topicCount": 5,
+        "topics": [
+          "Classical Free Electron Theory",
+          "Quantum Free Electron Theory",
+          "Band Theory and Kronig-Penney Model",
+          "Brillouin Zones and Band Gaps",
+          "Fermi Surface and Computational Band Structure"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Semiconductor Physics and Carrier Transport",
+        "topicCount": 7,
+        "topics": [
+          "Intrinsic Semiconductors",
+          "Extrinsic Semiconductors and Doping",
+          "Carrier Generation, Recombination, and Continuity",
+          "Carrier Transport: Drift and Diffusion",
+          "P-N Junction and Biasing",
+          "Metal-Semiconductor Contacts",
+          "Optoelectronic Devices and LEDs"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Optical Processes and Photovoltaic Devices",
+        "topicCount": 5,
+        "topics": [
+          "Optical Transitions and Absorption",
+          "Radiative Recombination and Emission",
+          "Joint Density of States and Transition Rates",
+          "Computational Optics and Optical Loss",
+          "Solar Cells and Photovoltaics"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Semiconductor Measurements and Transport Equations",
+        "topicCount": 5,
+        "topics": [
+          "Two-Point and Four-Point Probe Measurements",
+          "Hall Effect and Carrier Mobility",
+          "Hot-Point Probe and Capacitance-Voltage Measurements",
+          "Diode Parameter Extraction and TCAD",
+          "Boltzmann Transport Equation and Monte Carlo Method"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Nanostructures and Characterization",
+        "topicCount": 5,
+        "topics": [
+          "Low-Dimensional Systems and Density of States",
+          "Carbon Nanotubes (CNT)",
+          "Nanofabrication Techniques",
+          "Electron Microscopy and Surface Characterization",
+          "Computational Image Processing for Nanomaterials"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Solar Cells and Photovoltaics",
+        "unitNumber": 3,
+        "questionCount": 54,
+        "paperCount": 22
+      },
+      {
+        "topic": "Electron Microscopy and Surface Characterization",
+        "unitNumber": 5,
+        "questionCount": 48,
+        "paperCount": 18
+      },
+      {
+        "topic": "P-N Junction and Biasing",
+        "unitNumber": 2,
+        "questionCount": 48,
+        "paperCount": 22
+      },
+      {
+        "topic": "Extrinsic Semiconductors and Doping",
+        "unitNumber": 2,
+        "questionCount": 43,
+        "paperCount": 24
+      },
+      {
+        "topic": "Optoelectronic Devices and LEDs",
+        "unitNumber": 2,
+        "questionCount": 40,
+        "paperCount": 20
+      },
+      {
+        "topic": "Radiative Recombination and Emission",
+        "unitNumber": 3,
+        "questionCount": 40,
+        "paperCount": 21
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-SPCM",
+    "practiceUrl": "/mintai?course=SEM1-SPCM&tab=practice"
+  },
+  {
+    "id": 14,
+    "slug": "electrical-and-electronics-engineering",
+    "aliases": [
+      "eee",
+      "21eeb101j",
+      "sem1-eee",
+      "electrical"
+    ],
+    "name": "Electrical and Electronics Engineering",
+    "code": "SEM1-EEE",
+    "canonicalCode": "21EEB101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Electrical and Electronics Engineering covers DC/AC network theorems, magnetic circuits, single-phase and three-phase power systems, operational amplifiers, and semiconductor electronic devices.",
+    "paperCount": 31,
+    "questionCount": 879,
+    "mappedQuestionCount": 502,
+    "mappingRate": 0.571,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Electric Circuits",
+        "topicCount": 7,
+        "topics": [
+          "DC Circuit Terminologies and Kirchhoff's Laws",
+          "Mesh Current and Nodal Voltage Analysis",
+          "Network Theorems",
+          "AC Circuit Fundamentals",
+          "Single-Phase AC Series Circuits",
+          "Three-Phase AC Systems",
+          "Rectifier Circuits"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Electronics",
+        "topicCount": 8,
+        "topics": [
+          "Semiconductors, Diodes, and BJT",
+          "Field Effect Transistors",
+          "Power Semiconductor Devices",
+          "SCR Switching and Commutation",
+          "Power Converters and Regulators",
+          "Digital Logic and Combinational Design",
+          "Karnaugh Map Minimization",
+          "FPGA and PCB Design"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Machines and Drives",
+        "topicCount": 6,
+        "topics": [
+          "DC Machines",
+          "Single-Phase Transformers",
+          "Three-Phase Induction Motors",
+          "Special Electrical Machines",
+          "Electrical Drives and Choppers",
+          "Drive Applications"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Transducers and Sensors",
+        "topicCount": 7,
+        "topics": [
+          "Electrical Measuring Instruments",
+          "Electronic Measuring Instruments",
+          "Displacement and Position Transducers",
+          "Temperature Transducers",
+          "Piezoelectric, Photoelectric, and Hall Effect Transducers",
+          "Optoelectronic Devices and Photosensors",
+          "Industrial and Biomedical Sensors"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Power Engineering",
+        "topicCount": 7,
+        "topics": [
+          "Electric Power Supply Systems",
+          "Substations and Smart Grid",
+          "Electrical Safety and Earthing",
+          "Electrical Safety Devices",
+          "Renewable Energy and Solar Photovoltaic",
+          "Energy Storage and Batteries",
+          "Electric Vehicles and Charging"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Network Theorems",
+        "unitNumber": 1,
+        "questionCount": 62,
+        "paperCount": 20
+      },
+      {
+        "topic": "Semiconductors, Diodes, and BJT",
+        "unitNumber": 2,
+        "questionCount": 30,
+        "paperCount": 15
+      },
+      {
+        "topic": "Special Electrical Machines",
+        "unitNumber": 3,
+        "questionCount": 28,
+        "paperCount": 12
+      },
+      {
+        "topic": "Single-Phase Transformers",
+        "unitNumber": 3,
+        "questionCount": 25,
+        "paperCount": 12
+      },
+      {
+        "topic": "Three-Phase Induction Motors",
+        "unitNumber": 3,
+        "questionCount": 24,
+        "paperCount": 14
+      },
+      {
+        "topic": "DC Machines",
+        "unitNumber": 3,
+        "questionCount": 23,
+        "paperCount": 13
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-EEE",
+    "practiceUrl": "/mintai?course=SEM1-EEE&tab=practice"
+  },
+  {
+    "id": 15,
+    "slug": "communicative-english",
+    "aliases": [
+      "english",
+      "eng",
+      "21leh101t",
+      "sem1-eng"
+    ],
+    "name": "Communicative English",
+    "code": "SEM1-ENG",
+    "canonicalCode": "21LEH101T",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Communicative English focuses on professional technical communication, reading comprehension, syntactical accuracy, report drafting, business correspondence, and verbal engineering communication.",
+    "paperCount": 24,
+    "questionCount": 579,
+    "mappedQuestionCount": 306,
+    "mappingRate": 0.528,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Fundamentals of Communication and Listening Skills",
+        "topicCount": 5,
+        "topics": [
+          "Communication Process, Channels, and Models",
+          "Barriers to Effective Communication",
+          "Types of Listening (Active, Passive, Critical, Empathetic)",
+          "Listening Comprehension, Reading Techniques, and Note-Taking",
+          "Non-Verbal Communication (Kinesics, Proxemics, Paralanguage)"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Grammar and Vocabulary in Context",
+        "topicCount": 5,
+        "topics": [
+          "Subject-Verb Agreement (Concord)",
+          "Tenses, Aspects, and Conditional Clauses",
+          "Active and Passive Voice Transformations",
+          "Direct and Indirect (Reported) Speech",
+          "Degrees of Comparison, Conjunctions, and Question Tags"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Professional Correspondence and Mechanics of Writing",
+        "topicCount": 5,
+        "topics": [
+          "Mechanics of Writing (Punctuation, Capitalization, Parallelism)",
+          "Paragraph Development, Topic Sentences, and Précis Writing",
+          "Formal Letters (Inquiry, Complaint, Permission)",
+          "Professional E-mail Writing and Netiquette",
+          "Resume, Curriculum Vitae (CV), and Job Applications"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Institutional Documents, Reports and Proposals",
+        "topicCount": 5,
+        "topics": [
+          "Notice, Agenda, and Minutes of Meetings",
+          "Technical and Business Report Writing",
+          "Project Proposal Writing and Feasibility Studies",
+          "Transcoding: Information Transfer from Charts/Graphs to Text",
+          "Technical Vocabulary, Synonyms, Antonyms, and Word Formation (Prefixes/Suffixes)"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Presentation Skills, Academic Integrity and Workplace Ethics",
+        "topicCount": 5,
+        "topics": [
+          "Public Speaking, Speech Delivery, and Audience Analysis",
+          "Group Discussion (GD) Techniques and Leadership",
+          "Presentation Skills, Visual Aids, and Slide Design",
+          "Academic Integrity, Plagiarism, Paraphrasing, and Referencing",
+          "Workplace Ethics, Interpersonal Skills, Synchronous and Asynchronous Communication"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Listening Comprehension, Reading Techniques, and Note-Taking",
+        "unitNumber": 1,
+        "questionCount": 55,
+        "paperCount": 21
+      },
+      {
+        "topic": "Workplace Ethics, Interpersonal Skills, Synchronous and Asynchronous Communication",
+        "unitNumber": 5,
+        "questionCount": 26,
+        "paperCount": 18
+      },
+      {
+        "topic": "Technical and Business Report Writing",
+        "unitNumber": 4,
+        "questionCount": 21,
+        "paperCount": 14
+      },
+      {
+        "topic": "Technical Vocabulary, Synonyms, Antonyms, and Word Formation (Prefixes/Suffixes)",
+        "unitNumber": 4,
+        "questionCount": 20,
+        "paperCount": 12
+      },
+      {
+        "topic": "Transcoding: Information Transfer from Charts/Graphs to Text",
+        "unitNumber": 4,
+        "questionCount": 20,
+        "paperCount": 12
+      },
+      {
+        "topic": "Academic Integrity, Plagiarism, Paraphrasing, and Referencing",
+        "unitNumber": 5,
+        "questionCount": 19,
+        "paperCount": 14
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-ENG",
+    "practiceUrl": "/mintai?course=SEM1-ENG&tab=practice"
+  },
+  {
+    "id": 16,
+    "slug": "advanced-calculus-and-complex-analysis",
+    "aliases": [
+      "acca",
+      "21mab102t",
+      "sem2-acca",
+      "advanced-calculus"
+    ],
+    "name": "Advanced Calculus and Complex Analysis",
+    "code": "SEM2-ACCA",
+    "canonicalCode": "21MAB102T",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Advanced Calculus and Complex Analysis covers analytic functions, conformal mapping, contour integration, Cauchy residue theorems, Fourier transforms, and Laplace transformation calculus.",
+    "paperCount": 14,
+    "questionCount": 456,
+    "mappedQuestionCount": 258,
+    "mappingRate": 0.566,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Multiple Integrals",
+        "topicCount": 4,
+        "topics": [
+          "Double Integrals and Change of Variables",
+          "Change of Order of Integration",
+          "Triple Integrals and Volume Evaluation",
+          "Area and Volume as Multiple Integrals"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Vector Calculus",
+        "topicCount": 5,
+        "topics": [
+          "Gradient, Directional Derivative, and Potential Functions",
+          "Divergence, Curl, Solenoidal, and Irrotational Fields",
+          "Green's Theorem in a Plane",
+          "Stokes' Theorem",
+          "Gauss Divergence Theorem"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Laplace Transforms",
+        "topicCount": 5,
+        "topics": [
+          "Laplace Transforms of Elementary Functions and Shifting Properties",
+          "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+          "Inverse Laplace Transforms and Partial Fractions",
+          "Convolution Theorem for Laplace Transforms",
+          "Solving Ordinary Differential Equations Using Laplace Transforms"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Analytic Functions",
+        "topicCount": 5,
+        "topics": [
+          "Analytic Functions and Cauchy-Riemann Equations",
+          "Harmonic Functions and Orthogonal Trajectories",
+          "Milne-Thomson Method for Analytic Functions",
+          "Conformal Mapping and Standard Transformations",
+          "Bilinear Transformations and Cross-Ratio"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Complex Integration",
+        "topicCount": 5,
+        "topics": [
+          "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+          "Taylor's and Laurent's Series Expansions",
+          "Singularities, Poles, and Residues",
+          "Cauchy's Residue Theorem",
+          "Contour Integration"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+        "unitNumber": 2,
+        "questionCount": 25,
+        "paperCount": 13
+      },
+      {
+        "topic": "Taylor's and Laurent's Series Expansions",
+        "unitNumber": 5,
+        "questionCount": 23,
+        "paperCount": 13
+      },
+      {
+        "topic": "Inverse Laplace Transforms and Partial Fractions",
+        "unitNumber": 3,
+        "questionCount": 22,
+        "paperCount": 11
+      },
+      {
+        "topic": "Green's Theorem in a Plane",
+        "unitNumber": 2,
+        "questionCount": 21,
+        "paperCount": 12
+      },
+      {
+        "topic": "Analytic Functions and Cauchy-Riemann Equations",
+        "unitNumber": 4,
+        "questionCount": 18,
+        "paperCount": 10
+      },
+      {
+        "topic": "Double Integrals and Change of Variables",
+        "unitNumber": 1,
+        "questionCount": 18,
+        "paperCount": 12
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-ACCA",
+    "practiceUrl": "/mintai?course=SEM2-ACCA&tab=practice"
+  },
+  {
+    "id": 17,
+    "slug": "object-oriented-design-and-programming",
+    "aliases": [
+      "oodp",
+      "21csc102j",
+      "sem2-oodp",
+      "oop"
+    ],
+    "name": "Object Oriented Design and Programming",
+    "code": "SEM2-OODP",
+    "canonicalCode": "21CSC102J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Object Oriented Design and Programming (OODP) teaches object-oriented modeling, polymorphism, inheritance, generic programming, exception handling, design patterns, and C++/Java OOP implementations.",
+    "paperCount": 12,
+    "questionCount": 355,
+    "mappedQuestionCount": 208,
+    "mappingRate": 0.586,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to OOP and Static Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Procedural vs Object Oriented Programming",
+          "Classes, Objects, and Data Encapsulation",
+          "Access Specifiers and Member Functions",
+          "UML Class Diagrams and Class Relationships",
+          "UML Use Case Diagrams and Use Case Relationships"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Constructors, Polymorphism, and Interaction Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Constructors and Destructors",
+          "Types of Constructors",
+          "Function and Constructor Overloading",
+          "Operator Overloading and Friend Functions",
+          "UML Interaction Diagrams: Sequence and Collaboration Diagrams"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Inheritance, Advanced Functions, and Behavioral Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Inheritance and Modes of Inheritance",
+          "Types of Inheritance and Virtual Base Classes",
+          "Inline Functions and Friend Functions",
+          "Virtual Functions, Dynamic Binding, and Abstract Classes",
+          "UML Behavioral Modeling: State Chart and Activity Diagrams"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Generic Programming, Exception Handling, and Implementation Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Generic Programming and Function Templates",
+          "Class Templates and Template Specialization",
+          "Exception Handling: try, throw, and catch Mechanism",
+          "Multiple Catch, Standard Exceptions, and User Defined Exceptions",
+          "UML Implementation Modeling: Package, Component, and Deployment Diagrams"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Standard Template Library and File Streams",
+        "topicCount": 5,
+        "topics": [
+          "Standard Template Library (STL) Architecture",
+          "STL Sequence Containers: Vector, List, and Deque",
+          "STL Associative Containers and Adapters: Map, Set, Stack, Queue",
+          "STL Iterators, Algorithms, and Function Objects",
+          "C++ Stream Classes and File I/O Operations"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "UML Use Case Diagrams and Use Case Relationships",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 10
+      },
+      {
+        "topic": "UML Behavioral Modeling: State Chart and Activity Diagrams",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 9
+      },
+      {
+        "topic": "Function and Constructor Overloading",
+        "unitNumber": 2,
+        "questionCount": 14,
+        "paperCount": 9
+      },
+      {
+        "topic": "UML Implementation Modeling: Package, Component, and Deployment Diagrams",
+        "unitNumber": 4,
+        "questionCount": 14,
+        "paperCount": 8
+      },
+      {
+        "topic": "Inline Functions and Friend Functions",
+        "unitNumber": 3,
+        "questionCount": 13,
+        "paperCount": 8
+      },
+      {
+        "topic": "Inheritance and Modes of Inheritance",
+        "unitNumber": 3,
+        "questionCount": 12,
+        "paperCount": 8
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-OODP",
+    "practiceUrl": "/mintai?course=SEM2-OODP&tab=practice"
+  },
+  {
+    "id": 18,
+    "slug": "electronic-system-and-pcb-design",
+    "aliases": [
+      "espcb",
+      "21ecc101j",
+      "sem2-espcb",
+      "pcb"
+    ],
+    "name": "Electronic System and PCB Design",
+    "code": "SEM2-ESPCB",
+    "canonicalCode": "21ECC101J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Electronic System and PCB Design covers electronic schematic capture, printed circuit board (PCB) routing rules, signal integrity, component footprints, and hardware fabrication standards.",
+    "paperCount": 12,
+    "questionCount": 314,
+    "mappedQuestionCount": 173,
+    "mappingRate": 0.551,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Semiconductor Fundamentals and Devices",
+        "topicCount": 5,
+        "topics": [
+          "Classification of Semiconductors and Doping",
+          "Energy Bands, Fermi Level, and Mass-Action Law",
+          "Drift, Diffusion Currents, and Einstein Relationship",
+          "PN Junction Diodes, BJT, and MOSFETs",
+          "Advanced Nano-MOSFETs, SOI MOSFET, and FinFET"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Power Devices and Fabrication",
+        "topicCount": 5,
+        "topics": [
+          "Power Semiconductor Devices and Power Electronics",
+          "Power Diodes, Schottky Diode, Gunn Diode, and IMPATT Diode",
+          "Thyristor, PNPN Diode, and Silicon Controlled Rectifier (SCR)",
+          "Power BJT and Power MOSFET Switching Characteristics",
+          "Monolithic IC Fabrication Processes"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Power Supplies and Measurement Instruments",
+        "topicCount": 5,
+        "topics": [
+          "Regulated Power Supplies and Rectifiers",
+          "Voltage Regulators and Line-Load Regulation",
+          "Switched Mode Power Supply (SMPS)",
+          "Wave Shaping Circuits and Multivibrators",
+          "Electronic Measurement Instruments and Oscilloscopes"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "PCB Design Concepts",
+        "topicCount": 5,
+        "topics": [
+          "PCB Classifications, Types of Boards, and Manufacturing",
+          "PCB Schematic Design and Layout Planning",
+          "Mechanical Design Considerations and Stress Analysis",
+          "Component Mounting, Assembly, and Soldering Techniques",
+          "Electrical Design Considerations, Component Placement, and Routing"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Advanced PCB Design and Application",
+        "topicCount": 5,
+        "topics": [
+          "Environmental Factors, Thermal Management, and Cooling of PCBs",
+          "Layout Checklists and Design Rules for Analog and Digital PCBs",
+          "Signal Integrity, Noise, Cross-talk, and Reflections in PCBs",
+          "High-Frequency and Fast-Pulse PCB Design",
+          "Microwave and RF PCB Design"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "PN Junction Diodes, BJT, and MOSFETs",
+        "unitNumber": 1,
+        "questionCount": 37,
+        "paperCount": 11
+      },
+      {
+        "topic": "Wave Shaping Circuits and Multivibrators",
+        "unitNumber": 3,
+        "questionCount": 17,
+        "paperCount": 9
+      },
+      {
+        "topic": "Power Diodes, Schottky Diode, Gunn Diode, and IMPATT Diode",
+        "unitNumber": 2,
+        "questionCount": 16,
+        "paperCount": 9
+      },
+      {
+        "topic": "Regulated Power Supplies and Rectifiers",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 8
+      },
+      {
+        "topic": "Monolithic IC Fabrication Processes",
+        "unitNumber": 2,
+        "questionCount": 11,
+        "paperCount": 7
+      },
+      {
+        "topic": "PCB Classifications, Types of Boards, and Manufacturing",
+        "unitNumber": 4,
+        "questionCount": 10,
+        "paperCount": 5
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-ESPCB",
+    "practiceUrl": "/mintai?course=SEM2-ESPCB&tab=practice"
+  },
+  {
+    "id": 19,
+    "slug": "electromagnetic-theory-and-quantum-mechanics",
+    "aliases": [
+      "emphy",
+      "21pyb101j",
+      "sem1-emphy",
+      "electromagnetics"
+    ],
+    "name": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "code": "SEM1-EMPHY",
+    "canonicalCode": "21PYB101J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics covers Maxwell equations, electromagnetic wave propagation, wave-particle duality, Schrödinger equation, and optical wave phenomena.",
+    "paperCount": 12,
+    "questionCount": 366,
+    "mappedQuestionCount": 164,
+    "mappingRate": 0.448,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Polarization of Light",
+        "unitNumber": 4,
+        "questionCount": 21,
+        "paperCount": 10
+      },
+      {
+        "topic": "Ferrites and Spinel Structures",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 8
+      },
+      {
+        "topic": "Vector Calculus and Del Operator",
+        "unitNumber": 1,
+        "questionCount": 11,
+        "paperCount": 9
+      },
+      {
+        "topic": "Fiber Classification and Losses",
+        "unitNumber": 5,
+        "questionCount": 10,
+        "paperCount": 6
+      },
+      {
+        "topic": "Schrödinger Wave Equations",
+        "unitNumber": 3,
+        "questionCount": 10,
+        "paperCount": 5
+      },
+      {
+        "topic": "Superposition and Interference of Light",
+        "unitNumber": 4,
+        "questionCount": 10,
+        "paperCount": 7
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-EMPHY",
+    "practiceUrl": "/mintai?course=SEM1-EMPHY&tab=practice"
+  },
+  {
+    "id": 20,
+    "slug": "physics-mechanics",
+    "aliases": [
+      "phymech",
+      "21pyb104j",
+      "sem1-phymech",
+      "mechanics"
+    ],
+    "name": "Physics: Mechanics",
+    "code": "SEM1-PHYMECH",
+    "canonicalCode": "21PYB104J",
+    "semester": 1,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Physics: Mechanics covers Newtonian particle dynamics, rotational mechanics, conservation theorems, harmonic oscillations, gravitation, and continuum mechanical elasticity.",
+    "paperCount": 4,
+    "questionCount": 124,
+    "mappedQuestionCount": 60,
+    "mappingRate": 0.484,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Oscillations and Fundamental Dynamics",
+        "topicCount": 6,
+        "topics": [
+          "Fundamental Forces in Nature and Kinematics",
+          "Frames of Reference",
+          "Simple Harmonic Motion and Conservation of Energy",
+          "Damped Harmonic Oscillators",
+          "Viscous Dampers and Energy Dissipation",
+          "Forced Harmonic Oscillators and Resonance"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Rigid Body Dynamics and Rotation",
+        "topicCount": 6,
+        "topics": [
+          "Particles and Rigid Bodies",
+          "Rotation About a Fixed Axis",
+          "Kinetic Energy of Rigid Bodies",
+          "Euler's Equations of Motion",
+          "Gyroscopic Precession and Symmetrical Top",
+          "Conical Pendulum"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Statics and Structural Mechanics",
+        "topicCount": 5,
+        "topics": [
+          "Rigid Bodies in Static Equilibrium",
+          "Free Body Diagrams and Force Systems",
+          "Supports and Reaction Forces",
+          "Bridge and Roof Trusses",
+          "Theory of Dry Friction"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Stress, Strain, and Material Failure",
+        "topicCount": 6,
+        "topics": [
+          "State of Stress at a Point",
+          "Generalized Hooke's Law and Thermal Strains",
+          "Plane State of Stress and Principal Stresses",
+          "Mohr's Circle for Planar Stress",
+          "Material Failure Mechanisms",
+          "Electrical Resistance Strain Gauges"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Beams, Torsion, and Energy Methods",
+        "topicCount": 6,
+        "topics": [
+          "Pure Bending of Beams",
+          "Flexural Formula for Bending",
+          "Torsion of Circular Shafts",
+          "Torsion Equation",
+          "Twisting Moment Diagrams",
+          "Strain Energy and Resilience"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Rotation About a Fixed Axis",
+        "unitNumber": 2,
+        "questionCount": 9,
+        "paperCount": 4
+      },
+      {
+        "topic": "Damped Harmonic Oscillators",
+        "unitNumber": 1,
+        "questionCount": 6,
+        "paperCount": 3
+      },
+      {
+        "topic": "Strain Energy and Resilience",
+        "unitNumber": 5,
+        "questionCount": 5,
+        "paperCount": 4
+      },
+      {
+        "topic": "Bridge and Roof Trusses",
+        "unitNumber": 3,
+        "questionCount": 4,
+        "paperCount": 3
+      },
+      {
+        "topic": "Conical Pendulum",
+        "unitNumber": 2,
+        "questionCount": 4,
+        "paperCount": 3
+      },
+      {
+        "topic": "Electrical Resistance Strain Gauges",
+        "unitNumber": 4,
+        "questionCount": 4,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM1-PHYMECH",
+    "practiceUrl": "/mintai?course=SEM1-PHYMECH&tab=practice"
+  },
+  {
+    "id": 21,
+    "slug": "engineering-mechanics",
+    "aliases": [
+      "engmech",
+      "21meb101t",
+      "sem2-engmech"
+    ],
+    "name": "Engineering Mechanics",
+    "code": "SEM2-ENGMECH",
+    "canonicalCode": "21MEB101T",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Engineering Mechanics teaches statics and dynamics of rigid bodies, concurrent force equilibrium, structural trusses, friction, centroid/moment of inertia, and kinematic equations of motion.",
+    "paperCount": 3,
+    "questionCount": 104,
+    "mappedQuestionCount": 63,
+    "mappingRate": 0.606,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Statics of Particles and Rigid Bodies",
+        "topicCount": 5,
+        "topics": [
+          "Force Systems, Resultant of Forces, and Parallelogram Law",
+          "Free Body Diagrams, Equilibrium of Particles, and Lami's Theorem",
+          "Moments, Couples, and Varignon's Theorem",
+          "Equilibrium of Rigid Bodies and Types of Supports",
+          "Analysis of Simple Trusses and Method of Joints"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Friction and Its Applications",
+        "topicCount": 5,
+        "topics": [
+          "Laws of Dry Friction, Limiting Friction, and Coefficient of Friction",
+          "Angle of Friction, Cone of Friction, and Angle of Repose",
+          "Friction on Horizontal and Inclined Planes",
+          "Ladder Friction and Wedge Friction",
+          "Belt Friction and Screw Jack Friction"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Centroid and Moment of Inertia",
+        "topicCount": 5,
+        "topics": [
+          "Centroid of Lines, Simple Areas, and Composite Figures",
+          "Centre of Gravity of Solid Bodies",
+          "Moment of Inertia of Areas and Parallel Axis Theorem",
+          "Perpendicular Axis Theorem and Polar Moment of Inertia",
+          "Mass Moment of Inertia of Standard Geometries"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Dynamics of Particles: Kinematics and Kinetics",
+        "topicCount": 5,
+        "topics": [
+          "Rectilinear Motion: Position, Velocity, and Acceleration",
+          "Curvilinear Motion and Projectile Motion",
+          "Newton's Second Law and D'Alembert's Principle for Particles",
+          "Work-Energy Principle for Particles",
+          "Impulse-Momentum Principle and Impact of Elastic Bodies"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Kinematics and Kinetics of Rigid Bodies",
+        "topicCount": 5,
+        "topics": [
+          "Translation and Rotation of Rigid Bodies About a Fixed Axis",
+          "General Plane Motion and Instantaneous Centre of Rotation",
+          "Equations of Motion for Plane Motion of Rigid Bodies",
+          "Work-Energy Principle for Rigid Bodies",
+          "Impulse and Angular Momentum for Rigid Bodies"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Centroid of Lines, Simple Areas, and Composite Figures",
+        "unitNumber": 3,
+        "questionCount": 7,
+        "paperCount": 3
+      },
+      {
+        "topic": "Belt Friction and Screw Jack Friction",
+        "unitNumber": 2,
+        "questionCount": 6,
+        "paperCount": 2
+      },
+      {
+        "topic": "Translation and Rotation of Rigid Bodies About a Fixed Axis",
+        "unitNumber": 5,
+        "questionCount": 6,
+        "paperCount": 3
+      },
+      {
+        "topic": "Work-Energy Principle for Particles",
+        "unitNumber": 4,
+        "questionCount": 6,
+        "paperCount": 2
+      },
+      {
+        "topic": "Ladder Friction and Wedge Friction",
+        "unitNumber": 2,
+        "questionCount": 5,
+        "paperCount": 2
+      },
+      {
+        "topic": "Laws of Dry Friction, Limiting Friction, and Coefficient of Friction",
+        "unitNumber": 2,
+        "questionCount": 5,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-ENGMECH",
+    "practiceUrl": "/mintai?course=SEM2-ENGMECH&tab=practice"
+  },
+  {
+    "id": 22,
+    "slug": "probability-and-statistics",
+    "aliases": [
+      "prob",
+      "21mab201t",
+      "sem2-prob",
+      "statistics"
+    ],
+    "name": "Probability and Statistics",
+    "code": "SEM2-PROB",
+    "canonicalCode": "21MAB201T",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Probability and Statistics covers probability axioms, random variables, probability density distributions, sampling theory, hypothesis testing, ANOVA, and regression modeling.",
+    "paperCount": 3,
+    "questionCount": 91,
+    "mappedQuestionCount": 48,
+    "mappingRate": 0.527,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Probability and Random Variables",
+        "topicCount": 5,
+        "topics": [
+          "Axioms of Probability, Conditional Probability, and Bayes' Theorem",
+          "Discrete and Continuous Random Variables",
+          "Probability Mass Function and Probability Density Function",
+          "Cumulative Distribution Functions",
+          "Expectation, Variance, Moments, and Moment Generating Functions"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Standard Probability Distributions",
+        "topicCount": 5,
+        "topics": [
+          "Binomial Distribution",
+          "Poisson Distribution",
+          "Geometric and Hypergeometric Distributions",
+          "Uniform and Exponential Distributions",
+          "Normal Distribution and Standard Normal Curves"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Testing of Hypothesis",
+        "topicCount": 5,
+        "topics": [
+          "Null Hypothesis, Alternative Hypothesis, and Errors in Testing",
+          "Large Sample Tests: Z-Test for Means and Proportions",
+          "Small Sample Tests: Student's t-Test",
+          "F-Test for Equality of Variances",
+          "Chi-Square Test for Goodness of Fit and Contingency Tables"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Correlation, Regression, and Design of Experiments",
+        "topicCount": 5,
+        "topics": [
+          "Karl Pearson's and Spearman's Rank Correlation",
+          "Lines of Regression and Regression Equations",
+          "One-Way Analysis of Variance (ANOVA)",
+          "Two-Way Analysis of Variance (ANOVA)",
+          "Design of Experiments: CRD, RBD, and Latin Square Design"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Statistical Quality Control",
+        "topicCount": 5,
+        "topics": [
+          "Concepts of Statistical Quality Control and Shewhart Control Charts",
+          "Control Charts for Variables: Mean (X-bar) Chart",
+          "Control Charts for Variables: Range (R) and Standard Deviation (s) Charts",
+          "Control Charts for Attributes: Fraction Defective (p and np) Charts",
+          "Control Charts for Attributes: Number of Defects (c and u) Charts"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Discrete and Continuous Random Variables",
+        "unitNumber": 1,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Axioms of Probability, Conditional Probability, and Bayes' Theorem",
+        "unitNumber": 1,
+        "questionCount": 4,
+        "paperCount": 2
+      },
+      {
+        "topic": "Concepts of Statistical Quality Control and Shewhart Control Charts",
+        "unitNumber": 5,
+        "questionCount": 4,
+        "paperCount": 1
+      },
+      {
+        "topic": "Poisson Distribution",
+        "unitNumber": 2,
+        "questionCount": 4,
+        "paperCount": 3
+      },
+      {
+        "topic": "Chi-Square Test for Goodness of Fit and Contingency Tables",
+        "unitNumber": 3,
+        "questionCount": 3,
+        "paperCount": 2
+      },
+      {
+        "topic": "Normal Distribution and Standard Normal Curves",
+        "unitNumber": 2,
+        "questionCount": 3,
+        "paperCount": 2
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-PROB",
+    "practiceUrl": "/mintai?course=SEM2-PROB&tab=practice"
+  },
+  {
+    "id": 23,
+    "slug": "building-materials-in-the-built-environment",
+    "aliases": [
+      "bldmat",
+      "21ceb101t",
+      "sem2-bldmat",
+      "building-materials"
+    ],
+    "name": "Building Materials in the Built Environment",
+    "code": "SEM2-BLDMAT",
+    "canonicalCode": "21CEB101T",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Building Materials in the Built Environment analyzes mechanical properties and testing standards for cement, concrete, aggregates, steel, timber, masonry, and sustainable construction composites.",
+    "paperCount": 3,
+    "questionCount": 96,
+    "mappedQuestionCount": 84,
+    "mappingRate": 0.875,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Stones, Bricks, Cement and Steel",
+        "topicCount": 5,
+        "topics": [
+          "Testing and Properties of Building Stones",
+          "Brick Manufacturing, Quality, and Masonry Bonds",
+          "Cement Manufacturing, Chemical Composition, and Bogue's Compounds",
+          "Cement Types, Grades, and Physical Testing",
+          "Structural Timber and Steel (Mild Steel, TMT Bars, and Specific Gravity)"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Paints, Glass, Plastics and Insulating Materials",
+        "topicCount": 5,
+        "topics": [
+          "Paints: Composition, Types, and Painting Defects",
+          "Varnishes, Resins, and Distempers",
+          "Types, Composition, and Market Forms of Glass",
+          "Plastics and Polymers in Construction (PVC, Thermoplastics, Thermosets)",
+          "Damp Proofing Courses (DPC) and Thermal Insulating Materials"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Building Construction, Fire Safety and Termite Protection",
+        "topicCount": 5,
+        "topics": [
+          "Cavity Wall Construction and Masonry Types",
+          "Staircase Design, Components, and Types of Stairs",
+          "Fire Resisting Properties of Building Materials",
+          "Fire Alarm Systems and Fire Ventilation",
+          "Anti-Termite Treatment and Termite Protection Methods"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Alternative, Modern and Waste-Based Building Materials",
+        "topicCount": 5,
+        "topics": [
+          "Ferrocement: Raw Materials, Wire Mesh Reinforcement, and Properties",
+          "Ferrocement Construction Procedure, Applications, and Advantages",
+          "Fly Ash Properties and Soil-Cement Blocks",
+          "Gypsum and Industrial Byproduct Utilization",
+          "Agro-Industrial Waste and Artificial Aggregate Substitutes"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Green Buildings, Ventilation and Environmental Quality",
+        "topicCount": 5,
+        "topics": [
+          "Green Building Concepts, Principles, and Zero Energy Buildings",
+          "Green Building Rating Systems and GRIHA Certification",
+          "Natural Ventilation: Wind Effect, Stack Effect, and Ventilators",
+          "Indoor Air Quality (IAQ), Air Pollutants, and AQI",
+          "Waterproofing Materials and Moisture Intrusion Control"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Anti-Termite Treatment and Termite Protection Methods",
+        "unitNumber": 3,
+        "questionCount": 6,
+        "paperCount": 3
+      },
+      {
+        "topic": "Indoor Air Quality (IAQ), Air Pollutants, and AQI",
+        "unitNumber": 5,
+        "questionCount": 6,
+        "paperCount": 3
+      },
+      {
+        "topic": "Natural Ventilation: Wind Effect, Stack Effect, and Ventilators",
+        "unitNumber": 5,
+        "questionCount": 6,
+        "paperCount": 3
+      },
+      {
+        "topic": "Cavity Wall Construction and Masonry Types",
+        "unitNumber": 3,
+        "questionCount": 5,
+        "paperCount": 3
+      },
+      {
+        "topic": "Damp Proofing Courses (DPC) and Thermal Insulating Materials",
+        "unitNumber": 2,
+        "questionCount": 5,
+        "paperCount": 2
+      },
+      {
+        "topic": "Structural Timber and Steel (Mild Steel, TMT Bars, and Specific Gravity)",
+        "unitNumber": 1,
+        "questionCount": 5,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM2-BLDMAT",
+    "practiceUrl": "/mintai?course=SEM2-BLDMAT&tab=practice"
+  }
+]
