@@ -60,6 +60,14 @@ export default function Home() {
                 <Calculator className="w-4 h-4" />
                 Mint+ Calculator
               </Link>
+
+              <Link 
+                href="/courses"
+                className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md transition-all duration-150 active:scale-[0.98] font-medium border border-border/50"
+              >
+                <BookOpen className="w-4 h-4 text-accent" />
+                Browse Courses
+              </Link>
             </div>
           </div>
 
@@ -81,7 +89,7 @@ export default function Home() {
 
         {/* --- CONTINUE STUDYING --- */}
         {recentStudy && (
-          <section className="w-full max-w-xl mt-4">
+          <section className="w-full max-w-xl mt-4 mb-8">
             <h2 className="text-xs font-semibold tracking-wider text-muted-foreground mb-4">Continue Studying</h2>
             
             <Link href="/mintai" className="group block bg-card border border-border hover:border-accent/40 rounded-xl p-5 transition-all duration-150 hover:-translate-y-[2px]">
@@ -105,6 +113,101 @@ export default function Home() {
             </Link>
           </section>
         )}
+
+        {/* --- FEATURED COURSES & DISCOVERY --- */}
+        <section className="w-full pt-8 pb-4 border-t border-border/40 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="space-y-1">
+              <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
+                Authoritative Curriculum & Past Exams
+              </p>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                Explore Engineering Courses & Exam Intelligence
+              </h2>
+            </div>
+            <Link
+              href="/courses"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
+            >
+              View all 23 courses <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                name: "Calculus and Linear Algebra",
+                code: "21MAB101T",
+                slug: "calculus-and-linear-algebra",
+                papers: 19,
+                questions: 524,
+                sem: 1,
+              },
+              {
+                name: "Chemistry",
+                code: "21CYB101J",
+                slug: "chemistry",
+                papers: 17,
+                questions: 468,
+                sem: 1,
+              },
+              {
+                name: "Semiconductor Physics & Computational Methods",
+                code: "21PYB102J",
+                slug: "semiconductor-physics-and-computational-methods",
+                papers: 14,
+                questions: 412,
+                sem: 1,
+              },
+              {
+                name: "Electrical and Electronics Engineering",
+                code: "21EEB101J",
+                slug: "electrical-and-electronics-engineering",
+                papers: 15,
+                questions: 440,
+                sem: 1,
+              },
+              {
+                name: "Object Oriented Design and Programming",
+                code: "21CSC102J",
+                slug: "object-oriented-design-and-programming",
+                papers: 16,
+                questions: 435,
+                sem: 2,
+              },
+              {
+                name: "Foreign Languages (6 Tracks)",
+                code: "21LEH Elective",
+                slug: "foreign-languages",
+                papers: 32,
+                questions: 955,
+                sem: 1,
+              },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/courses/${c.slug}`}
+                className="group p-5 rounded-xl bg-card border border-border/60 hover:border-accent/40 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                    <span className="font-mono text-accent font-semibold">{c.code}</span>
+                    <span className="px-2 py-0.5 rounded bg-secondary text-[10px]">Sem {c.sem}</span>
+                  </div>
+                  <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors line-clamp-1">
+                    {c.name}
+                  </h3>
+                </div>
+                <div className="pt-4 mt-4 border-t border-border/30 flex items-center justify-between text-xs text-muted-foreground">
+                  <span>{c.papers} Papers &bull; {c.questions} Questions</span>
+                  <span className="text-accent font-medium group-hover:translate-x-0.5 transition-transform flex items-center">
+                    Explore <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
       </main>
 

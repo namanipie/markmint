@@ -5,7 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { 
   getCourseBySlug, 
-  getAllCourseSlugs, 
+  getAllSlugsAndAliases, 
   CourseCatalogItem 
 } from "@/lib/courses";
 import { ForeignLanguageTracks } from "@/components/courses/foreign-language-tracks";
@@ -31,14 +31,30 @@ interface PageProps {
   params: Promise<{ courseSlug: string }>;
 }
 
+const LANGUAGE_TRACK_ALIASES: Record<string, string> = {
+  german: "german",
+  french: "french",
+  spanish: "spanish",
+  japanese: "japanese",
+  korean: "korean",
+  chinese: "chinese",
+  "21leh104t": "german",
+  "21leh101t": "french",
+  "21leh103t": "spanish",
+  "21leh105t": "japanese",
+  "21leh102t": "korean",
+  "21leh106t": "chinese",
+};
+
 export async function generateStaticParams() {
-  return getAllCourseSlugs().map((slug) => ({
+  return getAllSlugsAndAliases().map((slug) => ({
     courseSlug: slug,
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { courseSlug } = await params;
+  const lower = courseSlug.toLowerCase();
   const course = getCourseBySlug(courseSlug);
 
   if (!course) {
@@ -46,6 +62,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: "Course Not Found | MarkMint",
       description: "The requested course could not be found in the MarkMint course directory.",
     };
+  }
+
+  // Handle language track specific metadata
+  if (LANGUAGE_TRACK_ALIASES[lower] && course.tracks) {
+    const trackKey = LANGUAGE_TRACK_ALIASES[lower];
+    const track = course.tracks.find((t) => t.trackKey === trackKey);
+    if (track) {
+      return {
+        title: `${track.trackName} (${track.trackCode}) PYQs & Syllabus | MarkMint SRMIST`,
+        description: `Verified historical exam question papers, authoritative syllabus units, and isolated exam intelligence for ${track.trackName} (${track.trackCode}) at SRMIST.`,
+        alternates: {
+          canonical: `https://markmint.vercel.app/courses/foreign-languages?track=${track.trackKey}`,
+        },
+      };
+    }
   }
 
   const courseDisplayName = `${course.name} (${course.canonicalCode || course.code})`;
@@ -68,13 +99,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CoursePage({ params }: PageProps) {
   const { courseSlug } = await params;
+  const lower = courseSlug.toLowerCase();
   const course = getCourseBySlug(courseSlug);
 
   if (!course) {
     notFound();
   }
 
-  // Canonical redirection for aliases (e.g., /courses/spcm -> /courses/social-problems-in-india-and-counselling)
+  // If visitor navigated to a language track alias, redirect to the track on foreign-languages
+  if (LANGUAGE_TRACK_ALIASES[lower]) {
+    redirect(`/courses/foreign-languages?track=${LANGUAGE_TRACK_ALIASES[lower]}`);
+  }
+
+  // Canonical redirection for aliases (e.g., /courses/spcm -> /courses/semiconductor-physics-and-computational-methods)
   if (course.slug !== courseSlug) {
     redirect(`/courses/${course.slug}`);
   }

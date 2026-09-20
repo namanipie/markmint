@@ -47,7 +47,7 @@ SLUG_MAP = {
     5: ('programming-for-problem-solving', ['pps', '21css101j', 'sem1-prog', 'programming']),
     6: ('fundamental-of-economics', ['foe', '18mss101t', 'sem1-fund', 'economics']),
     7: ('biomedical-sensors', ['bmb', '21bmb101t', 'sem1-biom', 'sensors']),
-    8: ('foreign-languages', ['fl', 'fore', '21leh-elective', 'sem1-fore', 'languages']),
+    8: ('foreign-languages', ['fl', 'fore', '21leh-elective', 'sem1-fore', 'languages', 'german', 'french', 'spanish', 'japanese', 'korean', 'chinese', '21leh104t', '21leh101t', '21leh103t', '21leh105t', '21leh102t', '21leh106t']),
     9: ('cell-biology', ['cellbio', '21btc102j', 'sem1-cell']),
     10: ('microbiology', ['microbio', '21btc201t', 'sem1-micr']),
     11: ('physical-and-analytical-chemistry', ['pac', '21chc101j', 'sem1-phys']),

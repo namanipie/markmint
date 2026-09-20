@@ -89,3 +89,15 @@ export function getCoursesBySemester(semester: number): CourseCatalogItem[] {
 export function getAllCourseSlugs(): string[] {
   return coursesCatalog.map((c) => c.slug);
 }
+
+export function getAllSlugsAndAliases(): string[] {
+  const set = new Set<string>();
+  for (const c of coursesCatalog) {
+    set.add(c.slug);
+    for (const a of c.aliases) {
+      set.add(a.toLowerCase());
+    }
+  }
+  return Array.from(set);
+}
+

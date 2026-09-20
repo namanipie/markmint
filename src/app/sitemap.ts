@@ -52,5 +52,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...coursePages];
+  const languageTrackPages: MetadataRoute.Sitemap = [];
+  const foreignLangCourse = courses.find((c) => c.hasTracks && c.tracks?.length > 0);
+  if (foreignLangCourse && foreignLangCourse.tracks) {
+    for (const track of foreignLangCourse.tracks) {
+      languageTrackPages.push({
+        url: `${baseUrl}/courses/foreign-languages?track=${track.trackKey}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.8,
+      });
+    }
+  }
+
+  return [...staticPages, ...coursePages, ...languageTrackPages];
 }

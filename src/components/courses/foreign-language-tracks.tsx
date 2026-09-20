@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { CourseTrackCatalogItem } from "@/lib/courses";
 import { 
@@ -22,6 +22,23 @@ interface ForeignLanguageTracksProps {
 export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
   const [selectedKey, setSelectedKey] = useState<string>(tracks[0]?.trackKey || "german");
   const [expandedUnits, setExpandedUnits] = useState<Record<number, boolean>>({ 1: true });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const trackParam = params.get("track") || params.get("language");
+      if (trackParam) {
+        const matched = tracks.find(
+          (t) =>
+            t.trackKey.toLowerCase() === trackParam.toLowerCase() ||
+            t.trackCode.toLowerCase() === trackParam.toLowerCase()
+        );
+        if (matched) {
+          setSelectedKey(matched.trackKey);
+        }
+      }
+    }
+  }, [tracks]);
 
   const activeTrack = tracks.find((t) => t.trackKey === selectedKey) || tracks[0];
 
@@ -45,6 +62,11 @@ export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
               onClick={() => {
                 setSelectedKey(t.trackKey);
                 setExpandedUnits({ 1: true });
+                if (typeof window !== "undefined") {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set("track", t.trackKey);
+                  window.history.replaceState(null, "", url.toString());
+                }
               }}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 isSelected
