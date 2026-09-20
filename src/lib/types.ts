@@ -843,6 +843,7 @@ export interface PaperSubmissionRecord {
   semester: number | null;
   subject_name: string;
   course_id: number | null;
+  track_id?: number | null;
   declared_assessment: string | null;
   page_count: number;
   detected_year: number | null;
@@ -859,4 +860,69 @@ export interface PaperSubmissionRecord {
   reviewed_by: string | null;
   rejection_reason: string | null;
   ingested_document_id: number | null;
+}
+
+export interface AdminReviewSummary {
+  submission_id: number;
+  course: {
+    id: number;
+    code: string;
+    name: string;
+  } | null;
+  track: {
+    id: number;
+    name: string;
+    key: string;
+  } | null;
+  assessment: string;
+  year: number | null;
+  duplicate_state: {
+    is_duplicate: boolean;
+    duplicate_of_document_id: number | null;
+    duplicate_of_submission_id: number | null;
+    status: "DUPLICATE_DOCUMENT" | "DUPLICATE_SUBMISSION" | "UNIQUE";
+  };
+  question_count: {
+    total: number;
+    mapped: number;
+    unmapped: number;
+  };
+  mapping_rate: number;
+  mapping_rate_formatted: string;
+  provenance: {
+    submission_id: number;
+    source: string;
+    uploader_session_id: string | null;
+    original_filename: string;
+    file_hash: string;
+    file_size: number;
+    uploaded_at: string | null;
+  };
+  approval_state: {
+    status: string;
+    reviewed_at: string | null;
+    reviewed_by: string | null;
+    rejection_reason: string | null;
+    ingested_document_id: number | null;
+    exam_id: number | null;
+  };
+  observed_coverage?: {
+    observed_units: number[];
+    observed_topics_count: number;
+    assessment_cycle: string;
+    confidence: number;
+  } | null;
+}
+
+export interface SubmitterFeedback {
+  tracking_id: string;
+  submission_id: number;
+  status: "PENDING" | "REVIEW" | "APPROVED" | "REJECTED";
+  status_badge: string;
+  subject_name: string;
+  original_filename: string;
+  submitted_at: string | null;
+  status_message: string;
+  actionable_tip: string;
+  is_contributed_to_corpus: boolean;
 }

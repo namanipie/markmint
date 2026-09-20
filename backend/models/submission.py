@@ -39,6 +39,7 @@ class PaperSubmission(Base):
     semester = Column(Integer, nullable=True)
     subject_name = Column(String(255), nullable=False)
     course_id = Column(Integer, ForeignKey("courses.id"), nullable=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id"), nullable=True)
     declared_assessment = Column(String(64), nullable=True)  # CT1, CT2, EndSem, Model, etc.
 
     # Automated extraction and consistency hints
@@ -70,6 +71,7 @@ class PaperSubmission(Base):
 
     # Relationships
     course = relationship("Course", foreign_keys=[course_id])
+    track = relationship("CourseTrack", foreign_keys=[track_id])
     ingested_document = relationship("Document", foreign_keys=[ingested_document_id])
     duplicate_document = relationship("Document", foreign_keys=[duplicate_of_document_id])
     duplicate_submission = relationship("PaperSubmission", remote_side=[id], foreign_keys=[duplicate_of_submission_id])

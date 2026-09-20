@@ -13,11 +13,15 @@ import {
   listPaperSubmissions,
   approvePaperSubmission,
   rejectPaperSubmission,
+  getSubmissionReviewSummary,
+  getSubmissionByTracking,
 } from "@/lib/api";
 import {
   CurriculumSubject,
   SubmissionPreview,
   PaperSubmissionRecord,
+  AdminReviewSummary,
+  SubmitterFeedback,
 } from "@/lib/types";
 import {
   ChevronRight,
@@ -37,6 +41,9 @@ import {
   Info,
   ChevronDown,
   ChevronUp,
+  Layers,
+  Database,
+  Hash,
 } from "lucide-react";
 
 const ASSESSMENT_OPTIONS = [
@@ -48,7 +55,7 @@ const ASSESSMENT_OPTIONS = [
 ];
 
 export default function SubmitPaperPage() {
-  const [activeTab, setActiveTab] = useState<"submit" | "moderation">("submit");
+  const [activeTab, setActiveTab] = useState<"submit" | "track" | "moderation">("submit");
 
   // Step state
   const [branches, setBranches] = useState<string[]>([]);
@@ -72,6 +79,12 @@ export default function SubmitPaperPage() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submittedRecord, setSubmittedRecord] = useState<PaperSubmissionRecord | null>(null);
 
+  // Submitter tracking state
+  const [trackingCode, setTrackingCode] = useState<string>("");
+  const [trackingLoading, setTrackingLoading] = useState<boolean>(false);
+  const [trackingResult, setTrackingResult] = useState<SubmitterFeedback | null>(null);
+  const [trackingError, setTrackingError] = useState<string | null>(null);
+
   // Moderation desk state
   const [moderationList, setModerationList] = useState<PaperSubmissionRecord[]>([]);
   const [moderationLoading, setModerationLoading] = useState<boolean>(false);
@@ -79,6 +92,8 @@ export default function SubmitPaperPage() {
   const [actionProcessingId, setActionProcessingId] = useState<number | null>(null);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
   const [expandedSubId, setExpandedSubId] = useState<number | null>(null);
+  const [reviewSummaries, setReviewSummaries] = useState<Record<number, AdminReviewSummary>>({});
+  const [reviewLoadingId, setReviewLoadingId] = useState<number | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -241,6 +256,9 @@ export default function SubmitPaperPage() {
     setActionMessage(null);
     try {
       const res = await approvePaperSubmission(id, { reviewer: "moderation_desk" });
+      if (res.result?.review_summary) {
+        setReviewSummaries((prev) => ({ ...prev, [id]: res.result.review_summary }));
+      }
       setActionMessage(`Approved submission #${id}! Ingested ${res.result?.questions_ingested ?? 0} questions into production.`);
       loadModerationItems();
     } catch (e: any) {
@@ -264,6 +282,35 @@ export default function SubmitPaperPage() {
       setActionMessage(`Rejection failed: ${e.message}`);
     } finally {
       setActionProcessingId(null);
+    }
+  };
+
+  const loadReviewSummary = async (id: number) => {
+    if (reviewSummaries[id]) return;
+    setReviewLoadingId(id);
+    try {
+      const summary = await getSubmissionReviewSummary(id);
+      setReviewSummaries((prev) => ({ ...prev, [id]: summary }));
+    } catch (e) {
+      console.error("Failed to load review summary:", e);
+    } finally {
+      setReviewLoadingId(null);
+    }
+  };
+
+  const handleTrackSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!trackingCode.trim()) return;
+    setTrackingLoading(true);
+    setTrackingError(null);
+    setTrackingResult(null);
+    try {
+      const res = await getSubmissionByTracking(trackingCode.trim());
+      setTrackingResult(res);
+    } catch (e: any) {
+      setTrackingError(e.message || "Tracking ID not found. Please check and try again.");
+    } finally {
+      setTrackingLoading(false);
     }
   };
 
@@ -326,6 +373,16 @@ export default function SubmitPaperPage() {
             }`}
           >
             Submit a Paper
+          </button>
+          <button
+            onClick={() => setActiveTab("track")}
+            className={`pb-3 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${
+              activeTab === "track"
+                ? "border-accent text-foreground"
+                : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            <span>Track Submission</span>
           </button>
           <button
             onClick={() => setActiveTab("moderation")}
@@ -720,6 +777,100 @@ export default function SubmitPaperPage() {
           </div>
         )}
 
+        {/* SUBMITTER TRACKING VIEW */}
+        {activeTab === "track" && (
+          <div className="space-y-6 max-w-xl mx-auto py-6">
+            <div className="text-center space-y-2">
+              <h2 className="text-2xl font-bold text-foreground">Track Your Paper Submission</h2>
+              <p className="text-xs text-muted-foreground">
+                Enter the tracking code provided when you submitted your examination paper (e.g. #SUB-12).
+              </p>
+            </div>
+
+            <form onSubmit={handleTrackSearch} className="flex gap-2">
+              <div className="relative flex-1">
+                <Hash className="w-4 h-4 text-muted-foreground absolute left-3 top-3.5" />
+                <input
+                  type="text"
+                  placeholder="e.g. #SUB-12 or 12"
+                  value={trackingCode}
+                  onChange={(e) => setTrackingCode(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-card border border-border text-sm focus:outline-none focus:ring-1 focus:ring-accent"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={trackingLoading || !trackingCode.trim()}
+                className="px-5 py-2.5 rounded-xl bg-accent text-accent-foreground font-semibold text-sm hover:bg-accent/90 disabled:opacity-50 transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                {trackingLoading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Search className="w-4 h-4" />}
+                <span>Check Status</span>
+              </button>
+            </form>
+
+            {trackingError && (
+              <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 shrink-0" />
+                <span>{trackingError}</span>
+              </div>
+            )}
+
+            {trackingResult && (
+              <div className="p-6 rounded-2xl bg-card border border-border/80 space-y-5 shadow-sm">
+                <div className="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-border/40">
+                  <div className="space-y-0.5">
+                    <span className="font-mono text-xs text-muted-foreground">Reference</span>
+                    <h3 className="font-mono font-bold text-foreground text-base">{trackingResult.tracking_id}</h3>
+                  </div>
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      trackingResult.status === "APPROVED"
+                        ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30"
+                        : trackingResult.status === "REJECTED"
+                        ? "bg-red-500/15 text-red-400 border border-red-500/30"
+                        : "bg-amber-500/15 text-amber-400 border border-amber-500/30"
+                    }`}
+                  >
+                    {trackingResult.status_badge}
+                  </span>
+                </div>
+
+                {/* Submitter-safe notification message */}
+                <div className="p-3.5 rounded-xl bg-background/60 border border-border/40 space-y-1.5 text-xs">
+                  <p className="text-foreground leading-relaxed font-medium">
+                    {trackingResult.status_message}
+                  </p>
+                  {trackingResult.actionable_tip && (
+                    <p className="text-muted-foreground italic text-[11px]">
+                      Tip: {trackingResult.actionable_tip}
+                    </p>
+                  )}
+                </div>
+
+                {/* Submitted Paper Details */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3 rounded-lg bg-background/40 border border-border/30">
+                    <span className="text-[10px] text-muted-foreground block">Subject</span>
+                    <span className="font-semibold text-foreground">{trackingResult.subject_name}</span>
+                  </div>
+                  <div className="p-3 rounded-lg bg-background/40 border border-border/30">
+                    <span className="text-[10px] text-muted-foreground block">Uploaded File</span>
+                    <span className="truncate block font-mono text-foreground">{trackingResult.original_filename}</span>
+                  </div>
+                </div>
+
+                {/* Corpus Contribution Badge */}
+                {trackingResult.is_contributed_to_corpus && (
+                  <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2 font-medium">
+                    <CheckCircle2 className="w-4 h-4 shrink-0" />
+                    <span>Your contributed paper is active in the production corpus and contributes to MarkMint predictions!</span>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
         {/* MODERATION DESK VIEW */}
         {activeTab === "moderation" && (
           <div className="space-y-6">
@@ -882,20 +1033,133 @@ export default function SubmitPaperPage() {
                         </div>
                       </div>
 
-                      {/* Toggle Extracted Text Preview */}
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => setExpandedSubId(isExpanded ? null : sub.id)}
-                          className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>{isExpanded ? "Hide Preview Text" : "View Extracted Text"}</span>
-                        </button>
-                        {isExpanded && sub.consistency_notes && (
-                          <p className="text-xs text-muted-foreground mt-2 italic">
-                            Consistency Note: {sub.consistency_notes}
-                          </p>
+                      {/* Toggle Extracted Text and Audit Summary */}
+                      <div className="space-y-3 pt-1">
+                        <div className="flex items-center gap-3">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!isExpanded) {
+                                loadReviewSummary(sub.id);
+                                setExpandedSubId(sub.id);
+                              } else {
+                                setExpandedSubId(null);
+                              }
+                            }}
+                            className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1 cursor-pointer"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                            <span>{isExpanded ? "Collapse Details" : "View Audit & Extracted Text"}</span>
+                          </button>
+                        </div>
+
+                        {isExpanded && (
+                          <div className="space-y-4 pt-2 border-t border-border/40">
+                            {/* Admin Review Summary Card */}
+                            <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 space-y-3 text-xs">
+                              <div className="flex items-center justify-between flex-wrap gap-2">
+                                <div className="flex items-center gap-2">
+                                  <ShieldCheck className="w-4 h-4 text-accent" />
+                                  <span className="font-bold text-foreground">Admin Review Summary</span>
+                                </div>
+                                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold">
+                                  Corpus Growth Audit
+                                </span>
+                              </div>
+
+                              {reviewLoadingId === sub.id && !reviewSummaries[sub.id] ? (
+                                <div className="flex items-center gap-2 text-muted-foreground text-xs py-2">
+                                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                                  <span>Loading structured review summary...</span>
+                                </div>
+                              ) : reviewSummaries[sub.id] ? (
+                                (() => {
+                                  const r = reviewSummaries[sub.id];
+                                  return (
+                                    <div className="space-y-3">
+                                      {/* Primary 4-Stat Grid */}
+                                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Course</span>
+                                          <span className="font-semibold text-foreground truncate block">
+                                            {r.course ? `${r.course.code} - ${r.course.name}` : sub.subject_name}
+                                          </span>
+                                        </div>
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Track</span>
+                                          <span className="font-semibold text-foreground">
+                                            {r.track ? `${r.track.name} (${r.track.key})` : "General (N/A)"}
+                                          </span>
+                                        </div>
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Assessment / Year</span>
+                                          <span className="font-semibold text-foreground">
+                                            {r.assessment} &bull; {r.year || "Unknown Year"}
+                                          </span>
+                                        </div>
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Duplicate State</span>
+                                          <span
+                                            className={`font-semibold ${
+                                              r.duplicate_state.status === "UNIQUE"
+                                                ? "text-emerald-400"
+                                                : "text-amber-400"
+                                            }`}
+                                          >
+                                            {r.duplicate_state.status}
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      {/* Question Ingestion & Mapping Row */}
+                                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Question Count</span>
+                                          <span className="font-mono font-bold text-foreground">
+                                            {r.question_count.total} total ({r.question_count.mapped} mapped, {r.question_count.unmapped} unmapped)
+                                          </span>
+                                        </div>
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
+                                          <span className="text-[10px] text-muted-foreground block">Mapping Rate</span>
+                                          <span className="font-mono font-bold text-accent">
+                                            {r.mapping_rate_formatted}
+                                          </span>
+                                        </div>
+                                        <div className="p-2.5 rounded-lg bg-background/60 border border-border/40 sm:col-span-1 col-span-2">
+                                          <span className="text-[10px] text-muted-foreground block">Approval State</span>
+                                          <span className="font-semibold text-foreground">
+                                            {r.approval_state.status} {r.approval_state.reviewed_by ? `by ${r.approval_state.reviewed_by}` : ""}
+                                          </span>
+                                        </div>
+                                      </div>
+
+                                      {/* Provenance Box */}
+                                      <div className="p-2.5 rounded-lg bg-background/40 border border-border/30 text-[11px] space-y-1 font-mono">
+                                        <div className="flex justify-between flex-wrap text-muted-foreground">
+                                          <span>Provenance Source: <strong className="text-foreground">{r.provenance.source}</strong></span>
+                                          <span>File Size: {(r.provenance.file_size / (1024 * 1024)).toFixed(2)} MB</span>
+                                        </div>
+                                        <div className="text-muted-foreground truncate">
+                                          File Hash: {r.provenance.file_hash}
+                                        </div>
+                                        {r.provenance.uploader_session_id && (
+                                          <div className="text-muted-foreground truncate">
+                                            Session ID: {r.provenance.uploader_session_id}
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  );
+                                })()
+                              ) : null}
+                            </div>
+
+                            {sub.consistency_notes && (
+                              <p className="text-xs text-muted-foreground italic">
+                                Consistency Note: {sub.consistency_notes}
+                              </p>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>

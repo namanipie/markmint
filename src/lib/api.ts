@@ -38,7 +38,9 @@ import {
   SingleFamilyResponse,
   CourseTrack,
   SubmissionPreview,
-  PaperSubmissionRecord
+  PaperSubmissionRecord,
+  AdminReviewSummary,
+  SubmitterFeedback
 } from "./types";
 
 // Real Backend Endpoints
@@ -428,5 +430,18 @@ export async function rejectPaperSubmission(
     body: JSON.stringify({ reason, reviewer }),
   });
 }
+
+export async function getSubmissionReviewSummary(id: number): Promise<AdminReviewSummary> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}/review-summary`);
+}
+
+export async function getSubmissionFeedback(id: number): Promise<SubmitterFeedback> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}/feedback`);
+}
+
+export async function getSubmissionByTracking(tracking: string): Promise<SubmitterFeedback> {
+  return fetchAPI(`/submissions/tracking/${encodeURIComponent(tracking)}`);
+}
+
 
 

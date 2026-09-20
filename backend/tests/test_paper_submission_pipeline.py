@@ -294,10 +294,14 @@ def test_approval_workflow_promotes_to_production(client: TestClient, db_session
     question_texts = " ".join([q.original_text for q in questions])
     assert "OSI 7-Layer" in question_texts
 
-    # Attempting to approve again should fail
+    # Attempting to approve again should be idempotent (Phase 13)
     dup_app = client.post(
         f"/api/submissions/{sub_id}/approve",
         json={"reviewer": "lead_moderator"},
     )
-    assert dup_app.status_code == 400
-    assert "already approved" in dup_app.json()["detail"]
+    assert dup_app.status_code == 200
+    assert dup_app.json()["result"]["status"] == "APPROVED"
+    assert dup_app.json()["result"]["is_idempotent_replay"] is True
+    # Verify no duplicate documents or exams were created
+    assert db_session.query(Document).count() == 1
+    assert db_session.query(Exam).count() == 1

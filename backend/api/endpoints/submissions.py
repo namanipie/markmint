@@ -52,6 +52,7 @@ class PaperSubmissionResponse(BaseModel):
     semester: Optional[int] = None
     subject_name: str
     course_id: Optional[int] = None
+    track_id: Optional[int] = None
     declared_assessment: Optional[str] = None
     page_count: int
     detected_year: Optional[int] = None
@@ -61,6 +62,8 @@ class PaperSubmissionResponse(BaseModel):
     consistency_status: str
     consistency_notes: Optional[str] = None
     is_duplicate: bool
+    duplicate_of_document_id: Optional[int] = None
+    duplicate_of_submission_id: Optional[int] = None
     status: str
     source: str
     created_at: str
@@ -73,6 +76,7 @@ class PaperSubmissionResponse(BaseModel):
 class ApproveSubmissionRequest(BaseModel):
     reviewer: str = "admin"
     override_course_id: Optional[int] = None
+    override_track_id: Optional[int] = None
     override_assessment: Optional[str] = None
     override_year: Optional[int] = None
 
@@ -92,6 +96,7 @@ def _format_submission_response(sub: PaperSubmission) -> dict:
         "semester": sub.semester,
         "subject_name": sub.subject_name,
         "course_id": sub.course_id,
+        "track_id": sub.track_id,
         "declared_assessment": sub.declared_assessment,
         "page_count": sub.page_count,
         "detected_year": sub.detected_year,
@@ -101,6 +106,8 @@ def _format_submission_response(sub: PaperSubmission) -> dict:
         "consistency_status": sub.consistency_status,
         "consistency_notes": sub.consistency_notes,
         "is_duplicate": sub.is_duplicate,
+        "duplicate_of_document_id": sub.duplicate_of_document_id,
+        "duplicate_of_submission_id": sub.duplicate_of_submission_id,
         "status": sub.status,
         "source": sub.source,
         "created_at": sub.created_at.isoformat() if sub.created_at else "",
@@ -172,6 +179,7 @@ async def create_submission(
     branch_name: Optional[str] = Form(None),
     semester: Optional[int] = Form(None),
     course_id: Optional[int] = Form(None),
+    track_id: Optional[int] = Form(None),
     declared_assessment: Optional[str] = Form(None),
     uploader_session_id: Optional[str] = Form(None),
     db: Session = Depends(get_db),
@@ -192,6 +200,10 @@ async def create_submission(
 
     # Check for duplicate submission
     is_dup, dup_doc_id, dup_sub_id, dup_msg = check_for_duplicates(db, file_hash)
+    if dup_sub_id:
+        existing_sub = db.query(PaperSubmission).get(dup_sub_id)
+        if existing_sub:
+            return _format_submission_response(existing_sub)
 
     # Deterministic preview text and heuristics
     extracted_text, total_pages = extract_preview_text(content, max_pages=5)
@@ -225,6 +237,7 @@ async def create_submission(
         semester=semester,
         subject_name=subject_name,
         course_id=course_id,
+        track_id=track_id,
         declared_assessment=declared_assessment,
         extracted_text=extracted_text,
         page_count=total_pages,
@@ -280,21 +293,23 @@ def get_submission(submission_id: int, db: Session = Depends(get_db)) -> Any:
 @router.post("/{submission_id}/approve")
 def approve_submission(
     submission_id: int,
-    payload: ApproveSubmissionRequest,
+    payload: Optional[ApproveSubmissionRequest] = None,
     db: Session = Depends(get_db),
 ) -> Any:
     """
     Moderation endpoint: Approves paper submission and ingests it into production
     documents, exams, sections, and questions.
     """
+    req = payload or ApproveSubmissionRequest()
     svc = SubmissionApprovalService(db)
     try:
         result = svc.approve_submission(
             submission_id=submission_id,
-            reviewer=payload.reviewer,
-            override_course_id=payload.override_course_id,
-            override_assessment=payload.override_assessment,
-            override_year=payload.override_year,
+            reviewer=req.reviewer,
+            override_course_id=req.override_course_id,
+            override_track_id=req.override_track_id,
+            override_assessment=req.override_assessment,
+            override_year=req.override_year,
         )
         return {"status": "success", "result": result}
     except ValueError as ve:
@@ -303,6 +318,71 @@ def approve_submission(
         raise HTTPException(status_code=404, detail=str(fe))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Approval pipeline failed: {str(e)}")
+
+
+@router.get("/{submission_id}/review-summary")
+def get_submission_review_summary(
+    submission_id: int,
+    db: Session = Depends(get_db),
+) -> Any:
+    """
+    Admin Review Summary endpoint showing:
+    - Course & track (if applicable)
+    - Assessment & year
+    - Duplicate state
+    - Question count (total, mapped, unmapped)
+    - Mapping rate
+    - Provenance
+    - Approval state
+    """
+    svc = SubmissionApprovalService(db)
+    try:
+        summary = svc.get_admin_review_summary(submission_id)
+        return summary
+    except ValueError as ve:
+        raise HTTPException(status_code=404, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate review summary: {str(e)}")
+
+
+@router.get("/{submission_id}/feedback")
+def get_submission_feedback(
+    submission_id: int,
+    db: Session = Depends(get_db),
+) -> Any:
+    """
+    Submitter Feedback endpoint: Returns friendly, actionable status notifications
+    for the student without exposing internal reviewer identities or moderation heuristics.
+    """
+    svc = SubmissionApprovalService(db)
+    try:
+        feedback = svc.get_submitter_feedback(submission_id)
+        return feedback
+    except ValueError as ve:
+        raise HTTPException(status_code=404, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve feedback: {str(e)}")
+
+
+@router.get("/tracking/{tracking_id}")
+def get_submission_by_tracking(
+    tracking_id: str,
+    db: Session = Depends(get_db),
+) -> Any:
+    """
+    Lookup submitter feedback using tracking code (e.g. '#SUB-12' or '12').
+    """
+    clean_id_str = tracking_id.replace("#SUB-", "").replace("SUB-", "").strip()
+    try:
+        numeric_id = int(clean_id_str)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid tracking ID format. Use format #SUB-123.")
+
+    svc = SubmissionApprovalService(db)
+    try:
+        return svc.get_submitter_feedback(numeric_id)
+    except ValueError as ve:
+        raise HTTPException(status_code=404, detail=str(ve))
 
 
 @router.post("/{submission_id}/reject")
