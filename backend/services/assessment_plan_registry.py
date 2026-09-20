@@ -576,7 +576,12 @@ def is_exam_in_course_cycle(course_id: int, exam_assessment_type: Optional[str],
     return exam_assessment_type.strip().upper() in {r.strip().upper() for r in raw_accepted}
 
 
-def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db: Optional[Session] = None) -> AssessmentScope:
+def get_course_assessment_scope(
+    course_id: int,
+    student_cycle: Optional[str],
+    db: Optional[Session] = None,
+    track_id: Optional[int] = None
+) -> AssessmentScope:
     """
     Computes the authoritative AssessmentScope:
     - intended_scope: syllabus units & topics from authoritative course plan
@@ -589,15 +594,56 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
     plan = get_course_assessment_plan(course_id)
     matched_comp = None
 
+    if not plan and db:
+        from backend.models.assessment import CourseAssessmentPlan as DBPlan
+        plan_q = db.query(DBPlan).filter(DBPlan.course_id == course_id)
+        if track_id is not None:
+            plan_q = plan_q.filter(DBPlan.track_id == track_id)
+        else:
+            plan_q = plan_q.filter(DBPlan.track_id.is_(None))
+        db_plan = plan_q.first()
+        if db_plan and db_plan.components:
+            comps = []
+            for ac in db_plan.components:
+                u_nums = [
+                    cov.unit.number for cov in ac.coverages
+                    if cov.coverage_type == "IN_SCOPE" and cov.unit
+                ]
+                comps.append(
+                    ComponentDefinition(
+                        code=ac.code,
+                        canonical_label=ac.canonical_label,
+                        student_label=ac.student_label,
+                        role=ac.role,
+                        sequence=ac.sequence,
+                        marks=ac.marks,
+                        raw_labels=ac.raw_labels or [ac.code],
+                        syllabus_units=u_nums,
+                        notes=f"{ac.canonical_label} from authoritative curriculum plan"
+                    )
+                )
+            plan = CoursePlanDefinition(
+                course_id=course_id,
+                canonical_code="",
+                course_name="",
+                regulation_year=db_plan.regulation_year or 2021,
+                source_document=db_plan.source_title or "Authoritative Curriculum Plan",
+                components=comps,
+                notes="Authoritative plan resolved from CourseAssessmentPlan database model."
+            )
+
     if not plan:
         # No registered plan; derive canonical taxonomy from syllabus if db provided
         syl_units = set()
         if db:
+            syl_filter = [Syllabus.course_id == course_id]
+            if track_id is not None:
+                syl_filter.append(Syllabus.track_id == track_id)
             syl_units = {
                 row[0] for row in (
                     db.query(Unit.number)
                     .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-                    .filter(Syllabus.course_id == course_id)
+                    .filter(*syl_filter)
                     .all()
                 )
             }
@@ -667,14 +713,17 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
 
     # Expand in-scope topic IDs and topic names from db if provided
     if db and scope.in_scope_unit_numbers:
+        topics_filter = [
+            Syllabus.course_id == course_id,
+            Unit.number.in_(list(scope.in_scope_unit_numbers))
+        ]
+        if track_id is not None:
+            topics_filter.append(Syllabus.track_id == track_id)
         topics_query = (
             db.query(Topic.id, Topic.name)
             .join(Unit, Topic.unit_id == Unit.id)
             .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-            .filter(
-                Syllabus.course_id == course_id,
-                Unit.number.in_(list(scope.in_scope_unit_numbers))
-            )
+            .filter(*topics_filter)
             .all()
         )
         scope.in_scope_topic_ids = {t_id for t_id, _ in topics_query}
@@ -698,6 +747,10 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
         )
         from sqlalchemy.orm import selectinload
 
+        exams_filter = [Exam.course_id == course_id]
+        if track_id is not None:
+            exams_filter.append(Exam.track_id == track_id)
+
         all_course_exams = (
             db.query(Exam)
             .options(
@@ -707,7 +760,7 @@ def get_course_assessment_scope(course_id: int, student_cycle: Optional[str], db
                 .selectinload(Question.topics)
                 .selectinload(Topic.unit),
             )
-            .filter(Exam.course_id == course_id)
+            .filter(*exams_filter)
             .all()
         )
 

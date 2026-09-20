@@ -60,13 +60,9 @@ class TaxonomyClassifierService:
         """Normalize question text while preserving alphanumeric and core math tokens."""
         if not text:
             return ""
-        # Unicode decomposition to strip accents
-        ascii_text = (
-            unicodedata.normalize("NFKD", text)
-            .encode("ascii", "ignore")
-            .decode("ascii")
-            .lower()
-        )
+        # Unicode decomposition to strip accents while preserving non-Latin scripts (CJK, Hangul, Kana)
+        decomposed = unicodedata.normalize("NFKD", text)
+        ascii_text = "".join(c for c in decomposed if unicodedata.category(c) != "Mn").lower()
         # Normalize mathematical LaTeX operators before stripping symbols
         ascii_text = re.sub(r'\\iiint\b', ' triple integral ', ascii_text)
         ascii_text = re.sub(r'\\iint\b', ' double integral ', ascii_text)
@@ -81,8 +77,8 @@ class TaxonomyClassifierService:
         cleaned = re.sub(r'[\$\\_{}\[\]\(\)]', ' ', ascii_text)
         # Normalize hyphens surrounded by whitespace (e.g. 'uv- vis' -> 'uv-vis', 'pilling - bedworth' -> 'pilling-bedworth')
         cleaned = re.sub(r'\s*-\s*', '-', cleaned)
-        # Normalize whitespace and non-alphanumerics
-        cleaned = re.sub(r'[^a-z0-9+*-]+', ' ', cleaned)
+        # Normalize whitespace and non-alphanumerics (preserve unicode word characters like CJK/Hangul)
+        cleaned = re.sub(r'[^\w+*-]+', ' ', cleaned, flags=re.UNICODE)
         return " ".join(cleaned.split())
 
     def classify(self, question_id: int, original_text: str) -> ClassificationProposal:

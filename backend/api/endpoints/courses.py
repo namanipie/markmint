@@ -25,3 +25,25 @@ def get_course(course_id: int, db: Session = Depends(get_db)) -> Course:
         raise HTTPException(status_code=404, detail="Course not found")
     return course
 
+
+@router.get("/{course_id}/tracks")
+def get_course_tracks(course_id: int, db: Session = Depends(get_db)):
+    """Retrieve available academic tracks for a course (e.g. language electives)."""
+    from backend.models.core import CourseTrack, Course
+    course = db.query(Course).filter(Course.id == course_id).first()
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    tracks = db.query(CourseTrack).filter(CourseTrack.course_id == course_id).order_by(CourseTrack.id).all()
+    return [
+        {
+            "id": t.id,
+            "course_id": t.course_id,
+            "track_key": t.track_key,
+            "track_name": t.track_name,
+            "track_code": t.track_code,
+            "track_type": t.track_type,
+            "created_at": t.created_at.isoformat() if t.created_at else None,
+        }
+        for t in tracks
+    ]
+

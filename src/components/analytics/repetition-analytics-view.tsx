@@ -47,6 +47,7 @@ interface RepetitionAnalyticsViewProps {
   courseId: number | string;
   courseName: string;
   canonicalCode?: string | null;
+  language?: string;
   onSelectTopic?: (topicName: string) => void;
 }
 
@@ -56,6 +57,7 @@ export function RepetitionAnalyticsView({
   courseId,
   courseName,
   canonicalCode,
+  language,
   onSelectTopic
 }: RepetitionAnalyticsViewProps) {
   const [activeTab, setActiveTab] = useState<AnalyticsTab>("topics");
@@ -99,8 +101,8 @@ export function RepetitionAnalyticsView({
     setError(null);
 
     Promise.all([
-      getRepetitionOverview(courseId),
-      getTopicRepetition(courseId),
+      getRepetitionOverview(courseId, language),
+      getTopicRepetition(courseId, { language }),
       getQuestionFamilies(courseId),
       getRepeatedQuestions(courseId),
       getCourseEvolution(courseId),
@@ -129,11 +131,12 @@ export function RepetitionAnalyticsView({
     return () => {
       active = false;
     };
-  }, [courseId]);
+  }, [courseId, language]);
 
   // Handle dynamic filter changes for topics
   const handleApplyTopicFilters = () => {
     const filters: any = {};
+    if (language) filters.language = language;
     if (filterYear !== "ALL") filters.year = parseInt(filterYear, 10);
     if (filterAssessmentType !== "ALL") filters.assessmentType = filterAssessmentType;
     if (filterUnit !== "ALL") filters.unit = parseInt(filterUnit, 10);

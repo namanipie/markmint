@@ -46,6 +46,7 @@ def get_course_historical_questions(
     family_id: Optional[int] = Query(None),
     family_name: Optional[str] = Query(None),
     repetition_type: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
     limit: int = Query(50, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
@@ -60,6 +61,24 @@ def get_course_historical_questions(
         .join(Exam, Section.exam_id == Exam.id)
         .filter(Exam.course_id == course.id)
     )
+
+    if course and course.tracks:
+        if not language:
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: Language track selection is required for this subject."
+            )
+        lang_low = language.strip().lower()
+        active_track = next(
+            (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+            None
+        )
+        if not active_track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+            )
+        query = query.filter(Exam.track_id == active_track.id)
 
     if hasattr(topic, "default"):
         topic = None
@@ -343,6 +362,7 @@ def get_intelligence_snapshot(
     target_exam_date: Optional[str] = Query(None),
     student_id: str = Query("anonymous"),
     assessment_cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -381,6 +401,26 @@ def get_intelligence_snapshot(
             .filter(CurriculumMapping.course_id == course.id)
             .first()
         )
+
+    # Track resolution for multi-track courses (e.g. Foreign Languages course_id=8)
+    active_track = None
+    if course and course.tracks:
+        if not (isinstance(language, str) and language.strip()):
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: This course has multiple tracks (e.g. languages). A specific track must be selected.",
+            )
+
+        lang_low = language.strip().lower()
+        active_track = next(
+            (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+            None
+        )
+        if not active_track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid language track '{language}' for course '{course.name}'. Available: {[t.track_key for t in course.tracks]}"
+            )
 
     # 1. Handle AMBIGUOUS State
     if curriculum_row and curriculum_row.status == "AMBIGUOUS":
@@ -444,12 +484,10 @@ def get_intelligence_snapshot(
         }
 
     # 3. Course exists: inspect examination history
-    exam_rows = (
-        db.query(Exam)
-        .filter(Exam.course_id == course.id)
-        .order_by(Exam.year.asc().nullslast())
-        .all()
-    )
+    exam_query = db.query(Exam).filter(Exam.course_id == course.id)
+    if active_track:
+        exam_query = exam_query.filter(Exam.track_id == active_track.id)
+    exam_rows = exam_query.order_by(Exam.year.asc().nullslast()).all()
     total_papers = len(exam_rows)
 
     if total_papers == 0:
@@ -513,7 +551,12 @@ def get_intelligence_snapshot(
         max_year = max([e.year for e in exam_rows if e.year is not None], default=None)
         target_year = (max_year + 1) if max_year else 2024
 
-    context = HistoricalContext(course_id=course.id, cutoff_year=target_year, assessment_cycle=norm_cycle)
+    context = HistoricalContext(
+        course_id=course.id,
+        cutoff_year=target_year,
+        assessment_cycle=norm_cycle,
+        track_id=active_track.id if active_track else None
+    )
     repo = HistoricalRepository(db, context)
     hist_exams_orm = repo.get_historical_exams()
 
@@ -522,7 +565,12 @@ def get_intelligence_snapshot(
             "Intelligence snapshot resolved: course_id=%s, assessment_cycle=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
             course_id, norm_cycle, (time.time() - t_start) * 1000
         )
-        scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+        scope = get_course_assessment_scope(
+            course.id,
+            norm_cycle,
+            db=db,
+            track_id=active_track.id if active_track else None
+        )
         unobserved_in_scope = (
             [
                 {
@@ -617,7 +665,12 @@ def get_intelligence_snapshot(
     family_preds = engine.predict(PredictionTarget.FAMILY)
 
     # Resolve course-specific assessment plan scope & candidate restriction
-    scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+    scope = get_course_assessment_scope(
+        course.id,
+        norm_cycle,
+        db=db,
+        track_id=active_track.id if active_track else None
+    )
     
     if not scope.is_all and scope.in_scope_topic_names:
         topic_preds = [p for p in all_topic_preds if p.name in scope.in_scope_topic_names]
@@ -821,7 +874,10 @@ def get_intelligence_snapshot(
         ]
         family_predictions_payload.append(p_dict)
 
-    syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
+    if active_track:
+        syl_ids = [s.id for s in course.syllabuses if s.track_id == active_track.id]
+    else:
+        syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
     taxonomy_topic_count = (
         db.query(Topic)
         .join(Unit, Topic.unit_id == Unit.id)
@@ -854,6 +910,29 @@ def get_intelligence_snapshot(
         "taxonomy_topic_count": taxonomy_topic_count,
         "topic_predictions_count": len(topic_preds),
         "family_predictions_count": len(family_preds),
+        "track": {
+            "id": active_track.id,
+            "key": active_track.track_key,
+            "track_key": active_track.track_key,
+            "name": active_track.track_name,
+            "track_name": active_track.track_name,
+            "code": active_track.track_code,
+            "track_code": active_track.track_code,
+            "track_type": active_track.track_type,
+        } if active_track else None,
+        "tracks": [
+            {
+                "id": t.id,
+                "key": t.track_key,
+                "track_key": t.track_key,
+                "name": t.track_name,
+                "track_name": t.track_name,
+                "code": t.track_code,
+                "track_code": t.track_code,
+                "track_type": t.track_type,
+            }
+            for t in sorted(course.tracks, key=lambda x: x.id)
+        ] if course.tracks else [],
         "course": {
             "id": course.id,
             "name": course.name,
@@ -861,6 +940,20 @@ def get_intelligence_snapshot(
             "canonical_code": course.canonical_code,
             "department": course.department,
             "regulation_year": course.regulation_year,
+            "has_tracks": bool(course.tracks),
+            "tracks": [
+                {
+                    "id": t.id,
+                    "key": t.track_key,
+                    "track_key": t.track_key,
+                    "name": t.track_name,
+                    "track_name": t.track_name,
+                    "code": t.track_code,
+                    "track_code": t.track_code,
+                    "track_type": t.track_type,
+                }
+                for t in sorted(course.tracks, key=lambda x: x.id)
+            ] if course.tracks else [],
         },
         "curriculum": {
             "curriculum_id": curriculum_row.curriculum_id if curriculum_row else None,

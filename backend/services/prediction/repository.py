@@ -32,6 +32,8 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
+        if self.context.track_id is not None:
+            q = q.filter(Exam.track_id == self.context.track_id)
         q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.order_by(Exam.year.asc()).all()
 
@@ -42,6 +44,8 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
+        if self.context.track_id is not None:
+            q = q.filter(Exam.track_id == self.context.track_id)
         q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()
 
@@ -52,6 +56,8 @@ class HistoricalRepository:
             Exam.year != None,
             Exam.year < self.context.cutoff_year
         )
+        if self.context.track_id is not None:
+            q = q.filter(Exam.track_id == self.context.track_id)
         q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()
 
@@ -72,5 +78,7 @@ class HistoricalRepository:
             Exam.course_id == self.context.course_id,
             Exam.year == self.context.cutoff_year
         )
+        if self.context.track_id is not None:
+            q = q.filter(Exam.track_id == self.context.track_id)
         q = filter_exams_by_cycle(q, Exam.assessment_type, self.context.assessment_cycle, course_id=self.context.course_id)
         return q.all()

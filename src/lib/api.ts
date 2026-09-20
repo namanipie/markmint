@@ -35,7 +35,8 @@ import {
   MarksAnalyticsResponse,
   AssessmentComparisonResponse,
   TopicIntelligenceResponse,
-  SingleFamilyResponse
+  SingleFamilyResponse,
+  CourseTrack
 } from "./types";
 
 // Real Backend Endpoints
@@ -60,18 +61,26 @@ export async function getCurriculumStats(): Promise<CurriculumStats> {
   return fetchAPI("/curriculum/stats");
 }
 
+export async function getCourseTracks(courseId: string | number): Promise<CourseTrack[]> {
+  return fetchAPI(`/courses/${encodeURIComponent(String(courseId))}/tracks`);
+}
+
 export async function getIntelligenceSnapshot(
   courseId: string | number,
   targetYear?: number,
   targetExamDate?: string,
   studentId: string = "anonymous",
-  assessmentCycle?: string
+  assessmentCycle?: string,
+  language?: string
 ): Promise<IntelligenceSnapshot> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}?student_id=${encodeURIComponent(studentId)}`;
   if (targetYear) url += `&target_year=${encodeURIComponent(targetYear)}`;
   if (targetExamDate) url += `&target_exam_date=${encodeURIComponent(targetExamDate)}`;
   if (assessmentCycle && assessmentCycle !== "ALL") {
     url += `&assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  }
+  if (language) {
+    url += `&language=${encodeURIComponent(language)}`;
   }
   return fetchAPI(url);
 }
@@ -89,6 +98,7 @@ export async function getHistoricalQuestions(
     family_name?: string;
     repetition_type?: string;
     assessment_cycle?: string;
+    language?: string;
   }
 ): Promise<{ course_id: number; course_name: string; total_returned: number; questions: HistoricalQuestion[] }> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}/questions?limit=${limit}`;
@@ -103,6 +113,7 @@ export async function getHistoricalQuestions(
   if (filters?.family_id) url += `&family_id=${encodeURIComponent(filters.family_id)}`;
   if (filters?.family_name) url += `&family_name=${encodeURIComponent(filters.family_name)}`;
   if (filters?.repetition_type) url += `&repetition_type=${encodeURIComponent(filters.repetition_type)}`;
+  if (filters?.language) url += `&language=${encodeURIComponent(filters.language)}`;
   return fetchAPI(url);
 }
 
@@ -130,18 +141,32 @@ export async function getCourse(id: string | number) {
   return fetchAPI(`/courses/${id}`);
 }
 
-export async function getPredictions(subjectOrCourseId: string | number, assessmentCycle?: string) {
+export async function getPredictions(subjectOrCourseId: string | number, assessmentCycle?: string, language?: string) {
   let url = `/predictions/${encodeURIComponent(String(subjectOrCourseId))}`;
+  const params: string[] = [];
   if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+    params.push(`assessment_cycle=${encodeURIComponent(assessmentCycle)}`);
+  }
+  if (language) {
+    params.push(`language=${encodeURIComponent(language)}`);
+  }
+  if (params.length > 0) {
+    url += `?${params.join("&")}`;
   }
   return fetchAPI(url);
 }
 
-export async function getExamPredictions(id: string | number, assessmentCycle?: string) {
+export async function getExamPredictions(id: string | number, assessmentCycle?: string, language?: string) {
   let url = `/predictions/${encodeURIComponent(String(id))}`;
+  const params: string[] = [];
   if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+    params.push(`assessment_cycle=${encodeURIComponent(assessmentCycle)}`);
+  }
+  if (language) {
+    params.push(`language=${encodeURIComponent(language)}`);
+  }
+  if (params.length > 0) {
+    url += `?${params.join("&")}`;
   }
   return fetchAPI(url);
 }
@@ -162,10 +187,17 @@ export async function getExamDNA(course_id: string | number, assessmentCycle?: s
   return fetchAPI(url);
 }
 
-export async function getStudyPriorities(course_name: string, assessmentCycle?: string) {
+export async function getStudyPriorities(course_name: string, assessmentCycle?: string, language?: string) {
   let url = `/study/priorities/${encodeURIComponent(course_name)}`;
+  const params: string[] = [];
   if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+    params.push(`assessment_cycle=${encodeURIComponent(assessmentCycle)}`);
+  }
+  if (language) {
+    params.push(`language=${encodeURIComponent(language)}`);
+  }
+  if (params.length > 0) {
+    url += `?${params.join("&")}`;
   }
   return fetchAPI(url);
 }
@@ -210,10 +242,17 @@ export async function updateStudyProgress(course_id: string | number, data: any)
   });
 }
 
-export async function getPractice(subject: string, assessmentCycle?: string) {
+export async function getPractice(subject: string, assessmentCycle?: string, language?: string) {
   let url = `/practice/${encodeURIComponent(subject)}`;
+  const params: string[] = [];
   if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+    params.push(`assessment_cycle=${encodeURIComponent(assessmentCycle)}`);
+  }
+  if (language) {
+    params.push(`language=${encodeURIComponent(language)}`);
+  }
+  if (params.length > 0) {
+    url += `?${params.join("&")}`;
   }
   return fetchAPI(url);
 }
@@ -229,8 +268,10 @@ export async function getDashboardStats() {
 }
 
 // Repetition Analytics Suite
-export async function getRepetitionOverview(courseId: string | number): Promise<RepetitionOverview> {
-  return fetchAPI(`/analytics/${encodeURIComponent(String(courseId))}/overview`);
+export async function getRepetitionOverview(courseId: string | number, language?: string): Promise<RepetitionOverview> {
+  let url = `/analytics/${encodeURIComponent(String(courseId))}/overview`;
+  if (language) url += `?language=${encodeURIComponent(language)}`;
+  return fetchAPI(url);
 }
 
 export async function getTopicRepetition(
@@ -241,6 +282,7 @@ export async function getTopicRepetition(
     unit?: number;
     minMarks?: number;
     maxMarks?: number;
+    language?: string;
   }
 ): Promise<TopicRepetitionResponse> {
   const url = `/analytics/${encodeURIComponent(String(courseId))}/topics?`;
@@ -250,6 +292,7 @@ export async function getTopicRepetition(
   if (filters?.unit) params.push(`unit=${encodeURIComponent(filters.unit)}`);
   if (filters?.minMarks !== undefined) params.push(`min_marks=${encodeURIComponent(filters.minMarks)}`);
   if (filters?.maxMarks !== undefined) params.push(`max_marks=${encodeURIComponent(filters.maxMarks)}`);
+  if (filters?.language) params.push(`language=${encodeURIComponent(filters.language)}`);
   return fetchAPI(url + params.join("&"));
 }
 

@@ -233,6 +233,16 @@ export interface StudyUploadResponse {
   message?: string;
 }
 
+export interface CourseTrack {
+  id: number;
+  course_id: number;
+  track_key: string;
+  track_name: string;
+  track_code?: string | null;
+  track_type: string;
+  created_at?: string | null;
+}
+
 export interface CurriculumSubject {
   curriculum_id: string;
   subject_name: string;
@@ -243,6 +253,8 @@ export interface CurriculumSubject {
   has_exams: boolean;
   exam_count: number;
   question_count: number;
+  has_tracks?: boolean;
+  tracks?: CourseTrack[];
   notes: string | null;
 }
 
@@ -372,7 +384,10 @@ export interface IntelligenceSnapshot {
     canonical_code?: string | null;
     department?: string | null;
     regulation_year?: number | null;
+    tracks?: CourseTrack[];
   } | null;
+  track?: CourseTrack | null;
+  tracks?: CourseTrack[];
   curriculum?: {
     curriculum_id?: string | null;
     subject_name: string;

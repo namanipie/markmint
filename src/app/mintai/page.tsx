@@ -16,6 +16,7 @@ import {
   getCurriculumSubjects,
   getIntelligenceSnapshot,
   getHistoricalQuestions,
+  getCourseTracks,
   updateStudyProgress
 } from "@/lib/api";
 import {
@@ -23,7 +24,8 @@ import {
   IntelligenceSnapshot,
   PredictionItem,
   HistoricalQuestion,
-  CoverageSummary
+  CoverageSummary,
+  CourseTrack
 } from "@/lib/types";
 import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analytics-view";
 import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
@@ -59,6 +61,11 @@ export default function MintAIPage() {
   const [selectedExam, setSelectedExam] = useState<string>("ALL");
   const [targetExamDate, setTargetExamDate] = useState<string>("");
   const [mainView, setMainView] = useState<"forecast" | "analytics">("forecast");
+
+  // Multi-track language state
+  const [availableTracks, setAvailableTracks] = useState<CourseTrack[]>([]);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
+  const [isLoadingTracks, setIsLoadingTracks] = useState<boolean>(false);
 
   // Loading & error states
   const [isLoadingBranches, setIsLoadingBranches] = useState(true);
@@ -116,7 +123,8 @@ export default function MintAIPage() {
     selectedSubject &&
     selectedSubject.status === "MATCHED" &&
     selectedSubject.course_id !== null &&
-    selectedSubject.has_exams === true
+    selectedSubject.has_exams === true &&
+    (availableTracks.length === 0 || Boolean(selectedLanguage))
   );
 
   // Explicit state derivation eliminating contradictory states
@@ -263,6 +271,81 @@ export default function MintAIPage() {
     };
   }, [selectedBranch, selectedSemester]);
 
+  // 3b. When Subject changes: Load available tracks if this course is multi-track (e.g. Foreign Languages)
+  useEffect(() => {
+    if (!selectedSubject || !selectedSubject.course_id) {
+      setAvailableTracks([]);
+      setSelectedLanguage("");
+      return;
+    }
+
+    let active = true;
+
+    // If tracks are already embedded in the selectedSubject
+    if (selectedSubject.tracks && selectedSubject.tracks.length > 0) {
+      setAvailableTracks(selectedSubject.tracks);
+      setSelectedLanguage(selectedSubject.tracks[0].track_key);
+      return;
+    }
+
+    // Otherwise check if course has tracks (e.g. Foreign Languages course_id === 8 or has_tracks flag)
+    if (selectedSubject.has_tracks || selectedSubject.course_id === 8) {
+      setIsLoadingTracks(true);
+      getCourseTracks(selectedSubject.course_id)
+        .then((tracks) => {
+          if (!active) return;
+          setAvailableTracks(tracks);
+          if (tracks.length > 0) {
+            setSelectedLanguage(tracks[0].track_key);
+          } else {
+            setSelectedLanguage("");
+          }
+        })
+        .catch((err) => {
+          if (!active) return;
+          console.error("Failed to load course tracks", err);
+          setAvailableTracks([]);
+          setSelectedLanguage("");
+        })
+        .finally(() => {
+          if (active) setIsLoadingTracks(false);
+        });
+    } else {
+      setAvailableTracks([]);
+      setSelectedLanguage("");
+    }
+
+    return () => {
+      active = false;
+    };
+  }, [selectedSubject]);
+
+  const handleLanguageChange = async (newLang: string) => {
+    setSelectedLanguage(newLang);
+    setSnapshot(null);
+    setError("");
+
+    if (snapshot && selectedSubject?.course_id) {
+      setIsAnalyzing(true);
+      try {
+        const data = await getIntelligenceSnapshot(
+          selectedSubject.course_id,
+          undefined,
+          targetExamDate || undefined,
+          "anonymous",
+          selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+          newLang
+        );
+        setSnapshot(data);
+      } catch (err: any) {
+        console.error("Intelligence snapshot generation failed for language track", err);
+        setError(err?.message || "Failed to synthesize academic intelligence.");
+      } finally {
+        setIsAnalyzing(false);
+      }
+    }
+  };
+
   // 4. Run Full Intelligence Analysis
   const handleAnalyze = async () => {
     if (!selectedSubject) return;
@@ -281,7 +364,8 @@ export default function MintAIPage() {
         undefined,
         targetExamDate || undefined,
         "anonymous",
-        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+        availableTracks.length > 0 ? selectedLanguage : undefined
       );
       setSnapshot(data);
     } catch (err: any) {
@@ -305,7 +389,8 @@ export default function MintAIPage() {
           undefined,
           targetExamDate || undefined,
           "anonymous",
-          newCycle !== "ALL" ? newCycle : undefined
+          newCycle !== "ALL" ? newCycle : undefined,
+          availableTracks.length > 0 ? selectedLanguage : undefined
         );
         setSnapshot(data);
       } catch (err: any) {
@@ -333,7 +418,12 @@ export default function MintAIPage() {
         familyId ? undefined : topicName,
         selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
         50,
-        familyId ? { family_id: familyId } : (familyName ? { family_name: familyName } : undefined)
+        {
+          family_id: familyId || undefined,
+          family_name: familyName || undefined,
+          assessment_cycle: selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+          language: availableTracks.length > 0 ? selectedLanguage : undefined
+        }
       );
       setHistoricalQuestions(res.questions || []);
     } catch (err) {
@@ -469,6 +559,35 @@ export default function MintAIPage() {
                 />
               </div>
 
+              {/* Language Track Selector (shown only for multi-track courses, e.g. Foreign Languages) */}
+              {availableTracks.length > 0 && (
+                <div className="animate-in fade-in-50 duration-200">
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Language Track
+                    </label>
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-accent/10 text-accent border border-accent/20">
+                      Required
+                    </span>
+                  </div>
+                  <Combobox
+                    options={availableTracks.map((t) => ({
+                      value: t.track_key,
+                      label: `${t.track_name}${t.track_code ? ` (${t.track_code})` : ""}`,
+                    }))}
+                    value={selectedLanguage}
+                    onChange={(val: string) => {
+                      handleLanguageChange(val);
+                    }}
+                    placeholder={isLoadingTracks ? "Loading tracks..." : "Select language..."}
+                    disabled={isLoadingTracks || availableTracks.length === 0}
+                  />
+                  <p className="text-[10px] text-muted-foreground mt-1">
+                    Each language track maintains isolated syllabus topics, past papers, and predictions.
+                  </p>
+                </div>
+              )}
+
               {/* Target Exam Date (Optional) */}
               <div>
                 <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
@@ -580,6 +699,14 @@ export default function MintAIPage() {
                 <span className="text-muted-foreground">Historical Questions:</span>
                 <span className="font-mono">{selectedSubject.question_count}</span>
               </div>
+              {availableTracks.length > 0 && selectedLanguage && (
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Selected Track:</span>
+                  <span className="font-mono font-bold text-accent">
+                    {availableTracks.find(t => t.track_key === selectedLanguage)?.track_name || selectedLanguage}
+                  </span>
+                </div>
+              )}
               {selectedSubject.has_exams && (
                 <div className="pt-2 border-t border-border/50 space-y-1.5">
                   <button
@@ -650,6 +777,7 @@ export default function MintAIPage() {
               courseId={selectedSubject.course_id}
               courseName={selectedSubject.subject_name}
               canonicalCode={selectedSubject.canonical_code}
+              language={availableTracks.length > 0 ? selectedLanguage : undefined}
               onSelectTopic={(topicName) => {
                 setMainView("forecast");
                 setExpandedTopic(topicName);

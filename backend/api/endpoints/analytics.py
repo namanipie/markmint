@@ -20,7 +20,8 @@ from sqlalchemy import func, distinct, desc
 from backend.core.database import get_db
 from backend.models.core import (
     Course, Exam, Section, Question, Topic, Unit, Syllabus, Document,
-    QuestionFamily, QuestionFamilyMembership, StudentTopicProgress, question_topic
+    QuestionFamily, QuestionFamilyMembership, StudentTopicProgress, question_topic,
+    CourseTrack
 )
 from backend.api.endpoints.predictions import _find_course, _build_historical_exam_payloads
 from backend.services.dna.analyzer import DNAAnalyzerService
@@ -30,9 +31,24 @@ from backend.services.prediction.context import PredictionTarget
 router = APIRouter()
 
 
+def _resolve_track(course: Course, language: Optional[str]) -> Optional[CourseTrack]:
+    if not course or not course.tracks or not language:
+        return None
+    lang_clean = language.strip().lower()
+    for t in course.tracks:
+        if (
+            t.track_key.lower() == lang_clean
+            or t.track_name.lower() == lang_clean
+            or (t.track_code and t.track_code.lower() == lang_clean)
+        ):
+            return t
+    return None
+
+
 @router.get("/{course_id}/overview")
 def get_analytics_overview(
     course_id: str,
+    language: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """High-level summary of historical exam evidence for a course."""
@@ -40,7 +56,11 @@ def get_analytics_overview(
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
 
-    exams = db.query(Exam).filter(Exam.course_id == course.id).all()
+    active_track = _resolve_track(course, language)
+    exams_query = db.query(Exam).filter(Exam.course_id == course.id)
+    if active_track:
+        exams_query = exams_query.filter(Exam.track_id == active_track.id)
+    exams = exams_query.all()
     total_papers = len(exams)
 
     questions_query = (
@@ -49,13 +69,15 @@ def get_analytics_overview(
         .join(Exam, Section.exam_id == Exam.id)
         .filter(Exam.course_id == course.id)
     )
+    if active_track:
+        questions_query = questions_query.filter(Exam.track_id == active_track.id)
     total_questions = questions_query.count()
 
     years = sorted(list({e.year for e in exams if e.year is not None}))
     assessment_types = sorted(list({e.assessment_type for e in exams if e.assessment_type is not None}))
 
     # Top repeated topics
-    topic_stats = (
+    topic_stats_query = (
         db.query(
             Topic.id,
             Topic.name,
@@ -68,6 +90,11 @@ def get_analytics_overview(
         .join(Section, Question.section_id == Section.id)
         .join(Exam, Section.exam_id == Exam.id)
         .filter(Exam.course_id == course.id)
+    )
+    if active_track:
+        topic_stats_query = topic_stats_query.filter(Exam.track_id == active_track.id)
+    topic_stats = (
+        topic_stats_query
         .group_by(Topic.id, Topic.name)
         .order_by(desc("paper_count"), desc("total_marks"))
         .limit(5)
@@ -87,7 +114,7 @@ def get_analytics_overview(
     ]
 
     # Top repeated question families
-    family_stats = (
+    family_stats_query = (
         db.query(
             QuestionFamily.id,
             QuestionFamily.canonical_name,
@@ -99,6 +126,11 @@ def get_analytics_overview(
         .join(Section, Question.section_id == Section.id)
         .join(Exam, Section.exam_id == Exam.id)
         .filter(Exam.course_id == course.id)
+    )
+    if active_track:
+        family_stats_query = family_stats_query.filter(Exam.track_id == active_track.id)
+    family_stats = (
+        family_stats_query
         .group_by(QuestionFamily.id, QuestionFamily.canonical_name, QuestionFamily.repetition_type)
         .order_by(desc("paper_count"), desc("q_count"))
         .limit(5)
@@ -158,6 +190,7 @@ def get_topic_repetition_analytics(
     unit: Optional[int] = Query(None),
     min_marks: Optional[float] = Query(None),
     max_marks: Optional[float] = Query(None),
+    language: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -169,8 +202,13 @@ def get_topic_repetition_analytics(
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
 
+    active_track = _resolve_track(course, language)
+
     # Base exams for course
-    base_exams = db.query(Exam).filter(Exam.course_id == course.id).all()
+    base_exams_query = db.query(Exam).filter(Exam.course_id == course.id)
+    if active_track:
+        base_exams_query = base_exams_query.filter(Exam.track_id == active_track.id)
+    base_exams = base_exams_query.all()
     total_papers_course = len(base_exams)
     all_years = sorted(list({e.year for e in base_exams if e.year is not None}))
     max_year = max(all_years) if all_years else 0
@@ -183,7 +221,9 @@ def get_topic_repetition_analytics(
         .join(Syllabus, Unit.syllabus_id == Syllabus.id)
         .filter(Syllabus.course_id == course.id)
     )
-    if unit is not None:
+    if active_track:
+        topics_query = topics_query.filter(Syllabus.track_id == active_track.id)
+    if isinstance(unit, int):
         topics_query = topics_query.filter(Unit.number == unit)
 
     syllabus_topics = topics_query.all()
@@ -204,14 +244,16 @@ def get_topic_repetition_analytics(
         .join(Exam, Section.exam_id == Exam.id)
         .filter(Exam.course_id == course.id)
     )
+    if active_track:
+        q_filter = q_filter.filter(Exam.track_id == active_track.id)
 
-    if year is not None:
+    if isinstance(year, int):
         q_filter = q_filter.filter(Exam.year == year)
-    if assessment_type:
+    if isinstance(assessment_type, str) and assessment_type.strip():
         q_filter = q_filter.filter(func.lower(Exam.assessment_type) == assessment_type.lower())
-    if min_marks is not None:
+    if isinstance(min_marks, (int, float)):
         q_filter = q_filter.filter(Question.marks >= min_marks)
-    if max_marks is not None:
+    if isinstance(max_marks, (int, float)):
         q_filter = q_filter.filter(Question.marks <= max_marks)
 
     question_rows = q_filter.all()
@@ -294,7 +336,7 @@ def get_topic_repetition_analytics(
             })
         else:
             # If explicit filters are applied (year, assessment_type, min_marks, max_marks), skip topics with 0 matching questions
-            if year is not None or assessment_type is not None or min_marks is not None or max_marks is not None:
+            if isinstance(year, int) or (isinstance(assessment_type, str) and assessment_type.strip()) or isinstance(min_marks, (int, float)) or isinstance(max_marks, (int, float)):
                 continue
 
             # Topic exists in syllabus but 0 questions in historical exams
@@ -326,11 +368,12 @@ def get_topic_repetition_analytics(
         "total_topics": len(results),
         "topics_with_questions": len([r for r in results if r["paper_count"] > 0]),
         "filters_applied": {
-            "year": year,
-            "assessment_type": assessment_type,
-            "unit": unit,
-            "min_marks": min_marks,
-            "max_marks": max_marks,
+            "year": year if isinstance(year, int) else None,
+            "assessment_type": assessment_type if isinstance(assessment_type, str) and assessment_type.strip() else None,
+            "unit": unit if isinstance(unit, int) else None,
+            "min_marks": min_marks if isinstance(min_marks, (int, float)) else None,
+            "max_marks": max_marks if isinstance(max_marks, (int, float)) else None,
+            "language": language if isinstance(language, str) and language.strip() else None,
         },
         "topics": results,
     }
@@ -1026,6 +1069,7 @@ def get_topic_intelligence(
     course_id: str,
     topic_id: str,
     student_id: Optional[str] = Query("default_student"),
+    language: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -1040,12 +1084,16 @@ def get_topic_intelligence(
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
 
+    active_track = _resolve_track(course, language)
+
     topic_query = (
         db.query(Topic, Unit.name, Unit.number)
         .join(Unit, Topic.unit_id == Unit.id)
         .join(Syllabus, Unit.syllabus_id == Syllabus.id)
         .filter(Syllabus.course_id == course.id)
     )
+    if active_track:
+        topic_query = topic_query.filter(Syllabus.track_id == active_track.id)
     if str(topic_id).isdigit():
         topic = topic_query.filter(Topic.id == int(topic_id)).first()
     else:
@@ -1057,7 +1105,10 @@ def get_topic_intelligence(
     topic_obj, unit_name, unit_number = topic
 
     # All course exams
-    all_exams = db.query(Exam).filter(Exam.course_id == course.id).all()
+    exams_query = db.query(Exam).filter(Exam.course_id == course.id)
+    if active_track:
+        exams_query = exams_query.filter(Exam.track_id == active_track.id)
+    all_exams = exams_query.all()
     total_papers = len(all_exams)
     papers_with_qs = [
         e for e in all_exams 
@@ -1066,7 +1117,7 @@ def get_topic_intelligence(
     total_active_papers = len(papers_with_qs) if papers_with_qs else total_papers
 
     # Questions for this topic
-    q_rows = (
+    q_rows_query = (
         db.query(
             Question,
             Exam.id.label("exam_id"),
@@ -1078,6 +1129,11 @@ def get_topic_intelligence(
         .join(Exam, Section.exam_id == Exam.id)
         .join(question_topic, question_topic.c.question_id == Question.id)
         .filter(Exam.course_id == course.id, question_topic.c.topic_id == topic_obj.id)
+    )
+    if active_track:
+        q_rows_query = q_rows_query.filter(Exam.track_id == active_track.id)
+    q_rows = (
+        q_rows_query
         .order_by(Exam.year.desc().nullslast(), Question.id.desc())
         .all()
     )
@@ -1140,12 +1196,13 @@ def get_topic_intelligence(
     ]
 
     # MintAI Forecast calculation via DNA + Model
-    hist_exams = (
+    hist_exams_query = (
         db.query(Exam)
         .filter(Exam.course_id == course.id, Exam.year != None)
-        .order_by(Exam.year.asc())
-        .all()
     )
+    if active_track:
+        hist_exams_query = hist_exams_query.filter(Exam.track_id == active_track.id)
+    hist_exams = hist_exams_query.order_by(Exam.year.asc()).all()
     hist_payloads = _build_historical_exam_payloads(hist_exams)
     analyzer = DNAAnalyzerService()
     dna = analyzer.analyze(hist_payloads)

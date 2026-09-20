@@ -8,13 +8,36 @@ from backend.services.assessment_cycle import normalize_assessment_cycle, filter
 router = APIRouter()
 
 @router.get("/practice/{subject}")
-def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Optional[str] = Query(None)):
+def get_practice_questions(
+    subject: str,
+    limit: int = 20,
+    assessment_cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None)
+):
     db = SessionLocal()
     try:
         from backend.api.endpoints.predictions import _find_course
         course = _find_course(db, subject)
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
+
+        active_track = None
+        if course and course.tracks:
+            if not (isinstance(language, str) and language.strip()):
+                raise HTTPException(
+                    status_code=400,
+                    detail="TRACK_SELECTION_REQUIRED: Language selection is required for Foreign Languages."
+                )
+            lang_low = language.strip().lower()
+            active_track = next(
+                (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+                None
+            )
+            if not active_track:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+                )
 
         norm_cycle = normalize_assessment_cycle(assessment_cycle)
 
@@ -26,11 +49,18 @@ def get_practice_questions(subject: str, limit: int = 20, assessment_cycle: Opti
             .join(Exam, Section.exam_id == Exam.id)
             .filter(Exam.course_id == course.id)
         )
+        if active_track:
+            query = query.filter(Exam.track_id == active_track.id)
 
         scope = None
         if norm_cycle and norm_cycle != "ALL":
             from backend.services.assessment_plan_registry import get_course_assessment_scope
-            scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+            scope = get_course_assessment_scope(
+                course.id,
+                norm_cycle,
+                db=db,
+                track_id=active_track.id if active_track else None
+            )
             query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle, course_id=course.id)
 
         questions = (

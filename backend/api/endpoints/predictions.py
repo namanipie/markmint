@@ -128,12 +128,31 @@ def get_prediction(
     subject: str,
     target_year: Optional[int] = Query(None),
     assessment_cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
     db: Session = Depends(get_db)
 ):
     try:
         course = _find_course(db, subject)
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
+
+        active_track = None
+        if course and course.tracks:
+            if not (isinstance(language, str) and language.strip()):
+                raise HTTPException(
+                    status_code=400,
+                    detail="TRACK_SELECTION_REQUIRED: Language selection is required for Foreign Languages."
+                )
+            lang_low = language.strip().lower()
+            active_track = next(
+                (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+                None
+            )
+            if not active_track:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+                )
 
         norm_cycle = normalize_assessment_cycle(assessment_cycle)
 
@@ -143,18 +162,31 @@ def get_prediction(
         # Determine target year dynamically if not provided.
         # Rule: Target the next unseen exam year (most_recent_year + 1)
         if target_year is None:
-            max_year = db.query(func.max(Exam.year)).filter(Exam.course_id == course.id).scalar()
+            max_year_q = db.query(func.max(Exam.year)).filter(Exam.course_id == course.id)
+            if active_track:
+                max_year_q = max_year_q.filter(Exam.track_id == active_track.id)
+            max_year = max_year_q.scalar()
             if max_year:
                 target_year = max_year + 1
             else:
                 target_year = 2024
 
         # Temporal isolation constraint with assessment cycle scoping
-        context = HistoricalContext(course_id=course.id, cutoff_year=target_year, assessment_cycle=norm_cycle)
+        context = HistoricalContext(
+            course_id=course.id,
+            cutoff_year=target_year,
+            assessment_cycle=norm_cycle,
+            track_id=active_track.id if active_track else None
+        )
         repo = HistoricalRepository(db, context)
         
         hist_exams_orm = repo.get_historical_exams()
-        scope = get_course_assessment_scope(course.id, norm_cycle, db=db)
+        scope = get_course_assessment_scope(
+            course.id,
+            norm_cycle,
+            db=db,
+            track_id=active_track.id if active_track else None
+        )
         if not hist_exams_orm:
             unobserved_in_scope = (
                 [

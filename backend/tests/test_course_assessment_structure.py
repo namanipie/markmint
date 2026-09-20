@@ -1,4 +1,4 @@
-﻿"""
+"""
 Comprehensive Test Suite for Course-Specific Assessment Structure Layer.
 
 Verifies:
@@ -150,6 +150,8 @@ def test_family_mode_courses_respect_assessment_cycle(db: Session):
     courses = db.query(Course).all()
     family_course = None
     for c in courses:
+        if c.tracks:
+            continue
         s = get_intelligence_snapshot(str(c.id), assessment_cycle="ALL", db=db)
         if s.get("prediction_mode") == "family":
             family_course = c

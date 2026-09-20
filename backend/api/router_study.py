@@ -33,8 +33,20 @@ def _course(db: Session, course_name: str) -> Course:
     return course
 
 
-def _topic_predictions(course_name: str, target_year: Optional[int], assessment_cycle: Optional[str], db: Session):
-    prediction_payload = get_prediction(course_name, target_year, assessment_cycle, db)
+def _topic_predictions(
+    course_name: str,
+    target_year: Optional[int],
+    assessment_cycle: Optional[str],
+    language: Optional[str],
+    db: Session,
+):
+    prediction_payload = get_prediction(
+        subject=course_name,
+        target_year=target_year,
+        assessment_cycle=assessment_cycle,
+        language=language,
+        db=db,
+    )
     return prediction_payload, prediction_payload.get("predictions", [])
 
 
@@ -44,16 +56,52 @@ def get_study_priorities(
     target_year: Optional[int] = None,
     assessment_cycle: Optional[str] = None,
     user_id: str = "anonymous",
+    language: Optional[str] = None,
     db: Session = Depends(get_db),
 ):
+    if isinstance(user_id, Session):
+        db = user_id
+        user_id = "anonymous"
+    elif isinstance(language, Session):
+        db = language
+        language = None
+
     course = _course(db, course_name)
-    payload, predictions = _topic_predictions(course.name, target_year, assessment_cycle, db)
+
+    active_track = None
+    if course and course.tracks:
+        if not (isinstance(language, str) and language.strip()):
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: This course has multiple tracks (e.g. languages). A specific track must be selected.",
+            )
+        lang_clean = language.strip().lower()
+        for t in course.tracks:
+            if (
+                t.track_key.lower() == lang_clean
+                or t.track_name.lower() == lang_clean
+                or (t.track_code and t.track_code.lower() == lang_clean)
+            ):
+                active_track = t
+                break
+        if not active_track:
+            available = [f"{t.track_name} ({t.track_key})" for t in course.tracks]
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid track '{language}'. Available tracks: {', '.join(available)}",
+            )
+
+    payload, predictions = _topic_predictions(course.name, target_year, assessment_cycle, language, db)
     topic_predictions = [p for p in predictions if p.get("category") == "topic"]
     family_predictions = [p for p in predictions if p.get("category") == "family"]
     from backend.services.prediction.engine import PredictionResult
     from backend.models.core import Topic, Unit, Syllabus
 
-    syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
+    syl_query = db.query(Syllabus).filter(Syllabus.course_id == course.id)
+    if active_track:
+        syl_query = syl_query.filter(Syllabus.track_id == active_track.id)
+    syls = syl_query.all()
+    syl_ids = [s.id for s in syls] if syls else []
     taxonomy_topic_count = (
         db.query(Topic)
         .join(Unit, Topic.unit_id == Unit.id)
@@ -157,9 +205,17 @@ def get_study_plan(
     target_year: Optional[int] = None,
     assessment_cycle: Optional[str] = None,
     user_id: str = "anonymous",
+    language: Optional[str] = None,
     db: Session = Depends(get_db),
 ):
-    return get_study_priorities(course_name, target_year, assessment_cycle, user_id, db)
+    return get_study_priorities(
+        course_name=course_name,
+        target_year=target_year,
+        assessment_cycle=assessment_cycle,
+        user_id=user_id,
+        language=language,
+        db=db,
+    )
 
 
 @router.get("/resources/{course_name}/{topic_name}")

@@ -14,6 +14,7 @@ class CourseAssessmentPlan(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     course_id = Column(Integer, ForeignKey("courses.id"), nullable=False, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id", ondelete="CASCADE"), nullable=True, index=True)
     regulation_year = Column(Integer, nullable=True)
     source_document_id = Column(Integer, ForeignKey("documents.id"), nullable=True)
     source_title = Column(String, nullable=True)
@@ -27,7 +28,7 @@ class CourseAssessmentPlan(Base):
     components = relationship("AssessmentComponent", back_populates="plan", cascade="all, delete-orphan")
 
     __table_args__ = (
-        UniqueConstraint("course_id", "regulation_year", "version", name="uq_course_assessment_plan"),
+        UniqueConstraint("course_id", "track_id", "regulation_year", "version", name="uq_course_track_assessment_plan"),
     )
 
 

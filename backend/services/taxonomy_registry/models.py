@@ -52,15 +52,22 @@ class UnitDefinition:
     id: int
     number: int
     name: str
+    track_id: Optional[int] = None
+    track_key: Optional[str] = None
     topics: List[TopicDefinition] = field(default_factory=list)
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        d = {
             "id": self.id,
             "number": self.number,
             "name": self.name,
             "topics": [t.to_dict() for t in self.topics],
         }
+        if self.track_id is not None:
+            d["track_id"] = self.track_id
+        if self.track_key is not None:
+            d["track_key"] = self.track_key
+        return d
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "UnitDefinition":
@@ -68,6 +75,8 @@ class UnitDefinition:
             id=data["id"],
             number=data["number"],
             name=data["name"],
+            track_id=data.get("track_id"),
+            track_key=data.get("track_key"),
             topics=[TopicDefinition.from_dict(t) for t in data.get("topics", [])],
         )
 
@@ -138,15 +147,19 @@ class CourseTaxonomyRegistryEntry:
     course: CourseDefinition
     provenance: ProvenanceDefinition
     units: List[UnitDefinition] = field(default_factory=list)
+    tracks: Optional[List[Dict[str, Any]]] = None
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        d = {
             "schema_version": self.schema_version,
             "taxonomy_version": self.taxonomy_version,
             "course": self.course.to_dict(),
             "provenance": self.provenance.to_dict(),
             "units": [u.to_dict() for u in self.units],
         }
+        if self.tracks is not None:
+            d["tracks"] = self.tracks
+        return d
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "CourseTaxonomyRegistryEntry":
@@ -161,4 +174,5 @@ class CourseTaxonomyRegistryEntry:
             course=CourseDefinition.from_dict(data["course"]),
             provenance=ProvenanceDefinition.from_dict(data["provenance"]),
             units=[UnitDefinition.from_dict(u) for u in data["units"]],
+            tracks=data.get("tracks"),
         )

@@ -51,14 +51,16 @@ def test_calculus_intelligence_unaffected() -> None:
     assert len(data["predictions"]) > 0
 
 
-def test_unmapped_course_remains_family_mode() -> None:
-    """Verifies that a course without topic taxonomy (e.g. Course 8: Foreign Languages) remains in family mode."""
+def test_multi_track_course_intelligence_semantics() -> None:
+    """Verifies that multi-track Course 8 enforces track selection, and resolves topic mode when selected."""
     res = client.get("/api/intelligence/8")
-    assert res.status_code == 200
-    data = res.json()
+    assert res.status_code == 400
+    assert "TRACK_SELECTION_REQUIRED" in res.json()["detail"]
 
+    res_track = client.get("/api/intelligence/8?language=german")
+    assert res_track.status_code == 200
+    data = res_track.json()
     assert data["course"]["id"] == 8
-    assert data["has_topic_taxonomy"] is False
-    assert data["taxonomy_topic_count"] == 0
-    assert data["prediction_mode"] == "family"
-    assert data["family_predictions_count"] > 0
+    assert data["has_topic_taxonomy"] is True
+    assert data["prediction_mode"] == "topic"
+    assert data["topic_predictions_count"] > 0

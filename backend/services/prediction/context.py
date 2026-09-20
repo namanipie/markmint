@@ -6,6 +6,7 @@ class HistoricalContext:
     course_id: int
     cutoff_year: int
     assessment_cycle: Optional[str] = None
+    track_id: Optional[int] = None
     
 class PredictionTarget:
     TOPIC = "topic"

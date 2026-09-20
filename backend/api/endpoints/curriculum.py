@@ -5,7 +5,7 @@ from sqlalchemy import func
 
 from backend.core.database import get_db
 from backend.models.core import CurriculumMapping, Course, Exam, Section, Question
-from backend.schemas import CurriculumSubjectResponse
+from backend.schemas import CurriculumSubjectResponse, CourseTrackResponse
 
 router = APIRouter()
 
@@ -99,6 +99,20 @@ def get_branch_semester_subjects(
         has_exams = c_stats["exams"] > 0
         canonical_code = m.course.canonical_code if m.course else None
 
+        course_tracks = []
+        if m.course and getattr(m.course, "tracks", None):
+            course_tracks = [
+                CourseTrackResponse(
+                    id=t.id,
+                    course_id=t.course_id,
+                    track_key=t.track_key,
+                    track_name=t.track_name,
+                    track_code=t.track_code,
+                    track_type=t.track_type,
+                )
+                for t in m.course.tracks
+            ]
+
         results.append(CurriculumSubjectResponse(
             curriculum_id=m.curriculum_id,
             subject_name=m.subject_name,
@@ -109,6 +123,8 @@ def get_branch_semester_subjects(
             has_exams=has_exams,
             exam_count=c_stats["exams"],
             question_count=c_stats["questions"],
+            has_tracks=len(course_tracks) > 0,
+            tracks=course_tracks,
             notes=m.notes
         ))
 
