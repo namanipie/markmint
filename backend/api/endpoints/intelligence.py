@@ -379,27 +379,31 @@ def get_intelligence_snapshot(
         target_exam_date = None
     if not isinstance(student_id, str) or hasattr(student_id, "default"):
         student_id = "anonymous"
+    clean_student_id = student_id.strip()
     if not isinstance(assessment_cycle, str) or hasattr(assessment_cycle, "default"):
         assessment_cycle = None
     if not isinstance(language, str) or hasattr(language, "default"):
         language = None
 
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
-    is_cache_eligible = (student_id == "anonymous" and target_year is None and target_exam_date is None)
+    is_cache_eligible = (clean_student_id == "anonymous" and target_year is None and target_exam_date is None)
     if is_cache_eligible:
-        cached_snapshot = IntelligenceCacheService.get_snapshot(
-            db, course_id, norm_cycle, language
-        )
-        if cached_snapshot:
-            res = copy.deepcopy(cached_snapshot)
-            if "metadata" in res and isinstance(res["metadata"], dict):
-                res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
-                res["metadata"]["cache_hit"] = True
-            logger.info(
-                "Intelligence snapshot served from cache: course_id=%s, cycle=%s, latency_ms=%.2f",
-                course_id, norm_cycle, (time.time() - t_start) * 1000
+        try:
+            cached_snapshot = IntelligenceCacheService.get_snapshot(
+                db, course_id, norm_cycle, language
             )
-            return res
+            if cached_snapshot:
+                res = copy.deepcopy(cached_snapshot)
+                if "metadata" in res and isinstance(res["metadata"], dict):
+                    res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
+                    res["metadata"]["cache_hit"] = True
+                logger.info(
+                    "Intelligence snapshot served from cache: course_id=%s, cycle=%s, latency_ms=%.2f",
+                    course_id, norm_cycle, (time.time() - t_start) * 1000
+                )
+                return res
+        except Exception as cache_err:
+            logger.warning("Safe cache fallback on error for course_id=%s: %s", course_id, cache_err)
 
     course = _find_course(db, course_id)
 
@@ -444,6 +448,30 @@ def get_intelligence_snapshot(
                 status_code=400,
                 detail=f"Invalid language track '{language}' for course '{course.name}'. Available: {[t.track_key for t in course.tracks]}"
             )
+
+    # Secondary persistent cache check: if request used a slug/code alias (e.g. 'calculus')
+    # and memory cache was cleared (process restart), check DB under canonical course.id
+    if is_cache_eligible and course and str(course_id).lower().strip() != str(course.id):
+        track_param = active_track.track_key if active_track else language
+        try:
+            cached_canonical = IntelligenceCacheService.get_snapshot(
+                db, course.id, norm_cycle, track_param
+            )
+            if cached_canonical:
+                IntelligenceCacheService.alias_memory_cache(
+                    course_id, norm_cycle, track_param, cached_canonical
+                )
+                res = copy.deepcopy(cached_canonical)
+                if "metadata" in res and isinstance(res["metadata"], dict):
+                    res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
+                    res["metadata"]["cache_hit"] = True
+                logger.info(
+                    "Intelligence snapshot served from secondary persistent cache: slug=%s -> course_id=%s, latency_ms=%.2f",
+                    course_id, course.id, (time.time() - t_start) * 1000
+                )
+                return res
+        except Exception as cache_err:
+            logger.warning("Safe secondary persistent cache fallback on error for course_id=%s: %s", course.id, cache_err)
 
     # 1. Handle AMBIGUOUS State
     if curriculum_row and curriculum_row.status == "AMBIGUOUS":

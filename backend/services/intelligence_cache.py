@@ -25,6 +25,20 @@ def build_cache_key(identifier: Union[str, int], assessment_cycle: Optional[str]
     return f"{str(identifier).lower().strip()}:{norm_cycle}:{track_part}:{CORPUS_VERSION}:{TAXONOMY_VERSION}:{MODEL_VERSION}"
 
 
+def _validate_snapshot_payload(payload: Any) -> bool:
+    """Validate that cached snapshot payload has required structural elements."""
+    if not isinstance(payload, dict):
+        return False
+    required_keys = ("data_availability_status", "course", "metadata")
+    if not all(k in payload for k in required_keys):
+        return False
+    if not isinstance(payload.get("course"), dict):
+        return False
+    if not isinstance(payload.get("metadata"), dict):
+        return False
+    return True
+
+
 class IntelligenceCacheService:
     @staticmethod
     def get_snapshot(
@@ -39,9 +53,14 @@ class IntelligenceCacheService:
         # Tier 1: In-process LRU cache (0 SQL queries)
         with _lock:
             if key in _memory_cache:
-                _memory_cache.move_to_end(key)
-                logger.debug("Tier 1 memory cache HIT for key %s", key)
-                return _memory_cache[key]
+                payload = _memory_cache[key]
+                if _validate_snapshot_payload(payload):
+                    _memory_cache.move_to_end(key)
+                    logger.debug("Tier 1 memory cache HIT for key %s", key)
+                    return payload
+                else:
+                    logger.warning("Corrupted snapshot in Tier 1 memory cache for key %s; evicting", key)
+                    _memory_cache.pop(key, None)
 
         # Tier 2: Persistent database table (1 query if identifier is course_id)
         if db is not None:
@@ -52,13 +71,18 @@ class IntelligenceCacheService:
                     .filter(IntelligenceSnapshot.cache_key == key)
                     .first()
                 )
-                if row and isinstance(row.payload, dict):
-                    with _lock:
-                        _memory_cache[key] = row.payload
-                        if len(_memory_cache) > MAX_MEMORY_CACHE_ENTRIES:
-                            _memory_cache.popitem(last=False)
-                    logger.debug("Tier 2 persistent cache HIT for key %s", key)
-                    return row.payload
+                if row:
+                    if _validate_snapshot_payload(row.payload):
+                        with _lock:
+                            _memory_cache[key] = row.payload
+                            if len(_memory_cache) > MAX_MEMORY_CACHE_ENTRIES:
+                                _memory_cache.popitem(last=False)
+                        logger.debug("Tier 2 persistent cache HIT for key %s", key)
+                        return row.payload
+                    else:
+                        logger.warning("Corrupted snapshot payload in DB for key %s; removing row", key)
+                        db.delete(row)
+                        db.commit()
             except Exception as e:
                 logger.warning("Tier 2 persistent cache lookup failed: %s", e)
 
@@ -132,11 +156,31 @@ class IntelligenceCacheService:
                 logger.warning("Failed to persist snapshot to DB: %s", e)
 
     @staticmethod
+    def alias_memory_cache(
+        identifier: Union[str, int],
+        assessment_cycle: Optional[str],
+        track: Optional[Union[str, int]],
+        payload: Dict[str, Any],
+    ) -> None:
+        """Alias an existing valid payload in Tier 1 memory cache under an alternative key."""
+        if not _validate_snapshot_payload(payload):
+            return
+        alias_key = build_cache_key(identifier, assessment_cycle, track)
+        with _lock:
+            _memory_cache[alias_key] = payload
+            _memory_cache.move_to_end(alias_key)
+            while len(_memory_cache) > MAX_MEMORY_CACHE_ENTRIES:
+                _memory_cache.popitem(last=False)
+
+    @staticmethod
     def invalidate_course(db: Session, course_id: int) -> int:
         """Invalidate all cached snapshots for a specific course across Tier 1 and Tier 2."""
         prefix = f"{course_id}:"
         with _lock:
-            keys_to_delete = [k for k in _memory_cache if k.startswith(prefix)]
+            keys_to_delete = [
+                k for k, v in _memory_cache.items()
+                if k.startswith(prefix) or (isinstance(v, dict) and v.get("course", {}).get("id") == course_id)
+            ]
             for k in keys_to_delete:
                 _memory_cache.pop(k, None)
 

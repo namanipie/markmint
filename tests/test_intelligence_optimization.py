@@ -168,3 +168,109 @@ def test_cache_invalidation(db):
     # Course 2 should still be cached
     c2_row = db.query(IntelligenceSnapshot).filter(IntelligenceSnapshot.course_id == 2).first()
     assert c2_row is not None
+
+
+def test_persistent_cache_lookup_by_slug_after_restart(db):
+    """Verify persistent cache works after a process restart even when queried by slug."""
+    IntelligenceCacheService.clear_memory_cache()
+    db.query(IntelligenceSnapshot).delete()
+    db.commit()
+
+    # Pre-populate cache via numeric course_id="1"
+    res_orig = get_intelligence_snapshot("1", db=db)
+    assert res_orig["data_availability_status"] == "READY"
+
+    # Simulate process restart by wiping memory cache completely
+    IntelligenceCacheService.clear_memory_cache()
+
+    # Query using slug "calculus" instead of "1"
+    res_slug = get_intelligence_snapshot("calculus", db=db)
+    assert res_slug["metadata"].get("cache_hit") is True
+    assert res_slug["course"]["name"].lower().startswith("calculus")
+
+    # Verify that it was aliased back into Tier 1 memory cache (0 SQL queries on next call)
+    queries = []
+    def count_queries(conn, cursor, statement, parameters, context, executemany):
+        queries.append(statement)
+
+    event.listen(Engine, "before_cursor_execute", count_queries)
+    try:
+        res_slug_tier1 = get_intelligence_snapshot("calculus", db=db)
+        assert len(queries) == 0, f"Expected 0 SQL queries for aliased Tier 1 hit, got {len(queries)}"
+        assert res_slug_tier1["metadata"].get("cache_hit") is True
+    finally:
+        event.remove(Engine, "before_cursor_execute", count_queries)
+
+
+def test_corrupted_snapshot_safe_regeneration(db):
+    """Verify corrupted snapshot in memory or DB fails safely and cleanly regenerates without 500 error."""
+    IntelligenceCacheService.clear_memory_cache()
+    db.query(IntelligenceSnapshot).delete()
+    db.commit()
+
+    # Create a corrupted DB snapshot row with invalid payload structure
+    corrupted_key = build_cache_key(1, "ALL", "none")
+    bad_snapshot = IntelligenceSnapshot(
+        course_id=1,
+        track_id=None,
+        cache_key=corrupted_key,
+        assessment_cycle="ALL",
+        model_version="1.0.0",
+        taxonomy_version="1.0.0",
+        corpus_version="1.0.0",
+        payload={"corrupted": "bad_data_missing_required_keys"},
+    )
+    db.add(bad_snapshot)
+    db.commit()
+
+    # Also poison memory cache with a non-dict / broken payload
+    _memory_cache[corrupted_key] = {"broken_payload": True}
+
+    # Request snapshot: must NOT crash; must evict corrupted cache and regenerate healthy snapshot
+    res = get_intelligence_snapshot("1", db=db)
+    assert res is not None
+    assert res["data_availability_status"] == "READY"
+    assert "predictions" in res
+    assert res["course"]["id"] == 1
+
+    # Corrupted DB row must have been replaced with fresh valid snapshot
+    repaired_row = db.query(IntelligenceSnapshot).filter(IntelligenceSnapshot.cache_key == corrupted_key).first()
+    assert repaired_row is not None
+    assert "predictions" in repaired_row.payload
+
+
+def test_invalidation_purges_memory_aliases(db):
+    """Verify invalidating a course clears all memory aliases (slugs and course_id)."""
+    IntelligenceCacheService.clear_memory_cache()
+    db.query(IntelligenceSnapshot).delete()
+    db.commit()
+
+    # Populate cache using slug "calculus"
+    get_intelligence_snapshot("calculus", db=db)
+
+    # Check that memory cache contains both the canonical key and the slug alias
+    slug_found = any("calculus" in k for k in _memory_cache)
+    canonical_found = any(k.startswith("1:") for k in _memory_cache)
+    assert slug_found or canonical_found, "Cache should contain entries for calculus"
+
+    # Invalidate Course 1
+    IntelligenceCacheService.invalidate_course(db, 1)
+
+    # Both canonical and slug keys must be purged from memory cache
+    remaining = [k for k in _memory_cache if k.startswith("1:") or "calculus" in k]
+    assert len(remaining) == 0, f"All aliases for course 1 should be purged, found: {remaining}"
+
+
+def test_cache_key_isolation_invariants():
+    """Verify cache keys isolate course, cycle, track, and versions."""
+    k1 = build_cache_key(1, "ALL", "none")
+    k2 = build_cache_key(2, "ALL", "none")
+    k3 = build_cache_key(1, "FAT", "none")
+    k4 = build_cache_key(1, "ALL", "german")
+    k5 = build_cache_key(1, "ALL", "french")
+
+    assert k1 != k2, "Different courses must have distinct keys"
+    assert k1 != k3, "Different cycles must have distinct keys"
+    assert k1 != k4, "Different tracks must have distinct keys"
+    assert k4 != k5, "German and French tracks must have distinct keys"
+

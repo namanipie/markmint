@@ -8,13 +8,16 @@ from backend.schemas import Page
 from backend.schemas import ExamDNA
 from backend.schemas import ExamPredictions
 from backend.services.exam import ExamService
+from backend.services.intelligence_cache import IntelligenceCacheService
 
 router = APIRouter()
 
 @router.post("/", response_model=Exam)
 def create_exam(exam_in: ExamCreate, db: Session = Depends(get_db)) -> Exam:
     service = ExamService(db)
-    return service.create_exam(exam_in)
+    exam = service.create_exam(exam_in)
+    IntelligenceCacheService.invalidate_course(db, exam.course_id)
+    return exam
 
 from pydantic import BaseModel
 from backend.schemas import DocumentExtractionResult
@@ -34,6 +37,7 @@ def import_exam_extraction(import_req: ExamImportRequest, db: Session = Depends(
         term=import_req.term,
         extraction_data=import_req.extraction.model_dump()
     )
+    IntelligenceCacheService.invalidate_course(db, exam.course_id)
     return exam
 
 @router.get("/{exam_id}", response_model=Exam)
