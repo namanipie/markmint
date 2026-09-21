@@ -1,56 +1,81 @@
+"""
+Benchmark live production Render intelligence endpoints across representative courses.
+Measures latency over 5 repeated warm requests per endpoint.
+"""
 import urllib.request
-import time
 import json
+import time
+import statistics
 
 BASE_URL = "https://markmint.onrender.com"
 
-endpoints = [
-    ("Health (HEAD)", "/api/health", "HEAD"),
-    ("Health (GET)", "/api/health", "GET"),
-    ("Calculus Intelligence (Warm)", "/api/intelligence/1", "GET"),
-    ("Chemistry Intelligence (Warm)", "/api/intelligence/2", "GET"),
-    ("EEE CT1 Intelligence (Warm)", "/api/intelligence/14?assessment_cycle=CT1", "GET"),
-    ("OODP Intelligence (Warm)", "/api/intelligence/16", "GET"),
-    ("German Foreign Language (Warm)", "/api/intelligence/8?language=german", "GET"),
-    ("French Foreign Language (Warm)", "/api/intelligence/8?language=french", "GET"),
-    ("Calculus Predictions (Warm)", "/api/predictions/1", "GET"),
-    ("Calculus Practice (Warm)", "/api/practice/1", "GET"),
-    ("Chemistry Study Priorities (Warm)", "/api/study/priorities/2", "GET"),
+ENDPOINTS = [
+    ("Calculus", f"{BASE_URL}/api/intelligence/1"),
+    ("Chemistry", f"{BASE_URL}/api/intelligence/2"),
+    ("EEE CT1", f"{BASE_URL}/api/intelligence/14?assessment_cycle=CT1"),
+    ("OODP", f"{BASE_URL}/api/intelligence/16"),
+    ("German", f"{BASE_URL}/api/intelligence/8?language=german"),
+    ("French", f"{BASE_URL}/api/intelligence/8?language=french"),
 ]
 
-print("=" * 80)
-print(f"BENCHMARKING PRODUCTION LATENCIES AGAINST: {BASE_URL}")
-print("=" * 80)
+def wait_for_render():
+    health_url = f"{BASE_URL}/api/health"
+    print("Waiting for Render deployment to be live...", flush=True)
+    for i in range(1, 40):
+        try:
+            req = urllib.request.Request(health_url, headers={"User-Agent": "Benchmark/1.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                if resp.status == 200:
+                    print(f"[{i}] Render is healthy and reachable (HTTP 200)!", flush=True)
+                    return True
+        except Exception as e:
+            print(f"[{i}] Waiting for health endpoint: {e}", flush=True)
+        time.sleep(10)
+    return False
 
-results = []
+def benchmark():
+    if not wait_for_render():
+        print("Render is not reachable. Exiting.")
+        return
 
-for name, path, method in endpoints:
-    url = BASE_URL + path
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}, method=method)
-    
-    # Run 2 passes to ensure warm cache
-    try:
-        t0 = time.perf_counter()
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            data = resp.read() if method == "GET" else b""
-            status = resp.status
-        t1 = time.perf_counter()
-        client_ms = (t1 - t0) * 1000
-        
-        # Try to parse backend latency if exposed in JSON metadata
-        backend_ms = None
-        if method == "GET" and data:
+    # Wait an extra 15 seconds to ensure newly deployed container has stabilized
+    time.sleep(15)
+
+    print("\n" + "=" * 80)
+    print("BENCHMARKING PRODUCTION INTELLIGENCE ENDPOINTS (5 REPEATS PER ENDPOINT)")
+    print("=" * 80)
+    print(f"{'Endpoint':<12} | {'Warm Median':<12} | {'Min':<8} | {'Max':<8} | {'Payload':<8} | {'Cache Hit'}")
+    print("-" * 80)
+
+    for label, url in ENDPOINTS:
+        latencies = []
+        payload_bytes = 0
+        cache_hits = []
+
+        for r in range(5):
+            t0 = time.perf_counter()
             try:
-                parsed = json.loads(data.decode("utf-8"))
-                if isinstance(parsed, dict) and "metadata" in parsed and "latency_ms" in parsed["metadata"]:
-                    backend_ms = parsed["metadata"]["latency_ms"]
-            except Exception:
-                pass
+                req = urllib.request.Request(url, headers={"User-Agent": "Benchmark/1.0"})
+                with urllib.request.urlopen(req, timeout=30) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                    dt = (time.perf_counter() - t0) * 1000
+                    latencies.append(dt)
+                    payload_bytes = len(json.dumps(data))
+                    cache_hits.append(data.get("metadata", {}).get("cache_hit", False))
+            except Exception as e:
+                print(f"Error requesting {label}: {e}")
+            time.sleep(0.3)
 
-        results.append((name, path, method, status, client_ms, backend_ms))
-        backend_str = f"backend: {backend_ms:.1f}ms" if backend_ms else "backend: N/A"
-        print(f"[PASS] {status} | {name:<35} | {client_ms:6.1f}ms ({backend_str})")
-    except Exception as e:
-        print(f"[FAIL] {name:<35} | Error: {e}")
+        if latencies:
+            median_lat = statistics.median(latencies)
+            min_lat = min(latencies)
+            max_lat = max(latencies)
+            has_cache = any(cache_hits)
+            print(f"{label:<12} | {median_lat:7.1f} ms    | {min_lat:5.0f}ms | {max_lat:5.0f}ms | {payload_bytes/1024:5.1f}KB | {str(has_cache)}")
+        else:
+            print(f"{label:<12} | FAILED")
 
-print("=" * 80)
+    print("-" * 80)
+
+if __name__ == "__main__":
+    benchmark()
