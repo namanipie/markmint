@@ -72,6 +72,7 @@ class CurriculumResolver:
         "advancedprogrammingpracticeapp": "Advanced Programming Practice",
         "app": "Advanced Programming Practice",
         "artificialintelligence": "Artificial Intelligence",
+        "artificialintelligenceai": "Artificial Intelligence",
         "ai": "Artificial Intelligence",
         "computerorganizationandarchitecture": "Computer Organization and Architecture",
         "coa": "Computer Organization and Architecture",
@@ -84,10 +85,13 @@ class CurriculumResolver:
         "operatingsystems": "Operating Systems",
         "os": "Operating Systems",
         "controlsystems": "Control Systems",
-        "digitalelectronicprinciples": "Digital Electronic Principles",
-        "electronicdevices": "Electronic Devices",
+        "digitalelectronicprinciples": "Digital Logic Design",
+        "electronicdevices": "Solid State Devices",
         "coi": "Constitution of India",
         "constitutionofindia": "Constitution of India",
+        "physicselectromagnetictheoryquantummechanicswavesandoptics": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+        "measuringinstrument": "Electrical and Electronics Engineering",
+        "measuringinstruments": "Electrical and Electronics Engineering",
     }
 
     def __init__(self, db: Session):

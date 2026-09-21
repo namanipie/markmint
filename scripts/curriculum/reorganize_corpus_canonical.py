@@ -278,9 +278,9 @@ def main():
         ("data/1 Year/Control Systems", "corpus/Semester_4/Control Systems"),
         ("data/1 Year/Digital Electronic Principles", "corpus/Semester_3/Digital Electronic Principles"),
         ("data/1 Year/Electronic Devices", "corpus/Semester_3/Electronic Devices"),
-        ("data/1 Year/COI", "corpus/Semester_3/Constitution of India"),
-        ("data/1 Year/Hardware and troubleshoot", "corpus/Semester_3/Hardware and Troubleshooting"),
-        ("data/1 Year/Measuring Instrument", "corpus/Semester_3/Measuring Instruments"),
+        ("data/1 Year/COI", "corpus/Semester_1/Constitution of India"),
+        ("data/1 Year/Hardware and troubleshoot", "corpus/Semester_1/Hardware and Troubleshooting"),
+        ("data/1 Year/Measuring Instrument", "corpus/Semester_1/Measuring Instruments"),
     ]
     for src, dst in staging_1year_moves:
         if os.path.exists(src):

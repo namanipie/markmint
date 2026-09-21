@@ -261,8 +261,6 @@ class Unit(Base):
 
     @validates("number")
     def validate_unit_number(self, key, value):
-        if getattr(self, "_allow_custom_number", False):
-            return value
         if value is not None and (value < 1 or value > 5):
             raise ValueError(
                 f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {value}."

@@ -53,7 +53,7 @@ def test_intelligence_snapshot_programming_ready():
 
 def test_intelligence_snapshot_unmatched_guardrail():
     """Verify unmatched subject returns UNMATCHED state without error or prediction call."""
-    res = client.get("/api/intelligence/aeros-1-2")
+    res = client.get("/api/intelligence/aeros-1-3")
     assert res.status_code == 200
     data = res.json()
 
