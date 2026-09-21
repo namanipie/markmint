@@ -364,7 +364,9 @@ def get_intelligence_snapshot(
     target_exam_date: Optional[str] = Query(None),
     student_id: str = Query("anonymous"),
     assessment_cycle: Optional[str] = Query(None),
+    cycle: Optional[str] = Query(None),
     language: Optional[str] = Query(None),
+    track: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -382,8 +384,12 @@ def get_intelligence_snapshot(
     clean_student_id = student_id.strip()
     if not isinstance(assessment_cycle, str) or hasattr(assessment_cycle, "default"):
         assessment_cycle = None
+    if not assessment_cycle and isinstance(cycle, str) and not hasattr(cycle, "default"):
+        assessment_cycle = cycle.strip() or None
     if not isinstance(language, str) or hasattr(language, "default"):
         language = None
+    if not language and isinstance(track, str) and not hasattr(track, "default"):
+        language = track.strip() or None
 
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
     is_cache_eligible = (clean_student_id == "anonymous" and target_year is None and target_exam_date is None)
