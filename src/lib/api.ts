@@ -1,7 +1,35 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
+export type ApiErrorCategory = "NETWORK_FAILURE" | "HTTP_4XX" | "HTTP_5XX" | "UNKNOWN";
+
+export class ApiError extends Error {
+  status?: number;
+  category: ApiErrorCategory;
+  detail: string;
+
+  constructor(message: string, status?: number, category?: ApiErrorCategory, detail?: string) {
+    super(message);
+    this.name = "ApiError";
+    this.status = status;
+    this.category = category || (status ? (status >= 500 ? "HTTP_5XX" : "HTTP_4XX") : "NETWORK_FAILURE");
+    this.detail = detail || message;
+  }
+}
+
 async function fetchAPI(path: string, options?: RequestInit) {
-  const res = await fetch(`${API_BASE}${path}`, options);
+  let res: Response;
+  try {
+    res = await fetch(`${API_BASE}${path}`, options);
+  } catch (networkErr: any) {
+    const isAbort = networkErr?.name === "AbortError";
+    throw new ApiError(
+      "Unable to reach the prediction service. Please check your network connection or try again shortly.",
+      undefined,
+      "NETWORK_FAILURE",
+      isAbort ? "Request timed out" : (networkErr?.message || "Network request failed")
+    );
+  }
+
   if (!res.ok) {
     let errorDetail = `${res.status} ${res.statusText}`;
     try {
@@ -14,9 +42,13 @@ async function fetchAPI(path: string, options?: RequestInit) {
     } catch {
       // ignore json parse error on non-json error responses
     }
-    const err = new Error(errorDetail);
-    (err as any).status = res.status;
-    throw err;
+
+    const category: ApiErrorCategory = res.status >= 500 ? "HTTP_5XX" : "HTTP_4XX";
+    const userMessage = res.status >= 500
+      ? "The prediction engine encountered a temporary error. Please try again shortly."
+      : errorDetail;
+
+    throw new ApiError(userMessage, res.status, category, errorDetail);
   }
   return res.json();
 }
@@ -24,6 +56,7 @@ async function fetchAPI(path: string, options?: RequestInit) {
 import {
   CurriculumSubject,
   CurriculumStats,
+  InitialScopeResponse,
   IntelligenceSnapshot,
   HistoricalQuestion,
   SearchResult,
@@ -44,22 +77,118 @@ import {
   SubmissionQualityMetrics
 } from "./types";
 
-// Real Backend Endpoints
+// ==========================================
+// Client-Side Curriculum Metadata Cache (Safe Static Taxonomy Only)
+// ==========================================
+const memoryCache: Record<string, any> = {};
+const inFlightPromises: Map<string, Promise<any>> = new Map();
+
+function getCached<T>(key: string): T | null {
+  if (memoryCache[key]) return memoryCache[key];
+  if (typeof window !== "undefined" && window.sessionStorage) {
+    try {
+      const item = window.sessionStorage.getItem(key);
+      if (item) {
+        const parsed = JSON.parse(item);
+        memoryCache[key] = parsed;
+        return parsed;
+      }
+    } catch {
+      // Session storage unavailable or quota exceeded
+    }
+  }
+  return null;
+}
+
+function setCached<T>(key: string, data: T): void {
+  memoryCache[key] = data;
+  if (typeof window !== "undefined" && window.sessionStorage) {
+    try {
+      window.sessionStorage.setItem(key, JSON.stringify(data));
+    } catch {
+      // Ignore storage errors
+    }
+  }
+}
+
+// Deduplicate concurrent in-flight requests (e.g. React StrictMode)
+function dedupeRequest<T>(cacheKey: string, fetcher: () => Promise<T>): Promise<T> {
+  const cached = getCached<T>(cacheKey);
+  if (cached) return Promise.resolve(cached);
+
+  const inFlight = inFlightPromises.get(cacheKey);
+  if (inFlight) return inFlight;
+
+  const promise = fetcher()
+    .then((result) => {
+      setCached(cacheKey, result);
+      inFlightPromises.delete(cacheKey);
+      return result;
+    })
+    .catch((err) => {
+      inFlightPromises.delete(cacheKey);
+      throw err;
+    });
+
+  inFlightPromises.set(cacheKey, promise);
+  return promise;
+}
+
+// Real Backend Endpoints with Safe Client Caching
 export async function getCurriculumBranches(): Promise<string[]> {
-  return fetchAPI("/curriculum/branches");
+  return dedupeRequest("mm_curriculum_branches_v1", () => fetchAPI("/curriculum/branches"));
 }
 
 export async function getCurriculumSemesters(branch: string): Promise<number[]> {
-  return fetchAPI(`/curriculum/branches/${encodeURIComponent(branch)}/semesters`);
+  const key = `mm_curriculum_semesters_v1_${branch.toLowerCase()}`;
+  return dedupeRequest(key, () => fetchAPI(`/curriculum/branches/${encodeURIComponent(branch)}/semesters`));
 }
 
 export async function getCurriculumSubjects(
   branch: string, 
   semester: number | string
 ): Promise<CurriculumSubject[]> {
-  return fetchAPI(
-    `/curriculum/branches/${encodeURIComponent(branch)}/semesters/${encodeURIComponent(String(semester))}`
+  const key = `mm_curriculum_subjects_v1_${branch.toLowerCase()}_sem${semester}`;
+  return dedupeRequest(key, () =>
+    fetchAPI(
+      `/curriculum/branches/${encodeURIComponent(branch)}/semesters/${encodeURIComponent(String(semester))}`
+    )
   );
+}
+
+export async function getCurriculumInitialScope(
+  branch?: string,
+  semester?: number
+): Promise<InitialScopeResponse> {
+  let url = "/curriculum/initial-scope";
+  const params: string[] = [];
+  if (branch) params.push(`branch=${encodeURIComponent(branch)}`);
+  if (semester) params.push(`semester=${encodeURIComponent(semester)}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  const key = `mm_curriculum_initial_scope_v1_${branch || "default"}_${semester || 1}`;
+  return dedupeRequest(key, async () => {
+    const data: InitialScopeResponse = await fetchAPI(url);
+    if (data.branches && data.branches.length > 0) {
+      setCached("mm_curriculum_branches_v1", data.branches);
+    }
+    if (data.default_branch && data.semesters) {
+      setCached(`mm_curriculum_semesters_v1_${data.default_branch.toLowerCase()}`, data.semesters);
+    }
+    if (data.default_branch && data.default_semester && data.subjects) {
+      setCached(`mm_curriculum_subjects_v1_${data.default_branch.toLowerCase()}_sem${data.default_semester}`, data.subjects);
+    }
+    return data;
+  });
+}
+
+export function preloadCurriculumMetadata(): void {
+  // Trigger non-blocking preload in background
+  if (typeof window !== "undefined") {
+    getCurriculumInitialScope().catch(() => {
+      // Ignore background warmup errors
+    });
+  }
 }
 
 export async function getCurriculumStats(): Promise<CurriculumStats> {

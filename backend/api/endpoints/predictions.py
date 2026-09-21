@@ -379,4 +379,12 @@ def get_prediction(
     except HTTPException:
         raise
     except Exception as e:
+        import logging
+        from backend.core.config import settings, Environment
+        logging.getLogger("markmint").exception("Prediction calculation error for subject '%s': %s", subject, e)
+        if settings.ENVIRONMENT == Environment.PRODUCTION:
+            raise HTTPException(
+                status_code=500,
+                detail="Unable to synthesize prediction forecast due to an internal calculation error. Please try again later."
+            )
         raise HTTPException(status_code=500, detail=str(e))

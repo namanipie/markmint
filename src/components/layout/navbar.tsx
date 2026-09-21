@@ -7,6 +7,8 @@ import { Leaf, Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
+import { preloadCurriculumMetadata } from "@/lib/api";
+
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const pathname = usePathname();
 
@@ -52,6 +54,11 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               <Link
                 key={link.href}
                 href={link.href}
+                onMouseEnter={() => {
+                  if (link.href === "/mintai") {
+                    preloadCurriculumMetadata();
+                  }
+                }}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-foreground",
                   isActive

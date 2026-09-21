@@ -258,6 +258,14 @@ export interface CurriculumSubject {
   notes: string | null;
 }
 
+export interface InitialScopeResponse {
+  branches: string[];
+  default_branch: string;
+  semesters: number[];
+  default_semester: number;
+  subjects: CurriculumSubject[];
+}
+
 export interface CurriculumStats {
   total_entries: number;
   branches_count: number;

@@ -27,8 +27,9 @@ from backend.core.config import settings
 
 target_metadata = Base.metadata
 
-# Set the sqlalchemy.url from our application settings dynamically
-config.set_main_option("sqlalchemy.url", settings.get_database_url)
+# Set the sqlalchemy.url from our application settings dynamically if not already provided
+if not config.get_main_option("sqlalchemy.url"):
+    config.set_main_option("sqlalchemy.url", settings.get_database_url)
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

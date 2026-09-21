@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Drawer } from "@/components/ui/drawer";
@@ -8,9 +8,10 @@ import { Combobox } from "@/components/ui/combobox";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
-  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers, Loader2, RefreshCw
 } from "lucide-react";
 import {
+  getCurriculumInitialScope,
   getCurriculumBranches,
   getCurriculumSemesters,
   getCurriculumSubjects,
@@ -179,39 +180,52 @@ export default function MintAIPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isQuestionsModalOpen, isResourcesModalOpen, isTopicModalOpen]);
 
-  // 1. Initial Mount: Load branches from backend
-  useEffect(() => {
-    let active = true;
+  const isInitialMountedRef = useRef(false);
+  const [coldStartNotice, setColdStartNotice] = useState(false);
+
+  // 1. Initial Mount: Load entire initial scope in 1 single round-trip
+  const loadInitialScope = useCallback(async () => {
     setIsLoadingBranches(true);
+    setIsLoadingSemesters(true);
+    setIsLoadingSubjects(true);
     setBranchLoadError("");
+    setColdStartNotice(false);
 
-    getCurriculumBranches()
-      .then((branchList) => {
-        if (!active) return;
-        setBranches(branchList);
-        if (branchList.length > 0) {
-          const defaultBranch = branchList.includes("Aerospace Engineering")
-            ? "Aerospace Engineering"
-            : branchList[0];
-          setSelectedBranch(defaultBranch);
-        }
-      })
-      .catch((err) => {
-        if (!active) return;
-        console.error("Failed to load branches from backend", err);
-        setBranchLoadError("Unable to load academic branches. Ensure the backend is running.");
-      })
-      .finally(() => {
-        if (active) setIsLoadingBranches(false);
-      });
+    // Warm-up timer to inform students if backend is cold-starting
+    const timer = setTimeout(() => {
+      setColdStartNotice(true);
+    }, 5000);
 
-    return () => {
-      active = false;
-    };
+    try {
+      const data = await getCurriculumInitialScope();
+      setBranches(data.branches || []);
+      setSelectedBranch(data.default_branch || "");
+      setSemesters(data.semesters || []);
+      setSelectedSemester(String(data.default_semester || 1));
+      setSubjects(data.subjects || []);
+      if (data.subjects && data.subjects.length > 0) {
+        setSelectedSubject(data.subjects[0]);
+      }
+      isInitialMountedRef.current = true;
+    } catch (err: any) {
+      console.error("Failed to load initial curriculum scope", err);
+      setBranchLoadError(err?.message || "Couldn't load academic branches. Server may be starting up.");
+    } finally {
+      clearTimeout(timer);
+      setColdStartNotice(false);
+      setIsLoadingBranches(false);
+      setIsLoadingSemesters(false);
+      setIsLoadingSubjects(false);
+    }
   }, []);
 
-  // 2. When Branch changes: Load semesters for that branch
   useEffect(() => {
+    loadInitialScope();
+  }, [loadInitialScope]);
+
+  // 2. When Branch changes: Load semesters for that branch (only after initial mount)
+  useEffect(() => {
+    if (!isInitialMountedRef.current) return;
     if (!selectedBranch) {
       setSemesters([]);
       setSelectedSemester("");
@@ -251,8 +265,9 @@ export default function MintAIPage() {
     };
   }, [selectedBranch]);
 
-  // 3. When Semester changes: Load subjects for that branch and semester
+  // 3. When Semester changes: Load subjects for that branch and semester (only after initial mount)
   useEffect(() => {
+    if (!isInitialMountedRef.current) return;
     if (!selectedBranch || !selectedSemester) {
       setSubjects([]);
       setSelectedSubject(null);
@@ -592,9 +607,26 @@ export default function MintAIPage() {
 
             {/* Error notifications */}
             {branchLoadError && (
-              <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive text-xs rounded-lg flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{branchLoadError}</span>
+              <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive text-xs rounded-lg flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{branchLoadError}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => loadInitialScope()}
+                  className="px-2.5 py-1 bg-destructive text-destructive-foreground text-[11px] font-semibold rounded hover:opacity-90 transition-opacity shrink-0 flex items-center gap-1"
+                >
+                  <RefreshCw className="w-3 h-3" />
+                  <span>Retry</span>
+                </button>
+              </div>
+            )}
+
+            {coldStartNotice && !branchLoadError && (
+              <div className="mb-4 p-2.5 bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs rounded-lg flex items-center gap-2">
+                <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
+                <span>Connecting to cloud backend (cold start may take ~30s)...</span>
               </div>
             )}
 
@@ -608,7 +640,13 @@ export default function MintAIPage() {
                   options={branches.map((b) => ({ value: b, label: b }))}
                   value={selectedBranch}
                   onChange={(val: string) => setSelectedBranch(val)}
-                  placeholder={isLoadingBranches ? "Loading branches..." : "Search branches..."}
+                  placeholder={
+                    isLoadingBranches
+                      ? "Loading branches..."
+                      : branchLoadError
+                      ? "Failed to load branches"
+                      : "Search branches..."
+                  }
                   disabled={isLoadingBranches || branches.length === 0}
                 />
               </div>
@@ -834,12 +872,23 @@ export default function MintAIPage() {
         {/* Right Main Panel */}
         <div className="lg:col-span-8 flex flex-col gap-6">
           {error && (
-            <div className="p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 shrink-0" />
-              <div>
-                <h4 className="font-semibold text-sm">Forecast Synthesis Error</h4>
-                <p className="text-xs opacity-90">{error}</p>
+            <div className="p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl flex items-center justify-between gap-4">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-semibold text-sm">Forecast Synthesis Notice</h4>
+                  <p className="text-xs opacity-90 mt-0.5">{error}</p>
+                </div>
               </div>
+              <button
+                type="button"
+                onClick={handleAnalyze}
+                disabled={isAnalyzing}
+                className="px-3 py-1.5 bg-destructive text-destructive-foreground text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity shrink-0 flex items-center gap-1.5 disabled:opacity-50"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isAnalyzing ? "animate-spin" : ""}`} />
+                <span>Retry</span>
+              </button>
             </div>
           )}
 
