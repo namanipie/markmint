@@ -1,0 +1,68 @@
+{
+  "calculus": {
+    "course_id": "1",
+    "cycle": null,
+    "language": null,
+    "queries_count": 321,
+    "backend_compute_ms": 190.71439999970607,
+    "sql_time_ms": 27.20459966803901,
+    "payload_bytes": 85977,
+    "predictions_count": 10,
+    "priorities_count": 15
+  },
+  "chemistry": {
+    "course_id": "2",
+    "cycle": null,
+    "language": null,
+    "queries_count": 867,
+    "backend_compute_ms": 294.4226000108756,
+    "sql_time_ms": 62.86870007170364,
+    "payload_bytes": 103215,
+    "predictions_count": 10,
+    "priorities_count": 40
+  },
+  "eee_ct1": {
+    "course_id": "14",
+    "cycle": "CT1",
+    "language": null,
+    "queries_count": 16,
+    "backend_compute_ms": 23.49240001058206,
+    "sql_time_ms": 2.4582000041846186,
+    "payload_bytes": 10586,
+    "predictions_count": 0,
+    "priorities_count": 0
+  },
+  "oodp": {
+    "course_id": "16",
+    "cycle": null,
+    "language": null,
+    "queries_count": 429,
+    "backend_compute_ms": 197.11539999116212,
+    "sql_time_ms": 34.72229989711195,
+    "payload_bytes": 97535,
+    "predictions_count": 10,
+    "priorities_count": 22
+  },
+  "german": {
+    "course_id": "8",
+    "cycle": null,
+    "language": "german",
+    "queries_count": 221,
+    "backend_compute_ms": 88.58700000564568,
+    "sql_time_ms": 18.54239995009266,
+    "payload_bytes": 61982,
+    "predictions_count": 9,
+    "priorities_count": 9
+  },
+  "french": {
+    "course_id": "8",
+    "cycle": null,
+    "language": "french",
+    "queries_count": 327,
+    "backend_compute_ms": 150.95599999767728,
+    "sql_time_ms": 45.013699564151466,
+    "payload_bytes": 69939,
+    "predictions_count": 10,
+    "priorities_count": 14
+  }
+}

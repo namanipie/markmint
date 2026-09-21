@@ -1,0 +1,4936 @@
+{
+  "data_availability_status": "READY",
+  "prediction_mode": "topic",
+  "has_topic_taxonomy": true,
+  "taxonomy_topic_count": 45,
+  "topic_predictions_count": 40,
+  "family_predictions_count": 223,
+  "track": null,
+  "tracks": [],
+  "course": {
+    "id": 2,
+    "name": "Chemistry",
+    "code": "SEM1-CHEM",
+    "canonical_code": "21CYB101J",
+    "department": "Chemistry",
+    "regulation_year": 2021,
+    "has_tracks": false,
+    "tracks": []
+  },
+  "curriculum": {
+    "curriculum_id": "aeros-2-2",
+    "subject_name": "Chemistry",
+    "branch_name": "Aerospace Engineering",
+    "semester": 2,
+    "credits": 5,
+    "status": "MATCHED",
+    "notes": null
+  },
+  "exam_history": {
+    "total_papers": 11,
+    "all_course_papers": 11,
+    "historical_papers_analyzed": 5,
+    "total_questions": 248,
+    "years": [
+      2018,
+      2023,
+      2024,
+      2025
+    ],
+    "observed_years": [
+      2018,
+      2023,
+      2024,
+      2025
+    ],
+    "unobserved_years": [
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "gap_years": [
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "available_assessment_types": [
+      "END_SEM",
+      "INTERNAL ASSESSMENT - 1",
+      "INTERNAL ASSESSMENT - I",
+      "INTERNAL ASSESSMENT - I [FJI]",
+      "INTERNAL ASSESSMENT - III",
+      "UNKNOWN"
+    ],
+    "available_assessment_cycles": [
+      "ALL",
+      "CT1",
+      "ENDSEM"
+    ],
+    "assessment_cycle": "ALL",
+    "target_year": 2026
+  },
+  "available_assessment_types": [
+    "END_SEM",
+    "INTERNAL ASSESSMENT - 1",
+    "INTERNAL ASSESSMENT - I",
+    "INTERNAL ASSESSMENT - I [FJI]",
+    "INTERNAL ASSESSMENT - III",
+    "UNKNOWN"
+  ],
+  "available_assessment_cycles": [
+    "ALL",
+    "CT1",
+    "ENDSEM"
+  ],
+  "assessment_cycle": "ALL",
+  "assessment_component": "ALL",
+  "assessment_label": "All Assessments",
+  "evidence_status": "ALL_SCOPE",
+  "intended_scope": {
+    "unit_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "topic_names": [
+      "Aromaticity and Pi Molecular Orbitals",
+      "Atomic Radius",
+      "Chemical Thermodynamics",
+      "Conformational Analysis",
+      "Coordination Chemistry",
+      "Coordination Isomerism",
+      "Corrosion Resistance",
+      "Crystal Field Theory",
+      "Effective Nuclear Charge and Screening",
+      "Electrochemical Cells and Electrode Potentials",
+      "Electron Affinity",
+      "Electronegativity",
+      "Electronic and UV-Visible Spectroscopy",
+      "Equilibrium Constant",
+      "Free Energy in Equilibria",
+      "Hard and Soft Acids and Bases",
+      "Hydrogen Atomic Orbitals",
+      "Intermolecular Forces",
+      "Ionic Radius",
+      "Ionization Energy",
+      "Le Chatelier Principle",
+      "Material Properties",
+      "Molecular Orbital Theory",
+      "Molecular Symmetry",
+      "Nuclear Magnetic Resonance",
+      "Optical Activity and Chirality",
+      "Organic Oxidation and Reduction",
+      "Organic Reaction Mechanisms",
+      "Organic Reagents and Reaction Types",
+      "Organic Synthesis and Condensation",
+      "Particle in a Box",
+      "Periodic Trends",
+      "Photoelectron Spectroscopy",
+      "Polarizability and Polarizing Power",
+      "Polymer Types",
+      "Polymerization Processes",
+      "Quantum Mechanics and Atomic Structure",
+      "Real Gases and Critical Phenomena",
+      "Rotational Spectroscopy",
+      "Solubility Equilibria",
+      "Spectroscopy Fundamentals",
+      "Stereochemical Projections",
+      "Stereoisomers",
+      "Vibrational and Infrared Spectroscopy",
+      "X-ray Diffraction and Crystal Structure"
+    ],
+    "source_document": "data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf (Continuous Learning Assessment Schedule)",
+    "notes": null
+  },
+  "observed_scope": {
+    "paper_count": 11,
+    "total_questions": 331,
+    "mapped_questions_count": 192,
+    "unmapped_questions_count": 139,
+    "questions_with_known_marks": 125,
+    "questions_with_unknown_marks": 206,
+    "known_marks_total": 274.0,
+    "mapping_rate": 58.01,
+    "unit_numbers": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "topic_names": [
+      "Aromaticity and Pi Molecular Orbitals",
+      "Atomic Radius",
+      "Chemical Thermodynamics",
+      "Conformational Analysis",
+      "Coordination Chemistry",
+      "Coordination Isomerism",
+      "Corrosion Resistance",
+      "Crystal Field Theory",
+      "Effective Nuclear Charge and Screening",
+      "Electrochemical Cells and Electrode Potentials",
+      "Electron Affinity",
+      "Electronegativity",
+      "Electronic and UV-Visible Spectroscopy",
+      "Hard and Soft Acids and Bases",
+      "Hydrogen Atomic Orbitals",
+      "Intermolecular Forces",
+      "Ionization Energy",
+      "Material Properties",
+      "Molecular Orbital Theory",
+      "Molecular Symmetry",
+      "Nuclear Magnetic Resonance",
+      "Optical Activity and Chirality",
+      "Organic Oxidation and Reduction",
+      "Organic Reaction Mechanisms",
+      "Organic Reagents and Reaction Types",
+      "Organic Synthesis and Condensation",
+      "Particle in a Box",
+      "Photoelectron Spectroscopy",
+      "Polarizability and Polarizing Power",
+      "Polymer Types",
+      "Polymerization Processes",
+      "Quantum Mechanics and Atomic Structure",
+      "Real Gases and Critical Phenomena",
+      "Rotational Spectroscopy",
+      "Solubility Equilibria",
+      "Spectroscopy Fundamentals",
+      "Stereochemical Projections",
+      "Stereoisomers",
+      "Vibrational and Infrared Spectroscopy",
+      "X-ray Diffraction and Crystal Structure"
+    ],
+    "question_count_by_unit": {
+      "1": 16,
+      "3": 32,
+      "4": 11,
+      "5": 8,
+      "6": 10,
+      "7": 24,
+      "8": 29,
+      "9": 23,
+      "10": 11,
+      "11": 14,
+      "12": 14
+    },
+    "marks_by_unit": {
+      "1": 4.0,
+      "3": 11.0,
+      "4": 6.0,
+      "5": 2.0,
+      "6": 5.0,
+      "7": 1.0,
+      "8": 21.0,
+      "9": 7.0,
+      "10": 3.0,
+      "11": 5.0,
+      "12": 18.0
+    },
+    "papers": [
+      {
+        "exam_id": 5,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "UNKNOWN",
+        "identification_source": "fallback",
+        "identification_confidence": 0.3,
+        "document_title": "Chapter 3_ Stereo Chemistry And Organic Reactions.pdf",
+        "total_questions": 0,
+        "mapped_questions": 0,
+        "unmapped_questions": 0,
+        "mapping_rate": 0.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [],
+        "question_count_by_unit": {},
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 6,
+        "year": 2018,
+        "raw_assessment_type": "UNKNOWN",
+        "normalized_code": "UNKNOWN",
+        "identification_source": "fallback",
+        "identification_confidence": 0.3,
+        "document_title": "Chem Q-Bank.pdf",
+        "total_questions": 142,
+        "mapped_questions": 99,
+        "unmapped_questions": 43,
+        "mapping_rate": 69.72,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 142,
+        "observed_units": [
+          1,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "1": 11,
+          "3": 22,
+          "5": 1,
+          "6": 4,
+          "7": 14,
+          "8": 10,
+          "9": 17,
+          "10": 6,
+          "11": 7,
+          "12": 7
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 7,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "UNKNOWN",
+        "identification_source": "fallback",
+        "identification_confidence": 0.3,
+        "document_title": "chem qb ans.pdf",
+        "total_questions": 18,
+        "mapped_questions": 15,
+        "unmapped_questions": 3,
+        "mapping_rate": 83.33,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 18,
+        "observed_units": [
+          6,
+          7,
+          8
+        ],
+        "question_count_by_unit": {
+          "6": 4,
+          "7": 8,
+          "8": 3
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 8,
+        "year": 2018,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "chem UE ques paper.pdf",
+        "total_questions": 37,
+        "mapped_questions": 19,
+        "unmapped_questions": 18,
+        "mapping_rate": 51.35,
+        "known_marks_total": 108.0,
+        "questions_with_known_marks": 37,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "3": 2,
+          "5": 1,
+          "6": 2,
+          "7": 2,
+          "8": 3,
+          "9": 3,
+          "10": 2,
+          "11": 1,
+          "12": 2
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "3": 5.0,
+          "5": 1.0,
+          "6": 5.0,
+          "7": 1.0,
+          "8": 5.0,
+          "9": 5.0,
+          "10": 2.0,
+          "11": 1.0,
+          "12": 1.0
+        }
+      },
+      {
+        "exam_id": 11,
+        "year": 2023,
+        "raw_assessment_type": null,
+        "normalized_code": "ENDSEM",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "Chemistry - PYQ 2023 May",
+        "total_questions": 28,
+        "mapped_questions": 11,
+        "unmapped_questions": 17,
+        "mapping_rate": 39.29,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 28,
+        "observed_units": [
+          4,
+          5,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "4": 1,
+          "5": 2,
+          "8": 2,
+          "9": 1,
+          "10": 2,
+          "11": 2,
+          "12": 1
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 30,
+        "year": 2024,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "PYQ May 2024",
+        "total_questions": 32,
+        "mapped_questions": 18,
+        "unmapped_questions": 14,
+        "mapping_rate": 56.25,
+        "known_marks_total": 36.0,
+        "questions_with_known_marks": 25,
+        "questions_with_unknown_marks": 7,
+        "observed_units": [
+          1,
+          3,
+          4,
+          5,
+          8,
+          9,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "3": 2,
+          "4": 6,
+          "5": 2,
+          "8": 4,
+          "9": 1,
+          "11": 1,
+          "12": 1
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "3": 1.0,
+          "4": 4.0,
+          "5": 1.0,
+          "8": 3.0,
+          "9": 1.0,
+          "11": 1.0
+        }
+      },
+      {
+        "exam_id": 91,
+        "year": null,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "More PYQs",
+        "total_questions": 32,
+        "mapped_questions": 17,
+        "unmapped_questions": 15,
+        "mapping_rate": 53.12,
+        "known_marks_total": 35.0,
+        "questions_with_known_marks": 25,
+        "questions_with_unknown_marks": 7,
+        "observed_units": [
+          3,
+          4,
+          5,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "3": 3,
+          "4": 4,
+          "5": 2,
+          "8": 3,
+          "9": 1,
+          "10": 1,
+          "11": 1,
+          "12": 2
+        },
+        "marks_by_unit": {
+          "3": 2.0,
+          "4": 2.0,
+          "8": 2.0,
+          "9": 1.0,
+          "10": 1.0,
+          "11": 1.0,
+          "12": 16.0
+        }
+      },
+      {
+        "exam_id": 92,
+        "year": 2025,
+        "raw_assessment_type": "INTERNAL ASSESSMENT - I [FJI]",
+        "normalized_code": "CT1",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "CT Papers 09_09_2025",
+        "total_questions": 9,
+        "mapped_questions": 2,
+        "unmapped_questions": 7,
+        "mapping_rate": 22.22,
+        "known_marks_total": 25.0,
+        "questions_with_known_marks": 9,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          8
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "8": 1
+        },
+        "marks_by_unit": {
+          "1": 1.0
+        }
+      },
+      {
+        "exam_id": 93,
+        "year": null,
+        "raw_assessment_type": "INTERNAL ASSESSMENT - 1",
+        "normalized_code": "CT1",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Chemistry - CHEMISTRY - CT'S Papers.pdf",
+        "total_questions": 9,
+        "mapped_questions": 3,
+        "unmapped_questions": 6,
+        "mapping_rate": 33.33,
+        "known_marks_total": 25.0,
+        "questions_with_known_marks": 9,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          11
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "11": 1
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "11": 1.0
+        }
+      },
+      {
+        "exam_id": 94,
+        "year": null,
+        "raw_assessment_type": "INTERNAL ASSESSMENT - I",
+        "normalized_code": "CT1",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Chemistry - CHEMISTRY CT 1.pdf",
+        "total_questions": 9,
+        "mapped_questions": 3,
+        "unmapped_questions": 6,
+        "mapping_rate": 33.33,
+        "known_marks_total": 25.0,
+        "questions_with_known_marks": 9,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          8
+        ],
+        "question_count_by_unit": {
+          "8": 3
+        },
+        "marks_by_unit": {
+          "8": 11.0
+        }
+      },
+      {
+        "exam_id": 95,
+        "year": null,
+        "raw_assessment_type": "INTERNAL ASSESSMENT - III",
+        "normalized_code": "FT3",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Chemistry - ALL CT COMPILATION.pdf",
+        "total_questions": 15,
+        "mapped_questions": 5,
+        "unmapped_questions": 10,
+        "mapping_rate": 33.33,
+        "known_marks_total": 20.0,
+        "questions_with_known_marks": 11,
+        "questions_with_unknown_marks": 4,
+        "observed_units": [
+          3,
+          11,
+          12
+        ],
+        "question_count_by_unit": {
+          "3": 3,
+          "11": 1,
+          "12": 1
+        },
+        "marks_by_unit": {
+          "3": 3.0,
+          "11": 1.0,
+          "12": 1.0
+        }
+      }
+    ]
+  },
+  "assessment_scope": {
+    "student_cycle": "ALL",
+    "component_code": "ALL",
+    "component_label": "All Assessments",
+    "student_label": "All Assessments",
+    "role": null,
+    "marks": null,
+    "evidence_status": "ALL_SCOPE",
+    "intended_scope": {
+      "unit_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "topic_names": [
+        "Aromaticity and Pi Molecular Orbitals",
+        "Atomic Radius",
+        "Chemical Thermodynamics",
+        "Conformational Analysis",
+        "Coordination Chemistry",
+        "Coordination Isomerism",
+        "Corrosion Resistance",
+        "Crystal Field Theory",
+        "Effective Nuclear Charge and Screening",
+        "Electrochemical Cells and Electrode Potentials",
+        "Electron Affinity",
+        "Electronegativity",
+        "Electronic and UV-Visible Spectroscopy",
+        "Equilibrium Constant",
+        "Free Energy in Equilibria",
+        "Hard and Soft Acids and Bases",
+        "Hydrogen Atomic Orbitals",
+        "Intermolecular Forces",
+        "Ionic Radius",
+        "Ionization Energy",
+        "Le Chatelier Principle",
+        "Material Properties",
+        "Molecular Orbital Theory",
+        "Molecular Symmetry",
+        "Nuclear Magnetic Resonance",
+        "Optical Activity and Chirality",
+        "Organic Oxidation and Reduction",
+        "Organic Reaction Mechanisms",
+        "Organic Reagents and Reaction Types",
+        "Organic Synthesis and Condensation",
+        "Particle in a Box",
+        "Periodic Trends",
+        "Photoelectron Spectroscopy",
+        "Polarizability and Polarizing Power",
+        "Polymer Types",
+        "Polymerization Processes",
+        "Quantum Mechanics and Atomic Structure",
+        "Real Gases and Critical Phenomena",
+        "Rotational Spectroscopy",
+        "Solubility Equilibria",
+        "Spectroscopy Fundamentals",
+        "Stereochemical Projections",
+        "Stereoisomers",
+        "Vibrational and Infrared Spectroscopy",
+        "X-ray Diffraction and Crystal Structure"
+      ],
+      "source_document": "data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf (Continuous Learning Assessment Schedule)",
+      "notes": null
+    },
+    "observed_scope": {
+      "paper_count": 11,
+      "total_questions": 331,
+      "mapped_questions_count": 192,
+      "unmapped_questions_count": 139,
+      "questions_with_known_marks": 125,
+      "questions_with_unknown_marks": 206,
+      "known_marks_total": 274.0,
+      "mapping_rate": 58.01,
+      "unit_numbers": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "topic_names": [
+        "Aromaticity and Pi Molecular Orbitals",
+        "Atomic Radius",
+        "Chemical Thermodynamics",
+        "Conformational Analysis",
+        "Coordination Chemistry",
+        "Coordination Isomerism",
+        "Corrosion Resistance",
+        "Crystal Field Theory",
+        "Effective Nuclear Charge and Screening",
+        "Electrochemical Cells and Electrode Potentials",
+        "Electron Affinity",
+        "Electronegativity",
+        "Electronic and UV-Visible Spectroscopy",
+        "Hard and Soft Acids and Bases",
+        "Hydrogen Atomic Orbitals",
+        "Intermolecular Forces",
+        "Ionization Energy",
+        "Material Properties",
+        "Molecular Orbital Theory",
+        "Molecular Symmetry",
+        "Nuclear Magnetic Resonance",
+        "Optical Activity and Chirality",
+        "Organic Oxidation and Reduction",
+        "Organic Reaction Mechanisms",
+        "Organic Reagents and Reaction Types",
+        "Organic Synthesis and Condensation",
+        "Particle in a Box",
+        "Photoelectron Spectroscopy",
+        "Polarizability and Polarizing Power",
+        "Polymer Types",
+        "Polymerization Processes",
+        "Quantum Mechanics and Atomic Structure",
+        "Real Gases and Critical Phenomena",
+        "Rotational Spectroscopy",
+        "Solubility Equilibria",
+        "Spectroscopy Fundamentals",
+        "Stereochemical Projections",
+        "Stereoisomers",
+        "Vibrational and Infrared Spectroscopy",
+        "X-ray Diffraction and Crystal Structure"
+      ],
+      "question_count_by_unit": {
+        "1": 16,
+        "3": 32,
+        "4": 11,
+        "5": 8,
+        "6": 10,
+        "7": 24,
+        "8": 29,
+        "9": 23,
+        "10": 11,
+        "11": 14,
+        "12": 14
+      },
+      "marks_by_unit": {
+        "1": 4.0,
+        "3": 11.0,
+        "4": 6.0,
+        "5": 2.0,
+        "6": 5.0,
+        "7": 1.0,
+        "8": 21.0,
+        "9": 7.0,
+        "10": 3.0,
+        "11": 5.0,
+        "12": 18.0
+      },
+      "papers": [
+        {
+          "exam_id": 5,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "UNKNOWN",
+          "identification_source": "fallback",
+          "identification_confidence": 0.3,
+          "document_title": "Chapter 3_ Stereo Chemistry And Organic Reactions.pdf",
+          "total_questions": 0,
+          "mapped_questions": 0,
+          "unmapped_questions": 0,
+          "mapping_rate": 0.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [],
+          "question_count_by_unit": {},
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 6,
+          "year": 2018,
+          "raw_assessment_type": "UNKNOWN",
+          "normalized_code": "UNKNOWN",
+          "identification_source": "fallback",
+          "identification_confidence": 0.3,
+          "document_title": "Chem Q-Bank.pdf",
+          "total_questions": 142,
+          "mapped_questions": 99,
+          "unmapped_questions": 43,
+          "mapping_rate": 69.72,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 142,
+          "observed_units": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "1": 11,
+            "3": 22,
+            "5": 1,
+            "6": 4,
+            "7": 14,
+            "8": 10,
+            "9": 17,
+            "10": 6,
+            "11": 7,
+            "12": 7
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 7,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "UNKNOWN",
+          "identification_source": "fallback",
+          "identification_confidence": 0.3,
+          "document_title": "chem qb ans.pdf",
+          "total_questions": 18,
+          "mapped_questions": 15,
+          "unmapped_questions": 3,
+          "mapping_rate": 83.33,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 18,
+          "observed_units": [
+            6,
+            7,
+            8
+          ],
+          "question_count_by_unit": {
+            "6": 4,
+            "7": 8,
+            "8": 3
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 8,
+          "year": 2018,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "chem UE ques paper.pdf",
+          "total_questions": 37,
+          "mapped_questions": 19,
+          "unmapped_questions": 18,
+          "mapping_rate": 51.35,
+          "known_marks_total": 108.0,
+          "questions_with_known_marks": 37,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "3": 2,
+            "5": 1,
+            "6": 2,
+            "7": 2,
+            "8": 3,
+            "9": 3,
+            "10": 2,
+            "11": 1,
+            "12": 2
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "3": 5.0,
+            "5": 1.0,
+            "6": 5.0,
+            "7": 1.0,
+            "8": 5.0,
+            "9": 5.0,
+            "10": 2.0,
+            "11": 1.0,
+            "12": 1.0
+          }
+        },
+        {
+          "exam_id": 11,
+          "year": 2023,
+          "raw_assessment_type": null,
+          "normalized_code": "ENDSEM",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "Chemistry - PYQ 2023 May",
+          "total_questions": 28,
+          "mapped_questions": 11,
+          "unmapped_questions": 17,
+          "mapping_rate": 39.29,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 28,
+          "observed_units": [
+            4,
+            5,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "4": 1,
+            "5": 2,
+            "8": 2,
+            "9": 1,
+            "10": 2,
+            "11": 2,
+            "12": 1
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 30,
+          "year": 2024,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "PYQ May 2024",
+          "total_questions": 32,
+          "mapped_questions": 18,
+          "unmapped_questions": 14,
+          "mapping_rate": 56.25,
+          "known_marks_total": 36.0,
+          "questions_with_known_marks": 25,
+          "questions_with_unknown_marks": 7,
+          "observed_units": [
+            1,
+            3,
+            4,
+            5,
+            8,
+            9,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "3": 2,
+            "4": 6,
+            "5": 2,
+            "8": 4,
+            "9": 1,
+            "11": 1,
+            "12": 1
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "3": 1.0,
+            "4": 4.0,
+            "5": 1.0,
+            "8": 3.0,
+            "9": 1.0,
+            "11": 1.0
+          }
+        },
+        {
+          "exam_id": 91,
+          "year": null,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "More PYQs",
+          "total_questions": 32,
+          "mapped_questions": 17,
+          "unmapped_questions": 15,
+          "mapping_rate": 53.12,
+          "known_marks_total": 35.0,
+          "questions_with_known_marks": 25,
+          "questions_with_unknown_marks": 7,
+          "observed_units": [
+            3,
+            4,
+            5,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "3": 3,
+            "4": 4,
+            "5": 2,
+            "8": 3,
+            "9": 1,
+            "10": 1,
+            "11": 1,
+            "12": 2
+          },
+          "marks_by_unit": {
+            "3": 2.0,
+            "4": 2.0,
+            "8": 2.0,
+            "9": 1.0,
+            "10": 1.0,
+            "11": 1.0,
+            "12": 16.0
+          }
+        },
+        {
+          "exam_id": 92,
+          "year": 2025,
+          "raw_assessment_type": "INTERNAL ASSESSMENT - I [FJI]",
+          "normalized_code": "CT1",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "CT Papers 09_09_2025",
+          "total_questions": 9,
+          "mapped_questions": 2,
+          "unmapped_questions": 7,
+          "mapping_rate": 22.22,
+          "known_marks_total": 25.0,
+          "questions_with_known_marks": 9,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            8
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "8": 1
+          },
+          "marks_by_unit": {
+            "1": 1.0
+          }
+        },
+        {
+          "exam_id": 93,
+          "year": null,
+          "raw_assessment_type": "INTERNAL ASSESSMENT - 1",
+          "normalized_code": "CT1",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Chemistry - CHEMISTRY - CT'S Papers.pdf",
+          "total_questions": 9,
+          "mapped_questions": 3,
+          "unmapped_questions": 6,
+          "mapping_rate": 33.33,
+          "known_marks_total": 25.0,
+          "questions_with_known_marks": 9,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            11
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "11": 1
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "11": 1.0
+          }
+        },
+        {
+          "exam_id": 94,
+          "year": null,
+          "raw_assessment_type": "INTERNAL ASSESSMENT - I",
+          "normalized_code": "CT1",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Chemistry - CHEMISTRY CT 1.pdf",
+          "total_questions": 9,
+          "mapped_questions": 3,
+          "unmapped_questions": 6,
+          "mapping_rate": 33.33,
+          "known_marks_total": 25.0,
+          "questions_with_known_marks": 9,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            8
+          ],
+          "question_count_by_unit": {
+            "8": 3
+          },
+          "marks_by_unit": {
+            "8": 11.0
+          }
+        },
+        {
+          "exam_id": 95,
+          "year": null,
+          "raw_assessment_type": "INTERNAL ASSESSMENT - III",
+          "normalized_code": "FT3",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Chemistry - ALL CT COMPILATION.pdf",
+          "total_questions": 15,
+          "mapped_questions": 5,
+          "unmapped_questions": 10,
+          "mapping_rate": 33.33,
+          "known_marks_total": 20.0,
+          "questions_with_known_marks": 11,
+          "questions_with_unknown_marks": 4,
+          "observed_units": [
+            3,
+            11,
+            12
+          ],
+          "question_count_by_unit": {
+            "3": 3,
+            "11": 1,
+            "12": 1
+          },
+          "marks_by_unit": {
+            "3": 3.0,
+            "11": 1.0,
+            "12": 1.0
+          }
+        }
+      ]
+    },
+    "source_document": "data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf (Continuous Learning Assessment Schedule)",
+    "unit_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "total_in_scope_topics": 45,
+    "observed_in_scope_topics": 40,
+    "unobserved_in_scope_topics": [],
+    "out_of_scope_observed_topics": []
+  },
+  "predictions": [
+    {
+      "rank": 1,
+      "name": "Crystal Field Theory",
+      "category": "topic",
+      "score": 0.08144767899291896,
+      "prediction_score": 0.0814,
+      "probability": 0.8571,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 5,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 1.0,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.46153846153846156,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.0511,
+      "marks_score": 0.15,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 14 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.056451612903225805,
+        "occurrences": 14,
+        "total_marks": 6.0,
+        "paper_coverage": 1.0,
+        "papers_with_topic": 5,
+        "marks_weight": 0.15,
+        "average_marks": 0.46153846153846156
+      },
+      "topic_id": 51,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Polymer Types",
+      "category": "topic",
+      "score": 0.0785385523210071,
+      "prediction_score": 0.0785,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.75,
+      "total_marks_observed": 3.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 6,
+      "historical_occurrences": 6,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 3.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.122,
+      "recency_score": 0.0926,
+      "marks_score": 0.075,
+      "evidence_count": 6,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 6 historical question(s) representing 3 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.12195121951219512,
+        "hist_freq": 0.024193548387096774,
+        "occurrences": 6,
+        "total_marks": 3.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.075,
+        "average_marks": 0.75
+      },
+      "topic_id": 28,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Optical Activity and Chirality",
+      "category": "topic",
+      "score": 0.04177025963808025,
+      "prediction_score": 0.0418,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.4,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 6,
+      "historical_occurrences": 6,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.0414,
+      "marks_score": 0.05,
+      "evidence_count": 6,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 6 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.024193548387096774,
+        "occurrences": 6,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.4
+      },
+      "topic_id": 67,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Effective Nuclear Charge and Screening",
+      "category": "topic",
+      "score": 0.039350904799370576,
+      "prediction_score": 0.0394,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.5,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 4,
+      "historical_occurrences": 4,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.039,
+      "marks_score": 0.05,
+      "evidence_count": 4,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 4 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.016129032258064516,
+        "occurrences": 4,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.5
+      },
+      "topic_id": 43,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Vibrational and Infrared Spectroscopy",
+      "category": "topic",
+      "score": 0.036048387096774194,
+      "prediction_score": 0.036,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.3333333333333333,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 5,
+      "historical_occurrences": 5,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.006,
+      "marks_score": 0.1,
+      "evidence_count": 5,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 5 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.020161290322580645,
+        "occurrences": 5,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 1.3333333333333333
+      },
+      "topic_id": 57,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Organic Synthesis and Condensation",
+      "category": "topic",
+      "score": 0.03362903225806452,
+      "prediction_score": 0.0336,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.3333333333333333,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0036,
+      "marks_score": 0.1,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 3 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.012096774193548387,
+        "occurrences": 3,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 1.3333333333333333
+      },
+      "topic_id": 72,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Hydrogen Atomic Orbitals",
+      "category": "topic",
+      "score": 0.032419354838709676,
+      "prediction_score": 0.0324,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.0,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0024,
+      "marks_score": 0.1,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 2 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.008064516129032258,
+        "occurrences": 2,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 2.0
+      },
+      "topic_id": 47,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Electrochemical Cells and Electrode Potentials",
+      "category": "topic",
+      "score": 0.029352871754523998,
+      "prediction_score": 0.0294,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.125,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0244,
+      "recency_score": 0.0292,
+      "marks_score": 0.025,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 10 historical question(s) representing 1 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.024390243902439025,
+        "hist_freq": 0.04032258064516129,
+        "occurrences": 10,
+        "total_marks": 1.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 4,
+        "marks_weight": 0.025,
+        "average_marks": 0.125
+      },
+      "topic_id": 65,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Corrosion Resistance",
+      "category": "topic",
+      "score": 0.028385129819040126,
+      "prediction_score": 0.0284,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.6666666666666666,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0244,
+      "recency_score": 0.0207,
+      "marks_score": 0.05,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.024390243902439025,
+        "hist_freq": 0.012096774193548387,
+        "occurrences": 3,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.6666666666666666
+      },
+      "topic_id": 31,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "X-ray Diffraction and Crystal Structure",
+      "category": "topic",
+      "score": 0.027096774193548386,
+      "prediction_score": 0.0271,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.2222222222222222,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0121,
+      "marks_score": 0.05,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 10 question(s) (2 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.04032258064516129,
+        "occurrences": 10,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.2222222222222222
+      },
+      "topic_id": 60,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023
+      ]
+    }
+  ],
+  "topic_predictions": [
+    {
+      "rank": 1,
+      "name": "Crystal Field Theory",
+      "category": "topic",
+      "score": 0.08144767899291896,
+      "prediction_score": 0.0814,
+      "probability": 0.8571,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 5,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 1.0,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.46153846153846156,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.0511,
+      "marks_score": 0.15,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 14 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.056451612903225805,
+        "occurrences": 14,
+        "total_marks": 6.0,
+        "paper_coverage": 1.0,
+        "papers_with_topic": 5,
+        "marks_weight": 0.15,
+        "average_marks": 0.46153846153846156
+      },
+      "topic_id": 51,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Polymer Types",
+      "category": "topic",
+      "score": 0.0785385523210071,
+      "prediction_score": 0.0785,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.75,
+      "total_marks_observed": 3.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 6,
+      "historical_occurrences": 6,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 3.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.122,
+      "recency_score": 0.0926,
+      "marks_score": 0.075,
+      "evidence_count": 6,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 6 historical question(s) representing 3 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.12195121951219512,
+        "hist_freq": 0.024193548387096774,
+        "occurrences": 6,
+        "total_marks": 3.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.075,
+        "average_marks": 0.75
+      },
+      "topic_id": 28,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Optical Activity and Chirality",
+      "category": "topic",
+      "score": 0.04177025963808025,
+      "prediction_score": 0.0418,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.4,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 6,
+      "historical_occurrences": 6,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.0414,
+      "marks_score": 0.05,
+      "evidence_count": 6,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 6 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.024193548387096774,
+        "occurrences": 6,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.4
+      },
+      "topic_id": 67,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Effective Nuclear Charge and Screening",
+      "category": "topic",
+      "score": 0.039350904799370576,
+      "prediction_score": 0.0394,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.5,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 4,
+      "historical_occurrences": 4,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0488,
+      "recency_score": 0.039,
+      "marks_score": 0.05,
+      "evidence_count": 4,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 4 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04878048780487805,
+        "hist_freq": 0.016129032258064516,
+        "occurrences": 4,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.5
+      },
+      "topic_id": 43,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Vibrational and Infrared Spectroscopy",
+      "category": "topic",
+      "score": 0.036048387096774194,
+      "prediction_score": 0.036,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.3333333333333333,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 5,
+      "historical_occurrences": 5,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.006,
+      "marks_score": 0.1,
+      "evidence_count": 5,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 5 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.020161290322580645,
+        "occurrences": 5,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 1.3333333333333333
+      },
+      "topic_id": 57,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Organic Synthesis and Condensation",
+      "category": "topic",
+      "score": 0.03362903225806452,
+      "prediction_score": 0.0336,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.3333333333333333,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0036,
+      "marks_score": 0.1,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 3 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.012096774193548387,
+        "occurrences": 3,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 1.3333333333333333
+      },
+      "topic_id": 72,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Hydrogen Atomic Orbitals",
+      "category": "topic",
+      "score": 0.032419354838709676,
+      "prediction_score": 0.0324,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.4,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.0,
+      "total_marks_observed": 4.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 4.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0024,
+      "marks_score": 0.1,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 2 question(s) (4 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.008064516129032258,
+        "occurrences": 2,
+        "total_marks": 4.0,
+        "paper_coverage": 0.4,
+        "papers_with_topic": 2,
+        "marks_weight": 0.1,
+        "average_marks": 2.0
+      },
+      "topic_id": 47,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Electrochemical Cells and Electrode Potentials",
+      "category": "topic",
+      "score": 0.029352871754523998,
+      "prediction_score": 0.0294,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.125,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0244,
+      "recency_score": 0.0292,
+      "marks_score": 0.025,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 10 historical question(s) representing 1 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.024390243902439025,
+        "hist_freq": 0.04032258064516129,
+        "occurrences": 10,
+        "total_marks": 1.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 4,
+        "marks_weight": 0.025,
+        "average_marks": 0.125
+      },
+      "topic_id": 65,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Corrosion Resistance",
+      "category": "topic",
+      "score": 0.028385129819040126,
+      "prediction_score": 0.0284,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.6666666666666666,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0244,
+      "recency_score": 0.0207,
+      "marks_score": 0.05,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.024390243902439025,
+        "hist_freq": 0.012096774193548387,
+        "occurrences": 3,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.6666666666666666
+      },
+      "topic_id": 31,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2024
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "X-ray Diffraction and Crystal Structure",
+      "category": "topic",
+      "score": 0.027096774193548386,
+      "prediction_score": 0.0271,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.2222222222222222,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0121,
+      "marks_score": 0.05,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 10 question(s) (2 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.04032258064516129,
+        "occurrences": 10,
+        "total_marks": 2.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.05,
+        "average_marks": 0.2222222222222222
+      },
+      "topic_id": 60,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2023
+      ]
+    }
+  ],
+  "family_predictions": [
+    {
+      "rank": 1,
+      "name": "7a. Define and discuss the factors affecting electron affinity and electronegativity. Explain how Cl and F will behave with respect to these two chemical properties.\n    --- OR ---\n        (i) Cu(I) complexes are colourless, while Cu(II) complexes are coloured - Explain.\n        (ii) Discuss whether [Co(NH3)6]Cl3 is paramagnetic or diamagnetic complex. Calculate its CFSE and spin only magnetic moment values.",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.2857,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": 1,
+      "papers_with_family": 1,
+      "paper_coverage": 0.2,
+      "family_id": 837,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2025
+      ],
+      "average_marks": 10.0,
+      "total_marks_observed": 10.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        2695,
+        2696
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": 10.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 1 of 5 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 837,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 1,
+        "interval": 0.0,
+        "last_seen": "2025",
+        "years": [
+          2025
+        ],
+        "average_marks": 10.0,
+        "total_marks": 10.0,
+        "question_ids": [
+          2695,
+          2696
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "14. Draw and explain the molecular orbital energy level diagram for hydrogen molecule ($H_2$) and calculate the bond order.",
+      "category": "family",
+      "score": 1.6,
+      "prediction_score": 1.6,
+      "probability": 0.2857,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": 1,
+      "papers_with_family": 1,
+      "paper_coverage": 0.2,
+      "family_id": 402,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2018
+      ],
+      "average_marks": null,
+      "total_marks_observed": null,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "historyCount": 4,
+      "historical_occurrences": 4,
+      "recent_occurrences": 0,
+      "last_seen_year": 2018,
+      "lastSeen": "2018",
+      "marks_seen": null,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 4,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 4 historical occurrence(s) across 1 of 5 examination papers, last seen in 2018.",
+      "evidence_details": {
+        "family_id": 402,
+        "occurrences": 4,
+        "sample_size": 4,
+        "distinct_paper_count": 1,
+        "interval": 0.0,
+        "last_seen": "2018",
+        "years": [
+          2018
+        ],
+        "average_marks": null,
+        "total_marks": null,
+        "question_ids": [
+          40,
+          41,
+          42,
+          43
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2018
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "23. Explain Cahn-Ingold Prelog rules to determine R/S on a chiral center taking an example.",
+      "category": "family",
+      "score": 1.4,
+      "prediction_score": 1.4,
+      "probability": 0.4286,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 518,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2018,
+        2024
+      ],
+      "average_marks": null,
+      "total_marks_observed": null,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        166,
+        824
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": null,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 518,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 6.0,
+        "last_seen": "2024",
+        "years": [
+          2018,
+          2024
+        ],
+        "average_marks": null,
+        "total_marks": null,
+        "question_ids": [
+          166,
+          824
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2018,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "The source for XPS is (A) Mercury - arc (B) Nernst glower (D) Alka (C) Global source",
+      "category": "family",
+      "score": 1.4,
+      "prediction_score": 1.4,
+      "probability": 0.4286,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 791,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023,
+        2024
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        284,
+        817
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 791,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 1.0,
+        "last_seen": "2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "average_marks": 1.0,
+        "total_marks": 1.0,
+        "question_ids": [
+          284,
+          817
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "a. Explain Cahn-Ingold prelog priority rules to determine R/S configuration 8 4 3 2 on a chiral center taking an example. b. Sketch the potential energy diagram and explain in detail the 2 3 2 conformational analysis of n-butane.",
+      "category": "family",
+      "score": 1.4,
+      "prediction_score": 1.4,
+      "probability": 0.4286,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 796,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023,
+        2024
+      ],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        289,
+        823
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 796,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 1.0,
+        "last_seen": "2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "average_marks": 8.0,
+        "total_marks": 8.0,
+        "question_ids": [
+          289,
+          823
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    }
+  ],
+  "study_priorities": [
+    {
+      "order": 1,
+      "topic": "Crystal Field Theory",
+      "name": "Crystal Field Theory",
+      "topic_id": 51,
+      "prediction_score": 0.0814,
+      "probability": 0.8571,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Crystal Field Theory",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 22
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 2,
+      "topic": "Polymer Types",
+      "name": "Polymer Types",
+      "topic_id": 28,
+      "prediction_score": 0.0785,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Polymer Types",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 9
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 3,
+      "topic": "Optical Activity and Chirality",
+      "name": "Optical Activity and Chirality",
+      "topic_id": 67,
+      "prediction_score": 0.0418,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Optical Activity and Chirality",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 8
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 4,
+      "topic": "Effective Nuclear Charge and Screening",
+      "name": "Effective Nuclear Charge and Screening",
+      "topic_id": 43,
+      "prediction_score": 0.0394,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Effective Nuclear Charge and Screening",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 5,
+      "topic": "Vibrational and Infrared Spectroscopy",
+      "name": "Vibrational and Infrared Spectroscopy",
+      "topic_id": 57,
+      "prediction_score": 0.036,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Vibrational and Infrared Spectroscopy",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 6,
+      "topic": "Organic Synthesis and Condensation",
+      "name": "Organic Synthesis and Condensation",
+      "topic_id": 72,
+      "prediction_score": 0.0336,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Organic Synthesis and Condensation",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 7,
+      "topic": "Hydrogen Atomic Orbitals",
+      "name": "Hydrogen Atomic Orbitals",
+      "topic_id": 47,
+      "prediction_score": 0.0324,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Hydrogen Atomic Orbitals",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 8,
+      "topic": "Electrochemical Cells and Electrode Potentials",
+      "name": "Electrochemical Cells and Electrode Potentials",
+      "topic_id": 65,
+      "prediction_score": 0.0294,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Electrochemical Cells and Electrode Potentials",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 13
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 9,
+      "topic": "Corrosion Resistance",
+      "name": "Corrosion Resistance",
+      "topic_id": 31,
+      "prediction_score": 0.0284,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Corrosion Resistance",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 10,
+      "topic": "X-ray Diffraction and Crystal Structure",
+      "name": "X-ray Diffraction and Crystal Structure",
+      "topic_id": 60,
+      "prediction_score": 0.0271,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for X-ray Diffraction and Crystal Structure",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 11
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 11,
+      "topic": "Molecular Orbital Theory",
+      "name": "Molecular Orbital Theory",
+      "topic_id": 48,
+      "prediction_score": 0.0232,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Molecular Orbital Theory",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 18
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 12,
+      "topic": "Hard and Soft Acids and Bases",
+      "name": "Hard and Soft Acids and Bases",
+      "topic_id": 62,
+      "prediction_score": 0.0221,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Hard and Soft Acids and Bases",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 13,
+      "topic": "Photoelectron Spectroscopy",
+      "name": "Photoelectron Spectroscopy",
+      "topic_id": 59,
+      "prediction_score": 0.0221,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Photoelectron Spectroscopy",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 14,
+      "topic": "Molecular Symmetry",
+      "name": "Molecular Symmetry",
+      "topic_id": 53,
+      "prediction_score": 0.0197,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Molecular Symmetry",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 15,
+      "topic": "Coordination Chemistry",
+      "name": "Coordination Chemistry",
+      "topic_id": 50,
+      "prediction_score": 0.0185,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Coordination Chemistry",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 16,
+      "topic": "Polymerization Processes",
+      "name": "Polymerization Processes",
+      "topic_id": 29,
+      "prediction_score": 0.0185,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Polymerization Processes",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 17,
+      "topic": "Coordination Isomerism",
+      "name": "Coordination Isomerism",
+      "topic_id": 52,
+      "prediction_score": 0.0134,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": 352,
+          "title": "Chemistry - Unit 1- Coordination Chemistry.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 60,
+          "content": "3. Coordination isomerism"
+        },
+        {
+          "id": 353,
+          "title": "Chemistry - Unit 1-Isomerism in Coordination Compounds.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 3,
+          "content": "3. Coordination isomerism"
+        },
+        {
+          "id": null,
+          "title": "Previous exam questions for Coordination Isomerism",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 18,
+      "topic": "Material Properties",
+      "name": "Material Properties",
+      "topic_id": 30,
+      "prediction_score": 0.0134,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Material Properties",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 19,
+      "topic": "Chemical Thermodynamics",
+      "name": "Chemical Thermodynamics",
+      "topic_id": 61,
+      "prediction_score": 0.0111,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Chemical Thermodynamics",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 20,
+      "topic": "Ionization Energy",
+      "name": "Ionization Energy",
+      "topic_id": 22,
+      "prediction_score": 0.0111,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Ionization Energy",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 21,
+      "topic": "Quantum Mechanics and Atomic Structure",
+      "name": "Quantum Mechanics and Atomic Structure",
+      "topic_id": 45,
+      "prediction_score": 0.0111,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Quantum Mechanics and Atomic Structure",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 22,
+      "topic": "Rotational Spectroscopy",
+      "name": "Rotational Spectroscopy",
+      "topic_id": 56,
+      "prediction_score": 0.0111,
+      "probability": 0.4286,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Rotational Spectroscopy",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 23,
+      "topic": "Nuclear Magnetic Resonance",
+      "name": "Nuclear Magnetic Resonance",
+      "topic_id": 58,
+      "prediction_score": 0.006,
+      "probability": 0.2857,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Nuclear Magnetic Resonance",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 24,
+      "topic": "Organic Reaction Mechanisms",
+      "name": "Organic Reaction Mechanisms",
+      "topic_id": 27,
+      "prediction_score": 0.006,
+      "probability": 0.2857,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Organic Reaction Mechanisms",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 25,
+      "topic": "Stereochemical Projections",
+      "name": "Stereochemical Projections",
+      "topic_id": 69,
+      "prediction_score": 0.006,
+      "probability": 0.2857,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Stereochemical Projections",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 26,
+      "topic": "Aromaticity and Pi Molecular Orbitals",
+      "name": "Aromaticity and Pi Molecular Orbitals",
+      "topic_id": 49,
+      "prediction_score": 0.0036,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Aromaticity and Pi Molecular Orbitals",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 6
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 27,
+      "topic": "Electronic and UV-Visible Spectroscopy",
+      "name": "Electronic and UV-Visible Spectroscopy",
+      "topic_id": 55,
+      "prediction_score": 0.0036,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Electronic and UV-Visible Spectroscopy",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 28,
+      "topic": "Organic Reagents and Reaction Types",
+      "name": "Organic Reagents and Reaction Types",
+      "topic_id": 70,
+      "prediction_score": 0.0036,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Organic Reagents and Reaction Types",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 29,
+      "topic": "Real Gases and Critical Phenomena",
+      "name": "Real Gases and Critical Phenomena",
+      "topic_id": 64,
+      "prediction_score": 0.0036,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Real Gases and Critical Phenomena",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 30,
+      "topic": "Electron Affinity",
+      "name": "Electron Affinity",
+      "topic_id": 40,
+      "prediction_score": 0.0024,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": 355,
+          "title": "Chemistry - Unit-1-Electron affinity, Electronegativity, Ionization energy-def and trend.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 1,
+          "content": "1. Electron affinity"
+        },
+        {
+          "id": null,
+          "title": "Previous exam questions for Electron Affinity",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 31,
+      "topic": "Electronegativity",
+      "name": "Electronegativity",
+      "topic_id": 41,
+      "prediction_score": 0.0024,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": 355,
+          "title": "Chemistry - Unit-1-Electron affinity, Electronegativity, Ionization energy-def and trend.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 1,
+          "content": "3. Electronegativity"
+        },
+        {
+          "id": 358,
+          "title": "Chemistry - Unit-1-periodic_trends- good slide.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 9,
+          "content": "3. Electronegativity"
+        },
+        {
+          "id": null,
+          "title": "Previous exam questions for Electronegativity",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 32,
+      "topic": "Polarizability and Polarizing Power",
+      "name": "Polarizability and Polarizing Power",
+      "topic_id": 44,
+      "prediction_score": 0.0024,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Polarizability and Polarizing Power",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 33,
+      "topic": "Spectroscopy Fundamentals",
+      "name": "Spectroscopy Fundamentals",
+      "topic_id": 54,
+      "prediction_score": 0.0024,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Spectroscopy Fundamentals",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 34,
+      "topic": "Stereoisomers",
+      "name": "Stereoisomers",
+      "topic_id": 26,
+      "prediction_score": 0.0024,
+      "probability": 0.2857,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Stereoisomers",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 35,
+      "topic": "Atomic Radius",
+      "name": "Atomic Radius",
+      "topic_id": 21,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Atomic Radius",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 36,
+      "topic": "Conformational Analysis",
+      "name": "Conformational Analysis",
+      "topic_id": 68,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": 347,
+          "title": "Chemistry - UNIT III-Stereochemistry and Organic Reactions_slides.pdf",
+          "source": "TheHelpers",
+          "resource_type": "STUDY_MATERIAL",
+          "original_url": "https://thehelpers.tech/semesters/1/subjects/Chemistry",
+          "uploaded_at": null,
+          "owner_id": null,
+          "page_number": 1,
+          "content": "6. Conformational analysis"
+        },
+        {
+          "id": null,
+          "title": "Previous exam questions for Conformational Analysis",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 37,
+      "topic": "Intermolecular Forces",
+      "name": "Intermolecular Forces",
+      "topic_id": 63,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Intermolecular Forces",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 38,
+      "topic": "Organic Oxidation and Reduction",
+      "name": "Organic Oxidation and Reduction",
+      "topic_id": 71,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Organic Oxidation and Reduction",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 39,
+      "topic": "Particle in a Box",
+      "name": "Particle in a Box",
+      "topic_id": 46,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Particle in a Box",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 40,
+      "topic": "Solubility Equilibria",
+      "name": "Solubility Equilibria",
+      "topic_id": 66,
+      "prediction_score": 0.0012,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Solubility Equilibria",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    }
+  ],
+  "coverage_summary": {
+    "total_predicted_topics": 40,
+    "mastered_topics": 0,
+    "in_progress_topics": 0,
+    "unstudied_topics": 40,
+    "student_preparation_coverage": 0.0,
+    "coverage_gap_topics": [],
+    "high_priority_gap_count": 0,
+    "mastered_topic_count": 0,
+    "in_progress_count": 0,
+    "unstudied_count": 40
+  },
+  "exam_schedule": null,
+  "metadata": {
+    "model_version": "2.2.0",
+    "taxonomy_version": "1.0.0",
+    "engine_version": "mintai-v2",
+    "corpus_version": "2026.1",
+    "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+    "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+    "sufficiency": "moderate",
+    "generated_at": "2026-09-21T08:15:23.239221",
+    "latency_ms": 293.45
+  }
+}

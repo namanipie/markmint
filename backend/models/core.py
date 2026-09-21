@@ -410,6 +410,29 @@ class StudentResourceProgress(Base):
     document = relationship('Document')
 
 
+class IntelligenceSnapshot(Base):
+    __tablename__ = "intelligence_snapshots"
+
+    id = Column(Integer, primary_key=True, index=True)
+    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id"), nullable=True, index=True)
+    cache_key = Column(String(255), unique=True, nullable=False, index=True)
+    assessment_cycle = Column(String(50), nullable=False)
+    model_version = Column(String(50), nullable=False)
+    taxonomy_version = Column(String(50), nullable=False)
+    corpus_version = Column(String(50), nullable=False)
+    payload = Column(JSON, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    course = relationship("Course")
+    track = relationship("CourseTrack")
+
+    __table_args__ = (
+        Index("ix_intel_snapshots_course_cycle", "course_id", "assessment_cycle"),
+    )
+
+
 # Course-specific assessment structure models
 from backend.models.assessment import CourseAssessmentPlan, AssessmentComponent, AssessmentCoverage
 

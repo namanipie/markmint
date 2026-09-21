@@ -15,6 +15,7 @@ from backend.services.observed_assessment_coverage import (
     identify_exam_assessment,
     compute_paper_observed_coverage,
 )
+from backend.services.intelligence_cache import IntelligenceCacheService
 
 
 class SubmissionApprovalService:
@@ -205,6 +206,9 @@ class SubmissionApprovalService:
 
             self.db.commit()
             self.db.refresh(submission)
+
+            # Invalidate cached intelligence snapshots for this course
+            IntelligenceCacheService.invalidate_course(self.db, course.id)
 
             summary = self.get_admin_review_summary(submission.id)
             total_questions = sum(len(sec.questions) for sec in exam.sections)

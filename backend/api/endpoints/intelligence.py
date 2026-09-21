@@ -1,5 +1,6 @@
 from typing import Any, Dict, List, Optional
 from datetime import datetime
+import copy
 import time
 import logging
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -28,6 +29,7 @@ from backend.services.prediction.backtester import BacktestEvaluator
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
 from backend.services.assessment_cycle import AssessmentCycle, normalize_assessment_cycle, filter_exams_by_cycle
 from backend.services.assessment_plan_registry import get_course_assessment_scope
+from backend.services.intelligence_cache import IntelligenceCacheService
 
 logger = logging.getLogger("markmint.intelligence")
 
@@ -377,6 +379,27 @@ def get_intelligence_snapshot(
         target_exam_date = None
     if not isinstance(student_id, str) or hasattr(student_id, "default"):
         student_id = "anonymous"
+    if not isinstance(assessment_cycle, str) or hasattr(assessment_cycle, "default"):
+        assessment_cycle = None
+    if not isinstance(language, str) or hasattr(language, "default"):
+        language = None
+
+    norm_cycle = normalize_assessment_cycle(assessment_cycle)
+    is_cache_eligible = (student_id == "anonymous" and target_year is None and target_exam_date is None)
+    if is_cache_eligible:
+        cached_snapshot = IntelligenceCacheService.get_snapshot(
+            db, course_id, norm_cycle, language
+        )
+        if cached_snapshot:
+            res = copy.deepcopy(cached_snapshot)
+            if "metadata" in res and isinstance(res["metadata"], dict):
+                res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
+                res["metadata"]["cache_hit"] = True
+            logger.info(
+                "Intelligence snapshot served from cache: course_id=%s, cycle=%s, latency_ms=%.2f",
+                course_id, norm_cycle, (time.time() - t_start) * 1000
+            )
+            return res
 
     course = _find_course(db, course_id)
 
@@ -495,7 +518,7 @@ def get_intelligence_snapshot(
             "Intelligence snapshot resolved: course_id=%s, status=CATALOG_ONLY, latency_ms=%.2f",
             course_id, (time.time() - t_start) * 1000
         )
-        return {
+        catalog_payload = {
             "data_availability_status": "CATALOG_ONLY",
             "course": {
                 "id": course.id,
@@ -532,9 +555,19 @@ def get_intelligence_snapshot(
                 "generated_at": datetime.utcnow().isoformat(),
             }
         }
+        if is_cache_eligible and course:
+            IntelligenceCacheService.store_snapshot(
+                db=db,
+                course_id=course.id,
+                assessment_cycle=norm_cycle,
+                track_id=active_track.id if active_track else None,
+                payload=catalog_payload,
+                identifier=course_id,
+                track_key=active_track.track_key if active_track else None,
+            )
+        return catalog_payload
 
     # 4. Target year and assessment cycle resolution
-    norm_cycle = normalize_assessment_cycle(assessment_cycle)
 
     # Detect available assessment cycles across all exams for this course
     cycles_found = set()
@@ -603,7 +636,7 @@ def get_intelligence_snapshot(
         msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}'."
         if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
             msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}' under assessment cycle '{norm_cycle}'."
-        return {
+        insufficient_payload = {
             "data_availability_status": "INSUFFICIENT_EVIDENCE",
             "course": {
                 "id": course.id,
@@ -627,11 +660,11 @@ def get_intelligence_snapshot(
                 "historical_papers_analyzed": 0,
                 "total_questions": 0,
                 "years": [],
-                "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
+                "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
                 "available_assessment_cycles": available_cycles,
                 "assessment_cycle": norm_cycle or "ALL",
             },
-            "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
+            "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
             "available_assessment_cycles": available_cycles,
             "assessment_cycle": norm_cycle or "ALL",
             "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
@@ -651,6 +684,17 @@ def get_intelligence_snapshot(
                 "generated_at": datetime.utcnow().isoformat(),
             }
         }
+        if is_cache_eligible and course:
+            IntelligenceCacheService.store_snapshot(
+                db=db,
+                course_id=course.id,
+                assessment_cycle=norm_cycle,
+                track_id=active_track.id if active_track else None,
+                payload=insufficient_payload,
+                identifier=course_id,
+                track_key=active_track.track_key if active_track else None,
+            )
+        return insufficient_payload
 
     # 5. Build DNA and Predictions
     hist_exams_dicts = _build_historical_exam_payloads(hist_exams_orm)
@@ -719,7 +763,14 @@ def get_intelligence_snapshot(
 
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
-    study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id)
+    study_service.preload_course_resources(course.id)
+    study_service.preload_student_progress(course.id, student_id)
+
+    priorities_objs = [
+        study_service.calculate_study_priority(p, course.id, student_id)
+        for p in topic_preds if getattr(p, "target", "topic") == "topic"
+    ]
+    study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id, priorities=priorities_objs)
     if not study_plan and family_preds:
         family_plan = []
         for index, item in enumerate(family_preds[:5], start=1):
@@ -764,13 +815,9 @@ def get_intelligence_snapshot(
                 "student_status": "NOT_STARTED",
             })
         study_plan = family_plan
-    coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id)
+    coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id, priorities=priorities_objs)
 
     # 7. Exam Schedule if date provided
-    priorities_objs = [
-        study_service.calculate_study_priority(p, course.id, student_id)
-        for p in topic_preds if getattr(p, "target", "topic") == "topic"
-    ]
     exam_schedule = study_service.generate_exam_schedule(priorities_objs, target_exam_date)
 
     available_assessment_types = sorted(list({
@@ -784,13 +831,7 @@ def get_intelligence_snapshot(
     topic_predictions_payload = []
     for p in topic_preds[:10]:
         p_dict = p.to_dict()
-        t_obj = (
-            db.query(Topic)
-            .join(Unit, Topic.unit_id == Unit.id)
-            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-            .filter(Syllabus.course_id == course.id, Topic.name == p.name)
-            .first()
-        )
+        t_obj = study_service.get_topic_by_name(p.name, course.id)
         if t_obj:
             p_dict["topic_id"] = t_obj.id
         topic_years = {
@@ -815,6 +856,12 @@ def get_intelligence_snapshot(
         topic_predictions_payload.append(p_dict)
 
     family_predictions_payload = []
+    missing_fam_names = [p.name for p in family_preds[:5] if not p.family_id]
+    fam_recs_map = {}
+    if missing_fam_names:
+        fam_recs = db.query(QuestionFamily.canonical_name, QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name.in_(missing_fam_names)).all()
+        fam_recs_map = {r[0]: (r[1], r[2]) for r in fam_recs}
+
     for p in family_preds[:5]:
         p_dict = p.to_dict()
 
@@ -822,7 +869,7 @@ def get_intelligence_snapshot(
         fam_id = p.family_id
         fam_repetition_type = p.repetition_type
         if not fam_id:
-            fam_rec = db.query(QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name == p.name).first()
+            fam_rec = fam_recs_map.get(p.name)
             if fam_rec:
                 fam_id = fam_rec[0]
                 if not fam_repetition_type:
@@ -876,15 +923,15 @@ def get_intelligence_snapshot(
 
     if active_track:
         syl_ids = [s.id for s in course.syllabuses if s.track_id == active_track.id]
+        taxonomy_topic_count = (
+            db.query(Topic)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .filter(Unit.syllabus_id.in_(syl_ids))
+            .count()
+            if syl_ids else 0
+        )
     else:
-        syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
-    taxonomy_topic_count = (
-        db.query(Topic)
-        .join(Unit, Topic.unit_id == Unit.id)
-        .filter(Unit.syllabus_id.in_(syl_ids))
-        .count()
-        if syl_ids else 0
-    )
+        taxonomy_topic_count = len(study_service._course_topics)
     has_topic_taxonomy = taxonomy_topic_count > 0
 
     if has_topic_taxonomy and len(topic_preds) > 0:
@@ -1006,9 +1053,15 @@ def get_intelligence_snapshot(
         }
     }
 
-    logger.info(
-        "Synthesized intelligence snapshot: course_id=%s, papers=%d, questions=%d, latency_ms=%.2f, status=%s",
-        course.id, len(hist_exams_orm), total_q_count, (time.time() - t_start) * 1000, availability_status
-    )
+    if is_cache_eligible and course:
+        IntelligenceCacheService.store_snapshot(
+            db=db,
+            course_id=course.id,
+            assessment_cycle=norm_cycle,
+            track_id=active_track.id if active_track else None,
+            payload=snapshot_payload,
+            identifier=course_id,
+            track_key=active_track.track_key if active_track else None,
+        )
 
     return snapshot_payload

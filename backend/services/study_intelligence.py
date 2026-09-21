@@ -1,8 +1,9 @@
 """Deterministic study-priority and resource services."""
 
 from datetime import datetime, date, timezone
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from backend.models.core import (
@@ -69,15 +70,122 @@ class PriorityResult:
 class StudyIntelligenceService:
     def __init__(self, db: Session):
         self.db = db
+        self._preloaded = False
+        self._preloaded_course_id: Optional[int] = None
+        self._course_topics: List[Topic] = []
+        self._topics_by_name: Dict[str, Topic] = {}
+        self._topics_by_id: Dict[int, Topic] = {}
+        self._course: Optional[Course] = None
+        self._concepts_by_key: Dict[tuple, Concept] = {}
+        self._evidence_by_concept_id: Dict[int, List[StudyEvidence]] = {}
+        self._question_counts_by_topic_id: Dict[int, int] = {}
+        self._student_progress_by_topic_id: Optional[Dict[int, StudentTopicProgress]] = None
 
-    def _course_topic(self, topic_name: str, course_id: int) -> Topic | None:
+    def preload_course_resources(self, course_id: int) -> None:
+        """Bulk load all topics, course, concepts, study evidence, and question counts in 4-5 queries."""
+        if self.db is None:
+            return
+        self._preloaded = True
+        self._preloaded_course_id = course_id
+
+        # 1. Course topics
+        self._course_topics = (
+            self.db.query(Topic)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+            .filter(Syllabus.course_id == course_id)
+            .order_by(Topic.id.asc())
+            .all()
+        )
+        self._topics_by_name = {}
+        self._topics_by_id = {}
+        for t in self._course_topics:
+            if t.name not in self._topics_by_name:
+                self._topics_by_name[t.name] = t
+            if t.id not in self._topics_by_id:
+                self._topics_by_id[t.id] = t
+
+        # 2. Course
+        self._course = self.db.query(Course).filter(Course.id == course_id).first()
+
+        # 3. Concepts
+        unit_ids = {t.unit_id for t in self._course_topics if t.unit_id}
+        if unit_ids:
+            concepts = self.db.query(Concept).filter(Concept.unit_id.in_(unit_ids)).all()
+        else:
+            concepts = []
+        self._concepts_by_key = {(c.canonical_name, c.unit_id): c for c in concepts}
+
+        # 4. Study Evidence + joined Document
+        concept_ids = [c.id for c in concepts]
+        self._evidence_by_concept_id = {}
+        if concept_ids and self._course:
+            from sqlalchemy.orm import joinedload
+            evidence_rows = (
+                self.db.query(StudyEvidence)
+                .options(joinedload(StudyEvidence.document))
+                .join(Document, StudyEvidence.document_id == Document.id)
+                .filter(
+                    StudyEvidence.concept_id.in_(concept_ids),
+                    StudyEvidence.confidence.in_([MappingConfidence.HIGH, MappingConfidence.MEDIUM]),
+                    Document.subject == self._course.name,
+                )
+                .order_by(StudyEvidence.id.asc())
+                .all()
+            )
+            for ev in evidence_rows:
+                self._evidence_by_concept_id.setdefault(ev.concept_id, []).append(ev)
+
+        # 5. Question counts per topic
+        q_counts = (
+            self.db.query(Topic.id, func.count(Question.id))
+            .join(Question.topics)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .filter(Exam.course_id == course_id)
+            .group_by(Topic.id)
+            .all()
+        )
+        self._question_counts_by_topic_id = dict(q_counts)
+
+    def preload_student_progress(self, course_id: int, student_id: str = "anonymous") -> None:
+        """Preload student topic progress in 1 query (0 queries for anonymous)."""
+        if not student_id or student_id == "anonymous" or self.db is None:
+            self._student_progress_by_topic_id = {}
+            return
+        topic_ids = list(self._topics_by_id.keys())
+        if not topic_ids:
+            self._student_progress_by_topic_id = {}
+            return
+        rows = (
+            self.db.query(StudentTopicProgress)
+            .filter(
+                StudentTopicProgress.student_id == student_id,
+                StudentTopicProgress.topic_id.in_(topic_ids),
+            )
+            .all()
+        )
+        self._student_progress_by_topic_id = {r.topic_id: r for r in rows}
+
+    def get_topic_by_name(self, topic_name: str, course_id: Optional[int] = None) -> Optional[Topic]:
+        if self._preloaded and (course_id is None or course_id == self._preloaded_course_id):
+            return self._topics_by_name.get(topic_name)
+        if course_id is not None:
+            return self._course_topic(topic_name, course_id)
+        return None
+
+    def _course_topic(self, topic_name: str, course_id: int) -> Optional[Topic]:
+        if self._preloaded and course_id == self._preloaded_course_id:
+            return self._topics_by_name.get(topic_name)
         if self.db is None:
             return None
         return self.db.query(Topic).join(Unit).join(Syllabus).filter(
             Topic.name == topic_name, Syllabus.course_id == course_id
         ).first()
 
-    def _course_topic_by_id(self, topic_id: int, course_id: int) -> Topic | None:
+    def _course_topic_by_id(self, topic_id: int, course_id: int) -> Optional[Topic]:
+        if self._preloaded and course_id == self._preloaded_course_id:
+            return self._topics_by_id.get(topic_id)
         if self.db is None:
             return None
         return self.db.query(Topic).join(Unit).join(Syllabus).filter(
@@ -90,23 +198,41 @@ class StudyIntelligenceService:
         topic = self._course_topic(topic_name, course_id)
         if not topic:
             return []
-        course = self.db.query(Course).filter(Course.id == course_id).first()
-        concept = self.db.query(Concept).filter(
-            Concept.canonical_name == topic.name,
-            Concept.unit_id == topic.unit_id,
-        ).first()
+
+        if self._preloaded and course_id == self._preloaded_course_id:
+            course = self._course
+            concept = self._concepts_by_key.get((topic.name, topic.unit_id))
+            evidence_rows = self._evidence_by_concept_id.get(concept.id, []) if concept else []
+            question_count = self._question_counts_by_topic_id.get(topic.id, 0)
+        else:
+            course = self.db.query(Course).filter(Course.id == course_id).first()
+            concept = self.db.query(Concept).filter(
+                Concept.canonical_name == topic.name,
+                Concept.unit_id == topic.unit_id,
+            ).first()
+            evidence_rows = []
+            if concept and course:
+                evidence_rows = (
+                    self.db.query(StudyEvidence)
+                    .join(Document, StudyEvidence.document_id == Document.id)
+                    .filter(
+                        StudyEvidence.concept_id == concept.id,
+                        StudyEvidence.confidence.in_([MappingConfidence.HIGH, MappingConfidence.MEDIUM]),
+                        Document.subject == course.name,
+                    )
+                    .all()
+                )
+            question_count = (
+                self.db.query(Question)
+                .join(Section, Question.section_id == Section.id)
+                .join(Exam, Section.exam_id == Exam.id)
+                .join(Question.topics)
+                .filter(Exam.course_id == course_id, Topic.id == topic.id)
+                .count()
+            )
+
         resources: List[Dict[str, Any]] = []
         if concept and course:
-            evidence_rows = (
-                self.db.query(StudyEvidence)
-                .join(Document, StudyEvidence.document_id == Document.id)
-                .filter(
-                    StudyEvidence.concept_id == concept.id,
-                    StudyEvidence.confidence.in_([MappingConfidence.HIGH, MappingConfidence.MEDIUM]),
-                    Document.subject == course.name,
-                )
-                .all()
-            )
             seen = set()
             for evidence in evidence_rows:
                 if evidence.document_id in seen:
@@ -125,14 +251,6 @@ class StudyIntelligenceService:
                     "content": evidence.content[:250] if evidence.content else None,
                 })
 
-        question_count = (
-            self.db.query(Question)
-            .join(Section, Question.section_id == Section.id)
-            .join(Exam, Section.exam_id == Exam.id)
-            .join(Question.topics)
-            .filter(Exam.course_id == course_id, Topic.id == topic.id)
-            .count()
-        )
         if question_count:
             resources.append({
                 "id": None,
@@ -180,11 +298,16 @@ class StudyIntelligenceService:
         )
 
         topic = self._course_topic(prediction.name, course_id) if course_id is not None else None
-        progress = (
-            self.db.query(StudentTopicProgress).filter_by(
-                student_id=student_id, topic_id=topic.id
-            ).first() if (topic and self.db is not None) else None
-        )
+        if self._student_progress_by_topic_id is not None and topic:
+            progress = self._student_progress_by_topic_id.get(topic.id)
+        elif topic and self.db is not None:
+            progress = (
+                self.db.query(StudentTopicProgress).filter_by(
+                    student_id=student_id, topic_id=topic.id
+                ).first()
+            )
+        else:
+            progress = None
         
         student_status = progress.status if progress else "NOT_STARTED"
         practice_accuracy = None
@@ -249,28 +372,36 @@ class StudyIntelligenceService:
         predictions: List[PredictionResult],
         course_id: int,
         student_id: str = "anonymous",
-        target_exam_date: Optional[str] = None
+        target_exam_date: Optional[str] = None,
+        priorities: Optional[List[PriorityResult]] = None,
     ) -> List[Dict[str, Any]]:
-        priorities = [
-            self.calculate_study_priority(prediction, course_id, student_id)
-            for prediction in predictions if getattr(prediction, "target", "topic") == "topic"
-        ]
+        if priorities is None:
+            priorities_list = [
+                self.calculate_study_priority(prediction, course_id, student_id)
+                for prediction in predictions if getattr(prediction, "target", "topic") == "topic"
+            ]
+        else:
+            priorities_list = [p for p in priorities]
         order = {StudyPriority.VERY_HIGH: 0, StudyPriority.HIGH: 1,
                  StudyPriority.MEDIUM: 2, StudyPriority.LOW: 3}
-        priorities.sort(key=lambda item: (order[item.priority], -item.prediction_score, item.topic))
-        return [{"order": index, **priority.to_dict()} for index, priority in enumerate(priorities, 1)]
+        priorities_list.sort(key=lambda item: (order[item.priority], -item.prediction_score, item.topic))
+        return [{"order": index, **priority.to_dict()} for index, priority in enumerate(priorities_list, 1)]
 
     def calculate_coverage_gap(
         self,
         predictions: List[PredictionResult],
         course_id: int,
-        student_id: str = "anonymous"
+        student_id: str = "anonymous",
+        priorities: Optional[List[PriorityResult]] = None,
     ) -> Dict[str, Any]:
-        priorities = [
-            self.calculate_study_priority(p, course_id, student_id)
-            for p in predictions if getattr(p, "target", "topic") == "topic"
-        ]
-        total_predicted = len(priorities)
+        if priorities is None:
+            priorities_list = [
+                self.calculate_study_priority(p, course_id, student_id)
+                for p in predictions if getattr(p, "target", "topic") == "topic"
+            ]
+        else:
+            priorities_list = priorities
+        total_predicted = len(priorities_list)
         if total_predicted == 0:
             return {
                 "total_predicted_topics": 0,
@@ -290,7 +421,7 @@ class StudyIntelligenceService:
         unstudied = 0
         gap_topics = []
 
-        for item in priorities:
+        for item in priorities_list:
             status = item.student_status or "NOT_STARTED"
             acc = item.practice_accuracy
             is_mastered = (status == "COMPLETED" and (acc is None or acc >= 0.6))

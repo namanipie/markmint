@@ -1,0 +1,447 @@
+{
+  "data_availability_status": "INSUFFICIENT_EVIDENCE",
+  "course": {
+    "id": 14,
+    "name": "Electrical and Electronics Engineering",
+    "code": "SEM1-EEE",
+    "canonical_code": "21EEB101J",
+    "department": "Electrical & Electronics",
+    "regulation_year": 2021
+  },
+  "curriculum": {
+    "curriculum_id": "aeros-1-4",
+    "subject_name": "Electrical and Electronics Engineering",
+    "branch_name": "Aerospace Engineering",
+    "semester": 1,
+    "credits": 4,
+    "status": "MATCHED",
+    "notes": "No historical exams found prior to target cutoff year for assessment cycle 'CT1'."
+  },
+  "exam_history": {
+    "total_papers": 0,
+    "historical_papers_analyzed": 0,
+    "total_questions": 0,
+    "years": [],
+    "available_assessment_types": [
+      "END_SEM",
+      "DEGREE EXAMINATION",
+      "CT1",
+      "CT3",
+      "MODEL",
+      "UNKNOWN"
+    ],
+    "available_assessment_cycles": [
+      "ALL",
+      "CT1",
+      "ENDSEM"
+    ],
+    "assessment_cycle": "CT1"
+  },
+  "available_assessment_types": [
+    "END_SEM",
+    "DEGREE EXAMINATION",
+    "CT1",
+    "CT3",
+    "MODEL",
+    "UNKNOWN"
+  ],
+  "available_assessment_cycles": [
+    "ALL",
+    "CT1",
+    "ENDSEM"
+  ],
+  "assessment_cycle": "CT1",
+  "assessment_component": "CT1",
+  "assessment_label": "Cycle Test 1 (CLA-1)",
+  "evidence_status": "EVIDENCE_BACKED",
+  "intended_scope": {
+    "unit_numbers": [
+      1,
+      2
+    ],
+    "topic_names": [
+      "AC Circuit Fundamentals",
+      "DC Circuit Terminologies and Kirchhoff's Laws",
+      "Digital Logic and Combinational Design",
+      "FPGA and PCB Design",
+      "Field Effect Transistors",
+      "Karnaugh Map Minimization",
+      "Mesh Current and Nodal Voltage Analysis",
+      "Network Theorems",
+      "Power Converters and Regulators",
+      "Power Semiconductor Devices",
+      "Rectifier Circuits",
+      "SCR Switching and Commutation",
+      "Semiconductors, Diodes, and BJT",
+      "Single-Phase AC Series Circuits",
+      "Three-Phase AC Systems"
+    ],
+    "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
+    "notes": "Electric Circuits and Electronics"
+  },
+  "observed_scope": {
+    "paper_count": 4,
+    "total_questions": 14,
+    "mapped_questions_count": 10,
+    "unmapped_questions_count": 4,
+    "questions_with_known_marks": 0,
+    "questions_with_unknown_marks": 14,
+    "known_marks_total": 0.0,
+    "mapping_rate": 71.43,
+    "unit_numbers": [
+      1
+    ],
+    "topic_names": [
+      "DC Circuit Terminologies and Kirchhoff's Laws",
+      "Mesh Current and Nodal Voltage Analysis",
+      "Network Theorems",
+      "Single-Phase AC Series Circuits",
+      "Three-Phase AC Systems"
+    ],
+    "question_count_by_unit": {
+      "1": 10
+    },
+    "marks_by_unit": {},
+    "papers": [
+      {
+        "exam_id": 166,
+        "year": null,
+        "raw_assessment_type": "CT1",
+        "normalized_code": "CT1",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Electrical And Electronics Engineering - CT-1 AK- SETB.pdf",
+        "total_questions": 3,
+        "mapped_questions": 1,
+        "unmapped_questions": 2,
+        "mapping_rate": 33.33,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 3,
+        "observed_units": [
+          1
+        ],
+        "question_count_by_unit": {
+          "1": 1
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 168,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "CT1",
+        "identification_source": "document_metadata",
+        "identification_confidence": 0.9,
+        "document_title": "Electrical And Electronics Engineering - CT-1 AK-SETA.pdf",
+        "total_questions": 1,
+        "mapped_questions": 1,
+        "unmapped_questions": 0,
+        "mapping_rate": 100.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 1,
+        "observed_units": [
+          1
+        ],
+        "question_count_by_unit": {
+          "1": 1
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 171,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "CT1",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "Electrical And Electronics Engineering - EEE_CT-1_SET-D_AK.pdf",
+        "total_questions": 5,
+        "mapped_questions": 3,
+        "unmapped_questions": 2,
+        "mapping_rate": 60.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1
+        ],
+        "question_count_by_unit": {
+          "1": 3
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 172,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "CT1",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "Electrical And Electronics Engineering - EEE_CT-1_SETC-C_AK.pdf",
+        "total_questions": 5,
+        "mapped_questions": 5,
+        "unmapped_questions": 0,
+        "mapping_rate": 100.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1
+        ],
+        "question_count_by_unit": {
+          "1": 5
+        },
+        "marks_by_unit": {}
+      }
+    ]
+  },
+  "assessment_scope": {
+    "student_cycle": "CT1",
+    "component_code": "CT1",
+    "component_label": "Cycle Test 1 (CLA-1)",
+    "student_label": "CT1",
+    "role": "CYCLE_TEST",
+    "marks": 15.0,
+    "evidence_status": "EVIDENCE_BACKED",
+    "intended_scope": {
+      "unit_numbers": [
+        1,
+        2
+      ],
+      "topic_names": [
+        "AC Circuit Fundamentals",
+        "DC Circuit Terminologies and Kirchhoff's Laws",
+        "Digital Logic and Combinational Design",
+        "FPGA and PCB Design",
+        "Field Effect Transistors",
+        "Karnaugh Map Minimization",
+        "Mesh Current and Nodal Voltage Analysis",
+        "Network Theorems",
+        "Power Converters and Regulators",
+        "Power Semiconductor Devices",
+        "Rectifier Circuits",
+        "SCR Switching and Commutation",
+        "Semiconductors, Diodes, and BJT",
+        "Single-Phase AC Series Circuits",
+        "Three-Phase AC Systems"
+      ],
+      "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
+      "notes": "Electric Circuits and Electronics"
+    },
+    "observed_scope": {
+      "paper_count": 4,
+      "total_questions": 14,
+      "mapped_questions_count": 10,
+      "unmapped_questions_count": 4,
+      "questions_with_known_marks": 0,
+      "questions_with_unknown_marks": 14,
+      "known_marks_total": 0.0,
+      "mapping_rate": 71.43,
+      "unit_numbers": [
+        1
+      ],
+      "topic_names": [
+        "DC Circuit Terminologies and Kirchhoff's Laws",
+        "Mesh Current and Nodal Voltage Analysis",
+        "Network Theorems",
+        "Single-Phase AC Series Circuits",
+        "Three-Phase AC Systems"
+      ],
+      "question_count_by_unit": {
+        "1": 10
+      },
+      "marks_by_unit": {},
+      "papers": [
+        {
+          "exam_id": 166,
+          "year": null,
+          "raw_assessment_type": "CT1",
+          "normalized_code": "CT1",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Electrical And Electronics Engineering - CT-1 AK- SETB.pdf",
+          "total_questions": 3,
+          "mapped_questions": 1,
+          "unmapped_questions": 2,
+          "mapping_rate": 33.33,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 3,
+          "observed_units": [
+            1
+          ],
+          "question_count_by_unit": {
+            "1": 1
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 168,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "CT1",
+          "identification_source": "document_metadata",
+          "identification_confidence": 0.9,
+          "document_title": "Electrical And Electronics Engineering - CT-1 AK-SETA.pdf",
+          "total_questions": 1,
+          "mapped_questions": 1,
+          "unmapped_questions": 0,
+          "mapping_rate": 100.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 1,
+          "observed_units": [
+            1
+          ],
+          "question_count_by_unit": {
+            "1": 1
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 171,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "CT1",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "Electrical And Electronics Engineering - EEE_CT-1_SET-D_AK.pdf",
+          "total_questions": 5,
+          "mapped_questions": 3,
+          "unmapped_questions": 2,
+          "mapping_rate": 60.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1
+          ],
+          "question_count_by_unit": {
+            "1": 3
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 172,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "CT1",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "Electrical And Electronics Engineering - EEE_CT-1_SETC-C_AK.pdf",
+          "total_questions": 5,
+          "mapped_questions": 5,
+          "unmapped_questions": 0,
+          "mapping_rate": 100.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1
+          ],
+          "question_count_by_unit": {
+            "1": 5
+          },
+          "marks_by_unit": {}
+        }
+      ]
+    },
+    "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
+    "unit_numbers": [
+      1,
+      2
+    ],
+    "total_in_scope_topics": 15,
+    "observed_in_scope_topics": 0,
+    "unobserved_in_scope_topics": [
+      {
+        "name": "AC Circuit Fundamentals",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "DC Circuit Terminologies and Kirchhoff's Laws",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Digital Logic and Combinational Design",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "FPGA and PCB Design",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Field Effect Transistors",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Karnaugh Map Minimization",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Mesh Current and Nodal Voltage Analysis",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Network Theorems",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Power Converters and Regulators",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Power Semiconductor Devices",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Rectifier Circuits",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "SCR Switching and Commutation",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Semiconductors, Diodes, and BJT",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Single-Phase AC Series Circuits",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      },
+      {
+        "name": "Three-Phase AC Systems",
+        "status": "UNOBSERVED_IN_SCOPE",
+        "message": "In syllabus scope, but no historical evidence available"
+      }
+    ],
+    "out_of_scope_observed_topics": []
+  },
+  "message": "Insufficient historical examination papers prior to cutoff year for 'Electrical and Electronics Engineering' under assessment cycle 'CT1'.",
+  "predictions": [],
+  "study_priorities": [],
+  "coverage_summary": null,
+  "metadata": {
+    "model_version": "2.2.0",
+    "taxonomy_version": "1.0.0",
+    "engine_version": "mintai-v2",
+    "generated_at": "2026-09-21T08:15:23.268013"
+  }
+}

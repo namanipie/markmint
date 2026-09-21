@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query, Depends
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import func
 from backend.services.prediction.engine import ExamScopeCombinedModel
 from backend.services.dna.analyzer import DNAAnalyzerService
@@ -11,9 +11,6 @@ from backend.services.assessment_cycle import normalize_assessment_cycle, Assess
 from backend.services.assessment_plan_registry import get_course_assessment_scope
 import re
 from typing import Any, Optional
-from fastapi import APIRouter, HTTPException, Query, Depends
-from sqlalchemy.orm import Session
-from sqlalchemy import func
 
 router = APIRouter()
 
@@ -23,26 +20,26 @@ def _find_course(db: Session, identifier: str) -> Optional[Course]:
     if not identifier:
         return None
 
-    # 1. Canonical code match (e.g. 21MAB101T)
-    course = db.query(Course).filter(func.lower(Course.canonical_code) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 2. Exact or case-insensitive name match
-    course = db.query(Course).filter(func.lower(Course.name) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 3. Case-insensitive code match (e.g. SEM1-CALC)
-    course = db.query(Course).filter(func.lower(Course.code) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 4. Numeric ID match
+    # 1. Numeric ID match (fastest if numeric ID passed)
     if str(identifier).isdigit():
-        course = db.query(Course).filter(Course.id == int(identifier)).first()
+        course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == int(identifier)).first()
         if course:
             return course
+
+    # 2. Canonical code match (e.g. 21MAB101T)
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.canonical_code) == identifier.lower()).first()
+    if course:
+        return course
+
+    # 3. Exact or case-insensitive name match
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.name) == identifier.lower()).first()
+    if course:
+        return course
+
+    # 4. Case-insensitive code match (e.g. SEM1-CALC)
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.code) == identifier.lower()).first()
+    if course:
+        return course
 
     # 5. Normalized alphanumeric match (ignores spaces, punctuation, case)
     norm_id = re.sub(r'[^a-zA-Z0-9]', '', str(identifier)).lower()
