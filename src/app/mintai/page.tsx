@@ -18,7 +18,8 @@ import {
   getIntelligenceSnapshot,
   getHistoricalQuestions,
   getCourseTracks,
-  updateStudyProgress
+  updateStudyProgress,
+  ApiError
 } from "@/lib/api";
 import {
   CurriculumSubject,
@@ -425,10 +426,18 @@ export default function MintAIPage() {
     } catch (err: any) {
       console.error("Intelligence snapshot generation failed", err);
       setError("Exam intelligence is temporarily unavailable.");
+      const errorCategory = err instanceof ApiError
+        ? err.category
+        : (err?.name === "TypeError" ? "NETWORK_FAILURE" : (err?.status >= 500 ? "HTTP_5XX" : "UNKNOWN"));
       trackFrictionEvent("api_error", {
         course_id: selectedSubject?.course_id,
         course_code: selectedSubject?.canonical_code,
-        metadata: { endpoint: "getIntelligenceSnapshot", message: err?.message || "Unknown error" }
+        metadata: {
+          endpoint: "getIntelligenceSnapshot",
+          error_category: errorCategory,
+          status: err?.status,
+          message: err?.detail || err?.message || "Unknown error"
+        }
       });
     } finally {
       setIsAnalyzing(false);
@@ -780,7 +789,7 @@ export default function MintAIPage() {
                 {isAnalyzing ? (
                   <>
                     <Activity className="w-4 h-4 animate-spin" />
-                    <span>Synthesizing Intelligence...</span>
+                    <span>Preparing your exam intelligence...</span>
                   </>
                 ) : (
                   <>

@@ -1,6 +1,6 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
-export type ApiErrorCategory = "NETWORK_FAILURE" | "HTTP_4XX" | "HTTP_5XX" | "UNKNOWN";
+export type ApiErrorCategory = "NETWORK_FAILURE" | "HTTP_4XX" | "HTTP_5XX" | "EMPTY_RESULT" | "UNKNOWN";
 
 export class ApiError extends Error {
   status?: number;
