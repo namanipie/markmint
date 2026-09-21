@@ -104,7 +104,7 @@ def test_calculus_and_chemistry_intelligence_unaffected(client: TestClient) -> N
     assert res_calc.status_code == 200
     data_calc = res_calc.json()
     assert data_calc["prediction_mode"] == "topic"
-    assert data_calc["taxonomy_topic_count"] == 27
+    assert data_calc["taxonomy_topic_count"] == 19
 
     res_chem = client.get("/api/intelligence/2")
     assert res_chem.status_code == 200

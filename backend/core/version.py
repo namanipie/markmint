@@ -1,7 +1,7 @@
 """Centralized intelligence model, taxonomy, and engine versioning."""
 
 MODEL_VERSION = "2.2.0"
-TAXONOMY_VERSION = "1.0.0"
+TAXONOMY_VERSION = "2.0.0"
 ENGINE_VERSION = "mintai-v2"
 CORPUS_VERSION = "2026.1"
 CALIBRATION_METHOD = "LAPLACE_SMOOTHED_PAPER_RECURRENCE"

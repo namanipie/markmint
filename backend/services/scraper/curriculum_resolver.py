@@ -68,6 +68,26 @@ class CurriculumResolver:
         "probabilityandstatisticspands": "Probability and Statistics",
         "probabilityandstatisticsps": "Probability and Statistics",
         "buildingmaterialsinthebuiltenvironment": "Building Materials in the Built Environment",
+        "advancedprogrammingpractice": "Advanced Programming Practice",
+        "advancedprogrammingpracticeapp": "Advanced Programming Practice",
+        "app": "Advanced Programming Practice",
+        "artificialintelligence": "Artificial Intelligence",
+        "ai": "Artificial Intelligence",
+        "computerorganizationandarchitecture": "Computer Organization and Architecture",
+        "coa": "Computer Organization and Architecture",
+        "designandanalysisofalgorithms": "Design and Analysis of Algorithms",
+        "daa": "Design and Analysis of Algorithms",
+        "datastructuresandalgorithms": "Data Structures and Algorithms",
+        "dsa": "Data Structures and Algorithms",
+        "databasemanagementsystems": "Database Management Systems",
+        "dbms": "Database Management Systems",
+        "operatingsystems": "Operating Systems",
+        "os": "Operating Systems",
+        "controlsystems": "Control Systems",
+        "digitalelectronicprinciples": "Digital Electronic Principles",
+        "electronicdevices": "Electronic Devices",
+        "coi": "Constitution of India",
+        "constitutionofindia": "Constitution of India",
     }
 
     def __init__(self, db: Session):
@@ -105,6 +125,14 @@ class CurriculumResolver:
                 break
 
         if matched_course:
+            # Determine canonical semester from curriculum mapping
+            canon_map = (
+                self.db.query(CurriculumMapping)
+                .filter(CurriculumMapping.course_id == matched_course.id)
+                .first()
+            )
+            canonical_sem = canon_map.semester if canon_map else None
+
             # Check if course has active exam materials or is catalog-only
             exam_count = (
                 self.db.query(func.count(Exam.id))
@@ -130,6 +158,7 @@ class CurriculumResolver:
                 course_id=matched_course.id,
                 course_name=matched_course.name,
                 canonical_code=matched_course.canonical_code,
+                canonical_semester=canonical_sem,
                 notes=(
                     f"Canonical Course: {matched_course.name} ({matched_course.code})"
                     + (" [Catalog Only]" if status == CurriculumMatchState.CATALOG_ONLY else " [Ready]")
@@ -185,12 +214,14 @@ class CurriculumResolver:
                     course_name=course.name if course else None,
                     canonical_code=course.canonical_code if course else None,
                     curriculum_mapping_id=mappings[0].id,
+                    canonical_semester=mappings[0].semester,
                     notes=f"Resolved via CurriculumMapping to Course ID {cid}",
                 )
 
             return CurriculumMatchResult(
-                status=CurriculumMatchState.UNMATCHED,
+                status=CurriculumMatchState.CATALOG_ONLY,
                 curriculum_mapping_id=mappings[0].id,
+                canonical_semester=mappings[0].semester,
                 notes="Curriculum entry exists in catalog but has no canonical Course entity",
             )
 

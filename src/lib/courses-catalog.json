@@ -15,10 +15,10 @@
     "regulation": "2021",
     "credits": 4,
     "description": "Calculus and Linear Algebra covers matrices, eigenvalues, multi-variable partial differentiation, vector calculus, ordinary differential equations, and infinite series under SRMIST Regulation 2021.",
-    "paperCount": 14,
-    "questionCount": 282,
-    "mappedQuestionCount": 164,
-    "mappingRate": 0.582,
+    "paperCount": 13,
+    "questionCount": 272,
+    "mappedQuestionCount": 158,
+    "mappingRate": 0.581,
     "hasTracks": false,
     "tracks": [],
     "units": [
@@ -36,6 +36,18 @@
       },
       {
         "number": 2,
+        "name": "Functions of Several Variables",
+        "topicCount": 5,
+        "topics": [
+          "Partial Derivatives",
+          "Gradient",
+          "Directional Derivatives",
+          "Extrema and Optimization",
+          "Taylor Series"
+        ]
+      },
+      {
+        "number": 3,
         "name": "Ordinary Differential Equations",
         "topicCount": 3,
         "topics": [
@@ -45,71 +57,23 @@
         ]
       },
       {
-        "number": 3,
-        "name": "Partial Differential Equations",
-        "topicCount": 2,
-        "topics": [
-          "PDE Classification",
-          "Separation of Variables"
-        ]
-      },
-      {
         "number": 4,
-        "name": "Laplace Transforms",
-        "topicCount": 2,
+        "name": "Differential Calculus and Geometrical Applications",
+        "topicCount": 3,
         "topics": [
-          "Laplace Transform Tables",
-          "Inverse Laplace Transforms"
+          "Beta and Gamma Functions",
+          "Radius and Circle of Curvature",
+          "Evolutes and Envelopes"
         ]
       },
       {
         "number": 5,
-        "name": "Sequence and Series",
-        "topicCount": 4,
+        "name": "Sequences and Series",
+        "topicCount": 3,
         "topics": [
           "Convergence Tests",
           "Power Series",
-          "Fourier Series",
-          "Taylor Series"
-        ]
-      },
-      {
-        "number": 6,
-        "name": "Functions of Several Variables",
-        "topicCount": 4,
-        "topics": [
-          "Partial Derivatives",
-          "Gradient",
-          "Directional Derivatives",
-          "Extrema and Optimization"
-        ]
-      },
-      {
-        "number": 7,
-        "name": "Multiple Integrals",
-        "topicCount": 3,
-        "topics": [
-          "Double Integrals",
-          "Triple Integrals",
-          "Change of Variables"
-        ]
-      },
-      {
-        "number": 8,
-        "name": "Vector Calculus",
-        "topicCount": 1,
-        "topics": [
-          "Vector Calculus"
-        ]
-      },
-      {
-        "number": 9,
-        "name": "Complex Analysis",
-        "topicCount": 3,
-        "topics": [
-          "Complex Variables and Analytic Functions",
-          "Conformal Mapping",
-          "Residues and Laurent Series"
+          "Fourier Series"
         ]
       }
     ],
@@ -148,7 +112,7 @@
     "highYieldTopics": [
       {
         "topic": "Second-Order ODE",
-        "unitNumber": 2,
+        "unitNumber": 3,
         "questionCount": 28,
         "paperCount": 7
       },
@@ -160,7 +124,7 @@
       },
       {
         "topic": "Partial Derivatives",
-        "unitNumber": 6,
+        "unitNumber": 2,
         "questionCount": 24,
         "paperCount": 10
       },
@@ -210,8 +174,8 @@
     "units": [
       {
         "number": 1,
-        "name": "Periodic Properties",
-        "topicCount": 8,
+        "name": "Periodic Properties and Atomic Structure",
+        "topicCount": 17,
         "topics": [
           "Periodic Trends",
           "Atomic Radius",
@@ -220,17 +184,32 @@
           "Electronegativity",
           "Ionic Radius",
           "Effective Nuclear Charge and Screening",
-          "Polarizability and Polarizing Power"
+          "Polarizability and Polarizing Power",
+          "Quantum Mechanics and Atomic Structure",
+          "Particle in a Box",
+          "Hydrogen Atomic Orbitals",
+          "Molecular Orbital Theory",
+          "Aromaticity and Pi Molecular Orbitals",
+          "Coordination Chemistry",
+          "Crystal Field Theory",
+          "Coordination Isomerism",
+          "Molecular Symmetry"
         ]
       },
       {
         "number": 2,
-        "name": "Chemical Equilibria",
-        "topicCount": 3,
+        "name": "Chemical Equilibria and Electrochemistry",
+        "topicCount": 9,
         "topics": [
           "Equilibrium Constant",
           "Le Chatelier Principle",
-          "Free Energy in Equilibria"
+          "Free Energy in Equilibria",
+          "Chemical Thermodynamics",
+          "Hard and Soft Acids and Bases",
+          "Intermolecular Forces",
+          "Real Gases and Critical Phenomena",
+          "Electrochemical Cells and Electrode Potentials",
+          "Solubility Equilibria"
         ]
       },
       {
@@ -260,81 +239,17 @@
       {
         "number": 5,
         "name": "Advanced Engineering Materials",
-        "topicCount": 2,
+        "topicCount": 9,
         "topics": [
           "Material Properties",
-          "Corrosion Resistance"
-        ]
-      },
-      {
-        "number": 6,
-        "name": "Quantum and Atomic Structure",
-        "topicCount": 3,
-        "topics": [
-          "Quantum Mechanics and Atomic Structure",
-          "Particle in a Box",
-          "Hydrogen Atomic Orbitals"
-        ]
-      },
-      {
-        "number": 7,
-        "name": "Molecular Orbital Theory",
-        "topicCount": 2,
-        "topics": [
-          "Molecular Orbital Theory",
-          "Aromaticity and Pi Molecular Orbitals"
-        ]
-      },
-      {
-        "number": 8,
-        "name": "Coordination and Crystal Field Theory",
-        "topicCount": 4,
-        "topics": [
-          "Coordination Chemistry",
-          "Crystal Field Theory",
-          "Coordination Isomerism",
-          "Molecular Symmetry"
-        ]
-      },
-      {
-        "number": 9,
-        "name": "Spectroscopy",
-        "topicCount": 6,
-        "topics": [
+          "Corrosion Resistance",
           "Spectroscopy Fundamentals",
           "Electronic and UV-Visible Spectroscopy",
           "Rotational Spectroscopy",
           "Vibrational and Infrared Spectroscopy",
           "Nuclear Magnetic Resonance",
-          "Photoelectron Spectroscopy"
-        ]
-      },
-      {
-        "number": 10,
-        "name": "Solid State and Diffraction",
-        "topicCount": 1,
-        "topics": [
+          "Photoelectron Spectroscopy",
           "X-ray Diffraction and Crystal Structure"
-        ]
-      },
-      {
-        "number": 11,
-        "name": "Thermodynamics and Intermolecular Forces",
-        "topicCount": 4,
-        "topics": [
-          "Chemical Thermodynamics",
-          "Hard and Soft Acids and Bases",
-          "Intermolecular Forces",
-          "Real Gases and Critical Phenomena"
-        ]
-      },
-      {
-        "number": 12,
-        "name": "Electrochemistry",
-        "topicCount": 2,
-        "topics": [
-          "Electrochemical Cells and Electrode Potentials",
-          "Solubility Equilibria"
         ]
       }
     ],
@@ -373,25 +288,25 @@
     "highYieldTopics": [
       {
         "topic": "Crystal Field Theory",
-        "unitNumber": 8,
+        "unitNumber": 1,
         "questionCount": 22,
         "paperCount": 8
       },
       {
         "topic": "Molecular Orbital Theory",
-        "unitNumber": 7,
+        "unitNumber": 1,
         "questionCount": 18,
         "paperCount": 3
       },
       {
         "topic": "Electrochemical Cells and Electrode Potentials",
-        "unitNumber": 12,
+        "unitNumber": 2,
         "questionCount": 13,
         "paperCount": 6
       },
       {
         "topic": "X-ray Diffraction and Crystal Structure",
-        "unitNumber": 10,
+        "unitNumber": 5,
         "questionCount": 11,
         "paperCount": 4
       },
@@ -3002,10 +2917,10 @@
     "regulation": "2021",
     "credits": 4,
     "description": "Advanced Calculus and Complex Analysis covers analytic functions, conformal mapping, contour integration, Cauchy residue theorems, Fourier transforms, and Laplace transformation calculus.",
-    "paperCount": 14,
-    "questionCount": 456,
-    "mappedQuestionCount": 258,
-    "mappingRate": 0.566,
+    "paperCount": 15,
+    "questionCount": 466,
+    "mappedQuestionCount": 264,
+    "mappingRate": 0.567,
     "hasTracks": false,
     "tracks": [],
     "units": [
@@ -3105,14 +3020,14 @@
       {
         "topic": "Divergence, Curl, Solenoidal, and Irrotational Fields",
         "unitNumber": 2,
-        "questionCount": 25,
-        "paperCount": 13
+        "questionCount": 26,
+        "paperCount": 14
       },
       {
         "topic": "Taylor's and Laurent's Series Expansions",
         "unitNumber": 5,
-        "questionCount": 23,
-        "paperCount": 13
+        "questionCount": 24,
+        "paperCount": 14
       },
       {
         "topic": "Inverse Laplace Transforms and Partial Fractions",
@@ -3478,7 +3393,75 @@
     "mappingRate": 0.448,
     "hasTracks": false,
     "tracks": [],
-    "units": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Electromagnetism and Dielectrics",
+        "topicCount": 6,
+        "topics": [
+          "Vector Calculus and Del Operator",
+          "Electrostatics and Charge Distributions",
+          "Gauss's Law and Electrostatic Potentials",
+          "Electrodynamics and Magnetism",
+          "Maxwell's Equations and EM Waves",
+          "Dielectric Materials and Polarization"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Magnetic Materials",
+        "topicCount": 6,
+        "topics": [
+          "Magnetic Properties and Parameters",
+          "Ferromagnetism and Domain Theory",
+          "Soft and Hard Magnetic Materials",
+          "Ferrites and Spinel Structures",
+          "Spintronics and Magnetoresistance",
+          "Multiferroic Materials"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Quantum Mechanics",
+        "topicCount": 7,
+        "topics": [
+          "Inadequacies of Classical Mechanics and Blackbody Radiation",
+          "Photoelectric and Compton Effects",
+          "Matter Waves and Uncertainty Principle",
+          "Wave Function and Postulates",
+          "Schrödinger Wave Equations",
+          "Quantum Wells and Potential Barriers",
+          "Harmonic Oscillator and Hydrogen Atom"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Wave Optics",
+        "topicCount": 6,
+        "topics": [
+          "Superposition and Interference of Light",
+          "Fresnel and Fraunhofer Diffraction",
+          "Fraunhofer Slit Diffraction",
+          "Plane Diffraction Grating",
+          "Polarization of Light",
+          "Double Refraction and Polarizing Devices"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Lasers and Fiber Optics",
+        "topicCount": 7,
+        "topics": [
+          "Laser Principles and Einstein Coefficients",
+          "Population Inversion and Pumping Schemes",
+          "Gas and Solid State Lasers",
+          "Semiconductor Diode Lasers",
+          "Optical Fiber Transmission",
+          "Fiber Classification and Losses",
+          "Fiber Optic Communication and Sensors"
+        ]
+      }
+    ],
     "assessmentCycles": [
       {
         "cycle": "CT1",

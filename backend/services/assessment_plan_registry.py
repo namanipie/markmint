@@ -26,8 +26,9 @@ class ComponentDefinition:
     sequence: int                   # Order in semester
     marks: Optional[float]          # Weightage or max marks
     raw_labels: List[str]           # Exact raw labels mapped for THIS course
-    syllabus_units: List[int]       # Unit numbers in scope
+    syllabus_units: Optional[List[int]] = None  # Unit numbers in scope ONLY if authoritative evidence exists
     syllabus_topics: Optional[List[str]] = None  # Explicit topics if stated
+    has_authoritative_unit_scope: bool = False   # True ONLY if evidence exists in repo
     notes: Optional[str] = None
 
 
@@ -56,10 +57,11 @@ class AssessmentScope:
     in_scope_topic_ids: Set[int] = field(default_factory=set)
     in_scope_topic_names: Set[str] = field(default_factory=set)
     has_authoritative_plan: bool = False
+    has_authoritative_unit_scope: bool = False
     source_document: Optional[str] = None
     notes: Optional[str] = None
     evidence_status: str = "ALL_SCOPE"  # "EVIDENCE_BACKED" | "INTENDED_ONLY_NO_PAPERS" | "OUT_OF_SCOPE_OBSERVED" | "UNPLANNED_OBSERVED_ONLY" | "ALL_SCOPE"
-    intended_scope: Dict[str, Any] = field(default_factory=dict)
+    intended_scope: Optional[Dict[str, Any]] = None
     observed_scope: Dict[str, Any] = field(default_factory=dict)
 
 
@@ -73,15 +75,15 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
     # --------------------------------------------------------------------------
     # Course 1: Calculus And Linear Algebra (21MAB101T / 18MAB101T)
     # Source: data/1 Year/MATHS/detailed sylabbus.docx
-    # Evidence: Table 5 shows CA-1 (Units 1-2), CA-2 (Units 3-6), Final Exam (Units 1-9)
-    # FT2 and FT-II in 2025 QP represent CA-2 / CT2.
+    # Intended internal unit scope is not specified in syllabus (Bloom's % only).
+    # Raw label mapping preserves examination cycle identification.
     # --------------------------------------------------------------------------
     1: CoursePlanDefinition(
         course_id=1,
         canonical_code="21MAB101T",
         course_name="Calculus And Linear Algebra",
         regulation_year=2021,
-        source_document="data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus & Assessment Plan)",
+        source_document="data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus)",
         components=[
             ComponentDefinition(
                 code="CT1",
@@ -91,8 +93,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1", "CA-1", "CA 1"],
-                syllabus_units=[1, 2],
-                notes="Matrices and Linear Algebra, Ordinary Differential Equations"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Continuous learning assessment 1. Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -102,8 +105,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=2,
                 marks=15.0,
                 raw_labels=["CT2", "CLA-2", "CLA2", "CA-2", "CA 2", "FT2", "FT-II"],
-                syllabus_units=[3, 4, 5, 6],
-                notes="PDEs, Laplace Transforms, Sequences and Series, Multivariable Functions. FT2/FT-II in 2025 verified as CT2."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="FT2/FT-II in 2025 verified as CT2. Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
@@ -113,8 +117,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5, 6, 7, 8, 9],
-                notes="Comprehensive final examination covering all curriculum units."
+                syllabus_units=[1, 2, 3, 4, 5],
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive final degree examination covering all 5 canonical curriculum units."
             ),
         ],
         notes="Authoritative Course Learning Syllabus Table 5 defines CA-1, CA-2, CA-3, and Final Exam."
@@ -123,14 +128,13 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
     # --------------------------------------------------------------------------
     # Course 2: Chemistry (21CYB101J / 18CYB101J)
     # Source: data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf
-    # Evidence: Assessment Test I (Units 1-2), Test II (Units 3-4), Test III (Units 5+ practical)
     # --------------------------------------------------------------------------
     2: CoursePlanDefinition(
         course_id=2,
         canonical_code="21CYB101J",
         course_name="Chemistry",
         regulation_year=2021,
-        source_document="data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf (Continuous Learning Assessment Schedule)",
+        source_document="data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf",
         components=[
             ComponentDefinition(
                 code="CT1",
@@ -145,8 +149,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                     "INTERNAL ASSESSMENT - I [FJI]",
                     "CT1", "CLA-1", "CLA1"
                 ],
-                syllabus_units=[1, 2],
-                notes="Periodic Properties, Chemical Equilibria"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -156,30 +161,21 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=2,
                 marks=15.0,
                 raw_labels=["INTERNAL ASSESSMENT - 2", "INTERNAL ASSESSMENT - II", "CT2", "CLA-2", "CLA2"],
-                syllabus_units=[3, 4],
-                notes="Stereochemistry & Organic Reactions, Polymers"
-            ),
-            ComponentDefinition(
-                code="FT3",
-                canonical_label="Assessment Test III (Continuous Learning Assessment 3)",
-                student_label="CT3",
-                role="FORMATIVE_TEST",
-                sequence=3,
-                marks=15.0,
-                raw_labels=["INTERNAL ASSESSMENT - 3", "INTERNAL ASSESSMENT - III", "CT3"],
-                syllabus_units=[5, 11],
-                notes="Thermodynamics and Advanced Materials formative review"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
                 canonical_label="End Semester Examination",
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
-                sequence=4,
+                sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=list(range(1, 13)),
-                notes="Comprehensive assessment covering all 12 units of Chemistry."
+                syllabus_units=[1, 2, 3, 4, 5],
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive university degree examination covering all 5 canonical units of Chemistry."
             ),
         ]
     ),
@@ -203,8 +199,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1", "CLA-T1", "CLAT-1"],
-                syllabus_units=[1, 2],
-                notes="Problem Solving and C Basics, Control Flow, Arrays, and Pointers"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -214,8 +211,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=2,
                 marks=15.0,
                 raw_labels=["CT2", "CLA-2", "CLA2", "CLA-T2", "CLAT-2"],
-                syllabus_units=[3, 4],
-                notes="Strings, Functions, Storage Classes, Introduction to Python and Data Structures"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
@@ -226,7 +224,8 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
-                notes="Comprehensive C and Python Programming"
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive C and Python Programming covering all 5 units."
             ),
         ]
     ),
@@ -250,8 +249,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1"],
-                syllabus_units=[1, 2],
-                notes="Free Electron Theory, Energy Bands, Semiconductor Physics"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -260,9 +260,10 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 role="CYCLE_TEST",
                 sequence=2,
                 marks=15.0,
-                raw_labels=["CT2", "CLA-2", "CLA2", "CLA1-2", "CT1-2"],
-                syllabus_units=[3, 4],
-                notes="Optical Processes, Photovoltaic Devices, Semiconductor Measurements"
+                raw_labels=["CT2", "CLA-2", "CLA2", "CLA1-2"],
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
@@ -273,15 +274,15 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
-                notes="Comprehensive Semiconductor Physics and Computational Methods"
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive Semiconductor Physics and Computational Methods covering all 5 units."
             ),
         ]
     ),
 
     # --------------------------------------------------------------------------
     # Course 14: Electrical and Electronics Engineering (21EEB101J / 21EES101T)
-    # Source: SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J
-    # Notice: CT3 covers Units 4 and 5 (Transducers and Power Engineering).
+    # Source: SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T
     # --------------------------------------------------------------------------
     14: CoursePlanDefinition(
         course_id=14,
@@ -292,25 +293,27 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
         components=[
             ComponentDefinition(
                 code="CT1",
-                canonical_label="Cycle Test 1 (CLA-1)",
+                canonical_label="Continuous Learning Assessment 1 (Cycle Test 1)",
                 student_label="CT1",
                 role="CYCLE_TEST",
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1"],
-                syllabus_units=[1, 2],
-                notes="Electric Circuits and Electronics"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
-                canonical_label="Cycle Test 2 (CLA-2)",
+                canonical_label="Continuous Learning Assessment 2 (Cycle Test 2)",
                 student_label="CT2",
                 role="CYCLE_TEST",
                 sequence=2,
                 marks=15.0,
                 raw_labels=["CT2", "CLA-2", "CLA2"],
-                syllabus_units=[2, 3],
-                notes="Electronics, Machines and Drives"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT3",
@@ -320,19 +323,21 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=15.0,
                 raw_labels=["CT3", "CLA-3", "CLA3"],
-                syllabus_units=[4, 5],
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
                 notes="Transducers, Sensors, Power Engineering. Proven by Exam 174 answer key."
             ),
             ComponentDefinition(
                 code="ENDSEM",
-                canonical_label="End Semester Examination / Degree Exam",
+                canonical_label="End Semester Examination",
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=4,
                 marks=50.0,
-                raw_labels=_STANDARD_ENDSEM_LABELS + ["MODEL"],
+                raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
-                notes="Comprehensive Electrical and Electronics Engineering"
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive Electrical and Electronics Engineering covering all 5 units."
             ),
         ]
     ),
@@ -340,7 +345,6 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
     # --------------------------------------------------------------------------
     # Course 15: Communicative English (21LEH101T)
     # Source: SRMIST B.Tech Regulation 2021 Syllabus - 21LEH101T
-    # FT IV is demonstrably a Formative Model/Skill Test on Units 1-2, NOT CT2!
     # --------------------------------------------------------------------------
     15: CoursePlanDefinition(
         course_id=15,
@@ -357,18 +361,20 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1"],
-                syllabus_units=[1, 2],
-                notes="Fundamentals of Communication, Listening Skills, Grammar and Vocabulary"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="FT_IV",
-                canonical_label="Formative Assessment IV (Language Skills Model Test)",
+                canonical_label="Formative Test IV / Model Exam",
                 student_label="FT4",
                 role="FORMATIVE_TEST",
                 sequence=2,
                 marks=10.0,
                 raw_labels=["FT IV", "FT4", "FT-IV", "Model Exam"],
-                syllabus_units=[1, 2],
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
                 notes="Formative skills review. Evaluates Listening, Reading, Grammar. NOT Cycle Test 2."
             ),
             ComponentDefinition(
@@ -379,8 +385,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=15.0,
                 raw_labels=["CT2", "CLA-2", "CLA2"],
-                syllabus_units=[3, 4],
-                notes="Professional Correspondence, Mechanics of Writing, Reports and Proposals"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
@@ -391,7 +398,8 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
-                notes="Comprehensive English Language and Professional Communication"
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive English Language and Professional Communication covering all 5 units."
             ),
         ]
     ),
@@ -399,7 +407,6 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
     # --------------------------------------------------------------------------
     # Course 18: Electronic System and PCB Design (21ECC101J)
     # Source: SRMIST B.Tech Regulation 2021 Syllabus - 21ECC101J
-    # In DB: FJ-1 is CT1 (Unit 1 devices), CLAT-2 is CT2 (Unit 3 instruments).
     # --------------------------------------------------------------------------
     18: CoursePlanDefinition(
         course_id=18,
@@ -416,8 +423,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CLA-1", "CLA1", "CT1", "FJ-1", "FJ1"],
-                syllabus_units=[1, 2],
-                notes="Semiconductor Fundamentals and Devices, Power Devices. FJ-1 verified as CT1."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Semiconductor Fundamentals and Devices. FJ-1 verified as CT1."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -427,7 +435,8 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=2,
                 marks=15.0,
                 raw_labels=["CLAT-2", "CLA-T2", "CLA-2", "CLA2", "CT2"],
-                syllabus_units=[3, 4],
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
                 notes="Power Supplies and Measurement Instruments, PCB Design Concepts."
             ),
             ComponentDefinition(
@@ -439,13 +448,14 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
-                notes="Comprehensive Electronic System and PCB Design"
+                has_authoritative_unit_scope=True,
+                notes="Comprehensive Electronic System and PCB Design covering all 5 units."
             ),
         ]
     ),
 }
 
-# Add standard 5-unit course assessment plans for all remaining courses
+# Register component structures for all remaining canonical courses
 _OTHER_COURSE_CODES = {
     3: ("21GNH101J", "Philosophy Of Engineering", 2021),
     4: ("21BTB102T", "Introduction To Computational Biology", 2021),
@@ -481,8 +491,9 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
                 sequence=1,
                 marks=15.0,
                 raw_labels=["CT1", "CLA-1", "CLA1", "CA-1"],
-                syllabus_units=[1, 2],
-                notes="Units 1 and 2 continuous assessment"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="CT2",
@@ -492,8 +503,9 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
                 sequence=2,
                 marks=15.0,
                 raw_labels=["CT2", "CLA-2", "CLA2", "CA-2"],
-                syllabus_units=[3, 4],
-                notes="Units 3 and 4 continuous assessment"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Intended unit scope not specified in syllabus."
             ),
             ComponentDefinition(
                 code="ENDSEM",
@@ -504,10 +516,12 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=[1, 2, 3, 4, 5],
+                has_authoritative_unit_scope=True,
                 notes="Comprehensive 5-unit degree examination"
             ),
         ]
     )
+
 
 
 # ==============================================================================
@@ -655,15 +669,19 @@ def get_course_assessment_scope(
             student_label="All Assessments" if is_all else cycle_clean,
             component_code="ALL" if is_all else cycle_clean,
             component_label="All Assessments" if is_all else cycle_clean,
-            in_scope_unit_numbers=syl_units,
+            in_scope_unit_numbers=syl_units if is_all else set(),
             has_authoritative_plan=False,
+            has_authoritative_unit_scope=True if is_all else False,
             notes="No authoritative course assessment plan registered.",
         )
     elif is_all:
         # ALL cycle covers all units in the syllabus plan
         all_units = set()
         for comp in plan.components:
-            all_units.update(comp.syllabus_units)
+            if comp.syllabus_units:
+                all_units.update(comp.syllabus_units)
+        if not all_units:
+            all_units = {1, 2, 3, 4, 5}
 
         scope = AssessmentScope(
             course_id=course_id,
@@ -674,6 +692,7 @@ def get_course_assessment_scope(
             component_label="All Assessments",
             in_scope_unit_numbers=all_units,
             has_authoritative_plan=True,
+            has_authoritative_unit_scope=True,
             source_document=plan.source_document,
             notes=plan.notes,
         )
@@ -692,10 +711,12 @@ def get_course_assessment_scope(
                 student_label=cycle_clean,
                 component_code=cycle_clean,
                 component_label=cycle_clean,
-                has_authoritative_plan=True,
+                has_authoritative_plan=False,
+                has_authoritative_unit_scope=False,
                 notes=f"Component '{cycle_clean}' does not exist in course {course_id} assessment plan.",
             )
         else:
+            comp_units = set(matched_comp.syllabus_units) if (matched_comp.has_authoritative_unit_scope and matched_comp.syllabus_units) else set()
             scope = AssessmentScope(
                 course_id=course_id,
                 student_cycle=cycle_clean,
@@ -705,8 +726,9 @@ def get_course_assessment_scope(
                 student_label=matched_comp.student_label,
                 role=matched_comp.role,
                 marks=matched_comp.marks,
-                in_scope_unit_numbers=set(matched_comp.syllabus_units),
+                in_scope_unit_numbers=comp_units,
                 has_authoritative_plan=True,
+                has_authoritative_unit_scope=matched_comp.has_authoritative_unit_scope,
                 source_document=plan.source_document,
                 notes=matched_comp.notes,
             )
@@ -729,14 +751,17 @@ def get_course_assessment_scope(
         scope.in_scope_topic_ids = {t_id for t_id, _ in topics_query}
         scope.in_scope_topic_names = {t_name for _, t_name in topics_query}
 
-    # Intended Scope dictionary
-    intended_units = sorted(list(scope.in_scope_unit_numbers))
-    scope.intended_scope = {
-        "unit_numbers": intended_units,
-        "topic_names": sorted(list(scope.in_scope_topic_names)),
-        "source_document": scope.source_document,
-        "notes": scope.notes,
-    }
+    # Intended Scope dictionary: populate ONLY when authoritative evidence exists
+    if scope.has_authoritative_unit_scope:
+        intended_units = sorted(list(scope.in_scope_unit_numbers))
+        scope.intended_scope = {
+            "unit_numbers": intended_units,
+            "topic_names": sorted(list(scope.in_scope_topic_names)),
+            "source_document": scope.source_document,
+            "notes": scope.notes,
+        }
+    else:
+        scope.intended_scope = None
 
     # Derive Paper-Derived Observed Scope if DB session provided
     if db:
@@ -796,11 +821,12 @@ def get_course_assessment_scope(
         # Compute evidence status
         if is_all:
             scope.evidence_status = "ALL_SCOPE"
-        elif not scope.has_authoritative_plan:
+        elif not scope.has_authoritative_plan or not scope.has_authoritative_unit_scope or not scope.intended_scope:
             scope.evidence_status = "UNPLANNED_OBSERVED_ONLY"
         elif cycle_cov.paper_count == 0:
             scope.evidence_status = "INTENDED_ONLY_NO_PAPERS"
         else:
+            intended_units = scope.intended_scope.get("unit_numbers") or []
             out_of_scope = [u for u in cycle_cov.observed_unit_numbers if u not in intended_units]
             if out_of_scope:
                 scope.evidence_status = "OUT_OF_SCOPE_OBSERVED"
@@ -822,6 +848,6 @@ def get_course_assessment_scope(
             "marks_by_unit": {},
             "papers": [],
         }
-        scope.evidence_status = "ALL_SCOPE" if is_all else ("INTENDED_ONLY_NO_PAPERS" if scope.has_authoritative_plan else "UNPLANNED_OBSERVED_ONLY")
+        scope.evidence_status = "ALL_SCOPE" if is_all else ("INTENDED_ONLY_NO_PAPERS" if (scope.has_authoritative_plan and scope.has_authoritative_unit_scope) else "UNPLANNED_OBSERVED_ONLY")
 
     return scope

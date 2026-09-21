@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "taxonomy_version": "1.0.0",
+  "taxonomy_version": "2.0.0",
   "course": {
     "id": 1,
     "name": "Calculus and Linear Algebra",
@@ -205,399 +205,8 @@
       ]
     },
     {
-      "id": 14,
-      "number": 2,
-      "name": "Ordinary Differential Equations",
-      "topics": [
-        {
-          "id": 4,
-          "name": "First-Order ODE",
-          "canonical_name": "First-Order ODE",
-          "aliases": [
-            "Exact Differential Equations",
-            "Linear First-Order ODE",
-            "Integrating Factor"
-          ],
-          "strong_phrases": [
-            "exact differential equation",
-            "integrating factor",
-            "bernoulli's equation",
-            "bernoulli equation",
-            "linear differential equation of first order",
-            "first order differential equation",
-            "separable variables",
-            "solve the exact differential equation",
-            "integrating factor of the differential equation",
-            "solve the first order linear differential equation dy/dx",
-            "bernoulli's differential equation solve"
-          ],
-          "specific_keywords": [
-            "integrating factor",
-            "exact differential",
-            "bernoulli equation",
-            "exact differential equation",
-            "bernoulli's differential"
-          ],
-          "negative_guards": [
-            "second order",
-            "d^2",
-            "particular integral",
-            "auxiliary equation"
-          ],
-          "context_hints": [
-            "differential equations",
-            "ode"
-          ]
-        },
-        {
-          "id": 5,
-          "name": "Second-Order ODE",
-          "canonical_name": "Second-Order ODE",
-          "aliases": [
-            "Higher Order ODE",
-            "Constant Coefficients ODE",
-            "Particular Integral"
-          ],
-          "strong_phrases": [
-            "particular integral",
-            "complementary function",
-            "auxiliary equation",
-            "variation of parameters",
-            "method of variation of parameters",
-            "cauchy's linear equation",
-            "legendre's linear equation",
-            "second order differential equation",
-            "d^2 +",
-            "d^2 -",
-            "solve by method of variation of parameters",
-            "method of variation of parameters solve",
-            "solve cauchy's homogeneous linear differential equation",
-            "second order linear differential equation with constant"
-          ],
-          "specific_keywords": [
-            "particular integral",
-            "complementary function",
-            "variation of parameters",
-            "auxiliary equation",
-            "cauchy's homogeneous",
-            "second order linear differential"
-          ],
-          "negative_guards": [
-            "partial differential",
-            "pde"
-          ],
-          "context_hints": [
-            "differential equations",
-            "ode"
-          ]
-        },
-        {
-          "id": 6,
-          "name": "ODE Solutions",
-          "canonical_name": "ODE Solutions",
-          "aliases": [
-            "Wronskian",
-            "Linearly Independent Solutions",
-            "Initial Value Problems"
-          ],
-          "strong_phrases": [
-            "wronskian",
-            "linearly independent solutions of",
-            "initial value problem for ode",
-            "boundary value problem"
-          ],
-          "specific_keywords": [
-            "wronskian",
-            "linearly independent solution"
-          ],
-          "negative_guards": [
-            "pde"
-          ],
-          "context_hints": [
-            "differential equations",
-            "solutions"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "number": 3,
-      "name": "Partial Differential Equations",
-      "topics": [
-        {
-          "id": 7,
-          "name": "PDE Classification",
-          "canonical_name": "PDE Classification",
-          "aliases": [
-            "Formation of PDE",
-            "Lagrange's Linear Equation"
-          ],
-          "strong_phrases": [
-            "partial differential equation",
-            "formation of pde",
-            "lagrange's linear equation",
-            "charpit's method",
-            "order and degree of pde",
-            "quasi-linear pde"
-          ],
-          "specific_keywords": [
-            "formation of pde",
-            "lagrange s linear",
-            "charpit s method",
-            "pde classification"
-          ],
-          "negative_guards": [
-            "ordinary differential equation"
-          ],
-          "context_hints": [
-            "pde",
-            "calculus"
-          ]
-        },
-        {
-          "id": 8,
-          "name": "Separation of Variables",
-          "canonical_name": "Separation of Variables",
-          "aliases": [
-            "Method of Separation of Variables",
-            "Wave Equation",
-            "Heat Equation"
-          ],
-          "strong_phrases": [
-            "method of separation of variables",
-            "one dimensional wave equation",
-            "one dimensional heat equation",
-            "two dimensional laplace equation",
-            "separation of variables"
-          ],
-          "specific_keywords": [
-            "separation of variables",
-            "wave equation",
-            "heat equation"
-          ],
-          "negative_guards": [],
-          "context_hints": [
-            "pde",
-            "boundary conditions"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "number": 4,
-      "name": "Laplace Transforms",
-      "topics": [
-        {
-          "id": 9,
-          "name": "Laplace Transform Tables",
-          "canonical_name": "Laplace Transform Tables",
-          "aliases": [
-            "Laplace Transforms of Elementary Functions",
-            "First Shifting Theorem"
-          ],
-          "strong_phrases": [
-            "laplace transform of",
-            "find the laplace transform",
-            "first shifting property",
-            "second shifting property",
-            "transforms of derivatives",
-            "transforms of integrals",
-            "laplace transform tables"
-          ],
-          "specific_keywords": [
-            "laplace transform",
-            "laplace transforms"
-          ],
-          "negative_guards": [
-            "inverse laplace",
-            "convolution theorem"
-          ],
-          "context_hints": [
-            "transform calculus"
-          ]
-        },
-        {
-          "id": 10,
-          "name": "Inverse Laplace Transforms",
-          "canonical_name": "Inverse Laplace Transforms",
-          "aliases": [
-            "Inverse Transforms",
-            "Convolution Theorem"
-          ],
-          "strong_phrases": [
-            "inverse laplace transform",
-            "find the inverse laplace",
-            "convolution theorem",
-            "using convolution theorem",
-            "partial fractions in laplace",
-            "solve differential equation using laplace"
-          ],
-          "specific_keywords": [
-            "inverse laplace",
-            "convolution theorem"
-          ],
-          "negative_guards": [],
-          "context_hints": [
-            "transform calculus"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 17,
-      "number": 5,
-      "name": "Sequence and Series",
-      "topics": [
-        {
-          "id": 11,
-          "name": "Convergence Tests",
-          "canonical_name": "Convergence Tests",
-          "aliases": [
-            "Convergence of Series",
-            "Ratio Test",
-            "Comparison Test",
-            "D'Alembert's Test"
-          ],
-          "strong_phrases": [
-            "test the convergence of the series",
-            "convergence of the series",
-            "test for convergence",
-            "d'alembert's ratio test",
-            "ratio test",
-            "comparison test",
-            "cauchy's root test",
-            "rabee's test",
-            "integral test for series",
-            "alternating series",
-            "leibnitz's test",
-            "absolutely convergent",
-            "conditionally convergent",
-            "monotonically decreasing sequence",
-            "convergent or divergent",
-            "test the convergence of the series using d'alembert's ratio test",
-            "cauchy's root test test convergence of series",
-            "raabe's test for series convergence"
-          ],
-          "specific_keywords": [
-            "convergence of series",
-            "ratio test",
-            "comparison test",
-            "cauchy s root test",
-            "leibnitz s test",
-            "conditionally convergent",
-            "absolutely convergent",
-            "convergent sequence",
-            "d'alembert's ratio test",
-            "cauchy's root test",
-            "convergence of the series"
-          ],
-          "negative_guards": [
-            "fourier series",
-            "taylor series",
-            "maclaurin series",
-            "power series"
-          ],
-          "context_hints": [
-            "series",
-            "calculus"
-          ]
-        },
-        {
-          "id": 12,
-          "name": "Power Series",
-          "canonical_name": "Power Series",
-          "aliases": [
-            "Radius of Convergence",
-            "Interval of Convergence"
-          ],
-          "strong_phrases": [
-            "power series",
-            "radius of convergence",
-            "interval of convergence",
-            "series \\sum x^n",
-            "power series expansion"
-          ],
-          "specific_keywords": [
-            "power series",
-            "radius of convergence",
-            "interval of convergence"
-          ],
-          "negative_guards": [
-            "fourier series"
-          ],
-          "context_hints": [
-            "series",
-            "analysis"
-          ]
-        },
-        {
-          "id": 13,
-          "name": "Fourier Series",
-          "canonical_name": "Fourier Series",
-          "aliases": [
-            "Half-Range Fourier Series",
-            "Harmonic Analysis"
-          ],
-          "strong_phrases": [
-            "fourier series",
-            "fourier coefficients",
-            "half range sine series",
-            "half range cosine series",
-            "dirichlet's conditions",
-            "parseval's identity",
-            "harmonic analysis"
-          ],
-          "specific_keywords": [
-            "fourier series",
-            "half range sine",
-            "half range cosine",
-            "dirichlet s conditions"
-          ],
-          "negative_guards": [],
-          "context_hints": [
-            "series",
-            "fourier"
-          ]
-        },
-        {
-          "id": 35,
-          "name": "Taylor Series",
-          "canonical_name": "Taylor Series",
-          "aliases": [
-            "Maclaurin Series",
-            "Taylor Expansion"
-          ],
-          "strong_phrases": [
-            "taylor's series",
-            "taylor's theorem",
-            "taylor series",
-            "taylor expansion",
-            "maclaurin's series",
-            "maclaurin series",
-            "maclaurin expansion",
-            "expand f x y in powers of"
-          ],
-          "specific_keywords": [
-            "taylor series",
-            "taylor s theorem",
-            "maclaurin series",
-            "maclaurin s series"
-          ],
-          "negative_guards": [
-            "fourier series"
-          ],
-          "context_hints": [
-            "series",
-            "calculus"
-          ]
-        }
-      ]
-    },
-    {
       "id": 18,
-      "number": 6,
+      "number": 2,
       "name": "Functions of Several Variables",
       "topics": [
         {
@@ -729,18 +338,166 @@
             "multivariable calculus",
             "optimization"
           ]
+        },
+        {
+          "id": 35,
+          "name": "Taylor Series",
+          "canonical_name": "Taylor Series",
+          "aliases": [
+            "Maclaurin Series",
+            "Taylor Expansion"
+          ],
+          "strong_phrases": [
+            "taylor's series",
+            "taylor's theorem",
+            "taylor series",
+            "taylor expansion",
+            "maclaurin's series",
+            "maclaurin series",
+            "maclaurin expansion",
+            "expand f x y in powers of"
+          ],
+          "specific_keywords": [
+            "taylor series",
+            "taylor s theorem",
+            "maclaurin series",
+            "maclaurin s series"
+          ],
+          "negative_guards": [
+            "fourier series"
+          ],
+          "context_hints": [
+            "series",
+            "calculus"
+          ]
         }
       ]
     },
     {
-      "id": 19,
-      "number": 7,
-      "name": "Multiple Integrals",
+      "id": 14,
+      "number": 3,
+      "name": "Ordinary Differential Equations",
+      "topics": [
+        {
+          "id": 4,
+          "name": "First-Order ODE",
+          "canonical_name": "First-Order ODE",
+          "aliases": [
+            "Exact Differential Equations",
+            "Linear First-Order ODE",
+            "Integrating Factor"
+          ],
+          "strong_phrases": [
+            "exact differential equation",
+            "integrating factor",
+            "bernoulli's equation",
+            "bernoulli equation",
+            "linear differential equation of first order",
+            "first order differential equation",
+            "separable variables",
+            "solve the exact differential equation",
+            "integrating factor of the differential equation",
+            "solve the first order linear differential equation dy/dx",
+            "bernoulli's differential equation solve"
+          ],
+          "specific_keywords": [
+            "integrating factor",
+            "exact differential",
+            "bernoulli equation",
+            "exact differential equation",
+            "bernoulli's differential"
+          ],
+          "negative_guards": [
+            "second order",
+            "d^2",
+            "particular integral",
+            "auxiliary equation"
+          ],
+          "context_hints": [
+            "differential equations",
+            "ode"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Second-Order ODE",
+          "canonical_name": "Second-Order ODE",
+          "aliases": [
+            "Higher Order ODE",
+            "Constant Coefficients ODE",
+            "Particular Integral"
+          ],
+          "strong_phrases": [
+            "particular integral",
+            "complementary function",
+            "auxiliary equation",
+            "variation of parameters",
+            "method of variation of parameters",
+            "cauchy's linear equation",
+            "legendre's linear equation",
+            "second order differential equation",
+            "d^2 +",
+            "d^2 -",
+            "solve by method of variation of parameters",
+            "method of variation of parameters solve",
+            "solve cauchy's homogeneous linear differential equation",
+            "second order linear differential equation with constant"
+          ],
+          "specific_keywords": [
+            "particular integral",
+            "complementary function",
+            "variation of parameters",
+            "auxiliary equation",
+            "cauchy's homogeneous",
+            "second order linear differential"
+          ],
+          "negative_guards": [
+            "partial differential",
+            "pde"
+          ],
+          "context_hints": [
+            "differential equations",
+            "ode"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "ODE Solutions",
+          "canonical_name": "ODE Solutions",
+          "aliases": [
+            "Wronskian",
+            "Linearly Independent Solutions",
+            "Initial Value Problems"
+          ],
+          "strong_phrases": [
+            "wronskian",
+            "linearly independent solutions of",
+            "initial value problem for ode",
+            "boundary value problem"
+          ],
+          "specific_keywords": [
+            "wronskian",
+            "linearly independent solution"
+          ],
+          "negative_guards": [
+            "pde"
+          ],
+          "context_hints": [
+            "differential equations",
+            "solutions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "number": 4,
+      "name": "Differential Calculus and Geometrical Applications",
       "topics": [
         {
           "id": 17,
-          "name": "Double Integrals",
-          "canonical_name": "Double Integrals",
+          "name": "Beta and Gamma Functions",
+          "canonical_name": "Beta and Gamma Functions",
           "aliases": [
             "Change of Order of Integration",
             "Beta and Gamma Functions",
@@ -773,191 +530,158 @@
           ]
         },
         {
-          "id": 18,
-          "name": "Triple Integrals",
-          "canonical_name": "Triple Integrals",
-          "aliases": [
-            "Volume using Triple Integrals",
-            "Cylindrical Coordinates"
-          ],
+          "id": 891,
+          "name": "Radius and Circle of Curvature",
+          "canonical_name": "Radius and Circle of Curvature",
+          "aliases": [],
           "strong_phrases": [
-            "triple integral",
-            "triple integrals",
-            "volume of tetrahedron using triple",
-            "volume enclosed by using triple integral"
+            "radius and circle of curvature"
           ],
           "specific_keywords": [
-            "triple integral",
-            "triple integrals"
+            "radius",
+            "circle",
+            "curvature"
           ],
           "negative_guards": [],
           "context_hints": [
-            "multiple integrals",
-            "calculus"
+            "calculus",
+            "mathematics"
           ]
         },
         {
-          "id": 19,
-          "name": "Change of Variables",
-          "canonical_name": "Change of Variables",
-          "aliases": [
-            "Cartesian to Polar Coordinates",
-            "Spherical Polar Coordinates"
-          ],
+          "id": 892,
+          "name": "Evolutes and Envelopes",
+          "canonical_name": "Evolutes and Envelopes",
+          "aliases": [],
           "strong_phrases": [
-            "change of variables in double integral",
-            "transforming to polar coordinates",
-            "spherical polar coordinates",
-            "cylindrical polar coordinates"
+            "evolutes and envelopes"
           ],
           "specific_keywords": [
-            "change of variables in double",
-            "polar coordinates in double"
+            "evolutes",
+            "envelopes"
           ],
           "negative_guards": [],
           "context_hints": [
-            "multiple integrals",
-            "calculus"
+            "calculus",
+            "mathematics"
           ]
         }
       ]
     },
     {
-      "id": 25,
-      "number": 8,
-      "name": "Vector Calculus",
+      "id": 17,
+      "number": 5,
+      "name": "Sequences and Series",
       "topics": [
         {
-          "id": 36,
-          "name": "Vector Calculus",
-          "canonical_name": "Vector Calculus",
+          "id": 11,
+          "name": "Convergence Tests",
+          "canonical_name": "Convergence Tests",
           "aliases": [
-            "Green's Theorem",
-            "Stokes' Theorem",
-            "Gauss Divergence Theorem",
-            "Solenoidal and Irrotational"
+            "Convergence of Series",
+            "Ratio Test",
+            "Comparison Test",
+            "D'Alembert's Test"
           ],
           "strong_phrases": [
-            "green's theorem",
-            "stokes' theorem",
-            "stokes theorem",
-            "gauss divergence theorem",
-            "divergence theorem",
-            "solenoidal vector",
-            "irrotational vector",
-            "scalar potential",
-            "work done by a force vector"
+            "test the convergence of the series",
+            "convergence of the series",
+            "test for convergence",
+            "d'alembert's ratio test",
+            "ratio test",
+            "comparison test",
+            "cauchy's root test",
+            "rabee's test",
+            "integral test for series",
+            "alternating series",
+            "leibnitz's test",
+            "absolutely convergent",
+            "conditionally convergent",
+            "monotonically decreasing sequence",
+            "convergent or divergent",
+            "test the convergence of the series using d'alembert's ratio test",
+            "cauchy's root test test convergence of series",
+            "raabe's test for series convergence"
           ],
           "specific_keywords": [
-            "green s theorem",
-            "stokes theorem",
-            "gauss divergence theorem",
-            "solenoidal",
-            "irrotational"
-          ],
-          "negative_guards": [],
-          "context_hints": [
-            "vector integration"
-          ]
-        }
-      ]
-    },
-    {
-      "id": 26,
-      "number": 9,
-      "name": "Complex Analysis",
-      "topics": [
-        {
-          "id": 37,
-          "name": "Complex Variables and Analytic Functions",
-          "canonical_name": "Complex Variables and Analytic Functions",
-          "aliases": [
-            "Cauchy-Riemann Equations",
-            "Harmonic Function",
-            "Milne-Thomson Method"
-          ],
-          "strong_phrases": [
-            "analytic function",
-            "cauchy-riemann equations",
-            "cauchy riemann equations",
-            "c-r equations",
-            "harmonic conjugate",
-            "harmonic function",
-            "milne-thomson method",
-            "milne thomson method"
-          ],
-          "specific_keywords": [
-            "analytic function",
-            "cauchy-riemann",
-            "cauchy riemann",
-            "harmonic conjugate",
-            "milne-thomson"
+            "convergence of series",
+            "ratio test",
+            "comparison test",
+            "cauchy s root test",
+            "leibnitz s test",
+            "conditionally convergent",
+            "absolutely convergent",
+            "convergent sequence",
+            "d'alembert's ratio test",
+            "cauchy's root test",
+            "convergence of the series"
           ],
           "negative_guards": [
-            "conformal mapping",
-            "residue",
-            "laurent series"
+            "fourier series",
+            "taylor series",
+            "maclaurin series",
+            "power series"
           ],
           "context_hints": [
-            "complex variables",
-            "complex analysis"
+            "series",
+            "calculus"
           ]
         },
         {
-          "id": 38,
-          "name": "Conformal Mapping",
-          "canonical_name": "Conformal Mapping",
+          "id": 12,
+          "name": "Power Series",
+          "canonical_name": "Power Series",
           "aliases": [
-            "Bilinear Transformation",
-            "Möbius Transformation"
+            "Radius of Convergence",
+            "Interval of Convergence"
           ],
           "strong_phrases": [
-            "conformal mapping",
-            "bilinear transformation",
-            "cross ratio",
-            "mobius transformation",
-            "transformation w ="
+            "power series",
+            "radius of convergence",
+            "interval of convergence",
+            "series \\sum x^n",
+            "power series expansion"
           ],
           "specific_keywords": [
-            "conformal mapping",
-            "bilinear transformation"
+            "power series",
+            "radius of convergence",
+            "interval of convergence"
           ],
-          "negative_guards": [],
+          "negative_guards": [
+            "fourier series"
+          ],
           "context_hints": [
-            "complex analysis",
-            "mapping"
+            "series",
+            "analysis"
           ]
         },
         {
-          "id": 39,
-          "name": "Residues and Laurent Series",
-          "canonical_name": "Residues and Laurent Series",
+          "id": 13,
+          "name": "Fourier Series",
+          "canonical_name": "Fourier Series",
           "aliases": [
-            "Cauchy's Integral Theorem",
-            "Residue Theorem",
-            "Poles and Singularities"
+            "Half-Range Fourier Series",
+            "Harmonic Analysis"
           ],
           "strong_phrases": [
-            "cauchy's integral formula",
-            "cauchy's integral theorem",
-            "cauchy's residue theorem",
-            "residue of f(z)",
-            "residue at the pole",
-            "laurent's series",
-            "laurent series",
-            "taylor and laurent series",
-            "singularities of f(z)"
+            "fourier series",
+            "fourier coefficients",
+            "half range sine series",
+            "half range cosine series",
+            "dirichlet's conditions",
+            "parseval's identity",
+            "harmonic analysis"
           ],
           "specific_keywords": [
-            "cauchy s integral formula",
-            "cauchy s residue theorem",
-            "residue theorem",
-            "laurent series"
+            "fourier series",
+            "half range sine",
+            "half range cosine",
+            "dirichlet s conditions"
           ],
           "negative_guards": [],
           "context_hints": [
-            "complex analysis",
-            "contour integration"
+            "series",
+            "fourier"
           ]
         }
       ]

@@ -85,53 +85,60 @@ def test_all_courses_have_authoritative_plans():
         assert len(plan.components) >= 2, f"Course {course_id} must define at least 2 components"
         assert plan.source_document is not None and len(plan.source_document) > 0
         for comp in plan.components:
-            assert len(comp.syllabus_units) > 0, f"Component {comp.code} for course {course_id} must have units"
+            assert comp.code is not None and len(comp.code) > 0
+            if comp.has_authoritative_unit_scope:
+                assert comp.syllabus_units is not None and len(comp.syllabus_units) > 0
 
 
 def test_assessment_scope_unit_enforcement(db: Session):
-    """Verify assessment scopes retrieve the exact units and topics for specific courses."""
+    """Verify assessment scopes retrieve authoritative intended units or truthful observed scope."""
+    # ENDSEM has authoritative plan covering all 5 canonical units
+    scope_calc_endsem = get_course_assessment_scope(1, "ENDSEM", db=db)
+    assert scope_calc_endsem.in_scope_unit_numbers == {1, 2, 3, 4, 5}
+    assert scope_calc_endsem.has_authoritative_unit_scope is True
+    assert scope_calc_endsem.intended_scope is not None
+    assert scope_calc_endsem.intended_scope["unit_numbers"] == [1, 2, 3, 4, 5]
+    assert len(scope_calc_endsem.in_scope_topic_names) > 0
+
+    # CT1 has no authoritative circular in repo; intended scope is None, observed scope comes from exam questions
     scope_calc_ct1 = get_course_assessment_scope(1, "CT1", db=db)
-    assert scope_calc_ct1.in_scope_unit_numbers == {1, 2}
-    assert scope_calc_ct1.component_code == "CT1"
-    assert len(scope_calc_ct1.in_scope_topic_names) > 0
+    assert scope_calc_ct1.has_authoritative_unit_scope is False
+    assert scope_calc_ct1.intended_scope is None
+    assert scope_calc_ct1.in_scope_unit_numbers == set()
+    assert scope_calc_ct1.observed_scope["unit_numbers"] == [1]
+    assert scope_calc_ct1.evidence_status == "UNPLANNED_OBSERVED_ONLY"
 
+    # CT2 has no authoritative circular in repo; observed scope covers units observed on actual CT2 papers
     scope_calc_ct2 = get_course_assessment_scope(1, "CT2", db=db)
-    assert scope_calc_ct2.in_scope_unit_numbers == {3, 4, 5, 6}
-    assert scope_calc_ct2.component_code == "CT2"
-    assert len(scope_calc_ct2.in_scope_topic_names) > 0
-
-    assert scope_calc_ct1.in_scope_unit_numbers.isdisjoint(scope_calc_ct2.in_scope_unit_numbers)
-    assert scope_calc_ct1.in_scope_topic_names.isdisjoint(scope_calc_ct2.in_scope_topic_names)
-
-    scope_bld_ct1 = get_course_assessment_scope(4, "CT1", db=db)
-    assert scope_bld_ct1.in_scope_unit_numbers == {1, 2}
-    scope_bld_ct2 = get_course_assessment_scope(4, "CT2", db=db)
-    assert scope_bld_ct2.in_scope_unit_numbers == {3, 4}
+    assert scope_calc_ct2.has_authoritative_unit_scope is False
+    assert scope_calc_ct2.intended_scope is None
+    assert scope_calc_ct2.in_scope_unit_numbers == set()
+    assert set(scope_calc_ct2.observed_scope["unit_numbers"]) == {1, 2}
 
 
 def test_prediction_candidate_restriction_by_scope(db: Session):
-    """Verify that predictions under CT1 exclude topics from later units (candidate restriction)."""
-    pred_ct1 = get_prediction(subject="1", assessment_cycle="CT1", db=db)
-    scope_ct1 = get_course_assessment_scope(1, "CT1", db=db)
+    """Verify that predictions under ENDSEM enforce scope candidate restriction."""
+    pred_endsem = get_prediction(subject="1", assessment_cycle="ENDSEM", db=db)
+    scope_endsem = get_course_assessment_scope(1, "ENDSEM", db=db)
 
-    assert pred_ct1["assessment_cycle"] == "CT1"
-    assert pred_ct1["assessment_component"] == "CT1"
-    assert "assessment_scope" in pred_ct1
+    assert pred_endsem["assessment_cycle"] == "ENDSEM"
+    assert pred_endsem["assessment_component"] == "ENDSEM"
+    assert "assessment_scope" in pred_endsem
 
-    for p in pred_ct1["predictions"]:
+    for p in pred_endsem["predictions"]:
         if p.get("target") == "topic" or "topic_id" in p:
-            assert p["name"] in scope_ct1.in_scope_topic_names, (
-                f"Topic '{p['name']}' belongs to outside units but appeared in CT1 predictions!"
+            assert p["name"] in scope_endsem.in_scope_topic_names, (
+                f"Topic '{p['name']}' belongs to outside units but appeared in ENDSEM predictions!"
             )
 
 
 def test_truthful_zero_evidence_scope_reporting(db: Session):
-    """Verify that in-scope topics with 0 historical appearances are reported truthfully."""
-    snapshot = get_intelligence_snapshot("1", assessment_cycle="CT1", db=db)
+    """Verify that in-scope topics with 0 historical appearances are reported truthfully under authoritative scope."""
+    snapshot = get_intelligence_snapshot("1", assessment_cycle="ENDSEM", db=db)
     scope = snapshot.get("assessment_scope")
     assert scope is not None
-    assert scope["student_cycle"] == "CT1"
-    assert scope["component_code"] == "CT1"
+    assert scope["student_cycle"] == "ENDSEM"
+    assert scope["component_code"] == "ENDSEM"
     assert scope["total_in_scope_topics"] > 0
     assert "unobserved_in_scope_topics" in scope
 
@@ -174,7 +181,8 @@ def test_api_endpoints_expose_assessment_structure(db: Session):
     assert snap["assessment_cycle"] == "CT2"
     assert snap["assessment_component"] == "CT2"
     assert "assessment_scope" in snap
-    assert snap["assessment_scope"]["unit_numbers"] == [3, 4, 5, 6]
+    assert snap["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert set(snap["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
 
     q_res = get_course_historical_questions("1", assessment_cycle="CT2", db=db)
     assert q_res["assessment_cycle"] == "CT2"
@@ -183,14 +191,17 @@ def test_api_endpoints_expose_assessment_structure(db: Session):
     pred = get_prediction(subject="1", assessment_cycle="CT2", db=db)
     assert pred["assessment_cycle"] == "CT2"
     assert pred["assessment_component"] == "CT2"
-    assert pred["assessment_scope"]["unit_numbers"] == [3, 4, 5, 6]
+    assert pred["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert set(pred["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
 
     prio = get_study_priorities(course_name="Calculus", assessment_cycle="CT2", db=db)
     assert prio["assessment_cycle"] == "CT2"
     assert prio["assessment_component"] == "CT2"
-    assert prio["assessment_scope"]["unit_numbers"] == [3, 4, 5, 6]
+    assert prio["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert set(prio["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
 
     practice = get_practice_questions(subject="1", assessment_cycle="CT2")
     assert practice["assessment_cycle"] == "CT2"
     assert practice["assessment_component"] == "CT2"
-    assert practice["assessment_scope"]["unit_numbers"] == [3, 4, 5, 6]
+    assert practice["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert set(practice["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}

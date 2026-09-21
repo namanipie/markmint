@@ -1,7 +1,7 @@
 import enum
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, Text, Boolean, Enum as SQLEnum, DateTime, JSON, Index, UniqueConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, validates
 
 from backend.core.database import Base
 
@@ -258,6 +258,14 @@ class Unit(Base):
 
     syllabus = relationship("Syllabus", back_populates="units")
     topics = relationship("Topic", back_populates="unit")
+
+    @validates("number")
+    def validate_unit_number(self, key, value):
+        if value is not None and (value < 1 or value > 5):
+            raise ValueError(
+                f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {value}."
+            )
+        return value
 
 
 class Topic(Base):

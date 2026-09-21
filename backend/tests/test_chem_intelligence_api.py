@@ -46,7 +46,7 @@ def test_calculus_intelligence_unaffected() -> None:
 
     assert data["course"]["id"] == 1
     assert data["has_topic_taxonomy"] is True
-    assert data["taxonomy_topic_count"] == 27
+    assert data["taxonomy_topic_count"] == 19
     assert data["prediction_mode"] == "topic"
     assert len(data["predictions"]) > 0
 

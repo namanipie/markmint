@@ -19,8 +19,8 @@ def test_obvious_topic_match(classifier: TaxonomyClassifierService) -> None:
     assert proposal.method == "CANONICAL_PHRASE"
     assert proposal.topic_id == 45
     assert proposal.topic_name == "Quantum Mechanics and Atomic Structure"
-    assert proposal.unit_id == 27
-    assert proposal.unit_name == "Quantum and Atomic Structure"
+    assert proposal.unit_id == 20
+    assert proposal.unit_name == "Periodic Properties and Atomic Structure"
     assert any("schrodinger wave equation" in e for e in proposal.evidence)
 
 

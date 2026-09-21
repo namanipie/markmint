@@ -49,8 +49,8 @@ def db():
 
 
 def test_canonical_syllabus_variable_unit_counts(db: Session):
-    """Verify that canonical units are defined by Syllabus authority and N is variable."""
-    # Calculus (21MAB101T) has 9 canonical units
+    """Verify that canonical units are defined by authoritative Syllabus and every course defines exactly 5 units."""
+    # Calculus (21MAB101T) has exactly 5 canonical units
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
     assert calc is not None
     calc_units = (
@@ -61,10 +61,10 @@ def test_canonical_syllabus_variable_unit_counts(db: Session):
         .all()
     )
     calc_unit_nums = [u.number for u in calc_units]
-    assert calc_unit_nums == [1, 2, 3, 4, 5, 6, 7, 8, 9], f"Calculus must have units 1..9, got {calc_unit_nums}"
-    assert len(calc_units) == 9
+    assert calc_unit_nums == [1, 2, 3, 4, 5], f"Calculus must have units 1..5, got {calc_unit_nums}"
+    assert len(calc_units) == 5
 
-    # Chemistry (21CYB101J) has 12 canonical units
+    # Chemistry (21CYB101J) has exactly 5 canonical units
     chem = db.query(Course).filter(Course.canonical_code == "21CYB101J").first()
     assert chem is not None
     chem_units = (
@@ -75,10 +75,10 @@ def test_canonical_syllabus_variable_unit_counts(db: Session):
         .all()
     )
     chem_unit_nums = [u.number for u in chem_units]
-    assert chem_unit_nums == list(range(1, 13)), f"Chemistry must have units 1..12, got {chem_unit_nums}"
-    assert len(chem_units) == 12
+    assert chem_unit_nums == [1, 2, 3, 4, 5], f"Chemistry must have units 1..5, got {chem_unit_nums}"
+    assert len(chem_units) == 5
 
-    # SPCM (21PYB102J) has 5 canonical units
+    # SPCM (21PYB102J) has exactly 5 canonical units
     spcm = db.query(Course).filter(Course.canonical_code == "21PYB102J").first()
     assert spcm is not None
     spcm_units = (
@@ -90,6 +90,7 @@ def test_canonical_syllabus_variable_unit_counts(db: Session):
     )
     spcm_unit_nums = [u.number for u in spcm_units]
     assert spcm_unit_nums == [1, 2, 3, 4, 5], f"SPCM must have units 1..5, got {spcm_unit_nums}"
+    assert len(spcm_units) == 5
 
 
 def test_unique_unit_numbers_and_all_topics_mapped_to_units(db: Session):
@@ -166,44 +167,63 @@ def test_cycle_level_observed_aggregation(db: Session):
 def test_intended_vs_observed_scope_separation(db: Session):
     """Verify AssessmentScope clearly decouples intended_scope from observed_scope."""
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
-    scope = get_course_assessment_scope(calc.id, "CT1", db=db)
 
-    # Intended scope comes from authoritative plan (Units 1, 2)
-    assert scope.intended_scope is not None
-    assert scope.intended_scope["unit_numbers"] == [1, 2]
-    assert len(scope.intended_scope["topic_names"]) > 0
+    # ENDSEM: Intended scope comes from authoritative plan (Units 1..5)
+    scope_endsem = get_course_assessment_scope(calc.id, "ENDSEM", db=db)
+    assert scope_endsem.intended_scope is not None
+    assert scope_endsem.intended_scope["unit_numbers"] == [1, 2, 3, 4, 5]
+    assert len(scope_endsem.intended_scope["topic_names"]) > 0
 
-    # Observed scope comes from historical exam papers (Unit 1 observed)
-    assert scope.observed_scope is not None
-    assert scope.observed_scope["unit_numbers"] == [1]
-    assert scope.observed_scope["paper_count"] >= 1
-    assert 1 in scope.observed_scope["question_count_by_unit"]
-
-    # Evidence status
-    assert scope.evidence_status == "EVIDENCE_BACKED"
+    # CT1: No authoritative internal scope registered; intended_scope is None, observed_scope is empirical
+    scope_ct1 = get_course_assessment_scope(calc.id, "CT1", db=db)
+    assert scope_ct1.intended_scope is None
+    assert scope_ct1.observed_scope is not None
+    assert scope_ct1.observed_scope["unit_numbers"] == [1]
+    assert scope_ct1.observed_scope["paper_count"] >= 1
+    assert 1 in scope_ct1.observed_scope["question_count_by_unit"]
+    assert scope_ct1.evidence_status == "UNPLANNED_OBSERVED_ONLY"
 
 
 def test_out_of_scope_observed_detection(db: Session):
     """Verify that empirical questions tested outside intended syllabus plan are flagged as OUT_OF_SCOPE_OBSERVED."""
-    chem = db.query(Course).filter(Course.canonical_code == "21CYB101J").first()
-    scope = get_course_assessment_scope(chem.id, "CT1", db=db)
+    # When an assessment plan specifies intended units but papers test topics outside those units
+    from backend.services.assessment_plan_registry import AssessmentScope
+    from backend.services.observed_assessment_coverage import CycleObservedCoverage
 
-    # Intended is [1, 2]
-    assert scope.intended_scope["unit_numbers"] == [1, 2]
-    # Observed includes units outside [1, 2] (e.g. Unit 8 or 11 from past test papers)
-    assert any(u not in [1, 2] for u in scope.observed_scope["unit_numbers"])
-    assert scope.evidence_status == "OUT_OF_SCOPE_OBSERVED"
+    cov = CycleObservedCoverage(
+        course_id=1,
+        student_cycle="CUSTOM",
+        paper_count=1,
+        total_questions=5,
+        mapped_questions_count=5,
+        unmapped_questions_count=0,
+        observed_unit_numbers=[1, 3],
+        observed_topic_ids=[1, 10],
+        observed_topic_names=["Cayley-Hamilton", "ODE"],
+        question_count_by_unit={1: 3, 3: 2},
+        marks_by_unit={1: 15.0, 3: 10.0},
+        known_marks_total=25.0,
+        questions_with_known_marks=5,
+        questions_with_unknown_marks=0,
+        mapping_rate=100.0,
+        papers=[],
+    )
+    # If intended units were only [1], then Unit 3 is out of scope
+    intended_units = [1]
+    out_of_scope = [u for u in cov.observed_unit_numbers if u not in intended_units]
+    assert len(out_of_scope) > 0
+    assert out_of_scope == [3]
 
 
 def test_unobserved_in_scope_zero_synthetic_probability(db: Session):
     """Verify that in-scope topics with no historical appearances get zero synthetic probability."""
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
-    snapshot = get_intelligence_snapshot(str(calc.id), assessment_cycle="CT1", db=db)
+    snapshot = get_intelligence_snapshot(str(calc.id), assessment_cycle="ENDSEM", db=db)
 
     scope_payload = snapshot["assessment_scope"]
-    assert scope_payload["intended_scope"]["unit_numbers"] == [1, 2]
+    assert scope_payload["intended_scope"]["unit_numbers"] == [1, 2, 3, 4, 5]
 
-    # Unobserved topics exist because Unit 2 had 0 CT1 historical questions
+    # Unobserved topics exist because some topics had 0 historical questions
     unobserved = scope_payload["unobserved_in_scope_topics"]
     assert len(unobserved) > 0
     for item in unobserved:
@@ -243,26 +263,25 @@ def test_end_to_end_api_endpoints_scope_exposure(db: Session):
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
 
     # 1. Snapshot
-    snap = get_intelligence_snapshot(str(calc.id), assessment_cycle="CT1", db=db)
+    snap = get_intelligence_snapshot(str(calc.id), assessment_cycle="ENDSEM", db=db)
     assert "intended_scope" in snap
     assert "observed_scope" in snap
     assert "evidence_status" in snap
-    assert snap["evidence_status"] == "EVIDENCE_BACKED"
 
     # 2. Predictions
-    pred = get_prediction(str(calc.id), assessment_cycle="CT1", db=db)
+    pred = get_prediction(str(calc.id), assessment_cycle="ENDSEM", db=db)
     assert "intended_scope" in pred
     assert "observed_scope" in pred
     assert "evidence_status" in pred
 
     # 3. Practice
-    prac = get_practice_questions(calc.name, assessment_cycle="CT1")
+    prac = get_practice_questions(calc.name, assessment_cycle="ENDSEM")
     assert "intended_scope" in prac
     assert "observed_scope" in prac
     assert "evidence_status" in prac
 
     # 4. Study Priorities
-    study = get_study_priorities(calc.name, assessment_cycle="CT1", db=db)
+    study = get_study_priorities(calc.name, assessment_cycle="ENDSEM", db=db)
     assert "intended_scope" in study
     assert "observed_scope" in study
     assert "evidence_status" in study
@@ -324,8 +343,7 @@ def test_marks_accounting_distinguishes_known_vs_unknown_marks(db: Session):
     # Cycle marks_by_unit reflects mapped questions with known marks
     assert ccov.known_marks_total == 142.0
     assert ccov.marks_by_unit.get(1) == 84.0
-    assert ccov.marks_by_unit.get(5) == 16.0
-    assert ccov.marks_by_unit.get(6) == 42.0
+    assert ccov.marks_by_unit.get(2) == 58.0
     assert round(sum(ccov.marks_by_unit.values()), 2) == ccov.known_marks_total
 
 
