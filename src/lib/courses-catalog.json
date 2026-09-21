@@ -4971,5 +4971,157 @@
     ],
     "mintAiUrl": "/mintai?course=SEM4-DBMS",
     "practiceUrl": "/mintai?course=SEM4-DBMS&tab=practice"
+  },
+  {
+    "id": 29,
+    "slug": "sem4-ai",
+    "aliases": [],
+    "name": "Artificial Intelligence",
+    "code": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "semester": 2,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Artificial Intelligence (21CSC207J) academic curriculum at SRMIST.",
+    "paperCount": 5,
+    "questionCount": 156,
+    "mappedQuestionCount": 134,
+    "mappingRate": 0.859,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Artificial Intelligence and Problem Solving",
+        "topicCount": 5,
+        "topics": [
+          "Foundations and State of Artificial Intelligence",
+          "Intelligent Agents and Environment Types",
+          "Problem Formulation and State Space Representation",
+          "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+          "Real World Problems: Travelling Salesperson Problem and Route Finding"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Uninformed and Heuristic Search Algorithms",
+        "topicCount": 5,
+        "topics": [
+          "Uninformed Search: BFS, DFS and Depth-Limited Search",
+          "Uniform Cost Search and Cheapest Path",
+          "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
+          "A* Search Algorithm and Optimality",
+          "Local Search and Optimization: Hill Climbing and Simulated Annealing"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Adversarial Search and Constraint Satisfaction Problems",
+        "topicCount": 5,
+        "topics": [
+          "Game Theory and Minimax Search Algorithm",
+          "Alpha-Beta Pruning Optimization",
+          "Constraint Satisfaction Problems Formulation and Propagation",
+          "Cryptarithmetic Puzzles and Map Coloring",
+          "Backtracking Search and Arc Consistency for CSP"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Knowledge Representation, Propositional and First-Order Logic",
+        "topicCount": 5,
+        "topics": [
+          "Knowledge Representation Principles and Ontological Engineering",
+          "Propositional Logic: Syntax, Semantics and Truth Tables",
+          "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
+          "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
+          "Resolution Refutation and Unification Algorithm"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Planning, Expert Systems and Reasoning Under Uncertainty",
+        "topicCount": 5,
+        "topics": [
+          "Classical Planning and State-Space Planning",
+          "Partial Order Planning and Planning Graphs",
+          "Reasoning under Uncertainty and Bayesian Networks",
+          "Architecture of Expert Systems and Inference Engine",
+          "Knowledge Acquisition, Explanation Facilities and Shells"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Uninformed Search: BFS, DFS and Depth-Limited Search",
+        "unitNumber": 2,
+        "questionCount": 13,
+        "paperCount": 5
+      },
+      {
+        "topic": "Intelligent Agents and Environment Types",
+        "unitNumber": 1,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "Problem Formulation and State Space Representation",
+        "unitNumber": 1,
+        "questionCount": 12,
+        "paperCount": 5
+      },
+      {
+        "topic": "Foundations and State of Artificial Intelligence",
+        "unitNumber": 1,
+        "questionCount": 11,
+        "paperCount": 5
+      },
+      {
+        "topic": "Knowledge Representation Principles and Ontological Engineering",
+        "unitNumber": 4,
+        "questionCount": 11,
+        "paperCount": 5
+      },
+      {
+        "topic": "Architecture of Expert Systems and Inference Engine",
+        "unitNumber": 5,
+        "questionCount": 10,
+        "paperCount": 5
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice"
   }
 ]

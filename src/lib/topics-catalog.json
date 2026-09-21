@@ -68723,5 +68723,2601 @@
     "practiceUrl": "/mintai?course=SEM4-DBMS&tab=practice&topic=Concurrency Control and Locking Protocols",
     "mintAiUrl": "/mintai?course=SEM4-DBMS",
     "canonicalUrl": "https://markmint.vercel.app/courses/database-management-systems/topics/concurrency-control-and-locking-protocols"
+  },
+  {
+    "id": 866,
+    "slug": "foundations-and-state-of-artificial-intelligence",
+    "name": "Foundations and State of Artificial Intelligence",
+    "description": "Curriculum and historical examination lineage for Foundations and State of Artificial Intelligence under Unit 1 (Introduction to Artificial Intelligence and Problem Solving) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Introduction to Artificial Intelligence and Problem Solving",
+    "appearanceCount": 11,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 11,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 3,
+      "1": 7
+    },
+    "questionFamilies": [
+      {
+        "id": 6221,
+        "name": "Elaborate the types of learning models used in machine learning and their relevance in AI...",
+        "repetitionType": "exact_repeat",
+        "count": 2
+      },
+      {
+        "id": 6152,
+        "name": "Explain the various AI models with an example. [8] a. Explain the various AI models with an...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6183,
+        "name": "b.i. Discuss various environments available in AI. [4] ii. Write about various AI models. [4]",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6236,
+        "name": "The property of a Rational Agent to adapt to changes is related to ____. (A) Performance (B) Task...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6105,
+        "name": "Which of the following is NOT a goal of AI? (A) To create machines that can think and act like...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9294,
+        "text": "Explain the various AI models with an example. [8] a. Explain the various AI models with an example. [8]",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9327,
+        "text": "b.i. Discuss various environments available in AI. [4] ii. Write about various AI models. [4]",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9385,
+        "text": "The property of a Rational Agent to adapt to changes is related to ____. (A) Performance (B) Task environment (C) Flexibility (D) Rationality [1]",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9247,
+        "text": "Which of the following is NOT a goal of AI? (A) To create machines that can think and act like humans (B) To solve complex problems that cannot be solved by traditional methods...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9264,
+        "text": "Which type of machine learning model is typically used for regression tasks, where the goal is to predict continuous values? (A) Decision Trees (B) Support Vector Machines (C)...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Foundations and State of Artificial Intelligence",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/foundations-and-state-of-artificial-intelligence"
+  },
+  {
+    "id": 867,
+    "slug": "intelligent-agents-and-environment-types",
+    "name": "Intelligent Agents and Environment Types",
+    "description": "Curriculum and historical examination lineage for Intelligent Agents and Environment Types under Unit 1 (Introduction to Artificial Intelligence and Problem Solving) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Introduction to Artificial Intelligence and Problem Solving",
+    "appearanceCount": 12,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 12,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 10,
+      "8": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6114,
+        "name": "In the context of intelligent agents, what does \"flexibility\" refer to? (A) The ability to handle...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6133,
+        "name": "The PEAS in the task environment is about (A) Peer, Environment, Actuators, Sense (B) Perceiving,...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6246,
+        "name": "Define an Intelligent Agent. Describe the Task environment and its properties (PEAS) and briefly...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6115,
+        "name": "What is the primary focus of an \"intelligent agent\" in AI? (A) Solving a specific problem once (B)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6135,
+        "name": "A self-driving car is an example of environment (A) Static (B) Known (C) Discrete (D) Continuous [1]",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9256,
+        "text": "In the context of intelligent agents, what does \"flexibility\" refer to? (A) The ability to handle complex math problems (B) The capacity to adapt and perform well in various...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9275,
+        "text": "The PEAS in the task environment is about (A) Peer, Environment, Actuators, Sense (B) Perceiving, Environment, Actuators, Sensors (C) Performance, Environment, Actuators, Sensors...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9395,
+        "text": "Define an Intelligent Agent. Describe the Task environment and its properties (PEAS) and briefly explain the different types of agents that can be implemented by an AI. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9257,
+        "text": "What is the primary focus of an \"intelligent agent\" in AI? (A) Solving a specific problem once (B) Responding to a predefined set of commands (C) Learning and acting to achieve...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9277,
+        "text": "A self-driving car is an example of environment (A) Static (B) Known (C) Discrete (D) Continuous [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Intelligent Agents and Environment Types",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/intelligent-agents-and-environment-types"
+  },
+  {
+    "id": 868,
+    "slug": "problem-formulation-and-state-space-representation",
+    "name": "Problem Formulation and State Space Representation",
+    "description": "Curriculum and historical examination lineage for Problem Formulation and State Space Representation under Unit 1 (Introduction to Artificial Intelligence and Problem Solving) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Introduction to Artificial Intelligence and Problem Solving",
+    "appearanceCount": 12,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 12,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 7,
+      "8": 4,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6134,
+        "name": "In state-space, the set of actions for a given problem is expressed by the (A) Intermediate States...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6185,
+        "name": "Find the shortest path using $A^*$ algorithm and list the order of the obstacles, the initial state...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6195,
+        "name": "In the context of AI problem formulation, what does the term \"State Space\" refer to? (A) The...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6200,
+        "name": "The goal of any search algorithm is to achieve the ______. (A) Initial state (B) Intermediate state...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6241,
+        "name": "Explain the problem formulation steps with an example. [8]",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9276,
+        "text": "In state-space, the set of actions for a given problem is expressed by the (A) Intermediate States (B) Successor function that takes current action and returns next state (C)...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9329,
+        "text": "Find the shortest path using $A^*$ algorithm and list the order of the obstacles, the initial state (DOG) has to pass, through in order to reach the goal state (Bone). (Table...",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9339,
+        "text": "In the context of AI problem formulation, what does the term \"State Space\" refer to? (A) The physical space where AI algorithms operate (B) The set of all possible states the...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9344,
+        "text": "The goal of any search algorithm is to achieve the ______. (A) Initial state (B) Intermediate state (C) Goal state (D) State space [1]",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9390,
+        "text": "Explain the problem formulation steps with an example. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Problem Formulation and State Space Representation",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/problem-formulation-and-state-space-representation"
+  },
+  {
+    "id": 869,
+    "slug": "toy-problems-8-puzzle-water-jug-and-missionaries-cannibals",
+    "name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+    "description": "Curriculum and historical examination lineage for Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals under Unit 1 (Introduction to Artificial Intelligence and Problem Solving) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Introduction to Artificial Intelligence and Problem Solving",
+    "appearanceCount": 6,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 6,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 2,
+      "1": 1,
+      "15": 2,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6153,
+        "name": "Examine the complete solution for Missionaries and Cannibals problem. [8] b. Examine the complete...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6196,
+        "name": "In a game of tic-tac-toe, the player who goes first (X) makes optimal moves, and the player who...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6250,
+        "name": "The missionaries and cannibals problem is usually stated as follows. Three missionaries and three...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6124,
+        "name": "Model the following Problem as AI problem. Tower of hanoi is mathematical game puzzle where have...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6222,
+        "name": "There are three missionaries (M) and three cannibals (C) on one side of a river. They need to cross...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9295,
+        "text": "Examine the complete solution for Missionaries and Cannibals problem. [8] b. Examine the complete solution for Missionaries and Cannibals problem. [8]",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9340,
+        "text": "In a game of tic-tac-toe, the player who goes first (X) makes optimal moves, and the player who goes second (O) also makes optimal moves. Assuming both players play perfectly,...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9400,
+        "text": "The missionaries and cannibals problem is usually stated as follows. Three missionaries and three cannibals are on one side of a river, along with a boat that can hold one or two...",
+        "marks": 15,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9266,
+        "text": "Model the following Problem as AI problem. Tower of hanoi is mathematical game puzzle where have three pile (pillars) and n numbers of disk. This game has some rules. 1. Only one...",
+        "marks": 10,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9368,
+        "text": "There are three missionaries (M) and three cannibals (C) on one side of a river. They need to cross to the other side using a boat that can carry at most two people. If the number...",
+        "marks": 15,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/toy-problems-8-puzzle-water-jug-and-missionaries-cannibals"
+  },
+  {
+    "id": 870,
+    "slug": "real-world-problems-travelling-salesperson-problem-and-route-finding",
+    "name": "Real World Problems: Travelling Salesperson Problem and Route Finding",
+    "description": "Curriculum and historical examination lineage for Real World Problems: Travelling Salesperson Problem and Route Finding under Unit 1 (Introduction to Artificial Intelligence and Problem Solving) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Introduction to Artificial Intelligence and Problem Solving",
+    "appearanceCount": 3,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 2,
+      "1": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6213,
+        "name": "Imagine you are tasked with designing an AI system for an autonomous delivery robot in a busy urban...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6216,
+        "name": "You are developing a warehouse management system that uses robots to move items around the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6239,
+        "name": "Real-Time decisions, Game AI, Learning Tasks, Skill Acquisition, and Robot Navigation are...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9358,
+        "text": "Imagine you are tasked with designing an AI system for an autonomous delivery robot in a busy urban environment. The goal is to optimize the robot's route for efficient package...",
+        "marks": 8,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9361,
+        "text": "You are developing a warehouse management system that uses robots to move items around the warehouse. The warehouse is represented as a grid, where each cell represents a location...",
+        "marks": 8,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9388,
+        "text": "Real-Time decisions, Game AI, Learning Tasks, Skill Acquisition, and Robot Navigation are applications of which of the following (A) Supervised Learning: Classification (B)...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Real World Problems: Travelling Salesperson Problem and Route Finding",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/real-world-problems-travelling-salesperson-problem-and-route-finding"
+  },
+  {
+    "id": 871,
+    "slug": "uninformed-search-bfs-dfs-and-depth-limited-search",
+    "name": "Uninformed Search: BFS, DFS and Depth-Limited Search",
+    "description": "Curriculum and historical examination lineage for Uninformed Search: BFS, DFS and Depth-Limited Search under Unit 2 (Uninformed and Heuristic Search Algorithms) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Uninformed and Heuristic Search Algorithms",
+    "appearanceCount": 13,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 13,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 8,
+      "15": 1,
+      "8": 3,
+      "5": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6198,
+        "name": "The post order traversal of a binary tree is 8, 9, 6, 7, 4, 5, 2, 3, 1. The inorder traversal of...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 6108,
+        "name": "What is the process of finding a solution to a problem by exploring the problem space? (A) Search...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6130,
+        "name": "Explain and Implement Breadth first and Iterative Deepening Search for the following: Source Node :...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6154,
+        "name": "Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6169,
+        "name": "Your friend is in a building that has 15 floors. And you want to locate him. Which search technique...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9250,
+        "text": "What is the process of finding a solution to a problem by exploring the problem space? (A) Search (B) Problem-solving (C) Control strategy (D) Uninformed search method [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9272,
+        "text": "Explain and Implement Breadth first and Iterative Deepening Search for the following: Source Node : 1, Destination Node: 12 Write the Procedure and give the step by step execution...",
+        "marks": 15,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9296,
+        "text": "Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given directed graph with starting vertex as \"S\" and ending vertex as \"X\". [8] a....",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9312,
+        "text": "Your friend is in a building that has 15 floors. And you want to locate him. Which search technique would you use? (A) Depth limited search (B) Iterative deepening search (C)...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9313,
+        "text": "Which of the following search technique uses a priority queue? (A) Breadth first search (B) Depth first search (C) Iterative deepening search (D) Depth limited search [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Uninformed Search: BFS, DFS and Depth-Limited Search",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/uninformed-search-bfs-dfs-and-depth-limited-search"
+  },
+  {
+    "id": 872,
+    "slug": "uniform-cost-search-and-cheapest-path",
+    "name": "Uniform Cost Search and Cheapest Path",
+    "description": "Curriculum and historical examination lineage for Uniform Cost Search and Cheapest Path under Unit 2 (Uninformed and Heuristic Search Algorithms) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Uninformed and Heuristic Search Algorithms",
+    "appearanceCount": 8,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 8,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "15": 3,
+      "5": 1,
+      "1": 4
+    },
+    "questionFamilies": [
+      {
+        "id": 6199,
+        "name": "In uniform cost search, what happens if two paths have the same cost to reach a node? (A) One of...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 6223,
+        "name": "Given a weighted graph, a source node and a destination node. The task is to find the shortest path...",
+        "repetitionType": "exact_repeat",
+        "count": 2
+      },
+      {
+        "id": 6131,
+        "name": "Implement Depth First and Uniform Cost Search for the following: Source Node : S, Destination Node:...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6192,
+        "name": "Comparatively analyze $A^*$ and best first search algorithm. [5] i. Comparatively analyze $A^*$ and...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6110,
+        "name": "Which of the following uninformed search methods is most likely to find the shortest solution to a...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9273,
+        "text": "Implement Depth First and Uniform Cost Search for the following: Source Node : S, Destination Node: G Write the Procedure and give the step by step execution. [15]",
+        "marks": 15,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9336,
+        "text": "Comparatively analyze $A^*$ and best first search algorithm. [5] i. Comparatively analyze $A^*$ and best first search algorithm. [5] ii. Apply UCS in the following graph and find...",
+        "marks": 5,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9343,
+        "text": "In uniform cost search, what happens if two paths have the same cost to reach a node? (A) One of them is randomly chosen (B) Both paths are explored simultaneously (C) The first...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9369,
+        "text": "Given a weighted graph, a source node and a destination node. The task is to find the shortest path from the source node (P) to the destination node (S) using uniform cost search....",
+        "marks": 15,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9377,
+        "text": "In uniform cost search, what happens if two paths have the same cost to reach a node? (A) One of them is randomly chosen (B) Both paths are explored (C) The first path encountered...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Uniform Cost Search and Cheapest Path",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/uniform-cost-search-and-cheapest-path"
+  },
+  {
+    "id": 873,
+    "slug": "heuristic-search-greedy-best-first-search-and-heuristic-functions",
+    "name": "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
+    "description": "Curriculum and historical examination lineage for Heuristic Search: Greedy Best-First Search and Heuristic Functions under Unit 2 (Uninformed and Heuristic Search Algorithms) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Uninformed and Heuristic Search Algorithms",
+    "appearanceCount": 2,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6138,
+        "name": "The heuristic function h(n) is which of the following? (A) Lowest path cost (B) The cheapest path...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6201,
+        "name": "Generate and test search is a heuristic search technique based on ______ (A) Best first search with...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9280,
+        "text": "The heuristic function h(n) is which of the following? (A) Lowest path cost (B) The cheapest path from the root to the goal node (C) Average path cost (D) The estimated cost of...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9345,
+        "text": "Generate and test search is a heuristic search technique based on ______ (A) Best first search with backtracking (B) Depth first search with backtracking (C) Iterative deepening...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Heuristic Search: Greedy Best-First Search and Heuristic Functions",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/heuristic-search-greedy-best-first-search-and-heuristic-functions"
+  },
+  {
+    "id": 874,
+    "slug": "a-search-algorithm-and-optimality",
+    "name": "A* Search Algorithm and Optimality",
+    "description": "Curriculum and historical examination lineage for A* Search Algorithm and Optimality under Unit 2 (Uninformed and Heuristic Search Algorithms) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Uninformed and Heuristic Search Algorithms",
+    "appearanceCount": 7,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 7,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 4,
+      "1": 3
+    },
+    "questionFamilies": [
+      {
+        "id": 6155,
+        "name": "Consider the following graph. The numbers written on edges represent the distance between the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6216,
+        "name": "You are developing a warehouse management system that uses robots to move items around the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6225,
+        "name": "Evaluation function (f(n)) in A* Search is represented as (A) f(n) = h(n) (B) f(n) = g(n) + h(n)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6243,
+        "name": "Consider the above graph and try to find the path from S to G using the A* Algorithm. [8]",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6109,
+        "name": "Which of the following informed search methods combines breadth-first search with best-first...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9297,
+        "text": "Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most...",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9361,
+        "text": "You are developing a warehouse management system that uses robots to move items around the warehouse. The warehouse is represented as a grid, where each cell represents a location...",
+        "marks": 8,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9371,
+        "text": "Evaluation function (f(n)) in A* Search is represented as (A) f(n) = h(n) (B) f(n) = g(n) + h(n) (C) f(n) = g(n) * h(n) (D) f(n) = max(h(n)) [1]",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9392,
+        "text": "Consider the above graph and try to find the path from S to G using the A* Algorithm. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9251,
+        "text": "Which of the following informed search methods combines breadth-first search with best-first search? (A) Generate and test (B) Best first search (C) A* algorithm (D) Depth-limited...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=A* Search Algorithm and Optimality",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/a-search-algorithm-and-optimality"
+  },
+  {
+    "id": 875,
+    "slug": "local-search-and-optimization-hill-climbing-and-simulated-annealing",
+    "name": "Local Search and Optimization: Hill Climbing and Simulated Annealing",
+    "description": "Curriculum and historical examination lineage for Local Search and Optimization: Hill Climbing and Simulated Annealing under Unit 2 (Uninformed and Heuristic Search Algorithms) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Uninformed and Heuristic Search Algorithms",
+    "appearanceCount": 1,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6244,
+        "name": "Elaborate on the need for Local search algorithms and discuss anyone algorithm in detail. [8]",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9393,
+        "text": "Elaborate on the need for Local search algorithms and discuss anyone algorithm in detail. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Local Search and Optimization: Hill Climbing and Simulated Annealing",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/local-search-and-optimization-hill-climbing-and-simulated-annealing"
+  },
+  {
+    "id": 876,
+    "slug": "game-theory-and-minimax-search-algorithm",
+    "name": "Game Theory and Minimax Search Algorithm",
+    "description": "Curriculum and historical examination lineage for Game Theory and Minimax Search Algorithm under Unit 3 (Adversarial Search and Constraint Satisfaction Problems) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 3,
+    "unitName": "Adversarial Search and Constraint Satisfaction Problems",
+    "appearanceCount": 2,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6230,
+        "name": "In the Minmax algorithm, the \"min\" part refers to: (A) The player who moves first (B) The player...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6231,
+        "name": "Which of the following algorithms is commonly used for solving zero-sum, two-player games with...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9378,
+        "text": "In the Minmax algorithm, the \"min\" part refers to: (A) The player who moves first (B) The player minimizing the score of the opponent (C) The player maximizing their own score (D)...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9379,
+        "text": "Which of the following algorithms is commonly used for solving zero-sum, two-player games with perfect information? (A) Minmax algorithm (B) Breadth-first search (C) A* search...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Game Theory and Minimax Search Algorithm",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/game-theory-and-minimax-search-algorithm"
+  },
+  {
+    "id": 877,
+    "slug": "alpha-beta-pruning-optimization",
+    "name": "Alpha-Beta Pruning Optimization",
+    "description": "Curriculum and historical examination lineage for Alpha-Beta Pruning Optimization under Unit 3 (Adversarial Search and Constraint Satisfaction Problems) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 3,
+    "unitName": "Adversarial Search and Constraint Satisfaction Problems",
+    "appearanceCount": 8,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 8,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 3,
+      "8": 4,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6112,
+        "name": "What is the main objective of the Alpha-Beta Pruning algorithm in game trees? (A) To maximize the...",
+        "repetitionType": "family_repeat",
+        "count": 3
+      },
+      {
+        "id": 6140,
+        "name": "For alpha-beta pruning is which option is correct (A) alpha<=beta (B) alpha>=beta (C) alpha=beta...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6156,
+        "name": "Demonstrate the two-player search tree to understand the working of Alpha-beta pruning. [8] a....",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6245,
+        "name": "Brief on Mini-Max algorithm and also discuss the need for Alpha-Beta Pruning. [8]",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6126,
+        "name": "Describe the concept of \"Alpha-Beta Pruning\" in adversarial search. How does this technique enhance...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9282,
+        "text": "For alpha-beta pruning is which option is correct (A) alpha<=beta (B) alpha>=beta (C) alpha=beta (D) alpha!=beta [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9298,
+        "text": "Demonstrate the two-player search tree to understand the working of Alpha-beta pruning. [8] a. Demonstrate the two-player search tree to understand the working of Alpha-beta...",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9394,
+        "text": "Brief on Mini-Max algorithm and also discuss the need for Alpha-Beta Pruning. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9254,
+        "text": "What is the main objective of the Alpha-Beta Pruning algorithm in game trees? (A) To maximize the number of nodes explored (B) To minimize the depth of the game tree (C) To reduce...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9268,
+        "text": "Describe the concept of \"Alpha-Beta Pruning\" in adversarial search. How does this technique enhance the efficiency of the Mini-Max algorithm? Provide a step-by-step illustration...",
+        "marks": 10,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Alpha-Beta Pruning Optimization",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/alpha-beta-pruning-optimization"
+  },
+  {
+    "id": 878,
+    "slug": "constraint-satisfaction-problems-formulation-and-propagation",
+    "name": "Constraint Satisfaction Problems Formulation and Propagation",
+    "description": "Curriculum and historical examination lineage for Constraint Satisfaction Problems Formulation and Propagation under Unit 3 (Adversarial Search and Constraint Satisfaction Problems) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 3,
+    "unitName": "Adversarial Search and Constraint Satisfaction Problems",
+    "appearanceCount": 3,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 3
+    },
+    "questionFamilies": [
+      {
+        "id": 6202,
+        "name": "Consider the problem of preparing a schedule for a class of students. What type of problem is this?...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 6113,
+        "name": "What are \"constraints\" in the context of CSPs? (A) Limitations on agent intelligence (B) Conditions...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9347,
+        "text": "Consider the problem of preparing a schedule for a class of students. What type of problem is this? (A) Search problem (B) Constraint satisfaction problem (C) Backtrack problem...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9380,
+        "text": "Consider the problem of preparing a schedule for class of students. What type of problem is this? (A) Search Problem (B) Constraint satisfaction Problem (C) Planning Problem (D)...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9255,
+        "text": "What are \"constraints\" in the context of CSPs? (A) Limitations on agent intelligence (B) Conditions that must be satisfied by variable assignments (C) Random factors in game...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Constraint Satisfaction Problems Formulation and Propagation",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/constraint-satisfaction-problems-formulation-and-propagation"
+  },
+  {
+    "id": 879,
+    "slug": "cryptarithmetic-puzzles-and-map-coloring",
+    "name": "Cryptarithmetic Puzzles and Map Coloring",
+    "description": "Curriculum and historical examination lineage for Cryptarithmetic Puzzles and Map Coloring under Unit 3 (Adversarial Search and Constraint Satisfaction Problems) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 3,
+    "unitName": "Adversarial Search and Constraint Satisfaction Problems",
+    "appearanceCount": 3,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6141,
+        "name": "Select the appropriate technique that can be used for Map coloring problem (A) Breadth first search...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 6127,
+        "name": "You are presented with a classic CSP puzzle known as the \"8-Queens Problem.\" In this puzzle, you...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9316,
+        "text": "Select the appropriate technique that can be used for map coloring problem. (A) $Ao^*$ (B) $A^*$ (C) Best first search (D) Constraint satisfaction [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9269,
+        "text": "You are presented with a classic CSP puzzle known as the \"8-Queens Problem.\" In this puzzle, you must place 8 queens on an 8x8 chessboard in such a way that no two queens threaten...",
+        "marks": 10,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9283,
+        "text": "Select the appropriate technique that can be used for Map coloring problem (A) Breadth first search (B) A* search (C) Means-end analysis (D) Constraint satisfaction [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Cryptarithmetic Puzzles and Map Coloring",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/cryptarithmetic-puzzles-and-map-coloring"
+  },
+  {
+    "id": 881,
+    "slug": "knowledge-representation-principles-and-ontological-engineering",
+    "name": "Knowledge Representation Principles and Ontological Engineering",
+    "description": "Curriculum and historical examination lineage for Knowledge Representation Principles and Ontological Engineering under Unit 4 (Knowledge Representation, Propositional and First-Order Logic) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 4,
+    "unitName": "Knowledge Representation, Propositional and First-Order Logic",
+    "appearanceCount": 11,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 11,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 7,
+      "4": 1,
+      "8": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6117,
+        "name": "In the \"Wumpus World\" environment, what does the agent need to do? (A) Solve Sudoku puzzles (B)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6119,
+        "name": "What is the purpose of \"knowledge representation using rules\" in AI? (A) Storing data in a database...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6147,
+        "name": "Wumpus World is a classic problem, best example of (A) Single player Game (B) Two player Game (C)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6188,
+        "name": "Explain semantic network? [4] a.i. Explain semantic network? [4] ii. Use the below facts and using...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6189,
+        "name": "b.i. Give the syntax, semantic and interfacing mechanisms in frames with example. [4] ii. How...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9259,
+        "text": "In the \"Wumpus World\" environment, what does the agent need to do? (A) Solve Sudoku puzzles (B) Navigate a maze (C) Hunt a mythical creature (D) Avoid hazards and find the gold [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9261,
+        "text": "What is the purpose of \"knowledge representation using rules\" in AI? (A) Storing data in a database (B) Encoding relationships and patterns in a declarative way (C) Generating...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9289,
+        "text": "Wumpus World is a classic problem, best example of (A) Single player Game (B) Two player Game (C) Reasoning with Knowledge (D) Knowledge based Game [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9332,
+        "text": "Explain semantic network? [4] a.i. Explain semantic network? [4] ii. Use the below facts and using semantic network conclude \"Tom is a Mammal\". - Tom is an instance of dog - Tom...",
+        "marks": 4,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9333,
+        "text": "b.i. Give the syntax, semantic and interfacing mechanisms in frames with example. [4] ii. How inference rules are used to represent knowledge? [4]",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Knowledge Representation Principles and Ontological Engineering",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/knowledge-representation-principles-and-ontological-engineering"
+  },
+  {
+    "id": 882,
+    "slug": "propositional-logic-syntax-semantics-and-truth-tables",
+    "name": "Propositional Logic: Syntax, Semantics and Truth Tables",
+    "description": "Curriculum and historical examination lineage for Propositional Logic: Syntax, Semantics and Truth Tables under Unit 4 (Knowledge Representation, Propositional and First-Order Logic) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 4,
+    "unitName": "Knowledge Representation, Propositional and First-Order Logic",
+    "appearanceCount": 3,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 3
+    },
+    "questionFamilies": [
+      {
+        "id": 6177,
+        "name": "In propositional logic $\\alpha$ is valid iff $\\models \\alpha$ is ________ (A) Satisfiable (B)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6233,
+        "name": "Propositional logic deals with determining the ____ of the sentence. (A) Syntax (B) Truth value (C)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6175,
+        "name": "Match the terms with correct options i) Disjunction ii) Implication iii) Biconditional iv)...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9321,
+        "text": "In propositional logic $\\alpha$ is valid iff $\\models \\alpha$ is ________ (A) Satisfiable (B) Unsatisfiable (C) Complete (D) Incomplete [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9382,
+        "text": "Propositional logic deals with determining the ____ of the sentence. (A) Syntax (B) Truth value (C) Semantics (D) Logic [1]",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9319,
+        "text": "Match the terms with correct options i) Disjunction ii) Implication iii) Biconditional iv) Conjunction 1) $a \\rightarrow b$ 2) $a \\land b$ 3) $a \\lor b$ 4) $a \\rightarrow b \\land...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Propositional Logic: Syntax, Semantics and Truth Tables",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/propositional-logic-syntax-semantics-and-truth-tables"
+  },
+  {
+    "id": 883,
+    "slug": "first-order-predicate-logic-syntax-semantics-and-quantifiers",
+    "name": "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
+    "description": "Curriculum and historical examination lineage for First-Order Predicate Logic: Syntax, Semantics and Quantifiers under Unit 4 (Knowledge Representation, Propositional and First-Order Logic) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 4,
+    "unitName": "Knowledge Representation, Propositional and First-Order Logic",
+    "appearanceCount": 4,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 4,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 3,
+      "8": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6149,
+        "name": "Which of the following are the two major characteristics which combine the AI Planning problem? (A)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6158,
+        "name": "Consider the following axioms. Represent these axioms in predicate calculus. [8] a. Consider the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6118,
+        "name": "Which type of logic represents relationships and quantified statements using variables, predicates,...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6174,
+        "name": "Assume that the knowledge base contains axiom: \"All students who did hard work got passed\" Pick the...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9291,
+        "text": "Which of the following are the two major characteristics which combine the AI Planning problem? (A) FOL and Logic (B) Logic and Knowledge Based Systems (C) Knowledge Based Systems...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9300,
+        "text": "Consider the following axioms. Represent these axioms in predicate calculus. [8] a. Consider the following axioms. Represent these axioms in predicate calculus. [8] i. Every child...",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9260,
+        "text": "Which type of logic represents relationships and quantified statements using variables, predicates, and quantifiers like \"forall\" and \"exists\"? (A) Propositional Logic (B) Fuzzy...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9318,
+        "text": "Assume that the knowledge base contains axiom: \"All students who did hard work got passed\" Pick the correct FOL: (A) $\\forall x \\text{ student } (x) \\land \\text{ hardwork } (x)...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/first-order-predicate-logic-syntax-semantics-and-quantifiers"
+  },
+  {
+    "id": 884,
+    "slug": "inference-in-logic-forward-chaining-backward-chaining-and-horn-clauses",
+    "name": "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
+    "description": "Curriculum and historical examination lineage for Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses under Unit 4 (Knowledge Representation, Propositional and First-Order Logic) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 4,
+    "unitName": "Knowledge Representation, Propositional and First-Order Logic",
+    "appearanceCount": 1,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6248,
+        "name": "Differentiate Backward and Forward chaining with an example. [8]",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9397,
+        "text": "Differentiate Backward and Forward chaining with an example. [8]",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/inference-in-logic-forward-chaining-backward-chaining-and-horn-clauses"
+  },
+  {
+    "id": 885,
+    "slug": "resolution-refutation-and-unification-algorithm",
+    "name": "Resolution Refutation and Unification Algorithm",
+    "description": "Curriculum and historical examination lineage for Resolution Refutation and Unification Algorithm under Unit 4 (Knowledge Representation, Propositional and First-Order Logic) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 4,
+    "unitName": "Knowledge Representation, Propositional and First-Order Logic",
+    "appearanceCount": 3,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "8": 1,
+      "15": 1,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6159,
+        "name": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6162,
+        "name": "Consider the following facts: Prove the conclusion using Resolution. a. Team Delhi b. Team Mumbai...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6128,
+        "name": "Suppose you have two first-order logic statements: \"P(x, y)\" and \"P(3, 5).\" Can unification be...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9301,
+        "text": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold...",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9305,
+        "text": "Consider the following facts: Prove the conclusion using Resolution. a. Team Delhi b. Team Mumbai c. Final match between Delhi and Mumbai d. Delhi scored 350 runs, Mumbai scored...",
+        "marks": 15,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9270,
+        "text": "Suppose you have two first-order logic statements: \"P(x, y)\" and \"P(3, 5).\" Can unification be applied to these statements? If so, describe the unification process and the...",
+        "marks": 10,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Resolution Refutation and Unification Algorithm",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/resolution-refutation-and-unification-algorithm"
+  },
+  {
+    "id": 886,
+    "slug": "classical-planning-and-state-space-planning",
+    "name": "Classical Planning and State-Space Planning",
+    "description": "Curriculum and historical examination lineage for Classical Planning and State-Space Planning under Unit 5 (Planning, Expert Systems and Reasoning Under Uncertainty) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 5,
+    "unitName": "Planning, Expert Systems and Reasoning Under Uncertainty",
+    "appearanceCount": 9,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 9,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 6,
+      "8": 3
+    },
+    "questionFamilies": [
+      {
+        "id": 6120,
+        "name": "What is the primary objective of a planning agent in AI? (A) Predicting future events (B) Learning...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6121,
+        "name": "What is \"Means-Ends Analysis\" in AI planning? (A) A technique for organizing knowledge in expert...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6179,
+        "name": "The domain that makes use of blocks world domain is ________. (A) Non static, finite, completely,...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6191,
+        "name": "Explain [8] b. Explain i. Simple planning agent [4] ii. Means-end analysis [4]",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6211,
+        "name": "What characterizes a simple planning agent in artificial intelligence? (A) Complex decision making...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9262,
+        "text": "What is the primary objective of a planning agent in AI? (A) Predicting future events (B) Learning from data (C) Generating a sequence of actions to achieve a goal (D) Recognizing...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9263,
+        "text": "What is \"Means-Ends Analysis\" in AI planning? (A) A technique for organizing knowledge in expert systems (B) A method for learning from data (C) A strategy for breaking down a...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9323,
+        "text": "The domain that makes use of blocks world domain is ________. (A) Non static, finite, completely, inobservable (B) Dynamic completely observable (C) Static, finite, completely...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9335,
+        "text": "Explain [8] b. Explain i. Simple planning agent [4] ii. Means-end analysis [4]",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9356,
+        "text": "What characterizes a simple planning agent in artificial intelligence? (A) Complex decision making algorithms (B) The ability to predict future events (C) Advanced natural...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Classical Planning and State-Space Planning",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/classical-planning-and-state-space-planning"
+  },
+  {
+    "id": 887,
+    "slug": "partial-order-planning-and-planning-graphs",
+    "name": "Partial Order Planning and Planning Graphs",
+    "description": "Curriculum and historical examination lineage for Partial Order Planning and Planning Graphs under Unit 5 (Planning, Expert Systems and Reasoning Under Uncertainty) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 5,
+    "unitName": "Planning, Expert Systems and Reasoning Under Uncertainty",
+    "appearanceCount": 2,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6148,
+        "name": "Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6178,
+        "name": "Which of the following statements is true regarding partial order planning (POP) algorithms? (A)...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9290,
+        "text": "Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning problem, then the best data structure to use is the (A) Stacks (B) Planning...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9322,
+        "text": "Which of the following statements is true regarding partial order planning (POP) algorithms? (A) Always choose to add a plan step in particularly place in sequence (B) They work...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Partial Order Planning and Planning Graphs",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/partial-order-planning-and-planning-graphs"
+  },
+  {
+    "id": 888,
+    "slug": "reasoning-under-uncertainty-and-bayesian-networks",
+    "name": "Reasoning under Uncertainty and Bayesian Networks",
+    "description": "Curriculum and historical examination lineage for Reasoning under Uncertainty and Bayesian Networks under Unit 5 (Planning, Expert Systems and Reasoning Under Uncertainty) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 5,
+    "unitName": "Planning, Expert Systems and Reasoning Under Uncertainty",
+    "appearanceCount": 3,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2,
+      "8": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6234,
+        "name": "In a Bayesian Network, nodes represent ____. (A) Physical network nodes (B) Data storage units (C)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6207,
+        "name": "In uncertain reasoning, what does the term \"belief revision\" refer to? (A) Modifying existing...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6219,
+        "name": "Discuss the challenges associated with applying uncertain knowledge and reasoning methods to simple...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9383,
+        "text": "In a Bayesian Network, nodes represent ____. (A) Physical network nodes (B) Data storage units (C) Random variable (D) Encryption algorithms [1]",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9352,
+        "text": "In uncertain reasoning, what does the term \"belief revision\" refer to? (A) Modifying existing knowledge based on new evidence (B) Completely discarding uncertain information (C)...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9365,
+        "text": "Discuss the challenges associated with applying uncertain knowledge and reasoning methods to simple decision-making in AI. How can these challenges be mitigated? [8]",
+        "marks": 8,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Reasoning under Uncertainty and Bayesian Networks",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/reasoning-under-uncertainty-and-bayesian-networks"
+  },
+  {
+    "id": 889,
+    "slug": "architecture-of-expert-systems-and-inference-engine",
+    "name": "Architecture of Expert Systems and Inference Engine",
+    "description": "Curriculum and historical examination lineage for Architecture of Expert Systems and Inference Engine under Unit 5 (Planning, Expert Systems and Reasoning Under Uncertainty) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 5,
+    "unitName": "Planning, Expert Systems and Reasoning Under Uncertainty",
+    "appearanceCount": 10,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 294,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 Dec",
+        "year": 2023,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 296,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 May",
+        "year": 2023,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 297,
+        "title": "Artificial Intelligence (AI) - PYQ 2024 May",
+        "year": 2024,
+        "term": "MAY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 10,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 7,
+      "8": 2,
+      "10": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 6129,
+        "name": "Describe the architecture of expert systems. List the main components and describe how do they work...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 6111,
+        "name": "Which of the following is NOT a component of a problem-solving agent? (A) Search algorithm (B)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6123,
+        "name": "What is the role of the \"inference engine\" in an expert system? (A) Storing knowledge (B)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6146,
+        "name": "Choose the correct option. A) Knowledge base (KB) is consists of set of statements. B) Inference is...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6181,
+        "name": "Which of the following is not a component of an expert system? (A) Inference engine (B) User...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9253,
+        "text": "Which of the following is NOT a component of a problem-solving agent? (A) Search algorithm (B) Knowledge base (C) Sensors (D) Actuators [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9265,
+        "text": "What is the role of the \"inference engine\" in an expert system? (A) Storing knowledge (B) Presenting information to the user (C) Making deductions and drawing conclusions based on...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9288,
+        "text": "Choose the correct option. A) Knowledge base (KB) is consists of set of statements. B) Inference is deriving a n (A) A is true, B is true (B) A is false, B is false (C) A is true,...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9325,
+        "text": "Which of the following is not a component of an expert system? (A) Inference engine (B) User interface (C) Knowledge base (D) Domain knowledge [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9334,
+        "text": "Explain in detail about expert system architecture. [8] a. Explain in detail about expert system architecture. [8]",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Architecture of Expert Systems and Inference Engine",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/architecture-of-expert-systems-and-inference-engine"
+  },
+  {
+    "id": 890,
+    "slug": "knowledge-acquisition-explanation-facilities-and-shells",
+    "name": "Knowledge Acquisition, Explanation Facilities and Shells",
+    "description": "Curriculum and historical examination lineage for Knowledge Acquisition, Explanation Facilities and Shells under Unit 5 (Planning, Expert Systems and Reasoning Under Uncertainty) of Artificial Intelligence (21CSC207J) at SRMIST.",
+    "courseId": 29,
+    "courseSlug": "sem4-ai",
+    "courseName": "Artificial Intelligence",
+    "courseCode": "SEM4-AI",
+    "canonicalCode": "21CSC207J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 5,
+    "unitName": "Planning, Expert Systems and Reasoning Under Uncertainty",
+    "appearanceCount": 2,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 295,
+        "title": "Artificial Intelligence (AI) - PYQ 2023 July",
+        "year": 2023,
+        "term": "JULY",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 298,
+        "title": "Artificial Intelligence (AI) - PYQ 2025 Dec",
+        "year": 2025,
+        "term": "DEC",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 6150,
+        "name": "The first expert system was (A) DENDRAL (B) MYCIN (C) XCON (D) CON [1]",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 6238,
+        "name": "\"MYCIN\" is an example of an Expert System developed for: (A) Network management (B) Medical...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 9292,
+        "text": "The first expert system was (A) DENDRAL (B) MYCIN (C) XCON (D) CON [1]",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 9387,
+        "text": "\"MYCIN\" is an example of an Expert System developed for: (A) Network management (B) Medical diagnosis, specifically infectious diseases (C) Data encryption (D) Financial analysis...",
+        "marks": 1,
+        "year": 2025,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM4-AI&tab=practice&topic=Knowledge Acquisition, Explanation Facilities and Shells",
+    "mintAiUrl": "/mintai?course=SEM4-AI",
+    "canonicalUrl": "https://markmint.vercel.app/courses/sem4-ai/topics/knowledge-acquisition-explanation-facilities-and-shells"
   }
 ]

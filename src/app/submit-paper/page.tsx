@@ -15,6 +15,7 @@ import {
   rejectPaperSubmission,
   getSubmissionReviewSummary,
   getSubmissionByTracking,
+  getSubmissionQualityMetrics,
 } from "@/lib/api";
 import {
   CurriculumSubject,
@@ -22,6 +23,7 @@ import {
   PaperSubmissionRecord,
   AdminReviewSummary,
   SubmitterFeedback,
+  SubmissionQualityMetrics,
 } from "@/lib/types";
 import {
   ChevronRight,
@@ -94,6 +96,7 @@ export default function SubmitPaperPage() {
   const [expandedSubId, setExpandedSubId] = useState<number | null>(null);
   const [reviewSummaries, setReviewSummaries] = useState<Record<number, AdminReviewSummary>>({});
   const [reviewLoadingId, setReviewLoadingId] = useState<number | null>(null);
+  const [qualityMetrics, setQualityMetrics] = useState<SubmissionQualityMetrics | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -236,8 +239,12 @@ export default function SubmitPaperPage() {
     setActionMessage(null);
     try {
       const filter = moderationFilter === "ALL" ? undefined : moderationFilter;
-      const list = await listPaperSubmissions(filter);
+      const [list, metrics] = await Promise.all([
+        listPaperSubmissions(filter),
+        getSubmissionQualityMetrics().catch(() => null),
+      ]);
       setModerationList(list);
+      if (metrics) setQualityMetrics(metrics);
     } catch (e: any) {
       setActionMessage("Failed to fetch moderation queue: " + e.message);
     } finally {
@@ -874,6 +881,89 @@ export default function SubmitPaperPage() {
         {/* MODERATION DESK VIEW */}
         {activeTab === "moderation" && (
           <div className="space-y-6">
+            {/* Live Corpus Ingestion & Quality Metrics */}
+            {qualityMetrics && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="p-3.5 rounded-xl bg-card border border-border/60 space-y-1">
+                  <span className="text-[10px] text-muted-foreground uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <FileText className="w-3.5 h-3.5 text-accent" />
+                    Submissions
+                  </span>
+                  <div className="text-xl font-bold font-mono text-foreground">
+                    {qualityMetrics.submissions}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    {qualityMetrics.pending} pending &bull; {qualityMetrics.rejected} rejected
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-card border border-emerald-500/20 space-y-1">
+                  <span className="text-[10px] text-emerald-400 uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                    Approved
+                  </span>
+                  <div className="text-xl font-bold font-mono text-emerald-400">
+                    {qualityMetrics.approved}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Promoted to corpus
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-card border border-border/60 space-y-1">
+                  <span className="text-[10px] text-muted-foreground uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <Database className="w-3.5 h-3.5 text-indigo-400" />
+                    Questions
+                  </span>
+                  <div className="text-xl font-bold font-mono text-foreground">
+                    {qualityMetrics.questions_added}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Extracted & added
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-card border border-border/60 space-y-1">
+                  <span className="text-[10px] text-muted-foreground uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <Layers className="w-3.5 h-3.5 text-accent" />
+                    Mapping Rate
+                  </span>
+                  <div className="text-xl font-bold font-mono text-accent">
+                    {qualityMetrics.mapping_rate_formatted}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    {qualityMetrics.questions_mapped} / {qualityMetrics.questions_added} mapped
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-card border border-border/60 space-y-1">
+                  <span className="text-[10px] text-muted-foreground uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                    Duplicates
+                  </span>
+                  <div className="text-xl font-bold font-mono text-foreground">
+                    {qualityMetrics.duplicate}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    SHA-256 deduplicated
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-card border border-border/60 space-y-1">
+                  <span className="text-[10px] text-muted-foreground uppercase font-semibold tracking-wider flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-blue-400" />
+                    Pending Queue
+                  </span>
+                  <div className="text-xl font-bold font-mono text-foreground">
+                    {qualityMetrics.pending}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    Awaiting moderation
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2">
               <div className="space-y-1">
                 <h2 className="text-xl font-bold text-foreground">Moderation Queue</h2>
