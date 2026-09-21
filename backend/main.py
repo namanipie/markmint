@@ -61,6 +61,7 @@ async def global_exception_handler(request: Request, exc: Exception):
     return response
 
 @app.get("/health", tags=["Health"])
+@app.head("/health", tags=["Health"])
 def health_check():
     """Lightweight health endpoint."""
     return {"status": "ok", "environment": settings.ENVIRONMENT}

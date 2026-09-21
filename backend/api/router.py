@@ -18,6 +18,7 @@ from backend.api.endpoints import (
 api_router = APIRouter()
 
 @api_router.get("/health")
+@api_router.head("/health")
 def health_check() -> dict[str, str]:
     return {"status": "ok"}
 

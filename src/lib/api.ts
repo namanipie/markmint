@@ -134,61 +134,74 @@ function dedupeRequest<T>(cacheKey: string, fetcher: () => Promise<T>): Promise<
   return promise;
 }
 
-// Real Backend Endpoints with Safe Client Caching
+import canonicalCatalog from "@/data/canonical_curriculum.json";
+
+// Types for the canonical catalog JSON
+interface CatalogHierarchy {
+  [branch: string]: {
+    [semester: string]: CurriculumSubject[];
+  };
+}
+
+const catalogBranches: string[] = (canonicalCatalog as any).branches || [];
+const catalogDefaultBranch: string = (canonicalCatalog as any).default_branch || (catalogBranches[0] || "");
+const catalogDefaultSemester: number = (canonicalCatalog as any).default_semester || 1;
+const catalogHierarchy: CatalogHierarchy = (canonicalCatalog as any).hierarchy || {};
+
+function findBranchKey(branch: string): string | undefined {
+  const norm = branch.trim().toLowerCase();
+  return Object.keys(catalogHierarchy).find((b) => b.trim().toLowerCase() === norm);
+}
+
+// Canonical Frontend Catalog: Instant 0ms Resolution Without Render
 export async function getCurriculumBranches(): Promise<string[]> {
-  return dedupeRequest("mm_curriculum_branches_v1", () => fetchAPI("/curriculum/branches"));
+  return catalogBranches;
 }
 
 export async function getCurriculumSemesters(branch: string): Promise<number[]> {
-  const key = `mm_curriculum_semesters_v1_${branch.toLowerCase()}`;
-  return dedupeRequest(key, () => fetchAPI(`/curriculum/branches/${encodeURIComponent(branch)}/semesters`));
+  const branchKey = findBranchKey(branch);
+  if (!branchKey || !catalogHierarchy[branchKey]) {
+    return [];
+  }
+  return Object.keys(catalogHierarchy[branchKey])
+    .map(Number)
+    .filter((n) => !isNaN(n))
+    .sort((a, b) => a - b);
 }
 
 export async function getCurriculumSubjects(
   branch: string, 
   semester: number | string
 ): Promise<CurriculumSubject[]> {
-  const key = `mm_curriculum_subjects_v1_${branch.toLowerCase()}_sem${semester}`;
-  return dedupeRequest(key, () =>
-    fetchAPI(
-      `/curriculum/branches/${encodeURIComponent(branch)}/semesters/${encodeURIComponent(String(semester))}`
-    )
-  );
+  const branchKey = findBranchKey(branch);
+  if (!branchKey || !catalogHierarchy[branchKey]) {
+    return [];
+  }
+  return catalogHierarchy[branchKey][String(semester)] || [];
 }
 
 export async function getCurriculumInitialScope(
   branch?: string,
   semester?: number
 ): Promise<InitialScopeResponse> {
-  let url = "/curriculum/initial-scope";
-  const params: string[] = [];
-  if (branch) params.push(`branch=${encodeURIComponent(branch)}`);
-  if (semester) params.push(`semester=${encodeURIComponent(semester)}`);
-  if (params.length > 0) url += `?${params.join("&")}`;
+  const selectedBranch = (branch && findBranchKey(branch)) || catalogDefaultBranch;
+  const semesters = await getCurriculumSemesters(selectedBranch);
+  const selectedSemester = (semester && semesters.includes(semester))
+    ? semester
+    : (semesters.length > 0 ? semesters[0] : catalogDefaultSemester);
+  const subjects = await getCurriculumSubjects(selectedBranch, selectedSemester);
 
-  const key = `mm_curriculum_initial_scope_v1_${branch || "default"}_${semester || 1}`;
-  return dedupeRequest(key, async () => {
-    const data: InitialScopeResponse = await fetchAPI(url);
-    if (data.branches && data.branches.length > 0) {
-      setCached("mm_curriculum_branches_v1", data.branches);
-    }
-    if (data.default_branch && data.semesters) {
-      setCached(`mm_curriculum_semesters_v1_${data.default_branch.toLowerCase()}`, data.semesters);
-    }
-    if (data.default_branch && data.default_semester && data.subjects) {
-      setCached(`mm_curriculum_subjects_v1_${data.default_branch.toLowerCase()}_sem${data.default_semester}`, data.subjects);
-    }
-    return data;
-  });
+  return {
+    branches: catalogBranches,
+    default_branch: selectedBranch,
+    semesters,
+    default_semester: selectedSemester,
+    subjects,
+  };
 }
 
 export function preloadCurriculumMetadata(): void {
-  // Trigger non-blocking preload in background
-  if (typeof window !== "undefined") {
-    getCurriculumInitialScope().catch(() => {
-      // Ignore background warmup errors
-    });
-  }
+  // No-op: Canonical curriculum is pre-bundled in build artifact
 }
 
 export async function getCurriculumStats(): Promise<CurriculumStats> {

@@ -71,8 +71,8 @@ export default function MintAIPage() {
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
   const [isLoadingTracks, setIsLoadingTracks] = useState<boolean>(false);
 
-  // Loading & error states
-  const [isLoadingBranches, setIsLoadingBranches] = useState(true);
+  // Loading & error states - Initialized false because canonical curriculum loads instantly from bundle
+  const [isLoadingBranches, setIsLoadingBranches] = useState(false);
   const [isLoadingSemesters, setIsLoadingSemesters] = useState(false);
   const [isLoadingSubjects, setIsLoadingSubjects] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -183,18 +183,10 @@ export default function MintAIPage() {
   const isInitialMountedRef = useRef(false);
   const [coldStartNotice, setColdStartNotice] = useState(false);
 
-  // 1. Initial Mount: Load entire initial scope in 1 single round-trip
+  // 1. Initial Mount: Load entire initial scope instantly from canonical bundle
   const loadInitialScope = useCallback(async () => {
-    setIsLoadingBranches(true);
-    setIsLoadingSemesters(true);
-    setIsLoadingSubjects(true);
     setBranchLoadError("");
     setColdStartNotice(false);
-
-    // Warm-up timer to inform students if backend is cold-starting
-    const timer = setTimeout(() => {
-      setColdStartNotice(true);
-    }, 5000);
 
     try {
       const data = await getCurriculumInitialScope();
@@ -209,13 +201,7 @@ export default function MintAIPage() {
       isInitialMountedRef.current = true;
     } catch (err: any) {
       console.error("Failed to load initial curriculum scope", err);
-      setBranchLoadError(err?.message || "Couldn't load academic branches. Server may be starting up.");
-    } finally {
-      clearTimeout(timer);
-      setColdStartNotice(false);
-      setIsLoadingBranches(false);
-      setIsLoadingSemesters(false);
-      setIsLoadingSubjects(false);
+      setBranchLoadError("Couldn't load academic branches.");
     }
   }, []);
 
@@ -371,7 +357,7 @@ export default function MintAIPage() {
         setSnapshot(data);
       } catch (err: any) {
         console.error("Intelligence snapshot generation failed for language track", err);
-        setError(err?.message || "Failed to synthesize academic intelligence.");
+        setError("Exam intelligence is temporarily unavailable.");
       } finally {
         setIsAnalyzing(false);
       }
@@ -438,7 +424,7 @@ export default function MintAIPage() {
       }
     } catch (err: any) {
       console.error("Intelligence snapshot generation failed", err);
-      setError(err?.message || "Failed to synthesize academic intelligence.");
+      setError("Exam intelligence is temporarily unavailable.");
       trackFrictionEvent("api_error", {
         course_id: selectedSubject?.course_id,
         course_code: selectedSubject?.canonical_code,
@@ -474,7 +460,7 @@ export default function MintAIPage() {
         setSnapshot(data);
       } catch (err: any) {
         console.error("Intelligence snapshot generation failed for cycle", err);
-        setError(err?.message || "Failed to synthesize academic intelligence.");
+        setError("Exam intelligence is temporarily unavailable.");
         trackFrictionEvent("api_error", {
           course_id: selectedSubject?.course_id,
           course_code: selectedSubject?.canonical_code,
