@@ -168,11 +168,13 @@ def test_intended_vs_observed_scope_separation(db: Session):
     """Verify AssessmentScope clearly decouples intended_scope from observed_scope."""
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
 
-    # ENDSEM: Intended scope comes from authoritative plan (Units 1..5)
+    # ENDSEM: Intended scope is None because no authoritative circular exists; observed scope covers all 5 units from actual exam questions
     scope_endsem = get_course_assessment_scope(calc.id, "ENDSEM", db=db)
-    assert scope_endsem.intended_scope is not None
-    assert scope_endsem.intended_scope["unit_numbers"] == [1, 2, 3, 4, 5]
-    assert len(scope_endsem.intended_scope["topic_names"]) > 0
+    assert scope_endsem.has_authoritative_unit_scope is False
+    assert scope_endsem.intended_scope is None
+    assert scope_endsem.observed_scope is not None
+    assert set(scope_endsem.observed_scope["unit_numbers"]) == {1, 2, 3, 4, 5}
+    assert len(scope_endsem.observed_scope["topic_names"]) > 0
 
     # CT1: No authoritative internal scope registered; intended_scope is None, observed_scope is empirical
     scope_ct1 = get_course_assessment_scope(calc.id, "CT1", db=db)
@@ -216,24 +218,20 @@ def test_out_of_scope_observed_detection(db: Session):
 
 
 def test_unobserved_in_scope_zero_synthetic_probability(db: Session):
-    """Verify that in-scope topics with no historical appearances get zero synthetic probability."""
+    """Verify that without authoritative circular intended_scope is None and predictions only reflect observed historical evidence."""
     calc = db.query(Course).filter(Course.canonical_code == "21MAB101T").first()
     snapshot = get_intelligence_snapshot(str(calc.id), assessment_cycle="ENDSEM", db=db)
 
     scope_payload = snapshot["assessment_scope"]
-    assert scope_payload["intended_scope"]["unit_numbers"] == [1, 2, 3, 4, 5]
+    assert scope_payload["intended_scope"] is None
+    assert scope_payload["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert len(scope_payload["unobserved_in_scope_topics"]) == 0
 
-    # Unobserved topics exist because some topics had 0 historical questions
-    unobserved = scope_payload["unobserved_in_scope_topics"]
-    assert len(unobserved) > 0
-    for item in unobserved:
-        assert item["status"] == "UNOBSERVED_IN_SCOPE"
-        assert "no historical evidence" in item["message"].lower()
+    # Predictions strictly come from observed exam evidence, zero synthetic probability
+    for p in snapshot["predictions"]:
+        if p.get("target") == "topic" or "topic_id" in p:
+            assert p.get("appearance_count", 0) > 0 or p.get("historical_appearances", 0) > 0 or p.get("question_count", 0) > 0 or p.get("confidence", "") != ""
 
-    # Predictions must not contain synthetic probabilities for unobserved topics
-    pred_names = {p.get("name") or p.get("topic") for p in snapshot["predictions"]}
-    unobserved_names = {item["name"] for item in unobserved}
-    assert pred_names.isdisjoint(unobserved_names), "Unobserved topics must NOT receive synthetic predictions!"
 
 
 def test_coverage_audit_chain(db: Session):

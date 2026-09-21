@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "timestamp": "2026-09-20T20:16:40.059935",
+    "timestamp": "2026-09-20T20:19:53.282609",
     "total_courses_evaluated": 28,
     "eligible_target_exams_evaluated": 155,
     "total_evaluation_records": 1085,
@@ -117,6 +117,23 @@
     }
   },
   "cycle_summary": {
+    "CT2": {
+      "target_exams": 2,
+      "averages": {
+        "Precision@3": 1.0,
+        "Precision@5": 0.6,
+        "Precision@10": 0.3,
+        "Recall@3": 0.5,
+        "Recall@5": 0.5,
+        "Recall@10": 0.5,
+        "Marks_Coverage@3": 0.4085,
+        "Marks_Coverage@5": 0.4085,
+        "Marks_Coverage@10": 0.4085,
+        "Question_Coverage@3": 0.4286,
+        "Question_Coverage@5": 0.4286,
+        "Question_Coverage@10": 0.4286
+      }
+    },
     "ENDSEM": {
       "target_exams": 149,
       "averages": {
@@ -149,23 +166,6 @@
         "Question_Coverage@3": 0.2083,
         "Question_Coverage@5": 0.2083,
         "Question_Coverage@10": 0.2639
-      }
-    },
-    "CT2": {
-      "target_exams": 2,
-      "averages": {
-        "Precision@3": 1.0,
-        "Precision@5": 0.6,
-        "Precision@10": 0.3,
-        "Recall@3": 0.5,
-        "Recall@5": 0.5,
-        "Recall@10": 0.5,
-        "Marks_Coverage@3": 0.4085,
-        "Marks_Coverage@5": 0.4085,
-        "Marks_Coverage@10": 0.4085,
-        "Question_Coverage@3": 0.4286,
-        "Question_Coverage@5": 0.4286,
-        "Question_Coverage@10": 0.4286
       }
     }
   },

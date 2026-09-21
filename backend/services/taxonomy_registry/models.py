@@ -71,9 +71,14 @@ class UnitDefinition:
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "UnitDefinition":
+        num = data["number"]
+        if not (1 <= num <= 5):
+            raise ValueError(
+                f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {num}."
+            )
         return cls(
             id=data["id"],
-            number=data["number"],
+            number=num,
             name=data["name"],
             track_id=data.get("track_id"),
             track_key=data.get("track_key"),

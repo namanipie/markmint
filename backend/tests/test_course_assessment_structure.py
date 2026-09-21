@@ -92,13 +92,14 @@ def test_all_courses_have_authoritative_plans():
 
 def test_assessment_scope_unit_enforcement(db: Session):
     """Verify assessment scopes retrieve authoritative intended units or truthful observed scope."""
-    # ENDSEM has authoritative plan covering all 5 canonical units
+    # ENDSEM has no authoritative circular in repo; intended scope is None, observed scope covers all 5 units from actual exam questions
     scope_calc_endsem = get_course_assessment_scope(1, "ENDSEM", db=db)
-    assert scope_calc_endsem.in_scope_unit_numbers == {1, 2, 3, 4, 5}
-    assert scope_calc_endsem.has_authoritative_unit_scope is True
-    assert scope_calc_endsem.intended_scope is not None
-    assert scope_calc_endsem.intended_scope["unit_numbers"] == [1, 2, 3, 4, 5]
-    assert len(scope_calc_endsem.in_scope_topic_names) > 0
+    assert scope_calc_endsem.in_scope_unit_numbers == set()
+    assert scope_calc_endsem.has_authoritative_unit_scope is False
+    assert scope_calc_endsem.intended_scope is None
+    assert scope_calc_endsem.evidence_status == "UNPLANNED_OBSERVED_ONLY"
+    assert set(scope_calc_endsem.observed_scope["unit_numbers"]) == {1, 2, 3, 4, 5}
+    assert len(scope_calc_endsem.observed_scope["topic_names"]) > 0
 
     # CT1 has no authoritative circular in repo; intended scope is None, observed scope comes from exam questions
     scope_calc_ct1 = get_course_assessment_scope(1, "CT1", db=db)
@@ -117,39 +118,35 @@ def test_assessment_scope_unit_enforcement(db: Session):
 
 
 def test_prediction_candidate_restriction_by_scope(db: Session):
-    """Verify that predictions under ENDSEM enforce scope candidate restriction."""
+    """Verify that predictions under ENDSEM preserve observed topic candidates without artificial restriction."""
     pred_endsem = get_prediction(subject="1", assessment_cycle="ENDSEM", db=db)
     scope_endsem = get_course_assessment_scope(1, "ENDSEM", db=db)
 
     assert pred_endsem["assessment_cycle"] == "ENDSEM"
     assert pred_endsem["assessment_component"] == "ENDSEM"
     assert "assessment_scope" in pred_endsem
+    assert scope_endsem.has_authoritative_unit_scope is False
+    assert len(pred_endsem["predictions"]) > 0
 
+    observed_topics = set(scope_endsem.observed_scope["topic_names"])
     for p in pred_endsem["predictions"]:
         if p.get("target") == "topic" or "topic_id" in p:
-            assert p["name"] in scope_endsem.in_scope_topic_names, (
-                f"Topic '{p['name']}' belongs to outside units but appeared in ENDSEM predictions!"
+            assert p["name"] in observed_topics, (
+                f"Topic '{p['name']}' not in observed topics for ENDSEM!"
             )
 
 
 def test_truthful_zero_evidence_scope_reporting(db: Session):
-    """Verify that in-scope topics with 0 historical appearances are reported truthfully under authoritative scope."""
+    """Verify that when no authoritative circular exists, unobserved in-scope topics are not fabricated."""
     snapshot = get_intelligence_snapshot("1", assessment_cycle="ENDSEM", db=db)
     scope = snapshot.get("assessment_scope")
     assert scope is not None
     assert scope["student_cycle"] == "ENDSEM"
     assert scope["component_code"] == "ENDSEM"
-    assert scope["total_in_scope_topics"] > 0
-    assert "unobserved_in_scope_topics" in scope
-
-    unobserved = scope["unobserved_in_scope_topics"]
-    for item in unobserved:
-        assert item["status"] == "UNOBSERVED_IN_SCOPE"
-        assert item["message"] == "In syllabus scope, but no historical evidence available"
-
-    pred_names = {p["name"] for p in snapshot["predictions"]}
-    for item in unobserved:
-        assert item["name"] not in pred_names
+    assert scope["intended_scope"] is None
+    assert scope["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
+    assert scope["total_in_scope_topics"] == 0
+    assert len(scope["unobserved_in_scope_topics"]) == 0
 
 
 def test_family_mode_courses_respect_assessment_cycle(db: Session):

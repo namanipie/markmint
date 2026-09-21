@@ -114,6 +114,24 @@ def test_curriculum_resolver_aliases_and_canonical_semester(db: Session):
     assert res_daa.canonical_semester == 4
 
 
+def test_curriculum_resolver_multi_semester_branch_variation(db: Session):
+    """Verify that CurriculumResolver correctly handles courses with multi-semester branch variation."""
+    resolver = CurriculumResolver(db)
+
+    # Chemistry is taught in Sem 1 (Group A) and Sem 2 (Group B)
+    res_chem_s1 = resolver.resolve("Chemistry", semester=1)
+    assert 1 in res_chem_s1.valid_semesters and 2 in res_chem_s1.valid_semesters
+    assert res_chem_s1.canonical_semester == 1
+
+    res_chem_s2 = resolver.resolve("Chemistry", semester=2)
+    assert res_chem_s2.canonical_semester == 2
+
+    # Microbiology is only in Sem 3 (21BTC201T). If scraper encountered it in Sem 2, resolver canonicalizes to 3
+    res_micro_s2 = resolver.resolve("Microbiology", semester=2)
+    assert res_micro_s2.valid_semesters == [3]
+    assert res_micro_s2.canonical_semester == 3
+
+
 def test_manifest_files_reference_valid_paths():
     """Verify that data/manifest.json paths exist on filesystem."""
     manifest_path = "data/manifest.json"

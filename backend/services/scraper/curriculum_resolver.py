@@ -125,13 +125,27 @@ class CurriculumResolver:
                 break
 
         if matched_course:
-            # Determine canonical semester from curriculum mapping
-            canon_map = (
+            # Determine canonical semester(s) from curriculum mappings
+            all_course_maps = (
                 self.db.query(CurriculumMapping)
                 .filter(CurriculumMapping.course_id == matched_course.id)
-                .first()
+                .all()
             )
-            canonical_sem = canon_map.semester if canon_map else None
+            valid_semesters = sorted(list({m.semester for m in all_course_maps if m.semester is not None}))
+
+            input_sem = None
+            if semester is not None:
+                try:
+                    input_sem = int(str(semester).strip())
+                except ValueError:
+                    pass
+
+            if input_sem is not None and input_sem in valid_semesters:
+                canonical_sem = input_sem
+            elif valid_semesters:
+                canonical_sem = valid_semesters[0]
+            else:
+                canonical_sem = None
 
             # Check if course has active exam materials or is catalog-only
             exam_count = (
@@ -153,12 +167,16 @@ class CurriculumResolver:
                 else CurriculumMatchState.CATALOG_ONLY
             )
 
+            canon_map_id = all_course_maps[0].id if all_course_maps else None
+
             return CurriculumMatchResult(
                 status=status,
                 course_id=matched_course.id,
                 course_name=matched_course.name,
                 canonical_code=matched_course.canonical_code,
+                curriculum_mapping_id=canon_map_id,
                 canonical_semester=canonical_sem,
+                valid_semesters=valid_semesters,
                 notes=(
                     f"Canonical Course: {matched_course.name} ({matched_course.code})"
                     + (" [Catalog Only]" if status == CurriculumMatchState.CATALOG_ONLY else " [Ready]")
@@ -208,20 +226,47 @@ class CurriculumResolver:
             if len(course_ids) == 1:
                 cid = list(course_ids)[0]
                 course = self.db.query(Course).get(cid)
+                all_maps = (
+                    self.db.query(CurriculumMapping)
+                    .filter(CurriculumMapping.course_id == cid)
+                    .all()
+                )
+                valid_sems = sorted(list({m.semester for m in all_maps if m.semester is not None}))
+                input_sem = None
+                if semester is not None:
+                    try:
+                        input_sem = int(str(semester).strip())
+                    except ValueError:
+                        pass
+
+                chosen_sem = input_sem if (input_sem in valid_sems) else (mappings[0].semester or (valid_sems[0] if valid_sems else None))
+
                 return CurriculumMatchResult(
                     status=CurriculumMatchState.MATCHED,
                     course_id=cid,
                     course_name=course.name if course else None,
                     canonical_code=course.canonical_code if course else None,
                     curriculum_mapping_id=mappings[0].id,
-                    canonical_semester=mappings[0].semester,
+                    canonical_semester=chosen_sem,
+                    valid_semesters=valid_sems,
                     notes=f"Resolved via CurriculumMapping to Course ID {cid}",
                 )
+
+            valid_sems = sorted(list({m.semester for m in mappings if m.semester is not None}))
+            input_sem = None
+            if semester is not None:
+                try:
+                    input_sem = int(str(semester).strip())
+                except ValueError:
+                    pass
+
+            chosen_sem = input_sem if (input_sem in valid_sems) else (mappings[0].semester if mappings else None)
 
             return CurriculumMatchResult(
                 status=CurriculumMatchState.CATALOG_ONLY,
                 curriculum_mapping_id=mappings[0].id,
-                canonical_semester=mappings[0].semester,
+                canonical_semester=chosen_sem,
+                valid_semesters=valid_sems,
                 notes="Curriculum entry exists in catalog but has no canonical Course entity",
             )
 

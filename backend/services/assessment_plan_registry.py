@@ -117,9 +117,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive final degree examination covering all 5 canonical curriculum units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ],
         notes="Authoritative Course Learning Syllabus Table 5 defines CA-1, CA-2, CA-3, and Final Exam."
@@ -173,9 +173,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive university degree examination covering all 5 canonical units of Chemistry."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -223,9 +223,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive C and Python Programming covering all 5 units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -273,9 +273,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive Semiconductor Physics and Computational Methods covering all 5 units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -335,9 +335,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=4,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive Electrical and Electronics Engineering covering all 5 units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -397,9 +397,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=4,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive English Language and Professional Communication covering all 5 units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -447,9 +447,9 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive Electronic System and PCB Design covering all 5 units."
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -515,9 +515,9 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
                 sequence=3,
                 marks=50.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
-                syllabus_units=[1, 2, 3, 4, 5],
-                has_authoritative_unit_scope=True,
-                notes="Comprehensive 5-unit degree examination"
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     )
@@ -671,17 +671,15 @@ def get_course_assessment_scope(
             component_label="All Assessments" if is_all else cycle_clean,
             in_scope_unit_numbers=syl_units if is_all else set(),
             has_authoritative_plan=False,
-            has_authoritative_unit_scope=True if is_all else False,
+            has_authoritative_unit_scope=False,
             notes="No authoritative course assessment plan registered.",
         )
     elif is_all:
         # ALL cycle covers all units in the syllabus plan
         all_units = set()
         for comp in plan.components:
-            if comp.syllabus_units:
+            if comp.has_authoritative_unit_scope and comp.syllabus_units:
                 all_units.update(comp.syllabus_units)
-        if not all_units:
-            all_units = {1, 2, 3, 4, 5}
 
         scope = AssessmentScope(
             course_id=course_id,
@@ -692,7 +690,7 @@ def get_course_assessment_scope(
             component_label="All Assessments",
             in_scope_unit_numbers=all_units,
             has_authoritative_plan=True,
-            has_authoritative_unit_scope=True,
+            has_authoritative_unit_scope=bool(all_units),
             source_document=plan.source_document,
             notes=plan.notes,
         )

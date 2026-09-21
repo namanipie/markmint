@@ -59,6 +59,7 @@ class CurriculumMatchResult(BaseModel):
     canonical_code: Optional[str] = None
     curriculum_mapping_id: Optional[int] = None
     canonical_semester: Optional[int] = None
+    valid_semesters: List[int] = Field(default_factory=list)
     notes: Optional[str] = None
 
 
