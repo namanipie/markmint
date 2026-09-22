@@ -35,6 +35,7 @@ from backend.services.observed_assessment_coverage import (
 from pydantic import BaseModel, Field
 import re
 from datetime import datetime
+from backend.services.corpus_health import CorpusHealthService
 
 router = APIRouter()
 
@@ -51,6 +52,44 @@ def _resolve_track(course: Course, language: Optional[str]) -> Optional[CourseTr
         ):
             return t
     return None
+
+
+@router.get("/corpus-health")
+@router.get("/health/corpus")
+def get_corpus_health(
+    course_id: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Expose factual corpus and intelligence health metrics across courses or for a specified course."""
+    if course_id:
+        course = _find_course(db, course_id)
+        if not course:
+            raise HTTPException(status_code=404, detail="Course not found")
+        active_track = _resolve_track(course, language)
+        return CorpusHealthService.get_course_health(
+            db, course, active_track=active_track, assessment_cycle=assessment_cycle
+        )
+    return CorpusHealthService.get_global_health(db, assessment_cycle=assessment_cycle)
+
+
+@router.get("/{course_id}/corpus-health")
+@router.get("/{course_id}/health")
+def get_course_corpus_health(
+    course_id: str,
+    language: Optional[str] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+) -> Dict[str, Any]:
+    """Expose factual corpus and intelligence health metrics for a specific course."""
+    course = _find_course(db, course_id)
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    active_track = _resolve_track(course, language)
+    return CorpusHealthService.get_course_health(
+        db, course, active_track=active_track, assessment_cycle=assessment_cycle
+    )
 
 
 @router.get("/{course_id}/overview")
