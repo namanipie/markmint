@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mint+ GPA Calculator | MarkMint",
   description: "Calculate your exact GPA across 40+ engineering branches with automated course fetching.",
+  alternates: {
+    canonical: "https://markmint.vercel.app/calculator",
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

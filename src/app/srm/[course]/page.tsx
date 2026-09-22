@@ -43,13 +43,13 @@ export async function generateMetadata({ params }: { params: { course: string } 
       title: `${course.name} PYQs & Exam Intelligence | MarkMint`,
       description: `${course.name} previous-year questions, recurring exam patterns, study priorities and practice for SRM students.`,
       alternates: {
-        canonical: `/srm/${generateSlug(course.name)}`,
+        canonical: `https://markmint.vercel.app/srm/${generateSlug(course.name)}`,
       },
       openGraph: {
         title: `${course.name} PYQs & Exam Intelligence | MarkMint`,
         description: `Analyze ${course.name} past papers, find recurring patterns, and prioritize your study schedule.`,
         type: "website",
-        url: `https://markmint.example.com/srm/${generateSlug(course.name)}`,
+        url: `https://markmint.vercel.app/srm/${generateSlug(course.name)}`,
       },
     };
   } catch {

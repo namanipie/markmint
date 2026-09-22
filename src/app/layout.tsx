@@ -31,9 +31,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.vercel.app"),
   title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
   description: "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "MarkMint | SRMIST Academic Intelligence",
     description: "Forecast high-yield topics using verified historical exam evidence. Generate structured study plans and explore past questions.",
@@ -67,19 +64,6 @@ export const viewport: Viewport = {
   maximumScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "MarkMint",
-  "url": "https://markmint.vercel.app",
-  "description": "MintAi predicts your CT, FT, and End Sem question papers for SRMIST.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://markmint.vercel.app/mintai?course={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -90,12 +74,6 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} h-full antialiased`} suppressHydrationWarning
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground relative">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         <Toaster
