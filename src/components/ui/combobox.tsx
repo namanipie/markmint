@@ -44,7 +44,7 @@ export function Combobox({
             className
           )}
         >
-          <span className="truncate">{selectedLabel}</span>
+          <span className="text-left break-words min-w-0 flex-1 pr-2 line-clamp-2">{selectedLabel}</span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </button>
       </PopoverPrimitive.Trigger>
@@ -78,17 +78,17 @@ export function Combobox({
                       setSearch("");
                     }}
                     className={cn(
-                      "relative flex cursor-pointer select-none items-center rounded-md px-3 py-3 text-sm outline-none w-full text-left hover:bg-accent/15 hover:text-accent transition-colors",
+                      "relative flex cursor-pointer select-none items-start rounded-md px-3 py-3 text-sm outline-none w-full text-left hover:bg-accent/15 hover:text-accent transition-colors",
                       value === option.value && "bg-accent/10 text-accent font-medium"
                     )}
                   >
                     <Check
                       className={cn(
-                        "mr-2 h-4 w-4",
+                        "mr-2 h-4 w-4 shrink-0 mt-0.5",
                         value === option.value ? "opacity-100" : "opacity-0"
                       )}
                     />
-                    <span className="truncate">{option.label}</span>
+                    <span className="text-left break-words min-w-0 pr-2">{option.label}</span>
                   </button>
                 ))
               )}
