@@ -10,10 +10,13 @@ import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, Fil
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
+import { MintFlowPomodoro } from "@/components/ui/pomodoro";
 import { MathText } from "@/components/ui/math-text";
 import { useAnalytics } from "@/hooks/use-analytics";
+import { useUiSounds } from "@/hooks/use-ui-sounds";
 
 export default function StudyIntelligencePage() {
+  const { playPop } = useUiSounds();
   const [courses, setCourses] = useState<BackendCourse[]>([]);
   const [selectedCourse, setSelectedCourse] = useState("");
   const [selectedCourseObj, setSelectedCourseObj] = useState<BackendCourse | null>(null);
@@ -84,6 +87,7 @@ export default function StudyIntelligencePage() {
         topic: topicName,
         action: "complete_topic"
       });
+      playPop();
       // Optionally refresh plan to update progress %
       const subject = selectedCourseObj.name;
       const data = await getStudyPlan(subject);
@@ -165,10 +169,13 @@ export default function StudyIntelligencePage() {
       <Navbar />
       
       <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8 space-y-8">
-        <PageHeader 
-          title="Study Intelligence" 
-          description="AI-generated study schedules and resource recommendations based on exam patterns." 
-        />
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <PageHeader 
+            title="Study Intelligence" 
+            description="AI-generated study schedules and resource recommendations based on exam patterns." 
+          />
+          <MintFlowPomodoro />
+        </div>
 
         {/* Configuration Section */}
         <div className="bg-card rounded-2xl p-6 border border-border">

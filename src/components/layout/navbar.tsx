@@ -3,14 +3,17 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Leaf, Menu, X } from "lucide-react";
+import { Leaf, Menu, X, Flame } from "lucide-react";
 import { HangingLamp } from "@/components/ambient/HangingLamp";
 import { cn } from "@/lib/utils";
+import { useStreak } from "@/hooks/use-streak";
+import { DeepFocusToggle } from "@/components/ui/deep-focus";
 
 import { preloadCurriculumMetadata } from "@/lib/api";
 
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const pathname = usePathname();
+  const streak = useStreak();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     
@@ -37,10 +40,14 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               <span className="px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-medium tracking-wide translate-y-[1px]">v1.0</span>
             </span>
           </Link>
-          <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
-            For SRMIST Students
-          </span>
-        </div>
+            <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
+              For SRMIST Students
+            </span>
+            <div className="ml-8 mt-1 hidden sm:flex items-center gap-1 opacity-80" title={`${streak} Day Study Streak`}>
+              <Flame className={`w-3.5 h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/50'}`} />
+              <span className="text-[10px] font-bold text-orange-500">{streak}</span>
+            </div>
+          </div>
 
         {/* Center: Navigation */}
         
@@ -70,6 +77,8 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             );
           })}
         </nav>
+        
+        <DeepFocusToggle />
         
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
