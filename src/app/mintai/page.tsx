@@ -838,6 +838,8 @@ export default function MintAIPage() {
                     <option value="ALL">All Assessments</option>
                     <option value="CT1">CT1</option>
                     <option value="CT2">CT2</option>
+                    <option value="CT3">CT3</option>
+                    <option value="CT4">CT4</option>
                     <option value="ENDSEM">End Semester</option>
                   </select>
                   {snapshot?.assessment_scope && (
@@ -1634,7 +1636,7 @@ export default function MintAIPage() {
                       <span>Assessment Selector</span>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Tailor your forecast to <strong>CT1</strong>, <strong>CT2</strong>, or comprehensive <strong>End Semester</strong> based on available historical evidence.
+                      Tailor your forecast to <strong>CT1</strong>, <strong>CT2</strong>, <strong>CT3</strong>, <strong>CT4</strong>, or comprehensive <strong>End Semester</strong> based on available historical evidence.
                     </p>
                   </div>
 
