@@ -521,28 +521,163 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
     )
 
 
+_S3_S4_COURSE_CODES: Dict[int, tuple] = {
+    24: ("21CSC201J", "Data Structures and Algorithms", 2021),
+    25: ("21CSC202J", "Operating Systems", 2021),
+    26: ("21CSS201T", "Computer Organization and Architecture", 2021),
+    27: ("21CSC204J", "Design and Analysis of Algorithms", 2021),
+    28: ("21CSC205P", "Database Management Systems", 2021),
+    29: ("21CSC207J", "Artificial Intelligence", 2021),
+}
+
+for cid, (code, name, reg_yr) in _S3_S4_COURSE_CODES.items():
+    COURSE_ASSESSMENT_PLANS[cid] = CoursePlanDefinition(
+        course_id=cid,
+        canonical_code=code,
+        course_name=name,
+        regulation_year=reg_yr,
+        source_document=f"SRMIST B.Tech Regulation {reg_yr} Curriculum & Syllabus - {code} {name}",
+        components=[
+            ComponentDefinition(
+                code="CLA1",
+                canonical_label="Continuous Learning Assessment 1",
+                student_label="CLA-1",
+                role="FORMATIVE_TEST",
+                sequence=1,
+                marks=50.0,
+                raw_labels=["CLA1", "CLA-1", "CT1", "Cycle Test 1"],
+                syllabus_units=[1, 2],
+                has_authoritative_unit_scope=True,
+                notes="Continuous learning assessment 1 covering Units 1 and 2.",
+            ),
+            ComponentDefinition(
+                code="CLA2",
+                canonical_label="Continuous Learning Assessment 2",
+                student_label="CLA-2",
+                role="FORMATIVE_TEST",
+                sequence=2,
+                marks=50.0,
+                raw_labels=["CLA2", "CLA-2", "CT2", "Cycle Test 2"],
+                syllabus_units=[3, 4, 5],
+                has_authoritative_unit_scope=True,
+                notes="Continuous learning assessment 2 covering Units 3, 4, and 5.",
+            ),
+            ComponentDefinition(
+                code="ENDSEM",
+                canonical_label="End Semester Examination",
+                student_label="End Semester",
+                role="SUMMATIVE_EXAM",
+                sequence=3,
+                marks=100.0,
+                raw_labels=_STANDARD_ENDSEM_LABELS,
+                syllabus_units=None,
+                has_authoritative_unit_scope=False,
+                notes="Final degree examination. Intended unit scope covers all syllabus units; observed scope derived from actual exam questions.",
+            ),
+        ],
+        notes="Authoritative 3-stage continuous learning assessment plan for Semester 3-4 core.",
+    )
+
 
 # ==============================================================================
 # REGISTRY QUERY & RESOLUTION HELPERS
 # ==============================================================================
 
-def get_course_assessment_plan(course_id: int) -> Optional[CoursePlanDefinition]:
-    """Retrieve the authoritative CoursePlanDefinition for a course, or None."""
+def _build_plan_from_db_model(course_id: int, db_plan) -> CoursePlanDefinition:
+    """Constructs an authoritative CoursePlanDefinition from a CourseAssessmentPlan DB model."""
+    comps = []
+    for ac in db_plan.components:
+        u_nums = [
+            cov.unit.number for cov in ac.coverages
+            if cov.coverage_type == "IN_SCOPE" and cov.unit
+        ]
+        has_auth_scope = bool(u_nums) and ac.code.upper() != "ENDSEM"
+        comps.append(
+            ComponentDefinition(
+                code=ac.code,
+                canonical_label=ac.canonical_label,
+                student_label=ac.student_label,
+                role=ac.role,
+                sequence=ac.sequence,
+                marks=ac.marks,
+                raw_labels=ac.raw_labels or [ac.code],
+                syllabus_units=u_nums if has_auth_scope else None,
+                has_authoritative_unit_scope=has_auth_scope,
+                notes=f"{ac.canonical_label} from authoritative curriculum plan",
+            )
+        )
+    return CoursePlanDefinition(
+        course_id=course_id,
+        canonical_code="",
+        course_name="",
+        regulation_year=db_plan.regulation_year or 2021,
+        source_document=db_plan.source_title or "Authoritative Curriculum Plan",
+        components=comps,
+        notes="Authoritative plan resolved from CourseAssessmentPlan database model.",
+    )
+
+
+def get_course_assessment_plan(
+    course_id: int,
+    db: Optional[Session] = None,
+    track_id: Optional[int] = None,
+) -> Optional[CoursePlanDefinition]:
+    """
+    Retrieve the authoritative CoursePlanDefinition for a course (and optional track), or None.
+    Resolution order:
+    1. If track_id and db are provided, resolve track-specific plan from CourseAssessmentPlan DB model.
+    2. Check declarative COURSE_ASSESSMENT_PLANS registry (if no specific track requested).
+    3. If db is provided and not in registry, query CourseAssessmentPlan DB model.
+    4. Fallback to COURSE_ASSESSMENT_PLANS.
+    """
+    # 1. Track-specific resolution from database
+    if track_id is not None and db is not None:
+        from backend.models.assessment import CourseAssessmentPlan as DBPlan
+        db_plan = (
+            db.query(DBPlan)
+            .filter(DBPlan.course_id == course_id, DBPlan.track_id == track_id)
+            .first()
+        )
+        if db_plan and db_plan.components:
+            return _build_plan_from_db_model(course_id, db_plan)
+
+    # 2. Check declarative registry
+    if track_id is None and course_id in COURSE_ASSESSMENT_PLANS:
+        return COURSE_ASSESSMENT_PLANS[course_id]
+
+    # 3. Dynamic database query if db is available
+    if db is not None:
+        from backend.models.assessment import CourseAssessmentPlan as DBPlan
+        plan_q = db.query(DBPlan).filter(DBPlan.course_id == course_id)
+        if track_id is not None:
+            plan_q = plan_q.filter(DBPlan.track_id == track_id)
+        else:
+            plan_q = plan_q.filter(DBPlan.track_id.is_(None))
+        db_plan = plan_q.first()
+        if db_plan and db_plan.components:
+            return _build_plan_from_db_model(course_id, db_plan)
+
+    # 4. Fallback to registry
     return COURSE_ASSESSMENT_PLANS.get(course_id)
 
 
-def normalize_course_assessment_type(course_id: int, raw_type: Optional[str]) -> Optional[str]:
+def normalize_course_assessment_type(
+    course_id: int,
+    raw_type: Optional[str],
+    db: Optional[Session] = None,
+    track_id: Optional[int] = None,
+) -> Optional[str]:
     """
     Course-specific assessment type normalization.
-    Maps a raw examination label (e.g. 'FT2', 'INTERNAL ASSESSMENT - I [FJI]')
-    to its canonical component code ('CT1', 'CT2', 'ENDSEM', etc.) ONLY when
+    Maps a raw examination label (e.g. 'FT2', 'INTERNAL ASSESSMENT - I [FJI]', 'CLA-1')
+    to its canonical component code ('CT1', 'CT2', 'CLA1', 'ENDSEM', etc.) ONLY when
     the course's authoritative assessment plan establishes that relationship.
     """
     if not raw_type or not isinstance(raw_type, str):
         return None
     raw_clean = raw_type.strip().upper()
     raw_condensed = raw_clean.replace(" ", "").replace("-", "")
-    plan = get_course_assessment_plan(course_id)
+    plan = get_course_assessment_plan(course_id, db=db, track_id=track_id)
     if not plan:
         return None
 
@@ -556,7 +691,12 @@ def normalize_course_assessment_type(course_id: int, raw_type: Optional[str]) ->
     return None
 
 
-def get_course_raw_types_for_cycle(course_id: int, student_cycle: str) -> Set[str]:
+def get_course_raw_types_for_cycle(
+    course_id: int,
+    student_cycle: str,
+    db: Optional[Session] = None,
+    track_id: Optional[int] = None,
+) -> Set[str]:
     """
     Return the exact set of raw assessment types recognized for this course and cycle.
     For 'ALL', returns empty set indicating no filtering.
@@ -564,25 +704,36 @@ def get_course_raw_types_for_cycle(course_id: int, student_cycle: str) -> Set[st
     if not student_cycle or student_cycle.upper() == "ALL":
         return set()
     norm_cycle = student_cycle.strip().upper()
-    plan = get_course_assessment_plan(course_id)
+    plan = get_course_assessment_plan(course_id, db=db, track_id=track_id)
     if not plan:
         return set()
 
     raw_matches = set()
     for comp in plan.components:
-        # Match either by component code or student_label
-        if comp.code.upper() == norm_cycle or comp.student_label.upper() == norm_cycle:
+        # Match by component code, student_label, canonical_label, or accepted raw labels
+        if (
+            comp.code.upper() == norm_cycle
+            or comp.student_label.upper() == norm_cycle
+            or (comp.canonical_label and comp.canonical_label.upper() == norm_cycle)
+            or any(r.upper() == norm_cycle for r in comp.raw_labels)
+        ):
             raw_matches.update(comp.raw_labels)
     return raw_matches
 
 
-def is_exam_in_course_cycle(course_id: int, exam_assessment_type: Optional[str], student_cycle: str) -> bool:
+def is_exam_in_course_cycle(
+    course_id: int,
+    exam_assessment_type: Optional[str],
+    student_cycle: str,
+    db: Optional[Session] = None,
+    track_id: Optional[int] = None,
+) -> bool:
     """Check whether an exam with exam_assessment_type belongs to student_cycle for course_id."""
     if not student_cycle or student_cycle.upper() == "ALL":
         return True
     if not exam_assessment_type:
         return False
-    raw_accepted = get_course_raw_types_for_cycle(course_id, student_cycle)
+    raw_accepted = get_course_raw_types_for_cycle(course_id, student_cycle, db=db, track_id=track_id)
     if not raw_accepted:
         return False
     return exam_assessment_type.strip().upper() in {r.strip().upper() for r in raw_accepted}
@@ -603,46 +754,8 @@ def get_course_assessment_scope(
     is_all = not student_cycle or student_cycle.strip().upper() == "ALL"
     cycle_clean = "ALL" if is_all else student_cycle.strip().upper()
 
-    plan = get_course_assessment_plan(course_id)
+    plan = get_course_assessment_plan(course_id, db=db, track_id=track_id)
     matched_comp = None
-
-    if not plan and db:
-        from backend.models.assessment import CourseAssessmentPlan as DBPlan
-        plan_q = db.query(DBPlan).filter(DBPlan.course_id == course_id)
-        if track_id is not None:
-            plan_q = plan_q.filter(DBPlan.track_id == track_id)
-        else:
-            plan_q = plan_q.filter(DBPlan.track_id.is_(None))
-        db_plan = plan_q.first()
-        if db_plan and db_plan.components:
-            comps = []
-            for ac in db_plan.components:
-                u_nums = [
-                    cov.unit.number for cov in ac.coverages
-                    if cov.coverage_type == "IN_SCOPE" and cov.unit
-                ]
-                comps.append(
-                    ComponentDefinition(
-                        code=ac.code,
-                        canonical_label=ac.canonical_label,
-                        student_label=ac.student_label,
-                        role=ac.role,
-                        sequence=ac.sequence,
-                        marks=ac.marks,
-                        raw_labels=ac.raw_labels or [ac.code],
-                        syllabus_units=u_nums,
-                        notes=f"{ac.canonical_label} from authoritative curriculum plan"
-                    )
-                )
-            plan = CoursePlanDefinition(
-                course_id=course_id,
-                canonical_code="",
-                course_name="",
-                regulation_year=db_plan.regulation_year or 2021,
-                source_document=db_plan.source_title or "Authoritative Curriculum Plan",
-                components=comps,
-                notes="Authoritative plan resolved from CourseAssessmentPlan database model."
-            )
 
     if not plan:
         # No registered plan; derive canonical taxonomy from syllabus if db provided
@@ -693,9 +806,14 @@ def get_course_assessment_scope(
             notes=plan.notes,
         )
     else:
-        # Find matching component by code or student_label
+        # Find matching component by code, student_label, canonical_label, or accepted raw labels
         for comp in plan.components:
-            if comp.code.upper() == cycle_clean or comp.student_label.upper() == cycle_clean:
+            if (
+                comp.code.upper() == cycle_clean
+                or comp.student_label.upper() == cycle_clean
+                or (comp.canonical_label and comp.canonical_label.upper() == cycle_clean)
+                or any(r.upper() == cycle_clean for r in comp.raw_labels)
+            ):
                 matched_comp = comp
                 break
 

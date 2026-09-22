@@ -78,8 +78,10 @@ def test_course_specific_normalization():
 
 
 def test_all_courses_have_authoritative_plans():
-    """Verify all 23 courses have registered course assessment plans with source evidence."""
-    assert len(COURSE_ASSESSMENT_PLANS) == 23
+    """Verify all courses have registered course assessment plans with source evidence."""
+    assert len(COURSE_ASSESSMENT_PLANS) >= 23
+    for cid in range(1, 24):
+        assert cid in COURSE_ASSESSMENT_PLANS, f"Course {cid} must have registered plan"
     for course_id, plan in COURSE_ASSESSMENT_PLANS.items():
         assert plan.course_id == course_id
         assert len(plan.components) >= 2, f"Course {course_id} must define at least 2 components"
