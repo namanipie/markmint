@@ -912,6 +912,10 @@ export default function MintAIPage() {
             <>
               {snapshot && snapshot.data_availability_status === "READY" ? (() => {
                 const isFamilyMode = snapshot.prediction_mode === "family";
+                const hasIntendedScope = Boolean(
+                  snapshot.assessment_scope?.intended_scope?.unit_numbers &&
+                  snapshot.assessment_scope.intended_scope.unit_numbers.length > 0
+                );
 
                 return (
             <div className="flex flex-col gap-6">
@@ -988,21 +992,23 @@ export default function MintAIPage() {
                       <div className="space-y-2 pt-2 border-t border-border/40 text-xs">
                         <div className="flex items-center justify-between">
                           <span className="text-muted-foreground">Prescribed Units:</span>
-                          <span className="font-mono font-bold text-foreground">
-                            {snapshot.assessment_scope.intended_scope?.unit_numbers && snapshot.assessment_scope.intended_scope.unit_numbers.length > 0
-                              ? snapshot.assessment_scope.intended_scope.unit_numbers.length === 1
-                                ? `Unit ${snapshot.assessment_scope.intended_scope.unit_numbers[0]}`
-                                : `Units ${snapshot.assessment_scope.intended_scope.unit_numbers.join(", ")}`
-                              : "All Units"}
+                          <span className={`font-mono ${hasIntendedScope ? "font-bold text-foreground" : "font-medium text-muted-foreground"}`}>
+                            {hasIntendedScope
+                              ? snapshot.assessment_scope.intended_scope!.unit_numbers.length === 1
+                                ? `Unit ${snapshot.assessment_scope.intended_scope!.unit_numbers[0]}`
+                                : `Units ${snapshot.assessment_scope.intended_scope!.unit_numbers.join(", ")}`
+                              : "Not specified"}
                           </span>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-muted-foreground">In-Scope Topics:</span>
-                          <span className="font-mono font-bold text-foreground">
-                            {snapshot.assessment_scope.intended_scope?.topic_names?.length ?? snapshot.assessment_scope.total_in_scope_topics ?? 0} Topics
+                          <span className={`font-mono ${hasIntendedScope ? "font-bold text-foreground" : "font-medium text-muted-foreground"}`}>
+                            {hasIntendedScope
+                              ? `${snapshot.assessment_scope.intended_scope?.topic_names?.length ?? snapshot.assessment_scope.total_in_scope_topics ?? 0} Topics`
+                              : "Not specified"}
                           </span>
                         </div>
-                        {snapshot.assessment_scope.source_document && (
+                        {hasIntendedScope && snapshot.assessment_scope.source_document && (
                           <div className="text-[11px] text-muted-foreground/80 truncate pt-1 border-t border-border/30" title={snapshot.assessment_scope.source_document}>
                             Regulation: <span className="font-semibold text-foreground">
                               {snapshot.assessment_scope.source_document.startsWith("data/")
@@ -1011,7 +1017,7 @@ export default function MintAIPage() {
                             </span>
                           </div>
                         )}
-                        {snapshot.assessment_scope.intended_scope?.notes && (
+                        {hasIntendedScope && snapshot.assessment_scope.intended_scope?.notes && (
                           <div className="text-[11px] text-muted-foreground/80 italic">
                             &ldquo;{snapshot.assessment_scope.intended_scope.notes}&rdquo;
                           </div>
@@ -1052,11 +1058,21 @@ export default function MintAIPage() {
                             {snapshot.assessment_scope.observed_scope?.paper_count ?? 0} {snapshot.assessment_scope.observed_scope?.paper_count === 1 ? "paper" : "papers"} ({snapshot.assessment_scope.observed_scope?.total_questions ?? 0} questions)
                           </span>
                         </div>
-                        <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-1 border-t border-border/30">
-                          <span>Evidence Coverage:</span>
-                          <span className="font-mono font-semibold text-foreground">
-                            {snapshot.assessment_scope.observed_in_scope_topics ?? 0} of {snapshot.assessment_scope.total_in_scope_topics ?? 0} planned topics examined
-                          </span>
+                        <div className="pt-1.5 border-t border-border/30 text-[11px] text-muted-foreground leading-relaxed">
+                          {hasIntendedScope ? (
+                            <div className="flex items-center justify-between">
+                              <span>Evidence Coverage:</span>
+                              <span className="font-mono font-semibold text-foreground">
+                                {snapshot.assessment_scope.observed_in_scope_topics ?? 0} of {snapshot.assessment_scope.total_in_scope_topics ?? 0} planned topics examined
+                              </span>
+                            </div>
+                          ) : (
+                            <p>
+                              {(snapshot.assessment_scope.observed_scope?.paper_count ?? 0) > 0
+                                ? "Observed evidence is based on archived examination papers. No authoritative unit distribution was found for this assessment."
+                                : "No authoritative unit distribution or archived papers are available for this assessment."}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
