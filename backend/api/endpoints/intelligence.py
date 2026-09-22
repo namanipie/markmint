@@ -25,7 +25,7 @@ from backend.services.prediction.engine import (
     RecencyWeightedBaseline, MarksWeightedBaseline, FamilyRecurrenceBaseline,
     PredictionResult
 )
-from backend.services.prediction.backtester import BacktestEvaluator
+from backend.services.prediction.backtester import BacktestEvaluator, BacktestHarness
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
 from backend.services.assessment_cycle import AssessmentCycle, normalize_assessment_cycle, filter_exams_by_cycle
 from backend.services.assessment_plan_registry import get_course_assessment_scope
@@ -191,9 +191,38 @@ def get_course_historical_questions(
 
 
 @router.get("/model-performance")
-def get_model_performance(db: Session = Depends(get_db)) -> Dict[str, Any]:
+def get_model_performance(
+    course_id: Optional[int] = None,
+    target_year: Optional[int] = None,
+    cycle: Optional[str] = None,
+    db: Session = Depends(get_db)
+) -> Dict[str, Any]:
     """Expose real chronological backtest evaluation metrics across historical exam cutoffs."""
-    courses = db.query(Course).all()
+    harness = BacktestHarness(db)
+    if course_id is not None and target_year is not None:
+        target_res = harness.backtest_target_year(
+            course_id=course_id,
+            target_year=target_year,
+            assessment_cycle=cycle,
+        )
+        return {
+            "status": target_res.get("status", "COMPLETED"),
+            "course_id": course_id,
+            "target_year": target_year,
+            "cutoff_year": target_year,
+            "assessment_cycle": target_res.get("assessment_cycle", "ALL"),
+            "methodology": "Chronological backtesting with strict temporal cutoff. Only exams prior to cutoff year were provided to models.",
+            "evaluation_rules": "Strict temporal isolation: Exam.year >= cutoff_year is inaccessible to models. Unknown-year data is excluded.",
+            "model_version": MODEL_VERSION,
+            "engine_version": ENGINE_VERSION,
+            "corpus_version": CORPUS_VERSION,
+            "result": target_res,
+        }
+
+    courses = db.query(Course)
+    if course_id is not None:
+        courses = courses.filter(Course.id == course_id)
+    courses = courses.all()
     results = []
     evaluated_courses_count = 0
 

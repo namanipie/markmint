@@ -29,7 +29,7 @@ class HistoricalRepository:
             .selectinload(Question.memberships),
         ).filter(
             Exam.course_id == self.context.course_id,
-            Exam.year != None,
+            Exam.year.isnot(None),
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:
@@ -41,7 +41,7 @@ class HistoricalRepository:
         """Returns only questions belonging to historical exams."""
         q = self.db.query(Question).join(Section).join(Exam).filter(
             Exam.course_id == self.context.course_id,
-            Exam.year != None,
+            Exam.year.isnot(None),
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:
@@ -53,7 +53,7 @@ class HistoricalRepository:
         """Returns only memberships corresponding to historical questions."""
         q = self.db.query(QuestionFamilyMembership).join(Question).join(Section).join(Exam).filter(
             Exam.course_id == self.context.course_id,
-            Exam.year != None,
+            Exam.year.isnot(None),
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:
@@ -76,6 +76,7 @@ class HistoricalRepository:
             .selectinload(Question.memberships),
         ).filter(
             Exam.course_id == self.context.course_id,
+            Exam.year.isnot(None),
             Exam.year == self.context.cutoff_year
         )
         if self.context.track_id is not None:

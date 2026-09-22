@@ -202,6 +202,210 @@ class BacktestHarness:
             PredictionTarget.FAMILY: list(families_dict.values()),
         }
 
+    def backtest_target_year(
+        self,
+        course_id: int,
+        target_year: int,
+        assessment_cycle: Optional[str] = None,
+        track_id: Optional[int] = None,
+        k_values: List[int] = [3, 5, 10],
+    ) -> Dict[str, Any]:
+        """
+        Executes a reproducible, temporally-isolated backtest for a specific course and target year.
+
+        Strict Rules:
+        - HistoricalContext cutoff_year = target_year.
+        - HistoricalRepository admits ONLY Exam.year < target_year and Exam.year IS NOT NULL.
+        - Future-year data (Exam.year >= target_year) and undated data (Exam.year IS NULL) are forbidden.
+        - Target exam is held-out and used only for evaluation ground-truth.
+        - Returns auditable metrics and QC metadata.
+        """
+        course = self.db.query(Course).filter(Course.id == course_id).first()
+        if not course:
+            return {
+                "status": "ERROR",
+                "message": f"Course with id {course_id} not found.",
+                "course_id": course_id,
+                "target_year": target_year,
+                "evaluations": [],
+            }
+
+        context_target = HistoricalContext(
+            course_id=course.id,
+            cutoff_year=target_year,
+            assessment_cycle=assessment_cycle,
+            track_id=track_id,
+        )
+        repo_target = HistoricalRepository(self.db, context_target)
+        target_exams = repo_target.get_target_exams()
+
+        if not target_exams:
+            return {
+                "status": "NO_TARGET_EXAMS",
+                "course_id": course.id,
+                "course_name": course.name,
+                "canonical_code": course.canonical_code,
+                "target_year": target_year,
+                "cutoff_year": target_year,
+                "assessment_cycle": assessment_cycle or "ALL",
+                "message": f"No dated target exams found for course '{course.name}' in year {target_year}.",
+                "evaluations": [],
+            }
+
+        hist_exams = repo_target.get_historical_exams()
+        used_cycle = assessment_cycle or "ALL"
+
+        if len(hist_exams) == 0 and assessment_cycle and assessment_cycle != "ALL":
+            context_all = HistoricalContext(
+                course_id=course.id,
+                cutoff_year=target_year,
+                assessment_cycle="ALL",
+                track_id=track_id,
+            )
+            repo_all = HistoricalRepository(self.db, context_all)
+            hist_all = repo_all.get_historical_exams()
+            if len(hist_all) > 0:
+                hist_exams = hist_all
+                used_cycle = "ALL"
+
+        hist_exam_count = len(hist_exams)
+        hist_question_count = sum(
+            len(s.questions) for e in hist_exams for s in (e.sections or [])
+        )
+        sufficiency = self.classify_evidence_sufficiency(hist_exam_count, hist_question_count)
+
+        if sufficiency == EvidenceSufficiencyState.INSUFFICIENT_HISTORY:
+            return {
+                "status": "INSUFFICIENT_HISTORY",
+                "course_id": course.id,
+                "course_name": course.name,
+                "canonical_code": course.canonical_code,
+                "target_year": target_year,
+                "cutoff_year": target_year,
+                "assessment_cycle": used_cycle,
+                "evidence_sufficiency": sufficiency,
+                "historical_exam_count": hist_exam_count,
+                "historical_question_count": hist_question_count,
+                "reason": "Zero or fewer than 5 historical questions available prior to target year",
+                "evaluations": [],
+            }
+
+        hist_exams_dicts = _build_historical_exam_payloads(hist_exams)
+        analyzer = DNAAnalyzerService()
+        dna = analyzer.analyze(hist_exams_dicts)
+
+        topic_models = {
+            "ExamScopeCombinedModel": ExamScopeCombinedModel(dna),
+            "AllTimeFrequencyBaseline": AllTimeFrequencyBaseline(dna),
+            "RecentFrequencyBaseline": RecentFrequencyBaseline(dna),
+            "RecencyWeightedBaseline": RecencyWeightedBaseline(dna),
+            "MarksWeightedBaseline": MarksWeightedBaseline(dna),
+        }
+        family_models = {
+            "FamilyRecurrenceBaseline": FamilyRecurrenceBaseline(dna),
+            "ExamScopeCombinedModel": ExamScopeCombinedModel(dna),
+        }
+
+        evaluations = []
+        for target_exam in target_exams:
+            target_data = self.extract_target_exam_data(target_exam)
+            qc_meta = target_data["qc"]
+            doc_title = (
+                target_exam.document.title
+                if getattr(target_exam, "document", None) and target_exam.document
+                else f"Exam {target_exam.id}"
+            )
+
+            # Topic evaluation
+            target_topics = target_data[PredictionTarget.TOPIC]
+            for model_name, model in topic_models.items():
+                preds = model.predict(PredictionTarget.TOPIC)
+                calib_ok = BacktestEvaluator.verify_probability_calibration(preds, hist_exam_count)
+                eval_metrics = BacktestEvaluator.evaluate(preds, target_topics, k_values=k_values)
+                evaluations.append({
+                    "course": course.name,
+                    "canonical_code": course.canonical_code,
+                    "course_id": course.id,
+                    "target_exam_id": target_exam.id,
+                    "target_exam_title": doc_title,
+                    "target_year": target_year,
+                    "cutoff_year": target_year,
+                    "assessment_cycle": used_cycle,
+                    "raw_assessment_type": target_exam.assessment_type,
+                    "mode": "topic",
+                    "model": model_name,
+                    "status": "COMPLETED",
+                    "evidence_sufficiency": sufficiency,
+                    "historical_exam_count": hist_exam_count,
+                    "historical_question_count": hist_question_count,
+                    "probability_calibration_verified": calib_ok,
+                    "qc": qc_meta,
+                    "metrics": eval_metrics,
+                })
+
+            # Family evaluation
+            target_families = target_data[PredictionTarget.FAMILY]
+            family_supported = (len(target_families) > 0) and (len(dna.families) > 0)
+            for model_name, model in family_models.items():
+                if not family_supported:
+                    evaluations.append({
+                        "course": course.name,
+                        "canonical_code": course.canonical_code,
+                        "course_id": course.id,
+                        "target_exam_id": target_exam.id,
+                        "target_exam_title": doc_title,
+                        "target_year": target_year,
+                        "cutoff_year": target_year,
+                        "assessment_cycle": used_cycle,
+                        "raw_assessment_type": target_exam.assessment_type,
+                        "mode": "family",
+                        "model": model_name,
+                        "status": "INSUFFICIENT_EVIDENCE",
+                        "reason": "Target exam or historical context lacks sufficient question family memberships",
+                        "evidence_sufficiency": sufficiency,
+                        "historical_exam_count": hist_exam_count,
+                        "historical_question_count": hist_question_count,
+                        "qc": qc_meta,
+                        "metrics": None,
+                    })
+                else:
+                    preds = model.predict(PredictionTarget.FAMILY)
+                    eval_metrics = BacktestEvaluator.evaluate(preds, target_families, k_values=k_values)
+                    evaluations.append({
+                        "course": course.name,
+                        "canonical_code": course.canonical_code,
+                        "course_id": course.id,
+                        "target_exam_id": target_exam.id,
+                        "target_exam_title": doc_title,
+                        "target_year": target_year,
+                        "cutoff_year": target_year,
+                        "assessment_cycle": used_cycle,
+                        "raw_assessment_type": target_exam.assessment_type,
+                        "mode": "family",
+                        "model": model_name,
+                        "status": "COMPLETED",
+                        "evidence_sufficiency": sufficiency,
+                        "historical_exam_count": hist_exam_count,
+                        "historical_question_count": hist_question_count,
+                        "qc": qc_meta,
+                        "metrics": eval_metrics,
+                    })
+
+        return {
+            "status": "COMPLETED",
+            "course_id": course.id,
+            "course_name": course.name,
+            "canonical_code": course.canonical_code,
+            "target_year": target_year,
+            "cutoff_year": target_year,
+            "assessment_cycle": used_cycle,
+            "evidence_sufficiency": sufficiency,
+            "historical_papers_used": hist_exam_count,
+            "historical_questions_used": hist_question_count,
+            "target_exams_evaluated": len(target_exams),
+            "evaluations": evaluations,
+        }
+
     def run(self, course_ids: Optional[List[int]] = None) -> Dict[str, Any]:
         """
         Executes rigorous backtesting across all eligible courses and historical target exams.
