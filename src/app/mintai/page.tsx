@@ -248,30 +248,6 @@ export default function MintAIPage() {
       }
 
       if (!resolvedTarget) {
-        // Check saved study context
-        const savedCtx = getStudyContext();
-        if (savedCtx && savedCtx.course_id) {
-          const found = findCurriculumSubjectByCourseId(savedCtx.course_id);
-          if (found) {
-            setSelectedBranch(found.branch);
-            const semList = await getCurriculumSemesters(found.branch);
-            setSemesters(semList);
-            setSelectedSemester(String(found.semester));
-            const subList = await getCurriculumSubjects(found.branch, found.semester);
-            setSubjects(subList);
-            setSelectedSubject(found.subject);
-            if (savedCtx.assessment_cycle) {
-              setSelectedExam(savedCtx.assessment_cycle);
-            }
-            if (savedCtx.language) {
-              setSelectedLanguage(savedCtx.language);
-            }
-            resolvedTarget = true;
-          }
-        }
-      }
-
-      if (!resolvedTarget) {
         setSemesters([]);
         setSubjects([]);
       }
@@ -762,8 +738,8 @@ export default function MintAIPage() {
                     isLoadingBranches
                       ? "Loading branches..."
                       : branchLoadError
-                      ? "Failed to load branches"
-                      : "Search branches..."
+                        ? "Failed to load branches"
+                        : "Select branch"
                   }
                   disabled={isLoadingBranches || branches.length === 0}
                 />
