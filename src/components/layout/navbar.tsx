@@ -34,7 +34,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             <Leaf className="h-6 w-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
             <span className="text-xl md:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               MarkMint
-              <span className="bg-accent/10 text-accent text-[10px] font-mono font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider translate-y-[2px]">v1.0</span>
+              <span className="px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-medium tracking-wide translate-y-[1px]">v1.0</span>
             </span>
           </Link>
           <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
