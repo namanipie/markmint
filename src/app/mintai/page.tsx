@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Drawer } from "@/components/ui/drawer";
@@ -8,28 +9,37 @@ import { Combobox } from "@/components/ui/combobox";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
-  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers, Loader2, RefreshCw
 } from "lucide-react";
 import {
+  getCurriculumInitialScope,
   getCurriculumBranches,
   getCurriculumSemesters,
   getCurriculumSubjects,
+  findCurriculumSubjectByCourseId,
   getIntelligenceSnapshot,
   getHistoricalQuestions,
-  updateStudyProgress
+  getCourseTracks,
+  updateStudyProgress,
+  ApiError
 } from "@/lib/api";
+import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import {
   CurriculumSubject,
   IntelligenceSnapshot,
   PredictionItem,
   HistoricalQuestion,
-  CoverageSummary
+  CoverageSummary,
+  CourseTrack
 } from "@/lib/types";
 import { RepetitionAnalyticsView } from "@/components/analytics/repetition-analytics-view";
 import { TopicIntelligenceModal } from "@/components/analytics/topic-intelligence-modal";
 import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
 import { MathText } from "@/components/ui/math-text";
 import { useAnalytics } from "@/hooks/use-analytics";
+import { EvidenceCalibratedPanel } from "@/components/ui/evidence-calibration-panel";
+import { trackBetaEvent, trackFrictionEvent } from "@/lib/telemetry";
+import { BetaFeedbackWidget } from "@/components/ui/beta-feedback-widget";
 
 export type MintAIState =
   | "loading_branches"
@@ -58,12 +68,16 @@ export default function MintAIPage() {
   const [selectedBranch, setSelectedBranch] = useState<string>("");
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
-  const [selectedExam, setSelectedExam] = useState<string>("");
-  const [targetExamDate, setTargetExamDate] = useState<string>("");
+  const [selectedExam, setSelectedExam] = useState<string>("ALL");
   const [mainView, setMainView] = useState<"forecast" | "analytics">("forecast");
 
-  // Loading & error states
-  const [isLoadingBranches, setIsLoadingBranches] = useState(true);
+  // Multi-track language state
+  const [availableTracks, setAvailableTracks] = useState<CourseTrack[]>([]);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
+  const [isLoadingTracks, setIsLoadingTracks] = useState<boolean>(false);
+
+  // Loading & error states - Initialized false because canonical curriculum loads instantly from bundle
+  const [isLoadingBranches, setIsLoadingBranches] = useState(false);
   const [isLoadingSemesters, setIsLoadingSemesters] = useState(false);
   const [isLoadingSubjects, setIsLoadingSubjects] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -76,6 +90,8 @@ export default function MintAIPage() {
   // Intelligence data state
   const [snapshot, setSnapshot] = useState<IntelligenceSnapshot | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
+  const [showUnobservedTopics, setShowUnobservedTopics] = useState<boolean>(false);
+  const [showOutOfScopeTopics, setShowOutOfScopeTopics] = useState<boolean>(false);
 
   // Historical questions modal & filters
   const [isQuestionsModalOpen, setIsQuestionsModalOpen] = useState(false);
@@ -101,6 +117,22 @@ export default function MintAIPage() {
     setSelectedTopicNameForModal(topicName || "");
     setIsTopicModalOpen(true);
     trackEvent("why_opened", { type: "topic", item_id: topicId, item_name: topicName, course_id: selectedSubject?.curriculum_id });
+    if (selectedSubject?.course_id) {
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_id: topicId || null,
+        last_topic_name: topicName || null,
+        last_activity_type: "open_topic",
+      });
+    }
+    trackBetaEvent("why_opened", {
+      course_id: selectedSubject?.course_id || undefined,
+      course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
+      assessment_cycle: selectedExam,
+      metadata: { target_type: "topic", topic_id: topicId, topic_name: topicName }
+    });
   };
 
   // Family Evidence Drilldown Modal
@@ -113,6 +145,22 @@ export default function MintAIPage() {
     setSelectedFamilyNameForModal(familyName || "");
     setIsFamilyModalOpen(true);
     trackEvent("why_opened", { type: "family", item_id: familyId, item_name: familyName, course_id: selectedSubject?.curriculum_id });
+    if (selectedSubject?.course_id) {
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_id: familyId || null,
+        last_topic_name: familyName || null,
+        last_activity_type: "open_topic",
+      });
+    }
+    trackBetaEvent("why_opened", {
+      course_id: selectedSubject?.course_id || undefined,
+      course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
+      assessment_cycle: selectedExam,
+      metadata: { target_type: "family", family_id: familyId, family_name: familyName }
+    });
   };
 
   // Subject analytical readiness
@@ -120,7 +168,8 @@ export default function MintAIPage() {
     selectedSubject &&
     selectedSubject.status === "MATCHED" &&
     selectedSubject.course_id !== null &&
-    selectedSubject.has_exams === true
+    selectedSubject.has_exams === true &&
+    (availableTracks.length === 0 || Boolean(selectedLanguage))
   );
 
   // Explicit state derivation eliminating contradictory states
@@ -158,39 +207,93 @@ export default function MintAIPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isQuestionsModalOpen, isResourcesModalOpen, isTopicModalOpen]);
 
-  // 1. Initial Mount: Load branches from backend
-  useEffect(() => {
-    let active = true;
-    setIsLoadingBranches(true);
+  const isInitialMountedRef = useRef(false);
+  const [coldStartNotice, setColdStartNotice] = useState(false);
+
+  // 1. Initial Mount: Load entire initial scope instantly from canonical bundle
+  const loadInitialScope = useCallback(async () => {
     setBranchLoadError("");
+    setColdStartNotice(false);
 
-    getCurriculumBranches()
-      .then((branchList) => {
-        if (!active) return;
-        setBranches(branchList);
-        if (branchList.length > 0) {
-          const defaultBranch = branchList.includes("Aerospace Engineering")
-            ? "Aerospace Engineering"
-            : branchList[0];
-          setSelectedBranch(defaultBranch);
+    try {
+      const data = await getCurriculumInitialScope();
+      setBranches(data.branches || []);
+
+      // Check URL query params first (e.g. from Study Plan or Home link)
+      const urlParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+      const targetCourseId = urlParams?.get("course_id") ? Number(urlParams.get("course_id")) : null;
+      const targetCycle = urlParams?.get("cycle") || urlParams?.get("assessment_cycle");
+      const targetLanguage = urlParams?.get("language");
+
+      let resolvedTarget = false;
+
+      if (targetCourseId) {
+        const found = findCurriculumSubjectByCourseId(targetCourseId);
+        if (found) {
+          setSelectedBranch(found.branch);
+          const semList = await getCurriculumSemesters(found.branch);
+          setSemesters(semList);
+          setSelectedSemester(String(found.semester));
+          const subList = await getCurriculumSubjects(found.branch, found.semester);
+          setSubjects(subList);
+          setSelectedSubject(found.subject);
+          if (targetCycle) {
+            setSelectedExam(targetCycle);
+          }
+          if (targetLanguage) {
+            setSelectedLanguage(targetLanguage);
+          }
+          resolvedTarget = true;
         }
-      })
-      .catch((err) => {
-        if (!active) return;
-        console.error("Failed to load branches from backend", err);
-        setBranchLoadError("Unable to load academic branches. Ensure the backend is running.");
-      })
-      .finally(() => {
-        if (active) setIsLoadingBranches(false);
-      });
+      }
 
-    return () => {
-      active = false;
-    };
+      if (!resolvedTarget) {
+        // Check saved study context
+        const savedCtx = getStudyContext();
+        if (savedCtx && savedCtx.course_id) {
+          const found = findCurriculumSubjectByCourseId(savedCtx.course_id);
+          if (found) {
+            setSelectedBranch(found.branch);
+            const semList = await getCurriculumSemesters(found.branch);
+            setSemesters(semList);
+            setSelectedSemester(String(found.semester));
+            const subList = await getCurriculumSubjects(found.branch, found.semester);
+            setSubjects(subList);
+            setSelectedSubject(found.subject);
+            if (savedCtx.assessment_cycle) {
+              setSelectedExam(savedCtx.assessment_cycle);
+            }
+            if (savedCtx.language) {
+              setSelectedLanguage(savedCtx.language);
+            }
+            resolvedTarget = true;
+          }
+        }
+      }
+
+      if (!resolvedTarget) {
+        setSelectedBranch(data.default_branch || "");
+        setSemesters(data.semesters || []);
+        setSelectedSemester(String(data.default_semester || 1));
+        setSubjects(data.subjects || []);
+        if (data.subjects && data.subjects.length > 0) {
+          setSelectedSubject(data.subjects[0]);
+        }
+      }
+      isInitialMountedRef.current = true;
+    } catch (err: any) {
+      console.error("Failed to load initial curriculum scope", err);
+      setBranchLoadError("Couldn't load academic branches.");
+    }
   }, []);
 
-  // 2. When Branch changes: Load semesters for that branch
   useEffect(() => {
+    loadInitialScope();
+  }, [loadInitialScope]);
+
+  // 2. When Branch changes: Load semesters for that branch (only after initial mount)
+  useEffect(() => {
+    if (!isInitialMountedRef.current) return;
     if (!selectedBranch) {
       setSemesters([]);
       setSelectedSemester("");
@@ -205,7 +308,7 @@ export default function MintAIPage() {
     setSelectedSemester("");
     setSubjects([]);
     setSelectedSubject(null);
-    setSelectedExam("");
+    setSelectedExam("ALL");
     setSnapshot(null);
 
     getCurriculumSemesters(selectedBranch)
@@ -230,8 +333,9 @@ export default function MintAIPage() {
     };
   }, [selectedBranch]);
 
-  // 3. When Semester changes: Load subjects for that branch and semester
+  // 3. When Semester changes: Load subjects for that branch and semester (only after initial mount)
   useEffect(() => {
+    if (!isInitialMountedRef.current) return;
     if (!selectedBranch || !selectedSemester) {
       setSubjects([]);
       setSelectedSubject(null);
@@ -242,7 +346,7 @@ export default function MintAIPage() {
     setIsLoadingSubjects(true);
     setSubjectLoadError("");
     setSelectedSubject(null);
-    setSelectedExam("");
+    setSelectedExam("ALL");
     setSnapshot(null);
 
     getCurriculumSubjects(selectedBranch, selectedSemester)
@@ -267,12 +371,104 @@ export default function MintAIPage() {
     };
   }, [selectedBranch, selectedSemester]);
 
+  // 3b. When Subject changes: Load available tracks if this course is multi-track (e.g. Foreign Languages)
+  useEffect(() => {
+    if (!selectedSubject || !selectedSubject.course_id) {
+      setAvailableTracks([]);
+      setSelectedLanguage("");
+      return;
+    }
+
+    let active = true;
+
+    // If tracks are already embedded in the selectedSubject
+    if (selectedSubject.tracks && selectedSubject.tracks.length > 0) {
+      setAvailableTracks(selectedSubject.tracks);
+      setSelectedLanguage(selectedSubject.tracks[0].track_key);
+      return;
+    }
+
+    // Otherwise check if course has tracks (e.g. Foreign Languages course_id === 8 or has_tracks flag)
+    if (selectedSubject.has_tracks || selectedSubject.course_id === 8) {
+      setIsLoadingTracks(true);
+      getCourseTracks(selectedSubject.course_id)
+        .then((tracks) => {
+          if (!active) return;
+          setAvailableTracks(tracks);
+          if (tracks.length > 0) {
+            setSelectedLanguage(tracks[0].track_key);
+          } else {
+            setSelectedLanguage("");
+          }
+        })
+        .catch((err) => {
+          if (!active) return;
+          console.error("Failed to load course tracks", err);
+          setAvailableTracks([]);
+          setSelectedLanguage("");
+        })
+        .finally(() => {
+          if (active) setIsLoadingTracks(false);
+        });
+    } else {
+      setAvailableTracks([]);
+      setSelectedLanguage("");
+    }
+
+    return () => {
+      active = false;
+    };
+  }, [selectedSubject]);
+
+  const handleLanguageChange = async (newLang: string) => {
+    setSelectedLanguage(newLang);
+    setSnapshot(null);
+    setError("");
+
+    if (snapshot && selectedSubject?.course_id) {
+      setIsAnalyzing(true);
+      try {
+        const data = await getIntelligenceSnapshot(
+          selectedSubject.course_id,
+          undefined,
+          undefined,
+          "anonymous",
+          selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+          newLang
+        );
+        setSnapshot(data);
+        updateStudyContext({
+          course_id: selectedSubject.course_id,
+          course_name: selectedSubject.subject_name,
+          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+          track_id: availableTracks.find(t => t.track_key === newLang)?.id || null,
+          track_key: newLang || null,
+          language: newLang,
+          branch: selectedBranch,
+          semester: Number(selectedSemester),
+          assessment_cycle: selectedExam,
+          last_activity_type: "open_mintai",
+        });
+      } catch (err: any) {
+        console.error("Intelligence snapshot generation failed for language track", err);
+        setError("Exam intelligence is temporarily unavailable.");
+      } finally {
+        setIsAnalyzing(false);
+      }
+    }
+  };
+
   // 4. Run Full Intelligence Analysis
   const handleAnalyze = async () => {
     if (!selectedSubject) return;
 
     // Guard against running predictions on unverified courses
     if (selectedSubject.status !== "MATCHED" || !selectedSubject.course_id || !selectedSubject.has_exams) {
+      trackFrictionEvent("course_selection_abandoned", {
+        course_id: selectedSubject.course_id || undefined,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        metadata: { reason: "Unmatched or catalog-only course" }
+      });
       return;
     }
 
@@ -283,18 +479,119 @@ export default function MintAIPage() {
       const data = await getIntelligenceSnapshot(
         selectedSubject.course_id,
         undefined,
-        targetExamDate || undefined,
-        "anonymous"
+        undefined,
+        "anonymous",
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+        availableTracks.length > 0 ? selectedLanguage : undefined
       );
       setSnapshot(data);
-      if (data.available_assessment_types && data.available_assessment_types.length > 0 && !selectedExam) {
-        setSelectedExam(data.available_assessment_types[0]);
+
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        track_id: availableTracks.find(t => t.track_key === selectedLanguage)?.id || null,
+        track_key: selectedLanguage || null,
+        language: availableTracks.length > 0 ? selectedLanguage : null,
+        branch: selectedBranch,
+        semester: Number(selectedSemester),
+        assessment_cycle: selectedExam,
+        last_activity_type: "open_mintai",
+      });
+
+      trackBetaEvent("intelligence_view", {
+        course_id: selectedSubject.course_id,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        assessment_cycle: selectedExam,
+        metadata: {
+          predictions_count: data.predictions?.length || 0,
+          priorities_count: data.study_priorities?.length || 0
+        }
+      });
+
+      if (!data.predictions || data.predictions.length === 0) {
+        trackFrictionEvent("prediction_no_evidence", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
+      }
+      if (!data.study_priorities || data.study_priorities.length === 0) {
+        trackFrictionEvent("study_plan_empty", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
+      } else {
+        trackBetaEvent("study_plan_opened", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          assessment_cycle: selectedExam
+        });
       }
     } catch (err: any) {
       console.error("Intelligence snapshot generation failed", err);
-      setError(err?.message || "Failed to synthesize academic intelligence.");
+      setError("Exam intelligence is temporarily unavailable.");
+      const errorCategory = err instanceof ApiError
+        ? err.category
+        : (err?.name === "TypeError" ? "NETWORK_FAILURE" : (err?.status >= 500 ? "HTTP_5XX" : "UNKNOWN"));
+      trackFrictionEvent("api_error", {
+        course_id: selectedSubject?.course_id,
+        course_code: selectedSubject?.canonical_code,
+        metadata: {
+          endpoint: "getIntelligenceSnapshot",
+          error_category: errorCategory,
+          status: err?.status,
+          message: err?.detail || err?.message || "Unknown error"
+        }
+      });
     } finally {
       setIsAnalyzing(false);
+    }
+  };
+
+  // 4b. Change Assessment Cycle & Automatically Refresh Forecast
+  const handleAssessmentCycleChange = async (newCycle: string) => {
+    setSelectedExam(newCycle);
+    trackBetaEvent("assessment_selection", {
+      assessment_cycle: newCycle,
+      course_id: selectedSubject?.course_id,
+      course_code: selectedSubject?.canonical_code
+    });
+
+    if (!selectedSubject || !selectedSubject.course_id || !isSubjectAvailable) return;
+    if (snapshot || isAnalyzing) {
+      setIsAnalyzing(true);
+      setError("");
+      try {
+        const data = await getIntelligenceSnapshot(
+          selectedSubject.course_id,
+          undefined,
+          undefined,
+          "anonymous",
+          newCycle !== "ALL" ? newCycle : undefined,
+          availableTracks.length > 0 ? selectedLanguage : undefined
+        );
+        setSnapshot(data);
+        updateStudyContext({
+          course_id: selectedSubject.course_id,
+          course_name: selectedSubject.subject_name,
+          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+          language: availableTracks.length > 0 ? selectedLanguage : null,
+          assessment_cycle: newCycle,
+          last_activity_type: "open_mintai",
+        });
+      } catch (err: any) {
+        console.error("Intelligence snapshot generation failed for cycle", err);
+        setError("Exam intelligence is temporarily unavailable.");
+        trackFrictionEvent("api_error", {
+          course_id: selectedSubject?.course_id,
+          course_code: selectedSubject?.canonical_code,
+          metadata: { endpoint: "getIntelligenceSnapshotCycle", message: err?.message }
+        });
+      } finally {
+        setIsAnalyzing(false);
+      }
     }
   };
 
@@ -308,18 +605,51 @@ export default function MintAIPage() {
     setQuestionFilterRepetition("");
     setIsQuestionsModalOpen(true);
 
+    updateStudyContext({
+      course_id: selectedSubject.course_id,
+      course_name: selectedSubject.subject_name,
+      course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+      last_topic_name: familyName || topicName || null,
+      last_activity_type: "open_question",
+    });
+
+    trackBetaEvent("practice_started", {
+      course_id: selectedSubject.course_id,
+      course_code: selectedSubject.canonical_code,
+      assessment_cycle: selectedExam,
+      metadata: { topic: topicName, family: familyName }
+    });
+
     try {
       const res = await getHistoricalQuestions(
         selectedSubject.course_id,
         familyId ? undefined : topicName,
-        selectedExam || undefined,
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
         50,
-        familyId ? { family_id: familyId } : (familyName ? { family_name: familyName } : undefined)
+        {
+          family_id: familyId || undefined,
+          family_name: familyName || undefined,
+          assessment_cycle: selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
+          language: availableTracks.length > 0 ? selectedLanguage : undefined
+        }
       );
-      setHistoricalQuestions(res.questions || []);
-    } catch (err) {
+      const qList = res.questions || [];
+      setHistoricalQuestions(qList);
+      if (qList.length === 0) {
+        trackFrictionEvent("practice_empty", {
+          course_id: selectedSubject.course_id,
+          course_code: selectedSubject.canonical_code,
+          metadata: { topic: topicName, family: familyName }
+        });
+      }
+    } catch (err: any) {
       console.error("Failed to load historical questions", err);
       setHistoricalQuestions([]);
+      trackFrictionEvent("api_error", {
+        course_id: selectedSubject.course_id,
+        course_code: selectedSubject.canonical_code,
+        metadata: { endpoint: "getHistoricalQuestions", message: err?.message }
+      });
     } finally {
       setIsLoadingQuestions(false);
     }
@@ -358,12 +688,25 @@ export default function MintAIPage() {
         topic: topicName,
         action: nextStatus === "COMPLETED" ? "complete_topic" : "reset_topic",
       });
+
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_name: topicName,
+        last_activity_type: nextStatus === "COMPLETED" ? "complete_task" : "reset_task",
+        task_statuses: {
+          [topicName]: nextStatus,
+        },
+      });
+
       // Refresh snapshot to show re-evaluated priority and coverage
       const updated = await getIntelligenceSnapshot(
         selectedSubject.course_id,
         undefined,
-        targetExamDate || undefined,
-        "anonymous"
+        undefined,
+        "anonymous",
+        selectedExam && selectedExam !== "ALL" ? selectedExam : undefined
       );
       setSnapshot(updated);
     } catch (err) {
@@ -393,9 +736,26 @@ export default function MintAIPage() {
 
             {/* Error notifications */}
             {branchLoadError && (
-              <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive text-xs rounded-lg flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{branchLoadError}</span>
+              <div className="mb-4 p-3 bg-destructive/10 border border-destructive/20 text-destructive text-xs rounded-lg flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{branchLoadError}</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => loadInitialScope()}
+                  className="px-2.5 py-1 bg-destructive text-destructive-foreground text-[11px] font-semibold rounded hover:opacity-90 transition-opacity shrink-0 flex items-center gap-1"
+                >
+                  <RefreshCw className="w-3 h-3" />
+                  <span>Retry</span>
+                </button>
+              </div>
+            )}
+
+            {coldStartNotice && !branchLoadError && (
+              <div className="mb-4 p-2.5 bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs rounded-lg flex items-center gap-2">
+                <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
+                <span>Connecting to cloud backend (cold start may take ~30s)...</span>
               </div>
             )}
 
@@ -409,7 +769,13 @@ export default function MintAIPage() {
                   options={branches.map((b) => ({ value: b, label: b }))}
                   value={selectedBranch}
                   onChange={(val: string) => setSelectedBranch(val)}
-                  placeholder={isLoadingBranches ? "Loading branches..." : "Search branches..."}
+                  placeholder={
+                    isLoadingBranches
+                      ? "Loading branches..."
+                      : branchLoadError
+                      ? "Failed to load branches"
+                      : "Search branches..."
+                  }
                   disabled={isLoadingBranches || branches.length === 0}
                 />
               </div>
@@ -443,31 +809,57 @@ export default function MintAIPage() {
                     const match = subjects.find((s) => String(s.curriculum_id) === String(val));
                     setSelectedSubject(match || null);
                     setSnapshot(null);
-                    if (match) trackEvent("course_selected", { course_id: match.curriculum_id, course_name: match.subject_name });
+                    if (match) {
+                      trackEvent("course_selected", { course_id: match.curriculum_id, course_name: match.subject_name });
+                      trackBetaEvent("course_selection", {
+                        course_id: match.course_id || undefined,
+                        course_code: match.canonical_code || match.curriculum_id,
+                        metadata: {
+                          subject_name: match.subject_name,
+                          status: match.status,
+                          has_exams: match.has_exams,
+                          exam_count: match.exam_count,
+                          question_count: match.question_count
+                        }
+                      });
+                    }
                   }}
                   placeholder={isLoadingSubjects ? "Loading courses..." : "Search courses..."}
                   disabled={isLoadingSubjects || subjects.length === 0}
                 />
               </div>
 
-              {/* Target Exam Date (Optional) */}
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
-                  Target Exam Date <span className="text-[10px] text-muted-foreground/60">(Optional)</span>
-                </label>
-                <div className="relative">
-                  <input
-                    type="date"
-                    aria-label="Target Exam Date"
-                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono text-xs"
-                    value={targetExamDate}
-                    onChange={(e) => setTargetExamDate(e.target.value)}
+              {/* Language Track Selector (shown only for multi-track courses, e.g. Foreign Languages) */}
+              {availableTracks.length > 0 && (
+                <div className="animate-in fade-in-50 duration-200">
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Language Track
+                    </label>
+                    <span className="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-accent/10 text-accent border border-accent/20">
+                      Required
+                    </span>
+                  </div>
+                  <Combobox
+                    options={availableTracks.map((t) => ({
+                      value: t.track_key,
+                      label: `${t.track_name}${t.track_code ? ` (${t.track_code})` : ""}`,
+                    }))}
+                    value={selectedLanguage}
+                    onChange={(val: string) => {
+                      handleLanguageChange(val);
+                    }}
+                    placeholder={isLoadingTracks ? "Loading tracks..." : "Select language..."}
+                    disabled={isLoadingTracks || availableTracks.length === 0}
                   />
+                  <p className="text-[10px] text-muted-foreground mt-1">
+                    Each language track maintains isolated syllabus topics, past papers, and predictions.
+                  </p>
                 </div>
-              </div>
+              )}
 
-              {/* Assessment Type (Dynamic from Snapshot or DNA) */}
-              {snapshot?.available_assessment_types && snapshot.available_assessment_types.length > 0 && (
+              {/* Assessment Cycle Selector */}
+              {selectedSubject && (
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
                     Assessment Cycle
@@ -475,15 +867,35 @@ export default function MintAIPage() {
                   <select
                     aria-label="Assessment Cycle"
                     className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono"
-                    value={selectedExam}
-                    onChange={(e) => setSelectedExam(e.target.value)}
+                    value={selectedExam || "ALL"}
+                    onChange={(e) => handleAssessmentCycleChange(e.target.value)}
                   >
-                    {snapshot.available_assessment_types.map((et) => (
-                      <option key={et} value={et}>
-                        {et}
-                      </option>
-                    ))}
+                    <option value="ALL">All Assessments</option>
+                    <option value="CT1">CT1</option>
+                    <option value="CT2">CT2</option>
+                    <option value="ENDSEM">End Semester</option>
                   </select>
+                  {snapshot?.assessment_scope && (
+                    <div className="mt-2 p-2.5 rounded-lg bg-accent/5 border border-accent/20 text-[11px] space-y-1">
+                      <div className="flex items-center justify-between font-semibold">
+                        <span className="text-accent">
+                          {snapshot.assessment_label || snapshot.assessment_component || selectedExam}
+                        </span>
+                        {snapshot.assessment_scope.unit_numbers && snapshot.assessment_scope.unit_numbers.length > 0 && (
+                          <span className="font-mono text-[10px] text-muted-foreground">
+                            {snapshot.assessment_scope.unit_numbers.length === 1
+                              ? `Unit ${snapshot.assessment_scope.unit_numbers[0]}`
+                              : `Units ${snapshot.assessment_scope.unit_numbers.join(", ")}`}
+                          </span>
+                        )}
+                      </div>
+                      {snapshot.assessment_scope.unobserved_in_scope_topics && snapshot.assessment_scope.unobserved_in_scope_topics.length > 0 && (
+                        <div className="text-[10px] text-amber-500/90 flex items-center gap-1 pt-1 border-t border-accent/10">
+                          <span>{snapshot.assessment_scope.unobserved_in_scope_topics.length} syllabus topics in scope have no past exam questions.</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -496,7 +908,7 @@ export default function MintAIPage() {
                 {isAnalyzing ? (
                   <>
                     <Activity className="w-4 h-4 animate-spin" />
-                    <span>Synthesizing Intelligence...</span>
+                    <span>Preparing your exam intelligence...</span>
                   </>
                 ) : (
                   <>
@@ -523,13 +935,9 @@ export default function MintAIPage() {
                   {selectedSubject.status}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Curriculum ID:</span>
-                <span className="font-mono">{selectedSubject.curriculum_id}</span>
-              </div>
               {selectedSubject.canonical_code && (
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Canonical Code:</span>
+                  <span className="text-muted-foreground">Course Code:</span>
                   <span className="font-mono font-bold text-accent">{selectedSubject.canonical_code}</span>
                 </div>
               )}
@@ -541,6 +949,14 @@ export default function MintAIPage() {
                 <span className="text-muted-foreground">Historical Questions:</span>
                 <span className="font-mono">{selectedSubject.question_count}</span>
               </div>
+              {availableTracks.length > 0 && selectedLanguage && (
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Selected Track:</span>
+                  <span className="font-mono font-bold text-accent">
+                    {availableTracks.find(t => t.track_key === selectedLanguage)?.track_name || selectedLanguage}
+                  </span>
+                </div>
+              )}
               {selectedSubject.has_exams && (
                 <div className="pt-2 border-t border-border/50 space-y-1.5">
                   <button
@@ -566,12 +982,23 @@ export default function MintAIPage() {
         {/* Right Main Panel */}
         <div className="lg:col-span-8 flex flex-col gap-6">
           {error && (
-            <div className="p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 shrink-0" />
-              <div>
-                <h4 className="font-semibold text-sm">Forecast Synthesis Error</h4>
-                <p className="text-xs opacity-90">{error}</p>
+            <div className="p-4 bg-destructive/10 border border-destructive/20 text-destructive rounded-xl flex items-center justify-between gap-4">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-semibold text-sm">Forecast Synthesis Notice</h4>
+                  <p className="text-xs opacity-90 mt-0.5">{error}</p>
+                </div>
               </div>
+              <button
+                type="button"
+                onClick={handleAnalyze}
+                disabled={isAnalyzing}
+                className="px-3 py-1.5 bg-destructive text-destructive-foreground text-xs font-semibold rounded-lg hover:opacity-90 transition-opacity shrink-0 flex items-center gap-1.5 disabled:opacity-50"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isAnalyzing ? "animate-spin" : ""}`} />
+                <span>Retry</span>
+              </button>
             </div>
           )}
 
@@ -611,6 +1038,7 @@ export default function MintAIPage() {
               courseId={selectedSubject.course_id}
               courseName={selectedSubject.subject_name}
               canonicalCode={selectedSubject.canonical_code}
+              language={availableTracks.length > 0 ? selectedLanguage : undefined}
               onSelectTopic={(topicName) => {
                 setMainView("forecast");
                 setExpandedTopic(topicName);
@@ -620,9 +1048,255 @@ export default function MintAIPage() {
             <>
               {snapshot && snapshot.data_availability_status === "READY" ? (() => {
                 const isFamilyMode = snapshot.prediction_mode === "family";
+                const hasIntendedScope = Boolean(
+                  snapshot.assessment_scope?.intended_scope?.unit_numbers &&
+                  snapshot.assessment_scope.intended_scope.unit_numbers.length > 0
+                );
 
                 return (
             <div className="flex flex-col gap-6">
+              {/* Course-Specific Assessment Structure Scope Banner */}
+              {snapshot.assessment_cycle && snapshot.assessment_cycle !== "ALL" && snapshot.assessment_scope && (
+                <div className="bg-card border border-border/80 rounded-2xl p-5 shadow-sm space-y-4">
+                  {/* Top Scope Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border/50">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-xl bg-accent/10 text-accent shrink-0">
+                        <Target className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h3 className="font-bold text-base text-foreground">
+                            {snapshot.assessment_label || snapshot.assessment_cycle} Scope Breakdown
+                          </h3>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/15 text-accent font-semibold border border-accent/20">
+                            {snapshot.assessment_component || snapshot.assessment_cycle}
+                          </span>
+                          {snapshot.assessment_scope.marks && (
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-secondary-foreground font-semibold border border-border">
+                              {snapshot.assessment_scope.marks} Marks Weight
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          Independent comparison of authoritative curriculum regulations vs archived past paper reality
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Status Pill */}
+                    <div className="flex items-center gap-2">
+                      {snapshot.assessment_scope.evidence_status === "EVIDENCE_BACKED" && (
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 font-semibold border border-emerald-500/20 flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          Paper Evidence Backed
+                        </span>
+                      )}
+                      {snapshot.assessment_scope.evidence_status === "INTENDED_ONLY_NO_PAPERS" && (
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-400 font-semibold border border-amber-500/20 flex items-center gap-1.5">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          Regulation Plan Only · 0 Historical Papers
+                        </span>
+                      )}
+                      {snapshot.assessment_scope.evidence_status === "OUT_OF_SCOPE_OBSERVED" && (
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-purple-500/15 text-purple-400 font-semibold border border-purple-500/20 flex items-center gap-1.5">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          Empirical Scope Divergence
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Dual Panels: Syllabus Plan (Intended) vs Historical Paper Evidence (Observed) */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Panel 1: Syllabus Plan (Intended Scope) */}
+                    <div className="rounded-xl border border-border/70 bg-secondary/30 p-4 flex flex-col justify-between space-y-3">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <BookOpen className="w-4 h-4 text-accent" />
+                            <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                              Syllabus Plan (Intended Scope)
+                            </h4>
+                          </div>
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Prescribed units &amp; syllabus topics required by university academic regulation for this assessment.
+                        </p>
+                      </div>
+
+                      <div className="space-y-2 pt-2 border-t border-border/40 text-xs">
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Prescribed Units:</span>
+                          <span className={`font-mono ${hasIntendedScope ? "font-bold text-foreground" : "font-medium text-muted-foreground"}`}>
+                            {hasIntendedScope
+                              ? snapshot.assessment_scope.intended_scope!.unit_numbers.length === 1
+                                ? `Unit ${snapshot.assessment_scope.intended_scope!.unit_numbers[0]}`
+                                : `Units ${snapshot.assessment_scope.intended_scope!.unit_numbers.join(", ")}`
+                              : "Not specified"}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">In-Scope Topics:</span>
+                          <span className={`font-mono ${hasIntendedScope ? "font-bold text-foreground" : "font-medium text-muted-foreground"}`}>
+                            {hasIntendedScope
+                              ? `${snapshot.assessment_scope.intended_scope?.topic_names?.length ?? snapshot.assessment_scope.total_in_scope_topics ?? 0} Topics`
+                              : "Not specified"}
+                          </span>
+                        </div>
+                        {hasIntendedScope && snapshot.assessment_scope.source_document && (
+                          <div className="text-[11px] text-muted-foreground/80 truncate pt-1 border-t border-border/30" title={snapshot.assessment_scope.source_document}>
+                            Regulation: <span className="font-semibold text-foreground">
+                              {snapshot.assessment_scope.source_document.startsWith("data/")
+                                ? "SRMIST Academic Regulation & Syllabus"
+                                : snapshot.assessment_scope.source_document}
+                            </span>
+                          </div>
+                        )}
+                        {hasIntendedScope && snapshot.assessment_scope.intended_scope?.notes && (
+                          <div className="text-[11px] text-muted-foreground/80 italic">
+                            &ldquo;{snapshot.assessment_scope.intended_scope.notes}&rdquo;
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Panel 2: Historical Paper Evidence (Observed Scope) */}
+                    <div className="rounded-xl border border-border/70 bg-secondary/30 p-4 flex flex-col justify-between space-y-3">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Layers className="w-4 h-4 text-accent" />
+                            <h4 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                              Historical Paper Evidence (Observed Scope)
+                            </h4>
+                          </div>
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          Empirical units &amp; questions tested on actual archived examination papers for this cycle.
+                        </p>
+                      </div>
+
+                      <div className="space-y-2 pt-2 border-t border-border/40 text-xs">
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Units Examined in Papers:</span>
+                          <span className="font-mono font-bold text-accent">
+                            {snapshot.assessment_scope.observed_scope?.unit_numbers && snapshot.assessment_scope.observed_scope.unit_numbers.length > 0
+                              ? snapshot.assessment_scope.observed_scope.unit_numbers.length === 1
+                                ? `Unit ${snapshot.assessment_scope.observed_scope.unit_numbers[0]}`
+                                : `Units ${snapshot.assessment_scope.observed_scope.unit_numbers.join(", ")}`
+                              : "0 Past Papers Archived"}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-muted-foreground">Historical Papers / Questions:</span>
+                          <span className="font-mono font-bold text-foreground">
+                            {snapshot.assessment_scope.observed_scope?.paper_count ?? 0} {snapshot.assessment_scope.observed_scope?.paper_count === 1 ? "paper" : "papers"} ({snapshot.assessment_scope.observed_scope?.total_questions ?? 0} questions)
+                          </span>
+                        </div>
+                        <div className="pt-1.5 border-t border-border/30 text-[11px] text-muted-foreground leading-relaxed">
+                          {hasIntendedScope ? (
+                            <div className="flex items-center justify-between">
+                              <span>Evidence Coverage:</span>
+                              <span className="font-mono font-semibold text-foreground">
+                                {snapshot.assessment_scope.observed_in_scope_topics ?? 0} of {snapshot.assessment_scope.total_in_scope_topics ?? 0} planned topics examined
+                              </span>
+                            </div>
+                          ) : (
+                            <p>
+                              {(snapshot.assessment_scope.observed_scope?.paper_count ?? 0) > 0
+                                ? "Observed evidence is based on archived examination papers. No authoritative unit distribution was found for this assessment."
+                                : "No authoritative unit distribution or archived papers are available for this assessment."}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Scope Reconciliation: Unobserved In-Scope Topics & Out-of-Scope Anomalies */}
+                  <div className="space-y-2.5 pt-1">
+                    {/* Unobserved In-Scope Topics */}
+                    {snapshot.assessment_scope.unobserved_in_scope_topics && snapshot.assessment_scope.unobserved_in_scope_topics.length > 0 && (
+                      <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-3.5 text-xs">
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-2">
+                            <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                            <div>
+                              <span className="font-semibold text-foreground">
+                                {snapshot.assessment_scope.unobserved_in_scope_topics.length} Syllabus Topics in Plan Have 0 Past Exam Appearances
+                              </span>
+                              <p className="text-muted-foreground text-[11px] mt-0.5">
+                                These topics are officially in syllabus scope for this exam, but have never appeared in our archived papers. Study them from lecture slides/textbooks as examiners may introduce them.
+                              </p>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => setShowUnobservedTopics(!showUnobservedTopics)}
+                            className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-500/15 text-amber-400 hover:bg-amber-500/25 transition-colors shrink-0 flex items-center gap-1 cursor-pointer"
+                          >
+                            <span>{showUnobservedTopics ? "Hide" : "View"} Topics</span>
+                            {showUnobservedTopics ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                          </button>
+                        </div>
+
+                        {showUnobservedTopics && (
+                          <div className="mt-3 pt-3 border-t border-amber-500/20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                            {snapshot.assessment_scope.unobserved_in_scope_topics.map((t, idx) => (
+                              <div key={idx} className="p-2 rounded-lg bg-card/60 border border-border/40 text-xs flex items-center justify-between gap-2">
+                                <span className="font-medium text-foreground truncate">{t.name}</span>
+                                <span className="text-[10px] font-mono text-amber-500/80 bg-amber-500/10 px-1.5 py-0.5 rounded shrink-0">
+                                  Unobserved
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Out-of-Scope Observed Anomalies */}
+                    {snapshot.assessment_scope.out_of_scope_observed_topics && snapshot.assessment_scope.out_of_scope_observed_topics.length > 0 && (
+                      <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-3.5 text-xs">
+                        <div className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-purple-400 shrink-0" />
+                            <div>
+                              <span className="font-semibold text-foreground">
+                                {snapshot.assessment_scope.out_of_scope_observed_topics.length} Anomalous Topics Historically Appeared from Outside Syllabus Units
+                              </span>
+                              <p className="text-muted-foreground text-[11px] mt-0.5">
+                                Historical papers for this cycle included questions from units outside the formal syllabus plan. Review these topics to avoid surprise exam questions.
+                              </p>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => setShowOutOfScopeTopics(!showOutOfScopeTopics)}
+                            className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-purple-500/15 text-purple-400 hover:bg-purple-500/25 transition-colors shrink-0 flex items-center gap-1 cursor-pointer"
+                          >
+                            <span>{showOutOfScopeTopics ? "Hide" : "View"} Anomalies</span>
+                            {showOutOfScopeTopics ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                          </button>
+                        </div>
+
+                        {showOutOfScopeTopics && (
+                          <div className="mt-3 pt-3 border-t border-purple-500/20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                            {snapshot.assessment_scope.out_of_scope_observed_topics.map((t, idx) => (
+                              <div key={idx} className="p-2 rounded-lg bg-card/60 border border-border/40 text-xs flex items-center justify-between gap-2">
+                                <span className="font-medium text-foreground truncate">{t.name}</span>
+                                <span className="text-[10px] font-mono text-purple-400/90 bg-purple-500/10 px-1.5 py-0.5 rounded shrink-0">
+                                  Out-of-Scope
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* Preparation & Coverage / Evidence Meter */}
               {isFamilyMode ? (
                 <div className="bg-card border border-border rounded-xl p-5 shadow-sm">
@@ -754,11 +1428,6 @@ export default function MintAIPage() {
                   <h3 className="text-base font-bold tracking-tight">
                     {isFamilyMode ? "Predicted High-Yield Question Families" : "Study These First"}
                   </h3>
-                  {snapshot.metadata && (
-                    <span className="text-[10px] font-mono text-muted-foreground">
-                      Engine: {snapshot.metadata.engine_version} | Model: {snapshot.metadata.model_version}
-                    </span>
-                  )}
                 </div>
 
                 {snapshot.predictions && snapshot.predictions.length > 0 ? (
@@ -958,35 +1627,66 @@ export default function MintAIPage() {
               </p>
             </div>
           ) : (
-            <div className="h-full min-h-[400px] rounded-xl flex flex-col justify-center p-8 lg:p-12 bg-card border border-border shadow-sm">
-              <div className="max-w-xl">
-                <h3 className="text-2xl font-bold text-foreground mb-4">MintAI Prediction Engine</h3>
-                <p className="text-base text-muted-foreground mb-10 leading-relaxed">
-                  Select a course from the curriculum catalog to unlock highly probable examination topics based on deterministic historical patterns.
-                </p>
-                
-                <div className="flex flex-col gap-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-accent/10 text-accent font-bold text-sm shrink-0 border border-accent/20">1</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Select Scope</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Choose your academic branch, semester, and target course.</p>
-                    </div>
+            <div className="h-full min-h-[420px] rounded-2xl flex flex-col justify-center p-6 sm:p-10 bg-card border border-border shadow-sm">
+              <div className="max-w-2xl space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-wider uppercase mb-3">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>How MarkMint Intelligence Works</span>
                   </div>
-                  <div className="flex items-start gap-4 opacity-70">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">2</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Analyze Evidence</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Explore recurring exam patterns and historical frequency.</p>
+                  <h3 className="text-2xl font-bold text-foreground leading-tight">
+                    Evidence-Calibrated Exam Preparation
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
+                    MarkMint transforms archived SRMIST past examination papers into structured exam intelligence. Select any course on the left to start.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <Target className="w-4 h-4 text-accent" />
+                      <span>&ldquo;What to Study&rdquo;</span>
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      High-yield syllabus topics and recurring question families ranked by historical repetition and exam marks.
+                    </p>
                   </div>
-                  <div className="flex items-start gap-4 opacity-70">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-muted-foreground font-bold text-sm shrink-0 border border-border">3</div>
-                    <div>
-                      <h4 className="text-sm font-bold text-foreground">Study & Practice</h4>
-                      <p className="text-sm text-muted-foreground mt-0.5">Focus on high-yield topics directly matched to syllabus objectives.</p>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <HelpCircle className="w-4 h-4 text-accent" />
+                      <span>&ldquo;Why?&rdquo; Evidence</span>
                     </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Every prediction cites exact past examination papers, years tested, question counts, and historical mark weight.
+                    </p>
                   </div>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <Calendar className="w-4 h-4 text-accent" />
+                      <span>Assessment Selector</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Tailor your forecast to <strong>CT1</strong>, <strong>CT2</strong>, or comprehensive <strong>End Semester</strong> based on available historical evidence.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-secondary/40 border border-border/60 space-y-1.5">
+                    <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                      <BookOpen className="w-4 h-4 text-accent" />
+                      <span>Practice &amp; Study Plan</span>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Solve cataloged past exam questions directly mapped to syllabus units, with actionable study priority recommendations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 text-xs text-muted-foreground flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                  <span>Verified across 28+ SRMIST B.Tech courses with strict temporal backtesting.</span>
                 </div>
               </div>
             </div>
@@ -1202,6 +1902,12 @@ export default function MintAIPage() {
           onViewQuestions={(famId, famName) => handleViewQuestions(undefined, famId, famName)}
         />
       )}
+
+      {/* Beta Student Feedback Widget */}
+      <BetaFeedbackWidget
+        courseCode={selectedSubject?.canonical_code || selectedSubject?.curriculum_id}
+        hasMeaningfulUsage={Boolean(mainView === "forecast" && snapshot && (snapshot.predictions?.length > 0 || snapshot.study_priorities?.length > 0))}
+      />
 
       <Footer />
     </div>

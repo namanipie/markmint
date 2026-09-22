@@ -651,8 +651,10 @@ class AcademicResourceCrawler:
         record.curriculum_status = match_result.status
         record.course_id = match_result.course_id
         record.curriculum_mapping_id = match_result.curriculum_mapping_id
+        if match_result.canonical_semester:
+            record.semester = match_result.canonical_semester
 
-        print(f"    [CURRICULUM] {record.curriculum_status.value} (Course ID: {record.course_id or 'None'}) - {match_result.notes}")
+        print(f"    [CURRICULUM] {record.curriculum_status.value} (Course ID: {record.course_id or 'None'}, Sem: {record.semester or 'Unknown'}) - {match_result.notes}")
 
         # 8. Store verified PDF into deterministic corpus directory
         destination_path = self.downloader.build_destination_path(

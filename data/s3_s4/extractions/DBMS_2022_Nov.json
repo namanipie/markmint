@@ -1,0 +1,643 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. What is the output of the command SELECT * from emp where sal > 1000?\n(A) Store employee salary greater than 1000\n(B) Retrieve employees whose salary is greater than 1000\n(C) Retrieve only one record of (D) Select only employee to store in employees whose salary is salary greater than 1000 from greater than 1000 table [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "What is the output of the command SELECT * from emp where sal > 1000?\n(A) Store employee salary greater than 1000\n(B) Retrieve employees whose salary is greater than 1000\n(C) Retrieve only one record of (D) Select only employee to store in employees whose salary is salary greater than 1000 from greater than 1000 table",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which is scalable data base model?\n(A) E-R model\n(B) Relational model\n(C) Hierarchical model\n(D) Flat model [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which is scalable data base model?\n(A) E-R model\n(B) Relational model\n(C) Hierarchical model\n(D) Flat model",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which is not a domain constraints?\n(A) Not null\n(B) Check\n(C) Unique\n(D) Foreign key [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which is not a domain constraints?\n(A) Not null\n(B) Check\n(C) Unique\n(D) Foreign key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Data manipulation language is used for\n(A) Express the schema with notation\n(B) Expression the data base queries and updates\n(C) Managing database operation\n(D) Specify the database schema [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Data manipulation language is used for\n(A) Express the schema with notation\n(B) Expression the data base queries and updates\n(C) Managing database operation\n(D) Specify the database schema",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Logical level of abstraction deals\n(A) How to store to record\n(B) Hiding details form unauthorized user\n(C) Data storage in database and (D) Hiding details from any user relationship among the data [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Logical level of abstraction deals\n(A) How to store to record\n(B) Hiding details form unauthorized user\n(C) Data storage in database and (D) Hiding details from any user relationship among the data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which is not single value attribute?\n(A) Mobile number\n(B) Gender\n(C) Data of birth\n(D) Register number [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which is not single value attribute?\n(A) Mobile number\n(B) Gender\n(C) Data of birth\n(D) Register number",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Conversion of ER model into relational table for strong entity set with multi value attribute creates\n(A) 1 table\n(B) 2 table\n(C) 3 table\n(D) 4 table [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Conversion of ER model into relational table for strong entity set with multi value attribute creates\n(A) 1 table\n(B) 2 table\n(C) 3 table\n(D) 4 table",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Foreign key\n(A) Not allow null value\n(B) Is a primary key that will be a referential key for table\n(C) Is not a primary key\n(D) Is not a referential key [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Foreign key\n(A) Not allow null value\n(B) Is a primary key that will be a referential key for table\n(C) Is not a primary key\n(D) Is not a referential key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. In E-R diagram specialization is indicated by\n(A) Double side arrow head\n(B) Line arrow head\n(C) Hollow arrow head\n(D) Filled arrow head [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "In E-R diagram specialization is indicated by\n(A) Double side arrow head\n(B) Line arrow head\n(C) Hollow arrow head\n(D) Filled arrow head",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. A programmer is associated with many project\n(A) It is one-to-many cardinality\n(B) It is many-to-one cardinality\n(C) It is one-to-any cardinality\n(D) It is one-to-one cardinality [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "A programmer is associated with many project\n(A) It is one-to-many cardinality\n(B) It is many-to-one cardinality\n(C) It is one-to-any cardinality\n(D) It is one-to-one cardinality",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The SQL command to insert employee name jack with ID-No-500 with job clerk is\n(A) Insert emp values (500,jack, (B) Insert into emp values (500, clerk)\n'jack', 'clerk')\n(C) Insert into emp (500, jack, clerk) (D) Insert into emp (500, 'jack',\n'clerk') [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "The SQL command to insert employee name jack with ID-No-500 with job clerk is\n(A) Insert emp values (500,jack, (B) Insert into emp values (500, clerk)\n'jack', 'clerk')\n(C) Insert into emp (500, jack, clerk) (D) Insert into emp (500, 'jack',\n'clerk')",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Correlated subquery\n(A) Is an inner query executed one (B) Is executed one time for each time for outer query record returned by outer query\n(C) Is executed multiple times\n(D) Is inner query executed multiple time for outer query returned by outer query [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Correlated subquery\n(A) Is an inner query executed one (B) Is executed one time for each time for outer query record returned by outer query\n(C) Is executed multiple times\n(D) Is inner query executed multiple time for outer query returned by outer query",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Which is correct for the trigger?\n(A) It is an event driven one\n(B) It is executed manually\n(C) In PL/SQL there are 10 events (D) PL/SQL not support triggers for trigger [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Which is correct for the trigger?\n(A) It is an event driven one\n(B) It is executed manually\n(C) In PL/SQL there are 10 events (D) PL/SQL not support triggers for trigger",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Which is not an exception in PL/SQL\n(A) No data found\n(B) Too many rows\n(C) Value error\n(D) Length string [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Which is not an exception in PL/SQL\n(A) No data found\n(B) Too many rows\n(C) Value error\n(D) Length string",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Which is not a valid step in query processing?\n(A) Parsing and translation\n(B) Optimization\n(C) Mapping of pointer\n(D) Evaluation [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Which is not a valid step in query processing?\n(A) Parsing and translation\n(B) Optimization\n(C) Mapping of pointer\n(D) Evaluation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Relational algebra\n(A) Is a procedural language\n(B) Is extended version of SQL\n(C) Is not supporting union operation\n(D) Is not having rename option [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Relational algebra\n(A) Is a procedural language\n(B) Is extended version of SQL\n(C) Is not supporting union operation\n(D) Is not having rename option",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. The statement: \\sigma_{salary > 1000} (instructor) is\n(A) Joining instructor whose salary is (B) Selecting instructor whose greater than 1000 salary is greater than 1000\n(C) Inserting instructor whose salary (D) Deleting instructor whose is greater than 1000 salary is greater than 1000 [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "The statement: \\sigma_{salary > 1000} (instructor) is\n(A) Joining instructor whose salary is (B) Selecting instructor whose greater than 1000 salary is greater than 1000\n(C) Inserting instructor whose salary (D) Deleting instructor whose is greater than 1000 salary is greater than 1000",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Functional dependency\n(A) Avoid data redundancy\n(B) Avoid dependency\n(C) Not good for good database\n(D) Make database complex for query [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Functional dependency\n(A) Avoid data redundancy\n(B) Avoid dependency\n(C) Not good for good database\n(D) Make database complex for query",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Which is not a type of normalization?\n(A) $1^{\\text{st}}$ norm form\n(B) $2^{\\text{nd}}$ norm form\n(C) Bryce-codd normal form\n(D) $6^{\\text{th}}$ normal form [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Which is not a type of normalization?\n(A) $1^{\\text{st}}$ norm form\n(B) $2^{\\text{nd}}$ norm form\n(C) Bryce-codd normal form\n(D) $6^{\\text{th}}$ normal form",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Condition for $2^{\\text{nd}}$ norm form\n(A) It must be $1^{\\text{st}}$ norm form\n(B) It must be functional independent non primary key attributes\n(C) It must have functional (D) It must be in Boyce-Codd independency normal form [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Condition for $2^{\\text{nd}}$ norm form\n(A) It must be $1^{\\text{st}}$ norm form\n(B) It must be functional independent non primary key attributes\n(C) It must have functional (D) It must be in Boyce-Codd independency normal form",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Wait-die is a\n(A) Time stamp based dead lock (B) Dead lock update mechanism prevention mechanism\n(C) Buffer management mechanism (D) Task management mechanism [1]",
+          "structured_content": {
+            "number": "21",
+            "text": "Wait-die is a\n(A) Time stamp based dead lock (B) Dead lock update mechanism prevention mechanism\n(C) Buffer management mechanism (D) Task management mechanism",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Concurrency control is used\n(A) To achieve better throughput\n(B) To control the execution time in processor\n(C) To achieve isolation and (D) To control task allocation maintain consistency [1]",
+          "structured_content": {
+            "number": "22",
+            "text": "Concurrency control is used\n(A) To achieve better throughput\n(B) To control the execution time in processor\n(C) To achieve isolation and (D) To control task allocation maintain consistency",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Duty read problem occurs at\n(A) Transaction failed while (B) Read transaction failed updating but read by another transaction before rollback\n(C) Read transaction reading wrong (D) Reading of multi value pointer attributes [1]",
+          "structured_content": {
+            "number": "23",
+            "text": "Duty read problem occurs at\n(A) Transaction failed while (B) Read transaction failed updating but read by another transaction before rollback\n(C) Read transaction reading wrong (D) Reading of multi value pointer attributes",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. When dead lock occurs ______ to solve it.\n(A) System must roll back to one of (B) System must about the transaction and unlock the locked transaction items\n(C) System must raise exception\n(D) System need not respond [1]",
+          "structured_content": {
+            "number": "24",
+            "text": "When dead lock occurs ______ to solve it.\n(A) System must roll back to one of (B) System must about the transaction and unlock the locked transaction items\n(C) System must raise exception\n(D) System need not respond",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Fuzzy check prints are\n(A) Check points where the systems (B) Check point where transactions are in fuzzy state are blocked\n(C) Check point where transactions (D) Check point where transaction are moved from block state to allows to update while buffer execution state blocks being written out [1]",
+          "structured_content": {
+            "number": "25",
+            "text": "Fuzzy check prints are\n(A) Check points where the systems (B) Check point where transactions are in fuzzy state are blocked\n(C) Check point where transactions (D) Check point where transaction are moved from block state to allows to update while buffer execution state blocks being written out",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. What is data manipulation language? Explain [10]\n  i. Insert\n  ii. Update\n  iii. Delete\n  iv. Select\nCommands with example.",
+          "structured_content": {
+            "number": "26",
+            "text": "What is data manipulation language? Explain",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Insert"
+              },
+              {
+                "number": "ii",
+                "text": "Update"
+              },
+              {
+                "number": "iii",
+                "text": "Delete"
+              },
+              {
+                "number": "iv",
+                "text": "Select\nCommands with example."
+              }
+            ],
+            "or_alternative": {
+              "number": "26",
+              "text": "Analyze the data base model of",
+              "marks": 10,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "Hierarchical"
+                },
+                {
+                  "number": "ii",
+                  "text": "Relational for practical deployment"
+                }
+              ]
+            }
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Analyze the data base model of [10]\n  i. Hierarchical\n  ii. Relational for practical deployment",
+          "structured_content": {
+            "number": "26",
+            "text": "Analyze the data base model of",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Hierarchical"
+              },
+              {
+                "number": "ii",
+                "text": "Relational for practical deployment"
+              }
+            ]
+          },
+          "marks": 10.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Develop E-R model for online shopping system with proper notation. [10]",
+          "structured_content": {
+            "number": "27",
+            "text": "Develop E-R model for online shopping system with proper notation.",
+            "marks": 10,
+            "or_alternative": {
+              "number": "27",
+              "text": "What are constraints? Explain domain constraints with SQL statements.",
+              "marks": 8
+            }
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. What are constraints? Explain domain constraints with SQL statements. [8]",
+          "structured_content": {
+            "number": "27",
+            "text": "What are constraints? Explain domain constraints with SQL statements.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. What is the use of join operation? How is the simple and outer join operation implemented in SQL? Give examples. [8]",
+          "structured_content": {
+            "number": "28",
+            "text": "What is the use of join operation? How is the simple and outer join operation implemented in SQL? Give examples.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "28",
+              "text": "What is trigger? How triggers are implemented in PL/SQL?",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. What is trigger? How triggers are implemented in PL/SQL? [8]",
+          "structured_content": {
+            "number": "28",
+            "text": "What is trigger? How triggers are implemented in PL/SQL?",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Give the notation and example code in relation algebra for the following operations [10]\n  i. Outer join\n  ii. Assignment\n  iii. Select operation",
+          "structured_content": {
+            "number": "29",
+            "text": "Give the notation and example code in relation algebra for the following operations",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Outer join"
+              },
+              {
+                "number": "ii",
+                "text": "Assignment"
+              },
+              {
+                "number": "iii",
+                "text": "Select operation"
+              }
+            ],
+            "or_alternative": {
+              "number": "29",
+              "text": "What is the pit fall in relational data base? How it can be rectified? Explain $1^{\\text{st}}$ normal form.",
+              "marks": 10
+            }
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. What is the pit fall in relational data base? How it can be rectified? Explain $1^{\\text{st}}$ normal form. [10]",
+          "structured_content": {
+            "number": "29",
+            "text": "What is the pit fall in relational data base? How it can be rectified? Explain $1^{\\text{st}}$ normal form.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. What is serialization? Explain testing of seriability with examples. [8]",
+          "structured_content": {
+            "number": "30",
+            "text": "What is serialization? Explain testing of seriability with examples.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "30",
+              "text": "Give",
+              "marks": 10,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "Dead lock detection mechanism"
+                },
+                {
+                  "number": "ii",
+                  "text": "Dead lock prevention mechanism"
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Give [10]\n  i. Dead lock detection mechanism\n  ii. Dead lock prevention mechanism",
+          "structured_content": {
+            "number": "30",
+            "text": "Give",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Dead lock detection mechanism"
+              },
+              {
+                "number": "ii",
+                "text": "Dead lock prevention mechanism"
+              }
+            ]
+          },
+          "marks": 10.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2022
+}

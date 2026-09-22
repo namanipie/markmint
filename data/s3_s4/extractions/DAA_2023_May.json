@@ -1,0 +1,526 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The main measures of the efficiency of an algorithm are (A) Time and space complexity (B) Data and space (C) Processor and memory (D) Complexity and capacity [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "The main measures of the efficiency of an algorithm are (A) Time and space complexity (B) Data and space (C) Processor and memory (D) Complexity and capacity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. What is the time complexity of the binary search algorithm? (A) O(n) (B) O(1) (C) O(log_2 n) (D) O(n^2) [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "What is the time complexity of the binary search algorithm? (A) O(n) (B) O(1) (C) O(log_2 n) (D) O(n^2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Identify the sorting technique which compares adjacent elements in a list and switches whenever necessary? (A) Merge sort (B) Quick sort (C) Bubble sort (D) Selection sort [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Identify the sorting technique which compares adjacent elements in a list and switches whenever necessary? (A) Merge sort (B) Quick sort (C) Bubble sort (D) Selection sort",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Which of the following is incorrect? Algorithms can be represented: (A) As programs (B) As flow charts (C) As syntax (D) As pseudo codes [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Which of the following is incorrect? Algorithms can be represented: (A) As programs (B) As flow charts (C) As syntax (D) As pseudo codes",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. The measure of the longest amount of time possibly taken to complete an algorithm is expressed as (A) Little - o (B) Little - omega (C) Big - omega (D) Big - O [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "The measure of the longest amount of time possibly taken to complete an algorithm is expressed as (A) Little - o (B) Little - omega (C) Big - omega (D) Big - O",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. How many comparisons are needed for linear search array when elements are in order in best case? (A) 1 (B) n (C) n + 1 (D) n - 1 [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "How many comparisons are needed for linear search array when elements are in order in best case? (A) 1 (B) n (C) n + 1 (D) n - 1",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Identify the best-case time complexity of selection sort? (A) O(n log n) (B) O(n^2) (C) O(n) (D) O(1) [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Identify the best-case time complexity of selection sort? (A) O(n log n) (B) O(n^2) (C) O(n) (D) O(1)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. How many number of comparisons is required in insertion sort to sort a file if the file is sorted in reverse order? (A) N^2 (B) N (C) N - 1 (D) N/2 [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "How many number of comparisons is required in insertion sort to sort a file if the file is sorted in reverse order? (A) N^2 (B) N (C) N - 1 (D) N/2",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What approach is being followed in Floyd Warshall algorithm? (A) Dynamic programming (B) Greedy technique (C) Linear programming (D) Back tracking [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What approach is being followed in Floyd Warshall algorithm? (A) Dynamic programming (B) Greedy technique (C) Linear programming (D) Back tracking",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which of the following algorithm can be used to solve the Hamiltonian path problem efficiently? (A) Iterative improvement (B) Branch and bound (C) Divide and conquer (D) Greedy algorithm [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which of the following algorithm can be used to solve the Hamiltonian path problem efficiently? (A) Iterative improvement (B) Branch and bound (C) Divide and conquer (D) Greedy algorithm",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. What is the objective of the knapsack problem? (A) To get maximum weight in the (B) To get minimum total value in knapsack the knapsack (C) To get maximum total value in (D) To get minimum weight in the the knapsack knapsack [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "What is the objective of the knapsack problem? (A) To get maximum weight in the (B) To get minimum total value in knapsack the knapsack (C) To get maximum total value in (D) To get minimum weight in the the knapsack knapsack",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Which of the following is false about the kruskal's algorithm? (A) It is a greedy algorithm (B) It constructs MST by selecting edges in the increasing order of their weights (C) It can accept cycles in the MST (D) It uses union-find data structure [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Which of the following is false about the kruskal's algorithm? (A) It is a greedy algorithm (B) It constructs MST by selecting edges in the increasing order of their weights (C) It can accept cycles in the MST (D) It uses union-find data structure",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. The problem of finding a subset of positive integers whose sum is equal to a given positive integer is called as (A) n-queen problem (B) Subset sum problem (C) Knapsack problem (D) Hamiltonian circuit problem [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "The problem of finding a subset of positive integers whose sum is equal to a given positive integer is called as (A) n-queen problem (B) Subset sum problem (C) Knapsack problem (D) Hamiltonian circuit problem",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Back tracking algorithm is implemented by constructing a tree of choices called as? (A) State-space tree (B) State-chart tree (C) Node tree (D) Back tracking tree [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Back tracking algorithm is implemented by constructing a tree of choices called as? (A) State-space tree (B) State-chart tree (C) Node tree (D) Back tracking tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. In how many directions do queens attack each other (A) 1 (B) 2 (C) 3 (D) 4 [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "In how many directions do queens attack each other (A) 1 (B) 2 (C) 3 (D) 4",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Where is the N-queens problem implemented? (A) Carom (B) Chess (C) Ludo (D) Cards [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Where is the N-queens problem implemented? (A) Carom (B) Chess (C) Ludo (D) Cards",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. ____ is the class of decision problems that can be solved by non-deterministic polynomial algorithms (A) NP (B) P (C) Hard (D) Complete [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "____ is the class of decision problems that can be solved by non-deterministic polynomial algorithms (A) NP (B) P (C) Hard (D) Complete",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Minimum number of unique colors required for vertex coloring of a graph is called? (A) Vertex matching (B) Chromatic index (C) Chromatic number (D) Color number [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Minimum number of unique colors required for vertex coloring of a graph is called? (A) Vertex matching (B) Chromatic index (C) Chromatic number (D) Color number",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Hamiltonian path problem is _____ (A) NP problem (B) N class problem (C) P class problem (D) NP complete problem [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Hamiltonian path problem is _____ (A) NP problem (B) N class problem (C) P class problem (D) NP complete problem",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Discuss the ways of selecting the design paradigms for the problem. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Discuss the ways of selecting the design paradigms for the problem.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "Ram has six different sets of pencils. He arranges pencils by comparing its length with the next immediate pencil. Suggest the suitable comparison sorting algorithm to Ram. A list of unsorted pencils are: 5 14 2 8. Also find the best and worst case of the scenario.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Ram has six different sets of pencils. He arranges pencils by comparing its length with the next immediate pencil. Suggest the suitable comparison sorting algorithm to Ram. A list of unsorted pencils are: 5 14 2 8. Also find the best and worst case of the scenario. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Ram has six different sets of pencils. He arranges pencils by comparing its length with the next immediate pencil. Suggest the suitable comparison sorting algorithm to Ram. A list of unsorted pencils are: 5 14 2 8. Also find the best and worst case of the scenario.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Compare back tracking with branch and bound algorithm with example. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Compare back tracking with branch and bound algorithm with example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Apply breadth first and depth first search for the given graph with necessary steps start from 'A'.",
+              "marks": 8,
+              "subquestions": []
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Apply breadth first and depth first search for the given graph with necessary steps start from 'A'. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Apply breadth first and depth first search for the given graph with necessary steps start from 'A'.",
+            "marks": 8,
+            "subquestions": []
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Explain the approximation algorithm for the Travelling Salesman Problem (TSP). [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Explain the approximation algorithm for the Travelling Salesman Problem (TSP).",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "State NP hard and NP complete and differentiate both.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. State NP hard and NP complete and differentiate both. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "State NP hard and NP complete and differentiate both.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Apply quick sort algorithm and arrange the following with correct order. Also find the time complexity analysis. 24 9 29 14 19 27 [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Apply quick sort algorithm and arrange the following with correct order. Also find the time complexity analysis. 24 9 29 14 19 27",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "In a restaurant one of the customer wants to search the item called \"Cuban sandwich\" in the list. Prescribe a suitable sequential search algorithm for the customer to select their choice and also give the best and worst case analysis of the algorithm. The food items are",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. In a restaurant one of the customer wants to search the item called \"Cuban sandwich\" in the list. Prescribe a suitable sequential search algorithm for the customer to select their choice and also give the best and worst case analysis of the algorithm. The food items are [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "In a restaurant one of the customer wants to search the item called \"Cuban sandwich\" in the list. Prescribe a suitable sequential search algorithm for the customer to select their choice and also give the best and worst case analysis of the algorithm. The food items are",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY One Question",
+      "questions": [
+        {
+          "question_number": "25",
+          "original_text": "25. Using prims algorithm, find the cost of Minimum Spanning Tree (MST) of the given graph. [15]\n  a. Using prims algorithm, find the cost of Minimum Spanning Tree (MST) of the given graph. [8]\n  b. Yazhini wants to visit all the nodes in a tree in post order manner. But instead of tree to traverse, she has the list of nodes in preorder traversal. From the pre order traversal list, construct the tree and perform post order traversal. Pre order traversal: 30, 20, 10, 15, 25, 23, 39, 35, 42. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Using prims algorithm, find the cost of Minimum Spanning Tree (MST) of the given graph.",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Using prims algorithm, find the cost of Minimum Spanning Tree (MST) of the given graph.",
+                "marks": 8
+              },
+              {
+                "number": "b",
+                "text": "Yazhini wants to visit all the nodes in a tree in post order manner. But instead of tree to traverse, she has the list of nodes in preorder traversal. From the pre order traversal list, construct the tree and perform post order traversal. Pre order traversal: 30, 20, 10, 15, 25, 23, 39, 35, 42.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. The following algorithm using count variable method and table method\nAlgorithm sum (a, n)\n{\n  s = 0.0;\n  for (i = 1 to n do),\n    s = s + a[i];\n  return s;\n} [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "The following algorithm using count variable method and table method\nAlgorithm sum (a, n)\n{\n  s = 0.0;\n  for (i = 1 to n do),\n    s = s + a[i];\n  return s;\n}",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Apply the backtracking sequence for the 4-queen problem and solve it. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Apply the backtracking sequence for the 4-queen problem and solve it.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

@@ -1,5 +1,6 @@
 from typing import Any, Dict, List, Optional
 from datetime import datetime
+import copy
 import time
 import logging
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -26,6 +27,9 @@ from backend.services.prediction.engine import (
 )
 from backend.services.prediction.backtester import BacktestEvaluator
 from backend.services.study_intelligence import StudyIntelligenceService, StudyPriority
+from backend.services.assessment_cycle import AssessmentCycle, normalize_assessment_cycle, filter_exams_by_cycle
+from backend.services.assessment_plan_registry import get_course_assessment_scope
+from backend.services.intelligence_cache import IntelligenceCacheService
 
 logger = logging.getLogger("markmint.intelligence")
 
@@ -36,6 +40,7 @@ router = APIRouter()
 def get_course_historical_questions(
     course_id: str,
     topic: Optional[str] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
     assessment_type: Optional[str] = Query(None),
     year: Optional[int] = Query(None),
     min_marks: Optional[float] = Query(None),
@@ -43,6 +48,7 @@ def get_course_historical_questions(
     family_id: Optional[int] = Query(None),
     family_name: Optional[str] = Query(None),
     repetition_type: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
     limit: int = Query(50, ge=1, le=200),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
@@ -58,11 +64,50 @@ def get_course_historical_questions(
         .filter(Exam.course_id == course.id)
     )
 
+    if course and course.tracks:
+        if not language:
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: Language track selection is required for this subject."
+            )
+        lang_low = language.strip().lower()
+        active_track = next(
+            (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+            None
+        )
+        if not active_track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+            )
+        query = query.filter(Exam.track_id == active_track.id)
+
+    if hasattr(topic, "default"):
+        topic = None
+    if hasattr(year, "default"):
+        year = None
+    if hasattr(min_marks, "default"):
+        min_marks = None
+    if hasattr(max_marks, "default"):
+        max_marks = None
+    if hasattr(family_id, "default"):
+        family_id = None
+    if hasattr(family_name, "default"):
+        family_name = None
+    if hasattr(repetition_type, "default"):
+        repetition_type = None
+    if hasattr(limit, "default"):
+        limit = limit.default or 50
+    else:
+        limit = int(limit)
+
     if topic:
         query = query.join(Question.topics).filter(func.lower(Topic.name) == topic.lower())
 
-    if assessment_type:
-        query = query.filter(func.lower(Exam.assessment_type) == assessment_type.lower())
+    active_cycle = assessment_cycle or assessment_type
+    norm_cycle = normalize_assessment_cycle(active_cycle)
+    if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
+        query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle, course_id=course.id)
 
     if year is not None:
         query = query.filter(Exam.year == year)
@@ -129,10 +174,15 @@ def get_course_historical_questions(
             "topics": topics,
         })
 
+    scope = get_course_assessment_scope(course.id, norm_cycle, db=db) if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else None
+
     return {
         "course_id": course.id,
         "course_name": course.name,
         "topic_filter": topic,
+        "assessment_cycle": norm_cycle or "ALL",
+        "assessment_component": scope.component_code if scope else (norm_cycle or "ALL"),
+        "assessment_label": scope.component_label if scope else (norm_cycle or "All Assessments"),
         "assessment_type_filter": assessment_type,
         "year_filter": year,
         "total_returned": len(formatted_questions),
@@ -313,6 +363,10 @@ def get_intelligence_snapshot(
     target_year: Optional[int] = Query(None),
     target_exam_date: Optional[str] = Query(None),
     student_id: str = Query("anonymous"),
+    assessment_cycle: Optional[str] = Query(None),
+    cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
+    track: Optional[str] = Query(None),
     db: Session = Depends(get_db),
 ) -> Dict[str, Any]:
     """
@@ -327,6 +381,35 @@ def get_intelligence_snapshot(
         target_exam_date = None
     if not isinstance(student_id, str) or hasattr(student_id, "default"):
         student_id = "anonymous"
+    clean_student_id = student_id.strip()
+    if not isinstance(assessment_cycle, str) or hasattr(assessment_cycle, "default"):
+        assessment_cycle = None
+    if not assessment_cycle and isinstance(cycle, str) and not hasattr(cycle, "default"):
+        assessment_cycle = cycle.strip() or None
+    if not isinstance(language, str) or hasattr(language, "default"):
+        language = None
+    if not language and isinstance(track, str) and not hasattr(track, "default"):
+        language = track.strip() or None
+
+    norm_cycle = normalize_assessment_cycle(assessment_cycle)
+    is_cache_eligible = (clean_student_id == "anonymous" and target_year is None and target_exam_date is None)
+    if is_cache_eligible:
+        try:
+            cached_snapshot = IntelligenceCacheService.get_snapshot(
+                db, course_id, norm_cycle, language
+            )
+            if cached_snapshot:
+                res = copy.deepcopy(cached_snapshot)
+                if "metadata" in res and isinstance(res["metadata"], dict):
+                    res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
+                    res["metadata"]["cache_hit"] = True
+                logger.info(
+                    "Intelligence snapshot served from cache: course_id=%s, cycle=%s, latency_ms=%.2f",
+                    course_id, norm_cycle, (time.time() - t_start) * 1000
+                )
+                return res
+        except Exception as cache_err:
+            logger.warning("Safe cache fallback on error for course_id=%s: %s", course_id, cache_err)
 
     course = _find_course(db, course_id)
 
@@ -351,6 +434,50 @@ def get_intelligence_snapshot(
             .filter(CurriculumMapping.course_id == course.id)
             .first()
         )
+
+    # Track resolution for multi-track courses (e.g. Foreign Languages course_id=8)
+    active_track = None
+    if course and course.tracks:
+        if not (isinstance(language, str) and language.strip()):
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: This course has multiple tracks (e.g. languages). A specific track must be selected.",
+            )
+
+        lang_low = language.strip().lower()
+        active_track = next(
+            (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+            None
+        )
+        if not active_track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid language track '{language}' for course '{course.name}'. Available: {[t.track_key for t in course.tracks]}"
+            )
+
+    # Secondary persistent cache check: if request used a slug/code alias (e.g. 'calculus')
+    # and memory cache was cleared (process restart), check DB under canonical course.id
+    if is_cache_eligible and course and str(course_id).lower().strip() != str(course.id):
+        track_param = active_track.track_key if active_track else language
+        try:
+            cached_canonical = IntelligenceCacheService.get_snapshot(
+                db, course.id, norm_cycle, track_param
+            )
+            if cached_canonical:
+                IntelligenceCacheService.alias_memory_cache(
+                    course_id, norm_cycle, track_param, cached_canonical
+                )
+                res = copy.deepcopy(cached_canonical)
+                if "metadata" in res and isinstance(res["metadata"], dict):
+                    res["metadata"]["latency_ms"] = round((time.time() - t_start) * 1000, 2)
+                    res["metadata"]["cache_hit"] = True
+                logger.info(
+                    "Intelligence snapshot served from secondary persistent cache: slug=%s -> course_id=%s, latency_ms=%.2f",
+                    course_id, course.id, (time.time() - t_start) * 1000
+                )
+                return res
+        except Exception as cache_err:
+            logger.warning("Safe secondary persistent cache fallback on error for course_id=%s: %s", course.id, cache_err)
 
     # 1. Handle AMBIGUOUS State
     if curriculum_row and curriculum_row.status == "AMBIGUOUS":
@@ -414,12 +541,10 @@ def get_intelligence_snapshot(
         }
 
     # 3. Course exists: inspect examination history
-    exam_rows = (
-        db.query(Exam)
-        .filter(Exam.course_id == course.id)
-        .order_by(Exam.year.asc().nullslast())
-        .all()
-    )
+    exam_query = db.query(Exam).filter(Exam.course_id == course.id)
+    if active_track:
+        exam_query = exam_query.filter(Exam.track_id == active_track.id)
+    exam_rows = exam_query.order_by(Exam.year.asc().nullslast()).all()
     total_papers = len(exam_rows)
 
     if total_papers == 0:
@@ -427,7 +552,7 @@ def get_intelligence_snapshot(
             "Intelligence snapshot resolved: course_id=%s, status=CATALOG_ONLY, latency_ms=%.2f",
             course_id, (time.time() - t_start) * 1000
         )
-        return {
+        catalog_payload = {
             "data_availability_status": "CATALOG_ONLY",
             "course": {
                 "id": course.id,
@@ -464,22 +589,88 @@ def get_intelligence_snapshot(
                 "generated_at": datetime.utcnow().isoformat(),
             }
         }
+        if is_cache_eligible and course:
+            IntelligenceCacheService.store_snapshot(
+                db=db,
+                course_id=course.id,
+                assessment_cycle=norm_cycle,
+                track_id=active_track.id if active_track else None,
+                payload=catalog_payload,
+                identifier=course_id,
+                track_key=active_track.track_key if active_track else None,
+            )
+        return catalog_payload
 
-    # 4. Target year resolution
+    # 4. Target year and assessment cycle resolution
+
+    # Detect available assessment cycles across all exams for this course
+    cycles_found = set()
+    for e in exam_rows:
+        c = normalize_assessment_cycle(e.assessment_type)
+        if c and c in [AssessmentCycle.CT1.value, AssessmentCycle.CT2.value, AssessmentCycle.ENDSEM.value]:
+            cycles_found.add(c)
+    available_cycles = ["ALL"]
+    for c in ["CT1", "CT2", "ENDSEM"]:
+        if c in cycles_found:
+            available_cycles.append(c)
+
     if target_year is None:
         max_year = max([e.year for e in exam_rows if e.year is not None], default=None)
         target_year = (max_year + 1) if max_year else 2024
 
-    context = HistoricalContext(course_id=course.id, cutoff_year=target_year)
+    context = HistoricalContext(
+        course_id=course.id,
+        cutoff_year=target_year,
+        assessment_cycle=norm_cycle,
+        track_id=active_track.id if active_track else None
+    )
     repo = HistoricalRepository(db, context)
     hist_exams_orm = repo.get_historical_exams()
 
     if not hist_exams_orm:
         logger.info(
-            "Intelligence snapshot resolved: course_id=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
-            course_id, (time.time() - t_start) * 1000
+            "Intelligence snapshot resolved: course_id=%s, assessment_cycle=%s, status=INSUFFICIENT_EVIDENCE, latency_ms=%.2f",
+            course_id, norm_cycle, (time.time() - t_start) * 1000
         )
-        return {
+        scope = get_course_assessment_scope(
+            course.id,
+            norm_cycle,
+            db=db,
+            track_id=active_track.id if active_track else None
+        )
+        unobserved_in_scope = (
+            [
+                {
+                    "name": name,
+                    "status": "UNOBSERVED_IN_SCOPE",
+                    "message": "In syllabus scope, but no historical evidence available",
+                }
+                for name in sorted(list(scope.in_scope_topic_names))
+            ]
+            if (not scope.is_all and scope.in_scope_topic_names)
+            else []
+        )
+        assessment_scope_payload = {
+            "student_cycle": norm_cycle or "ALL",
+            "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "role": scope.role,
+            "marks": scope.marks,
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
+            "source_document": scope.source_document,
+            "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            "total_in_scope_topics": len(scope.in_scope_topic_names),
+            "observed_in_scope_topics": 0,
+            "unobserved_in_scope_topics": unobserved_in_scope,
+            "out_of_scope_observed_topics": [],
+        }
+        msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}'."
+        if norm_cycle and norm_cycle != AssessmentCycle.ALL.value:
+            msg = f"Insufficient historical examination papers prior to cutoff year for '{course.name}' under assessment cycle '{norm_cycle}'."
+        insufficient_payload = {
             "data_availability_status": "INSUFFICIENT_EVIDENCE",
             "course": {
                 "id": course.id,
@@ -496,16 +687,27 @@ def get_intelligence_snapshot(
                 "semester": curriculum_row.semester if curriculum_row else None,
                 "credits": curriculum_row.credits if curriculum_row else 3,
                 "status": "MATCHED",
-                "notes": "No historical exams found prior to target cutoff year.",
+                "notes": f"No historical exams found prior to target cutoff year for assessment cycle '{norm_cycle or 'ALL'}'.",
             },
             "exam_history": {
-                "total_papers": total_papers,
+                "total_papers": 0,
+                "historical_papers_analyzed": 0,
                 "total_questions": 0,
-                "years": [e.year for e in exam_rows if e.year],
-                "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
+                "years": [],
+                "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
+                "available_assessment_cycles": available_cycles,
+                "assessment_cycle": norm_cycle or "ALL",
             },
-            "available_assessment_types": list({e.assessment_type for e in exam_rows if e.assessment_type}),
-            "message": "Insufficient historical data prior to cutoff year.",
+            "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
+            "available_assessment_cycles": available_cycles,
+            "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
+            "assessment_scope": assessment_scope_payload,
+            "message": msg,
             "predictions": [],
             "study_priorities": [],
             "coverage_summary": None,
@@ -516,6 +718,17 @@ def get_intelligence_snapshot(
                 "generated_at": datetime.utcnow().isoformat(),
             }
         }
+        if is_cache_eligible and course:
+            IntelligenceCacheService.store_snapshot(
+                db=db,
+                course_id=course.id,
+                assessment_cycle=norm_cycle,
+                track_id=active_track.id if active_track else None,
+                payload=insufficient_payload,
+                identifier=course_id,
+                track_key=active_track.track_key if active_track else None,
+            )
+        return insufficient_payload
 
     # 5. Build DNA and Predictions
     hist_exams_dicts = _build_historical_exam_payloads(hist_exams_orm)
@@ -526,12 +739,72 @@ def get_intelligence_snapshot(
     sufficiency = getattr(dna.sample_size, "sufficiency", DataSufficiency.LIMITED)
 
     engine = ExamScopeCombinedModel(dna)
-    topic_preds = engine.predict(PredictionTarget.TOPIC)
+    all_topic_preds = engine.predict(PredictionTarget.TOPIC)
     family_preds = engine.predict(PredictionTarget.FAMILY)
+
+    # Resolve course-specific assessment plan scope & candidate restriction
+    scope = get_course_assessment_scope(
+        course.id,
+        norm_cycle,
+        db=db,
+        track_id=active_track.id if active_track else None
+    )
+    
+    if not scope.is_all and scope.in_scope_topic_names:
+        topic_preds = [p for p in all_topic_preds if p.name in scope.in_scope_topic_names]
+        out_of_scope_preds = [p for p in all_topic_preds if p.name not in scope.in_scope_topic_names]
+    else:
+        topic_preds = all_topic_preds
+        out_of_scope_preds = []
+
+    unobserved_in_scope = (
+        [
+            {
+                "name": name,
+                "status": "UNOBSERVED_IN_SCOPE",
+                "message": "In syllabus scope, but no historical evidence available",
+            }
+            for name in sorted(list(scope.in_scope_topic_names - {p.name for p in topic_preds}))
+        ]
+        if (not scope.is_all and scope.in_scope_topic_names)
+        else []
+    )
+    assessment_scope_payload = {
+        "student_cycle": norm_cycle or "ALL",
+        "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+        "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "role": scope.role,
+        "marks": scope.marks,
+        "evidence_status": scope.evidence_status,
+        "intended_scope": scope.intended_scope,
+        "observed_scope": scope.observed_scope,
+        "source_document": scope.source_document,
+        "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+        "total_in_scope_topics": len(scope.in_scope_topic_names),
+        "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(all_topic_preds),
+        "unobserved_in_scope_topics": unobserved_in_scope,
+        "out_of_scope_observed_topics": [
+            {
+                "name": p.name,
+                "status": "OUT_OF_SCOPE_OBSERVED",
+                "score": round(float(p.score or 0.0), 4),
+                "message": "Observed on historical examination papers despite being outside intended syllabus plan.",
+            }
+            for p in out_of_scope_preds
+        ],
+    }
 
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
-    study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id)
+    study_service.preload_course_resources(course.id)
+    study_service.preload_student_progress(course.id, student_id)
+
+    priorities_objs = [
+        study_service.calculate_study_priority(p, course.id, student_id)
+        for p in topic_preds if getattr(p, "target", "topic") == "topic"
+    ]
+    study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id, priorities=priorities_objs)
     if not study_plan and family_preds:
         family_plan = []
         for index, item in enumerate(family_preds[:5], start=1):
@@ -576,13 +849,9 @@ def get_intelligence_snapshot(
                 "student_status": "NOT_STARTED",
             })
         study_plan = family_plan
-    coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id)
+    coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id, priorities=priorities_objs)
 
     # 7. Exam Schedule if date provided
-    priorities_objs = [
-        study_service.calculate_study_priority(p, course.id, student_id)
-        for p in topic_preds if getattr(p, "target", "topic") == "topic"
-    ]
     exam_schedule = study_service.generate_exam_schedule(priorities_objs, target_exam_date)
 
     available_assessment_types = sorted(list({
@@ -590,17 +859,13 @@ def get_intelligence_snapshot(
     }))
 
     all_years = sorted(list({e.year for e in exam_rows if e.year}))
+    cycle_years = sorted(list({e.year for e in hist_exams_orm if e.year is not None}))
+    cycle_papers_count = len(hist_exams_orm)
 
     topic_predictions_payload = []
     for p in topic_preds[:10]:
         p_dict = p.to_dict()
-        t_obj = (
-            db.query(Topic)
-            .join(Unit, Topic.unit_id == Unit.id)
-            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-            .filter(Syllabus.course_id == course.id, Topic.name == p.name)
-            .first()
-        )
+        t_obj = study_service.get_topic_by_name(p.name, course.id)
         if t_obj:
             p_dict["topic_id"] = t_obj.id
         topic_years = {
@@ -619,12 +884,18 @@ def get_intelligence_snapshot(
                 "present": y in topic_years,
                 "status": "TOPIC_PRESENT" if (y in topic_years) else "TOPIC_ABSENT",
             }
-            for y in all_years
+            for y in (cycle_years if cycle_years else all_years)
         ]
         p_dict["historical_years"] = sorted(list(topic_years))
         topic_predictions_payload.append(p_dict)
 
     family_predictions_payload = []
+    missing_fam_names = [p.name for p in family_preds[:5] if not p.family_id]
+    fam_recs_map = {}
+    if missing_fam_names:
+        fam_recs = db.query(QuestionFamily.canonical_name, QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name.in_(missing_fam_names)).all()
+        fam_recs_map = {r[0]: (r[1], r[2]) for r in fam_recs}
+
     for p in family_preds[:5]:
         p_dict = p.to_dict()
 
@@ -632,7 +903,7 @@ def get_intelligence_snapshot(
         fam_id = p.family_id
         fam_repetition_type = p.repetition_type
         if not fam_id:
-            fam_rec = db.query(QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name == p.name).first()
+            fam_rec = fam_recs_map.get(p.name)
             if fam_rec:
                 fam_id = fam_rec[0]
                 if not fam_repetition_type:
@@ -667,8 +938,8 @@ def get_intelligence_snapshot(
         p_dict["distinct_paper_count"] = distinct_papers
         p_dict["papers_with_family"] = distinct_papers
         p_dict["papers_with_topic"] = distinct_papers
-        p_dict["papers_analyzed"] = total_papers
-        p_dict["paper_coverage"] = round(distinct_papers / total_papers, 4) if total_papers > 0 else 0.0
+        p_dict["papers_analyzed"] = cycle_papers_count
+        p_dict["paper_coverage"] = round(distinct_papers / cycle_papers_count, 4) if cycle_papers_count > 0 else 0.0
         p_dict["observed_years"] = sorted(list(fam_years))
         p_dict["historical_years"] = sorted(list(fam_years))
         p_dict["timeline"] = [
@@ -680,18 +951,21 @@ def get_intelligence_snapshot(
                 "present": y in fam_years,
                 "status": "FAMILY_PRESENT" if (y in fam_years) else "FAMILY_ABSENT",
             }
-            for y in all_years
+            for y in (cycle_years if cycle_years else all_years)
         ]
         family_predictions_payload.append(p_dict)
 
-    syl_ids = [s.id for s in course.syllabuses] if course.syllabuses else []
-    taxonomy_topic_count = (
-        db.query(Topic)
-        .join(Unit, Topic.unit_id == Unit.id)
-        .filter(Unit.syllabus_id.in_(syl_ids))
-        .count()
-        if syl_ids else 0
-    )
+    if active_track:
+        syl_ids = [s.id for s in course.syllabuses if s.track_id == active_track.id]
+        taxonomy_topic_count = (
+            db.query(Topic)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .filter(Unit.syllabus_id.in_(syl_ids))
+            .count()
+            if syl_ids else 0
+        )
+    else:
+        taxonomy_topic_count = len(study_service._course_topics)
     has_topic_taxonomy = taxonomy_topic_count > 0
 
     if has_topic_taxonomy and len(topic_preds) > 0:
@@ -703,8 +977,8 @@ def get_intelligence_snapshot(
 
     predictions_payload = topic_predictions_payload if prediction_mode == "topic" else family_predictions_payload
 
-    all_span_years = list(range(all_years[0], all_years[-1] + 1)) if all_years else []
-    gap_years = [y for y in all_span_years if y not in all_years]
+    all_span_years = list(range(cycle_years[0], cycle_years[-1] + 1)) if cycle_years else []
+    gap_years = [y for y in all_span_years if y not in cycle_years]
 
     availability_status = "READY"
     if sufficiency == DataSufficiency.INSUFFICIENT:
@@ -717,6 +991,29 @@ def get_intelligence_snapshot(
         "taxonomy_topic_count": taxonomy_topic_count,
         "topic_predictions_count": len(topic_preds),
         "family_predictions_count": len(family_preds),
+        "track": {
+            "id": active_track.id,
+            "key": active_track.track_key,
+            "track_key": active_track.track_key,
+            "name": active_track.track_name,
+            "track_name": active_track.track_name,
+            "code": active_track.track_code,
+            "track_code": active_track.track_code,
+            "track_type": active_track.track_type,
+        } if active_track else None,
+        "tracks": [
+            {
+                "id": t.id,
+                "key": t.track_key,
+                "track_key": t.track_key,
+                "name": t.track_name,
+                "track_name": t.track_name,
+                "code": t.track_code,
+                "track_code": t.track_code,
+                "track_type": t.track_type,
+            }
+            for t in sorted(course.tracks, key=lambda x: x.id)
+        ] if course.tracks else [],
         "course": {
             "id": course.id,
             "name": course.name,
@@ -724,6 +1021,20 @@ def get_intelligence_snapshot(
             "canonical_code": course.canonical_code,
             "department": course.department,
             "regulation_year": course.regulation_year,
+            "has_tracks": bool(course.tracks),
+            "tracks": [
+                {
+                    "id": t.id,
+                    "key": t.track_key,
+                    "track_key": t.track_key,
+                    "name": t.track_name,
+                    "track_name": t.track_name,
+                    "code": t.track_code,
+                    "track_code": t.track_code,
+                    "track_type": t.track_type,
+                }
+                for t in sorted(course.tracks, key=lambda x: x.id)
+            ] if course.tracks else [],
         },
         "curriculum": {
             "curriculum_id": curriculum_row.curriculum_id if curriculum_row else None,
@@ -735,17 +1046,28 @@ def get_intelligence_snapshot(
             "notes": None,
         },
         "exam_history": {
-            "total_papers": total_papers,
-            "historical_papers_analyzed": len(hist_exams_orm),
+            "total_papers": cycle_papers_count if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else total_papers,
+            "all_course_papers": total_papers,
+            "historical_papers_analyzed": cycle_papers_count,
             "total_questions": total_q_count,
-            "years": all_years,
-            "observed_years": all_years,
+            "years": cycle_years if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else all_years,
+            "observed_years": cycle_years if (norm_cycle and norm_cycle != AssessmentCycle.ALL.value) else all_years,
             "unobserved_years": gap_years,
             "gap_years": gap_years,
             "available_assessment_types": available_assessment_types,
+            "available_assessment_cycles": available_cycles,
+            "assessment_cycle": norm_cycle or "ALL",
             "target_year": target_year,
         },
         "available_assessment_types": available_assessment_types,
+        "available_assessment_cycles": available_cycles,
+        "assessment_cycle": norm_cycle or "ALL",
+        "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+        "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+        "evidence_status": scope.evidence_status,
+        "intended_scope": scope.intended_scope,
+        "observed_scope": scope.observed_scope,
+        "assessment_scope": assessment_scope_payload,
         "predictions": predictions_payload,
         "topic_predictions": topic_predictions_payload,
         "family_predictions": family_predictions_payload,
@@ -765,9 +1087,15 @@ def get_intelligence_snapshot(
         }
     }
 
-    logger.info(
-        "Synthesized intelligence snapshot: course_id=%s, papers=%d, questions=%d, latency_ms=%.2f, status=%s",
-        course.id, len(hist_exams_orm), total_q_count, (time.time() - t_start) * 1000, availability_status
-    )
+    if is_cache_eligible and course:
+        IntelligenceCacheService.store_snapshot(
+            db=db,
+            course_id=course.id,
+            assessment_cycle=norm_cycle,
+            track_id=active_track.id if active_track else None,
+            payload=snapshot_payload,
+            identifier=course_id,
+            track_key=active_track.track_key if active_track else None,
+        )
 
     return snapshot_payload

@@ -1,0 +1,576 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Decimal 43 in Hexadecimal and BCD number system is respectively\n(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100\n(D) 2B, 0100 0011 [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Decimal 43 in Hexadecimal and BCD number system is respectively\n(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100\n(D) 2B, 0100 0011",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. The 2's complement representation of -17 is\n(A) 01110\n(B) 11110\n(C) 01111\n(D) 10001 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "The 2's complement representation of -17 is\n(A) 01110\n(B) 11110\n(C) 01111\n(D) 10001",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. The Excess-3 code of 23 is\n(A) 0101 0011\n(B) 0010 0000\n(C) 0010 0110\n(D) 0101 0110 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "The Excess-3 code of 23 is\n(A) 0101 0011\n(B) 0010 0000\n(C) 0010 0110\n(D) 0101 0110",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The equivalent gate is\n(A) NOR\n(B) AND\n(C) NAND\n(D) OR [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The equivalent gate is\n(A) NOR\n(B) AND\n(C) NAND\n(D) OR",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. RTN stands for\n(A) Register Transmission Notation\n(B) Register Transfer Notation\n(C) Regular Transmission Notation\n(D) Regular Transfer Notation [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "RTN stands for\n(A) Register Transmission Notation\n(B) Register Transfer Notation\n(C) Regular Transmission Notation\n(D) Regular Transfer Notation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. The ALU makes use of ______ to store the intermediate results.\n(A) Registers\n(B) Heap\n(C) Accumulators\n(D) Stack [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "The ALU makes use of ______ to store the intermediate results.\n(A) Registers\n(B) Heap\n(C) Accumulators\n(D) Stack",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. The addressing mode, where you directly specify the operand value is\n(A) Direct\n(B) Definite\n(C) Relative\n(D) Immediate [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "The addressing mode, where you directly specify the operand value is\n(A) Direct\n(B) Definite\n(C) Relative\n(D) Immediate",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. An 24 bit address generates an address space of ______ locations.\n(A) 1024\n(B) 4096\n(C) 16,777,216\n(D) 1,048,576 [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "An 24 bit address generates an address space of ______ locations.\n(A) 1024\n(B) 4096\n(C) 16,777,216\n(D) 1,048,576",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What are the three components of an IEEE 754 floating-point number representation?\n(A) Sign, Mantissa and exponent\n(B) Sign, integer part and fractional part.\n(C) Mantissa, exponent and bias.\n(D) Sign, exponent and base. [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What are the three components of an IEEE 754 floating-point number representation?\n(A) Sign, Mantissa and exponent\n(B) Sign, integer part and fractional part.\n(C) Mantissa, exponent and bias.\n(D) Sign, exponent and base.",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. How many AND gates, Half Adders and Full Adders are required for 4X4 Array Multiplier?\n(A) 16,4,8\n(B) 16,8,4\n(C) 8,4,8\n(D) 8,4,4 [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "How many AND gates, Half Adders and Full Adders are required for 4X4 Array Multiplier?\n(A) 16,4,8\n(B) 16,8,4\n(C) 8,4,8\n(D) 8,4,4",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The bits 1 & 1 are recorded as ______ in bit-pair recording.\n(A) -1\n(B) 0\n(C) +1\n(D) both -1 and 0 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "The bits 1 & 1 are recorded as ______ in bit-pair recording.\n(A) -1\n(B) 0\n(C) +1\n(D) both -1 and 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. What is the value when the bit stream \"11010001\" is rotated right by two?\n(A) 00110100\n(B) 01110100\n(C) 01000100\n(D) 01000111 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "What is the value when the bit stream \"11010001\" is rotated right by two?\n(A) 00110100\n(B) 01110100\n(C) 01000100\n(D) 01000111",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Which register in the processor is single-directional?\n(A) MDR\n(B) PC\n(C) MAR\n(D) Temp [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Which register in the processor is single-directional?\n(A) MDR\n(B) PC\n(C) MAR\n(D) Temp",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. The Program Counter gets incremented\n(A) After the instruction decoding\n(B) After the fetch cycle\n(C) After the IR instruction gets executed\n(D) After the read cycle [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "The Program Counter gets incremented\n(A) After the instruction decoding\n(B) After the fetch cycle\n(C) After the IR instruction gets executed\n(D) After the read cycle",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. In multiple Bus organisation, the registers are collectively placed and referred to as\n(A) Register file\n(B) Set registers\n(C) Register Block\n(D) Map registers [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "In multiple Bus organisation, the registers are collectively placed and referred to as\n(A) Register file\n(B) Set registers\n(C) Register Block\n(D) Map registers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. If the instruction, Add R1, R2, R3 is executed in a system that is pipe-lined, then the number of steps required to execute is\n(A) 3\n(B) ~2\n(C) ~1\n(D) 6 [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "If the instruction, Add R1, R2, R3 is executed in a system that is pipe-lined, then the number of steps required to execute is\n(A) 3\n(B) ~2\n(C) ~1\n(D) 6",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. ARM processors are basically designed for\n(A) Main frame systems\n(B) Distributed systems\n(C) Mobile systems\n(D) Super computers [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "ARM processors are basically designed for\n(A) Main frame systems\n(B) Distributed systems\n(C) Mobile systems\n(D) Super computers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. SIMD stands for\n(A) Simple Instruction Multiple Decoding\n(B) Single Instruction Multiple Data\n(C) Sequential Instruction Multiple Decoding\n(D) System Information Mutable Data [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "SIMD stands for\n(A) Simple Instruction Multiple Decoding\n(B) Single Instruction Multiple Data\n(C) Sequential Instruction Multiple Decoding\n(D) System Information Mutable Data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Processor which is complex and expensive to produce is\n(A) RISC\n(B) EPIC\n(C) Multi-core\n(D) CISC [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Processor which is complex and expensive to produce is\n(A) RISC\n(B) EPIC\n(C) Multi-core\n(D) CISC",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. The cost of a parallel processing is primarily determined by :\n(A) time complexity\n(B) switching complexity\n(C) circuit complexity\n(D) power complexity [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "The cost of a parallel processing is primarily determined by :\n(A) time complexity\n(B) switching complexity\n(C) circuit complexity\n(D) power complexity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Answer the following subquestions:\n  a. Perform BCD Addition for 984+599. [4]\n  ii. Perform (11100) - (1011) using 1's and 2's complement method. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Perform BCD Addition for 984+599.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Perform (11100) - (1011) using 1's and 2's complement method.",
+                "marks": 4
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Answer the following subquestions:",
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Implement F=(A'+B)(C+D') E' using only NOR Gates.",
+                  "marks": 4
+                },
+                {
+                  "number": "ii",
+                  "text": "Convert Binary \"1010\" into Gray code and also draw the logic diagram to implement the conversion.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Answer the following subquestions:\n  b. Implement F=(A'+B)(C+D') E' using only NOR Gates. [4]\n  ii. Convert Binary \"1010\" into Gray code and also draw the logic diagram to implement the conversion. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Implement F=(A'+B)(C+D') E' using only NOR Gates.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Convert Binary \"1010\" into Gray code and also draw the logic diagram to implement the conversion.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. What is an addressing mode? What is the need for addressing in a computer system? Explain the various addressing modes with suitable examples [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "What is an addressing mode? What is the need for addressing in a computer system? Explain the various addressing modes with suitable examples",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Draw the Functional units of the computer and illustrate the connections between the processor and the memory.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Draw the Functional units of the computer and illustrate the connections between the processor and the memory. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Draw the Functional units of the computer and illustrate the connections between the processor and the memory.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Multiply -10 X -4 using Booth Algorithm and Bit Pair Recoding. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Multiply -10 X -4 using Booth Algorithm and Bit Pair Recoding.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Divide 10 / 3 using Non-Restoring Method. Show the operations performed in each step.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Divide 10 / 3 using Non-Restoring Method. Show the operations performed in each step. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Divide 10 / 3 using Non-Restoring Method. Show the operations performed in each step.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Draw the Single Bus Organization and explain the execution of an instruction. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Draw the Single Bus Organization and explain the execution of an instruction.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Explain the classes of Hazards that degrades the performance of Pipe lining.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Explain the classes of Hazards that degrades the performance of Pipe lining. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Explain the classes of Hazards that degrades the performance of Pipe lining.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. What are the architecture of Flynn's Classification? Explain. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "What are the architecture of Flynn's Classification? Explain.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Discuss the features, advantages and disadvantages of ARM Processor.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss the features, advantages and disadvantages of ARM Processor. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss the features, advantages and disadvantages of ARM Processor.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. What is the main disadvantage of Ripple Carry Adder? Explain how it is avoided in Carry Look Ahead Adder using a 4-bit Adder design. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "What is the main disadvantage of Ripple Carry Adder? Explain how it is avoided in Carry Look Ahead Adder using a 4-bit Adder design.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Answer the following subquestions:\n  i. Evaluate (A+B) * (C+D) using all 4 types of addressing instructions. [8]\n  ii. Write an Assemble Language Program to add and subtract 16-bit numbers using 8086. [7]",
+          "structured_content": {
+            "number": "27",
+            "text": "Answer the following subquestions:",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Evaluate (A+B) * (C+D) using all 4 types of addressing instructions.",
+                "marks": 8
+              },
+              {
+                "number": "ii",
+                "text": "Write an Assemble Language Program to add and subtract 16-bit numbers using 8086.",
+                "marks": 7
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

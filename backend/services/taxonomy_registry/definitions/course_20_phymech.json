@@ -1,0 +1,860 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 20,
+    "name": "Physics: Mechanics",
+    "canonical_code": "21PYB104J",
+    "code": "SEM1-PHYMECH",
+    "regulation_year": 2021,
+    "department": "Department of Physics and Nanotechnology"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21PYB104J Physics: Mechanics",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Oscillations & Dynamics, Rigid Body Dynamics, Statics & Structural Mechanics, Stress-Strain & Failure, and Beams & Torsion."
+  },
+  "units": [
+    {
+      "id": 41,
+      "number": 1,
+      "name": "Oscillations and Fundamental Dynamics",
+      "topics": [
+        {
+          "id": 521,
+          "name": "Fundamental Forces in Nature and Kinematics",
+          "canonical_name": "Fundamental Forces in Nature and Kinematics",
+          "aliases": [],
+          "strong_phrases": [
+            "fundamental forces in nature",
+            "gravitational force",
+            "electromagnetic force",
+            "strong nuclear force",
+            "weak nuclear force",
+            "particle kinematics",
+            "position velocity acceleration vector"
+          ],
+          "specific_keywords": [
+            "fundamental forces",
+            "gravitational force",
+            "kinematics",
+            "velocity vector",
+            "acceleration vector"
+          ],
+          "negative_guards": [
+            "beam bending",
+            "mohr's circle"
+          ],
+          "context_hints": [
+            "mechanics",
+            "kinematics"
+          ]
+        },
+        {
+          "id": 522,
+          "name": "Frames of Reference",
+          "canonical_name": "Frames of Reference",
+          "aliases": [],
+          "strong_phrases": [
+            "inertial frame of reference",
+            "non-inertial frame",
+            "fictitious force",
+            "pseudo force",
+            "coriolis force",
+            "centrifugal force",
+            "coriolis acceleration"
+          ],
+          "specific_keywords": [
+            "inertial frame",
+            "non-inertial",
+            "coriolis force",
+            "centrifugal force",
+            "fictitious force"
+          ],
+          "negative_guards": [
+            "truss",
+            "strain gauge"
+          ],
+          "context_hints": [
+            "reference frames",
+            "dynamics"
+          ]
+        },
+        {
+          "id": 523,
+          "name": "Simple Harmonic Motion and Conservation of Energy",
+          "canonical_name": "Simple Harmonic Motion and Conservation of Energy",
+          "aliases": [],
+          "strong_phrases": [
+            "simple harmonic motion",
+            "shm equation",
+            "spring mass system",
+            "simple pendulum",
+            "energy in simple harmonic motion",
+            "conservation of mechanical energy"
+          ],
+          "specific_keywords": [
+            "simple harmonic motion",
+            "shm",
+            "spring mass",
+            "harmonic oscillation"
+          ],
+          "negative_guards": [
+            "damped oscillation",
+            "forced oscillation",
+            "torsion"
+          ],
+          "context_hints": [
+            "oscillations",
+            "energy"
+          ]
+        },
+        {
+          "id": 524,
+          "name": "Damped Harmonic Oscillators",
+          "canonical_name": "Damped Harmonic Oscillators",
+          "aliases": [],
+          "strong_phrases": [
+            "damped harmonic oscillator",
+            "damping force",
+            "damping coefficient",
+            "quality factor",
+            "q factor of oscillator",
+            "logarithmic decrement",
+            "underdamped critically damped overdamped"
+          ],
+          "specific_keywords": [
+            "damped harmonic",
+            "damping coefficient",
+            "logarithmic decrement",
+            "quality factor"
+          ],
+          "negative_guards": [
+            "forced harmonic",
+            "resonance",
+            "bending of beams"
+          ],
+          "context_hints": [
+            "damped motion"
+          ]
+        },
+        {
+          "id": 525,
+          "name": "Viscous Dampers and Energy Dissipation",
+          "canonical_name": "Viscous Dampers and Energy Dissipation",
+          "aliases": [],
+          "strong_phrases": [
+            "viscous damper",
+            "dashpot",
+            "energy dissipation rate",
+            "relaxation time in damping",
+            "decay of amplitude"
+          ],
+          "specific_keywords": [
+            "viscous damper",
+            "dashpot",
+            "energy dissipation",
+            "relaxation time"
+          ],
+          "negative_guards": [
+            "truss",
+            "mohr circle"
+          ],
+          "context_hints": [
+            "damping systems"
+          ]
+        },
+        {
+          "id": 526,
+          "name": "Forced Harmonic Oscillators and Resonance",
+          "canonical_name": "Forced Harmonic Oscillators and Resonance",
+          "aliases": [],
+          "strong_phrases": [
+            "forced harmonic oscillator",
+            "driven oscillator",
+            "mechanical resonance",
+            "amplitude resonance",
+            "velocity resonance",
+            "sharpness of resonance",
+            "resonant frequency"
+          ],
+          "specific_keywords": [
+            "forced harmonic",
+            "mechanical resonance",
+            "amplitude resonance",
+            "driven oscillator",
+            "resonant frequency"
+          ],
+          "negative_guards": [
+            "free oscillation",
+            "dry friction"
+          ],
+          "context_hints": [
+            "resonance",
+            "forced vibration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 122,
+      "number": 2,
+      "name": "Rigid Body Dynamics and Rotation",
+      "topics": [
+        {
+          "id": 527,
+          "name": "Particles and Rigid Bodies",
+          "canonical_name": "Particles and Rigid Bodies",
+          "aliases": [],
+          "strong_phrases": [
+            "center of mass of system",
+            "system of particles",
+            "rigid body motion",
+            "internal and external forces on rigid body"
+          ],
+          "specific_keywords": [
+            "center of mass",
+            "rigid body",
+            "system of particles"
+          ],
+          "negative_guards": [
+            "stress tensor",
+            "torsion equation"
+          ],
+          "context_hints": [
+            "rigid bodies"
+          ]
+        },
+        {
+          "id": 528,
+          "name": "Rotation About a Fixed Axis",
+          "canonical_name": "Rotation About a Fixed Axis",
+          "aliases": [],
+          "strong_phrases": [
+            "rotation about fixed axis",
+            "moment of inertia of rigid body",
+            "radius of gyration",
+            "parallel axis theorem",
+            "perpendicular axis theorem",
+            "angular momentum",
+            "torque and angular acceleration"
+          ],
+          "specific_keywords": [
+            "moment of inertia",
+            "radius of gyration",
+            "parallel axis theorem",
+            "perpendicular axis theorem",
+            "angular momentum"
+          ],
+          "negative_guards": [
+            "strain gauge",
+            "viscous damper"
+          ],
+          "context_hints": [
+            "rotational dynamics"
+          ]
+        },
+        {
+          "id": 529,
+          "name": "Kinetic Energy of Rigid Bodies",
+          "canonical_name": "Kinetic Energy of Rigid Bodies",
+          "aliases": [],
+          "strong_phrases": [
+            "rotational kinetic energy",
+            "kinetic energy of rolling motion",
+            "rolling without slipping",
+            "work energy theorem for rotation",
+            "angular impulse"
+          ],
+          "specific_keywords": [
+            "rotational kinetic energy",
+            "rolling motion",
+            "rolling without slipping",
+            "angular impulse"
+          ],
+          "negative_guards": [
+            "roof truss",
+            "mohr's circle"
+          ],
+          "context_hints": [
+            "rotational energy"
+          ]
+        },
+        {
+          "id": 530,
+          "name": "Euler's Equations of Motion",
+          "canonical_name": "Euler's Equations of Motion",
+          "aliases": [],
+          "strong_phrases": [
+            "euler's equations of motion",
+            "principal axes of inertia",
+            "principal moments of inertia",
+            "rotational motion in body coordinates"
+          ],
+          "specific_keywords": [
+            "euler's equations",
+            "principal axes",
+            "principal moments of inertia"
+          ],
+          "negative_guards": [
+            "simple pendulum",
+            "hooke's law"
+          ],
+          "context_hints": [
+            "3d dynamics",
+            "advanced mechanics"
+          ]
+        },
+        {
+          "id": 531,
+          "name": "Gyroscopic Precession and Symmetrical Top",
+          "canonical_name": "Gyroscopic Precession and Symmetrical Top",
+          "aliases": [],
+          "strong_phrases": [
+            "gyroscopic precession",
+            "precessional angular velocity",
+            "gyroscopic couple",
+            "symmetrical top",
+            "gyroscope motion",
+            "nutation"
+          ],
+          "specific_keywords": [
+            "gyroscopic",
+            "precession",
+            "gyroscopic couple",
+            "symmetrical top"
+          ],
+          "negative_guards": [
+            "flexural formula",
+            "friction"
+          ],
+          "context_hints": [
+            "gyroscopes"
+          ]
+        },
+        {
+          "id": 532,
+          "name": "Conical Pendulum",
+          "canonical_name": "Conical Pendulum",
+          "aliases": [],
+          "strong_phrases": [
+            "conical pendulum",
+            "time period of conical pendulum",
+            "angle of inclination of pendulum",
+            "string tension in conical pendulum"
+          ],
+          "specific_keywords": [
+            "conical pendulum",
+            "semi-vertical angle"
+          ],
+          "negative_guards": [
+            "compound pendulum",
+            "truss"
+          ],
+          "context_hints": [
+            "pendulum motion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 123,
+      "number": 3,
+      "name": "Statics and Structural Mechanics",
+      "topics": [
+        {
+          "id": 533,
+          "name": "Rigid Bodies in Static Equilibrium",
+          "canonical_name": "Rigid Bodies in Static Equilibrium",
+          "aliases": [],
+          "strong_phrases": [
+            "static equilibrium of rigid body",
+            "conditions of equilibrium",
+            "coplanar force equilibrium",
+            "sum of forces zero sum of moments zero",
+            "equations of equilibrium"
+          ],
+          "specific_keywords": [
+            "static equilibrium",
+            "equilibrium of rigid bodies",
+            "equilibrium conditions"
+          ],
+          "negative_guards": [
+            "dynamics",
+            "forced oscillation"
+          ],
+          "context_hints": [
+            "statics"
+          ]
+        },
+        {
+          "id": 534,
+          "name": "Free Body Diagrams and Force Systems",
+          "canonical_name": "Free Body Diagrams and Force Systems",
+          "aliases": [],
+          "strong_phrases": [
+            "free body diagram",
+            "fbd of rigid body",
+            "concurrent forces",
+            "coplanar force system",
+            "moment of a force",
+            "varignon's theorem",
+            "couple and moment"
+          ],
+          "specific_keywords": [
+            "free body diagram",
+            "fbd",
+            "varignon's theorem",
+            "force system"
+          ],
+          "negative_guards": [
+            "quantum",
+            "stress-strain"
+          ],
+          "context_hints": [
+            "force resolution",
+            "statics"
+          ]
+        },
+        {
+          "id": 535,
+          "name": "Supports and Reaction Forces",
+          "canonical_name": "Supports and Reaction Forces",
+          "aliases": [],
+          "strong_phrases": [
+            "support reactions",
+            "roller support",
+            "hinged support",
+            "pinned support",
+            "fixed support",
+            "reaction at supports",
+            "statically determinate beam"
+          ],
+          "specific_keywords": [
+            "support reactions",
+            "roller support",
+            "pinned support",
+            "fixed support"
+          ],
+          "negative_guards": [
+            "coriolis",
+            "resonance"
+          ],
+          "context_hints": [
+            "beam supports",
+            "reactions"
+          ]
+        },
+        {
+          "id": 536,
+          "name": "Bridge and Roof Trusses",
+          "canonical_name": "Bridge and Roof Trusses",
+          "aliases": [],
+          "strong_phrases": [
+            "plane truss",
+            "method of joints",
+            "method of sections",
+            "zero force members in truss",
+            "bridge truss",
+            "roof truss",
+            "warren truss",
+            "pratt truss"
+          ],
+          "specific_keywords": [
+            "method of joints",
+            "method of sections",
+            "truss",
+            "zero force member",
+            "roof truss"
+          ],
+          "negative_guards": [
+            "pure bending",
+            "torsion"
+          ],
+          "context_hints": [
+            "structural mechanics",
+            "trusses"
+          ]
+        },
+        {
+          "id": 537,
+          "name": "Theory of Dry Friction",
+          "canonical_name": "Theory of Dry Friction",
+          "aliases": [],
+          "strong_phrases": [
+            "coulomb's theory of dry friction",
+            "dry friction",
+            "coefficient of static friction",
+            "coefficient of kinetic friction",
+            "angle of friction",
+            "angle of repose",
+            "cone of friction",
+            "wedge friction",
+            "ladder friction"
+          ],
+          "specific_keywords": [
+            "dry friction",
+            "coefficient of friction",
+            "angle of friction",
+            "angle of repose",
+            "wedge friction",
+            "ladder friction"
+          ],
+          "negative_guards": [
+            "viscous damper",
+            "mohr's circle"
+          ],
+          "context_hints": [
+            "friction",
+            "statics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 124,
+      "number": 4,
+      "name": "Stress, Strain, and Material Failure",
+      "topics": [
+        {
+          "id": 538,
+          "name": "State of Stress at a Point",
+          "canonical_name": "State of Stress at a Point",
+          "aliases": [],
+          "strong_phrases": [
+            "state of stress at a point",
+            "stress tensor",
+            "normal stress and shear stress",
+            "traction vector",
+            "cauchy stress formula",
+            "complementary shear stress"
+          ],
+          "specific_keywords": [
+            "stress tensor",
+            "state of stress",
+            "normal stress",
+            "shear stress",
+            "traction vector"
+          ],
+          "negative_guards": [
+            "conical pendulum",
+            "gyroscope"
+          ],
+          "context_hints": [
+            "solid mechanics",
+            "stress analysis"
+          ]
+        },
+        {
+          "id": 539,
+          "name": "Generalized Hooke's Law and Thermal Strains",
+          "canonical_name": "Generalized Hooke's Law and Thermal Strains",
+          "aliases": [],
+          "strong_phrases": [
+            "generalized hooke's law",
+            "young's modulus",
+            "poisson's ratio",
+            "modulus of rigidity",
+            "bulk modulus",
+            "relations between elastic constants",
+            "thermal stress",
+            "thermal strain"
+          ],
+          "specific_keywords": [
+            "hooke's law",
+            "poisson's ratio",
+            "young's modulus",
+            "thermal stress",
+            "elastic constants"
+          ],
+          "negative_guards": [
+            "method of joints",
+            "coriolis"
+          ],
+          "context_hints": [
+            "elasticity",
+            "materials"
+          ]
+        },
+        {
+          "id": 540,
+          "name": "Plane State of Stress and Principal Stresses",
+          "canonical_name": "Plane State of Stress and Principal Stresses",
+          "aliases": [],
+          "strong_phrases": [
+            "plane state of stress",
+            "plane stress",
+            "principal stresses",
+            "principal planes",
+            "maximum in-plane shear stress",
+            "transformation of plane stress"
+          ],
+          "specific_keywords": [
+            "plane stress",
+            "principal stresses",
+            "principal planes",
+            "maximum shear stress"
+          ],
+          "negative_guards": [
+            "dry friction",
+            "resonance"
+          ],
+          "context_hints": [
+            "stress transformation"
+          ]
+        },
+        {
+          "id": 541,
+          "name": "Mohr's Circle for Planar Stress",
+          "canonical_name": "Mohr's Circle for Planar Stress",
+          "aliases": [],
+          "strong_phrases": [
+            "mohr's circle for planar stress",
+            "mohr's circle",
+            "construction of mohr's circle",
+            "center and radius of mohr's circle",
+            "principal stresses from mohr's circle"
+          ],
+          "specific_keywords": [
+            "mohr's circle",
+            "mohr circle"
+          ],
+          "negative_guards": [
+            "euler's equation",
+            "viscous damping"
+          ],
+          "context_hints": [
+            "graphical stress analysis"
+          ]
+        },
+        {
+          "id": 542,
+          "name": "Material Failure Mechanisms",
+          "canonical_name": "Material Failure Mechanisms",
+          "aliases": [],
+          "strong_phrases": [
+            "theories of failure",
+            "maximum principal stress theory",
+            "rankine theory",
+            "maximum shear stress theory",
+            "tresca criterion",
+            "maximum distortion energy theory",
+            "von mises criterion",
+            "yield criterion"
+          ],
+          "specific_keywords": [
+            "tresca criterion",
+            "von mises criterion",
+            "rankine theory",
+            "theories of failure",
+            "yield criterion"
+          ],
+          "negative_guards": [
+            "truss analysis",
+            "simple harmonic"
+          ],
+          "context_hints": [
+            "failure criteria",
+            "mechanics of materials"
+          ]
+        },
+        {
+          "id": 543,
+          "name": "Electrical Resistance Strain Gauges",
+          "canonical_name": "Electrical Resistance Strain Gauges",
+          "aliases": [],
+          "strong_phrases": [
+            "electrical resistance strain gauge",
+            "strain gauge",
+            "gauge factor",
+            "strain rosette",
+            "wheatstone bridge strain measurement",
+            "quarter bridge half bridge"
+          ],
+          "specific_keywords": [
+            "strain gauge",
+            "gauge factor",
+            "strain rosette",
+            "wheatstone bridge strain"
+          ],
+          "negative_guards": [
+            "moment of inertia",
+            "gyroscopic"
+          ],
+          "context_hints": [
+            "experimental stress analysis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 125,
+      "number": 5,
+      "name": "Beams, Torsion, and Energy Methods",
+      "topics": [
+        {
+          "id": 544,
+          "name": "Pure Bending of Beams",
+          "canonical_name": "Pure Bending of Beams",
+          "aliases": [],
+          "strong_phrases": [
+            "pure bending of beams",
+            "simple bending",
+            "neutral axis of beam",
+            "radius of curvature in bending",
+            "assumptions in pure bending",
+            "neutral surface"
+          ],
+          "specific_keywords": [
+            "pure bending",
+            "neutral axis",
+            "radius of curvature",
+            "bending of beams"
+          ],
+          "negative_guards": [
+            "torsion of shafts",
+            "free body diagram"
+          ],
+          "context_hints": [
+            "beam theory",
+            "bending"
+          ]
+        },
+        {
+          "id": 545,
+          "name": "Flexural Formula for Bending",
+          "canonical_name": "Flexural Formula for Bending",
+          "aliases": [],
+          "strong_phrases": [
+            "flexural formula",
+            "bending equation",
+            "m/i = sigma/y = e/r",
+            "section modulus",
+            "flexural rigidity",
+            "bending stress distribution"
+          ],
+          "specific_keywords": [
+            "flexural formula",
+            "bending equation",
+            "section modulus",
+            "flexural rigidity",
+            "bending stress"
+          ],
+          "negative_guards": [
+            "torsion equation",
+            "coriolis force"
+          ],
+          "context_hints": [
+            "beam stress calculation"
+          ]
+        },
+        {
+          "id": 546,
+          "name": "Torsion of Circular Shafts",
+          "canonical_name": "Torsion of Circular Shafts",
+          "aliases": [],
+          "strong_phrases": [
+            "torsion of circular shafts",
+            "torsional deformation",
+            "angle of twist",
+            "shear stress in circular shaft",
+            "polar moment of inertia of shaft"
+          ],
+          "specific_keywords": [
+            "torsion of shafts",
+            "angle of twist",
+            "polar moment of inertia",
+            "circular shaft"
+          ],
+          "negative_guards": [
+            "bending equation",
+            "roof truss"
+          ],
+          "context_hints": [
+            "torsion",
+            "shafts"
+          ]
+        },
+        {
+          "id": 547,
+          "name": "Torsion Equation",
+          "canonical_name": "Torsion Equation",
+          "aliases": [],
+          "strong_phrases": [
+            "torsion equation",
+            "t/j = tau/r = c*theta/l",
+            "torsional rigidity",
+            "power transmitted by shaft",
+            "torque transmission"
+          ],
+          "specific_keywords": [
+            "torsion equation",
+            "torsional rigidity",
+            "power transmitted by shaft"
+          ],
+          "negative_guards": [
+            "flexural formula",
+            "mohr circle"
+          ],
+          "context_hints": [
+            "torsion formula"
+          ]
+        },
+        {
+          "id": 548,
+          "name": "Twisting Moment Diagrams",
+          "canonical_name": "Twisting Moment Diagrams",
+          "aliases": [],
+          "strong_phrases": [
+            "twisting moment diagram",
+            "tmd",
+            "shaft subjected to multiple torques",
+            "internal twisting moment"
+          ],
+          "specific_keywords": [
+            "twisting moment diagram",
+            "tmd",
+            "internal twisting moment"
+          ],
+          "negative_guards": [
+            "bending moment diagram",
+            "strain rosette"
+          ],
+          "context_hints": [
+            "torque diagrams"
+          ]
+        },
+        {
+          "id": 549,
+          "name": "Strain Energy and Resilience",
+          "canonical_name": "Strain Energy and Resilience",
+          "aliases": [],
+          "strong_phrases": [
+            "strain energy",
+            "modulus of resilience",
+            "proof resilience",
+            "strain energy in simple tension",
+            "strain energy in bending",
+            "strain energy in torsion",
+            "castigliano's theorem"
+          ],
+          "specific_keywords": [
+            "strain energy",
+            "resilience",
+            "proof resilience",
+            "modulus of resilience"
+          ],
+          "negative_guards": [
+            "coriolis force",
+            "gyroscopic precession"
+          ],
+          "context_hints": [
+            "energy methods",
+            "strain energy"
+          ]
+        }
+      ]
+    }
+  ]
+}

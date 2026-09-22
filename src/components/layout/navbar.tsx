@@ -7,6 +7,8 @@ import { Leaf, Menu, X } from "lucide-react";
 import { HangingLamp } from "@/components/ambient/HangingLamp";
 import { cn } from "@/lib/utils";
 
+import { preloadCurriculumMetadata } from "@/lib/api";
+
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const pathname = usePathname();
 
@@ -15,6 +17,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
 
   const links = [
     { href: "/", label: "Home" },
+    { href: "/courses", label: "Courses" },
     { href: "/mintai", label: "MintAI" },
     { href: "/study-plan", label: "Study Plan" },
     { href: "/practice", label: "Practice" },
@@ -32,7 +35,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             <Leaf className="h-6 w-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
             <span className="text-xl md:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               MarkMint
-              <span className="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider translate-y-[2px]">Beta</span>
+              <span className="bg-accent/10 text-accent text-[10px] font-mono font-bold px-2 py-0.5 rounded-sm uppercase tracking-wider translate-y-[2px]">v1.0</span>
             </span>
           </Link>
           <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
@@ -44,11 +47,18 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
         
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname?.startsWith(link.href));
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                onMouseEnter={() => {
+                  if (link.href === "/mintai") {
+                    preloadCurriculumMetadata();
+                  }
+                }}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-foreground",
                   isActive

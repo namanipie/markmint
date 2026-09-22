@@ -1,0 +1,529 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 26,
+    "name": "Computer Organization and Architecture",
+    "canonical_code": "21CSS201T",
+    "code": "SEM3-COA",
+    "regulation_year": 2021,
+    "department": "Computational Intelligence"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSS201T Computer Organization and Architecture",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Number Systems & Logic Gates, Architectures & 8086, Design of ALU & Arithmetic, Control Unit & Pipelining, and Parallelism & ARM."
+  },
+  "units": [
+    {
+      "id": 166,
+      "number": 1,
+      "name": "Introduction to Number Systems and Logic Gates",
+      "topics": [
+        {
+          "id": 791,
+          "name": "Number Systems and Conversions",
+          "canonical_name": "Number Systems and Conversions",
+          "aliases": ["Binary Octal Hexadecimal", "Base Conversions"],
+          "strong_phrases": [
+            "number systems",
+            "binary to decimal conversion",
+            "hexadecimal to binary",
+            "octal conversion",
+            "radix conversion",
+            "base conversion",
+            "binary representation"
+          ],
+          "specific_keywords": ["radix", "hexadecimal", "octal", "base conversion"],
+          "negative_guards": ["paging", "deadlock", "sql"],
+          "context_hints": ["number systems", "binary conversion"]
+        },
+        {
+          "id": 792,
+          "name": "Binary Codes and Parity",
+          "canonical_name": "Binary Codes and Parity",
+          "aliases": ["Gray Code", "BCD", "Excess-3", "ASCII Code"],
+          "strong_phrases": [
+            "gray code",
+            "bcd code",
+            "binary coded decimal",
+            "excess 3 code",
+            "ascii code",
+            "parity bit",
+            "even parity odd parity",
+            "error detection codes"
+          ],
+          "specific_keywords": ["gray code", "bcd", "excess-3", "ascii", "parity bit"],
+          "negative_guards": ["huffman", "lcs"],
+          "context_hints": ["binary codes", "gray code", "bcd"]
+        },
+        {
+          "id": 793,
+          "name": "Binary Arithmetic and Complements",
+          "canonical_name": "Binary Arithmetic and Complements",
+          "aliases": ["Sign Magnitude", "1's Complement", "2's Complement"],
+          "strong_phrases": [
+            "1's complement",
+            "2's complement",
+            "ones complement",
+            "twos complement",
+            "sign magnitude representation",
+            "binary addition subtraction",
+            "bcd arithmetic",
+            "overflow in binary addition"
+          ],
+          "specific_keywords": ["2's complement", "1's complement", "sign magnitude", "bcd addition"],
+          "negative_guards": ["process state", "semaphore"],
+          "context_hints": ["complements", "binary arithmetic"]
+        },
+        {
+          "id": 794,
+          "name": "Logic Gates and Universal Gates",
+          "canonical_name": "Logic Gates and Universal Gates",
+          "aliases": ["Logic Gates", "NAND NOR Universal Gates"],
+          "strong_phrases": [
+            "logic gates",
+            "and gate",
+            "or gate",
+            "not gate",
+            "nand gate",
+            "nor gate",
+            "universal gates nand nor",
+            "truth table of logic gates"
+          ],
+          "specific_keywords": ["logic gates", "universal gates", "nand gate", "nor gate", "truth table"],
+          "negative_guards": ["shortest path", "binary tree"],
+          "context_hints": ["digital logic", "logic gates"]
+        },
+        {
+          "id": 795,
+          "name": "Exclusive Gates and Boolean Algebra",
+          "canonical_name": "Exclusive Gates and Boolean Algebra",
+          "aliases": ["XOR XNOR Gates", "Boolean Simplification"],
+          "strong_phrases": [
+            "ex-or gate",
+            "xor gate",
+            "ex-nor gate",
+            "xnor gate",
+            "boolean simplification",
+            "boolean postulates",
+            "karnaugh map",
+            "k-map simplification"
+          ],
+          "specific_keywords": ["xor", "xnor", "k-map", "boolean algebra"],
+          "negative_guards": ["relational algebra", "sql"],
+          "context_hints": ["xor gate", "k-map"]
+        }
+      ]
+    },
+    {
+      "id": 167,
+      "number": 2,
+      "name": "Architectures and Instruction Sets",
+      "topics": [
+        {
+          "id": 796,
+          "name": "Functional Units and Operational Concepts",
+          "canonical_name": "Functional Units and Operational Concepts",
+          "aliases": ["Functional Units", "Basic Structure of Computer"],
+          "strong_phrases": [
+            "functional units of computer",
+            "input unit output unit",
+            "memory unit",
+            "arithmetic and logic unit",
+            "control unit",
+            "operational concepts of computer",
+            "von neumann architecture",
+            "harvard architecture"
+          ],
+          "specific_keywords": ["functional units", "von neumann", "harvard architecture"],
+          "negative_guards": ["demand paging", "page fault"],
+          "context_hints": ["computer structure", "functional units"]
+        },
+        {
+          "id": 797,
+          "name": "Bus Structures and Memory Operations",
+          "canonical_name": "Bus Structures and Memory Operations",
+          "aliases": ["Bus Structures", "Memory Addresses and Operations"],
+          "strong_phrases": [
+            "bus structures",
+            "data bus address bus control bus",
+            "single bus organization",
+            "system bus",
+            "memory addresses and operations",
+            "memory read operation",
+            "memory write operation",
+            "memory mapped io"
+          ],
+          "specific_keywords": ["address bus", "data bus", "control bus", "memory read", "memory write"],
+          "negative_guards": ["concurrency control", "2pl"],
+          "context_hints": ["bus structures", "memory operations"]
+        },
+        {
+          "id": 798,
+          "name": "Instructions and Instruction Sequencing",
+          "canonical_name": "Instructions and Instruction Sequencing",
+          "aliases": ["Instruction Cycle", "Instruction Format"],
+          "strong_phrases": [
+            "instruction formats",
+            "three address instruction",
+            "two address instruction",
+            "one address instruction",
+            "zero address instruction",
+            "instruction sequencing",
+            "instruction cycle fetch decode execute",
+            "register transfer notation"
+          ],
+          "specific_keywords": ["zero address", "one address", "two address", "instruction format", "fetch cycle"],
+          "negative_guards": ["avl tree", "heap"],
+          "context_hints": ["instruction formats", "instruction cycle"]
+        },
+        {
+          "id": 799,
+          "name": "Addressing Modes",
+          "canonical_name": "Addressing Modes",
+          "aliases": ["Addressing Modes in Computer Architecture"],
+          "strong_phrases": [
+            "addressing modes",
+            "immediate addressing mode",
+            "direct addressing mode",
+            "indirect addressing mode",
+            "register addressing mode",
+            "register indirect addressing mode",
+            "displacement addressing mode",
+            "relative addressing mode",
+            "indexed addressing mode",
+            "auto increment auto decrement"
+          ],
+          "specific_keywords": ["addressing modes", "immediate addressing", "indirect addressing", "indexed addressing"],
+          "negative_guards": ["normal forms", "bcnf"],
+          "context_hints": ["addressing modes", "effective address"]
+        },
+        {
+          "id": 800,
+          "name": "Assembly Language and 8086 Case Study",
+          "canonical_name": "Assembly Language and 8086 Case Study",
+          "aliases": ["8086 Architecture", "8086 Assembly"],
+          "strong_phrases": [
+            "8086 microprocessor",
+            "8086 architecture",
+            "bus interface unit biu",
+            "execution unit eu",
+            "flag register in 8086",
+            "segmentation in 8086",
+            "assembly language program",
+            "8086 instruction set",
+            "mov add sub cmp in 8086"
+          ],
+          "specific_keywords": ["8086", "biu", "execution unit", "segment register", "assembly language"],
+          "negative_guards": ["arm 7", "thumb instruction"],
+          "context_hints": ["8086 microprocessor", "intel 8086"]
+        }
+      ]
+    },
+    {
+      "id": 168,
+      "number": 3,
+      "name": "Design of ALU and Arithmetic Operations",
+      "topics": [
+        {
+          "id": 801,
+          "name": "De Morgan's Theorem and Logic Minimization",
+          "canonical_name": "De Morgan's Theorem and Logic Minimization",
+          "aliases": ["De Morgan Theorem", "Boolean Simplification"],
+          "strong_phrases": [
+            "de morgan's theorem",
+            "demorgan law",
+            "duality principle",
+            "canonical sop and pos",
+            "standard sum of products",
+            "product of sums"
+          ],
+          "specific_keywords": ["de morgan", "demorgan's theorem", "canonical sop", "pos"],
+          "negative_guards": ["critical section", "semaphore"],
+          "context_hints": ["de morgan", "logic minimization"]
+        },
+        {
+          "id": 802,
+          "name": "Adders and High Speed Addition",
+          "canonical_name": "Adders and High Speed Addition",
+          "aliases": ["Half Adder", "Full Adder", "Carry Lookahead Adder"],
+          "strong_phrases": [
+            "half adder circuit",
+            "full adder circuit",
+            "ripple carry adder",
+            "carry lookahead adder",
+            "cla adder",
+            "carry generate carry propagate",
+            "fast adders",
+            "carry save addition"
+          ],
+          "specific_keywords": ["half adder", "full adder", "carry lookahead", "ripple carry", "carry save"],
+          "negative_guards": ["page table", "mmu"],
+          "context_hints": ["adders", "fast addition"]
+        },
+        {
+          "id": 803,
+          "name": "Multiplication Algorithms and Booth's Multiplier",
+          "canonical_name": "Multiplication Algorithms and Booth's Multiplier",
+          "aliases": ["Booth's Algorithm", "Signed Multiplier", "Fast Multiplier"],
+          "strong_phrases": [
+            "multiplication algorithm",
+            "unsigned multiplier",
+            "signed multiplication",
+            "booth's algorithm",
+            "booth multiplication algorithm",
+            "bit pair recoding",
+            "fast multiplication",
+            "carry save addition of summands",
+            "array multiplier"
+          ],
+          "specific_keywords": ["booth's algorithm", "booth multiplier", "bit-pair recoding", "array multiplier"],
+          "negative_guards": ["banker's algorithm", "deadlock"],
+          "context_hints": ["booth's algorithm", "multiplication"]
+        },
+        {
+          "id": 804,
+          "name": "Division Algorithms: Restoring and Non-Restoring",
+          "canonical_name": "Division Algorithms: Restoring and Non-Restoring",
+          "aliases": ["Restoring Division", "Non-Restoring Division"],
+          "strong_phrases": [
+            "division algorithm",
+            "restoring division algorithm",
+            "non-restoring division",
+            "restoring and non restoring division",
+            "integer division hardware",
+            "quotient and remainder registers"
+          ],
+          "specific_keywords": ["restoring division", "non-restoring division", "restoring algorithm"],
+          "negative_guards": ["divide and conquer", "binary search"],
+          "context_hints": ["restoring division", "division algorithm"]
+        },
+        {
+          "id": 805,
+          "name": "IEEE 754 Floating Point Representation and Operations",
+          "canonical_name": "IEEE 754 Floating Point Representation and Operations",
+          "aliases": ["Floating Point Numbers", "IEEE 754 Standard"],
+          "strong_phrases": [
+            "ieee 754 standard",
+            "ieee 754 floating point",
+            "single precision floating point",
+            "double precision floating point",
+            "sign bit exponent mantissa",
+            "biased exponent",
+            "normalization of floating point",
+            "floating point addition subtraction",
+            "floating point multiplication"
+          ],
+          "specific_keywords": ["ieee 754", "single precision", "double precision", "mantissa", "biased exponent"],
+          "negative_guards": ["file system", "raid"],
+          "context_hints": ["ieee 754", "floating point"]
+        }
+      ]
+    },
+    {
+      "id": 169,
+      "number": 4,
+      "name": "Control Unit and Pipelining",
+      "topics": [
+        {
+          "id": 806,
+          "name": "Basic Processing Unit and Multiple Bus Organization",
+          "canonical_name": "Basic Processing Unit and Multiple Bus Organization",
+          "aliases": ["Processing Unit", "Multiple Bus Datapath"],
+          "strong_phrases": [
+            "basic processing unit",
+            "instruction execution sequence",
+            "register transfers",
+            "performing an alu operation",
+            "fetching a word from memory",
+            "storing a word in memory",
+            "multiple bus organization",
+            "three bus organization",
+            "branch instruction execution"
+          ],
+          "specific_keywords": ["processing unit", "datapath", "multiple bus", "register transfer"],
+          "negative_guards": ["bcnf", "normalization"],
+          "context_hints": ["datapath", "instruction execution"]
+        },
+        {
+          "id": 807,
+          "name": "Hardwired Control Unit Design",
+          "canonical_name": "Hardwired Control Unit Design",
+          "aliases": ["Hardwired Control", "Generation of Control Signals"],
+          "strong_phrases": [
+            "hardwired control unit",
+            "hardwired control",
+            "generation of control signals",
+            "control step counter",
+            "decoder and encoder in control unit",
+            "state table method",
+            "delay element method"
+          ],
+          "specific_keywords": ["hardwired control", "control signals", "step counter"],
+          "negative_guards": ["micro-programmed control", "microinstruction"],
+          "context_hints": ["hardwired control unit", "control signals"]
+        },
+        {
+          "id": 808,
+          "name": "Micro-programmed Control Unit Design",
+          "canonical_name": "Micro-programmed Control Unit Design",
+          "aliases": ["Microprogrammed Control", "Control Store"],
+          "strong_phrases": [
+            "micro-programmed control",
+            "microprogrammed control",
+            "control memory",
+            "control store",
+            "microinstruction format",
+            "horizontal microinstruction",
+            "vertical microinstruction",
+            "microprogram sequencing",
+            "micro-routine",
+            "address sequencing in control memory"
+          ],
+          "specific_keywords": ["microprogrammed", "microinstruction", "control memory", "control store"],
+          "negative_guards": ["hardwired control"],
+          "context_hints": ["microprogrammed control", "microinstruction"]
+        },
+        {
+          "id": 809,
+          "name": "Pipelining Concepts and Performance",
+          "canonical_name": "Pipelining Concepts and Performance",
+          "aliases": ["Basic Concepts of Pipelining", "Pipeline Speedup"],
+          "strong_phrases": [
+            "basic concepts of pipelining",
+            "instruction pipeline",
+            "pipeline stages",
+            "fetch decode execute write back",
+            "pipeline throughput",
+            "pipeline speedup",
+            "pipeline efficiency",
+            "clock cycle time in pipelining"
+          ],
+          "specific_keywords": ["pipelining", "pipeline stages", "speedup", "pipeline throughput"],
+          "negative_guards": ["deadlock avoidance", "banker"],
+          "context_hints": ["pipelining", "pipeline performance"]
+        },
+        {
+          "id": 810,
+          "name": "Pipeline Hazards and Mitigation",
+          "canonical_name": "Pipeline Hazards and Mitigation",
+          "aliases": ["Pipeline Hazards", "Data Structural Control Hazards"],
+          "strong_phrases": [
+            "pipeline hazards",
+            "data hazard",
+            "raw hazard read after write",
+            "war hazard",
+            "waw hazard",
+            "instruction hazard",
+            "control hazard branch penalty",
+            "structural hazard",
+            "operand forwarding",
+            "pipeline stall nop bubble",
+            "branch prediction"
+          ],
+          "specific_keywords": ["pipeline hazard", "data hazard", "control hazard", "operand forwarding", "branch prediction"],
+          "negative_guards": ["disk scheduling", "sstf"],
+          "context_hints": ["pipeline hazards", "forwarding", "stalls"]
+        }
+      ]
+    },
+    {
+      "id": 170,
+      "number": 5,
+      "name": "Parallelism and ARM Processor",
+      "topics": [
+        {
+          "id": 811,
+          "name": "Parallel Processing and Flynn's Classification",
+          "canonical_name": "Parallel Processing and Flynn's Classification",
+          "aliases": ["Flynn's Classification", "Parallel Systems Architecture"],
+          "strong_phrases": [
+            "flynn's classification",
+            "sisd single instruction single data",
+            "simd single instruction multiple data",
+            "misd multiple instruction single data",
+            "mimd multiple instruction multiple data",
+            "parallel systems architecture",
+            "challenges in parallel processing",
+            "smp symmetric multiprocessing"
+          ],
+          "specific_keywords": ["flynn's classification", "sisd", "simd", "misd", "mimd", "parallel processing"],
+          "negative_guards": ["8086 microprocessor", "biu"],
+          "context_hints": ["parallel computing", "flynn classification"]
+        },
+        {
+          "id": 812,
+          "name": "ARM Processor Architecture and CPU Cores",
+          "canonical_name": "ARM Processor Architecture and CPU Cores",
+          "aliases": ["ARM Processor", "ARM Architecture"],
+          "strong_phrases": [
+            "arm processor architecture",
+            "arm cpu cores",
+            "arm register organization",
+            "arm current program status register cpsr",
+            "saved program status register spsr",
+            "arm operating modes",
+            "risc principles in arm"
+          ],
+          "specific_keywords": ["arm processor", "cpsr", "spsr", "arm cores"],
+          "negative_guards": ["8086 flag register", "intel 8086"],
+          "context_hints": ["arm architecture", "arm processor"]
+        },
+        {
+          "id": 813,
+          "name": "Thumb Instruction Set and Encoding",
+          "canonical_name": "Thumb Instruction Set and Encoding",
+          "aliases": ["Thumb Instructions", "ARM Instruction Encoding"],
+          "strong_phrases": [
+            "thumb instruction set",
+            "16-bit thumb instructions",
+            "thumb state vs arm state",
+            "instruction encoding format in arm",
+            "conditional execution in arm",
+            "thumb-2 technology"
+          ],
+          "specific_keywords": ["thumb instruction", "thumb state", "instruction encoding format"],
+          "negative_guards": ["assembly language 8086"],
+          "context_hints": ["thumb instruction set", "arm encoding"]
+        },
+        {
+          "id": 814,
+          "name": "ARM Memory Load-Store and I/O Operations",
+          "canonical_name": "ARM Memory Load-Store and I/O Operations",
+          "aliases": ["Load Store Instructions", "ARM I/O Operations"],
+          "strong_phrases": [
+            "memory load and store instructions",
+            "ldr and str instructions",
+            "multiple register load store ldm stm",
+            "addressing modes in arm",
+            "barrel shifter in arm",
+            "basics of i/o operations in arm",
+            "memory mapped i/o in arm"
+          ],
+          "specific_keywords": ["ldr", "str", "barrel shifter", "load-store architecture"],
+          "negative_guards": ["virtual memory paging"],
+          "context_hints": ["arm load store", "arm io"]
+        },
+        {
+          "id": 815,
+          "name": "ARM 5 and ARM 7 Architecture Case Studies",
+          "canonical_name": "ARM 5 and ARM 7 Architecture Case Studies",
+          "aliases": ["ARM 5", "ARM 7 Case Study"],
+          "strong_phrases": [
+            "arm 5 architecture",
+            "arm 7 architecture",
+            "arm7tdmi core",
+            "case study arm 5 and arm 7",
+            "pipeline structure in arm 7",
+            "coprocessor interface in arm"
+          ],
+          "specific_keywords": ["arm 5", "arm 7", "arm7tdmi"],
+          "negative_guards": ["8086 execution unit"],
+          "context_hints": ["arm 7", "arm case study"]
+        }
+      ]
+    }
+  ]
+}

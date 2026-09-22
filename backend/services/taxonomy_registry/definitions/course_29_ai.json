@@ -1,0 +1,767 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 29,
+    "name": "Artificial Intelligence",
+    "canonical_code": "21CSC207J",
+    "code": "SEM4-AI",
+    "regulation_year": 2021,
+    "department": "Computational Intelligence"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC207J Artificial Intelligence",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Introduction to AI & Problem Formulation, Search Algorithms (Uninformed, Informed, A*), Adversarial Search & CSP, Knowledge Representation & Logic (Propositional, FOL, Resolution), and Planning & Expert Systems."
+  },
+  "units": [
+    {
+      "id": 181,
+      "number": 1,
+      "name": "Introduction to Artificial Intelligence and Problem Solving",
+      "topics": [
+        {
+          "id": 866,
+          "name": "Foundations and State of Artificial Intelligence",
+          "canonical_name": "Foundations and State of Artificial Intelligence",
+          "aliases": ["AI Techniques", "AI Models", "Applications of AI"],
+          "strong_phrases": [
+            "artificial intelligence definition",
+            "ai techniques",
+            "ai models",
+            "turing test",
+            "acting humanly thinking humanly",
+            "computational learning theory",
+            "applications of artificial intelligence",
+            "history of artificial intelligence",
+            "voice assistants like google assistant alexa siri",
+            "common language for ai",
+            "language for ai",
+            "goal of ai",
+            "goals of ai",
+            "machine learning model"
+          ],
+          "specific_keywords": [
+            "turing test",
+            "ai techniques",
+            "ai models",
+            "rational agent approach",
+            "computational learning theory",
+            "unsupervised learning",
+            "supervised learning",
+            "learning models",
+            "regression tasks"
+          ],
+          "negative_guards": ["b-tree", "sql injection", "self-driving car", "architecture of an expert system", "expert system architecture", "robot navigation"],
+          "context_hints": ["ai definition", "foundations of ai"]
+        },
+        {
+          "id": 867,
+          "name": "Intelligent Agents and Environment Types",
+          "canonical_name": "Intelligent Agents and Environment Types",
+          "aliases": ["Intelligent Agent", "PEAS Description", "Environment Properties"],
+          "strong_phrases": [
+            "intelligent agents",
+            "peas description",
+            "performance measure environment actuators sensors",
+            "task environment",
+            "self-driving car",
+            "fully observable partially observable",
+            "deterministic stochastic",
+            "static dynamic environment",
+            "discrete continuous environment",
+            "single agent multiagent",
+            "agent architecture reflex goal based utility based",
+            "dynamic discovery and registration",
+            "agents behavior",
+            "perception sequence"
+          ],
+          "specific_keywords": [
+            "peas",
+            "intelligent agent",
+            "intelligent agents",
+            "task environment",
+            "self-driving car",
+            "actuators sensors",
+            "reflex agent",
+            "goal-based agent",
+            "utility-based agent",
+            "low observability",
+            "perception sequence"
+          ],
+          "negative_guards": ["paging", "semaphore"],
+          "context_hints": ["peas description", "agent environment"]
+        },
+        {
+          "id": 868,
+          "name": "Problem Formulation and State Space Representation",
+          "canonical_name": "Problem Formulation and State Space Representation",
+          "aliases": ["Problem Solving Agents", "Formulating Problems", "State Space Search"],
+          "strong_phrases": [
+            "problem formulation",
+            "state space representation",
+            "problem-solving process",
+            "problem-solving agent",
+            "problem solving agent",
+            "initial state goal test path cost",
+            "successor function",
+            "step cost path cost",
+            "state space graph",
+            "well defined problem",
+            "7 problem characteristics",
+            "problem characteristics",
+            "control strategies in problem-solving"
+          ],
+          "specific_keywords": [
+            "problem formulation",
+            "state space",
+            "state-space",
+            "problem-solving process",
+            "problem characteristics",
+            "control strategies",
+            "successor function",
+            "goal test"
+          ],
+          "negative_guards": ["a*", "a *", "alpha-beta", "alpha beta", "csp", "expert system", "missionaries", "water jug"],
+          "context_hints": ["state space", "problem formulation"]
+        },
+        {
+          "id": 869,
+          "name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+          "canonical_name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+          "aliases": ["Toy Problems in AI", "Missionaries and Cannibals", "Water Jug Problem", "8-Puzzle Problem"],
+          "strong_phrases": [
+            "toy problems",
+            "missionaries and cannibals",
+            "missionaries and cannibals problem",
+            "water jug problem",
+            "8 puzzle problem",
+            "8-puzzle problem",
+            "sliding tile puzzle",
+            "tic tac toe problem",
+            "tic-tac-toe",
+            "vacuum cleaner world",
+            "tower of hanoi"
+          ],
+          "specific_keywords": [
+            "missionaries and cannibals",
+            "missionaries",
+            "cannibals",
+            "water jug",
+            "8-puzzle",
+            "8 puzzle",
+            "tic-tac-toe",
+            "tic tac toe",
+            "vacuum world",
+            "toy problem",
+            "tower of hanoi"
+          ],
+          "negative_guards": ["tcp ip", "quick sort"],
+          "context_hints": ["toy problems", "puzzle formulation"]
+        },
+        {
+          "id": 870,
+          "name": "Real World Problems: Travelling Salesperson Problem and Route Finding",
+          "canonical_name": "Real World Problems: Travelling Salesperson Problem and Route Finding",
+          "aliases": ["Real World Problems in AI", "TSP in AI", "Route Finding Problem"],
+          "strong_phrases": [
+            "real world problem in ai",
+            "travelling salesman problem",
+            "travelling salesperson problem",
+            "route finding problem",
+            "robot navigation state space",
+            "vlsi layout problem",
+            "autonomous delivery robot",
+            "warehouse management system",
+            "robot navigation"
+          ],
+          "specific_keywords": [
+            "travelling salesman",
+            "travelling salesperson",
+            "tsp",
+            "route finding",
+            "robot navigation",
+            "warehouse management",
+            "delivery robot"
+          ],
+          "negative_guards": ["divide and conquer recurrence"],
+          "context_hints": ["route finding", "real world problem"]
+        }
+      ]
+    },
+    {
+      "id": 182,
+      "number": 2,
+      "name": "Uninformed and Heuristic Search Algorithms",
+      "topics": [
+        {
+          "id": 871,
+          "name": "Uninformed Search: BFS, DFS and Depth-Limited Search",
+          "canonical_name": "Uninformed Search: BFS, DFS and Depth-Limited Search",
+          "aliases": ["Breadth First Search", "Depth First Search", "DLS", "Iterative Deepening Search"],
+          "strong_phrases": [
+            "uninformed search",
+            "blind search strategies",
+            "breadth first search",
+            "depth first search",
+            "depth limited search",
+            "iterative deepening search",
+            "iterative deepening depth first search",
+            "time complexity and space complexity of bfs",
+            "complexity of bfs",
+            "complexity of dfs",
+            "completeness and optimality of dfs",
+            "post order traversal of a binary tree",
+            "inorder traversal of a binary tree"
+          ],
+          "specific_keywords": [
+            "uninformed search",
+            "blind search",
+            "breadth-first search",
+            "depth-first search",
+            "depth-limited",
+            "iterative deepening",
+            "iddfs",
+            "bfs and dfs",
+            "traversal of a binary tree",
+            "complexity of bfs"
+          ],
+          "negative_guards": ["prim's algorithm", "kruskal", "a*", "a *", "heuristic function", "uniform cost", "generate and test"],
+          "context_hints": ["uninformed search", "bfs dfs"]
+        },
+        {
+          "id": 872,
+          "name": "Uniform Cost Search and Cheapest Path",
+          "canonical_name": "Uniform Cost Search and Cheapest Path",
+          "aliases": ["Uniform Cost Search", "UCS", "Cheapest Path Search"],
+          "strong_phrases": [
+            "uniform cost search",
+            "ucs algorithm",
+            "cheapest path search",
+            "path cost g n",
+            "priority queue in ucs",
+            "dijkstra s algorithm in ai"
+          ],
+          "specific_keywords": [
+            "uniform cost search",
+            "uniform cost",
+            "ucs",
+            "dijkstra s algorithm"
+          ],
+          "negative_guards": ["bellman ford"],
+          "context_hints": ["uniform cost search", "path cost"]
+        },
+        {
+          "id": 873,
+          "name": "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
+          "canonical_name": "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
+          "aliases": ["Informed Search", "Greedy Best First Search", "Heuristic Functions"],
+          "strong_phrases": [
+            "informed search methods",
+            "heuristic search",
+            "greedy best first search",
+            "heuristic function",
+            "heuristic function h n",
+            "straight line distance heuristic",
+            "manhattan distance heuristic",
+            "euclidean distance heuristic",
+            "generate and test search",
+            "generate and test"
+          ],
+          "specific_keywords": [
+            "informed search",
+            "greedy best-first",
+            "best first search",
+            "heuristic function",
+            "generate and test",
+            "manhattan distance",
+            "straight line distance"
+          ],
+          "negative_guards": ["a* algorithm", "a * algorithm", "a* search", "a * search", "evaluation function in a*", "f n g n + h n"],
+          "context_hints": ["heuristic search", "greedy search"]
+        },
+        {
+          "id": 874,
+          "name": "A* Search Algorithm and Optimality",
+          "canonical_name": "A* Search Algorithm and Optimality",
+          "aliases": ["A* Algorithm", "A Star Search", "Admissibility and Consistency"],
+          "strong_phrases": [
+            "a* search algorithm",
+            "a* algorithm",
+            "a * algorithm",
+            "a* method",
+            "a star search",
+            "evaluation function in a*",
+            "evaluation function f n",
+            "admissible heuristic",
+            "consistent heuristic monotonicity",
+            "optimality of a* search",
+            "tree search vs graph search a*",
+            "heuristic dominance"
+          ],
+          "specific_keywords": [
+            "a* algorithm",
+            "a * algorithm",
+            "a* search",
+            "a * search",
+            "a* method",
+            "a star",
+            "admissible heuristic",
+            "consistent heuristic",
+            "monotonic heuristic"
+          ],
+          "negative_guards": ["avl tree", "red black tree", "zero-sum", "two-player", "map coloring", "warehouse management"],
+          "context_hints": ["a* search", "admissibility"]
+        },
+        {
+          "id": 875,
+          "name": "Local Search and Optimization: Hill Climbing and Simulated Annealing",
+          "canonical_name": "Local Search and Optimization: Hill Climbing and Simulated Annealing",
+          "aliases": ["Hill Climbing", "Simulated Annealing", "Local Search Optimization"],
+          "strong_phrases": [
+            "local search algorithms",
+            "hill climbing search",
+            "simple hill climbing steepest ascent hill climbing",
+            "problems in hill climbing local maxima plateau ridge",
+            "simulated annealing",
+            "cooling schedule temperature parameter",
+            "genetic algorithms in ai"
+          ],
+          "specific_keywords": [
+            "hill climbing",
+            "local maxima",
+            "steepest ascent",
+            "simulated annealing",
+            "cooling schedule",
+            "local search"
+          ],
+          "negative_guards": ["gradient descent backpropagation", "zero-sum", "two-player"],
+          "context_hints": ["hill climbing", "simulated annealing"]
+        }
+      ]
+    },
+    {
+      "id": 183,
+      "number": 3,
+      "name": "Adversarial Search and Constraint Satisfaction Problems",
+      "topics": [
+        {
+          "id": 876,
+          "name": "Game Theory and Minimax Search Algorithm",
+          "canonical_name": "Game Theory and Minimax Search Algorithm",
+          "aliases": ["Minimax Algorithm", "Adversarial Search", "Two Player Games"],
+          "strong_phrases": [
+            "adversarial search",
+            "game theory in ai",
+            "two player zero sum games",
+            "two-player game",
+            "zero-sum two-player game",
+            "minimax algorithm",
+            "mini-max algorithm",
+            "minmax algorithm",
+            "max node and min node",
+            "game tree evaluation",
+            "terminal test utility function"
+          ],
+          "specific_keywords": [
+            "minimax",
+            "mini-max",
+            "minmax",
+            "adversarial search",
+            "game tree",
+            "two-player game",
+            "zero-sum",
+            "utility function"
+          ],
+          "negative_guards": ["alpha-beta", "alpha beta", "pruning"],
+          "context_hints": ["minimax", "game playing"]
+        },
+        {
+          "id": 877,
+          "name": "Alpha-Beta Pruning Optimization",
+          "canonical_name": "Alpha-Beta Pruning Optimization",
+          "aliases": ["Alpha Beta Pruning", "Alpha Beta Cutoff"],
+          "strong_phrases": [
+            "alpha-beta pruning",
+            "alpha beta pruning",
+            "alpha cutoff beta cutoff",
+            "alpha value beta value",
+            "pruning in game trees",
+            "move ordering in alpha beta pruning",
+            "optimal alpha beta pruning"
+          ],
+          "specific_keywords": [
+            "alpha-beta pruning",
+            "alpha beta pruning",
+            "alpha-beta",
+            "alpha beta",
+            "alpha cutoff",
+            "beta cutoff",
+            "beta value"
+          ],
+          "negative_guards": ["compiler optimization"],
+          "context_hints": ["alpha-beta", "pruning"]
+        },
+        {
+          "id": 878,
+          "name": "Constraint Satisfaction Problems Formulation and Propagation",
+          "canonical_name": "Constraint Satisfaction Problems Formulation and Propagation",
+          "aliases": ["CSP Formulation", "Constraint Propagation", "Variables Domains Constraints"],
+          "strong_phrases": [
+            "constraint satisfaction problem",
+            "constraint satisfaction problems",
+            "csp formulation",
+            "variables domains and constraints",
+            "unary constraint binary constraint higher order constraint",
+            "constraint graph",
+            "constraint propagation",
+            "preparing a schedule for class",
+            "schedule for a class of students"
+          ],
+          "specific_keywords": [
+            "constraint satisfaction",
+            "csps",
+            "csp",
+            "constraint graph",
+            "unary constraint",
+            "binary constraint",
+            "variable assignments"
+          ],
+          "negative_guards": ["sql check constraint", "8-queens", "map coloring", "cryptarithmetic", "arc consistency", "which of the following mentioned problems are not constraint satisfaction"],
+          "context_hints": ["csp", "constraint satisfaction"]
+        },
+        {
+          "id": 879,
+          "name": "Cryptarithmetic Puzzles and Map Coloring",
+          "canonical_name": "Cryptarithmetic Puzzles and Map Coloring",
+          "aliases": ["Cryptarithmetic Problem", "Map Coloring Problem", "Room Coloring"],
+          "strong_phrases": [
+            "cryptarithmetic puzzle",
+            "send more money puzzle",
+            "map coloring problem",
+            "australia map coloring csp",
+            "room coloring problem",
+            "8-queens problem",
+            "8 queens problem",
+            "n queens problem as csp"
+          ],
+          "specific_keywords": [
+            "cryptarithmetic",
+            "send+more=money",
+            "map coloring",
+            "room coloring",
+            "8-queens",
+            "8 queens",
+            "n-queens"
+          ],
+          "negative_guards": ["rsa cryptography"],
+          "context_hints": ["cryptarithmetic", "map coloring"]
+        },
+        {
+          "id": 880,
+          "name": "Backtracking Search and Arc Consistency for CSP",
+          "canonical_name": "Backtracking Search and Arc Consistency for CSP",
+          "aliases": ["Backtracking Search CSP", "Forward Checking", "Arc Consistency AC-3"],
+          "strong_phrases": [
+            "backtracking search for csp",
+            "forward checking",
+            "arc consistency",
+            "ac-3 algorithm",
+            "minimum remaining values mrv heuristic",
+            "degree heuristic",
+            "least constraining value lcv heuristic"
+          ],
+          "specific_keywords": [
+            "backtracking search",
+            "forward checking",
+            "arc consistency",
+            "ac-3",
+            "mrv heuristic",
+            "degree heuristic"
+          ],
+          "negative_guards": ["nfa to dfa"],
+          "context_hints": ["arc consistency", "ac-3", "forward checking"]
+        }
+      ]
+    },
+    {
+      "id": 184,
+      "number": 4,
+      "name": "Knowledge Representation, Propositional and First-Order Logic",
+      "topics": [
+        {
+          "id": 881,
+          "name": "Knowledge Representation Principles and Ontological Engineering",
+          "canonical_name": "Knowledge Representation Principles and Ontological Engineering",
+          "aliases": ["Knowledge Engineering", "Ontology in AI", "Semantic Networks"],
+          "strong_phrases": [
+            "knowledge representation",
+            "ontological engineering",
+            "ontology in ai",
+            "categories and objects",
+            "semantic network",
+            "semantic networks",
+            "semantic nets",
+            "frames and scripts",
+            "wumpus world environment",
+            "wumpus world"
+          ],
+          "specific_keywords": [
+            "knowledge representation",
+            "ontological engineering",
+            "semantic network",
+            "semantic networks",
+            "semantic nets",
+            "frames",
+            "wumpus world",
+            "wumpus"
+          ],
+          "negative_guards": ["expert system", "expert systems", "inference engine", "relational schema"],
+          "context_hints": ["knowledge representation", "ontology"]
+        },
+        {
+          "id": 882,
+          "name": "Propositional Logic: Syntax, Semantics and Truth Tables",
+          "canonical_name": "Propositional Logic: Syntax, Semantics and Truth Tables",
+          "aliases": ["Propositional Logic", "Boolean Satisfiability", "Truth Tables in AI"],
+          "strong_phrases": [
+            "propositional logic",
+            "propositional syntax and semantics",
+            "truth tables and validity",
+            "tautology contradiction contingency",
+            "entailment in propositional logic",
+            "models alpha is",
+            "disjunction implication biconditional"
+          ],
+          "specific_keywords": [
+            "propositional logic",
+            "truth table",
+            "truth tables",
+            "truth value",
+            "entailment",
+            "tautology",
+            "biconditional"
+          ],
+          "negative_guards": ["k-map", "boolean circuit", "first order logic", "first-order logic", "fol", "quantifier", "quantifiers", "wumpus world"],
+          "context_hints": ["propositional logic", "entailment"]
+        },
+        {
+          "id": 883,
+          "name": "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
+          "canonical_name": "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
+          "aliases": ["First-Order Logic", "FOL", "Predicate Calculus"],
+          "strong_phrases": [
+            "first order logic",
+            "first-order logic",
+            "first order predicate calculus",
+            "syntax and semantics of fol",
+            "universal quantifier existential quantifier",
+            "variables predicates and quantifiers",
+            "representing knowledge in first order logic",
+            "english sentences into first order logic"
+          ],
+          "specific_keywords": [
+            "first-order logic",
+            "first order logic",
+            "fol",
+            "predicate calculus",
+            "universal quantifier",
+            "existential quantifier",
+            "quantifiers"
+          ],
+          "negative_guards": ["sql select where", "unification", "resolution", "forward chaining", "backward chaining"],
+          "context_hints": ["first-order logic", "quantifiers"]
+        },
+        {
+          "id": 884,
+          "name": "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
+          "canonical_name": "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
+          "aliases": ["Forward Chaining", "Backward Chaining", "Horn Clauses", "Modus Ponens"],
+          "strong_phrases": [
+            "forward chaining",
+            "backward chaining",
+            "backward and forward chaining",
+            "horn clauses and definite clauses",
+            "generalized modus ponens",
+            "datalog and logic programming",
+            "soundness and completeness of chaining"
+          ],
+          "specific_keywords": [
+            "forward chaining",
+            "backward chaining",
+            "horn clause",
+            "definite clause",
+            "modus ponens"
+          ],
+          "negative_guards": ["blockchain"],
+          "context_hints": ["forward chaining", "backward chaining", "modus ponens"]
+        },
+        {
+          "id": 885,
+          "name": "Resolution Refutation and Unification Algorithm",
+          "canonical_name": "Resolution Refutation and Unification Algorithm",
+          "aliases": ["Resolution Principle", "Resolution Refutation", "Unification Algorithm", "MGU"],
+          "strong_phrases": [
+            "resolution principle",
+            "resolution refutation",
+            "unification algorithm",
+            "can unification be applied",
+            "most general unifier mgu",
+            "skolemization skolem constants functions",
+            "conversion to clausal form cnf",
+            "resolvent and empty clause box"
+          ],
+          "specific_keywords": [
+            "resolution refutation",
+            "unification",
+            "most general unifier",
+            "mgu",
+            "skolemization",
+            "clausal form"
+          ],
+          "negative_guards": ["dns resolution", "screen resolution"],
+          "context_hints": ["resolution refutation", "unification", "mgu"]
+        }
+      ]
+    },
+    {
+      "id": 185,
+      "number": 5,
+      "name": "Planning, Expert Systems and Reasoning Under Uncertainty",
+      "topics": [
+        {
+          "id": 886,
+          "name": "Classical Planning and State-Space Planning",
+          "canonical_name": "Classical Planning and State-Space Planning",
+          "aliases": ["Classical Planning", "STRIPS", "PDDL", "State Space Planning"],
+          "strong_phrases": [
+            "classical planning in ai",
+            "planning problem formulation",
+            "strips language",
+            "pddl planning domain definition language",
+            "action schemas preconditions and effects",
+            "forward state space planning progression",
+            "backward state space planning regression",
+            "simple planning agent",
+            "means-ends analysis",
+            "mean-ends analysis",
+            "means ends analysis",
+            "blocks world"
+          ],
+          "specific_keywords": [
+            "classical planning",
+            "simple planning agent",
+            "planning agent",
+            "means-ends analysis",
+            "mean-ends analysis",
+            "strips",
+            "pddl",
+            "blocks world"
+          ],
+          "negative_guards": ["cpu scheduling round robin"],
+          "context_hints": ["classical planning", "strips", "pddl"]
+        },
+        {
+          "id": 887,
+          "name": "Partial Order Planning and Planning Graphs",
+          "canonical_name": "Partial Order Planning and Planning Graphs",
+          "aliases": ["Partial Order Planning", "POP", "Planning Graph", "Graphplan"],
+          "strong_phrases": [
+            "partial order planning",
+            "pop algorithm",
+            "total order vs partial order planner",
+            "causal links and threats",
+            "planning graphs",
+            "graphplan algorithm",
+            "mutex relations mutual exclusion in planning graphs"
+          ],
+          "specific_keywords": [
+            "partial order planning",
+            "pop algorithm",
+            "planning graph",
+            "graphplan",
+            "causal link"
+          ],
+          "negative_guards": ["critical path method cpm"],
+          "context_hints": ["partial order planning", "graphplan"]
+        },
+        {
+          "id": 888,
+          "name": "Reasoning under Uncertainty and Bayesian Networks",
+          "canonical_name": "Reasoning under Uncertainty and Bayesian Networks",
+          "aliases": ["Bayesian Networks", "Belief Networks", "Conditional Probability in AI"],
+          "strong_phrases": [
+            "reasoning under uncertainty",
+            "probabilistic reasoning in ai",
+            "bayesian network",
+            "belief network",
+            "belief revision",
+            "conditional probability table cpt",
+            "exact inference in bayesian networks",
+            "markov blanket and d-separation"
+          ],
+          "specific_keywords": [
+            "bayesian network",
+            "belief network",
+            "belief revision",
+            "uncertain reasoning",
+            "uncertain knowledge",
+            "conditional probability table",
+            "cpt"
+          ],
+          "negative_guards": ["tcp flow control", "means-ends analysis", "means ends analysis"],
+          "context_hints": ["bayesian network", "probabilistic reasoning"]
+        },
+        {
+          "id": 889,
+          "name": "Architecture of Expert Systems and Inference Engine",
+          "canonical_name": "Architecture of Expert Systems and Inference Engine",
+          "aliases": ["Expert Systems", "Expert System Architecture", "Inference Engine"],
+          "strong_phrases": [
+            "expert systems in ai",
+            "architecture of expert system",
+            "architecture of an expert system",
+            "components of an expert system",
+            "components of expert system",
+            "knowledge base and inference engine",
+            "rule based expert systems if-then rules",
+            "inference engine in an expert system",
+            "inference engine in expert system"
+          ],
+          "specific_keywords": [
+            "expert system",
+            "expert systems",
+            "inference engine",
+            "rule-based expert"
+          ],
+          "negative_guards": ["operating system kernel", "mycin", "dendral", "knowledge acquisition", "explanation facility", "means-ends analysis", "means ends analysis"],
+          "context_hints": ["expert system", "inference engine"]
+        },
+        {
+          "id": 890,
+          "name": "Knowledge Acquisition, Explanation Facilities and Shells",
+          "canonical_name": "Knowledge Acquisition, Explanation Facilities and Shells",
+          "aliases": ["Knowledge Acquisition", "Explanation Facility", "Expert System Shells"],
+          "strong_phrases": [
+            "knowledge acquisition in expert systems",
+            "knowledge engineer and domain expert",
+            "explanation facility why and how questions",
+            "expert system shells",
+            "classic expert systems mycin dendral",
+            "advantages and limitations of expert systems"
+          ],
+          "specific_keywords": [
+            "knowledge acquisition",
+            "explanation facility",
+            "expert system shell",
+            "mycin",
+            "dendral"
+          ],
+          "negative_guards": ["bash shell scripting"],
+          "context_hints": ["expert systems", "knowledge acquisition", "explanation facility"]
+        }
+      ]
+    }
+  ]
+}

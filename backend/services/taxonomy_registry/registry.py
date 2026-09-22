@@ -64,8 +64,8 @@ class TaxonomyRegistry:
             )
 
         seen_unit_ids: Set[int] = set()
-        seen_unit_numbers: Set[int] = set()
-        seen_topic_names: Set[str] = set()
+        seen_unit_keys: Set[Any] = set()
+        seen_topic_names: Set[Any] = set()
 
         topic_rules: List[TaxonomyTopicRule] = []
 
@@ -76,11 +76,12 @@ class TaxonomyRegistry:
                 )
             seen_unit_ids.add(unit.id)
 
-            if unit.number in seen_unit_numbers:
+            unit_key = (unit.track_id, unit.number) if unit.track_id is not None else unit.number
+            if unit_key in seen_unit_keys:
                 raise ValueError(
                     f"Course {cid} ({entry.course.name}): duplicate unit number {unit.number} in {source_file}"
                 )
-            seen_unit_numbers.add(unit.number)
+            seen_unit_keys.add(unit_key)
 
             for topic in unit.topics:
                 # Global topic ID uniqueness check
@@ -92,13 +93,14 @@ class TaxonomyRegistry:
                     )
                 self._all_topic_ids[topic.id] = cid
 
-                # Course-local topic name uniqueness check
+                # Course/Track-local topic name uniqueness check
                 normalized_name = topic.name.strip().lower()
-                if normalized_name in seen_topic_names:
+                topic_key = (unit.track_id, normalized_name) if unit.track_id is not None else normalized_name
+                if topic_key in seen_topic_names:
                     raise ValueError(
                         f"Course {cid} ({entry.course.name}): duplicate topic name '{topic.name}' in {source_file}"
                     )
-                seen_topic_names.add(normalized_name)
+                seen_topic_names.add(topic_key)
 
                 # Convert to runtime TaxonomyTopicRule
                 rule = TaxonomyTopicRule(
@@ -116,11 +118,23 @@ class TaxonomyRegistry:
         self._courses[cid] = entry
         self._topic_rules_cache[cid] = topic_rules
 
-    def get_course(self, course_id: int) -> CourseTaxonomyRegistryEntry:
-        """Retrieve a course's declarative taxonomy entry by course ID."""
+    def get_course(self, course_id: int, track_key: Optional[str] = None) -> CourseTaxonomyRegistryEntry:
+        """Retrieve a course's declarative taxonomy entry by course ID, optionally filtered by track."""
         if course_id not in self._courses:
             raise KeyError(f"Course ID {course_id} is not registered in the taxonomy registry.")
-        return self._courses[course_id]
+        entry = self._courses[course_id]
+        if not track_key:
+            return entry
+
+        filtered_units = [u for u in entry.units if u.track_key == track_key]
+        return CourseTaxonomyRegistryEntry(
+            schema_version=entry.schema_version,
+            taxonomy_version=entry.taxonomy_version,
+            course=entry.course,
+            provenance=entry.provenance,
+            units=filtered_units,
+            tracks=entry.tracks
+        )
 
     def has_course(self, course_id: int) -> bool:
         """Check if a course is registered in the taxonomy registry."""
@@ -130,11 +144,27 @@ class TaxonomyRegistry:
         """List all registered course IDs in deterministic sorted order."""
         return sorted(list(self._courses.keys()))
 
-    def get_topic_rules(self, course_id: int) -> List[TaxonomyTopicRule]:
-        """Retrieve the executable TaxonomyTopicRule objects for a course."""
+    def get_topic_rules(
+        self,
+        course_id: int,
+        track_id: Optional[int] = None,
+        track_key: Optional[str] = None
+    ) -> List[TaxonomyTopicRule]:
+        """Retrieve the executable TaxonomyTopicRule objects for a course, optionally filtered by track."""
         if course_id not in self._topic_rules_cache:
             raise KeyError(f"No taxonomy rules registered for Course ID {course_id}.")
-        return list(self._topic_rules_cache[course_id])
+        
+        all_rules = list(self._topic_rules_cache[course_id])
+        if track_id is None and track_key is None:
+            return all_rules
+
+        entry = self._courses[course_id]
+        matching_unit_ids = {
+            u.id for u in entry.units
+            if (track_id is not None and u.track_id == track_id) or
+               (track_key is not None and u.track_key == track_key)
+        }
+        return [r for r in all_rules if r.unit_id in matching_unit_ids]
 
     def validate_against_database(self, course_id: int, db: Any) -> Dict[str, Any]:
         """
@@ -143,27 +173,22 @@ class TaxonomyRegistry:
         - All units exist with matching numbers and names
         - All topics exist with matching IDs and names
         """
-        from backend.models.core import Course, Unit, Topic, Syllabus
+        from backend.models.core import Course, Unit, Topic
 
         entry = self.get_course(course_id)
         course_orm = db.query(Course).filter(Course.id == course_id).first()
         if not course_orm:
             return {"valid": False, "error": f"Course ID {course_id} not found in database"}
 
-        syl = db.query(Syllabus).filter(Syllabus.course_id == course_id).first()
-        if not syl:
-            return {"valid": False, "error": f"Syllabus for Course ID {course_id} not found in database"}
-
-        db_units = db.query(Unit).filter(Unit.syllabus_id == syl.id).all()
-        db_unit_map = {u.id: u for u in db_units}
-
         mismatches: List[str] = []
 
         for reg_unit in entry.units:
-            if reg_unit.id not in db_unit_map:
+            db_u = db.query(Unit).filter(Unit.id == reg_unit.id).first()
+            if not db_u:
                 mismatches.append(f"Unit ID {reg_unit.id} ('{reg_unit.name}') missing in database")
                 continue
-            db_u = db_unit_map[reg_unit.id]
+            if db_u.syllabus and db_u.syllabus.course_id != course_id:
+                mismatches.append(f"Unit ID {reg_unit.id} belongs to Course {db_u.syllabus.course_id}, not {course_id}")
             if db_u.name.strip().lower() != reg_unit.name.strip().lower():
                 mismatches.append(f"Unit ID {reg_unit.id} name mismatch: DB '{db_u.name}' != Registry '{reg_unit.name}'")
 

@@ -10,30 +10,33 @@ from backend.schemas import ExamDNA
 from backend.schemas import EvolutionReport
 from backend.services.dna.analyzer import DNAAnalyzerService
 from backend.services.dna.evolution import ExamEvolutionService
+from backend.services.assessment_cycle import normalize_assessment_cycle, filter_exams_by_cycle
 
 
 router = APIRouter()
 
 # Simple in-memory cache for expensive analysis to avoid repeated DB hits
-# Key: (course_id, analysis_type), Value: (timestamp, data)
+# Key: (course_id, assessment_cycle, analysis_type), Value: (timestamp, data)
 _ANALYSIS_CACHE = {}
 CACHE_TTL = 300 # 5 minutes
 
-def _get_exams_as_dicts(course_id: int, db: Session) -> list[dict]:
+def _get_exams_as_dicts(course_id: int, db: Session, assessment_cycle: Optional[str] = None) -> list[dict]:
     """
     Eagerly loads exams to avoid N+1 queries.
     Maps ORM objects to the dict structure expected by DNA Analyzer.
     """
     # Eager load relationships to prevent N+1
-    exams = (
+    query = (
         db.query(Exam)
         .options(
             joinedload(Exam.document),
             joinedload(Exam.sections).joinedload(Section.questions).joinedload(Question.family)
         )
         .filter(Exam.course_id == course_id)
-        .all()
     )
+    if assessment_cycle and assessment_cycle != "ALL":
+        query = filter_exams_by_cycle(query, Exam.assessment_type, assessment_cycle)
+    exams = query.all()
     
     out = []
     for ex in exams:
@@ -94,16 +97,18 @@ def _resolve_course(db: Session, course_identifier: str) -> Course:
 @router.get("/dna", response_model=ExamDNA)
 def get_course_dna(
     course_id: str = Query(..., description="The ID, code, or name of the course to analyze"),
+    assessment_cycle: Optional[str] = Query(None, description="Assessment cycle filter: ALL, CT1, CT2, ENDSEM"),
     db: Session = Depends(get_db)
 ):
     course = _resolve_course(db, course_id)
-    cache_key = (course.id, "dna")
+    norm_cycle = normalize_assessment_cycle(assessment_cycle)
+    cache_key = (course.id, norm_cycle or "ALL", "dna")
     if cache_key in _ANALYSIS_CACHE:
         ts, data = _ANALYSIS_CACHE[cache_key]
         if time.time() - ts < CACHE_TTL:
             return data
 
-    exams_dict = _get_exams_as_dicts(course.id, db)
+    exams_dict = _get_exams_as_dicts(course.id, db, norm_cycle)
     dna_report = DNAAnalyzerService.analyze(exams_dict)
     
     _ANALYSIS_CACHE[cache_key] = (time.time(), dna_report)
@@ -112,16 +117,18 @@ def get_course_dna(
 @router.get("/evolution", response_model=EvolutionReport)
 def get_course_evolution(
     course_id: str = Query(..., description="The ID, code, or name of the course to track"),
+    assessment_cycle: Optional[str] = Query(None, description="Assessment cycle filter: ALL, CT1, CT2, ENDSEM"),
     db: Session = Depends(get_db)
 ):
     course = _resolve_course(db, course_id)
-    cache_key = (course.id, "evolution")
+    norm_cycle = normalize_assessment_cycle(assessment_cycle)
+    cache_key = (course.id, norm_cycle or "ALL", "evolution")
     if cache_key in _ANALYSIS_CACHE:
         ts, data = _ANALYSIS_CACHE[cache_key]
         if time.time() - ts < CACHE_TTL:
             return data
 
-    exams_dict = _get_exams_as_dicts(course.id, db)
+    exams_dict = _get_exams_as_dicts(course.id, db, norm_cycle)
     evolution_report = ExamEvolutionService.analyze_evolution(course.id, exams_dict)
     
     _ANALYSIS_CACHE[cache_key] = (time.time(), evolution_report)

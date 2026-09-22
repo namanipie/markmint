@@ -1,0 +1,4462 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 8,
+    "name": "Foreign Languages",
+    "canonical_code": "SEM1-FORE",
+    "code": "SEM1-FORE",
+    "regulation_year": 2021,
+    "department": "Department of English and Foreign Languages"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Foreign Language Electives Curriculum & Syllabi",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Language-segmented catalog course with 6 isolated tracks: German (21LEH104T), French (21LEH103T), Spanish (21LEH107T), Japanese (21LEH105T), Korean (21LEH106T), and Chinese (21LEH102T)."
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "key": "german",
+      "name": "German",
+      "code": "21LEH104T"
+    },
+    {
+      "id": 2,
+      "key": "french",
+      "name": "French",
+      "code": "21LEH103T"
+    },
+    {
+      "id": 3,
+      "key": "spanish",
+      "name": "Spanish",
+      "code": "21LEH107T"
+    },
+    {
+      "id": 4,
+      "key": "japanese",
+      "name": "Japanese",
+      "code": "21LEH105T"
+    },
+    {
+      "id": 5,
+      "key": "korean",
+      "name": "Korean",
+      "code": "21LEH106T"
+    },
+    {
+      "id": 6,
+      "key": "chinese",
+      "name": "Chinese",
+      "code": "21LEH102T"
+    }
+  ],
+  "units": [
+    {
+      "id": 126,
+      "number": 1,
+      "name": "Begrüßungen, Sich Vorstellen und Grundlagen",
+      "track_id": 1,
+      "track_key": "german",
+      "topics": [
+        {
+          "id": 550,
+          "name": "Begrüßungen und Verabschiedungen",
+          "canonical_name": "Begrüßungen und Verabschiedungen",
+          "aliases": [],
+          "strong_phrases": [
+            "begrüßungen und verabschiedungen"
+          ],
+          "specific_keywords": [
+            "begrüßungen",
+            "verabschiedungen"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 551,
+          "name": "Sich Vorstellen und Persönliche Angaben",
+          "canonical_name": "Sich Vorstellen und Persönliche Angaben",
+          "aliases": [],
+          "strong_phrases": [
+            "sich vorstellen und persönliche angaben"
+          ],
+          "specific_keywords": [
+            "vorstellen",
+            "persönliche",
+            "angaben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 552,
+          "name": "Alphabet, Zahlen bis 100 und Buchstabieren",
+          "canonical_name": "Alphabet, Zahlen bis 100 und Buchstabieren",
+          "aliases": [],
+          "strong_phrases": [
+            "alphabet, zahlen bis 100 und buchstabieren"
+          ],
+          "specific_keywords": [
+            "alphabet,",
+            "zahlen",
+            "buchstabieren"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 553,
+          "name": "Länder, Sprachen und Wohnort",
+          "canonical_name": "Länder, Sprachen und Wohnort",
+          "aliases": [],
+          "strong_phrases": [
+            "länder, sprachen und wohnort"
+          ],
+          "specific_keywords": [
+            "länder,",
+            "sprachen",
+            "wohnort"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 554,
+          "name": "W-Fragen und Fragewörter",
+          "canonical_name": "W-Fragen und Fragewörter",
+          "aliases": [],
+          "strong_phrases": [
+            "w-fragen und fragewörter"
+          ],
+          "specific_keywords": [
+            "w-fragen",
+            "fragewörter"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 555,
+          "name": "Wochentage, Monate und Jahreszeiten",
+          "canonical_name": "Wochentage, Monate und Jahreszeiten",
+          "aliases": [],
+          "strong_phrases": [
+            "montag dienstag mittwoch",
+            "wochentage",
+            "januar februar marz",
+            "monate des jahres",
+            "fruhling sommer herbst winter",
+            "jahreszeiten",
+            "the spring",
+            "the summer",
+            "the winter",
+            "the autumn"
+          ],
+          "specific_keywords": [
+            "wochentage",
+            "monate",
+            "jahreszeiten",
+            "der herbst",
+            "der sommer",
+            "der fruhling",
+            "der winter"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calendar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 127,
+      "number": 2,
+      "name": "Personalpronomen, Verben und Satzbau",
+      "track_id": 1,
+      "track_key": "german",
+      "topics": [
+        {
+          "id": 556,
+          "name": "Personalpronomen im Nominativ",
+          "canonical_name": "Personalpronomen im Nominativ",
+          "aliases": [],
+          "strong_phrases": [
+            "personalpronomen im nominativ"
+          ],
+          "specific_keywords": [
+            "personalpronomen",
+            "nominativ"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 557,
+          "name": "Konjugation Regelmäßiger und Unregelmäßiger Verben",
+          "canonical_name": "Konjugation Regelmäßiger und Unregelmäßiger Verben",
+          "aliases": [],
+          "strong_phrases": [
+            "konjugation regelmäßiger und unregelmäßiger verben"
+          ],
+          "specific_keywords": [
+            "konjugation",
+            "regelmäßiger",
+            "unregelmäßiger",
+            "verben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 558,
+          "name": "Zahlen bis eine Million",
+          "canonical_name": "Zahlen bis eine Million",
+          "aliases": [],
+          "strong_phrases": [
+            "zahlen bis eine million"
+          ],
+          "specific_keywords": [
+            "zahlen",
+            "million"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 559,
+          "name": "Satzbau: Aussagesatz und Fragesätze",
+          "canonical_name": "Satzbau: Aussagesatz und Fragesätze",
+          "aliases": [],
+          "strong_phrases": [
+            "satzbau: aussagesatz und fragesätze"
+          ],
+          "specific_keywords": [
+            "satzbau:",
+            "aussagesatz",
+            "fragesätze"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 560,
+          "name": "Formulare und Steckbriefe Ausfüllen",
+          "canonical_name": "Formulare und Steckbriefe Ausfüllen",
+          "aliases": [],
+          "strong_phrases": [
+            "formulare und steckbriefe ausfüllen"
+          ],
+          "specific_keywords": [
+            "formulare",
+            "steckbriefe",
+            "ausfüllen"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 128,
+      "number": 3,
+      "name": "Wortschatz, Artikel und Wegbeschreibung",
+      "track_id": 1,
+      "track_key": "german",
+      "topics": [
+        {
+          "id": 561,
+          "name": "Wortschatz: Gebäude, Plätze und Verkehrsmittel",
+          "canonical_name": "Wortschatz: Gebäude, Plätze und Verkehrsmittel",
+          "aliases": [],
+          "strong_phrases": [
+            "wortschatz: gebäude, plätze und verkehrsmittel"
+          ],
+          "specific_keywords": [
+            "wortschatz:",
+            "gebäude,",
+            "plätze",
+            "verkehrsmittel"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 562,
+          "name": "Gegenstände, Schulsachen und Geräte",
+          "canonical_name": "Gegenstände, Schulsachen und Geräte",
+          "aliases": [],
+          "strong_phrases": [
+            "gegenstände, schulsachen und geräte"
+          ],
+          "specific_keywords": [
+            "gegenstände,",
+            "schulsachen",
+            "geräte"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 563,
+          "name": "Bestimmte und Unbestimmte Artikel im Nominativ",
+          "canonical_name": "Bestimmte und Unbestimmte Artikel im Nominativ",
+          "aliases": [],
+          "strong_phrases": [
+            "bestimmte und unbestimmte artikel im nominativ"
+          ],
+          "specific_keywords": [
+            "bestimmte",
+            "unbestimmte",
+            "artikel",
+            "nominativ"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 564,
+          "name": "Negation mit kein und nicht",
+          "canonical_name": "Negation mit kein und nicht",
+          "aliases": [],
+          "strong_phrases": [
+            "negation mit kein und nicht"
+          ],
+          "specific_keywords": [
+            "negation",
+            "nicht"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 565,
+          "name": "Wegbeschreibung, Orientierung und Himmelsrichtungen",
+          "canonical_name": "Wegbeschreibung, Orientierung und Himmelsrichtungen",
+          "aliases": [],
+          "strong_phrases": [
+            "wegbeschreibung, orientierung und himmelsrichtungen"
+          ],
+          "specific_keywords": [
+            "wegbeschreibung,",
+            "orientierung",
+            "himmelsrichtungen"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 566,
+          "name": "Ordinalzahlen und Datumsangaben",
+          "canonical_name": "Ordinalzahlen und Datumsangaben",
+          "aliases": [],
+          "strong_phrases": [
+            "ordinalzahlen und datumsangaben"
+          ],
+          "specific_keywords": [
+            "ordinalzahlen",
+            "datumsangaben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "number": 4,
+      "name": "Lebensmittel, Einkaufen, Akkusativ und Uhrzeit",
+      "track_id": 1,
+      "track_key": "german",
+      "topics": [
+        {
+          "id": 567,
+          "name": "Lebensmittel, Mahlzeiten und Getränke",
+          "canonical_name": "Lebensmittel, Mahlzeiten und Getränke",
+          "aliases": [],
+          "strong_phrases": [
+            "lebensmittel, mahlzeiten und getränke"
+          ],
+          "specific_keywords": [
+            "lebensmittel,",
+            "mahlzeiten",
+            "getränke"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 568,
+          "name": "Preise, Einkaufen und Maßeinheiten",
+          "canonical_name": "Preise, Einkaufen und Maßeinheiten",
+          "aliases": [],
+          "strong_phrases": [
+            "preise, einkaufen und maßeinheiten"
+          ],
+          "specific_keywords": [
+            "preise,",
+            "einkaufen",
+            "maßeinheiten"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 569,
+          "name": "Akkusativ: Bestimmte, Unbestimmte Artikel und Negation",
+          "canonical_name": "Akkusativ: Bestimmte, Unbestimmte Artikel und Negation",
+          "aliases": [],
+          "strong_phrases": [
+            "akkusativ: bestimmte, unbestimmte artikel und negation"
+          ],
+          "specific_keywords": [
+            "akkusativ:",
+            "bestimmte,",
+            "unbestimmte",
+            "artikel",
+            "negation"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 570,
+          "name": "Verben mit Akkusativ-Ergänzung",
+          "canonical_name": "Verben mit Akkusativ-Ergänzung",
+          "aliases": [],
+          "strong_phrases": [
+            "verben mit akkusativ-ergänzung"
+          ],
+          "specific_keywords": [
+            "verben",
+            "akkusativ-ergänzung"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 571,
+          "name": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+          "canonical_name": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+          "aliases": [],
+          "strong_phrases": [
+            "uhrzeit: offizielle und inoffizielle zeitangaben"
+          ],
+          "specific_keywords": [
+            "uhrzeit:",
+            "offizielle",
+            "inoffizielle",
+            "zeitangaben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 130,
+      "number": 5,
+      "name": "Modalverben, Trennbare Verben und Familie",
+      "track_id": 1,
+      "track_key": "german",
+      "topics": [
+        {
+          "id": 572,
+          "name": "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+          "canonical_name": "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+          "aliases": [],
+          "strong_phrases": [
+            "modalverben: müssen, können, wollen, sollen, dürfen, mögen"
+          ],
+          "specific_keywords": [
+            "modalverben:",
+            "müssen,",
+            "können,",
+            "wollen,",
+            "sollen,",
+            "dürfen,",
+            "mögen"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 573,
+          "name": "Trennbare und Untrennbare Verben",
+          "canonical_name": "Trennbare und Untrennbare Verben",
+          "aliases": [],
+          "strong_phrases": [
+            "trennbare und untrennbare verben"
+          ],
+          "specific_keywords": [
+            "trennbare",
+            "untrennbare",
+            "verben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 574,
+          "name": "Possessivpronomen im Nominativ",
+          "canonical_name": "Possessivpronomen im Nominativ",
+          "aliases": [],
+          "strong_phrases": [
+            "possessivpronomen im nominativ"
+          ],
+          "specific_keywords": [
+            "possessivpronomen",
+            "nominativ"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 575,
+          "name": "Familie und Verwandtschaftsverhältnisse",
+          "canonical_name": "Familie und Verwandtschaftsverhältnisse",
+          "aliases": [],
+          "strong_phrases": [
+            "familie und verwandtschaftsverhältnisse"
+          ],
+          "specific_keywords": [
+            "familie",
+            "verwandtschaftsverhältnisse"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        },
+        {
+          "id": 576,
+          "name": "Präteritum von sein und haben",
+          "canonical_name": "Präteritum von sein und haben",
+          "aliases": [],
+          "strong_phrases": [
+            "präteritum von sein und haben"
+          ],
+          "specific_keywords": [
+            "präteritum",
+            "haben"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "german"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 131,
+      "number": 1,
+      "name": "Alphabet, Phonétique et Communication en Classe",
+      "track_id": 2,
+      "track_key": "french",
+      "topics": [
+        {
+          "id": 577,
+          "name": "L'Alphabet Français et la Phonétique",
+          "canonical_name": "L'Alphabet Français et la Phonétique",
+          "aliases": [],
+          "strong_phrases": [
+            "l'alphabet francais",
+            "alphabet francais",
+            "phonetique francaise",
+            "voyelles et consonnes",
+            "les accents francais"
+          ],
+          "specific_keywords": [
+            "alphabet",
+            "phonetique",
+            "voyelles",
+            "accents"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "french basics"
+          ]
+        },
+        {
+          "id": 578,
+          "name": "Les Accents et la Ponctuation",
+          "canonical_name": "Les Accents et la Ponctuation",
+          "aliases": [],
+          "strong_phrases": [
+            "accent aigu",
+            "accent grave",
+            "accent circonflexe",
+            "la cedille",
+            "le trema",
+            "ponctuation"
+          ],
+          "specific_keywords": [
+            "accent aigu",
+            "accent grave",
+            "circonflexe",
+            "cedille",
+            "trema"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "accents"
+          ]
+        },
+        {
+          "id": 579,
+          "name": "L'Orthographe et les Règles de Prononciation",
+          "canonical_name": "L'Orthographe et les Règles de Prononciation",
+          "aliases": [],
+          "strong_phrases": [
+            "liaison en francais",
+            "elision",
+            "lettres muettes",
+            "prononciation francaise"
+          ],
+          "specific_keywords": [
+            "liaison",
+            "elision",
+            "lettres muettes",
+            "prononciation"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "pronunciation"
+          ]
+        },
+        {
+          "id": 580,
+          "name": "La Communication et les Consignes en Classe",
+          "canonical_name": "La Communication et les Consignes en Classe",
+          "aliases": [],
+          "strong_phrases": [
+            "consignes de classe",
+            "ouvrez vos livres",
+            "ecoutez et repetez",
+            "comment dit-on",
+            "je ne comprends pas"
+          ],
+          "specific_keywords": [
+            "consignes",
+            "en classe",
+            "ouvrez",
+            "ecoutez"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "classroom french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 132,
+      "number": 2,
+      "name": "Salutations, Pronoms Sujets, Verbes de Base et Nombres",
+      "track_id": 2,
+      "track_key": "french",
+      "topics": [
+        {
+          "id": 581,
+          "name": "Les Salutations et Formules de Politesse",
+          "canonical_name": "Les Salutations et Formules de Politesse",
+          "aliases": [],
+          "strong_phrases": [
+            "bonjour",
+            "bonsoir",
+            "salut",
+            "au revoir",
+            "s'il vous plait",
+            "merci beaucoup",
+            "enchantee",
+            "comment allez-vous"
+          ],
+          "specific_keywords": [
+            "bonjour",
+            "salut",
+            "au revoir",
+            "politesse",
+            "enchantee",
+            "merci"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "greetings"
+          ]
+        },
+        {
+          "id": 582,
+          "name": "Les Pronoms Personnels Sujets",
+          "canonical_name": "Les Pronoms Personnels Sujets",
+          "aliases": [],
+          "strong_phrases": [
+            "pronoms personnels sujets",
+            "je tu il elle",
+            "nous vous ils elles",
+            "pronom sujet"
+          ],
+          "specific_keywords": [
+            "pronoms personnels",
+            "pronoms sujets",
+            "sujets"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "subject pronouns"
+          ]
+        },
+        {
+          "id": 583,
+          "name": "Verbes Fondamentaux: être, avoir, s'appeler, habiter",
+          "canonical_name": "Verbes Fondamentaux: être, avoir, s'appeler, habiter",
+          "aliases": [],
+          "strong_phrases": [
+            "verbe etre",
+            "verbe avoir",
+            "je suis tu es",
+            "j'ai tu as",
+            "je m'appelle",
+            "j'habite a",
+            "etes intelligents",
+            "etes"
+          ],
+          "specific_keywords": [
+            "verbe etre",
+            "verbe avoir",
+            "s'appeler",
+            "habiter",
+            "etes"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "basic verbs"
+          ]
+        },
+        {
+          "id": 584,
+          "name": "Se Présenter et Présenter Quelqu'un",
+          "canonical_name": "Se Présenter et Présenter Quelqu'un",
+          "aliases": [],
+          "strong_phrases": [
+            "se presenter",
+            "je me presente",
+            "voici mon ami",
+            "c'est un collegue",
+            "quel est votre nom"
+          ],
+          "specific_keywords": [
+            "se presenter",
+            "presenter",
+            "voici",
+            "c'est mon"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "introductions"
+          ]
+        },
+        {
+          "id": 585,
+          "name": "Les Articles Définis et Indéfinis",
+          "canonical_name": "Les Articles Définis et Indéfinis",
+          "aliases": [],
+          "strong_phrases": [
+            "articles definis",
+            "articles indefinis",
+            "le la l' les",
+            "un une des"
+          ],
+          "specific_keywords": [
+            "articles definis",
+            "articles indefinis",
+            "le la les",
+            "un une des"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "articles"
+          ]
+        },
+        {
+          "id": 586,
+          "name": "Les Nombres de 0 à 69, Jours et Mois",
+          "canonical_name": "Les Nombres de 0 à 69, Jours et Mois",
+          "aliases": [],
+          "strong_phrases": [
+            "nombres de 0 a 69",
+            "sept cent soixante",
+            "jours de la semaine",
+            "mois de l'annee",
+            "lundi mardi mercredi",
+            "janvier fevrier"
+          ],
+          "specific_keywords": [
+            "nombres",
+            "jours",
+            "mois de l'annee",
+            "soixante"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "numbers and calendar"
+          ]
+        },
+        {
+          "id": 587,
+          "name": "Les Pronoms Toniques",
+          "canonical_name": "Les Pronoms Toniques",
+          "aliases": [],
+          "strong_phrases": [
+            "pronoms toniques",
+            "moi toi lui elle",
+            "nous vous eux elles tonique",
+            "avec moi",
+            "et toi"
+          ],
+          "specific_keywords": [
+            "pronoms toniques",
+            "moi",
+            "toi",
+            "lui"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "tonic pronouns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 133,
+      "number": 3,
+      "name": "Verbes du 1er Groupe, Nationalités et Famille",
+      "track_id": 2,
+      "track_key": "french",
+      "topics": [
+        {
+          "id": 588,
+          "name": "Les Nombres de 70 à 1000",
+          "canonical_name": "Les Nombres de 70 à 1000",
+          "aliases": [],
+          "strong_phrases": [
+            "soixante-dix",
+            "quatre-vingts",
+            "quatre-vingt-dix",
+            "cent mille",
+            "nombres 70 a 1000",
+            "nombre correct en lettres"
+          ],
+          "specific_keywords": [
+            "quatre-vingts",
+            "soixante-dix",
+            "sept cent",
+            "mille",
+            "en lettres"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "higher numbers"
+          ]
+        },
+        {
+          "id": 589,
+          "name": "Verbes Réguliers du 1er Groupe en -er",
+          "canonical_name": "Verbes Réguliers du 1er Groupe en -er",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes du premier groupe",
+            "verbes en -er",
+            "parler aimer travailler",
+            "terminaisons en -er",
+            "e es e ons ez ent"
+          ],
+          "specific_keywords": [
+            "premier groupe",
+            "verbes en -er",
+            "terminaisons"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "first group verbs"
+          ]
+        },
+        {
+          "id": 590,
+          "name": "Verbes Aller et Venir",
+          "canonical_name": "Verbes Aller et Venir",
+          "aliases": [],
+          "strong_phrases": [
+            "verbe aller",
+            "verbe venir",
+            "je vais tu vas",
+            "je viens tu viens",
+            "venir de"
+          ],
+          "specific_keywords": [
+            "verbe aller",
+            "verbe venir",
+            "je vais",
+            "je viens"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "irregular verbs"
+          ]
+        },
+        {
+          "id": 591,
+          "name": "Les Professions et Métiers",
+          "canonical_name": "Les Professions et Métiers",
+          "aliases": [],
+          "strong_phrases": [
+            "professions et metiers",
+            "quelle est votre profession",
+            "medecin avocat ingenieur",
+            "professeur etudiant"
+          ],
+          "specific_keywords": [
+            "professions",
+            "metiers",
+            "ingenieur",
+            "professeur",
+            "medecin"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "jobs"
+          ]
+        },
+        {
+          "id": 592,
+          "name": "Pays, Villes et Nationalités",
+          "canonical_name": "Pays, Villes et Nationalités",
+          "aliases": [],
+          "strong_phrases": [
+            "pays et villes",
+            "nationalites",
+            "france francais",
+            "inde indien indienne",
+            "en france au japon aux etats-unis",
+            "symboles de la france",
+            "tgv est"
+          ],
+          "specific_keywords": [
+            "nationalites",
+            "pays",
+            "la france",
+            "symboles de la france",
+            "tgv"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "countries"
+          ]
+        },
+        {
+          "id": 593,
+          "name": "Genre et Nombre des Adjectifs Qualificatifs",
+          "canonical_name": "Genre et Nombre des Adjectifs Qualificatifs",
+          "aliases": [],
+          "strong_phrases": [
+            "adjectifs qualificatifs",
+            "feminin des adjectifs",
+            "pluriel des adjectifs",
+            "accord des adjectifs"
+          ],
+          "specific_keywords": [
+            "adjectifs qualificatifs",
+            "accord des adjectifs",
+            "feminin",
+            "pluriel"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "adjectives"
+          ]
+        },
+        {
+          "id": 594,
+          "name": "Les Prépositions de Lieu",
+          "canonical_name": "Les Prépositions de Lieu",
+          "aliases": [],
+          "strong_phrases": [
+            "prepositions de lieu",
+            "a en au aux",
+            "devant derriere sous sur",
+            "a cote de en face de"
+          ],
+          "specific_keywords": [
+            "prepositions de lieu",
+            "devant",
+            "derriere",
+            "a cote de"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "prepositions"
+          ]
+        },
+        {
+          "id": 595,
+          "name": "Les Adjectifs Possessifs et la Famille",
+          "canonical_name": "Les Adjectifs Possessifs et la Famille",
+          "aliases": [],
+          "strong_phrases": [
+            "adjectifs possessifs",
+            "mon ma mes",
+            "ton ta tes",
+            "son sa ses",
+            "la famille en francais",
+            "pere mere frere soeur"
+          ],
+          "specific_keywords": [
+            "adjectifs possessifs",
+            "mon ma mes",
+            "famille",
+            "pere",
+            "mere"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "possessives and family"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "number": 4,
+      "name": "Mots Interrogatifs, Verbes Modaux, Loisirs et Heure",
+      "track_id": 2,
+      "track_key": "french",
+      "topics": [
+        {
+          "id": 596,
+          "name": "Les Mots et Structures Interrogatives",
+          "canonical_name": "Les Mots et Structures Interrogatives",
+          "aliases": [],
+          "strong_phrases": [
+            "mots interrogatifs",
+            "qui que quoi ou quand comment pourquoi",
+            "est-ce que",
+            "l'inversion interrogative"
+          ],
+          "specific_keywords": [
+            "interrogatifs",
+            "est-ce que",
+            "pourquoi",
+            "comment",
+            "ou quand"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "interrogatives"
+          ]
+        },
+        {
+          "id": 597,
+          "name": "Les Verbes Modaux: vouloir, pouvoir, devoir",
+          "canonical_name": "Les Verbes Modaux: vouloir, pouvoir, devoir",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes modaux",
+            "vouloir pouvoir devoir",
+            "je veux tu veux",
+            "je peux tu peux",
+            "je dois"
+          ],
+          "specific_keywords": [
+            "vouloir",
+            "pouvoir",
+            "devoir",
+            "verbes modaux"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "modals"
+          ]
+        },
+        {
+          "id": 598,
+          "name": "Les Verbes Pronominaux et la Routine",
+          "canonical_name": "Les Verbes Pronominaux et la Routine",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes pronominaux",
+            "se lever se coucher",
+            "se doucher s'habiller",
+            "la routine quotidienne"
+          ],
+          "specific_keywords": [
+            "verbes pronominaux",
+            "routine quotidienne",
+            "se lever",
+            "se coucher"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "reflexive verbs"
+          ]
+        },
+        {
+          "id": 599,
+          "name": "Verbes du 2ème Groupe en -ir",
+          "canonical_name": "Verbes du 2ème Groupe en -ir",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes du deuxieme groupe",
+            "verbes en -ir",
+            "finir choisir remplir",
+            "terminaisons -is -is -it -issons -issez -issent"
+          ],
+          "specific_keywords": [
+            "deuxieme groupe",
+            "verbes en -ir",
+            "finir",
+            "choisir"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "second group verbs"
+          ]
+        },
+        {
+          "id": 600,
+          "name": "Les Loisirs, Goûts et Préférences",
+          "canonical_name": "Les Loisirs, Goûts et Préférences",
+          "aliases": [],
+          "strong_phrases": [
+            "les loisirs",
+            "gouts et preferences",
+            "j'aime le cinema",
+            "je deteste le sport",
+            "faire du sport jouer au football"
+          ],
+          "specific_keywords": [
+            "loisirs",
+            "preferences",
+            "j'aime",
+            "je prefere"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "leisure"
+          ]
+        },
+        {
+          "id": 601,
+          "name": "Le Futur Proche",
+          "canonical_name": "Le Futur Proche",
+          "aliases": [],
+          "strong_phrases": [
+            "le futur proche",
+            "aller plus infinitif",
+            "je vais manger",
+            "nous allons partir"
+          ],
+          "specific_keywords": [
+            "futur proche",
+            "aller + infinitif"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "near future"
+          ]
+        },
+        {
+          "id": 602,
+          "name": "L'Heure et les Horaires",
+          "canonical_name": "L'Heure et les Horaires",
+          "aliases": [],
+          "strong_phrases": [
+            "quelle heure est-il",
+            "il est deux heures",
+            "et quart",
+            "et demie",
+            "moins le quart",
+            "les horaires"
+          ],
+          "specific_keywords": [
+            "quelle heure",
+            "l'heure",
+            "et quart",
+            "et demie"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "time"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 135,
+      "number": 5,
+      "name": "Adjectifs Démonstratifs, Quantités, Vêtements et Sorties",
+      "track_id": 2,
+      "track_key": "french",
+      "topics": [
+        {
+          "id": 603,
+          "name": "Les Adjectifs Démonstratifs: ce, cette, ces",
+          "canonical_name": "Les Adjectifs Démonstratifs: ce, cette, ces",
+          "aliases": [],
+          "strong_phrases": [
+            "adjectifs demonstratifs",
+            "ce cet cette ces",
+            "demonstratif en francais"
+          ],
+          "specific_keywords": [
+            "adjectifs demonstratifs",
+            "ce cet cette ces"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": 604,
+          "name": "Les Expressions de Quantité et Articles Partitifs",
+          "canonical_name": "Les Expressions de Quantité et Articles Partitifs",
+          "aliases": [],
+          "strong_phrases": [
+            "articles partitifs",
+            "du de la de l' des",
+            "expressions de quantite",
+            "un kilo de",
+            "beaucoup de",
+            "un peu de"
+          ],
+          "specific_keywords": [
+            "articles partitifs",
+            "partitifs",
+            "quantite",
+            "du de la",
+            "beaucoup de"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "partitives"
+          ]
+        },
+        {
+          "id": 605,
+          "name": "Verbes Particuliers en -ger, -cer, -yer",
+          "canonical_name": "Verbes Particuliers en -ger, -cer, -yer",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes en -ger",
+            "manger",
+            "verbes en -cer",
+            "commencer",
+            "verbes en -yer",
+            "payer"
+          ],
+          "specific_keywords": [
+            "verbes en -ger",
+            "verbes en -cer",
+            "manger",
+            "commencer"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "spelling change verbs"
+          ]
+        },
+        {
+          "id": 606,
+          "name": "Verbes du 3ème Groupe Irréguliers",
+          "canonical_name": "Verbes du 3ème Groupe Irréguliers",
+          "aliases": [],
+          "strong_phrases": [
+            "verbes du troisieme groupe",
+            "verbes irreguliers",
+            "faire prendre mettre voir partir"
+          ],
+          "specific_keywords": [
+            "troisieme groupe",
+            "verbes irreguliers",
+            "faire",
+            "prendre",
+            "mettre"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "third group verbs"
+          ]
+        },
+        {
+          "id": 607,
+          "name": "Les Vêtements, Couleurs et la Mode",
+          "canonical_name": "Les Vêtements, Couleurs et la Mode",
+          "aliases": [],
+          "strong_phrases": [
+            "les vetements",
+            "pantalon chemise robe manteau",
+            "les couleurs",
+            "rouge bleu vert blanc noir",
+            "la mode francaise"
+          ],
+          "specific_keywords": [
+            "vetements",
+            "couleurs",
+            "pantalon",
+            "chemise",
+            "robe"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "clothing and colors"
+          ]
+        },
+        {
+          "id": 608,
+          "name": "Adverbes de Fréquence et de Temps",
+          "canonical_name": "Adverbes de Fréquence et de Temps",
+          "aliases": [],
+          "strong_phrases": [
+            "adverbes de frequence",
+            "toujours souvent quelquefois rarement jamais",
+            "adverbes de temps",
+            "aujourd'hui demain hier"
+          ],
+          "specific_keywords": [
+            "adverbes de frequence",
+            "toujours",
+            "souvent",
+            "jamais",
+            "parfois"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "adverbs"
+          ]
+        },
+        {
+          "id": 609,
+          "name": "Proposer, Accepter ou Refuser une Sortie",
+          "canonical_name": "Proposer, Accepter ou Refuser une Sortie",
+          "aliases": [],
+          "strong_phrases": [
+            "proposer une sortie",
+            "tu veux aller au cinema",
+            "d'accord avec plaisir",
+            "desole je ne peux pas",
+            "invitation"
+          ],
+          "specific_keywords": [
+            "proposer",
+            "accepter",
+            "refuser",
+            "invitation",
+            "sortie"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "invitations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 136,
+      "number": 1,
+      "name": "Abecedario, Saludos, Presentación y Verbos Básicos",
+      "track_id": 3,
+      "track_key": "spanish",
+      "topics": [
+        {
+          "id": 610,
+          "name": "El Abecedario y Pronunciación",
+          "canonical_name": "El Abecedario y Pronunciación",
+          "aliases": [],
+          "strong_phrases": [
+            "abecedario",
+            "el alfabeto",
+            "pronunciacion en espanol",
+            "letras del abecedario"
+          ],
+          "specific_keywords": [
+            "abecedario",
+            "alfabeto",
+            "pronunciacion"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "spanish basics"
+          ]
+        },
+        {
+          "id": 611,
+          "name": "Saludos y Despedidas",
+          "canonical_name": "Saludos y Despedidas",
+          "aliases": [],
+          "strong_phrases": [
+            "hola buenos dias",
+            "buenas tardes",
+            "buenas noches",
+            "adios hasta luego",
+            "saludos y despedidas"
+          ],
+          "specific_keywords": [
+            "saludos",
+            "despedidas",
+            "buenos dias",
+            "buenas tardes",
+            "hasta luego"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "greetings"
+          ]
+        },
+        {
+          "id": 612,
+          "name": "Nacionalidades y Profesiones",
+          "canonical_name": "Nacionalidades y Profesiones",
+          "aliases": [],
+          "strong_phrases": [
+            "nacionalidad",
+            "profesion",
+            "espanol espanola",
+            "medico profesor estudiante",
+            "de donde eres"
+          ],
+          "specific_keywords": [
+            "nacionalidades",
+            "profesiones",
+            "de donde",
+            "profesor",
+            "medico"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "professions"
+          ]
+        },
+        {
+          "id": 613,
+          "name": "Números del 1 al 100",
+          "canonical_name": "Números del 1 al 100",
+          "aliases": [],
+          "strong_phrases": [
+            "numeros del 1 al 100",
+            "uno dos tres cuatro",
+            "diez veinte treinta",
+            "cuarenta cincuenta"
+          ],
+          "specific_keywords": [
+            "numeros",
+            "veinte",
+            "treinta",
+            "cincuenta",
+            "cien"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "numbers"
+          ]
+        },
+        {
+          "id": 614,
+          "name": "Presentación Personal y Datos de Contacto",
+          "canonical_name": "Presentación Personal y Datos de Contacto",
+          "aliases": [],
+          "strong_phrases": [
+            "presentacion personal",
+            "me llamo",
+            "como te llamas",
+            "datos de contacto",
+            "numero de telefono"
+          ],
+          "specific_keywords": [
+            "presentacion",
+            "como te llamas",
+            "me llamo",
+            "telefono"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "introductions"
+          ]
+        },
+        {
+          "id": 615,
+          "name": "Pronombres Personales y Artículos Definidos",
+          "canonical_name": "Pronombres Personales y Artículos Definidos",
+          "aliases": [],
+          "strong_phrases": [
+            "pronombres personales",
+            "yo tu el ella",
+            "articulos definidos",
+            "el la los las"
+          ],
+          "specific_keywords": [
+            "pronombres",
+            "articulos definidos",
+            "el la los las"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "grammar"
+          ]
+        },
+        {
+          "id": 616,
+          "name": "Verbos Auxiliares: ser, tener, llamarse",
+          "canonical_name": "Verbos Auxiliares: ser, tener, llamarse",
+          "aliases": [],
+          "strong_phrases": [
+            "verbo ser",
+            "verbo tener",
+            "yo soy tu eres",
+            "yo tengo tu tienes",
+            "llamarse"
+          ],
+          "specific_keywords": [
+            "verbo ser",
+            "verbo tener",
+            "llamarse",
+            "yo soy",
+            "yo tengo"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verbs"
+          ]
+        },
+        {
+          "id": 617,
+          "name": "La Familia y Relaciones",
+          "canonical_name": "La Familia y Relaciones",
+          "aliases": [],
+          "strong_phrases": [
+            "la familia",
+            "padre madre hermano",
+            "hijo hija abuelo",
+            "relaciones familiares"
+          ],
+          "specific_keywords": [
+            "familia",
+            "padre",
+            "madre",
+            "hermano",
+            "abuelo"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "family"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 137,
+      "number": 2,
+      "name": "Artículos Indefinidos, Direcciones y Presente Regular",
+      "track_id": 3,
+      "track_key": "spanish",
+      "topics": [
+        {
+          "id": 618,
+          "name": "Artículos Indefinidos y Números hasta 1000",
+          "canonical_name": "Artículos Indefinidos y Números hasta 1000",
+          "aliases": [],
+          "strong_phrases": [
+            "articulos indefinidos",
+            "un una unos unas",
+            "numeros hasta 1000",
+            "cien doscientos mil",
+            "dos mil veintiuno",
+            "dos mil veintitres"
+          ],
+          "specific_keywords": [
+            "articulos indefinidos",
+            "un una unos",
+            "doscientos",
+            "quinientos",
+            "dos mil"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "numbers"
+          ]
+        },
+        {
+          "id": 619,
+          "name": "Estructuras de Negación y Traducción",
+          "canonical_name": "Estructuras de Negación y Traducción",
+          "aliases": [],
+          "strong_phrases": [
+            "negacion en espanol",
+            "no nunca jamas",
+            "traduccion al espanol"
+          ],
+          "specific_keywords": [
+            "negacion",
+            "traduccion"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "negation"
+          ]
+        },
+        {
+          "id": 620,
+          "name": "Direcciones Cardinales y Medios de Transporte",
+          "canonical_name": "Direcciones Cardinales y Medios de Transporte",
+          "aliases": [],
+          "strong_phrases": [
+            "puntos cardinales",
+            "norte sur este oeste",
+            "medios de transporte",
+            "autobus tren coche metro"
+          ],
+          "specific_keywords": [
+            "cardinales",
+            "transporte",
+            "autobus",
+            "metro",
+            "tren"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "transport"
+          ]
+        },
+        {
+          "id": 621,
+          "name": "Preguntar por Direcciones y Ubicaciones",
+          "canonical_name": "Preguntar por Direcciones y Ubicaciones",
+          "aliases": [],
+          "strong_phrases": [
+            "donde esta",
+            "como se va a",
+            "gire a la izquierda",
+            "siga todo recto"
+          ],
+          "specific_keywords": [
+            "donde esta",
+            "direcciones",
+            "a la izquierda",
+            "a la derecha",
+            "recto"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "directions"
+          ]
+        },
+        {
+          "id": 622,
+          "name": "Presente de Indicativo: Verbos Regulares -ar, -er, -ir",
+          "canonical_name": "Presente de Indicativo: Verbos Regulares -ar, -er, -ir",
+          "aliases": [],
+          "strong_phrases": [
+            "verbos regulares",
+            "presente de indicativo",
+            "terminaciones ar er ir",
+            "hablar comer vivir"
+          ],
+          "specific_keywords": [
+            "verbos regulares",
+            "presente",
+            "hablar",
+            "comer",
+            "vivir"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verbs"
+          ]
+        },
+        {
+          "id": 623,
+          "name": "El Verbo Hay y Expresión de Existencia",
+          "canonical_name": "El Verbo Hay y Expresión de Existencia",
+          "aliases": [],
+          "strong_phrases": [
+            "verbo hay",
+            "hay en la ciudad",
+            "expresion de existencia"
+          ],
+          "specific_keywords": [
+            "hay",
+            "existencia"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "existence"
+          ]
+        },
+        {
+          "id": 624,
+          "name": "El Superlativo y Cuantificadores",
+          "canonical_name": "El Superlativo y Cuantificadores",
+          "aliases": [],
+          "strong_phrases": [
+            "superlativo",
+            "muy mas el mas",
+            "cuantificadores",
+            "mucho poco bastante"
+          ],
+          "specific_keywords": [
+            "superlativo",
+            "cuantificadores",
+            "mucho",
+            "poco"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "superlative"
+          ]
+        },
+        {
+          "id": 625,
+          "name": "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
+          "canonical_name": "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
+          "aliases": [],
+          "strong_phrases": [
+            "preguntas interrogativas",
+            "que cual cuantos donde como",
+            "cual es el tercer dia",
+            "que ano es",
+            "que mes del ano"
+          ],
+          "specific_keywords": [
+            "cual es",
+            "que ano",
+            "que mes",
+            "interrogativas",
+            "donde",
+            "como"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "questions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 138,
+      "number": 3,
+      "name": "Verbos Ser y Estar, Clima y Verbos Irregulares",
+      "track_id": 3,
+      "track_key": "spanish",
+      "topics": [
+        {
+          "id": 626,
+          "name": "Diferenciación entre Ser y Estar",
+          "canonical_name": "Diferenciación entre Ser y Estar",
+          "aliases": [],
+          "strong_phrases": [
+            "ser y estar",
+            "diferencia ser y estar",
+            "esta cansado es inteligente"
+          ],
+          "specific_keywords": [
+            "ser y estar",
+            "estar en"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "ser vs estar"
+          ]
+        },
+        {
+          "id": 627,
+          "name": "Números Ordinales y Días de la Semana",
+          "canonical_name": "Números Ordinales y Días de la Semana",
+          "aliases": [],
+          "strong_phrases": [
+            "numeros ordinales",
+            "primero segundo tercero",
+            "dias de la semana",
+            "lunes martes miercoles jueves viernes sabado domingo",
+            "tercer dia de la semana"
+          ],
+          "specific_keywords": [
+            "ordinales",
+            "dias de la semana",
+            "lunes",
+            "tercer dia",
+            "domingo"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "days"
+          ]
+        },
+        {
+          "id": 628,
+          "name": "Verbos Irregulares en Tiempo Presente",
+          "canonical_name": "Verbos Irregulares en Tiempo Presente",
+          "aliases": [],
+          "strong_phrases": [
+            "verbos irregulares",
+            "ir venir hacer salir poner",
+            "irregularidad vocalica"
+          ],
+          "specific_keywords": [
+            "verbos irregulares",
+            "hacer",
+            "venir",
+            "poner"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "irregular verbs"
+          ]
+        },
+        {
+          "id": 629,
+          "name": "Expresiones del Clima y Estaciones del Año",
+          "canonical_name": "Expresiones del Clima y Estaciones del Año",
+          "aliases": [],
+          "strong_phrases": [
+            "el clima en espanol",
+            "hace calor hace frio",
+            "estaciones del ano",
+            "primavera verano otono invierno",
+            "temporada de",
+            "estamos en la temporada"
+          ],
+          "specific_keywords": [
+            "clima",
+            "estaciones del ano",
+            "temporada de",
+            "invierno",
+            "primavera",
+            "verano",
+            "otono"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "weather"
+          ]
+        },
+        {
+          "id": 630,
+          "name": "Comprensión Lectora y Expresión Escrita",
+          "canonical_name": "Comprensión Lectora y Expresión Escrita",
+          "aliases": [],
+          "strong_phrases": [
+            "comprension lectora",
+            "lea el texto",
+            "redaccion en espanol"
+          ],
+          "specific_keywords": [
+            "comprension lectora",
+            "lectura",
+            "redaccion"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "reading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 139,
+      "number": 4,
+      "name": "Compras, Precios, Demostrativos y Perífrasis Obligativa",
+      "track_id": 3,
+      "track_key": "spanish",
+      "topics": [
+        {
+          "id": 631,
+          "name": "Vocabulario Escolar y Académico",
+          "canonical_name": "Vocabulario Escolar y Académico",
+          "aliases": [],
+          "strong_phrases": [
+            "vocabulario escolar",
+            "escuela universidad lapiz cuaderno libro"
+          ],
+          "specific_keywords": [
+            "escolar",
+            "universidad",
+            "cuaderno",
+            "lapiz"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "school"
+          ]
+        },
+        {
+          "id": 632,
+          "name": "Compras en Tiendas y Pedir Precios",
+          "canonical_name": "Compras en Tiendas y Pedir Precios",
+          "aliases": [],
+          "strong_phrases": [
+            "cuanto cuesta",
+            "cuanto es",
+            "en la tienda de ropa",
+            "compras"
+          ],
+          "specific_keywords": [
+            "cuanto cuesta",
+            "precios",
+            "tienda",
+            "compras"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "shopping"
+          ]
+        },
+        {
+          "id": 633,
+          "name": "Demostrativos: este, esta, estos, estas, esto",
+          "canonical_name": "Demostrativos: este, esta, estos, estas, esto",
+          "aliases": [],
+          "strong_phrases": [
+            "adjetivos demostrativos",
+            "este esta estos estas esto"
+          ],
+          "specific_keywords": [
+            "demostrativos",
+            "este",
+            "esta",
+            "estos"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": 634,
+          "name": "Perífrasis Obligativa: tener que + infinitivo",
+          "canonical_name": "Perífrasis Obligativa: tener que + infinitivo",
+          "aliases": [],
+          "strong_phrases": [
+            "perifrasis obligativa",
+            "tener que mas infinitivo",
+            "tengo que estudiar"
+          ],
+          "specific_keywords": [
+            "tener que",
+            "perifrasis",
+            "obligacion"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "obligation"
+          ]
+        },
+        {
+          "id": 635,
+          "name": "El Verbo Ir y Lugares",
+          "canonical_name": "El Verbo Ir y Lugares",
+          "aliases": [],
+          "strong_phrases": [
+            "verbo ir",
+            "voy vas va vamos vais van",
+            "ir a la playa",
+            "ir al cine"
+          ],
+          "specific_keywords": [
+            "verbo ir",
+            "voy a",
+            "vamos a"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "motion"
+          ]
+        },
+        {
+          "id": 636,
+          "name": "Prendas de Vestir y Colores",
+          "canonical_name": "Prendas de Vestir y Colores",
+          "aliases": [],
+          "strong_phrases": [
+            "prendas de vestir",
+            "camisa pantalon falda vestido zapatos",
+            "colores en espanol",
+            "rojo azul verde blanco negro"
+          ],
+          "specific_keywords": [
+            "ropa",
+            "vestir",
+            "colores",
+            "pantalon",
+            "camisa"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "clothes and colors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 140,
+      "number": 5,
+      "name": "Aspecto, Carácter, Gustos con Gustar y Restaurante",
+      "track_id": 3,
+      "track_key": "spanish",
+      "topics": [
+        {
+          "id": 637,
+          "name": "Descripción del Aspecto Físico y Carácter",
+          "canonical_name": "Descripción del Aspecto Físico y Carácter",
+          "aliases": [],
+          "strong_phrases": [
+            "aspecto fisico",
+            "alto bajo rubio moreno",
+            "caracter",
+            "simpatico amable"
+          ],
+          "specific_keywords": [
+            "aspecto fisico",
+            "caracter",
+            "alto",
+            "rubio",
+            "simpatico"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "description"
+          ]
+        },
+        {
+          "id": 638,
+          "name": "Expresar Gustos e Intereses con el Verbo Gustar",
+          "canonical_name": "Expresar Gustos e Intereses con el Verbo Gustar",
+          "aliases": [],
+          "strong_phrases": [
+            "verbo gustar",
+            "me gusta te gusta",
+            "intereses y preferencias",
+            "me encanta"
+          ],
+          "specific_keywords": [
+            "verbo gustar",
+            "me gusta",
+            "te gusta",
+            "me encanta"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "likes"
+          ]
+        },
+        {
+          "id": 639,
+          "name": "En el Restaurante: Ordenar Comida y Pagar",
+          "canonical_name": "En el Restaurante: Ordenar Comida y Pagar",
+          "aliases": [],
+          "strong_phrases": [
+            "en el restaurante",
+            "la carta la cuenta",
+            "camarero",
+            "de primero de segundo",
+            "ordenar comida"
+          ],
+          "specific_keywords": [
+            "restaurante",
+            "la cuenta",
+            "camarero",
+            "carta"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "dining"
+          ]
+        },
+        {
+          "id": 640,
+          "name": "Adjetivos Posesivos y Pertenencia",
+          "canonical_name": "Adjetivos Posesivos y Pertenencia",
+          "aliases": [],
+          "strong_phrases": [
+            "adjetivos posesivos",
+            "mi tu su nuestro vuestro",
+            "pertenencia"
+          ],
+          "specific_keywords": [
+            "posesivos",
+            "mi casa",
+            "tu libro",
+            "su"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "possessives"
+          ]
+        },
+        {
+          "id": 641,
+          "name": "Rutina Diaria y Actividades Cotidianas",
+          "canonical_name": "Rutina Diaria y Actividades Cotidianas",
+          "aliases": [],
+          "strong_phrases": [
+            "rutina diaria",
+            "levantarse ducharse acostarse",
+            "actividades cotidianas"
+          ],
+          "specific_keywords": [
+            "rutina",
+            "levantarse",
+            "cotidianas"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "routine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 141,
+      "number": 1,
+      "name": "Self-Introduction, Hiragana Script and Basic Grammar",
+      "track_id": 4,
+      "track_key": "japanese",
+      "topics": [
+        {
+          "id": 642,
+          "name": "Japanese Language, Culture and Self-Introduction",
+          "canonical_name": "Japanese Language, Culture and Self-Introduction",
+          "aliases": [],
+          "strong_phrases": [
+            "hajimemashite",
+            "watashi wa",
+            "douzo yoroshiku",
+            "self-introduction",
+            "japanese culture"
+          ],
+          "specific_keywords": [
+            "hajimemashite",
+            "watashi wa",
+            "self-introduction"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "japanese culture"
+          ]
+        },
+        {
+          "id": 643,
+          "name": "Greetings and Classroom Expressions",
+          "canonical_name": "Greetings and Classroom Expressions",
+          "aliases": [],
+          "strong_phrases": [
+            "ohayou gozaimasu",
+            "konnichiwa",
+            "konbanwa",
+            "arigatou gozaimasu",
+            "sayounara",
+            "sumimasen",
+            "classroom expressions"
+          ],
+          "specific_keywords": [
+            "ohayou",
+            "konnichiwa",
+            "arigatou",
+            "sumimasen",
+            "sayounara"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "greetings"
+          ]
+        },
+        {
+          "id": 644,
+          "name": "Basic Particles: wa, ka, mo, no",
+          "canonical_name": "Basic Particles: wa, ka, mo, no",
+          "aliases": [],
+          "strong_phrases": [
+            "particle wa",
+            "particle ka",
+            "particle mo",
+            "particle no",
+            "fill in the blank with appropriate particle wa"
+          ],
+          "specific_keywords": [
+            "particle wa",
+            "particle ka",
+            "particle no",
+            "particle mo"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "particles"
+          ]
+        },
+        {
+          "id": 645,
+          "name": "Sentence Patterns: desu and ja arimasen",
+          "canonical_name": "Sentence Patterns: desu and ja arimasen",
+          "aliases": [],
+          "strong_phrases": [
+            "desu",
+            "ja arimasen",
+            "dewaarimasen",
+            "sentence pattern desu"
+          ],
+          "specific_keywords": [
+            "desu",
+            "ja arimasen",
+            "dewaarimasen"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "patterns"
+          ]
+        },
+        {
+          "id": 646,
+          "name": "Hiragana Writing System: Lessons 1 to 4",
+          "canonical_name": "Hiragana Writing System: Lessons 1 to 4",
+          "aliases": [],
+          "strong_phrases": [
+            "hiragana",
+            "hiragana writing",
+            "ojiisan",
+            "gakki",
+            "kabin",
+            "rakuda",
+            "write in hiragana",
+            "hiragana characters"
+          ],
+          "specific_keywords": [
+            "hiragana",
+            "ojiisan",
+            "gakki",
+            "kabin",
+            "rakuda"
+          ],
+          "negative_guards": [
+            "katakana"
+          ],
+          "context_hints": [
+            "hiragana"
+          ]
+        },
+        {
+          "id": 647,
+          "name": "Demonstrative Pronouns: kono, sono, ano, dono, kore, sore, are, dore",
+          "canonical_name": "Demonstrative Pronouns: kono, sono, ano, dono, kore, sore, are, dore",
+          "aliases": [],
+          "strong_phrases": [
+            "kore sore are dore",
+            "kono sono ano dono",
+            "demonstrative pronouns japanese"
+          ],
+          "specific_keywords": [
+            "kore",
+            "sore",
+            "are",
+            "kono",
+            "sono",
+            "ano"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": 648,
+          "name": "Existence Sentences: arimasu, imasu with ni, ga particles",
+          "canonical_name": "Existence Sentences: arimasu, imasu with ni, ga particles",
+          "aliases": [],
+          "strong_phrases": [
+            "arimasu",
+            "imasu",
+            "existence sentences",
+            "ni arimasu",
+            "ga imasu"
+          ],
+          "specific_keywords": [
+            "arimasu",
+            "imasu",
+            "ni arimasu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "existence"
+          ]
+        },
+        {
+          "id": 649,
+          "name": "Days of the Week, Months, and Numbers",
+          "canonical_name": "Days of the Week, Months, and Numbers",
+          "aliases": [],
+          "strong_phrases": [
+            "getsuyoubi ka kinyoubi",
+            "days of the week japanese",
+            "ichi ni san shi go",
+            "nan-gatsu",
+            "months in japanese"
+          ],
+          "specific_keywords": [
+            "getsuyoubi",
+            "nichiyoubi",
+            "ichi ni san",
+            "nan-gatsu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calendar"
+          ]
+        },
+        {
+          "id": 650,
+          "name": "Kanji for Days of the Week and Numbers",
+          "canonical_name": "Kanji for Days of the Week and Numbers",
+          "aliases": [],
+          "strong_phrases": [
+            "kanji for days",
+            "kanji numbers",
+            "kanji ichi ni san",
+            "kanji hi tsuki"
+          ],
+          "specific_keywords": [
+            "kanji days",
+            "kanji numbers"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "kanji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 142,
+      "number": 2,
+      "name": "Time Expressions, Locations, Prices and Culture",
+      "track_id": 4,
+      "track_key": "japanese",
+      "topics": [
+        {
+          "id": 651,
+          "name": "Time Expressions: Hours, Minutes, Gozen and Gogo",
+          "canonical_name": "Time Expressions: Hours, Minutes, Gozen and Gogo",
+          "aliases": [],
+          "strong_phrases": [
+            "ima nan-ji desu ka",
+            "nan-pun",
+            "gozen",
+            "gogo",
+            "hours and minutes japanese"
+          ],
+          "specific_keywords": [
+            "nan-ji",
+            "gozen",
+            "gogo",
+            "nan-pun"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "time"
+          ]
+        },
+        {
+          "id": 652,
+          "name": "Location Markers: ue, shita, naka and Directions",
+          "canonical_name": "Location Markers: ue, shita, naka and Directions",
+          "aliases": [],
+          "strong_phrases": [
+            "ue shita naka",
+            "migi hidari",
+            "location markers",
+            "directions in japanese"
+          ],
+          "specific_keywords": [
+            "ue",
+            "shita",
+            "naka",
+            "migi",
+            "hidari"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "locations"
+          ]
+        },
+        {
+          "id": 653,
+          "name": "Location Pronouns: koko, soko, asoko, doko",
+          "canonical_name": "Location Pronouns: koko, soko, asoko, doko",
+          "aliases": [],
+          "strong_phrases": [
+            "koko soko asoko doko",
+            "location pronouns"
+          ],
+          "specific_keywords": [
+            "koko",
+            "soko",
+            "asoko",
+            "doko"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "locations"
+          ]
+        },
+        {
+          "id": 654,
+          "name": "Asking Prices and Requesting with o kudasai",
+          "canonical_name": "Asking Prices and Requesting with o kudasai",
+          "aliases": [],
+          "strong_phrases": [
+            "ikura desu ka",
+            "o kudasai",
+            "asking prices japanese",
+            "how much is this"
+          ],
+          "specific_keywords": [
+            "ikura",
+            "kudasai",
+            "o kudasai"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "prices"
+          ]
+        },
+        {
+          "id": 655,
+          "name": "Numbers up to One Lakh (100,000)",
+          "canonical_name": "Numbers up to One Lakh (100,000)",
+          "aliases": [],
+          "strong_phrases": [
+            "sen",
+            "man",
+            "juuman",
+            "numbers up to 100000",
+            "yen"
+          ],
+          "specific_keywords": [
+            "juuman",
+            "sen yen",
+            "ichiman"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "large numbers"
+          ]
+        },
+        {
+          "id": 656,
+          "name": "Japanese Seasons, Weather, Origami, Ikebana and Culture",
+          "canonical_name": "Japanese Seasons, Weather, Origami, Ikebana and Culture",
+          "aliases": [],
+          "strong_phrases": [
+            "haru natsu aki fuyu",
+            "seasons japanese",
+            "origami",
+            "ikebana",
+            "japanese tea"
+          ],
+          "specific_keywords": [
+            "haru",
+            "natsu",
+            "aki",
+            "fuyu",
+            "origami",
+            "ikebana"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "culture"
+          ]
+        },
+        {
+          "id": 657,
+          "name": "Hiragana Lessons 5 to 10: Double Consonants and Long Vowels",
+          "canonical_name": "Hiragana Lessons 5 to 10: Double Consonants and Long Vowels",
+          "aliases": [],
+          "strong_phrases": [
+            "double consonants hiragana",
+            "long vowels hiragana",
+            "sokuon",
+            "chouon"
+          ],
+          "specific_keywords": [
+            "double consonants",
+            "long vowels",
+            "sokuon"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "phonetics"
+          ]
+        },
+        {
+          "id": 658,
+          "name": "Kanji: Numbers, Yen, Colours and Directions",
+          "canonical_name": "Kanji: Numbers, Yen, Colours and Directions",
+          "aliases": [],
+          "strong_phrases": [
+            "kanji yen",
+            "kanji colours",
+            "kanji directions",
+            "en kanji"
+          ],
+          "specific_keywords": [
+            "kanji yen",
+            "en",
+            "colours kanji"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "kanji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 143,
+      "number": 3,
+      "name": "Counters, Family, Living Style and Katakana",
+      "track_id": 4,
+      "track_key": "japanese",
+      "topics": [
+        {
+          "id": 659,
+          "name": "Keeki o Yattsu Kudasai and General Counters (~tsu)",
+          "canonical_name": "Keeki o Yattsu Kudasai and General Counters (~tsu)",
+          "aliases": [],
+          "strong_phrases": [
+            "hitotsu futatsu mittsu",
+            "general counters tsu",
+            "keeki o yattsu kudasai"
+          ],
+          "specific_keywords": [
+            "hitotsu",
+            "futatsu",
+            "mittsu",
+            "yattsu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "counters"
+          ]
+        },
+        {
+          "id": 660,
+          "name": "Specialized Counters: -nin, -hiki, -dai, -kai",
+          "canonical_name": "Specialized Counters: -nin, -hiki, -dai, -kai",
+          "aliases": [],
+          "strong_phrases": [
+            "counters nin",
+            "counters hiki",
+            "counters dai",
+            "counters mai",
+            "specialized counters"
+          ],
+          "specific_keywords": [
+            "hiki",
+            "dai",
+            "nin",
+            "mai",
+            "counters"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "counters"
+          ]
+        },
+        {
+          "id": 661,
+          "name": "Family Members: Plain vs Polite Forms",
+          "canonical_name": "Family Members: Plain vs Polite Forms",
+          "aliases": [],
+          "strong_phrases": [
+            "chichi haha ani ane",
+            "otousan okaasan oniisan oneesan",
+            "family members japanese",
+            "plain vs polite family"
+          ],
+          "specific_keywords": [
+            "chichi",
+            "haha",
+            "otousan",
+            "okaasan",
+            "oniisan"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "family"
+          ]
+        },
+        {
+          "id": 662,
+          "name": "Japanese House, Living Style and Architecture",
+          "canonical_name": "Japanese House, Living Style and Architecture",
+          "aliases": [],
+          "strong_phrases": [
+            "japanese house",
+            "tatami",
+            "washitsu",
+            "fusuma",
+            "living style"
+          ],
+          "specific_keywords": [
+            "tatami",
+            "washitsu",
+            "japanese house"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "housing"
+          ]
+        },
+        {
+          "id": 663,
+          "name": "Katakana Rules, Characters and Writing System",
+          "canonical_name": "Katakana Rules, Characters and Writing System",
+          "aliases": [],
+          "strong_phrases": [
+            "katakana",
+            "katakana writing",
+            "write in katakana",
+            "foreign words katakana"
+          ],
+          "specific_keywords": [
+            "katakana",
+            "katakana rules"
+          ],
+          "negative_guards": [
+            "hiragana"
+          ],
+          "context_hints": [
+            "katakana"
+          ]
+        },
+        {
+          "id": 664,
+          "name": "Kanji: otoko, onna, ko, hito",
+          "canonical_name": "Kanji: otoko, onna, ko, hito",
+          "aliases": [],
+          "strong_phrases": [
+            "kanji otoko onna",
+            "kanji hito",
+            "kanji ko"
+          ],
+          "specific_keywords": [
+            "otoko",
+            "onna",
+            "hito",
+            "kanji"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "kanji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 144,
+      "number": 4,
+      "name": "Verbs, Tenses, Particles and Adjectives",
+      "track_id": 4,
+      "track_key": "japanese",
+      "topics": [
+        {
+          "id": 665,
+          "name": "Action Verbs: ikimasu, okimasu, nemasu, tabemasu",
+          "canonical_name": "Action Verbs: ikimasu, okimasu, nemasu, tabemasu",
+          "aliases": [],
+          "strong_phrases": [
+            "ikimasu",
+            "okimasu",
+            "nemasu",
+            "tabemasu",
+            "nomimasu",
+            "action verbs japanese"
+          ],
+          "specific_keywords": [
+            "ikimasu",
+            "tabemasu",
+            "nomimasu",
+            "nemasu",
+            "okimasu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verbs"
+          ]
+        },
+        {
+          "id": 666,
+          "name": "Verb Tenses: Past Tense and Negative Forms (~masen deshita)",
+          "canonical_name": "Verb Tenses: Past Tense and Negative Forms (~masen deshita)",
+          "aliases": [],
+          "strong_phrases": [
+            "mashita",
+            "masen deshita",
+            "past tense japanese verbs",
+            "negative past verbs"
+          ],
+          "specific_keywords": [
+            "mashita",
+            "masen deshita",
+            "past tense verbs"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verb tenses"
+          ]
+        },
+        {
+          "id": 667,
+          "name": "Particles in Context: e, de, to, ni, o, ga",
+          "canonical_name": "Particles in Context: e, de, to, ni, o, ga",
+          "aliases": [],
+          "strong_phrases": [
+            "particle de",
+            "particle to",
+            "particle e",
+            "particle ni",
+            "particle o"
+          ],
+          "specific_keywords": [
+            "particle de",
+            "particle to",
+            "particle e"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "particles"
+          ]
+        },
+        {
+          "id": 668,
+          "name": "Adjectives: -i and -na Ending Adjectives",
+          "canonical_name": "Adjectives: -i and -na Ending Adjectives",
+          "aliases": [],
+          "strong_phrases": [
+            "i-adjectives",
+            "na-adjectives",
+            "takai yasui",
+            "kirei na",
+            "shizuka na"
+          ],
+          "specific_keywords": [
+            "i-adjectives",
+            "na-adjectives",
+            "takai",
+            "kirei"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "adjectives"
+          ]
+        },
+        {
+          "id": 669,
+          "name": "Kanji: ikimasu, mimasu, yasumimasu, kaimasu",
+          "canonical_name": "Kanji: ikimasu, mimasu, yasumimasu, kaimasu",
+          "aliases": [],
+          "strong_phrases": [
+            "kanji ikimasu",
+            "kanji mimasu",
+            "kanji kaimasu"
+          ],
+          "specific_keywords": [
+            "mimasu",
+            "kaimasu",
+            "kanji verbs"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "kanji"
+          ]
+        },
+        {
+          "id": 670,
+          "name": "Daily Expressions, Body Parts and Religious Beliefs",
+          "canonical_name": "Daily Expressions, Body Parts and Religious Beliefs",
+          "aliases": [],
+          "strong_phrases": [
+            "body parts japanese",
+            "atama me mimi",
+            "shinto",
+            "buddhism in japan"
+          ],
+          "specific_keywords": [
+            "body parts",
+            "atama",
+            "religious beliefs"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "daily life"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 145,
+      "number": 5,
+      "name": "Invitational Forms, Te-Form, Tai-Form and Kanji",
+      "track_id": 4,
+      "track_key": "japanese",
+      "topics": [
+        {
+          "id": 671,
+          "name": "Invitational Expressions: ~masen ka and ~mashou",
+          "canonical_name": "Invitational Expressions: ~masen ka and ~mashou",
+          "aliases": [],
+          "strong_phrases": [
+            "masen ka",
+            "mashou",
+            "mashou ka",
+            "invitational expressions japanese",
+            "let's do"
+          ],
+          "specific_keywords": [
+            "masen ka",
+            "mashou",
+            "invitational"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "invitations"
+          ]
+        },
+        {
+          "id": 672,
+          "name": "Adjectives: Present, Past, Affirmative and Negative Forms",
+          "canonical_name": "Adjectives: Present, Past, Affirmative and Negative Forms",
+          "aliases": [],
+          "strong_phrases": [
+            "adjective conjugation",
+            "katta",
+            "kunai",
+            "deshita",
+            "adjectives past forms"
+          ],
+          "specific_keywords": [
+            "katta",
+            "kunai",
+            "adjective conjugation"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "adjective forms"
+          ]
+        },
+        {
+          "id": 673,
+          "name": "Stationery and Transport Vocabulary",
+          "canonical_name": "Stationery and Transport Vocabulary",
+          "aliases": [],
+          "strong_phrases": [
+            "stationery japanese",
+            "pen nooto",
+            "densha basu chikatetsu",
+            "transport vocabulary"
+          ],
+          "specific_keywords": [
+            "stationery",
+            "densha",
+            "chikatetsu",
+            "basu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "vocabulary"
+          ]
+        },
+        {
+          "id": 674,
+          "name": "Grammar: Usage of ~te Form",
+          "canonical_name": "Grammar: Usage of ~te Form",
+          "aliases": [],
+          "strong_phrases": [
+            "te-form",
+            "te form of verbs",
+            "te kudasai",
+            "usage of te form"
+          ],
+          "specific_keywords": [
+            "te-form",
+            "te form",
+            "te kudasai"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "te-form"
+          ]
+        },
+        {
+          "id": 675,
+          "name": "Grammar: Desire and Want with ~tai Form",
+          "canonical_name": "Grammar: Desire and Want with ~tai Form",
+          "aliases": [],
+          "strong_phrases": [
+            "tai form",
+            "tabetai",
+            "ikitai",
+            "desire and want japanese",
+            "hoshigaru"
+          ],
+          "specific_keywords": [
+            "tai form",
+            "tabetai",
+            "ikitai",
+            "desire"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "tai-form"
+          ]
+        },
+        {
+          "id": 676,
+          "name": "Kanji: ookii, chiisai, eki, chuui",
+          "canonical_name": "Kanji: ookii, chiisai, eki, chuui",
+          "aliases": [],
+          "strong_phrases": [
+            "kanji ookii",
+            "kanji chiisai",
+            "kanji eki",
+            "kanji chuui"
+          ],
+          "specific_keywords": [
+            "ookii",
+            "chiisai",
+            "eki",
+            "kanji"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "kanji"
+          ]
+        },
+        {
+          "id": 677,
+          "name": "Japanese Tea Ceremony, Political System and Economy",
+          "canonical_name": "Japanese Tea Ceremony, Political System and Economy",
+          "aliases": [],
+          "strong_phrases": [
+            "tea ceremony",
+            "chanoyu",
+            "sado",
+            "japanese political system",
+            "japanese economy"
+          ],
+          "specific_keywords": [
+            "tea ceremony",
+            "chanoyu",
+            "economy japan"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "culture"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 146,
+      "number": 1,
+      "name": "Hangul Alphabet, Vowels, Consonants and Self-Introduction",
+      "track_id": 5,
+      "track_key": "korean",
+      "topics": [
+        {
+          "id": 678,
+          "name": "Introduction to Korea and Korean Culture",
+          "canonical_name": "Introduction to Korea and Korean Culture",
+          "aliases": [],
+          "strong_phrases": [
+            "korean culture",
+            "hallyu",
+            "seoul",
+            "south korea",
+            "introduction to korea"
+          ],
+          "specific_keywords": [
+            "korean culture",
+            "hallyu",
+            "seoul"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "culture"
+          ]
+        },
+        {
+          "id": 679,
+          "name": "Hangul Writing System (한글 소개)",
+          "canonical_name": "Hangul Writing System (한글 소개)",
+          "aliases": [],
+          "strong_phrases": [
+            "hangeul",
+            "hangul writing system",
+            "king sejong",
+            "hunminjeongeum",
+            "korean alphabet",
+            "한글"
+          ],
+          "specific_keywords": [
+            "hangul",
+            "hangeul",
+            "alphabet korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "writing"
+          ]
+        },
+        {
+          "id": 680,
+          "name": "Single Vowels and Double Vowels (단모음, 이중모음)",
+          "canonical_name": "Single Vowels and Double Vowels (단모음, 이중모음)",
+          "aliases": [],
+          "strong_phrases": [
+            "single vowels",
+            "double vowels",
+            "korean vowels",
+            "a ya eo yeo o yo u yu eu i",
+            "단모음",
+            "이중모음"
+          ],
+          "specific_keywords": [
+            "vowels",
+            "단모음",
+            "이중모음"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "phonetics"
+          ]
+        },
+        {
+          "id": 681,
+          "name": "Basic, Aspirated and Tense Consonants",
+          "canonical_name": "Basic, Aspirated and Tense Consonants",
+          "aliases": [],
+          "strong_phrases": [
+            "aspirated consonants",
+            "tense consonants",
+            "giyeok nieun digeut",
+            "korean consonants",
+            "자음"
+          ],
+          "specific_keywords": [
+            "consonants",
+            "aspirated",
+            "tense consonants"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "consonants"
+          ]
+        },
+        {
+          "id": 682,
+          "name": "Final Consonants / Batchim (받침)",
+          "canonical_name": "Final Consonants / Batchim (받침)",
+          "aliases": [],
+          "strong_phrases": [
+            "batchim",
+            "final consonants",
+            "받침",
+            "batchim pronunciation"
+          ],
+          "specific_keywords": [
+            "batchim",
+            "받침",
+            "final consonant"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "batchim"
+          ]
+        },
+        {
+          "id": 683,
+          "name": "Self-Introduction and Daily Greetings (자기 소개, 인사말)",
+          "canonical_name": "Self-Introduction and Daily Greetings (자기 소개, 인사말)",
+          "aliases": [],
+          "strong_phrases": [
+            "annyeonghaseyo",
+            "gamsahamnida",
+            "thank you is in korean",
+            "yes is in korean",
+            "annyeong",
+            "daily greetings korean",
+            "자기 소개",
+            "인사말",
+            "안녕하세요",
+            "감사합니다"
+          ],
+          "specific_keywords": [
+            "annyeonghaseyo",
+            "gamsahamnida",
+            "thank you",
+            "greetings korean",
+            "안녕하세요",
+            "감사합니다",
+            "yes is"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 147,
+      "number": 2,
+      "name": "Particles, Sentence Endings and Demonstratives",
+      "track_id": 5,
+      "track_key": "korean",
+      "topics": [
+        {
+          "id": 684,
+          "name": "Topic Marking Particles: eun / neun (은/는)",
+          "canonical_name": "Topic Marking Particles: eun / neun (은/는)",
+          "aliases": [],
+          "strong_phrases": [
+            "topic marking particle",
+            "eun neun",
+            "은 는",
+            "topic particle korean"
+          ],
+          "specific_keywords": [
+            "eun neun",
+            "은/는",
+            "topic particle"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "particles"
+          ]
+        },
+        {
+          "id": 685,
+          "name": "Subject Marking Particles: i / ga (이/가)",
+          "canonical_name": "Subject Marking Particles: i / ga (이/가)",
+          "aliases": [],
+          "strong_phrases": [
+            "subject marking particle",
+            "i ga",
+            "이 가",
+            "subject particle korean"
+          ],
+          "specific_keywords": [
+            "i ga",
+            "이/가",
+            "subject particle"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "particles"
+          ]
+        },
+        {
+          "id": 686,
+          "name": "Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
+          "canonical_name": "Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
+          "aliases": [],
+          "strong_phrases": [
+            "ieyo yeyo",
+            "이에요 예요",
+            "informal polite sentence ending",
+            "is / am / are in korean"
+          ],
+          "specific_keywords": [
+            "ieyo",
+            "yeyo",
+            "이에요",
+            "예요"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "sentence endings"
+          ]
+        },
+        {
+          "id": 687,
+          "name": "Formal Polite Sentence Endings: bipnida / seupnida (ㅂ니다/습니다)",
+          "canonical_name": "Formal Polite Sentence Endings: bipnida / seupnida (ㅂ니다/습니다)",
+          "aliases": [],
+          "strong_phrases": [
+            "bipnida seupnida",
+            "ㅂ니다 습니다",
+            "formal polite sentence ending"
+          ],
+          "specific_keywords": [
+            "bipnida",
+            "seupnida",
+            "습니다",
+            "ㅂ니다"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "sentence endings"
+          ]
+        },
+        {
+          "id": 688,
+          "name": "Demonstrative Pronouns: i, geu, jeo (이, 그, 저)",
+          "canonical_name": "Demonstrative Pronouns: i, geu, jeo (이, 그, 저)",
+          "aliases": [],
+          "strong_phrases": [
+            "demonstrative pronouns korean",
+            "i geu jeo",
+            "igeot geugeot jeogeot",
+            "이 그 저"
+          ],
+          "specific_keywords": [
+            "i geu jeo",
+            "igeot",
+            "geugeot"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": 689,
+          "name": "Sino-Korean Number System and Applications",
+          "canonical_name": "Sino-Korean Number System and Applications",
+          "aliases": [],
+          "strong_phrases": [
+            "sino korean numbers",
+            "il i sam sa o yuk chil pal gu sip",
+            "phone numbers korean",
+            "일 이 삼 사"
+          ],
+          "specific_keywords": [
+            "sino-korean",
+            "il i sam",
+            "numbers korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "numbers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 148,
+      "number": 3,
+      "name": "Verb Conjugations, Tenses and Weather",
+      "track_id": 5,
+      "track_key": "korean",
+      "topics": [
+        {
+          "id": 690,
+          "name": "Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
+          "canonical_name": "Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
+          "aliases": [],
+          "strong_phrases": [
+            "present tense verb korean",
+            "ayo eoyo haeyo",
+            "아요 어요 해요",
+            "verb conjugation korean"
+          ],
+          "specific_keywords": [
+            "ayo eoyo",
+            "haeyo",
+            "아요",
+            "어요",
+            "해요"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "present tense"
+          ]
+        },
+        {
+          "id": 691,
+          "name": "Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
+          "canonical_name": "Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
+          "aliases": [],
+          "strong_phrases": [
+            "past tense verb korean",
+            "asseoyo eosseoyo",
+            "았어요 었어요 했어요",
+            "korean past tense"
+          ],
+          "specific_keywords": [
+            "asseoyo",
+            "eosseoyo",
+            "았어요",
+            "었어요"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "past tense"
+          ]
+        },
+        {
+          "id": 692,
+          "name": "Native Korean Numbers and Counting Units",
+          "canonical_name": "Native Korean Numbers and Counting Units",
+          "aliases": [],
+          "strong_phrases": [
+            "native korean numbers",
+            "hana dul set net daseot",
+            "counting units korean",
+            "gae myeong",
+            "하나 둘 셋"
+          ],
+          "specific_keywords": [
+            "native korean",
+            "hana dul set",
+            "counting units",
+            "하나 둘"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "native numbers"
+          ]
+        },
+        {
+          "id": 693,
+          "name": "Weather, Seasons and Daily Vocabulary",
+          "canonical_name": "Weather, Seasons and Daily Vocabulary",
+          "aliases": [],
+          "strong_phrases": [
+            "weather korean",
+            "bom yeoreum gaeul gyeoul",
+            "seasons korean",
+            "nalssi",
+            "날씨",
+            "계절"
+          ],
+          "specific_keywords": [
+            "weather korean",
+            "nalssi",
+            "seasons korean",
+            "날씨"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "weather"
+          ]
+        },
+        {
+          "id": 694,
+          "name": "Location Particles: e and eseo (에, 에서)",
+          "canonical_name": "Location Particles: e and eseo (에, 에서)",
+          "aliases": [],
+          "strong_phrases": [
+            "location particle e eseo",
+            "에 에서",
+            "korean location particles",
+            "at / in korean"
+          ],
+          "specific_keywords": [
+            "e eseo",
+            "에 에서",
+            "location particle"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "locations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 149,
+      "number": 4,
+      "name": "Time System, Calendar, Future Tense and Honorifics",
+      "track_id": 5,
+      "track_key": "korean",
+      "topics": [
+        {
+          "id": 695,
+          "name": "Telling Time: Hours, Minutes and Periods of the Day",
+          "canonical_name": "Telling Time: Hours, Minutes and Periods of the Day",
+          "aliases": [],
+          "strong_phrases": [
+            "telling time korean",
+            "myeot si",
+            "hours and minutes korean",
+            "o'clock korean",
+            "몇 시"
+          ],
+          "specific_keywords": [
+            "myeot si",
+            "telling time",
+            "hours korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "time"
+          ]
+        },
+        {
+          "id": 696,
+          "name": "Days of the Week and Months of the Year",
+          "canonical_name": "Days of the Week and Months of the Year",
+          "aliases": [],
+          "strong_phrases": [
+            "woryoil hwayoil",
+            "days of the week korean",
+            "months korean",
+            "월요일 화요일",
+            "ilwol iwol"
+          ],
+          "specific_keywords": [
+            "woryoil",
+            "days of week korean",
+            "months korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calendar"
+          ]
+        },
+        {
+          "id": 697,
+          "name": "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+          "canonical_name": "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+          "aliases": [],
+          "strong_phrases": [
+            "future tense korean",
+            "eul geoyeyo",
+            "(으)ㄹ 거예요",
+            "will do in korean"
+          ],
+          "specific_keywords": [
+            "future tense",
+            "geoyeyo",
+            "ㄹ 거예요"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "future tense"
+          ]
+        },
+        {
+          "id": 698,
+          "name": "Object Marking Particles: eul / reul (을/를)",
+          "canonical_name": "Object Marking Particles: eul / reul (을/를)",
+          "aliases": [],
+          "strong_phrases": [
+            "object marking particle",
+            "eul reul",
+            "을 를",
+            "object particle korean"
+          ],
+          "specific_keywords": [
+            "eul reul",
+            "을/를",
+            "object particle"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "objects"
+          ]
+        },
+        {
+          "id": 699,
+          "name": "Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
+          "canonical_name": "Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
+          "aliases": [],
+          "strong_phrases": [
+            "honorific particle",
+            "kkeseo",
+            "seonsaengnim",
+            "u.s.a is in korean",
+            "miguk",
+            "teacher is in korean",
+            "occupations korean",
+            "선생님",
+            "미국",
+            "의사"
+          ],
+          "specific_keywords": [
+            "seonsaengnim",
+            "u.s.a",
+            "teacher",
+            "miguk",
+            "선생님",
+            "미국",
+            "occupations"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "honorifics and occupations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 150,
+      "number": 5,
+      "name": "Ability, Obligations, Requests and Daily Activities",
+      "track_id": 5,
+      "track_key": "korean",
+      "topics": [
+        {
+          "id": 700,
+          "name": "Expressing Ability and Possibility: (eu)l su itda / eopda ((으)ㄹ 수 있다/없다)",
+          "canonical_name": "Expressing Ability and Possibility: (eu)l su itda / eopda ((으)ㄹ 수 있다/없다)",
+          "aliases": [],
+          "strong_phrases": [
+            "ability in korean",
+            "eul su itda",
+            "eul su eopda",
+            "(으)ㄹ 수 있다",
+            "can and cannot korean"
+          ],
+          "specific_keywords": [
+            "su itda",
+            "su eopda",
+            "ability korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "ability"
+          ]
+        },
+        {
+          "id": 701,
+          "name": "Imperatives and Requests: (eu)seyo ((으)세요)",
+          "canonical_name": "Imperatives and Requests: (eu)seyo ((으)세요)",
+          "aliases": [],
+          "strong_phrases": [
+            "imperatives korean",
+            "euseyo",
+            "(으)세요",
+            "please do in korean",
+            "requests korean"
+          ],
+          "specific_keywords": [
+            "euseyo",
+            "세요",
+            "requests korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "imperatives"
+          ]
+        },
+        {
+          "id": 702,
+          "name": "Prohibitions: ji maseyo (지 마세요)",
+          "canonical_name": "Prohibitions: ji maseyo (지 마세요)",
+          "aliases": [],
+          "strong_phrases": [
+            "prohibition korean",
+            "ji maseyo",
+            "지 마세요",
+            "do not in korean"
+          ],
+          "specific_keywords": [
+            "ji maseyo",
+            "지 마세요",
+            "prohibition"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "prohibition"
+          ]
+        },
+        {
+          "id": 703,
+          "name": "Expressing Desire and Wants: go sipda (고 싶다)",
+          "canonical_name": "Expressing Desire and Wants: go sipda (고 싶다)",
+          "aliases": [],
+          "strong_phrases": [
+            "want in korean",
+            "go sipda",
+            "go sipeoyo",
+            "고 싶다",
+            "desire korean"
+          ],
+          "specific_keywords": [
+            "go sipda",
+            "고 싶다",
+            "desire korean"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "desire"
+          ]
+        },
+        {
+          "id": 704,
+          "name": "Complex Sentences with Connective Particles (고, 서)",
+          "canonical_name": "Complex Sentences with Connective Particles (고, 서)",
+          "aliases": [],
+          "strong_phrases": [
+            "connective particles korean",
+            "go",
+            "aseo eoseo",
+            "and in korean",
+            "because in korean"
+          ],
+          "specific_keywords": [
+            "connective",
+            "aseo",
+            "eoseo"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "conjunctions"
+          ]
+        },
+        {
+          "id": 705,
+          "name": "Daily Activities, Hobbies and Campus Life",
+          "canonical_name": "Daily Activities, Hobbies and Campus Life",
+          "aliases": [],
+          "strong_phrases": [
+            "daily activities korean",
+            "hobbies korean",
+            "chwimi",
+            "campus life korean",
+            "daehakgyo"
+          ],
+          "specific_keywords": [
+            "daily activities",
+            "hobbies",
+            "campus life"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "activities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 151,
+      "number": 1,
+      "name": "Pinyin, Tones, Basic Strokes and Daily Greetings",
+      "track_id": 6,
+      "track_key": "chinese",
+      "topics": [
+        {
+          "id": 706,
+          "name": "Introduction to Mandarin Chinese and Geography",
+          "canonical_name": "Introduction to Mandarin Chinese and Geography",
+          "aliases": [],
+          "strong_phrases": [
+            "mandarin chinese",
+            "geography of china",
+            "beijing shanghai",
+            "dialects of chinese"
+          ],
+          "specific_keywords": [
+            "mandarin",
+            "geography china",
+            "beijing"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "china geography"
+          ]
+        },
+        {
+          "id": 707,
+          "name": "Pinyin System: Initials, Finals and Combinations",
+          "canonical_name": "Pinyin System: Initials, Finals and Combinations",
+          "aliases": [],
+          "strong_phrases": [
+            "pinyin system",
+            "initials and finals",
+            "shengmu yunmu",
+            "pinyin combination"
+          ],
+          "specific_keywords": [
+            "pinyin",
+            "initials",
+            "finals",
+            "shengmu",
+            "yunmu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "pinyin"
+          ]
+        },
+        {
+          "id": 708,
+          "name": "The Four Tones and Tone Neutralization",
+          "canonical_name": "The Four Tones and Tone Neutralization",
+          "aliases": [],
+          "strong_phrases": [
+            "four tones",
+            "which of the following tone",
+            "first tone second tone third tone fourth tone",
+            "neutral tone",
+            "tone mark",
+            "tone neutralization",
+            "ni hao tone"
+          ],
+          "specific_keywords": [
+            "tone",
+            "tones",
+            "first tone",
+            "second tone",
+            "third tone",
+            "fourth tone",
+            "neutral tone"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "tones"
+          ]
+        },
+        {
+          "id": 709,
+          "name": "Eight Basic Strokes and Stroke Order of Characters",
+          "canonical_name": "Eight Basic Strokes and Stroke Order of Characters",
+          "aliases": [],
+          "strong_phrases": [
+            "stroke order",
+            "eight basic strokes",
+            "heng shu pie na",
+            "chinese character strokes"
+          ],
+          "specific_keywords": [
+            "strokes",
+            "stroke order",
+            "heng shu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "strokes"
+          ]
+        },
+        {
+          "id": 710,
+          "name": "Personal Pronouns and Plural Forms (我, 你, 他, 们)",
+          "canonical_name": "Personal Pronouns and Plural Forms (我, 你, 他, 们)",
+          "aliases": [],
+          "strong_phrases": [
+            "personal pronouns chinese",
+            "wo ni ta",
+            "women nimen tamen",
+            "我 你 他",
+            "plural pronouns chinese"
+          ],
+          "specific_keywords": [
+            "wo",
+            "ni",
+            "ta",
+            "women",
+            "nimen",
+            "personal pronouns"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "pronouns"
+          ]
+        },
+        {
+          "id": 711,
+          "name": "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+          "canonical_name": "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+          "aliases": [],
+          "strong_phrases": [
+            "chinese equivalent for 'very'",
+            "grammar particles chinese",
+            "hen",
+            "ye",
+            "ma",
+            "ne",
+            "de",
+            "很 也 吗 呢 的"
+          ],
+          "specific_keywords": [
+            "very",
+            "hen",
+            "ye",
+            "grammar particles",
+            "很",
+            "也"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "particles"
+          ]
+        },
+        {
+          "id": 712,
+          "name": "Basic Daily Greetings and Politeness Phrases",
+          "canonical_name": "Basic Daily Greetings and Politeness Phrases",
+          "aliases": [],
+          "strong_phrases": [
+            "ni hao",
+            "zaijian",
+            "xiexie",
+            "bu keqi",
+            "duibuqi",
+            "daily greetings chinese",
+            "politeness phrases"
+          ],
+          "specific_keywords": [
+            "ni hao",
+            "zaijian",
+            "xiexie",
+            "duibuqi",
+            "greetings"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 152,
+      "number": 2,
+      "name": "Numbers, Currency, Time and Simple Sentence Patterns",
+      "track_id": 6,
+      "track_key": "chinese",
+      "topics": [
+        {
+          "id": 713,
+          "name": "Chinese Number System and Counting",
+          "canonical_name": "Chinese Number System and Counting",
+          "aliases": [],
+          "strong_phrases": [
+            "chinese numbers",
+            "yi er san si wu liu qi ba jiu shi",
+            "numbers in chinese",
+            "counting in chinese",
+            "一 二 三 四 五"
+          ],
+          "specific_keywords": [
+            "chinese numbers",
+            "yi er san",
+            "numbers"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "numbers"
+          ]
+        },
+        {
+          "id": 714,
+          "name": "Chinese Currency and Monetary Terms (元, 角, 分)",
+          "canonical_name": "Chinese Currency and Monetary Terms (元, 角, 分)",
+          "aliases": [],
+          "strong_phrases": [
+            "chinese currency",
+            "yuan jiao fen",
+            "kuai qian",
+            "renminbi",
+            "rmb",
+            "元 角 分"
+          ],
+          "specific_keywords": [
+            "yuan",
+            "kuai",
+            "currency",
+            "renminbi"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "currency"
+          ]
+        },
+        {
+          "id": 715,
+          "name": "Telephone Numbers and Conversational Needs",
+          "canonical_name": "Telephone Numbers and Conversational Needs",
+          "aliases": [],
+          "strong_phrases": [
+            "telephone numbers chinese",
+            "dianhua haoma",
+            "wei",
+            "phone conversation chinese"
+          ],
+          "specific_keywords": [
+            "dianhua",
+            "haoma",
+            "telephone numbers"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "phone"
+          ]
+        },
+        {
+          "id": 716,
+          "name": "Time Telling, Calendar, Days, Months and Seasons",
+          "canonical_name": "Time Telling, Calendar, Days, Months and Seasons",
+          "aliases": [],
+          "strong_phrases": [
+            "time telling chinese",
+            "dian fen",
+            "days of week chinese",
+            "xingqi",
+            "months chinese",
+            "yue ri"
+          ],
+          "specific_keywords": [
+            "xingqi",
+            "dian",
+            "fen",
+            "yue",
+            "calendar chinese"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calendar"
+          ]
+        },
+        {
+          "id": 717,
+          "name": "Basic S-V-O Sentence Patterns in Mandarin",
+          "canonical_name": "Basic S-V-O Sentence Patterns in Mandarin",
+          "aliases": [],
+          "strong_phrases": [
+            "svo sentence pattern",
+            "word order in chinese",
+            "sentence patterns mandarin"
+          ],
+          "specific_keywords": [
+            "svo",
+            "sentence pattern",
+            "word order"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "patterns"
+          ]
+        },
+        {
+          "id": 718,
+          "name": "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+          "canonical_name": "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+          "aliases": [],
+          "strong_phrases": [
+            "shi bu shi",
+            "you mei you",
+            "是 不是",
+            "有 没有",
+            "verbs to be and to have chinese"
+          ],
+          "specific_keywords": [
+            "shi",
+            "bu shi",
+            "you",
+            "mei you",
+            "是",
+            "不是"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verbs"
+          ]
+        },
+        {
+          "id": 719,
+          "name": "Asking and Introducing Nationalities",
+          "canonical_name": "Asking and Introducing Nationalities",
+          "aliases": [],
+          "strong_phrases": [
+            "nationalities chinese",
+            "zhongguo ren",
+            "meiguo ren",
+            "yin-du ren",
+            "na guo ren",
+            "which country"
+          ],
+          "specific_keywords": [
+            "ren",
+            "zhongguo",
+            "meiguo",
+            "nationalities"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "nationalities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 153,
+      "number": 3,
+      "name": "Question Words, Prices, Locations and Professions",
+      "track_id": 6,
+      "track_key": "chinese",
+      "topics": [
+        {
+          "id": 720,
+          "name": "Interrogative Words: ji (几) and duo shao (多少)",
+          "canonical_name": "Interrogative Words: ji (几) and duo shao (多少)",
+          "aliases": [],
+          "strong_phrases": [
+            "question words ji duoshao",
+            "ji",
+            "duoshao",
+            "how many in chinese",
+            "几",
+            "多少"
+          ],
+          "specific_keywords": [
+            "ji",
+            "duoshao",
+            "how many",
+            "几",
+            "多少"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "how many"
+          ]
+        },
+        {
+          "id": 721,
+          "name": "Asking and Bargaining Prices in Chinese",
+          "canonical_name": "Asking and Bargaining Prices in Chinese",
+          "aliases": [],
+          "strong_phrases": [
+            "duoshao qian",
+            "tai gui le",
+            "bargaining in chinese",
+            "how much money",
+            "多少钱"
+          ],
+          "specific_keywords": [
+            "duoshao qian",
+            "tai gui le",
+            "prices chinese"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "shopping"
+          ]
+        },
+        {
+          "id": 722,
+          "name": "Asking Names Formally and Expressing Apologies",
+          "canonical_name": "Asking Names Formally and Expressing Apologies",
+          "aliases": [],
+          "strong_phrases": [
+            "nin guixing",
+            "jiaoshenme mingzi",
+            "meiguanxi",
+            "apologies chinese"
+          ],
+          "specific_keywords": [
+            "guixing",
+            "mingzi",
+            "meiguanxi"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "names"
+          ]
+        },
+        {
+          "id": 723,
+          "name": "Location Prepositions with zai (在)",
+          "canonical_name": "Location Prepositions with zai (在)",
+          "aliases": [],
+          "strong_phrases": [
+            "location zai",
+            "zai nar",
+            "prepositions of location chinese",
+            "在"
+          ],
+          "specific_keywords": [
+            "zai",
+            "zai nar",
+            "location chinese"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "locations"
+          ]
+        },
+        {
+          "id": 724,
+          "name": "Spatial Demonstratives: zher (这儿), nar (那儿), nar (哪儿)",
+          "canonical_name": "Spatial Demonstratives: zher (这儿), nar (那儿), nar (哪儿)",
+          "aliases": [],
+          "strong_phrases": [
+            "zher nar",
+            "here and there chinese",
+            "这儿 那儿 哪儿",
+            "demonstratives location"
+          ],
+          "specific_keywords": [
+            "zher",
+            "nar",
+            "here there"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "demonstratives"
+          ]
+        },
+        {
+          "id": 725,
+          "name": "Occupations, Professions and Workplace Vocabulary",
+          "canonical_name": "Occupations, Professions and Workplace Vocabulary",
+          "aliases": [],
+          "strong_phrases": [
+            "professions chinese",
+            "laoshi",
+            "xuesheng",
+            "yisheng",
+            "gongchengshi",
+            "workplace vocabulary"
+          ],
+          "specific_keywords": [
+            "laoshi",
+            "xuesheng",
+            "yisheng",
+            "professions"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "professions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 154,
+      "number": 4,
+      "name": "Suggestions, Comments, Food and Sports",
+      "track_id": 6,
+      "track_key": "chinese",
+      "topics": [
+        {
+          "id": 726,
+          "name": "Making, Accepting and Declining Suggestions",
+          "canonical_name": "Making, Accepting and Declining Suggestions",
+          "aliases": [],
+          "strong_phrases": [
+            "suggestions chinese",
+            "zenmeyang",
+            "hao bu hao",
+            "ba particle suggestion"
+          ],
+          "specific_keywords": [
+            "zenmeyang",
+            "suggestions",
+            "hao bu hao"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "suggestions"
+          ]
+        },
+        {
+          "id": 727,
+          "name": "Subject-Predicate as Predicate Constructions",
+          "canonical_name": "Subject-Predicate as Predicate Constructions",
+          "aliases": [],
+          "strong_phrases": [
+            "subject-predicate predicate",
+            "complex predicate chinese",
+            "grammar constructions"
+          ],
+          "specific_keywords": [
+            "predicate",
+            "subject-predicate"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "grammar"
+          ]
+        },
+        {
+          "id": 728,
+          "name": "Food, Fruits and Ordering Meals Vocabulary",
+          "canonical_name": "Food, Fruits and Ordering Meals Vocabulary",
+          "aliases": [],
+          "strong_phrases": [
+            "ordering food chinese",
+            "chifan he cha",
+            "cai menu",
+            "shuiguo pingguo",
+            "restaurant chinese"
+          ],
+          "specific_keywords": [
+            "chifan",
+            "he cha",
+            "food chinese",
+            "fruits"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "food"
+          ]
+        },
+        {
+          "id": 729,
+          "name": "Action Verbs and Adverbial Modifiers",
+          "canonical_name": "Action Verbs and Adverbial Modifiers",
+          "aliases": [],
+          "strong_phrases": [
+            "action verbs chinese",
+            "qu lai kan ting",
+            "adverbial modifiers"
+          ],
+          "specific_keywords": [
+            "action verbs",
+            "modifiers"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "verbs"
+          ]
+        },
+        {
+          "id": 730,
+          "name": "Sports, Games, Hobbies and Leisure Vocabulary",
+          "canonical_name": "Sports, Games, Hobbies and Leisure Vocabulary",
+          "aliases": [],
+          "strong_phrases": [
+            "sports chinese",
+            "ti zuqiu",
+            "da lanqiu",
+            "hobbies chinese",
+            "leisure activities"
+          ],
+          "specific_keywords": [
+            "sports",
+            "hobbies",
+            "zuqiu",
+            "lanqiu"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "sports"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 155,
+      "number": 5,
+      "name": "Family, University, Time Sequence and Modal Verbs",
+      "track_id": 6,
+      "track_key": "chinese",
+      "topics": [
+        {
+          "id": 731,
+          "name": "Describing Family Members and Relatives",
+          "canonical_name": "Describing Family Members and Relatives",
+          "aliases": [],
+          "strong_phrases": [
+            "chinese equivalent for 'elder sister'",
+            "chinese equivalent for 'elder brother'",
+            "english equivalent for '妈妈'",
+            "family members chinese",
+            "baba mama",
+            "gege didi",
+            "jiejie meimei",
+            "elder sister",
+            "elder brother",
+            "younger brother",
+            "younger sister",
+            "妈妈",
+            "爸爸",
+            "姐姐",
+            "哥哥"
+          ],
+          "specific_keywords": [
+            "elder sister",
+            "elder brother",
+            "younger sister",
+            "family members",
+            "mama",
+            "baba",
+            "jiejie",
+            "gege",
+            "didi",
+            "meimei",
+            "妈妈",
+            "姐姐"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "family"
+          ]
+        },
+        {
+          "id": 732,
+          "name": "University, Academic Departments and Student Life",
+          "canonical_name": "University, Academic Departments and Student Life",
+          "aliases": [],
+          "strong_phrases": [
+            "university chinese",
+            "daxue",
+            "zhuanye",
+            "department chinese",
+            "student life"
+          ],
+          "specific_keywords": [
+            "daxue",
+            "zhuanye",
+            "university"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "university"
+          ]
+        },
+        {
+          "id": 733,
+          "name": "Time Sequencing Words: yiqian (以前), yihou (以后), haishi (还是)",
+          "canonical_name": "Time Sequencing Words: yiqian (以前), yihou (以后), haishi (还是)",
+          "aliases": [],
+          "strong_phrases": [
+            "time sequencing words",
+            "yiqian",
+            "yihou",
+            "haishi",
+            "huozhe",
+            "以前 以后 还是"
+          ],
+          "specific_keywords": [
+            "yiqian",
+            "yihou",
+            "haishi",
+            "before after"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "sequencing"
+          ]
+        },
+        {
+          "id": 734,
+          "name": "Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
+          "canonical_name": "Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
+          "aliases": [],
+          "strong_phrases": [
+            "modal verbs chinese",
+            "hui neng keyi",
+            "会 能 可以",
+            "can and able to in chinese"
+          ],
+          "specific_keywords": [
+            "hui",
+            "neng",
+            "keyi",
+            "modal verbs",
+            "会",
+            "能"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "modals"
+          ]
+        },
+        {
+          "id": 735,
+          "name": "Expressing Likes, Dislikes and Color Preferences",
+          "canonical_name": "Expressing Likes, Dislikes and Color Preferences",
+          "aliases": [],
+          "strong_phrases": [
+            "xihuan",
+            "bu xihuan",
+            "likes and dislikes chinese",
+            "colors chinese",
+            "hongse lanse baise heise"
+          ],
+          "specific_keywords": [
+            "xihuan",
+            "colors chinese",
+            "hongse"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "preferences"
+          ]
+        },
+        {
+          "id": 736,
+          "name": "Traditional Chinese Festivals and Culture",
+          "canonical_name": "Traditional Chinese Festivals and Culture",
+          "aliases": [],
+          "strong_phrases": [
+            "chinese festivals",
+            "chunjie spring festival",
+            "zhongqiujie mid-autumn",
+            "traditional culture china"
+          ],
+          "specific_keywords": [
+            "chunjie",
+            "festivals",
+            "chinese culture"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "culture"
+          ]
+        }
+      ]
+    }
+  ]
+}

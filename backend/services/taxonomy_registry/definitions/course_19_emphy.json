@@ -1,0 +1,975 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 19,
+    "name": "Physics: Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "canonical_code": "21PYB101J",
+    "code": "SEM1-EMPHY",
+    "regulation_year": 2021,
+    "department": "Department of Physics and Nanotechnology"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21PYB101J",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Electromagnetism & Dielectrics, Magnetic Materials, Quantum Mechanics, Wave Optics, and Lasers & Fiber Optics."
+  },
+  "units": [
+    {
+      "id": 40,
+      "number": 1,
+      "name": "Electromagnetism and Dielectrics",
+      "topics": [
+        {
+          "id": 489,
+          "name": "Vector Calculus and Del Operator",
+          "canonical_name": "Vector Calculus and Del Operator",
+          "aliases": [],
+          "strong_phrases": [
+            "del operator",
+            "divergence of a vector",
+            "curl of a vector",
+            "gradient of a scalar",
+            "laplacian operator",
+            "directional derivative"
+          ],
+          "specific_keywords": [
+            "del operator",
+            "vector field",
+            "conservative field",
+            "curl",
+            "divergence"
+          ],
+          "negative_guards": [
+            "dielectric",
+            "maxwell",
+            "ferromagnetic",
+            "schrodinger",
+            "laser"
+          ],
+          "context_hints": [
+            "vector calculus",
+            "field theory"
+          ]
+        },
+        {
+          "id": 490,
+          "name": "Electrostatics and Charge Distributions",
+          "canonical_name": "Electrostatics and Charge Distributions",
+          "aliases": [],
+          "strong_phrases": [
+            "coulomb's law",
+            "electric field intensity",
+            "charge distribution",
+            "volume charge density",
+            "surface charge density",
+            "line charge density"
+          ],
+          "specific_keywords": [
+            "coulomb",
+            "charge density",
+            "electric flux density"
+          ],
+          "negative_guards": [
+            "magnetic",
+            "optical fiber",
+            "ferrite"
+          ],
+          "context_hints": [
+            "electrostatics"
+          ]
+        },
+        {
+          "id": 491,
+          "name": "Gauss's Law and Electrostatic Potentials",
+          "canonical_name": "Gauss's Law and Electrostatic Potentials",
+          "aliases": [],
+          "strong_phrases": [
+            "gauss's law",
+            "gauss theorem",
+            "electrostatic potential",
+            "poisson's equation",
+            "laplace's equation",
+            "equipotential surface"
+          ],
+          "specific_keywords": [
+            "gauss's law",
+            "poisson equation",
+            "laplace equation",
+            "electrostatic potential"
+          ],
+          "negative_guards": [
+            "magnetic",
+            "schrodinger",
+            "quantum"
+          ],
+          "context_hints": [
+            "potential theory",
+            "electrostatics"
+          ]
+        },
+        {
+          "id": 492,
+          "name": "Electrodynamics and Magnetism",
+          "canonical_name": "Electrodynamics and Magnetism",
+          "aliases": [],
+          "strong_phrases": [
+            "biot-savart law",
+            "ampere's circuital law",
+            "lorentz force",
+            "magnetic vector potential",
+            "faraday's law of electromagnetic induction",
+            "lenz's law"
+          ],
+          "specific_keywords": [
+            "biot-savart",
+            "ampere's law",
+            "lorentz force",
+            "magnetic induction"
+          ],
+          "negative_guards": [
+            "schrodinger",
+            "laser",
+            "blackbody"
+          ],
+          "context_hints": [
+            "magnetostatics",
+            "electrodynamics"
+          ]
+        },
+        {
+          "id": 493,
+          "name": "Maxwell's Equations and EM Waves",
+          "canonical_name": "Maxwell's Equations and EM Waves",
+          "aliases": [],
+          "strong_phrases": [
+            "maxwell's equations",
+            "displacement current",
+            "poynting vector",
+            "electromagnetic wave equation",
+            "poynting theorem",
+            "intrinsic impedance",
+            "wave propagation in free space"
+          ],
+          "specific_keywords": [
+            "maxwell's equation",
+            "displacement current",
+            "poynting vector",
+            "em wave equation"
+          ],
+          "negative_guards": [
+            "quantum well",
+            "diffraction grating"
+          ],
+          "context_hints": [
+            "electromagnetics",
+            "wave propagation"
+          ]
+        },
+        {
+          "id": 494,
+          "name": "Dielectric Materials and Polarization",
+          "canonical_name": "Dielectric Materials and Polarization",
+          "aliases": [],
+          "strong_phrases": [
+            "dielectric polarization",
+            "dielectric constant",
+            "electric susceptibility",
+            "clausius-mossotti relation",
+            "electronic polarizability",
+            "ionic polarizability",
+            "orientational polarizability",
+            "internal field in dielectrics",
+            "lorentz field"
+          ],
+          "specific_keywords": [
+            "dielectric",
+            "polarizability",
+            "clausius-mossotti",
+            "internal field"
+          ],
+          "negative_guards": [
+            "magnetic hysteresis",
+            "fiber optic"
+          ],
+          "context_hints": [
+            "dielectrics",
+            "solid state physics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "number": 2,
+      "name": "Magnetic Materials",
+      "topics": [
+        {
+          "id": 495,
+          "name": "Magnetic Properties and Parameters",
+          "canonical_name": "Magnetic Properties and Parameters",
+          "aliases": [],
+          "strong_phrases": [
+            "magnetic susceptibility",
+            "magnetic permeability",
+            "bohr magneton",
+            "diamagnetism",
+            "paramagnetism",
+            "magnetic dipole moment"
+          ],
+          "specific_keywords": [
+            "susceptibility",
+            "permeability",
+            "bohr magneton",
+            "diamagnetic",
+            "paramagnetic"
+          ],
+          "negative_guards": [
+            "dielectric constant",
+            "schrodinger"
+          ],
+          "context_hints": [
+            "magnetism",
+            "materials"
+          ]
+        },
+        {
+          "id": 496,
+          "name": "Ferromagnetism and Domain Theory",
+          "canonical_name": "Ferromagnetism and Domain Theory",
+          "aliases": [],
+          "strong_phrases": [
+            "ferromagnetism",
+            "weiss domain theory",
+            "hysteresis loop",
+            "b-h curve",
+            "curie temperature",
+            "curie-weiss law",
+            "remanence",
+            "coercivity",
+            "domain wall"
+          ],
+          "specific_keywords": [
+            "ferromagnetism",
+            "domain theory",
+            "hysteresis",
+            "coercivity",
+            "remanence",
+            "curie temperature"
+          ],
+          "negative_guards": [
+            "dielectric",
+            "photoelectric"
+          ],
+          "context_hints": [
+            "ferromagnetism",
+            "magnetic materials"
+          ]
+        },
+        {
+          "id": 497,
+          "name": "Soft and Hard Magnetic Materials",
+          "canonical_name": "Soft and Hard Magnetic Materials",
+          "aliases": [],
+          "strong_phrases": [
+            "soft magnetic materials",
+            "hard magnetic materials",
+            "permanent magnet",
+            "transformer core material",
+            "alnico",
+            "eddy current losses"
+          ],
+          "specific_keywords": [
+            "soft magnetic",
+            "hard magnetic",
+            "alnico",
+            "transformer core"
+          ],
+          "negative_guards": [
+            "quantum",
+            "laser"
+          ],
+          "context_hints": [
+            "magnetic applications"
+          ]
+        },
+        {
+          "id": 498,
+          "name": "Ferrites and Spinel Structures",
+          "canonical_name": "Ferrites and Spinel Structures",
+          "aliases": [],
+          "strong_phrases": [
+            "ferrites",
+            "ferrimagnetism",
+            "spinel structure",
+            "inverse spinel",
+            "garnets",
+            "ferrite applications"
+          ],
+          "specific_keywords": [
+            "ferrites",
+            "ferrimagnetic",
+            "spinel structure",
+            "inverse spinel"
+          ],
+          "negative_guards": [
+            "optical fiber",
+            "semiconductor laser"
+          ],
+          "context_hints": [
+            "ferrites",
+            "ceramic magnets"
+          ]
+        },
+        {
+          "id": 499,
+          "name": "Spintronics and Magnetoresistance",
+          "canonical_name": "Spintronics and Magnetoresistance",
+          "aliases": [],
+          "strong_phrases": [
+            "giant magnetoresistance",
+            "gmr",
+            "spintronics",
+            "spin valve",
+            "tunnel magnetoresistance",
+            "tmr",
+            "spin polarization"
+          ],
+          "specific_keywords": [
+            "spintronics",
+            "magnetoresistance",
+            "giant magnetoresistance",
+            "spin valve"
+          ],
+          "negative_guards": [
+            "diffraction",
+            "blackbody"
+          ],
+          "context_hints": [
+            "spintronics",
+            "nanotechnology"
+          ]
+        },
+        {
+          "id": 500,
+          "name": "Multiferroic Materials",
+          "canonical_name": "Multiferroic Materials",
+          "aliases": [],
+          "strong_phrases": [
+            "multiferroic",
+            "magnetoelectric coupling",
+            "ferroelectric and ferromagnetic",
+            "magnetoelectric effect"
+          ],
+          "specific_keywords": [
+            "multiferroic",
+            "magnetoelectric"
+          ],
+          "negative_guards": [
+            "fresnel",
+            "young's double slit"
+          ],
+          "context_hints": [
+            "smart materials"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "number": 3,
+      "name": "Quantum Mechanics",
+      "topics": [
+        {
+          "id": 501,
+          "name": "Inadequacies of Classical Mechanics and Blackbody Radiation",
+          "canonical_name": "Inadequacies of Classical Mechanics and Blackbody Radiation",
+          "aliases": [],
+          "strong_phrases": [
+            "blackbody radiation",
+            "planck's radiation law",
+            "planck's quantum hypothesis",
+            "wien's displacement law",
+            "rayleigh-jeans law",
+            "ultraviolet catastrophe"
+          ],
+          "specific_keywords": [
+            "blackbody",
+            "planck radiation",
+            "wien displacement",
+            "rayleigh-jeans",
+            "ultraviolet catastrophe"
+          ],
+          "negative_guards": [
+            "fiber optic",
+            "clausius-mossotti"
+          ],
+          "context_hints": [
+            "quantum origin",
+            "thermal radiation"
+          ]
+        },
+        {
+          "id": 502,
+          "name": "Photoelectric and Compton Effects",
+          "canonical_name": "Photoelectric and Compton Effects",
+          "aliases": [],
+          "strong_phrases": [
+            "photoelectric effect",
+            "work function",
+            "stopping potential",
+            "einstein photoelectric equation",
+            "compton effect",
+            "compton shift",
+            "compton scattering",
+            "compton wavelength"
+          ],
+          "specific_keywords": [
+            "photoelectric",
+            "compton effect",
+            "compton shift",
+            "stopping potential",
+            "work function"
+          ],
+          "negative_guards": [
+            "magnetic domain",
+            "truss"
+          ],
+          "context_hints": [
+            "quantum physics",
+            "photon interaction"
+          ]
+        },
+        {
+          "id": 503,
+          "name": "Matter Waves and Uncertainty Principle",
+          "canonical_name": "Matter Waves and Uncertainty Principle",
+          "aliases": [],
+          "strong_phrases": [
+            "de broglie hypothesis",
+            "de broglie wavelength",
+            "matter waves",
+            "heisenberg's uncertainty principle",
+            "davisson and germer experiment",
+            "group velocity and phase velocity"
+          ],
+          "specific_keywords": [
+            "de broglie",
+            "matter waves",
+            "uncertainty principle",
+            "davisson-germer",
+            "group velocity"
+          ],
+          "negative_guards": [
+            "ferrite",
+            "poisson ratio"
+          ],
+          "context_hints": [
+            "wave-particle duality"
+          ]
+        },
+        {
+          "id": 504,
+          "name": "Wave Function and Postulates",
+          "canonical_name": "Wave Function and Postulates",
+          "aliases": [],
+          "strong_phrases": [
+            "wave function",
+            "physical significance of wave function",
+            "born's interpretation",
+            "normalization of wave function",
+            "probability density",
+            "postulates of quantum mechanics",
+            "orthogonality of wave functions"
+          ],
+          "specific_keywords": [
+            "wave function",
+            "born interpretation",
+            "normalization condition",
+            "probability density"
+          ],
+          "negative_guards": [
+            "maxwell's equation",
+            "laser diode"
+          ],
+          "context_hints": [
+            "quantum mechanics"
+          ]
+        },
+        {
+          "id": 505,
+          "name": "Schrödinger Wave Equations",
+          "canonical_name": "Schrödinger Wave Equations",
+          "aliases": [],
+          "strong_phrases": [
+            "schrodinger wave equation",
+            "time independent schrodinger equation",
+            "time dependent schrodinger equation",
+            "schrodinger equation",
+            "eigenvalue and eigenfunction",
+            "hamiltonian operator"
+          ],
+          "specific_keywords": [
+            "schrodinger",
+            "time independent schrodinger",
+            "eigenvalue equation",
+            "hamiltonian operator"
+          ],
+          "negative_guards": [
+            "classical mechanics",
+            "snell's law"
+          ],
+          "context_hints": [
+            "schrodinger equation",
+            "wave mechanics"
+          ]
+        },
+        {
+          "id": 506,
+          "name": "Quantum Wells and Potential Barriers",
+          "canonical_name": "Quantum Wells and Potential Barriers",
+          "aliases": [],
+          "strong_phrases": [
+            "particle in a one-dimensional box",
+            "particle in a box",
+            "infinite potential well",
+            "quantum tunneling",
+            "barrier penetration",
+            "transmission coefficient",
+            "step potential"
+          ],
+          "specific_keywords": [
+            "particle in a box",
+            "potential well",
+            "quantum tunneling",
+            "barrier penetration"
+          ],
+          "negative_guards": [
+            "optical fiber",
+            "bending of beams"
+          ],
+          "context_hints": [
+            "quantum bound states",
+            "tunneling"
+          ]
+        },
+        {
+          "id": 507,
+          "name": "Harmonic Oscillator and Hydrogen Atom",
+          "canonical_name": "Harmonic Oscillator and Hydrogen Atom",
+          "aliases": [],
+          "strong_phrases": [
+            "quantum harmonic oscillator",
+            "zero-point energy",
+            "hydrogen atom in quantum mechanics",
+            "radial wave function",
+            "principal quantum number"
+          ],
+          "specific_keywords": [
+            "quantum harmonic oscillator",
+            "zero-point energy",
+            "hydrogen atom"
+          ],
+          "negative_guards": [
+            "coulomb friction",
+            "diffraction grating"
+          ],
+          "context_hints": [
+            "quantum systems"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "number": 4,
+      "name": "Wave Optics",
+      "topics": [
+        {
+          "id": 508,
+          "name": "Superposition and Interference of Light",
+          "canonical_name": "Superposition and Interference of Light",
+          "aliases": [],
+          "strong_phrases": [
+            "interference of light",
+            "superposition principle",
+            "young's double slit experiment",
+            "coherent sources",
+            "interference in thin films",
+            "newton's rings",
+            "wedge shaped thin film",
+            "path difference and phase difference"
+          ],
+          "specific_keywords": [
+            "interference",
+            "newton's rings",
+            "thin films",
+            "coherent sources",
+            "fringe width"
+          ],
+          "negative_guards": [
+            "polarization",
+            "schrodinger",
+            "compton"
+          ],
+          "context_hints": [
+            "wave optics",
+            "interference"
+          ]
+        },
+        {
+          "id": 509,
+          "name": "Fresnel and Fraunhofer Diffraction",
+          "canonical_name": "Fresnel and Fraunhofer Diffraction",
+          "aliases": [],
+          "strong_phrases": [
+            "diffraction of light",
+            "fresnel diffraction",
+            "fraunhofer diffraction",
+            "fresnel half period zones",
+            "zone plate",
+            "distinction between fresnel and fraunhofer"
+          ],
+          "specific_keywords": [
+            "fresnel diffraction",
+            "fraunhofer diffraction",
+            "half period zones",
+            "zone plate"
+          ],
+          "negative_guards": [
+            "thin film interference",
+            "population inversion"
+          ],
+          "context_hints": [
+            "diffraction theory"
+          ]
+        },
+        {
+          "id": 510,
+          "name": "Fraunhofer Slit Diffraction",
+          "canonical_name": "Fraunhofer Slit Diffraction",
+          "aliases": [],
+          "strong_phrases": [
+            "fraunhofer diffraction at single slit",
+            "single slit diffraction",
+            "diffraction at double slit",
+            "diffraction pattern central maximum",
+            "minima and maxima in diffraction"
+          ],
+          "specific_keywords": [
+            "single slit",
+            "double slit diffraction",
+            "central maximum",
+            "diffraction minima"
+          ],
+          "negative_guards": [
+            "quantum well",
+            "fiber optic"
+          ],
+          "context_hints": [
+            "slit diffraction"
+          ]
+        },
+        {
+          "id": 511,
+          "name": "Plane Diffraction Grating",
+          "canonical_name": "Plane Diffraction Grating",
+          "aliases": [],
+          "strong_phrases": [
+            "plane transmission diffraction grating",
+            "diffraction grating",
+            "grating equation",
+            "resolving power of grating",
+            "dispersive power of grating",
+            "grating spectra",
+            "absent spectra"
+          ],
+          "specific_keywords": [
+            "diffraction grating",
+            "grating equation",
+            "resolving power",
+            "dispersive power"
+          ],
+          "negative_guards": [
+            "nicol prism",
+            "blackbody"
+          ],
+          "context_hints": [
+            "diffraction grating",
+            "spectroscopy"
+          ]
+        },
+        {
+          "id": 512,
+          "name": "Polarization of Light",
+          "canonical_name": "Polarization of Light",
+          "aliases": [],
+          "strong_phrases": [
+            "polarization of light",
+            "brewster's law",
+            "malus's law",
+            "linearly polarized light",
+            "circularly polarized light",
+            "elliptically polarized light",
+            "polarization by reflection"
+          ],
+          "specific_keywords": [
+            "polarization",
+            "brewster's law",
+            "malus's law",
+            "linearly polarized"
+          ],
+          "negative_guards": [
+            "laser pumping",
+            "particle in a box"
+          ],
+          "context_hints": [
+            "polarization",
+            "electromagnetic optics"
+          ]
+        },
+        {
+          "id": 513,
+          "name": "Double Refraction and Polarizing Devices",
+          "canonical_name": "Double Refraction and Polarizing Devices",
+          "aliases": [],
+          "strong_phrases": [
+            "double refraction",
+            "birefringence",
+            "nicol prism",
+            "quarter wave plate",
+            "half wave plate",
+            "ordinary ray and extraordinary ray",
+            "optical activity"
+          ],
+          "specific_keywords": [
+            "double refraction",
+            "birefringence",
+            "nicol prism",
+            "quarter wave plate",
+            "half wave plate"
+          ],
+          "negative_guards": [
+            "grating",
+            "ferrite"
+          ],
+          "context_hints": [
+            "crystal optics",
+            "polarizing devices"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "number": 5,
+      "name": "Lasers and Fiber Optics",
+      "topics": [
+        {
+          "id": 514,
+          "name": "Laser Principles and Einstein Coefficients",
+          "canonical_name": "Laser Principles and Einstein Coefficients",
+          "aliases": [],
+          "strong_phrases": [
+            "einstein's coefficients",
+            "einstein a and b coefficients",
+            "stimulated emission",
+            "spontaneous emission",
+            "stimulated absorption",
+            "laser principles",
+            "properties of laser beam",
+            "spatial coherence",
+            "temporal coherence"
+          ],
+          "specific_keywords": [
+            "einstein coefficients",
+            "stimulated emission",
+            "spontaneous emission",
+            "coherence of laser"
+          ],
+          "negative_guards": [
+            "optical fiber cable",
+            "compton effect"
+          ],
+          "context_hints": [
+            "laser physics"
+          ]
+        },
+        {
+          "id": 515,
+          "name": "Population Inversion and Pumping Schemes",
+          "canonical_name": "Population Inversion and Pumping Schemes",
+          "aliases": [],
+          "strong_phrases": [
+            "population inversion",
+            "optical pumping",
+            "metastable state",
+            "three level laser system",
+            "four level laser system",
+            "resonant cavity",
+            "active medium"
+          ],
+          "specific_keywords": [
+            "population inversion",
+            "optical pumping",
+            "metastable state",
+            "three level laser",
+            "four level laser"
+          ],
+          "negative_guards": [
+            "polarization",
+            "newton rings"
+          ],
+          "context_hints": [
+            "laser action"
+          ]
+        },
+        {
+          "id": 516,
+          "name": "Gas and Solid State Lasers",
+          "canonical_name": "Gas and Solid State Lasers",
+          "aliases": [],
+          "strong_phrases": [
+            "he-ne laser",
+            "helium neon laser",
+            "ruby laser",
+            "nd:yag laser",
+            "gas laser",
+            "solid state laser",
+            "construction of he-ne laser"
+          ],
+          "specific_keywords": [
+            "he-ne laser",
+            "helium neon",
+            "ruby laser",
+            "nd:yag laser"
+          ],
+          "negative_guards": [
+            "semiconductor laser",
+            "optical fiber"
+          ],
+          "context_hints": [
+            "laser types",
+            "engineering lasers"
+          ]
+        },
+        {
+          "id": 517,
+          "name": "Semiconductor Diode Lasers",
+          "canonical_name": "Semiconductor Diode Lasers",
+          "aliases": [],
+          "strong_phrases": [
+            "semiconductor diode laser",
+            "gaas laser",
+            "homojunction laser",
+            "heterojunction laser",
+            "semiconductor laser injection"
+          ],
+          "specific_keywords": [
+            "semiconductor laser",
+            "gaas laser",
+            "diode laser",
+            "heterojunction laser"
+          ],
+          "negative_guards": [
+            "he-ne laser",
+            "ruby laser"
+          ],
+          "context_hints": [
+            "semiconductor optoelectronics"
+          ]
+        },
+        {
+          "id": 518,
+          "name": "Optical Fiber Transmission",
+          "canonical_name": "Optical Fiber Transmission",
+          "aliases": [],
+          "strong_phrases": [
+            "total internal reflection",
+            "numerical aperture of fiber",
+            "acceptance angle",
+            "optical fiber structure",
+            "core and cladding refractive index",
+            "fractional refractive index change"
+          ],
+          "specific_keywords": [
+            "optical fiber",
+            "numerical aperture",
+            "acceptance angle",
+            "total internal reflection",
+            "core and cladding"
+          ],
+          "negative_guards": [
+            "schrodinger",
+            "ferrite"
+          ],
+          "context_hints": [
+            "fiber optics",
+            "light guiding"
+          ]
+        },
+        {
+          "id": 519,
+          "name": "Fiber Classification and Losses",
+          "canonical_name": "Fiber Classification and Losses",
+          "aliases": [],
+          "strong_phrases": [
+            "step index fiber",
+            "graded index fiber",
+            "single mode fiber",
+            "multimode fiber",
+            "fiber attenuation",
+            "fiber losses",
+            "intermodal dispersion",
+            "material dispersion",
+            "scattering losses"
+          ],
+          "specific_keywords": [
+            "step index",
+            "graded index",
+            "single mode",
+            "multimode fiber",
+            "fiber attenuation",
+            "dispersion in fiber"
+          ],
+          "negative_guards": [
+            "laser pumping",
+            "b-h curve"
+          ],
+          "context_hints": [
+            "fiber types",
+            "transmission losses"
+          ]
+        },
+        {
+          "id": 520,
+          "name": "Fiber Optic Communication and Sensors",
+          "canonical_name": "Fiber Optic Communication and Sensors",
+          "aliases": [],
+          "strong_phrases": [
+            "optical fiber communication system",
+            "fiber optic sensors",
+            "displacement sensor",
+            "temperature fiber sensor",
+            "endoscopy in fiber optics",
+            "optical sources and detectors"
+          ],
+          "specific_keywords": [
+            "fiber optic communication",
+            "fiber sensor",
+            "optical detector",
+            "endoscopy"
+          ],
+          "negative_guards": [
+            "schrodinger",
+            "diffraction grating"
+          ],
+          "context_hints": [
+            "fiber optic applications"
+          ]
+        }
+      ]
+    }
+  ]
+}

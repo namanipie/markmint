@@ -1,0 +1,563 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. ________________ is a variable that stores the address of another variable.\n(A) Local variable\n(B) Global variable\n(C) Auto variable\n(D) Pointer variable [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "________________ is a variable that stores the address of another variable.\n(A) Local variable\n(B) Global variable\n(C) Auto variable\n(D) Pointer variable",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. What is the best case time complexity of Linear search?\n(A) O(n)\n(B) O(1)\n(C) O(n log n)\n(D) O(log n) [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "What is the best case time complexity of Linear search?\n(A) O(n)\n(B) O(1)\n(C) O(n log n)\n(D) O(log n)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following data structure is non linear type?\n(A) String\n(B) List\n(C) Tree\n(D) Stack [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following data structure is non linear type?\n(A) String\n(B) List\n(C) Tree\n(D) Stack",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Elements in an array are accessed ________________\n(A) randomly\n(B) sequentially\n(C) exponentially\n(D) logarithmically [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Elements in an array are accessed ________________\n(A) randomly\n(B) sequentially\n(C) exponentially\n(D) logarithmically",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. The primary benefit of the Linked List data structure is ________________\n(A) computation time\n(B) space utilisation\n(C) space utilisation and computation time\n(D) speed than array ds [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "The primary benefit of the Linked List data structure is ________________\n(A) computation time\n(B) space utilisation\n(C) space utilisation and computation time\n(D) speed than array ds",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Find the correct code for the following node structure.\nPrev* Data Next*\n(A) struct node {struct node *prev;int data;struct node *next;}\n(B) struct node { struct node prev; int data; struct node next;}\n(C) struct node { int *prev; int data; int *next;}\n(D) struct node { struct node *prev; struct node data; struct node *next;} [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Find the correct code for the following node structure.\nPrev* Data Next*\n(A) struct node {struct node *prev;int data;struct node *next;}\n(B) struct node { struct node prev; int data; struct node next;}\n(C) struct node { int *prev; int data; int *next;}\n(D) struct node { struct node *prev; struct node data; struct node *next;}",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Find the concept which is right for the below condition.\n\"Any node can be a starting point. We can traverse the whole list by starting from any point. We just need to stop when the first visited node is visited again\".\n(A) Singly linked list\n(B) Array\n(C) Circular linked list\n(D) Stack [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Find the concept which is right for the below condition.\n\"Any node can be a starting point. We can traverse the whole list by starting from any point. We just need to stop when the first visited node is visited again\".\n(A) Singly linked list\n(B) Array\n(C) Circular linked list\n(D) Stack",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. ________________ is a collection of similar type of data items.\n(A) Array\n(B) Table\n(C) Record\n(D) Structure [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "________________ is a collection of similar type of data items.\n(A) Array\n(B) Table\n(C) Record\n(D) Structure",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Which data structure follows LIFO concept?\n(A) Queue\n(B) Array\n(C) Stack\n(D) Deque [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Which data structure follows LIFO concept?\n(A) Queue\n(B) Array\n(C) Stack\n(D) Deque",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. The result evaluating the postfix expression 5 5+60 6/*10- is ________________\n(A) 110\n(B) 90\n(C) 80\n(D) 60 [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "The result evaluating the postfix expression 5 5+60 6/*10- is ________________\n(A) 110\n(B) 90\n(C) 80\n(D) 60",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. In Queues, we can insert an element at ________________ end and can delete an element at ________________ end.\n(A) REAR, FRONT\n(B) FRONT, REAR\n(C) TOP, BOTTOM\n(D) BOTTOM, TOP [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "In Queues, we can insert an element at ________________ end and can delete an element at ________________ end.\n(A) REAR, FRONT\n(B) FRONT, REAR\n(C) TOP, BOTTOM\n(D) BOTTOM, TOP",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. How many queues are needed to implement a stack Data Structure? Consider there is no other Data Structure available like array and linked list.\n(A) 1\n(B) 3\n(C) 2\n(D) 4 [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "How many queues are needed to implement a stack Data Structure? Consider there is no other Data Structure available like array and linked list.\n(A) 1\n(B) 3\n(C) 2\n(D) 4",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. While Inserting the elements 71, 65, 84, 69 in an empty Binary Search Tree (BST) in the sequence shown, the element in the lowest level is ________________\n(A) 65\n(B) 84\n(C) 69\n(D) 71 [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "While Inserting the elements 71, 65, 84, 69 in an empty Binary Search Tree (BST) in the sequence shown, the element in the lowest level is ________________\n(A) 65\n(B) 84\n(C) 69\n(D) 71",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. An AVL tree is a self - balancing binary search tree, in which the heights of the two child sub trees of any node differ by ________________\n(A) Atleast one\n(B) 0\n(C) Exactly one\n(D) Atmost one [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "An AVL tree is a self - balancing binary search tree, in which the heights of the two child sub trees of any node differ by ________________\n(A) Atleast one\n(B) 0\n(C) Exactly one\n(D) Atmost one",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. What is full binary tree?\n(A) Each node has exactly zero or two children\n(B) Each node has exactly two children\n(C) All the leaves are at the same level\n(D) Each node has exactly one or two children [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "What is full binary tree?\n(A) Each node has exactly zero or two children\n(B) Each node has exactly two children\n(C) All the leaves are at the same level\n(D) Each node has exactly one or two children",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. If \"in order\" traversal is performed in BST, then the resultant is ________________\n(A) Elements are in non-increasing order\n(B) Elements are in decreasing order\n(C) Elements are in increasing order\n(D) Elements are in random order [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "If \"in order\" traversal is performed in BST, then the resultant is ________________\n(A) Elements are in non-increasing order\n(B) Elements are in decreasing order\n(C) Elements are in increasing order\n(D) Elements are in random order",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. A graph with all vertices having equal degree is known as a ________________\n(A) Multi Graph\n(B) Complete Graph\n(C) Simple Graph\n(D) Regular Graph [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "A graph with all vertices having equal degree is known as a ________________\n(A) Multi Graph\n(B) Complete Graph\n(C) Simple Graph\n(D) Regular Graph",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which data structure is used to traverse the graph by using Breadth First Search\n(A) stack\n(B) queue\n(C) Array\n(D) List [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which data structure is used to traverse the graph by using Breadth First Search\n(A) stack\n(B) queue\n(C) Array\n(D) List",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. ________________ is a graph with no cycles.\n(A) weighted graph\n(B) cyclic graph\n(C) acyclic graph\n(D) connected graph [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "________________ is a graph with no cycles.\n(A) weighted graph\n(B) cyclic graph\n(C) acyclic graph\n(D) connected graph",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Identify the data structure that performs insertion, deletion with an average time complexity of O(1).\n(A) stack\n(B) hash table\n(C) List\n(D) queue [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Identify the data structure that performs insertion, deletion with an average time complexity of O(1).\n(A) stack\n(B) hash table\n(C) List\n(D) queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Write a program to add two n x n matrices and return the resultant matrix. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Write a program to add two n x n matrices and return the resultant matrix.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "Write pseudo code to perform result processing of a student. The student structure contains the following fields.\ni) name\nii) no\niii) Mark1, Mark2, Mark3",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Write pseudo code to perform result processing of a student. The student structure contains the following fields.\ni) name\nii) no\niii) Mark1, Mark2, Mark3 [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Write pseudo code to perform result processing of a student. The student structure contains the following fields.\ni) name\nii) no\niii) Mark1, Mark2, Mark3",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. \n  i. Write the advantages and disadvantages of Linked List over array. [4]\n  ii. Write a pseudo code to insert an element in an array at the end. [4]",
+          "structured_content": {
+            "number": "22",
+            "text": "",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Write the advantages and disadvantages of Linked List over array.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Write a pseudo code to insert an element in an array at the end.",
+                "marks": 4
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Discuss and demonstrate an algorithm for the following operations in a singly linked list.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "Insert an element at the end"
+                },
+                {
+                  "number": "ii",
+                  "text": "Delete an element from beginning"
+                }
+              ]
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Discuss and demonstrate an algorithm for the following operations in a singly linked list. [8]\n  i. Insert an element at the end\n  ii. Delete an element from beginning",
+          "structured_content": {
+            "number": "22",
+            "text": "Discuss and demonstrate an algorithm for the following operations in a singly linked list.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Insert an element at the end"
+              },
+              {
+                "number": "ii",
+                "text": "Delete an element from beginning"
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Write an algorithm for Push and Pop operations on Stack using array implementation. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Write an algorithm for Push and Pop operations on Stack using array implementation.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Explain the addition and deletion operations performed on a circular queue with necessary algorithms.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Explain the addition and deletion operations performed on a circular queue with necessary algorithms. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Explain the addition and deletion operations performed on a circular queue with necessary algorithms.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Write the purpose of Rotation operation in AVL tree. Explain the types of rotations with example. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Write the purpose of Rotation operation in AVL tree. Explain the types of rotations with example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "Write an algorithm for inserting and deleting a node in a binary search tree with example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Write an algorithm for inserting and deleting a node in a binary search tree with example. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Write an algorithm for inserting and deleting a node in a binary search tree with example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the various representation of graph with your own example in detail. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the various representation of graph with your own example in detail.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Describe Minimum Spanning Tree Problem. Explain how to determine minimum cost spanning tree with an example (Use Kruskal's Algorithm).",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Describe Minimum Spanning Tree Problem. Explain how to determine minimum cost spanning tree with an example (Use Kruskal's Algorithm). [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Describe Minimum Spanning Tree Problem. Explain how to determine minimum cost spanning tree with an example (Use Kruskal's Algorithm).",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Simulate the call logs in the mobile using an appropriate data structure. The Call Logs can store the telephone number, name of the 10 most recent callers. Once the limit of 10 is reached, and another call is made, the least recent number is deleted to make room for the recent number. (Illustrate with your own example) [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Simulate the call logs in the mobile using an appropriate data structure. The Call Logs can store the telephone number, name of the 10 most recent callers. Once the limit of 10 is reached, and another call is made, the least recent number is deleted to make room for the recent number. (Illustrate with your own example)",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Compute the contents of a hash table of 5 entries using separate chaining method, how to insert the following data 28, 18, 13, 20, 25. Show all computation clearly. Also use Linear probing method to handle collision technique. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Compute the contents of a hash table of 5 entries using separate chaining method, how to insert the following data 28, 18, 13, 20, 25. Show all computation clearly. Also use Linear probing method to handle collision technique.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

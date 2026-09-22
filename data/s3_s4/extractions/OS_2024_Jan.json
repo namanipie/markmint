@@ -1,0 +1,489 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Which of the following Is not a part of the operating system? (A) Input Output Control Program (B) Job Control Program (C) Performance monitor (D) Supervisor [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Which of the following Is not a part of the operating system? (A) Input Output Control Program (B) Job Control Program (C) Performance monitor (D) Supervisor",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. System calls are usually invoked by (A) A privileged instruction (B) polling (C) an indirect jump (D) A software interrupt [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "System calls are usually invoked by (A) A privileged instruction (B) polling (C) an indirect jump (D) A software interrupt",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following does not interrupt a running process? (A) Timer (B) Scheduler process (C) Power failure (D) A device [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following does not interrupt a running process? (A) Timer (B) Scheduler process (C) Power failure (D) A device",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The meaning Booting in the operating system (A) restarting the system (B) installing the program (C) scan (D) Turn off [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The meaning Booting in the operating system (A) restarting the system (B) installing the program (C) scan (D) Turn off",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Consider the following statements about process state transitions for a system using preemptive scheduling. I. A running process can move to a ready state II. A ready process can move to a ready state III. A blocked process can move to a running state IV. A blocked process can move to a ready state (A) I,II and III only (B) II and III only (C) I,II and IV only (D) I,II,III and IV [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Consider the following statements about process state transitions for a system using preemptive scheduling. I. A running process can move to a ready state II. A ready process can move to a ready state III. A blocked process can move to a running state IV. A blocked process can move to a ready state (A) I,II and III only (B) II and III only (C) I,II and IV only (D) I,II,III and IV",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. The address of the next instruction to be executed by the current process is provided by (A) CPU Registers (B) Program Counter (C) Process stack (D) Pipe [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "The address of the next instruction to be executed by the current process is provided by (A) CPU Registers (B) Program Counter (C) Process stack (D) Pipe",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following is not shared by the threads of the same process? (A) Stack (B) Address Space (C) File Descriptor Table (D) Message Queue [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following is not shared by the threads of the same process? (A) Stack (B) Address Space (C) File Descriptor Table (D) Message Queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. At a particular time of computation the value of a counting semaphore is 10. Then 15 P operations and 17 V operations were completed on this semaphore. The resulting value of the semaphore is (A) 12 (B) 8 (C) 2 (D) 7 [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "At a particular time of computation the value of a counting semaphore is 10. Then 15 P operations and 17 V operations were completed on this semaphore. The resulting value of the semaphore is (A) 12 (B) 8 (C) 2 (D) 7",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. FCFS Scheduling Algorithm is (A) Preemptive Scheduling (B) Non Preemptive Scheduling (C) Deadline Scheduling (D) Fair-share scheduling [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "FCFS Scheduling Algorithm is (A) Preemptive Scheduling (B) Non Preemptive Scheduling (C) Deadline Scheduling (D) Fair-share scheduling",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. A process having multiple threads of control implies (A) it can do only one task at a time, but much faster (B) it can do only one task at a time & very slow (C) it can do more than one task at a time (D) it has to use only one thread per process [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "A process having multiple threads of control implies (A) it can do only one task at a time, but much faster (B) it can do only one task at a time & very slow (C) it can do more than one task at a time (D) it has to use only one thread per process",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. A Computer has 6 tape drives, which n processes competing for them. Each process may need two drives. What is the Maximum value of n for the system to be deadlock free? (A) 6 (B) 5 (C) 4 (D) 3 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "A Computer has 6 tape drives, which n processes competing for them. Each process may need two drives. What is the Maximum value of n for the system to be deadlock free? (A) 6 (B) 5 (C) 4 (D) 3",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. If we preempt a resource from a process, the process cannot continue with its normal execution and it must be ________ (A) aborted (B) rolled back (C) terminated (D) queued [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "If we preempt a resource from a process, the process cannot continue with its normal execution and it must be ________ (A) aborted (B) rolled back (C) terminated (D) queued",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Which of the page replacement policy sometimes leads to more page faults when size of memory is increased? (A) LRU (B) MRU (C) FIFO (D) Optimal [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Which of the page replacement policy sometimes leads to more page faults when size of memory is increased? (A) LRU (B) MRU (C) FIFO (D) Optimal",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Thrashing implies (A) Reduces Page I/O (B) Decrease the degree of Multi Programming (C) Excessive Page I/O (D) Improve the system performance [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Thrashing implies (A) Reduces Page I/O (B) Decrease the degree of Multi Programming (C) Excessive Page I/O (D) Improve the system performance",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The swap space in the disk is used for (A) Saving temporary html pages (B) Saving process data (C) Storing the super-block (D) Storing device drivers [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The swap space in the disk is used for (A) Saving temporary html pages (B) Saving process data (C) Storing the super-block (D) Storing device drivers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. The time taken to move the disk arm to the desired cylinder is called the ________ (A) Rotational Latency (B) Seek Time (C) Random Access Time (D) Positioning Time [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "The time taken to move the disk arm to the desired cylinder is called the ________ (A) Rotational Latency (B) Seek Time (C) Random Access Time (D) Positioning Time",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. The access matrix represent (A) Rows-Domains, Columns-Objects (B) Rows-Objects, Columns-Domains (C) Rows-Access List, Columns-Domains (D) Rows-Domains, Columns-Access list [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "The access matrix represent (A) Rows-Domains, Columns-Objects (B) Rows-Objects, Columns-Domains (C) Rows-Access List, Columns-Domains (D) Rows-Domains, Columns-Access list",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following objects require protection? (A) Monitor (B) CPU (C) Key Board (D) Memory [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following objects require protection? (A) Monitor (B) CPU (C) Key Board (D) Memory",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The FALSE Statement about encryption is (A) It is used to protect data from unauthorized access during transmission (B) It is used to ensure user authentication (C) It is used to ensure data integrity (D) It is used to ensure data corruption doesn't happens [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The FALSE Statement about encryption is (A) It is used to protect data from unauthorized access during transmission (B) It is used to ensure user authentication (C) It is used to ensure data integrity (D) It is used to ensure data corruption doesn't happens",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Which is not a common file permission? (A) read (B) write (C) stop (D) execute [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Which is not a common file permission? (A) read (B) write (C) stop (D) execute",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer any 4 Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Describe the Services provided by Operating Systems [10]",
+          "structured_content": {
+            "number": "21",
+            "text": "Describe the Services provided by Operating Systems",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Illustrate readers writers classical synchronization problem & write the Pseudo code with proper explanation [10]",
+          "structured_content": {
+            "number": "22",
+            "text": "Illustrate readers writers classical synchronization problem & write the Pseudo code with proper explanation",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Process ID | Burst Time | Priority\nP1 | 8 | 4\nP2 | 6 | 1\nP3 | 1 | 2\nP4 | 9 | 2\nP5 | 3 | 3\nConsider the above set of process at ready queue for it execution. The process are assumed arrived in the order P1, P2, P3, P4, P5 at time 0 [10]\n  1. Draw the Gantt chart to illustrate the execution of the process using FCFS, SJF, Priority, Round Robin\n  2. Find the Turn around time and Waiting time of each process for each scheduling algorithm\n  3. Compare which Scheduling algorithm gives best result",
+          "structured_content": {
+            "number": "23",
+            "text": "Process ID | Burst Time | Priority\nP1 | 8 | 4\nP2 | 6 | 1\nP3 | 1 | 2\nP4 | 9 | 2\nP5 | 3 | 3\nConsider the above set of process at ready queue for it execution. The process are assumed arrived in the order P1, P2, P3, P4, P5 at time 0",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "1",
+                "text": "Draw the Gantt chart to illustrate the execution of the process using FCFS, SJF, Priority, Round Robin"
+              },
+              {
+                "number": "2",
+                "text": "Find the Turn around time and Waiting time of each process for each scheduling algorithm"
+              },
+              {
+                "number": "3",
+                "text": "Compare which Scheduling algorithm gives best result"
+              }
+            ]
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Consider the following page-reference string: 1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6.\nHow many page faults would occur for the following replacement algorithms, assuming four, five frames?\nRemember that all frames are initially empty, so your first unique pages will cost one fault each. [10]\n  1. FIFO replacement\n  2. LRU replacement\n  3. Optimal replacement\nCompare your results.",
+          "structured_content": {
+            "number": "24",
+            "text": "Consider the following page-reference string: 1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6.\nHow many page faults would occur for the following replacement algorithms, assuming four, five frames?\nRemember that all frames are initially empty, so your first unique pages will cost one fault each.",
+            "marks": 10,
+            "subquestions": [
+              {
+                "number": "1",
+                "text": "FIFO replacement"
+              },
+              {
+                "number": "2",
+                "text": "LRU replacement"
+              },
+              {
+                "number": "3",
+                "text": "Optimal replacement\nCompare your results."
+              }
+            ]
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the Various Directory and Disk Structures [10]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the Various Directory and Disk Structures",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Explain the common methods by which programs cause security breaches [10]",
+          "structured_content": {
+            "number": "26",
+            "text": "Explain the common methods by which programs cause security breaches",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "27",
+          "original_text": "27. Allocation | Max | Available\nA B C D | A B C D | A B C D\nP0 | 0 0 1 2 | 0 0 1 2 | 1 5 2 0\nP1 | 1 0 0 0 | 1 7 5 0 | \nP2 | 1 3 5 4 | 2 3 5 6 | \nP3 | 0 6 3 2 | 0 6 5 2 | \nP4 | 0 0 1 4 | 0 6 5 6 | \n\nSolve the above problem using banker's algorithm & find [15]\n  a. NEED Matrix\n  b. safe sequence\n  c. If a request from process P1 arrives for (0,2,2,0), can the request be granted immediately?",
+          "structured_content": {
+            "number": "27",
+            "text": "Allocation | Max | Available\nA B C D | A B C D | A B C D\nP0 | 0 0 1 2 | 0 0 1 2 | 1 5 2 0\nP1 | 1 0 0 0 | 1 7 5 0 | \nP2 | 1 3 5 4 | 2 3 5 6 | \nP3 | 0 6 3 2 | 0 6 5 2 | \nP4 | 0 0 1 4 | 0 6 5 6 | \n\nSolve the above problem using banker's algorithm & find",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "NEED Matrix"
+              },
+              {
+                "number": "b",
+                "text": "safe sequence"
+              },
+              {
+                "number": "c",
+                "text": "If a request from process P1 arrives for (0,2,2,0), can the request be granted immediately?"
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. In Disk Scheduling, read-write head initially at 100. Disk contains 200 tracks. The I/O request is arriving in the following order 55, 58, 39, 18, 90, 160, 150, 38, 184\nCalculate the average seek length using FIFO, SSTF, SCAN, C-SCAN algorithm [15]",
+          "structured_content": {
+            "number": "28",
+            "text": "In Disk Scheduling, read-write head initially at 100. Disk contains 200 tracks. The I/O request is arriving in the following order 55, 58, 39, 18, 90, 160, 150, 38, 184\nCalculate the average seek length using FIFO, SSTF, SCAN, C-SCAN algorithm",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

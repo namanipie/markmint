@@ -1,0 +1,1045 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The main advantages of batch operating system is _____ [1]\n  A. Low cost\n  B. Multiple users can share the batch system\n  C. Easy debug\n  D. Suitable for managing small work",
+          "structured_content": {
+            "number": "1",
+            "text": "The main advantages of batch operating system is _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Low cost"
+              },
+              {
+                "number": "B",
+                "text": "Multiple users can share the batch system"
+              },
+              {
+                "number": "C",
+                "text": "Easy debug"
+              },
+              {
+                "number": "D",
+                "text": "Suitable for managing small work"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Operating system is not a _____ [1]\n  A. System software\n  B. First loaded program by boot program\n  C. Hardware software interface\n  D. Application software",
+          "structured_content": {
+            "number": "2",
+            "text": "Operating system is not a _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "System software"
+              },
+              {
+                "number": "B",
+                "text": "First loaded program by boot program"
+              },
+              {
+                "number": "C",
+                "text": "Hardware software interface"
+              },
+              {
+                "number": "D",
+                "text": "Application software"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Hardware interrupt is made by _____ [1]\n  A. IRQ line\n  B. Interrupt handles\n  C. Special instructions\n  D. Interrupt condition",
+          "structured_content": {
+            "number": "3",
+            "text": "Hardware interrupt is made by _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "IRQ line"
+              },
+              {
+                "number": "B",
+                "text": "Interrupt handles"
+              },
+              {
+                "number": "C",
+                "text": "Special instructions"
+              },
+              {
+                "number": "D",
+                "text": "Interrupt condition"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Virtual machine is used for _____ [1]\n  A. Utilization of memory\n  B. Running different operating systems simultaneously\n  C. Frequently used program\n  D. Multithreading",
+          "structured_content": {
+            "number": "4",
+            "text": "Virtual machine is used for _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Utilization of memory"
+              },
+              {
+                "number": "B",
+                "text": "Running different operating systems simultaneously"
+              },
+              {
+                "number": "C",
+                "text": "Frequently used program"
+              },
+              {
+                "number": "D",
+                "text": "Multithreading"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Purpose of process scheduling is to _____ [1]\n  A. Maximize waiting time\n  B. Maximize throughput\n  C. Maximize response time\n  D. Maximize turnaround time",
+          "structured_content": {
+            "number": "5",
+            "text": "Purpose of process scheduling is to _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Maximize waiting time"
+              },
+              {
+                "number": "B",
+                "text": "Maximize throughput"
+              },
+              {
+                "number": "C",
+                "text": "Maximize response time"
+              },
+              {
+                "number": "D",
+                "text": "Maximize turnaround time"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Round Robin scheduling falls under the category of _____ [1]\n  A. Non-preemptive scheduling\n  B. Preemptive scheduling\n  C. Multiple level queue scheduling\n  D. Priority scheduling",
+          "structured_content": {
+            "number": "6",
+            "text": "Round Robin scheduling falls under the category of _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Non-preemptive scheduling"
+              },
+              {
+                "number": "B",
+                "text": "Preemptive scheduling"
+              },
+              {
+                "number": "C",
+                "text": "Multiple level queue scheduling"
+              },
+              {
+                "number": "D",
+                "text": "Priority scheduling"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. In real time operating system, _____ [1]\n  A. Kernel is not required\n  B. Process scheduling can be done only once\n  C. All process must be serviced by its deadline period\n  D. All process have the same priority",
+          "structured_content": {
+            "number": "7",
+            "text": "In real time operating system, _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Kernel is not required"
+              },
+              {
+                "number": "B",
+                "text": "Process scheduling can be done only once"
+              },
+              {
+                "number": "C",
+                "text": "All process must be serviced by its deadline period"
+              },
+              {
+                "number": "D",
+                "text": "All process have the same priority"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. A shell script is a file that contains _____ [1]\n  A. Set of statements\n  B. Scheduling algorithm\n  C. Interrupt routine\n  D. Sequence of operating system commands and shell commands",
+          "structured_content": {
+            "number": "8",
+            "text": "A shell script is a file that contains _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Set of statements"
+              },
+              {
+                "number": "B",
+                "text": "Scheduling algorithm"
+              },
+              {
+                "number": "C",
+                "text": "Interrupt routine"
+              },
+              {
+                "number": "D",
+                "text": "Sequence of operating system commands and shell commands"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. The hardware implementation which provides mutual exclusion is _____ [1]\n  A. Counting semaphore\n  B. Binary semaphore\n  C. Test and set lock\n  D. Scheduling algorithm",
+          "structured_content": {
+            "number": "9",
+            "text": "The hardware implementation which provides mutual exclusion is _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Counting semaphore"
+              },
+              {
+                "number": "B",
+                "text": "Binary semaphore"
+              },
+              {
+                "number": "C",
+                "text": "Test and set lock"
+              },
+              {
+                "number": "D",
+                "text": "Scheduling algorithm"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. The reader-writer problem and its solutions, have been generalized to provide reader writer locks on some systems. The process wishing to modify the shared data must request the lock in _____ [1]\n  A. Read mode\n  B. Write mode\n  C. Read and write mode\n  D. Exclusive mode",
+          "structured_content": {
+            "number": "10",
+            "text": "The reader-writer problem and its solutions, have been generalized to provide reader writer locks on some systems. The process wishing to modify the shared data must request the lock in _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Read mode"
+              },
+              {
+                "number": "B",
+                "text": "Write mode"
+              },
+              {
+                "number": "C",
+                "text": "Read and write mode"
+              },
+              {
+                "number": "D",
+                "text": "Exclusive mode"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The circular wait condition can be prevented by _____ [1]\n  A. Defining a linear ordering of (B) Using thread resources type\n  B. Using pipes\n  C. Thread and pipes",
+          "structured_content": {
+            "number": "11",
+            "text": "The circular wait condition can be prevented by _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Defining a linear ordering of (B) Using thread resources type"
+              },
+              {
+                "number": "B",
+                "text": "Using pipes"
+              },
+              {
+                "number": "C",
+                "text": "Thread and pipes"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. For non sharable resources like a printer, mutual exclusion _____ [1]\n  A. Must exist\n  B. Must not exist\n  C. May exist\n  D. Partially exist",
+          "structured_content": {
+            "number": "12",
+            "text": "For non sharable resources like a printer, mutual exclusion _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Must exist"
+              },
+              {
+                "number": "B",
+                "text": "Must not exist"
+              },
+              {
+                "number": "C",
+                "text": "May exist"
+              },
+              {
+                "number": "D",
+                "text": "Partially exist"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. The last on the hierarchy scale of memory device is _____ [1]\n  A. Main memory\n  B. Secondary memory\n  C. TLB\n  D. Flash drives",
+          "structured_content": {
+            "number": "13",
+            "text": "The last on the hierarchy scale of memory device is _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Main memory"
+              },
+              {
+                "number": "B",
+                "text": "Secondary memory"
+              },
+              {
+                "number": "C",
+                "text": "TLB"
+              },
+              {
+                "number": "D",
+                "text": "Flash drives"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. In contiguous memory allocation _____ [1]\n  A. Each process is contained in a single contiguous section of memory\n  B. All process are contained in a single contiguous section of memory\n  C. The memory space is (D) The memory space is not contiguous contiguous",
+          "structured_content": {
+            "number": "14",
+            "text": "In contiguous memory allocation _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Each process is contained in a single contiguous section of memory"
+              },
+              {
+                "number": "B",
+                "text": "All process are contained in a single contiguous section of memory"
+              },
+              {
+                "number": "C",
+                "text": "The memory space is (D) The memory space is not contiguous contiguous"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Internal fragmentation occurs when a _____ [1]\n  A. Memory area remain unused because it is too large to be allocated\n  B. Memory area remain unused because it is too small to be allocated\n  C. More memory is allocated than requested by processor\n  D. Less memory is allocated than requested by processor",
+          "structured_content": {
+            "number": "15",
+            "text": "Internal fragmentation occurs when a _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Memory area remain unused because it is too large to be allocated"
+              },
+              {
+                "number": "B",
+                "text": "Memory area remain unused because it is too small to be allocated"
+              },
+              {
+                "number": "C",
+                "text": "More memory is allocated than requested by processor"
+              },
+              {
+                "number": "D",
+                "text": "Less memory is allocated than requested by processor"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. In virtual memory, swap space exist in _____ [1]\n  A. Cache\n  B. Registers\n  C. RAM\n  D. Secondary storage",
+          "structured_content": {
+            "number": "16",
+            "text": "In virtual memory, swap space exist in _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Cache"
+              },
+              {
+                "number": "B",
+                "text": "Registers"
+              },
+              {
+                "number": "C",
+                "text": "RAM"
+              },
+              {
+                "number": "D",
+                "text": "Secondary storage"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Which one of the following connects high-speed high-bandwidth device to memory subsystem and CPU? _____ [1]\n  A. Expansion bus\n  B. PCI bus\n  C. SCSI bus\n  D. External bus",
+          "structured_content": {
+            "number": "17",
+            "text": "Which one of the following connects high-speed high-bandwidth device to memory subsystem and CPU? _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Expansion bus"
+              },
+              {
+                "number": "B",
+                "text": "PCI bus"
+              },
+              {
+                "number": "C",
+                "text": "SCSI bus"
+              },
+              {
+                "number": "D",
+                "text": "External bus"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. After the completion of DMA transfer, the processor is notified by _____ [1]\n  A. Acknowledgement signal\n  B. Interrupt signal\n  C. WMFC signal\n  D. Control signal",
+          "structured_content": {
+            "number": "18",
+            "text": "After the completion of DMA transfer, the processor is notified by _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Acknowledgement signal"
+              },
+              {
+                "number": "B",
+                "text": "Interrupt signal"
+              },
+              {
+                "number": "C",
+                "text": "WMFC signal"
+              },
+              {
+                "number": "D",
+                "text": "Control signal"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. A file is a/an _____ data type. [1]\n  A. Abstract\n  B. Primitive\n  C. Public\n  D. Private",
+          "structured_content": {
+            "number": "19",
+            "text": "A file is a/an _____ data type.",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Abstract"
+              },
+              {
+                "number": "B",
+                "text": "Primitive"
+              },
+              {
+                "number": "C",
+                "text": "Public"
+              },
+              {
+                "number": "D",
+                "text": "Private"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. The process of dividing a disk into sectors that the disk controller can read and write, before a disk can store data is known as _____ [1]\n  A. Partitioning\n  B. Swap space creation\n  C. Low level formatting\n  D. Fragmentation",
+          "structured_content": {
+            "number": "20",
+            "text": "The process of dividing a disk into sectors that the disk controller can read and write, before a disk can store data is known as _____",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Partitioning"
+              },
+              {
+                "number": "B",
+                "text": "Swap space creation"
+              },
+              {
+                "number": "C",
+                "text": "Low level formatting"
+              },
+              {
+                "number": "D",
+                "text": "Fragmentation"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ANY FIVE Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Define process and explain the process states with neat diagram. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "Define process and explain the process states with neat diagram.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Explain the priority scheduling algorithm with suitable example and write the pros and cons. [4]",
+          "structured_content": {
+            "number": "22",
+            "text": "Explain the priority scheduling algorithm with suitable example and write the pros and cons.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Explain Peterson's solution for achieving mutual exclusion. [4]",
+          "structured_content": {
+            "number": "23",
+            "text": "Explain Peterson's solution for achieving mutual exclusion.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. What is paging? Discuss basic paging technique in detail. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "What is paging? Discuss basic paging technique in detail.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss the difference between internal and external fragmentation. [5]",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss the difference between internal and external fragmentation.",
+            "marks": 5
+          },
+          "marks": 5.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Describe, using a good example, the effects of changing the Round Robin scheduling algorithms time quantum from fixed small number to fixed large number. [4]",
+          "structured_content": {
+            "number": "26",
+            "text": "Describe, using a good example, the effects of changing the Round Robin scheduling algorithms time quantum from fixed small number to fixed large number.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. What is virtual memory? How it is implemented? Explain. [4]",
+          "structured_content": {
+            "number": "27",
+            "text": "What is virtual memory? How it is implemented? Explain.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "28",
+          "original_text": "28. Describe the features of the following types of operating structures. [12]\n  i. Layered approach\n  ii. Micro kernel system structure",
+          "structured_content": {
+            "number": "28",
+            "text": "Describe the features of the following types of operating structures.",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Layered approach"
+              },
+              {
+                "number": "ii",
+                "text": "Micro kernel system structure"
+              }
+            ],
+            "or_alternative": {
+              "number": "28",
+              "text": "Describe the fields in Process Control Block (PCB). What is context switch overhead? Explain with neat sketch.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Describe the fields in Process Control Block (PCB). What is context switch overhead? Explain with neat sketch. [12]",
+          "structured_content": {
+            "number": "28",
+            "text": "Describe the fields in Process Control Block (PCB). What is context switch overhead? Explain with neat sketch.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Suppose the following processes arrive for execution at the times indicated. Each process will run the listed amount of time, in answering the questions use non-preemptive scheduling. [12]\n  . Process Arrival time Burst time P1 0.0 12 P2 0.4 6 P3 0.7 3 P4 1.0 1\n  i. Find the average waiting time and turnaround time for these process with the FCFS scheduling algorithm\n  ii. Find the average waiting time and turnaround time for these process with SJF scheduling algorithm",
+          "structured_content": {
+            "number": "29",
+            "text": "Suppose the following processes arrive for execution at the times indicated. Each process will run the listed amount of time, in answering the questions use non-preemptive scheduling.",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "",
+                "text": "Process Arrival time Burst time P1 0.0 12 P2 0.4 6 P3 0.7 3 P4 1.0 1"
+              },
+              {
+                "number": "i",
+                "text": "Find the average waiting time and turnaround time for these process with the FCFS scheduling algorithm"
+              },
+              {
+                "number": "ii",
+                "text": "Find the average waiting time and turnaround time for these process with SJF scheduling algorithm"
+              }
+            ],
+            "or_alternative": {
+              "number": "29",
+              "text": "Explain in detail about rate monotonic scheduling and earliest deadline first scheduling with suitable example.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Explain in detail about rate monotonic scheduling and earliest deadline first scheduling with suitable example. [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "Explain in detail about rate monotonic scheduling and earliest deadline first scheduling with suitable example.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Describe a solution to the dining philosopher problem so that no race condition arises. [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Describe a solution to the dining philosopher problem so that no race condition arises.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "30",
+              "text": "Consider the following snapshot: Process Allocate Max Available A B C D A B C D A B C D P0 0 0 1 2 0 0 1 2 1 5 2 0 P1 1 0 0 0 1 7 5 0 P2 1 3 5 4 2 3 5 6 P3 0 6 3 2 0 6 5 2 P4 0 0 1 4 0 6 5 6 Answer the following using bankers algorithm",
+              "marks": 12,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "What are the contents of matrix need?"
+                },
+                {
+                  "number": "ii",
+                  "text": "Is the system in safe state?"
+                },
+                {
+                  "number": "iii",
+                  "text": "If request for P1 arrives for (0, 4, 2, 0)."
+                }
+              ]
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Consider the following snapshot: Process Allocate Max Available A B C D A B C D A B C D P0 0 0 1 2 0 0 1 2 1 5 2 0 P1 1 0 0 0 1 7 5 0 P2 1 3 5 4 2 3 5 6 P3 0 6 3 2 0 6 5 2 P4 0 0 1 4 0 6 5 6 Answer the following using bankers algorithm [12]\n  i. What are the contents of matrix need?\n  ii. Is the system in safe state?\n  iii. If request for P1 arrives for (0, 4, 2, 0).",
+          "structured_content": {
+            "number": "30",
+            "text": "Consider the following snapshot: Process Allocate Max Available A B C D A B C D A B C D P0 0 0 1 2 0 0 1 2 1 5 2 0 P1 1 0 0 0 1 7 5 0 P2 1 3 5 4 2 3 5 6 P3 0 6 3 2 0 6 5 2 P4 0 0 1 4 0 6 5 6 Answer the following using bankers algorithm",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "What are the contents of matrix need?"
+              },
+              {
+                "number": "ii",
+                "text": "Is the system in safe state?"
+              },
+              {
+                "number": "iii",
+                "text": "If request for P1 arrives for (0, 4, 2, 0)."
+              }
+            ]
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Explain the following allocation algorithm with example [12]\n  i. First fit\n  ii. Best fit\n  iii. Worst fit",
+          "structured_content": {
+            "number": "31",
+            "text": "Explain the following allocation algorithm with example",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "First fit"
+              },
+              {
+                "number": "ii",
+                "text": "Best fit"
+              },
+              {
+                "number": "iii",
+                "text": "Worst fit"
+              }
+            ],
+            "or_alternative": {
+              "number": "31",
+              "text": "Consider the following reference strings 1, 2, 3, 4, 5, 3, 4, 1, 6, 7, 8, 7, 8, 9, 7, 8, 9, 5, 4, 5, 4, 2 How many page faults would occur for the following replacement algorithm, assuming four and six frames respectively?",
+              "marks": 12,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "LRU page replacement"
+                },
+                {
+                  "number": "ii",
+                  "text": "FIFO page replacement"
+                }
+              ]
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Consider the following reference strings 1, 2, 3, 4, 5, 3, 4, 1, 6, 7, 8, 7, 8, 9, 7, 8, 9, 5, 4, 5, 4, 2 How many page faults would occur for the following replacement algorithm, assuming four and six frames respectively? [12]\n  i. LRU page replacement\n  ii. FIFO page replacement",
+          "structured_content": {
+            "number": "31",
+            "text": "Consider the following reference strings 1, 2, 3, 4, 5, 3, 4, 1, 6, 7, 8, 7, 8, 9, 7, 8, 9, 5, 4, 5, 4, 2 How many page faults would occur for the following replacement algorithm, assuming four and six frames respectively?",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "LRU page replacement"
+              },
+              {
+                "number": "ii",
+                "text": "FIFO page replacement"
+              }
+            ]
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. State and explain FCFS, SSTF and SCAN disk scheduling with example. [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "State and explain FCFS, SSTF and SCAN disk scheduling with example.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "32",
+              "text": "What are the various disk space allocation methods? Explain any two in detail.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. What are the various disk space allocation methods? Explain any two in detail. [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "What are the various disk space allocation methods? Explain any two in detail.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

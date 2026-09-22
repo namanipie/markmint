@@ -120,62 +120,104 @@ export function TopicIntelligenceModal({
 
           {data && !isLoading && (
             <>
-              {/* Evidence Metrics Banner */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="rounded-xl bg-secondary/40 border border-border/50 p-4">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                    <Layers className="h-4 w-4 text-accent" />
-                    <span>Paper Coverage</span>
+              {/* "Why is MarkMint showing me this?" Concise Student Evidence Card */}
+              <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5 space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <HelpCircle className="h-5 w-5 text-accent" />
+                    <h3 className="text-sm font-bold text-foreground">Why is MarkMint showing me this?</h3>
                   </div>
-                  <div className="text-xl font-bold text-foreground">
-                    {Math.round(data.repetition_metrics.paper_coverage * 100)}%
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
+                    Empirical Evidence
+                  </span>
+                </div>
+
+                {/* Top 4 Concise Evidence Badges */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  <div className="rounded-xl bg-card border border-border/60 p-3">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-0.5">
+                      <Layers className="h-3.5 w-3.5 text-accent" />
+                      <span>Paper Recurrence</span>
+                    </div>
+                    <div className="text-base font-bold text-foreground">
+                      {data.repetition_metrics.paper_count} of {data.repetition_metrics.total_papers}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {Math.round(data.repetition_metrics.paper_coverage * 100)}% of past papers
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    {data.repetition_metrics.paper_count} of {data.repetition_metrics.total_papers} papers
+
+                  <div className="rounded-xl bg-card border border-border/60 p-3">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-0.5">
+                      <Clock className="h-3.5 w-3.5 text-accent" />
+                      <span>Last Seen</span>
+                    </div>
+                    <div className="text-base font-bold text-foreground">
+                      {data.repetition_metrics.last_seen_year || "Historical"}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {data.repetition_metrics.first_seen_year ? `Active since ${data.repetition_metrics.first_seen_year}` : "Archived exams"}
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl bg-card border border-border/60 p-3">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-0.5">
+                      <Award className="h-3.5 w-3.5 text-accent" />
+                      <span>Marks Profile</span>
+                    </div>
+                    <div className="text-base font-bold text-foreground">
+                      ~{data.repetition_metrics.average_marks} Marks
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      Up to {data.repetition_metrics.max_marks}M per question
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl bg-card border border-border/60 p-3">
+                    <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground mb-0.5">
+                      <Activity className="h-3.5 w-3.5 text-accent" />
+                      <span>Total Questions</span>
+                    </div>
+                    <div className="text-base font-bold text-foreground">
+                      {data.repetition_metrics.question_count} Questions
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {data.repetition_metrics.total_marks} total marks seen
+                    </div>
                   </div>
                 </div>
 
-                <div className="rounded-xl bg-secondary/40 border border-border/50 p-4">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                    <Hash className="h-4 w-4 text-accent" />
-                    <span>Total Questions</span>
+                {/* Plain-English Evidence Rationale */}
+                <div className="rounded-xl bg-card/80 border border-border/60 p-3.5 space-y-2 text-xs">
+                  <div className="font-semibold text-foreground flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    <span>Evidence-Backed Explanation</span>
                   </div>
-                  <div className="text-xl font-bold text-foreground">
-                    {data.repetition_metrics.question_count}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Across all archived papers
-                  </div>
-                </div>
-
-                <div className="rounded-xl bg-secondary/40 border border-border/50 p-4">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                    <Award className="h-4 w-4 text-accent" />
-                    <span>Average Marks</span>
-                  </div>
-                  <div className="text-xl font-bold text-foreground">
-                    {data.repetition_metrics.average_marks}
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Max: {data.repetition_metrics.max_marks} marks
-                  </div>
-                </div>
-
-                <div className="rounded-xl bg-secondary/40 border border-border/50 p-4">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
-                    <Calendar className="h-4 w-4 text-accent" />
-                    <span>Chronology</span>
-                  </div>
-                  <div className="text-sm font-semibold text-foreground">
-                    {data.repetition_metrics.first_seen_year || "N/A"} → {data.repetition_metrics.last_seen_year || "N/A"}
-                  </div>
-                  <div className="flex flex-wrap gap-1 mt-1">
-                    {Object.entries(data.repetition_metrics.assessment_distribution).map(([k, v]) => (
-                      <span key={k} className="text-[10px] bg-secondary px-1.5 py-0.5 rounded text-muted-foreground">
-                        {k}: {v}
-                      </span>
-                    ))}
-                  </div>
+                  <ul className="space-y-1.5 text-muted-foreground list-disc list-inside">
+                    <li>
+                      <strong className="text-foreground">Tested in {data.repetition_metrics.paper_count} of {data.repetition_metrics.total_papers} papers:</strong> Appears in {Math.round(data.repetition_metrics.paper_coverage * 100)}% of archived examination papers for this course.
+                    </li>
+                    {data.repetition_metrics.last_seen_year && (
+                      <li>
+                        <strong className="text-foreground">Recency:</strong> Last examined in the <span className="font-mono text-foreground font-semibold">{data.repetition_metrics.last_seen_year}</span> exam session.
+                      </li>
+                    )}
+                    {Object.keys(data.repetition_metrics.assessment_distribution || {}).length > 0 && (
+                      <li>
+                        <strong className="text-foreground">Assessment Cycles:</strong> Examined in {Object.entries(data.repetition_metrics.assessment_distribution).map(([k, v]) => `${k} (${v}x)`).join(", ")}.
+                      </li>
+                    )}
+                    {data.question_families && data.question_families.length > 0 && (
+                      <li>
+                        <strong className="text-foreground">Question Families:</strong> Contains {data.question_families.length} recurring question {data.question_families.length === 1 ? "family" : "families"} with repeating archetypes.
+                      </li>
+                    )}
+                    {data.repetition_metrics.total_papers <= 2 && (
+                      <li className="text-amber-500">
+                        <strong className="text-amber-500">Evidence Note:</strong> Only {data.repetition_metrics.total_papers} examination papers are currently archived for this specific cycle/course, so predictions have a smaller empirical sample size.
+                      </li>
+                    )}
+                  </ul>
                 </div>
               </div>
 
@@ -193,8 +235,10 @@ export function TopicIntelligenceModal({
 
                   <div>
                     <div className="flex justify-between text-xs text-muted-foreground mb-1.5">
-                      <span>Historical Recurrence Probability</span>
-                      <span className="font-semibold text-foreground">{data.forecast.probability}%</span>
+                      <span>Paper Coverage Rate</span>
+                      <span className="font-semibold text-foreground">
+                        {data.repetition_metrics.paper_count} of {data.repetition_metrics.total_papers} papers
+                      </span>
                     </div>
                     <div className="h-2.5 w-full overflow-hidden rounded-full bg-secondary">
                       <div
@@ -202,6 +246,9 @@ export function TopicIntelligenceModal({
                         style={{ width: `${data.forecast.probability}%` }}
                       />
                     </div>
+                    <p className="text-[10px] text-muted-foreground mt-1 italic">
+                      This bar shows what fraction of past papers contained this topic — not a prediction of future exam occurrence.
+                    </p>
                   </div>
 
                   {data.timeline && data.timeline.length > 0 ? (

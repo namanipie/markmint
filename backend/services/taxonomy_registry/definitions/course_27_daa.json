@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 27,
+    "name": "Design and Analysis of Algorithms",
+    "canonical_code": "21CSC204J",
+    "code": "SEM4-DAA",
+    "regulation_year": 2021,
+    "department": "Computing Technologies"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC204J Design and Analysis of Algorithms",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Introduction to Algorithm Design & Asymptotics, Divide and Conquer, Greedy & Dynamic Programming, Backtracking & Branch and Bound, and Randomized Algorithms & NP-Completeness."
+  },
+  "units": [
+    {
+      "id": 171,
+      "number": 1,
+      "name": "Introduction to Algorithm Design and Asymptotic Analysis",
+      "topics": [
+        {
+          "id": 816,
+          "name": "Algorithm Fundamentals and Correctness",
+          "canonical_name": "Algorithm Fundamentals and Correctness",
+          "aliases": ["Fundamentals of Algorithms", "Correctness of Algorithms"],
+          "strong_phrases": [
+            "fundamentals of algorithms",
+            "correctness of algorithm",
+            "loop invariant",
+            "initialization maintenance termination",
+            "algorithm design paradigms",
+            "insertion sort line count",
+            "operation count in algorithm"
+          ],
+          "specific_keywords": ["loop invariant", "line count", "operation count", "algorithm correctness"],
+          "negative_guards": ["deadlock", "concurrency", "access matrix"],
+          "context_hints": ["algorithm design", "correctness"]
+        },
+        {
+          "id": 817,
+          "name": "Time and Space Complexity Analysis",
+          "canonical_name": "Time and Space Complexity Analysis",
+          "aliases": ["Worst Best Average Case Analysis", "Complexity Analysis"],
+          "strong_phrases": [
+            "time complexity analysis",
+            "space complexity analysis",
+            "best case worst case average case",
+            "worst case time complexity",
+            "average case analysis",
+            "growth of functions"
+          ],
+          "specific_keywords": ["time complexity", "space complexity", "worst-case", "average-case"],
+          "negative_guards": ["paging", "segmentation", "tlb"],
+          "context_hints": ["complexity analysis", "running time"]
+        },
+        {
+          "id": 818,
+          "name": "Asymptotic Notations and Growth Functions",
+          "canonical_name": "Asymptotic Notations and Growth Functions",
+          "aliases": ["Big-O Omega Theta Notations", "Asymptotic Bounds"],
+          "strong_phrases": [
+            "asymptotic notations",
+            "big o notation",
+            "big omega notation",
+            "big theta notation",
+            "little o notation",
+            "little omega notation",
+            "growth rate of functions",
+            "upper bound and lower bound",
+            "tight asymptotic bound"
+          ],
+          "specific_keywords": ["big o", "big theta", "big omega", "asymptotic notation", "tight bound"],
+          "negative_guards": ["sql queries", "relational calculus"],
+          "context_hints": ["asymptotic notations", "complexity bounds"]
+        },
+        {
+          "id": 819,
+          "name": "Recurrence Relations and Substitution Method",
+          "canonical_name": "Recurrence Relations and Substitution Method",
+          "aliases": ["Recurrence Relations", "Substitution Method"],
+          "strong_phrases": [
+            "recurrence relations",
+            "solution of recurrence relations",
+            "substitution method",
+            "mathematical induction for recurrence",
+            "inductive hypothesis",
+            "guess and verify recurrence"
+          ],
+          "specific_keywords": ["recurrence relation", "substitution method", "induction"],
+          "negative_guards": ["disk scheduling", "c-scan"],
+          "context_hints": ["recurrence relations", "substitution method"]
+        },
+        {
+          "id": 820,
+          "name": "Recursion Tree Method and Mathematical Induction",
+          "canonical_name": "Recursion Tree Method and Mathematical Induction",
+          "aliases": ["Recursion Tree", "Inductive Analysis"],
+          "strong_phrases": [
+            "recursion tree method",
+            "recursion tree analysis",
+            "cost at each level of tree",
+            "height of recursion tree",
+            "number of leaves in recursion tree",
+            "summation of levels in tree"
+          ],
+          "specific_keywords": ["recursion tree", "level cost", "tree height"],
+          "negative_guards": ["avl tree rotations", "b-tree"],
+          "context_hints": ["recursion tree", "recurrence solution"]
+        }
+      ]
+    },
+    {
+      "id": 172,
+      "number": 2,
+      "name": "Divide and Conquer Paradigms",
+      "topics": [
+        {
+          "id": 821,
+          "name": "Binary Search and Maximum Subarray Problem",
+          "canonical_name": "Binary Search and Maximum Subarray Problem",
+          "aliases": ["Maximum Subarray", "Binary Search Analysis"],
+          "strong_phrases": [
+            "maximum subarray problem",
+            "largest subarray sum",
+            "kadane's algorithm",
+            "divide and conquer maximum subarray",
+            "complexity of binary search",
+            "binary search recurrence"
+          ],
+          "specific_keywords": ["maximum subarray", "binary search", "largest sub-array sum"],
+          "negative_guards": ["ieee 754", "booth multiplier"],
+          "context_hints": ["maximum subarray", "binary search"]
+        },
+        {
+          "id": 822,
+          "name": "Merge Sort, Quick Sort and Order Statistics",
+          "canonical_name": "Merge Sort, Quick Sort and Order Statistics",
+          "aliases": ["Divide and Conquer Sorting", "Quick Sort Worst Case"],
+          "strong_phrases": [
+            "merge sort time complexity",
+            "quick sort recurrence",
+            "quick sort partition algorithm",
+            "lomuto partition",
+            "hoare partition",
+            "best case worst case average case of quick sort",
+            "finding maximum and minimum in array",
+            "min max divide and conquer"
+          ],
+          "specific_keywords": ["merge sort", "quick sort", "partition algorithm", "min max"],
+          "negative_guards": ["heap sort", "radix sort"],
+          "context_hints": ["sorting algorithms", "divide and conquer"]
+        },
+        {
+          "id": 823,
+          "name": "Strassen's Matrix Multiplication",
+          "canonical_name": "Strassen's Matrix Multiplication",
+          "aliases": ["Strassen's Algorithm", "Matrix Multiplication Recurrence"],
+          "strong_phrases": [
+            "strassen's matrix multiplication",
+            "strassen algorithm",
+            "seven multiplications in strassen",
+            "strassen recurrence relation",
+            "submatrix additions in strassen",
+            "t(n) = 7t(n/2)"
+          ],
+          "specific_keywords": ["strassen", "strassen's matrix multiplication", "7 multiplications"],
+          "negative_guards": ["matrix chain multiplication dynamic programming"],
+          "context_hints": ["strassen", "divide and conquer matrix"]
+        },
+        {
+          "id": 824,
+          "name": "Master Theorem and Recurrence Proofs",
+          "canonical_name": "Master Theorem and Recurrence Proofs",
+          "aliases": ["Master Theorem", "Master Method Cases"],
+          "strong_phrases": [
+            "master theorem",
+            "master theorem proof",
+            "master theorem case 1 case 2 case 3",
+            "master method for divide and conquer",
+            "regularity condition in master theorem",
+            "extended master theorem"
+          ],
+          "specific_keywords": ["master theorem", "master method", "case 1", "case 2", "case 3"],
+          "negative_guards": ["arm 7", "8086"],
+          "context_hints": ["master theorem", "recurrence proof"]
+        },
+        {
+          "id": 825,
+          "name": "Geometric Algorithms: Closest Pair and Convex Hull",
+          "canonical_name": "Geometric Algorithms: Closest Pair and Convex Hull",
+          "aliases": ["Closest Pair of Points", "Convex Hull", "Graham Scan"],
+          "strong_phrases": [
+            "closest pair of points",
+            "closest pair problem",
+            "convex hull problem",
+            "graham scan algorithm",
+            "jarvis march gift wrapping",
+            "divide and conquer closest pair",
+            "cross-strip closest pair"
+          ],
+          "specific_keywords": ["closest pair", "convex hull", "graham scan", "jarvis march"],
+          "negative_guards": ["functional dependency", "normalization"],
+          "context_hints": ["geometric algorithms", "computational geometry"]
+        }
+      ]
+    },
+    {
+      "id": 173,
+      "number": 3,
+      "name": "Greedy Algorithms and Dynamic Programming",
+      "topics": [
+        {
+          "id": 826,
+          "name": "Greedy Paradigm and Huffman Coding",
+          "canonical_name": "Greedy Paradigm and Huffman Coding",
+          "aliases": ["Huffman Coding", "Greedy Choice Property"],
+          "strong_phrases": [
+            "greedy approach",
+            "greedy choice property",
+            "optimal substructure greedy",
+            "huffman coding",
+            "huffman tree",
+            "prefix code",
+            "variable length code",
+            "comparison of brute force and huffman"
+          ],
+          "specific_keywords": ["huffman coding", "prefix code", "greedy choice"],
+          "negative_guards": ["lcs", "matrix chain multiplication"],
+          "context_hints": ["huffman", "greedy coding"]
+        },
+        {
+          "id": 827,
+          "name": "Fractional Knapsack and Activity Selection",
+          "canonical_name": "Fractional Knapsack and Activity Selection",
+          "aliases": ["Fractional Knapsack", "Activity Selection Problem"],
+          "strong_phrases": [
+            "fractional knapsack problem",
+            "knapsack problem using greedy approach",
+            "complexity derivation of knapsack using greedy",
+            "value per unit weight",
+            "activity selection problem",
+            "interval scheduling"
+          ],
+          "specific_keywords": ["fractional knapsack", "activity selection", "greedy knapsack"],
+          "negative_guards": ["0/1 knapsack dynamic programming"],
+          "context_hints": ["fractional knapsack", "greedy scheduling"]
+        },
+        {
+          "id": 828,
+          "name": "Minimum Spanning Trees: Kruskal and Prim",
+          "canonical_name": "Minimum Spanning Trees: Kruskal and Prim",
+          "aliases": ["MST", "Prim's Algorithm", "Kruskal's Algorithm"],
+          "strong_phrases": [
+            "minimum spanning tree",
+            "mst",
+            "kruskal's algorithm",
+            "prims algorithm",
+            "prim's algorithm",
+            "disjoint set union find in kruskal",
+            "cut property in mst",
+            "complexity of prim and kruskal"
+          ],
+          "specific_keywords": ["kruskal", "prim", "minimum spanning tree", "mst"],
+          "negative_guards": ["dijkstra shortest path", "bellman ford"],
+          "context_hints": ["minimum spanning tree", "greedy graph"]
+        },
+        {
+          "id": 829,
+          "name": "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+          "canonical_name": "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+          "aliases": ["0/1 Knapsack", "Matrix Chain Multiplication"],
+          "strong_phrases": [
+            "0/1 knapsack problem",
+            "0-1 knapsack dynamic programming",
+            "knapsack dp table",
+            "matrix chain multiplication",
+            "optimal parenthesization of matrices",
+            "mcm dp recurrence",
+            "complexity of matrix chain multiplication"
+          ],
+          "specific_keywords": ["0/1 knapsack", "matrix chain multiplication", "parenthesization", "memoization"],
+          "negative_guards": ["fractional knapsack", "strassen"],
+          "context_hints": ["dynamic programming", "0/1 knapsack", "matrix chain"]
+        },
+        {
+          "id": 830,
+          "name": "Longest Common Subsequence and Optimal Binary Search Trees",
+          "canonical_name": "Longest Common Subsequence and Optimal Binary Search Trees",
+          "aliases": ["LCS", "OBST"],
+          "strong_phrases": [
+            "longest common subsequence",
+            "lcs dynamic programming",
+            "lcs table construction",
+            "optimal binary search tree",
+            "obst dynamic programming",
+            "expected search cost in obst",
+            "w(i,j) and c(i,j) in obst"
+          ],
+          "specific_keywords": ["longest common subsequence", "lcs", "optimal binary search tree", "obst"],
+          "negative_guards": ["avl tree", "red-black tree"],
+          "context_hints": ["lcs", "obst", "dynamic programming"]
+        }
+      ]
+    },
+    {
+      "id": 174,
+      "number": 4,
+      "name": "Backtracking and Branch and Bound",
+      "topics": [
+        {
+          "id": 831,
+          "name": "State Space Trees and Backtracking Principles",
+          "canonical_name": "State Space Trees and Backtracking Principles",
+          "aliases": ["Backtracking Principles", "State Space Tree"],
+          "strong_phrases": [
+            "backtracking technique",
+            "state space tree",
+            "bounding function",
+            "pruning the search tree",
+            "depth first search with pruning",
+            "live node dead node"
+          ],
+          "specific_keywords": ["backtracking", "state space tree", "bounding function", "pruning"],
+          "negative_guards": ["branch and bound fifo", "lcbb"],
+          "context_hints": ["backtracking", "state space"]
+        },
+        {
+          "id": 832,
+          "name": "N-Queens and Sum of Subsets Problems",
+          "canonical_name": "N-Queens and Sum of Subsets Problems",
+          "aliases": ["N-Queens Problem", "Subset Sum Backtracking"],
+          "strong_phrases": [
+            "n queens problem",
+            "8 queens problem",
+            "n-queens backtracking",
+            "sum of subsets problem",
+            "subset sum problem backtracking",
+            "promising function in n-queens"
+          ],
+          "specific_keywords": ["n-queens", "8-queens", "sum of subsets", "subset sum"],
+          "negative_guards": ["knapsack dynamic programming"],
+          "context_hints": ["n-queens", "subset sum"]
+        },
+        {
+          "id": 833,
+          "name": "Graph Coloring and Hamiltonian Cycles",
+          "canonical_name": "Graph Coloring and Hamiltonian Cycles",
+          "aliases": ["Graph Coloring", "Hamiltonian Circuit Backtracking"],
+          "strong_phrases": [
+            "graph coloring problem",
+            "m coloring problem",
+            "chromatic number of graph",
+            "hamiltonian cycle problem",
+            "hamiltonian circuit backtracking"
+          ],
+          "specific_keywords": ["graph coloring", "m-coloring", "chromatic number", "hamiltonian cycle"],
+          "negative_guards": ["eulerian path", "topological sort"],
+          "context_hints": ["graph coloring", "hamiltonian cycle"]
+        },
+        {
+          "id": 834,
+          "name": "Branch and Bound Search Strategies",
+          "canonical_name": "Branch and Bound Search Strategies",
+          "aliases": ["Branch and Bound", "FIFO LC Branch and Bound"],
+          "strong_phrases": [
+            "branch and bound method",
+            "fifo branch and bound",
+            "least cost branch and bound",
+            "lcbb",
+            "lower bound upper bound",
+            "cost function c^(x)",
+            "priority queue in branch and bound"
+          ],
+          "specific_keywords": ["branch and bound", "lcbb", "fifo branch and bound", "lower bound"],
+          "negative_guards": ["backtracking dfs"],
+          "context_hints": ["branch and bound", "lcbb"]
+        },
+        {
+          "id": 835,
+          "name": "Travelling Salesperson and 0/1 Knapsack via Branch and Bound",
+          "canonical_name": "Travelling Salesperson and 0/1 Knapsack via Branch and Bound",
+          "aliases": ["TSP Branch and Bound", "Knapsack Branch and Bound"],
+          "strong_phrases": [
+            "travelling salesperson problem branch and bound",
+            "tsp branch and bound",
+            "reduced cost matrix in tsp",
+            "row reduction and column reduction",
+            "0/1 knapsack branch and bound"
+          ],
+          "specific_keywords": ["reduced cost matrix", "tsp branch and bound", "row reduction"],
+          "negative_guards": ["genetic algorithm", "simulated annealing"],
+          "context_hints": ["tsp branch and bound", "reduced cost matrix"]
+        }
+      ]
+    },
+    {
+      "id": 175,
+      "number": 5,
+      "name": "Randomized Algorithms and NP-Completeness",
+      "topics": [
+        {
+          "id": 836,
+          "name": "Randomized Algorithms: Quicksort and String Matching",
+          "canonical_name": "Randomized Algorithms: Quicksort and String Matching",
+          "aliases": ["Randomized Algorithms", "Las Vegas and Monte Carlo"],
+          "strong_phrases": [
+            "randomized algorithms",
+            "randomized quicksort",
+            "expected running time of randomized quicksort",
+            "las vegas algorithm",
+            "monte carlo algorithm",
+            "randomized string matching",
+            "rabin karp algorithm"
+          ],
+          "specific_keywords": ["randomized algorithm", "las vegas", "monte carlo", "randomized quicksort"],
+          "negative_guards": ["deterministic finite automata"],
+          "context_hints": ["randomized algorithms", "las vegas"]
+        },
+        {
+          "id": 837,
+          "name": "Complexity Classes P and NP",
+          "canonical_name": "Complexity Classes P and NP",
+          "aliases": ["Class P and NP", "Deterministic vs Non-Deterministic Polynomial Time"],
+          "strong_phrases": [
+            "tractable and intractable problems",
+            "class p problems",
+            "class np problems",
+            "deterministic turing machine",
+            "non deterministic algorithm",
+            "polynomial time verification",
+            "certificate verification"
+          ],
+          "specific_keywords": ["class p", "class np", "non-deterministic polynomial", "polynomial time verification"],
+          "negative_guards": ["pipelining", "branch prediction"],
+          "context_hints": ["complexity classes", "p vs np"]
+        },
+        {
+          "id": 838,
+          "name": "NP-Completeness and NP-Hardness",
+          "canonical_name": "NP-Completeness and NP-Hardness",
+          "aliases": ["NP-Complete", "NP-Hard", "Cook's Theorem"],
+          "strong_phrases": [
+            "np completeness",
+            "np complete problems",
+            "np hard problems",
+            "definition of np complete",
+            "cook's theorem",
+            "cook levin theorem",
+            "boolean satisfiability problem",
+            "circuit satisfiability sat"
+          ],
+          "specific_keywords": ["np-complete", "np-hard", "cook's theorem", "satisfiability", "circuit sat"],
+          "negative_guards": ["deadlock detection", "rag"],
+          "context_hints": ["np-completeness", "cook's theorem"]
+        },
+        {
+          "id": 839,
+          "name": "Polynomial-Time Reductions",
+          "canonical_name": "Polynomial-Time Reductions",
+          "aliases": ["Polynomial Reductions", "3-SAT to Clique Reduction"],
+          "strong_phrases": [
+            "polynomial time reduction",
+            "reduction from problem a to problem b",
+            "3-sat problem",
+            "3 cnf satisfiability",
+            "vertex cover problem np complete",
+            "clique problem reduction",
+            "hamiltonian cycle reduction"
+          ],
+          "specific_keywords": ["polynomial reduction", "3-sat", "vertex cover", "clique problem"],
+          "negative_guards": ["minimum spanning tree prim"],
+          "context_hints": ["polynomial reductions", "3-sat"]
+        },
+        {
+          "id": 840,
+          "name": "Approximation Algorithms",
+          "canonical_name": "Approximation Algorithms",
+          "aliases": ["Approximation Ratio", "Vertex Cover Approximation"],
+          "strong_phrases": [
+            "approximation algorithms",
+            "approximation ratio",
+            "vertex cover approximation algorithm",
+            "2-approximation vertex cover",
+            "travelling salesperson approximation",
+            "metric tsp approximation",
+            "set cover approximation"
+          ],
+          "specific_keywords": ["approximation algorithm", "approximation ratio", "2-approximation", "metric tsp"],
+          "negative_guards": ["exact algorithm", "brute force"],
+          "context_hints": ["approximation algorithms", "approximation ratio"]
+        }
+      ]
+    }
+  ]
+}

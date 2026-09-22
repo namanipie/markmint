@@ -161,6 +161,7 @@ export interface BackendCourse {
   canonical_code?: string | null;
   department?: string | null;
   regulation_year?: number | null;
+  has_tracks?: boolean;
 }
 
 export interface BackendPrediction {
@@ -233,6 +234,16 @@ export interface StudyUploadResponse {
   message?: string;
 }
 
+export interface CourseTrack {
+  id: number;
+  course_id: number;
+  track_key: string;
+  track_name: string;
+  track_code?: string | null;
+  track_type: string;
+  created_at?: string | null;
+}
+
 export interface CurriculumSubject {
   curriculum_id: string;
   subject_name: string;
@@ -243,7 +254,17 @@ export interface CurriculumSubject {
   has_exams: boolean;
   exam_count: number;
   question_count: number;
+  has_tracks?: boolean;
+  tracks?: CourseTrack[];
   notes: string | null;
+}
+
+export interface InitialScopeResponse {
+  branches: string[];
+  default_branch: string;
+  semesters: number[];
+  default_semester: number;
+  subjects: CurriculumSubject[];
 }
 
 export interface CurriculumStats {
@@ -372,7 +393,10 @@ export interface IntelligenceSnapshot {
     canonical_code?: string | null;
     department?: string | null;
     regulation_year?: number | null;
+    tracks?: CourseTrack[];
   } | null;
+  track?: CourseTrack | null;
+  tracks?: CourseTrack[];
   curriculum?: {
     curriculum_id?: string | null;
     subject_name: string;
@@ -391,6 +415,65 @@ export interface IntelligenceSnapshot {
     target_year?: number;
   } | null;
   available_assessment_types?: string[];
+  assessment_cycle?: string;
+  available_assessment_cycles?: string[];
+  assessment_component?: string;
+  assessment_label?: string;
+  evidence_status?: string;
+  intended_scope?: {
+    unit_numbers: number[];
+    topic_names: string[];
+    source_document?: string | null;
+    notes?: string | null;
+  } | null;
+  observed_scope?: {
+    paper_count: number;
+    total_questions?: number;
+    unit_numbers: number[];
+    topic_names: string[];
+    question_count_by_unit: Record<string, number>;
+    marks_by_unit: Record<string, number>;
+    papers?: any[];
+  } | null;
+  assessment_scope?: {
+    student_cycle: string;
+    component_code?: string;
+    component_label?: string;
+    student_label?: string;
+    role?: string;
+    marks?: number | null;
+    source_document?: string | null;
+    unit_numbers?: number[];
+    total_in_scope_topics?: number;
+    observed_in_scope_topics?: number;
+    evidence_status?: string;
+    intended_scope?: {
+      unit_numbers: number[];
+      topic_names: string[];
+      source_document?: string | null;
+      notes?: string | null;
+    } | null;
+    observed_scope?: {
+      paper_count: number;
+      total_questions?: number;
+      unit_numbers: number[];
+      topic_names: string[];
+      question_count_by_unit: Record<string, number>;
+      marks_by_unit: Record<string, number>;
+      papers?: any[];
+    } | null;
+    unobserved_in_scope_topics?: Array<{
+      name: string;
+      status: string;
+      message: string;
+    }>;
+    out_of_scope_observed_topics?: Array<{
+      name: string;
+      status: string;
+      score: number;
+      message: string;
+    }>;
+  } | null;
   predictions: PredictionItem[];
   family_predictions?: PredictionItem[];
   topic_predictions?: PredictionItem[];
@@ -740,4 +823,129 @@ export interface SingleFamilyResponse {
   total_marks_observed: number | null;
   appearances: SingleFamilyAppearance[];
   timeline: TimelineEntry[];
+}
+
+export interface SubmissionPreview {
+  filename: string;
+  file_size: number;
+  file_hash: string;
+  page_count: number;
+  extracted_snippet: string;
+  detected_year: number | null;
+  detected_assessment: string | null;
+  detected_course_code: string | null;
+  consistency_score: number;
+  consistency_status: "CONSISTENT" | "MISMATCH" | "UNCERTAIN";
+  consistency_notes: string | null;
+  is_duplicate: boolean;
+  duplicate_message: string;
+  duplicate_of_document_id: number | null;
+  duplicate_of_submission_id: number | null;
+}
+
+export interface PaperSubmissionRecord {
+  id: number;
+  original_filename: string;
+  file_hash: string;
+  file_size: number;
+  branch_name: string | null;
+  semester: number | null;
+  subject_name: string;
+  course_id: number | null;
+  track_id?: number | null;
+  declared_assessment: string | null;
+  page_count: number;
+  detected_year: number | null;
+  detected_assessment: string | null;
+  detected_course_code: string | null;
+  consistency_score: number;
+  consistency_status: "CONSISTENT" | "MISMATCH" | "UNCERTAIN";
+  consistency_notes: string | null;
+  is_duplicate: boolean;
+  status: "PENDING" | "REVIEW" | "APPROVED" | "REJECTED";
+  source: string;
+  created_at: string;
+  reviewed_at: string | null;
+  reviewed_by: string | null;
+  rejection_reason: string | null;
+  ingested_document_id: number | null;
+}
+
+export interface AdminReviewSummary {
+  submission_id: number;
+  course: {
+    id: number;
+    code: string;
+    name: string;
+  } | null;
+  track: {
+    id: number;
+    name: string;
+    key: string;
+  } | null;
+  assessment: string;
+  year: number | null;
+  duplicate_state: {
+    is_duplicate: boolean;
+    duplicate_of_document_id: number | null;
+    duplicate_of_submission_id: number | null;
+    status: "DUPLICATE_DOCUMENT" | "DUPLICATE_SUBMISSION" | "UNIQUE";
+  };
+  question_count: {
+    total: number;
+    mapped: number;
+    unmapped: number;
+  };
+  mapping_rate: number;
+  mapping_rate_formatted: string;
+  provenance: {
+    submission_id: number;
+    source: string;
+    uploader_session_id: string | null;
+    original_filename: string;
+    file_hash: string;
+    file_size: number;
+    uploaded_at: string | null;
+  };
+  approval_state: {
+    status: string;
+    reviewed_at: string | null;
+    reviewed_by: string | null;
+    rejection_reason: string | null;
+    ingested_document_id: number | null;
+    exam_id: number | null;
+  };
+  observed_coverage?: {
+    observed_units: number[];
+    observed_topics_count: number;
+    assessment_cycle: string;
+    confidence: number;
+  } | null;
+}
+
+export interface SubmitterFeedback {
+  tracking_id: string;
+  submission_id: number;
+  status: "PENDING" | "REVIEW" | "APPROVED" | "REJECTED";
+  status_badge: string;
+  subject_name: string;
+  original_filename: string;
+  submitted_at: string | null;
+  status_message: string;
+  actionable_tip: string;
+  is_contributed_to_corpus: boolean;
+}
+
+export interface SubmissionQualityMetrics {
+  submissions: number;
+  approved: number;
+  rejected: number;
+  pending: number;
+  under_review: number;
+  duplicate: number;
+  questions_added: number;
+  questions_mapped: number;
+  questions_unresolved: number;
+  mapping_rate: number;
+  mapping_rate_formatted: string;
 }

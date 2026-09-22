@@ -1,0 +1,575 @@
+{
+  "sections": [
+    {
+      "name": "PART A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. How do you instantiate an array in C?\n(A) int arr[ ] = new int(3);\n(B) int arr [ 3];\n(C) int arr[ ] = new int[3];\n(D) int arr() = New int [3]; [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "How do you instantiate an array in C?\n(A) int arr[ ] = new int(3);\n(B) int arr [ 3];\n(C) int arr[ ] = new int[3];\n(D) int arr() = New int [3];",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Elements in an array are accessed\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Elements in an array are accessed\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following data structure is non linear type?\n(A) Strings\n(B) Lists\n(C) Stacks\n(D) Hierarchical [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following data structure is non linear type?\n(A) Strings\n(B) Lists\n(C) Stacks\n(D) Hierarchical",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. What will be the output of the following code?\nstruct student\n{\nCHAR *C;\n};\nvoid main()\n{\nstruct student *S;\nS->C = \"HELLO\";\nprintf(\"%S\", S->C);\n}\n(A) Hello\n(B) Segmentation fault\n(C) Runtime error\n(D) Nothing [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "What will be the output of the following code?\nstruct student\n{\nCHAR *C;\n};\nvoid main()\n{\nstruct student *S;\nS->C = \"HELLO\";\nprintf(\"%S\", S->C);\n}\n(A) Hello\n(B) Segmentation fault\n(C) Runtime error\n(D) Nothing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Linked list data structure offers considerable saving in\n(A) Computational time\n(B) Space utilization\n(C) Space utilization and (D) Speed utilization computational time [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Linked list data structure offers considerable saving in\n(A) Computational time\n(B) Space utilization\n(C) Space utilization and (D) Speed utilization computational time",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which of the following is false about a doubly linked list?\n(A) We can navigate in both the (B) It requires more space than a directions singly linked list\n(C) The insertion and deletion of a (D) Implementing a doubly linked node take a bit longer time list is easier than singly linked list [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which of the following is false about a doubly linked list?\n(A) We can navigate in both the (B) It requires more space than a directions singly linked list\n(C) The insertion and deletion of a (D) Implementing a doubly linked node take a bit longer time list is easier than singly linked list",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following is false about a circular linked list?\n(A) Every node has a successor\n(B) Time complexity of inserting a new node at the head of the list is O(1)\n(C) The complexity for deleting the last node is O(n).\n(D) We can traverse the whole circular linked list, starting from any point [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following is false about a circular linked list?\n(A) Every node has a successor\n(B) Time complexity of inserting a new node at the head of the list is O(1)\n(C) The complexity for deleting the last node is O(n).\n(D) We can traverse the whole circular linked list, starting from any point",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of these is not an application of a linked list?\n(A) To implement file system\n(B) For separate chaining in hash-tables\n(C) To implement non-binary trees\n(D) Random access of elements [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of these is not an application of a linked list?\n(A) To implement file system\n(B) For separate chaining in hash-tables\n(C) To implement non-binary trees\n(D) Random access of elements",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. The data structure required to check whether an expression contains balanced parenthesis is\n(A) Stack\n(B) Queue\n(C) Array\n(D) Tree [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "The data structure required to check whether an expression contains balanced parenthesis is\n(A) Stack\n(B) Queue\n(C) Array\n(D) Tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. The prefix form of A-B/ (C*D\\textasciicircum{}E) is?\n(A) -/\\*AACBDE\n(B) -ABCD *\\Delta DE\n(C) -A/B*CADE\n(D) -A/BC*ADE [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "The prefix form of A-B/ (C*D\\textasciicircum{}E) is?\n(A) -/\\*AACBDE\n(B) -ABCD *\\Delta DE\n(C) -A/B*CADE\n(D) -A/BC*ADE",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. A queue follows _____\n(A) FIFO (First in First Out) principle\n(B) LIFO (Last in First Out) principle\n(C) Ordered array\n(D) Linear tree [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "A queue follows _____\n(A) FIFO (First in First Out) principle\n(B) LIFO (Last in First Out) principle\n(C) Ordered array\n(D) Linear tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. A normal queue, if implemented using an array of size max-size gets full when?\n(A) Rear = Max - size - 1\n(B) Front = (rear + 1) mod max size\n(C) Front = Rear + 1\n(D) Rear = Front [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "A normal queue, if implemented using an array of size max-size gets full when?\n(A) Rear = Max - size - 1\n(B) Front = (rear + 1) mod max size\n(C) Front = Rear + 1\n(D) Rear = Front",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. A linear list of elements in which deletion can be done from one end (front) and insertion can take place only at the other end (rear) is known as _____\n(A) Queue\n(B) Stack\n(C) Tree\n(D) Linked list [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "A linear list of elements in which deletion can be done from one end (front) and insertion can take place only at the other end (rear) is known as _____\n(A) Queue\n(B) Stack\n(C) Tree\n(D) Linked list",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. What is a full binary tree?\n(A) Each node has exactly zero or two children\n(B) Each node has exactly two children\n(C) All the leaves are at the same level\n(D) Each node has exactly one or two children [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "What is a full binary tree?\n(A) Each node has exactly zero or two children\n(B) Each node has exactly two children\n(C) All the leaves are at the same level\n(D) Each node has exactly one or two children",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. For the binary tree, find the pre order traversal sequence.\n(A) H I D E G F J K G C A\n(B) H D I B E A F C J G K\n(C) A B D H I E C F G J K\n(D) A B C D E F G H I J K [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "For the binary tree, find the pre order traversal sequence.\n(A) H I D E G F J K G C A\n(B) H D I B E A F C J G K\n(C) A B D H I E C F G J K\n(D) A B C D E F G H I J K",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What is direct addressing?\n(A) Distinct array position for every possible\n(B) Fewer array positions than keys\n(C) Fewer keys than array positions\n(D) Same array positions for all keys [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What is direct addressing?\n(A) Distinct array position for every possible\n(B) Fewer array positions than keys\n(C) Fewer keys than array positions\n(D) Same array positions for all keys",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What data organization method is used in Hash tables?\n(A) Stack\n(B) Array\n(C) Linked list\n(D) Queue [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What data organization method is used in Hash tables?\n(A) Stack\n(B) Array\n(C) Linked list\n(D) Queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. What would be the number of zeros in the adjacency matrix of the given graph?\n(A) 10\n(B) 6\n(C) 16\n(D) 0 [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "What would be the number of zeros in the adjacency matrix of the given graph?\n(A) 10\n(B) 6\n(C) 16\n(D) 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The traveling salesman problem can be solved using _____\n(A) A spanning tree\n(B) A minimum spanning tree\n(C) Bellman - Ford algorithm\n(D) DFS traversal [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The traveling salesman problem can be solved using _____\n(A) A spanning tree\n(B) A minimum spanning tree\n(C) Bellman - Ford algorithm\n(D) DFS traversal",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. DIJKSTRA'S algorithm is used to solve _____ problem\n(A) All pair shortest path\n(B) Single source shortest path\n(C) Network flow\n(D) Sorting [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "DIJKSTRA'S algorithm is used to solve _____ problem\n(A) All pair shortest path\n(B) Single source shortest path\n(C) Network flow\n(D) Sorting",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Define a function to multiply two m \\times n matrices and return the resultant matrix. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Define a function to multiply two m \\times n matrices and return the resultant matrix.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "21",
+              "text": "How mathematical notations are used to measure the complexity of the algorithm? Explain different notations used.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. How mathematical notations are used to measure the complexity of the algorithm? Explain different notations used. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "How mathematical notations are used to measure the complexity of the algorithm? Explain different notations used.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Write an algorithm to demonstrate a polynomial equation using linked list for subtraction of two polynomials equations. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Write an algorithm to demonstrate a polynomial equation using linked list for subtraction of two polynomials equations.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "22",
+              "text": "Consider an array A[1:n] Given a position, write an algorithm to insert an element in the array. If the position is empty, the element is inserted easily. If the position is already occupied the element should be inserted with the minimum number of shifts (Note: The elements can shift to the left or to the right to make the minimum number of moves).",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Consider an array A[1:n] Given a position, write an algorithm to insert an element in the array. If the position is empty, the element is inserted easily. If the position is already occupied the element should be inserted with the minimum number of shifts (Note: The elements can shift to the left or to the right to make the minimum number of moves). [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Consider an array A[1:n] Given a position, write an algorithm to insert an element in the array. If the position is empty, the element is inserted easily. If the position is already occupied the element should be inserted with the minimum number of shifts (Note: The elements can shift to the left or to the right to make the minimum number of moves).",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Write an algorithm to convert an infix expression to a postfix expression. Trace the algorithm to convert the infix expression a+b * c/d+e/f to a postfix expression. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Write an algorithm to convert an infix expression to a postfix expression. Trace the algorithm to convert the infix expression a+b * c/d+e/f to a postfix expression.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "23",
+              "text": "Give algorithms for push and pop operations on stack using a linked list with suitable pictorial representations.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Give algorithms for push and pop operations on stack using a linked list with suitable pictorial representations. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Give algorithms for push and pop operations on stack using a linked list with suitable pictorial representations.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Write appropriate algorithm for inserting and deleting a node in a binary search tree. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Write appropriate algorithm for inserting and deleting a node in a binary search tree.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "24",
+              "text": "Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72",
+              "marks": 4,
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72",
+                  "marks": 4
+                },
+                {
+                  "number": "ii",
+                  "text": "Compare BST with AVL tree.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72 [4]\n  i. Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72 [4]\n  ii. Compare BST with AVL tree. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72",
+            "marks": 4,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Create a B+tree of order - 5 for the following data arriving in sequence 90, 27, 7, 9, 18, 21, 3, 4, 16, 11, 21, 72",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Compare BST with AVL tree.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": 4.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Consider the graph given below show its adjacency list and adjacency matrix in the memory. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Consider the graph given below show its adjacency list and adjacency matrix in the memory.",
+            "marks": 8,
+            "subquestions": [],
+            "or_alternative": {
+              "number": "25",
+              "text": "Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART C",
+      "instructions": "Answer ANY ONE Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Consider a hash table with 9 slots. The hash function is h(k) = k mod 9. The following keys are inserted in order 5, 28, 19, 15, 20, 33, 12, 17, 10. Draw the contents of the hash table when the collisions are solved by [15]\n  i. Chaining\n  ii. Linear probing\n  iii. Double hashing. The second hash function h_2(x) = 7 - (x % 7).",
+          "structured_content": {
+            "number": "26",
+            "text": "Consider a hash table with 9 slots. The hash function is h(k) = k mod 9. The following keys are inserted in order 5, 28, 19, 15, 20, 33, 12, 17, 10. Draw the contents of the hash table when the collisions are solved by",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Chaining"
+              },
+              {
+                "number": "ii",
+                "text": "Linear probing"
+              },
+              {
+                "number": "iii",
+                "text": "Double hashing. The second hash function h_2(x) = 7 - (x % 7)."
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

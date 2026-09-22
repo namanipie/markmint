@@ -1,0 +1,593 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The representation of octal number (532.2)_8 in decimal is _____________\n(A) (346.25)_{10}\n(B) (532.864)_{10}\n(C) (340.67)_{10}\n(D) (531.668)_{10} [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "The representation of octal number (532.2)_8 in decimal is _____________\n(A) (346.25)_{10}\n(B) (532.864)_{10}\n(C) (340.67)_{10}\n(D) (531.668)_{10}",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. 2's compliment of 11001011 is _____________\n(A) 01010111\n(B) 11010100\n(C) 00110101\n(D) 11100010 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "2's compliment of 11001011 is _____________\n(A) 01010111\n(B) 11010100\n(C) 00110101\n(D) 11100010",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. The gate which is used to reverse the output obtained is _____________\n(A) NOR\n(B) NAND\n(C) EXOR\n(D) NOT [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "The gate which is used to reverse the output obtained is _____________\n(A) NOR\n(B) NAND\n(C) EXOR\n(D) NOT",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. _____________ are arithmetic gates.\n(A) NOT\n(B) NAND & NOR\n(C) X-OR & X-NOR\n(D) NOT, AND & OR [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "_____________ are arithmetic gates.\n(A) NOT\n(B) NAND & NOR\n(C) X-OR & X-NOR\n(D) NOT, AND & OR",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. In register transfer the processor register as _____________\n(A) MAR\n(B) PC\n(C) IR\n(D) RI [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "In register transfer the processor register as _____________\n(A) MAR\n(B) PC\n(C) IR\n(D) RI",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. A CPU has 12 registers and uses 6 addressing modes. RAM is 64 K \\times 32.\nWhat is the maximum size of the op-code field if the instruction has a register\noperand and a memory address operand?\n(A) 8 bits\n(B) 9 bits\n(C) 10 bits\n(D) 11 bits [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "A CPU has 12 registers and uses 6 addressing modes. RAM is 64 K \\times 32.\nWhat is the maximum size of the op-code field if the instruction has a register\noperand and a memory address operand?\n(A) 8 bits\n(B) 9 bits\n(C) 10 bits\n(D) 11 bits",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following acts as a temporary storage location to hold an\nintermediate result in mathematical and logical calculations?\n(A) RAM\n(B) Accumulator\n(C) Program counter\n(D) Memory address register [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following acts as a temporary storage location to hold an\nintermediate result in mathematical and logical calculations?\n(A) RAM\n(B) Accumulator\n(C) Program counter\n(D) Memory address register",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The bus used to connect the monitor to the CPU is _____________\n(A) PCI bus\n(B) SCSI bus\n(C) Memory bus\n(D) RAM bus [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The bus used to connect the monitor to the CPU is _____________\n(A) PCI bus\n(B) SCSI bus\n(C) Memory bus\n(D) RAM bus",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Booth's algorithm is applied on _____________\n(A) Decimal numbers\n(B) Binary numbers\n(C) Hexadecimal numbers\n(D) Octal numbers [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Booth's algorithm is applied on _____________\n(A) Decimal numbers\n(B) Binary numbers\n(C) Hexadecimal numbers\n(D) Octal numbers",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. In IEEE 32-bit representation, the mantissa of the fraction is said to occupy\nbits.\n(A) 24\n(B) 23\n(C) 20\n(D) 16 [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "In IEEE 32-bit representation, the mantissa of the fraction is said to occupy\nbits.\n(A) 24\n(B) 23\n(C) 20\n(D) 16",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The normalized representation of 0.0010110 * 2_9 is _____________.\n(A) 0 10001000 0010110\n(B) 0 10000101 0110\n(C) 0 10101010 1110\n(D) 0 11110100 11100 [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "The normalized representation of 0.0010110 * 2_9 is _____________.\n(A) 0 10001000 0010110\n(B) 0 10000101 0110\n(C) 0 10101010 1110\n(D) 0 11110100 11100",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. The difference between half adder and full adder is _____________\n(A) Half adder has two inputs while\nfull adder has focus inputs\n(B) Half adder has one input while\nfull adder has two outputs\n(C) Half adder has two inputs while\nfull adder has three inputs\n(D) Half adder has three inputs while\nfull adder has two inputs [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "The difference between half adder and full adder is _____________\n(A) Half adder has two inputs while\nfull adder has focus inputs\n(B) Half adder has one input while\nfull adder has two outputs\n(C) Half adder has two inputs while\nfull adder has three inputs\n(D) Half adder has three inputs while\nfull adder has two inputs",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. _____________ are the different type/s of generating control signals.\n(A) Micro-programed\n(B) Hardwired\n(C) Micro-instruction\n(D) Both micro-programmed and\nhardwired [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "_____________ are the different type/s of generating control signals.\n(A) Micro-programed\n(B) Hardwired\n(C) Micro-instruction\n(D) Both micro-programmed and\nhardwired",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. What does the end instruction do?\n(A) It ends the generation of a signal\n(B) It ends the complete generation\nprocess\n(C) It starts a new instruction fetch\ncycle and resets the counter\n(D) It is used to shift the control to\nthe processor [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "What does the end instruction do?\n(A) It ends the generation of a signal\n(B) It ends the complete generation\nprocess\n(C) It starts a new instruction fetch\ncycle and resets the counter\n(D) It is used to shift the control to\nthe processor",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. By using pipelining, the latency of the instructions.\n(A) Increase\n(B) Remains the same\n(C) Decrease\n(D) It is unity [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "By using pipelining, the latency of the instructions.\n(A) Increase\n(B) Remains the same\n(C) Decrease\n(D) It is unity",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Which specific task is not included in super scalar processing?\n(A) Parallel decoding\n(B) Super scale instructions\n(C) Parallel instructions\n(D) Pipelines [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Which specific task is not included in super scalar processing?\n(A) Parallel decoding\n(B) Super scale instructions\n(C) Parallel instructions\n(D) Pipelines",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. SIMD stands for\n(A) System instruction multiple data\n(B) Single instruction multiple data\n(C) Symmetric instruction multiple\ndata\n(D) Scale instruction multiple data [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "SIMD stands for\n(A) System instruction multiple data\n(B) Single instruction multiple data\n(C) Symmetric instruction multiple\ndata\n(D) Scale instruction multiple data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. How many instruction sets does ARM have?\n(A) One\n(B) Two\n(C) Three\n(D) Four [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "How many instruction sets does ARM have?\n(A) One\n(B) Two\n(C) Three\n(D) Four",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Virtual memory consists of\n(A) Static RAM\n(B) Dynamic RAM\n(C) Magnetic memory\n(D) Virtual RAM [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Virtual memory consists of\n(A) Static RAM\n(B) Dynamic RAM\n(C) Magnetic memory\n(D) Virtual RAM",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. The number successful accesses to memory stated as a fraction is called as\n(A) Access rate\n(B) Success rate\n(C) Hit rate\n(D) Miss rate [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "The number successful accesses to memory stated as a fraction is called as\n(A) Access rate\n(B) Success rate\n(C) Hit rate\n(D) Miss rate",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Convert decimal 234_{10} to [8]\n  i. Binary\n  ii. BCD\n  iii. Octal\n  iv. Hexadecimal",
+          "structured_content": {
+            "number": "21",
+            "text": "Convert decimal 234_{10} to",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Binary"
+              },
+              {
+                "number": "ii",
+                "text": "BCD"
+              },
+              {
+                "number": "iii",
+                "text": "Octal"
+              },
+              {
+                "number": "iv",
+                "text": "Hexadecimal"
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "",
+              "subquestions": [
+                {
+                  "number": "i",
+                  "text": "Find 2's complement of (1001)_2 and (1010 0011)_2.",
+                  "marks": 4
+                },
+                {
+                  "number": "ii",
+                  "text": "Subtract 10101_2 from 111001_2 using the 1's complement method.",
+                  "marks": 4
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. \n  i. Find 2's complement of (1001)_2 and (1010 0011)_2. [4]\n  ii. Subtract 10101_2 from 111001_2 using the 1's complement method. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Find 2's complement of (1001)_2 and (1010 0011)_2.",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Subtract 10101_2 from 111001_2 using the 1's complement method.",
+                "marks": 4
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Describe the basic instruction types in assembly language programming. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Describe the basic instruction types in assembly language programming.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Describe addressing mode with example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Describe addressing mode with example. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Describe addressing mode with example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Apply Booth's algorithm to multiple the signed numbers +13 and -6. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Apply Booth's algorithm to multiple the signed numbers +13 and -6.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Divide 14 \\div 5 using non restoring division algorithm.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Divide 14 \\div 5 using non restoring division algorithm. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Divide 14 \\div 5 using non restoring division algorithm.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Explain the types of hazards. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Explain the types of hazards.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "List the characteristics of hardwired control and the advantages and\ndisadvantages of microprogrammed control unit.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. List the characteristics of hardwired control and the advantages and\ndisadvantages of microprogrammed control unit. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "List the characteristics of hardwired control and the advantages and\ndisadvantages of microprogrammed control unit.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Write short notes on memory in multiprocessor system and hardware\nmultithreading. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Write short notes on memory in multiprocessor system and hardware\nmultithreading.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Discuss in detail about cache coherence problem and the protocol that is used\nto overcome cache coherence.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Discuss in detail about cache coherence problem and the protocol that is used\nto overcome cache coherence. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Discuss in detail about cache coherence problem and the protocol that is used\nto overcome cache coherence.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. \n  i. Define Boolean algebra. [2]\n  ii. Explain the working of a logic gate. [2]\n  iii. List the types of logic gate with diagram. [2]\n  iv. Explain any two types of logic gate in detail. [9]",
+          "structured_content": {
+            "number": "26",
+            "text": "",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Define Boolean algebra.",
+                "marks": 2
+              },
+              {
+                "number": "ii",
+                "text": "Explain the working of a logic gate.",
+                "marks": 2
+              },
+              {
+                "number": "iii",
+                "text": "List the types of logic gate with diagram.",
+                "marks": 2
+              },
+              {
+                "number": "iv",
+                "text": "Explain any two types of logic gate in detail.",
+                "marks": 9
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Explain in detail about parallelism and its types. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Explain in detail about parallelism and its types.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

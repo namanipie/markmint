@@ -45,7 +45,7 @@ def test_taxonomy_version_exposure():
     """Verify registry exposes the authoritative taxonomy version."""
     registry = get_taxonomy_registry()
     assert registry.taxonomy_version == TAXONOMY_VERSION
-    assert registry.get_course(2).taxonomy_version == "1.0.0"
+    assert registry.get_course(2).taxonomy_version == "2.0.0"
     assert registry.get_course(13).taxonomy_version == "1.0.0"
 
 
@@ -60,8 +60,8 @@ def test_chemistry_taxonomy_invariants():
     assert course.course.name == "Chemistry"
     assert course.provenance.regulation == "2021"
 
-    # Exactly 12 units
-    assert len(course.units) == 12
+    # Exactly 5 units
+    assert len(course.units) == 5
     # Exactly 45 topics
     total_topics = sum(len(u.topics) for u in course.units)
     assert total_topics == 45
@@ -71,9 +71,9 @@ def test_chemistry_taxonomy_invariants():
     assert len(rules) == 45
     assert len(CHEMISTRY_TAXONOMY_RULES) == 45
 
-    # Check unit numbers are 1..12
+    # Check unit numbers are 1..5
     unit_numbers = [u.number for u in course.units]
-    assert unit_numbers == list(range(1, 13))
+    assert unit_numbers == list(range(1, 6))
 
     # All topic IDs must be unique within course
     topic_ids = [t.id for u in course.units for t in u.topics]
@@ -133,7 +133,7 @@ def test_database_validation_chemistry_and_spcm():
     try:
         res_chem = registry.validate_against_database(2, db)
         assert res_chem["valid"] is True, f"Chemistry validation failed: {res_chem.get('mismatches')}"
-        assert res_chem["units_verified"] == 12
+        assert res_chem["units_verified"] == 5
         assert res_chem["topics_verified"] == 45
         assert len(res_chem["mismatches"]) == 0
 

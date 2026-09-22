@@ -10,11 +10,14 @@ import {
   Clock,
   AlertCircle,
   Activity,
-  FileText
+  FileText,
+  HelpCircle,
+  Award
 } from "lucide-react";
 import { getSingleFamilyEvidence } from "@/lib/api";
 import { SingleFamilyResponse } from "@/lib/types";
 import { MathText } from "@/components/ui/math-text";
+import { Drawer } from "@/components/ui/drawer";
 
 interface FamilyEvidenceModalProps {
   isOpen: boolean;
@@ -66,84 +69,95 @@ export function FamilyEvidenceModal({
     };
   }, [isOpen, courseId, familyId]);
 
-  // Handle ESC key to close
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, onClose]);
-
-  if (!isOpen) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4 overflow-y-auto"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="family-modal-title"
-    >
-      <div className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-2xl bg-card border border-border shadow-2xl overflow-hidden animate-in fade-in-0 zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b border-border bg-secondary/20">
-          <div className="space-y-1.5 flex-1 pr-4">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-semibold uppercase tracking-wider text-accent flex items-center gap-1">
-                <Layers className="w-3.5 h-3.5" />
-                Question Family Evidence
-              </span>
-              {familyId && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-border">
-                  Family #{familyId}
-                </span>
-              )}
-              {data?.repetition_type && (
-                <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                  data.repetition_type === "EXACT_REPEAT"
-                    ? "bg-purple-500/15 text-purple-400 border border-purple-500/30"
-                    : "bg-accent/15 text-accent border border-accent/30"
-                }`}>
-                  {data.repetition_type.replace(/_/g, " ")}
-                </span>
-              )}
-            </div>
-
-            <h2 id="family-modal-title" className="text-base font-bold text-foreground leading-snug">
-              <MathText content={data?.canonical_name || initialFamilyName || "Loading family evidence..."} />
-            </h2>
-          </div>
-
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
-            aria-label="Close modal"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <Drawer
+      isOpen={isOpen}
+      onClose={onClose}
+      title={
+        <div className="text-base font-bold text-foreground leading-snug">
+          <MathText content={data?.canonical_name || initialFamilyName || "Question Family Evidence"} />
         </div>
+      }
+      subtitle={
+        <div className="flex flex-wrap items-center gap-2 mt-1">
+          <span className="text-xs font-semibold uppercase tracking-wider text-accent flex items-center gap-1">
+            <Layers className="w-3.5 h-3.5" />
+            Question Family Evidence
+          </span>
+          {familyId && (
+            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-secondary text-secondary-foreground border border-border">
+              Family #{familyId}
+            </span>
+          )}
+          {data?.repetition_type && (
+            <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+              data.repetition_type === "EXACT_REPEAT"
+                ? "bg-purple-500/15 text-purple-400 border border-purple-500/30"
+                : "bg-accent/15 text-accent border border-accent/30"
+            }`}>
+              {data.repetition_type.replace(/_/g, " ")}
+            </span>
+          )}
+        </div>
+      }
+    >
+      <div className="flex flex-col gap-6">
+        {isLoading ? (
+          <div className="py-20 flex flex-col items-center justify-center gap-3 text-muted-foreground">
+            <Activity className="w-8 h-8 animate-spin text-accent" />
+            <p className="text-sm font-medium">Extracting empirical examination appearances...</p>
+          </div>
+        ) : error ? (
+          <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive flex items-center gap-3">
+            <AlertCircle className="w-5 h-5 shrink-0" />
+            <p className="text-sm">{error}</p>
+          </div>
+        ) : data ? (
+          <>
+            {/* Evidence-limited state banner */}
+            {data.total_papers_analyzed <= 1 && (
+              <div className="flex items-start gap-2.5 rounded-xl border border-rose-500/20 bg-rose-500/5 p-3.5 text-xs">
+                <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-rose-500">Evidence Limited:</span>{" "}
+                  <span className="text-muted-foreground">
+                    Only {data.total_papers_analyzed} examination paper archived. Recurring pattern detection
+                    requires at least 2 historical exams to be statistically meaningful.
+                  </span>
+                </div>
+              </div>
+            )}
+            {data.total_papers_analyzed === 2 && (
+              <div className="flex items-start gap-2.5 rounded-xl border border-amber-500/20 bg-amber-500/5 p-3.5 text-xs">
+                <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-amber-500">Small Sample:</span>{" "}
+                  <span className="text-muted-foreground">
+                    Only {data.total_papers_analyzed} papers archived. The pattern is confirmed but the historical depth is limited.
+                  </span>
+                </div>
+              </div>
+            )}
+            {/* "Why is MarkMint showing this Question Family?" Concise Student Evidence Card */}
+            <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5 space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <HelpCircle className="h-5 w-5 text-accent" />
+                  <h3 className="text-sm font-bold text-foreground">Why is MarkMint showing me this?</h3>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
+                  Question Family Pattern
+                </span>
+              </div>
 
-        {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
-          {isLoading ? (
-            <div className="py-20 flex flex-col items-center justify-center gap-3 text-muted-foreground">
-              <Activity className="w-8 h-8 animate-spin text-accent" />
-              <p className="text-sm font-medium">Extracting empirical examination appearances...</p>
-            </div>
-          ) : error ? (
-            <div className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 shrink-0" />
-              <p className="text-sm">{error}</p>
-            </div>
-          ) : data ? (
-            <>
-              {/* Evidence Metrics Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3.5 rounded-xl bg-background/60 border border-border">
-                  <div className="text-[10px] font-mono uppercase text-muted-foreground">Distinct Papers</div>
-                  <div className="text-lg font-bold font-mono text-accent mt-0.5">
+              {/* 4 Key Evidence Stat Tiles */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="rounded-xl bg-card border border-border/60 p-3">
+                  <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-0.5">
+                    <Layers className="h-3 w-3 text-accent" />
+                    <span>Distinct Papers</span>
+                  </div>
+                  <div className="text-base font-bold font-mono text-accent">
                     {data.distinct_paper_count} / {data.total_papers_analyzed}
                   </div>
                   <div className="text-[10px] text-muted-foreground">
@@ -151,34 +165,88 @@ export function FamilyEvidenceModal({
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-background/60 border border-border">
-                  <div className="text-[10px] font-mono uppercase text-muted-foreground">Total Appearances</div>
-                  <div className="text-lg font-bold font-mono text-foreground mt-0.5">
-                    {data.occurrence_count} Questions
+                <div className="rounded-xl bg-card border border-border/60 p-3">
+                  <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-0.5">
+                    <Sparkles className="h-3 w-3 text-accent" />
+                    <span>Repeat Pattern</span>
                   </div>
-                  <div className="text-[10px] text-muted-foreground">Across historical cycles</div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-background/60 border border-border">
-                  <div className="text-[10px] font-mono uppercase text-muted-foreground">Observed Marks</div>
-                  <div className="text-lg font-bold font-mono text-foreground mt-0.5">
-                    {data.average_marks !== null && data.average_marks > 0 ? `~${data.average_marks} Marks` : "Marks Unspecified"}
+                  <div className="text-sm font-bold text-foreground truncate">
+                    {data.repetition_type === "EXACT_REPEAT" ? "Exact Repeat" : data.repetition_type === "PARAMETER_VARIATION" ? "Param Variant" : "Concept Variant"}
                   </div>
                   <div className="text-[10px] text-muted-foreground">
-                    {data.total_marks_observed !== null && data.total_marks_observed > 0 ? `${data.total_marks_observed} total non-alt marks` : "No verified marks recorded"}
+                    {data.occurrence_count} historical questions
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-background/60 border border-border">
-                  <div className="text-[10px] font-mono uppercase text-muted-foreground">Timeline Span</div>
-                  <div className="text-lg font-bold font-mono text-foreground mt-0.5">
-                    {data.first_seen_year || "—"} → {data.last_seen_year || "—"}
+                <div className="rounded-xl bg-card border border-border/60 p-3">
+                  <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-0.5">
+                    <Clock className="h-3 w-3 text-accent" />
+                    <span>Last Seen</span>
+                  </div>
+                  <div className="text-base font-bold font-mono text-foreground">
+                    {data.last_seen_year || "Historical"}
                   </div>
                   <div className="text-[10px] text-muted-foreground">
                     {data.observed_years.length} active year(s)
                   </div>
                 </div>
+
+                <div className="rounded-xl bg-card border border-border/60 p-3">
+                  <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-0.5">
+                    <Award className="h-3 w-3 text-accent" />
+                    <span>Avg Weight</span>
+                  </div>
+                  <div className="text-base font-bold font-mono text-foreground">
+                    {data.average_marks !== null && data.average_marks > 0 ? `~${data.average_marks}M` : "Variable"}
+                  </div>
+                  <div className="text-[10px] text-muted-foreground">
+                    {data.total_marks_observed ? `${data.total_marks_observed} marks total` : "Across papers"}
+                  </div>
+                </div>
               </div>
+
+              {/* Plain-English Evidence Rationale */}
+              <div className="rounded-xl bg-card/80 border border-border/60 p-3.5 space-y-2 text-xs">
+                <div className="font-semibold text-foreground flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-accent" />
+                  <span>Pattern Archetype &amp; Rationale</span>
+                </div>
+                <ul className="space-y-1.5 text-muted-foreground list-disc list-inside">
+                  <li>
+                    <strong className="text-foreground">
+                      {data.repetition_type === "EXACT_REPEAT"
+                        ? "Exact Verbatim Repeat:"
+                        : data.repetition_type === "PARAMETER_VARIATION"
+                        ? "Parameter Variation:"
+                        : "Recurring Question Family:"}
+                    </strong>{" "}
+                    {data.repetition_type === "EXACT_REPEAT"
+                      ? "Professors have repeated this exact question verbatim across multiple historical examination sessions."
+                      : data.repetition_type === "PARAMETER_VARIATION"
+                      ? "The core mathematical/analytical question structure was repeated with modified numerical values or coefficients."
+                      : "This conceptual archetype has repeated consistently across multiple examination sessions."}
+                  </li>
+                  <li>
+                    <strong className="text-foreground">Appeared in {data.distinct_paper_count} of {data.total_papers_analyzed} papers:</strong> Found on {Math.round(data.paper_coverage * 100)}% of archived papers for this course ({data.occurrence_count} total question instances).
+                  </li>
+                  {data.last_seen_year && (
+                    <li>
+                      <strong className="text-foreground">Recency:</strong> Last examined in <span className="font-mono text-foreground font-semibold">{data.last_seen_year}</span> ({data.observed_years.join(", ")}).
+                    </li>
+                  )}
+                  {data.assessment_history && data.assessment_history.length > 0 && (
+                    <li>
+                      <strong className="text-foreground">Assessment Cycles:</strong> Appeared in {data.assessment_history.join(", ")}.
+                    </li>
+                  )}
+                  {data.total_papers_analyzed <= 2 && (
+                    <li className="text-amber-500">
+                      <strong className="text-amber-500">Evidence Note:</strong> Only {data.total_papers_analyzed} examination papers are currently archived for this course, meaning recurring sample size is small but definitive.
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </div>
 
               {/* Longitudinal Examination Timeline */}
               {data.timeline && data.timeline.length > 0 && (
@@ -316,21 +384,20 @@ export function FamilyEvidenceModal({
               </div>
             </>
           ) : null}
-        </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-border bg-secondary/10 flex justify-between items-center">
+        <div className="p-4 border-t border-border bg-secondary/10 flex justify-between items-center mt-4">
           <div className="text-[11px] text-muted-foreground">
             Strict empirical examination record • Zero fabricated probability
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-background border border-border rounded-lg text-xs font-semibold hover:border-accent transition-colors cursor-pointer"
+            className="px-4 py-2 bg-secondary border border-border rounded-lg text-xs font-semibold hover:bg-secondary/80 transition-colors cursor-pointer"
           >
             Close
           </button>
         </div>
       </div>
-    </div>
+    </Drawer>
   );
 }

@@ -1,7 +1,7 @@
 import enum
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, Text, Boolean, Enum as SQLEnum, DateTime, JSON, Index, UniqueConstraint
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, validates
 
 from backend.core.database import Base
 
@@ -166,6 +166,32 @@ class Course(Base):
     exams = relationship("Exam", back_populates="course")
     syllabuses = relationship("Syllabus", back_populates="course")
     curriculum_mappings = relationship("CurriculumMapping", back_populates="course")
+    tracks = relationship("CourseTrack", back_populates="course", cascade="all, delete-orphan")
+
+
+class CourseTrack(Base):
+    """
+    Sub-track dimension for multi-track courses (e.g. Foreign Languages: German, French, etc.).
+    Preserves first-class isolation of syllabus, units, topics, exams, and predictions.
+    """
+    __tablename__ = "course_tracks"
+
+    id = Column(Integer, primary_key=True, index=True)
+    course_id = Column(Integer, ForeignKey("courses.id", ondelete="CASCADE"), nullable=False, index=True)
+    track_key = Column(String(64), nullable=False, index=True)
+    track_name = Column(String(120), nullable=False)
+    track_code = Column(String(64), nullable=True, index=True)
+    track_type = Column(String(32), nullable=False, default="LANGUAGE")
+    source_metadata = Column(JSON, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    course = relationship("Course", back_populates="tracks")
+    syllabuses = relationship("Syllabus", back_populates="track", cascade="all, delete-orphan")
+    exams = relationship("Exam", back_populates="track")
+
+    __table_args__ = (
+        UniqueConstraint("course_id", "track_key", name="uq_course_track_key"),
+    )
 
 
 class CurriculumMapping(Base):
@@ -215,9 +241,11 @@ class Syllabus(Base):
     __tablename__ = "syllabuses"
     id = Column(Integer, primary_key=True, index=True)
     course_id = Column(Integer, ForeignKey("courses.id"), nullable=False, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id", ondelete="CASCADE"), nullable=True, index=True)
     version = Column(String, nullable=False)
 
     course = relationship("Course", back_populates="syllabuses")
+    track = relationship("CourseTrack", back_populates="syllabuses")
     units = relationship("Unit", back_populates="syllabus")
 
 
@@ -230,6 +258,14 @@ class Unit(Base):
 
     syllabus = relationship("Syllabus", back_populates="units")
     topics = relationship("Topic", back_populates="unit")
+
+    @validates("number")
+    def validate_unit_number(self, key, value):
+        if value is not None and (value < 1 or value > 5):
+            raise ValueError(
+                f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {value}."
+            )
+        return value
 
 
 class Topic(Base):
@@ -257,16 +293,19 @@ class Exam(Base):
     id = Column(Integer, primary_key=True, index=True)
     course_id = Column(Integer, ForeignKey("courses.id", ondelete="CASCADE"), nullable=False, index=True)
     document_id = Column(Integer, ForeignKey("documents.id", ondelete="CASCADE"), unique=True, nullable=True, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id", ondelete="SET NULL"), nullable=True, index=True)
     year = Column(Integer, nullable=True) # Nullable to support exams missing year metadata
     term = Column(String, nullable=True)
     assessment_type = Column(String, nullable=True)
 
     course = relationship("Course", back_populates="exams")
+    track = relationship("CourseTrack", back_populates="exams")
     document = relationship("Document", back_populates="exams")
     sections = relationship("Section", back_populates="exam")
 
     __table_args__ = (
         Index("ix_exams_course_year", "course_id", "year"),
+        Index("ix_exams_track_year", "track_id", "year"),
     )
 
 
@@ -377,3 +416,34 @@ class StudentResourceProgress(Base):
     last_viewed_at = Column(DateTime, nullable=True)
     
     document = relationship('Document')
+
+
+class IntelligenceSnapshot(Base):
+    __tablename__ = "intelligence_snapshots"
+
+    id = Column(Integer, primary_key=True, index=True)
+    course_id = Column(Integer, ForeignKey("courses.id"), nullable=False, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id"), nullable=True, index=True)
+    cache_key = Column(String(255), unique=True, nullable=False, index=True)
+    assessment_cycle = Column(String(50), nullable=False)
+    model_version = Column(String(50), nullable=False)
+    taxonomy_version = Column(String(50), nullable=False)
+    corpus_version = Column(String(50), nullable=False)
+    payload = Column(JSON, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    course = relationship("Course")
+    track = relationship("CourseTrack")
+
+    __table_args__ = (
+        Index("ix_intel_snapshots_course_cycle", "course_id", "assessment_cycle"),
+    )
+
+
+# Course-specific assessment structure models
+from backend.models.assessment import CourseAssessmentPlan, AssessmentComponent, AssessmentCoverage
+
+# Verified student paper submission models
+from backend.models.submission import PaperSubmission, SubmissionStatus, ConsistencyStatus
+

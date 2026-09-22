@@ -1,0 +1,903 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Consider the statement $4n^2 + 5 \\in \\Omega(n^2)$ identify the condition for the above statement to be true. [1]\n  A. $4n^2 + 5 <= cn^2$\n  B. $4n^2 + 5 >= cn^2$\n  C. $4n^2 <= cn^2$\n  D. $4n^2 >= cn^2$",
+          "structured_content": {
+            "number": "1",
+            "text": "Consider the statement $4n^2 + 5 \\in \\Omega(n^2)$ identify the condition for the above statement to be true.",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "$4n^2 + 5 <= cn^2$"
+              },
+              {
+                "number": "B",
+                "text": "$4n^2 + 5 >= cn^2$"
+              },
+              {
+                "number": "C",
+                "text": "$4n^2 <= cn^2$"
+              },
+              {
+                "number": "D",
+                "text": "$4n^2 >= cn^2$"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. What does the variable a denote in masters theorem? [1]\n  A. Number of subproblem in recursion\n  B. Size of each subproblem\n  C. Cost of recursive call\n  D. Cost of subproblem",
+          "structured_content": {
+            "number": "2",
+            "text": "What does the variable a denote in masters theorem?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Number of subproblem in recursion"
+              },
+              {
+                "number": "B",
+                "text": "Size of each subproblem"
+              },
+              {
+                "number": "C",
+                "text": "Cost of recursive call"
+              },
+              {
+                "number": "D",
+                "text": "Cost of subproblem"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following is not the method to solve the recurrence relation? [1]\n  A. Substitution method\n  B. Recurrence tree\n  C. Master's theorem\n  D. Recursion",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following is not the method to solve the recurrence relation?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Substitution method"
+              },
+              {
+                "number": "B",
+                "text": "Recurrence tree"
+              },
+              {
+                "number": "C",
+                "text": "Master's theorem"
+              },
+              {
+                "number": "D",
+                "text": "Recursion"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Find the time complexity for the given program segment\nFor (i = 1; i < n; i++)\n{\n  For (j = 1; j < n; j*2)\n  {\n    s = s + j\n  }\n} [1]\n  A. log n\n  B. n^2\n  C. n log n\n  D. n",
+          "structured_content": {
+            "number": "4",
+            "text": "Find the time complexity for the given program segment\nFor (i = 1; i < n; i++)\n{\n  For (j = 1; j < n; j*2)\n  {\n    s = s + j\n  }\n}",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "log n"
+              },
+              {
+                "number": "B",
+                "text": "n^2"
+              },
+              {
+                "number": "C",
+                "text": "n log n"
+              },
+              {
+                "number": "D",
+                "text": "n"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. What is the optimal time required for solving the closest pair problem using divide and conquer technique? [1]\n  A. O(n)\n  B. O(log n)\n  C. O(n log n)\n  D. O(n^2)",
+          "structured_content": {
+            "number": "5",
+            "text": "What is the optimal time required for solving the closest pair problem using divide and conquer technique?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "O(n)"
+              },
+              {
+                "number": "B",
+                "text": "O(log n)"
+              },
+              {
+                "number": "C",
+                "text": "O(n log n)"
+              },
+              {
+                "number": "D",
+                "text": "O(n^2)"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction from 3-sat problem to \\pi, and SHYAM shows a polynomial time reduction from \\pi to 3-SAT. which of the following can be inferred from these reductions? [1]\n  A. \\pi is NP-hard but not NP-complete\n  B. \\pi is NP, but is not NP-complete\n  C. \\pi is NP-complete\n  D. \\pi is neither NP-hard, NOR in NP",
+          "structured_content": {
+            "number": "6",
+            "text": "RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction from 3-sat problem to \\pi, and SHYAM shows a polynomial time reduction from \\pi to 3-SAT. which of the following can be inferred from these reductions?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "\\pi is NP-hard but not NP-complete"
+              },
+              {
+                "number": "B",
+                "text": "\\pi is NP, but is not NP-complete"
+              },
+              {
+                "number": "C",
+                "text": "\\pi is NP-complete"
+              },
+              {
+                "number": "D",
+                "text": "\\pi is neither NP-hard, NOR in NP"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. What is the worst case tight bound of Naive String matcher? [1]\n  A. O((m-n)+1)m\n  B. O((n-m)+1)n\n  C. O((n-m)+1)m\n  D. O(m-(n+1))",
+          "structured_content": {
+            "number": "7",
+            "text": "What is the worst case tight bound of Naive String matcher?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "O((m-n)+1)m"
+              },
+              {
+                "number": "B",
+                "text": "O((n-m)+1)n"
+              },
+              {
+                "number": "C",
+                "text": "O((n-m)+1)m"
+              },
+              {
+                "number": "D",
+                "text": "O(m-(n+1))"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following sorting algorithm provide the best time complexity in the worst case scenario? [1]\n  A. Quick sort\n  B. Bubble sort\n  C. Selection sort\n  D. Merge sort",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following sorting algorithm provide the best time complexity in the worst case scenario?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Quick sort"
+              },
+              {
+                "number": "B",
+                "text": "Bubble sort"
+              },
+              {
+                "number": "C",
+                "text": "Selection sort"
+              },
+              {
+                "number": "D",
+                "text": "Merge sort"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What is the running time of Strassen's algorithm for matrix multiplication? [1]\n  A. O(n^3)\n  B. O(n^1.8)\n  C. O(n^2)\n  D. O(n^2.81)",
+          "structured_content": {
+            "number": "9",
+            "text": "What is the running time of Strassen's algorithm for matrix multiplication?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "O(n^3)"
+              },
+              {
+                "number": "B",
+                "text": "O(n^1.8)"
+              },
+              {
+                "number": "C",
+                "text": "O(n^2)"
+              },
+              {
+                "number": "D",
+                "text": "O(n^2.81)"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. The recurrence relation for finding maximum and minimum elements from an array using divide and conquer technique is T(n) = [1]\n  A. 2T(n/2) + n\n  B. 3T(n/2) + 1\n  C. 2T(n/2) + 2\n  D. 4T(n/2) + n^2",
+          "structured_content": {
+            "number": "10",
+            "text": "The recurrence relation for finding maximum and minimum elements from an array using divide and conquer technique is T(n) =",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "2T(n/2) + n"
+              },
+              {
+                "number": "B",
+                "text": "3T(n/2) + 1"
+              },
+              {
+                "number": "C",
+                "text": "2T(n/2) + 2"
+              },
+              {
+                "number": "D",
+                "text": "4T(n/2) + n^2"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The number of edges for a minimum cost spanning tree with N vertices of graph G is [1]\n  A. N\n  B. N-1\n  C. N+1\n  D. 2N",
+          "structured_content": {
+            "number": "11",
+            "text": "The number of edges for a minimum cost spanning tree with N vertices of graph G is",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "N"
+              },
+              {
+                "number": "B",
+                "text": "N-1"
+              },
+              {
+                "number": "C",
+                "text": "N+1"
+              },
+              {
+                "number": "D",
+                "text": "2N"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Which of the following design techniques uses memoization? [1]\n  A. Greedy\n  B. Dynamic programming\n  C. Divide and conquer\n  D. Brute force",
+          "structured_content": {
+            "number": "12",
+            "text": "Which of the following design techniques uses memoization?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Greedy"
+              },
+              {
+                "number": "B",
+                "text": "Dynamic programming"
+              },
+              {
+                "number": "C",
+                "text": "Divide and conquer"
+              },
+              {
+                "number": "D",
+                "text": "Brute force"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. If the number of keys in optimal binary search tree is 3. How many number of binary search trees are possible? [1]\n  A. 2\n  B. 3\n  C. 4\n  D. 5",
+          "structured_content": {
+            "number": "13",
+            "text": "If the number of keys in optimal binary search tree is 3. How many number of binary search trees are possible?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "2"
+              },
+              {
+                "number": "B",
+                "text": "3"
+              },
+              {
+                "number": "C",
+                "text": "4"
+              },
+              {
+                "number": "D",
+                "text": "5"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Which of the following is a variable length encoding method? [1]\n  A. ASCII code\n  B. Grey code\n  C. Ebcdic code\n  D. Huffman code",
+          "structured_content": {
+            "number": "14",
+            "text": "Which of the following is a variable length encoding method?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "ASCII code"
+              },
+              {
+                "number": "B",
+                "text": "Grey code"
+              },
+              {
+                "number": "C",
+                "text": "Ebcdic code"
+              },
+              {
+                "number": "D",
+                "text": "Huffman code"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Which of the following is true about the time complexity of the recursive solution of the subset sum problem? [1]\n  A. It has a time complexity of O(n^2)\n  B. It has a time complexity of O(n^3)\n  C. It has a logarithmic time complexity\n  D. It has an exponential time complexity",
+          "structured_content": {
+            "number": "15",
+            "text": "Which of the following is true about the time complexity of the recursive solution of the subset sum problem?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "It has a time complexity of O(n^2)"
+              },
+              {
+                "number": "B",
+                "text": "It has a time complexity of O(n^3)"
+              },
+              {
+                "number": "C",
+                "text": "It has a logarithmic time complexity"
+              },
+              {
+                "number": "D",
+                "text": "It has an exponential time complexity"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. A Hamiltonian circuit in a connected graph is defined as a _________ that traverses every vertex of G exactly once, except [1]\n  A. Closed walk, mid vertex\n  B. Open walk, starting vertex\n  C. Closed walk, starting vertex\n  D. Open walk, end vertex",
+          "structured_content": {
+            "number": "16",
+            "text": "A Hamiltonian circuit in a connected graph is defined as a _________ that traverses every vertex of G exactly once, except",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Closed walk, mid vertex"
+              },
+              {
+                "number": "B",
+                "text": "Open walk, starting vertex"
+              },
+              {
+                "number": "C",
+                "text": "Closed walk, starting vertex"
+              },
+              {
+                "number": "D",
+                "text": "Open walk, end vertex"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Which search is used in back tracking to traverse the state space tree? [1]\n  A. Breadth first search\n  B. Depth first search\n  C. Nearest neighbour first\n  D. Binary search tree",
+          "structured_content": {
+            "number": "17",
+            "text": "Which search is used in back tracking to traverse the state space tree?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Breadth first search"
+              },
+              {
+                "number": "B",
+                "text": "Depth first search"
+              },
+              {
+                "number": "C",
+                "text": "Nearest neighbour first"
+              },
+              {
+                "number": "D",
+                "text": "Binary search tree"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. What is the size of the set of all subsets of N elements? [1]\n  A. 2^N\n  B. N^2\n  C. N!\n  D. N",
+          "structured_content": {
+            "number": "18",
+            "text": "What is the size of the set of all subsets of N elements?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "2^N"
+              },
+              {
+                "number": "B",
+                "text": "N^2"
+              },
+              {
+                "number": "C",
+                "text": "N!"
+              },
+              {
+                "number": "D",
+                "text": "N"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. _________ is the class of decision problems that can be solved by non-deterministic polynomial algorithms. [1]\n  A. Class P\n  B. Class NP\n  C. Class NP complete\n  D. Class NP hard",
+          "structured_content": {
+            "number": "19",
+            "text": "_________ is the class of decision problems that can be solved by non-deterministic polynomial algorithms.",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "Class P"
+              },
+              {
+                "number": "B",
+                "text": "Class NP"
+              },
+              {
+                "number": "C",
+                "text": "Class NP complete"
+              },
+              {
+                "number": "D",
+                "text": "Class NP hard"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Let S be an NP-complete problem and Q and R be two other problems not known to be in P. Q is polynomial time reducible to S and S is polynomial time reducible to R. Which one of the following statements is true? [1]\n  A. R is NP complete\n  B. R is NP hard\n  C. Q is NP complete\n  D. Q is NP hard",
+          "structured_content": {
+            "number": "20",
+            "text": "Let S be an NP-complete problem and Q and R be two other problems not known to be in P. Q is polynomial time reducible to S and S is polynomial time reducible to R. Which one of the following statements is true?",
+            "marks": 1,
+            "subquestions": [
+              {
+                "number": "A",
+                "text": "R is NP complete"
+              },
+              {
+                "number": "B",
+                "text": "R is NP hard"
+              },
+              {
+                "number": "C",
+                "text": "Q is NP complete"
+              },
+              {
+                "number": "D",
+                "text": "Q is NP hard"
+              }
+            ]
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. \n  i. Write the recurrence relation for the given pseudocode and determine the time complexity using masters theorem.\nAlgm print (int n)\n{\n  if (n > 0)\n  {\n    printf (\"%d\", n);\n    print (n-1);\n    print (n-1);\n  }\n} [4]\n  ii. Prove that if $T(n) = \\Theta(n^3)$, then $T(n) = \\Omega(n^2)$. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "",
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Write the recurrence relation for the given pseudocode and determine the time complexity using masters theorem.\nAlgm print (int n)\n{\n  if (n > 0)\n  {\n    printf (\"%d\", n);\n    print (n-1);\n    print (n-1);\n  }\n}",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Prove that if $T(n) = \\Theta(n^3)$, then $T(n) = \\Omega(n^2)$.",
+                "marks": 4
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Solve the recurrence relation using substitution method and verify the same using Masters theorem.\nT(n) = 2T(n/2) + n, n > 2\nT(1) = 1",
+              "marks": 8
+            }
+          },
+          "marks": null,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Solve the recurrence relation using substitution method and verify the same using Masters theorem.\nT(n) = 2T(n/2) + n, n > 2\nT(1) = 1 [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Solve the recurrence relation using substitution method and verify the same using Masters theorem.\nT(n) = 2T(n/2) + n, n > 2\nT(1) = 1",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Apply mergesort algorithm on the following sequence 25, 45, 12, 67, 34, 89, 72, 94, 04, 39 and also analyses the time complexity. Perform the dry run and show the execution of each step. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Apply mergesort algorithm on the following sequence 25, 45, 12, 67, 34, 89, 72, 94, 04, 39 and also analyses the time complexity. Perform the dry run and show the execution of each step.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Illustrate the largest sub array sum problem for the following array elements 67, 34, -12, -9, 45, 9, 65, -78, 123 using divide and conquer technique.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Illustrate the largest sub array sum problem for the following array elements 67, 34, -12, -9, 45, 9, 65, -78, 123 using divide and conquer technique. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Illustrate the largest sub array sum problem for the following array elements 67, 34, -12, -9, 45, 9, 65, -78, 123 using divide and conquer technique.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Solve the following instance of 0/1 knapsack problem given the knapsack capacity as W = 5 using dynamic programming.\nItems Weight Value\n1 4 10\n2 3 20\n3 2 15\n4 5 25 [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Solve the following instance of 0/1 knapsack problem given the knapsack capacity as W = 5 using dynamic programming.\nItems Weight Value\n1 4 10\n2 3 20\n3 2 15\n4 5 25",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Construct Huffman tree for the following data and obtain its Huffman code.\nCharacter Frequencies\na 05\nb 48\nc 07\nd 17\ne 10\nf 13\nWrite the pseudocode to construct the tree.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Construct Huffman tree for the following data and obtain its Huffman code.\nCharacter Frequencies\na 05\nb 48\nc 07\nd 17\ne 10\nf 13\nWrite the pseudocode to construct the tree. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Construct Huffman tree for the following data and obtain its Huffman code.\nCharacter Frequencies\na 05\nb 48\nc 07\nd 17\ne 10\nf 13\nWrite the pseudocode to construct the tree.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Let W = {5,7,10,12,15,18,20} and m = 35. Find all possible subset of W whose sum is equivalent to M. Draw the complete state space tree. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Let W = {5,7,10,12,15,18,20} and m = 35. Find all possible subset of W whose sum is equivalent to M. Draw the complete state space tree.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "A travelling salesman X wants to visit four cities A, B, C and D respectively. Help X to schedule his touring plan in order to minimize the total travel time, if he visits each city once a week? Use branch and bound approach to solve it. [Graph representation with A, B, C, D and edge weights]",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. A travelling salesman X wants to visit four cities A, B, C and D respectively. Help X to schedule his touring plan in order to minimize the total travel time, if he visits each city once a week? Use branch and bound approach to solve it. [Graph representation with A, B, C, D and edge weights] [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "A travelling salesman X wants to visit four cities A, B, C and D respectively. Help X to schedule his touring plan in order to minimize the total travel time, if he visits each city once a week? Use branch and bound approach to solve it. [Graph representation with A, B, C, D and edge weights]",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Illustrate the working of randomized quicksort for the sequence 27, 14, 58, 30, 8, 22, 45, 31. The programmer who coded the randomized selection of pivot assumed that he would get a random sequence by selecting the pivot index as\np(n) = (n+1)^2 mod n\nWhere n is size of subarray, and array indices range from 0 to n-1. For example, if n = 4, p(4) = 5^2 mod 4 = 25 mod 4, = 1 mod 4 and index 1 would be second element in subarray. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Illustrate the working of randomized quicksort for the sequence 27, 14, 58, 30, 8, 22, 45, 31. The programmer who coded the randomized selection of pivot assumed that he would get a random sequence by selecting the pivot index as\np(n) = (n+1)^2 mod n\nWhere n is size of subarray, and array indices range from 0 to n-1. For example, if n = 4, p(4) = 5^2 mod 4 = 25 mod 4, = 1 mod 4 and index 1 would be second element in subarray.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Explain the following\n(i) Satisfiability problems with an example\n(ii) Non-deterministic polynomial class problem",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the following\n(i) Satisfiability problems with an example\n(ii) Non-deterministic polynomial class problem [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the following\n(i) Satisfiability problems with an example\n(ii) Non-deterministic polynomial class problem",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Use Rabin Karp algorithm to search for a pattern 326 from the given text 1432646326. Find the valid shift and how many spurious hit occurs for the given problem. Compare and contrast Rabin Karp algorithm and Naive string matching algorithm. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Use Rabin Karp algorithm to search for a pattern 326 from the given text 1432646326. Find the valid shift and how many spurious hit occurs for the given problem. Compare and contrast Rabin Karp algorithm and Naive string matching algorithm.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. You are a software engineer tasked with optimizing the search performance of a compiler's symbol table. The symbol table contains identifiers such as variable names. Construct an optimal binary search tree and calculate its expected cost. Given the following identifiers and their probabilities.\nVariables:\nW - (0.3)\nX - (0.2)\nY - (0.4)\nZ - (0.1) [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "You are a software engineer tasked with optimizing the search performance of a compiler's symbol table. The symbol table contains identifiers such as variable names. Construct an optimal binary search tree and calculate its expected cost. Given the following identifiers and their probabilities.\nVariables:\nW - (0.3)\nX - (0.2)\nY - (0.4)\nZ - (0.1)",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

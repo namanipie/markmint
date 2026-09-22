@@ -1,0 +1,3045 @@
+{
+  "data_availability_status": "READY",
+  "prediction_mode": "topic",
+  "has_topic_taxonomy": true,
+  "taxonomy_topic_count": 33,
+  "topic_predictions_count": 14,
+  "family_predictions_count": 100,
+  "track": {
+    "id": 2,
+    "key": "french",
+    "track_key": "french",
+    "name": "French",
+    "track_name": "French",
+    "code": "21LEH103T",
+    "track_code": "21LEH103T",
+    "track_type": "LANGUAGE"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "key": "german",
+      "track_key": "german",
+      "name": "German",
+      "track_name": "German",
+      "code": "21LEH104T",
+      "track_code": "21LEH104T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 2,
+      "key": "french",
+      "track_key": "french",
+      "name": "French",
+      "track_name": "French",
+      "code": "21LEH103T",
+      "track_code": "21LEH103T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 3,
+      "key": "spanish",
+      "track_key": "spanish",
+      "name": "Spanish",
+      "track_name": "Spanish",
+      "code": "21LEH107T",
+      "track_code": "21LEH107T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 4,
+      "key": "japanese",
+      "track_key": "japanese",
+      "name": "Japanese",
+      "track_name": "Japanese",
+      "code": "21LEH105T",
+      "track_code": "21LEH105T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 5,
+      "key": "korean",
+      "track_key": "korean",
+      "name": "Korean",
+      "track_name": "Korean",
+      "code": "21LEH106T",
+      "track_code": "21LEH106T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 6,
+      "key": "chinese",
+      "track_key": "chinese",
+      "name": "Chinese",
+      "track_name": "Chinese",
+      "code": "21LEH102T",
+      "track_code": "21LEH102T",
+      "track_type": "LANGUAGE"
+    }
+  ],
+  "course": {
+    "id": 8,
+    "name": "Foreign Languages",
+    "code": "SEM1-FORE",
+    "canonical_code": "21LEH-ELECTIVE",
+    "department": "English and Foreign Languages",
+    "regulation_year": 2021,
+    "has_tracks": true,
+    "tracks": [
+      {
+        "id": 1,
+        "key": "german",
+        "track_key": "german",
+        "name": "German",
+        "track_name": "German",
+        "code": "21LEH104T",
+        "track_code": "21LEH104T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 2,
+        "key": "french",
+        "track_key": "french",
+        "name": "French",
+        "track_name": "French",
+        "code": "21LEH103T",
+        "track_code": "21LEH103T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 3,
+        "key": "spanish",
+        "track_key": "spanish",
+        "name": "Spanish",
+        "track_name": "Spanish",
+        "code": "21LEH107T",
+        "track_code": "21LEH107T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 4,
+        "key": "japanese",
+        "track_key": "japanese",
+        "name": "Japanese",
+        "track_name": "Japanese",
+        "code": "21LEH105T",
+        "track_code": "21LEH105T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 5,
+        "key": "korean",
+        "track_key": "korean",
+        "name": "Korean",
+        "track_name": "Korean",
+        "code": "21LEH106T",
+        "track_code": "21LEH106T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 6,
+        "key": "chinese",
+        "track_key": "chinese",
+        "name": "Chinese",
+        "track_name": "Chinese",
+        "code": "21LEH102T",
+        "track_code": "21LEH102T",
+        "track_type": "LANGUAGE"
+      }
+    ]
+  },
+  "curriculum": {
+    "curriculum_id": "aeros-1-0",
+    "subject_name": "Communicative English/Foreign Language",
+    "branch_name": "Aerospace Engineering",
+    "semester": 1,
+    "credits": 3,
+    "status": "MATCHED",
+    "notes": null
+  },
+  "exam_history": {
+    "total_papers": 6,
+    "all_course_papers": 6,
+    "historical_papers_analyzed": 4,
+    "total_questions": 135,
+    "years": [
+      2019,
+      2023
+    ],
+    "observed_years": [
+      2019,
+      2023
+    ],
+    "unobserved_years": [
+      2020,
+      2021,
+      2022
+    ],
+    "gap_years": [
+      2020,
+      2021,
+      2022
+    ],
+    "available_assessment_types": [
+      "END_SEM"
+    ],
+    "available_assessment_cycles": [
+      "ALL",
+      "ENDSEM"
+    ],
+    "assessment_cycle": "ALL",
+    "target_year": 2024
+  },
+  "available_assessment_types": [
+    "END_SEM"
+  ],
+  "available_assessment_cycles": [
+    "ALL",
+    "ENDSEM"
+  ],
+  "assessment_cycle": "ALL",
+  "assessment_component": "ALL",
+  "assessment_label": "All Assessments",
+  "evidence_status": "ALL_SCOPE",
+  "intended_scope": null,
+  "observed_scope": {
+    "paper_count": 6,
+    "total_questions": 207,
+    "mapped_questions_count": 45,
+    "unmapped_questions_count": 162,
+    "questions_with_known_marks": 98,
+    "questions_with_unknown_marks": 109,
+    "known_marks_total": 320.0,
+    "mapping_rate": 21.74,
+    "unit_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "topic_names": [
+      "L'Heure et les Horaires",
+      "La Communication et les Consignes en Classe",
+      "Le Futur Proche",
+      "Les Adjectifs Possessifs et la Famille",
+      "Les Articles D\u00e9finis et Ind\u00e9finis",
+      "Les Expressions de Quantit\u00e9 et Articles Partitifs",
+      "Les Mots et Structures Interrogatives",
+      "Les Nombres de 0 \u00e0 69, Jours et Mois",
+      "Les Nombres de 70 \u00e0 1000",
+      "Les Professions et M\u00e9tiers",
+      "Les Salutations et Formules de Politesse",
+      "Pays, Villes et Nationalit\u00e9s",
+      "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+      "Verbes du 3\u00e8me Groupe Irr\u00e9guliers"
+    ],
+    "question_count_by_unit": {
+      "1": 1,
+      "2": 7,
+      "3": 28,
+      "4": 6,
+      "5": 3
+    },
+    "marks_by_unit": {
+      "1": 5.0,
+      "2": 37.0,
+      "3": 27.0,
+      "4": 18.0,
+      "5": 15.0
+    },
+    "papers": [
+      {
+        "exam_id": 46,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "French - PYQ 2023 Jan",
+        "total_questions": 32,
+        "mapped_questions": 8,
+        "unmapped_questions": 24,
+        "mapping_rate": 25.0,
+        "known_marks_total": 75.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          2,
+          3,
+          4
+        ],
+        "question_count_by_unit": {
+          "2": 1,
+          "3": 5,
+          "4": 2
+        },
+        "marks_by_unit": {
+          "2": 1.0,
+          "3": 5.0,
+          "4": 2.0
+        }
+      },
+      {
+        "exam_id": 47,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "French - PYQ 2023 May",
+        "total_questions": 32,
+        "mapped_questions": 12,
+        "unmapped_questions": 20,
+        "mapping_rate": 37.5,
+        "known_marks_total": 85.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "2": 2,
+          "3": 7,
+          "4": 1,
+          "5": 2
+        },
+        "marks_by_unit": {
+          "2": 16.0,
+          "3": 7.0,
+          "4": 1.0,
+          "5": 10.0
+        }
+      },
+      {
+        "exam_id": 124,
+        "year": 2019,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Foreign Languages - 18LEH103J May 2019.pdf",
+        "total_questions": 35,
+        "mapped_questions": 14,
+        "unmapped_questions": 21,
+        "mapping_rate": 40.0,
+        "known_marks_total": 80.0,
+        "questions_with_known_marks": 15,
+        "questions_with_unknown_marks": 20,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "2": 2,
+          "3": 8,
+          "4": 2,
+          "5": 1
+        },
+        "marks_by_unit": {
+          "1": 5.0,
+          "2": 10.0,
+          "3": 10.0,
+          "4": 10.0,
+          "5": 5.0
+        }
+      },
+      {
+        "exam_id": 125,
+        "year": 2019,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Foreign Languages - 18LEH103J Nov 2019.pdf",
+        "total_questions": 36,
+        "mapped_questions": 11,
+        "unmapped_questions": 25,
+        "mapping_rate": 30.56,
+        "known_marks_total": 80.0,
+        "questions_with_known_marks": 15,
+        "questions_with_unknown_marks": 21,
+        "observed_units": [
+          2,
+          3,
+          4
+        ],
+        "question_count_by_unit": {
+          "2": 2,
+          "3": 8,
+          "4": 1
+        },
+        "marks_by_unit": {
+          "2": 10.0,
+          "3": 5.0,
+          "4": 5.0
+        }
+      },
+      {
+        "exam_id": 126,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "UNKNOWN",
+        "identification_source": "fallback",
+        "identification_confidence": 0.3,
+        "document_title": "Foreign Languages - FRENCH PYQs.pdf",
+        "total_questions": 64,
+        "mapped_questions": 0,
+        "unmapped_questions": 64,
+        "mapping_rate": 0.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 4,
+        "questions_with_unknown_marks": 60,
+        "observed_units": [],
+        "question_count_by_unit": {},
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 134,
+        "year": null,
+        "raw_assessment_type": null,
+        "normalized_code": "CT1",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "French Notes CT1",
+        "total_questions": 8,
+        "mapped_questions": 0,
+        "unmapped_questions": 8,
+        "mapping_rate": 0.0,
+        "known_marks_total": 0.0,
+        "questions_with_known_marks": 0,
+        "questions_with_unknown_marks": 8,
+        "observed_units": [],
+        "question_count_by_unit": {},
+        "marks_by_unit": {}
+      }
+    ]
+  },
+  "assessment_scope": {
+    "student_cycle": "ALL",
+    "component_code": "ALL",
+    "component_label": "All Assessments",
+    "student_label": "All Assessments",
+    "role": null,
+    "marks": null,
+    "evidence_status": "ALL_SCOPE",
+    "intended_scope": null,
+    "observed_scope": {
+      "paper_count": 6,
+      "total_questions": 207,
+      "mapped_questions_count": 45,
+      "unmapped_questions_count": 162,
+      "questions_with_known_marks": 98,
+      "questions_with_unknown_marks": 109,
+      "known_marks_total": 320.0,
+      "mapping_rate": 21.74,
+      "unit_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "topic_names": [
+        "L'Heure et les Horaires",
+        "La Communication et les Consignes en Classe",
+        "Le Futur Proche",
+        "Les Adjectifs Possessifs et la Famille",
+        "Les Articles D\u00e9finis et Ind\u00e9finis",
+        "Les Expressions de Quantit\u00e9 et Articles Partitifs",
+        "Les Mots et Structures Interrogatives",
+        "Les Nombres de 0 \u00e0 69, Jours et Mois",
+        "Les Nombres de 70 \u00e0 1000",
+        "Les Professions et M\u00e9tiers",
+        "Les Salutations et Formules de Politesse",
+        "Pays, Villes et Nationalit\u00e9s",
+        "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+        "Verbes du 3\u00e8me Groupe Irr\u00e9guliers"
+      ],
+      "question_count_by_unit": {
+        "1": 1,
+        "2": 7,
+        "3": 28,
+        "4": 6,
+        "5": 3
+      },
+      "marks_by_unit": {
+        "1": 5.0,
+        "2": 37.0,
+        "3": 27.0,
+        "4": 18.0,
+        "5": 15.0
+      },
+      "papers": [
+        {
+          "exam_id": 46,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "French - PYQ 2023 Jan",
+          "total_questions": 32,
+          "mapped_questions": 8,
+          "unmapped_questions": 24,
+          "mapping_rate": 25.0,
+          "known_marks_total": 75.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            2,
+            3,
+            4
+          ],
+          "question_count_by_unit": {
+            "2": 1,
+            "3": 5,
+            "4": 2
+          },
+          "marks_by_unit": {
+            "2": 1.0,
+            "3": 5.0,
+            "4": 2.0
+          }
+        },
+        {
+          "exam_id": 47,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "French - PYQ 2023 May",
+          "total_questions": 32,
+          "mapped_questions": 12,
+          "unmapped_questions": 20,
+          "mapping_rate": 37.5,
+          "known_marks_total": 85.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "2": 2,
+            "3": 7,
+            "4": 1,
+            "5": 2
+          },
+          "marks_by_unit": {
+            "2": 16.0,
+            "3": 7.0,
+            "4": 1.0,
+            "5": 10.0
+          }
+        },
+        {
+          "exam_id": 124,
+          "year": 2019,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Foreign Languages - 18LEH103J May 2019.pdf",
+          "total_questions": 35,
+          "mapped_questions": 14,
+          "unmapped_questions": 21,
+          "mapping_rate": 40.0,
+          "known_marks_total": 80.0,
+          "questions_with_known_marks": 15,
+          "questions_with_unknown_marks": 20,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "2": 2,
+            "3": 8,
+            "4": 2,
+            "5": 1
+          },
+          "marks_by_unit": {
+            "1": 5.0,
+            "2": 10.0,
+            "3": 10.0,
+            "4": 10.0,
+            "5": 5.0
+          }
+        },
+        {
+          "exam_id": 125,
+          "year": 2019,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Foreign Languages - 18LEH103J Nov 2019.pdf",
+          "total_questions": 36,
+          "mapped_questions": 11,
+          "unmapped_questions": 25,
+          "mapping_rate": 30.56,
+          "known_marks_total": 80.0,
+          "questions_with_known_marks": 15,
+          "questions_with_unknown_marks": 21,
+          "observed_units": [
+            2,
+            3,
+            4
+          ],
+          "question_count_by_unit": {
+            "2": 2,
+            "3": 8,
+            "4": 1
+          },
+          "marks_by_unit": {
+            "2": 10.0,
+            "3": 5.0,
+            "4": 5.0
+          }
+        },
+        {
+          "exam_id": 126,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "UNKNOWN",
+          "identification_source": "fallback",
+          "identification_confidence": 0.3,
+          "document_title": "Foreign Languages - FRENCH PYQs.pdf",
+          "total_questions": 64,
+          "mapped_questions": 0,
+          "unmapped_questions": 64,
+          "mapping_rate": 0.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 4,
+          "questions_with_unknown_marks": 60,
+          "observed_units": [],
+          "question_count_by_unit": {},
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 134,
+          "year": null,
+          "raw_assessment_type": null,
+          "normalized_code": "CT1",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "French Notes CT1",
+          "total_questions": 8,
+          "mapped_questions": 0,
+          "unmapped_questions": 8,
+          "mapping_rate": 0.0,
+          "known_marks_total": 0.0,
+          "questions_with_known_marks": 0,
+          "questions_with_unknown_marks": 8,
+          "observed_units": [],
+          "question_count_by_unit": {},
+          "marks_by_unit": {}
+        }
+      ]
+    },
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - SEM1-FORE Foreign Languages",
+    "unit_numbers": [],
+    "total_in_scope_topics": 0,
+    "observed_in_scope_topics": 14,
+    "unobserved_in_scope_topics": [],
+    "out_of_scope_observed_topics": []
+  },
+  "predictions": [
+    {
+      "rank": 1,
+      "name": "Pays, Villes et Nationalit\u00e9s",
+      "category": "topic",
+      "score": 0.1087826797385621,
+      "prediction_score": 0.1088,
+      "probability": 0.8333,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 1.0,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.35,
+      "total_marks_observed": 7.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 20,
+      "historical_occurrences": 20,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 7.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.1094,
+      "recency_score": 0.121,
+      "marks_score": 0.0686,
+      "evidence_count": 20,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 20 historical question(s) representing 7 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.109375,
+        "hist_freq": 0.14814814814814814,
+        "occurrences": 20,
+        "total_marks": 7.0,
+        "paper_coverage": 1.0,
+        "papers_with_topic": 4,
+        "marks_weight": 0.06862745098039216,
+        "average_marks": 0.35
+      },
+      "topic_id": 592,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Les Nombres de 0 \u00e0 69, Jours et Mois",
+      "category": "topic",
+      "score": 0.08644607843137254,
+      "prediction_score": 0.0864,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.75,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.333333333333334,
+      "total_marks_observed": 25.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 25.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0176,
+      "marks_score": 0.2451,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (25 marks across 3 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.022222222222222223,
+        "occurrences": 3,
+        "total_marks": 25.0,
+        "paper_coverage": 0.75,
+        "papers_with_topic": 3,
+        "marks_weight": 0.24509803921568626,
+        "average_marks": 8.333333333333334
+      },
+      "topic_id": 586,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Les Nombres de 70 \u00e0 1000",
+      "category": "topic",
+      "score": 0.05706699346405229,
+      "prediction_score": 0.0571,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 5,
+      "historical_occurrences": 5,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0781,
+      "recency_score": 0.0658,
+      "marks_score": 0.049,
+      "evidence_count": 5,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 5 historical question(s) representing 5 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.078125,
+        "hist_freq": 0.037037037037037035,
+        "occurrences": 5,
+        "total_marks": 5.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 1.0
+      },
+      "topic_id": 588,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+      "category": "topic",
+      "score": 0.0463562091503268,
+      "prediction_score": 0.0464,
+      "probability": 0.3333,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 10.0,
+      "total_marks_observed": 10.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 10.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0312,
+      "recency_score": 0.0263,
+      "marks_score": 0.098,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (10 marks across 2 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03125,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 10.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.09803921568627451,
+        "average_marks": 10.0
+      },
+      "topic_id": 606,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "L'Heure et les Horaires",
+      "category": "topic",
+      "score": 0.04526960784313726,
+      "prediction_score": 0.0453,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.75,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.6666666666666665,
+      "total_marks_observed": 11.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 11.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0176,
+      "marks_score": 0.1078,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 11 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.022222222222222223,
+        "occurrences": 3,
+        "total_marks": 11.0,
+        "paper_coverage": 0.75,
+        "papers_with_topic": 3,
+        "marks_weight": 0.10784313725490197,
+        "average_marks": 3.6666666666666665
+      },
+      "topic_id": 602,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Les Professions et M\u00e9tiers",
+      "category": "topic",
+      "score": 0.0338562091503268,
+      "prediction_score": 0.0339,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 10.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 10.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0044,
+      "marks_score": 0.098,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 2 question(s) (10 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 10.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.09803921568627451,
+        "average_marks": 5.0
+      },
+      "topic_id": 591,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+      "category": "topic",
+      "score": 0.028341503267973855,
+      "prediction_score": 0.0283,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.0,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0154,
+      "marks_score": 0.0588,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY"
+      ],
+      "explanation": "Appeared in 2 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 6.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.058823529411764705,
+        "average_marks": 3.0
+      },
+      "topic_id": 583,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Les Mots et Structures Interrogatives",
+      "category": "topic",
+      "score": 0.022826797385620917,
+      "prediction_score": 0.0228,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0312,
+      "recency_score": 0.0263,
+      "marks_score": 0.0196,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY"
+      ],
+      "explanation": "Appeared in 2 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03125,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 2.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.0196078431372549,
+        "average_marks": 1.0
+      },
+      "topic_id": 596,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Les Adjectifs Possessifs et la Famille",
+      "category": "topic",
+      "score": 0.0169281045751634,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0022,
+      "marks_score": 0.049,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (4 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.007407407407407408,
+        "occurrences": 1,
+        "total_marks": 5.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 5.0
+      },
+      "topic_id": 595,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Le Futur Proche",
+      "category": "topic",
+      "score": 0.0169281045751634,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0022,
+      "marks_score": 0.049,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (4 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.007407407407407408,
+        "occurrences": 1,
+        "total_marks": 5.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 5.0
+      },
+      "topic_id": 601,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    }
+  ],
+  "topic_predictions": [
+    {
+      "rank": 1,
+      "name": "Pays, Villes et Nationalit\u00e9s",
+      "category": "topic",
+      "score": 0.1087826797385621,
+      "prediction_score": 0.1088,
+      "probability": 0.8333,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 1.0,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.35,
+      "total_marks_observed": 7.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 20,
+      "historical_occurrences": 20,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 7.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.1094,
+      "recency_score": 0.121,
+      "marks_score": 0.0686,
+      "evidence_count": 20,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 20 historical question(s) representing 7 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.109375,
+        "hist_freq": 0.14814814814814814,
+        "occurrences": 20,
+        "total_marks": 7.0,
+        "paper_coverage": 1.0,
+        "papers_with_topic": 4,
+        "marks_weight": 0.06862745098039216,
+        "average_marks": 0.35
+      },
+      "topic_id": 592,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Les Nombres de 0 \u00e0 69, Jours et Mois",
+      "category": "topic",
+      "score": 0.08644607843137254,
+      "prediction_score": 0.0864,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.75,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.333333333333334,
+      "total_marks_observed": 25.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 25.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0176,
+      "marks_score": 0.2451,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (25 marks across 3 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.022222222222222223,
+        "occurrences": 3,
+        "total_marks": 25.0,
+        "paper_coverage": 0.75,
+        "papers_with_topic": 3,
+        "marks_weight": 0.24509803921568626,
+        "average_marks": 8.333333333333334
+      },
+      "topic_id": 586,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Les Nombres de 70 \u00e0 1000",
+      "category": "topic",
+      "score": 0.05706699346405229,
+      "prediction_score": 0.0571,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 5,
+      "historical_occurrences": 5,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0781,
+      "recency_score": 0.0658,
+      "marks_score": 0.049,
+      "evidence_count": 5,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 5 historical question(s) representing 5 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.078125,
+        "hist_freq": 0.037037037037037035,
+        "occurrences": 5,
+        "total_marks": 5.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 1.0
+      },
+      "topic_id": 588,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+      "category": "topic",
+      "score": 0.0463562091503268,
+      "prediction_score": 0.0464,
+      "probability": 0.3333,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 10.0,
+      "total_marks_observed": 10.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 10.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0312,
+      "recency_score": 0.0263,
+      "marks_score": 0.098,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (10 marks across 2 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03125,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 10.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.09803921568627451,
+        "average_marks": 10.0
+      },
+      "topic_id": 606,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "L'Heure et les Horaires",
+      "category": "topic",
+      "score": 0.04526960784313726,
+      "prediction_score": 0.0453,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.75,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.6666666666666665,
+      "total_marks_observed": 11.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 11.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0176,
+      "marks_score": 0.1078,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 11 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.022222222222222223,
+        "occurrences": 3,
+        "total_marks": 11.0,
+        "paper_coverage": 0.75,
+        "papers_with_topic": 3,
+        "marks_weight": 0.10784313725490197,
+        "average_marks": 3.6666666666666665
+      },
+      "topic_id": 602,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Les Professions et M\u00e9tiers",
+      "category": "topic",
+      "score": 0.0338562091503268,
+      "prediction_score": 0.0339,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 10.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 10.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0044,
+      "marks_score": 0.098,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Historically appeared in 2 question(s) (10 marks total), but absent from recent examinations.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 10.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.09803921568627451,
+        "average_marks": 5.0
+      },
+      "topic_id": 591,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+      "category": "topic",
+      "score": 0.028341503267973855,
+      "prediction_score": 0.0283,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.0,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0156,
+      "recency_score": 0.0154,
+      "marks_score": 0.0588,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY"
+      ],
+      "explanation": "Appeared in 2 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.015625,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 6.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.058823529411764705,
+        "average_marks": 3.0
+      },
+      "topic_id": 583,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Les Mots et Structures Interrogatives",
+      "category": "topic",
+      "score": 0.022826797385620917,
+      "prediction_score": 0.0228,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0312,
+      "recency_score": 0.0263,
+      "marks_score": 0.0196,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY"
+      ],
+      "explanation": "Appeared in 2 historical question(s) representing 2 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03125,
+        "hist_freq": 0.014814814814814815,
+        "occurrences": 2,
+        "total_marks": 2.0,
+        "paper_coverage": 0.5,
+        "papers_with_topic": 2,
+        "marks_weight": 0.0196078431372549,
+        "average_marks": 1.0
+      },
+      "topic_id": 596,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Les Adjectifs Possessifs et la Famille",
+      "category": "topic",
+      "score": 0.0169281045751634,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0022,
+      "marks_score": 0.049,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (4 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.007407407407407408,
+        "occurrences": 1,
+        "total_marks": 5.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 5.0
+      },
+      "topic_id": 595,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Le Futur Proche",
+      "category": "topic",
+      "score": 0.0169281045751634,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.25,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.0,
+      "total_marks_observed": 5.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 5.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0022,
+      "marks_score": 0.049,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (4 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0,
+        "hist_freq": 0.007407407407407408,
+        "occurrences": 1,
+        "total_marks": 5.0,
+        "paper_coverage": 0.25,
+        "papers_with_topic": 1,
+        "marks_weight": 0.049019607843137254,
+        "average_marks": 5.0
+      },
+      "topic_id": 601,
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2019
+      ]
+    }
+  ],
+  "family_predictions": [
+    {
+      "rank": 1,
+      "name": "23. Ecrivez l'heure en lettres:\n    (i) 10 h 30\n    (ii) 07 h 15\n    (iii) 01 h 50\n    (iv) 00 h 10\n    (v) 09 h 40\n    (vi) 20 h 00\n    (vii) 15 h 45\n    (viii) 08 h 00\n    --- OR ---\n    23. Conjuguez les verbes au pr\u00e9sent :\n        (i) Elle ______ (devoir) \u00e9crire tous ses cahiers cette nuit.\n        (ii) Nous ______ (faire) des courses \u00e0 VR mall.\n        (iii) Tu ______ (finir) cueillir les fleurs rouges ?\n        (iv) Vous ______ (quitter) votre travail tout de suite.\n        (v) Je ______ (dessiner) la couverture pour un roman.\n        (vi) Ils ______ (choisir) des haricots verts ?\n        (vii) La vendeuse ______ (vendre) les pommes.\n        (viii) Il ______ (attendre) le week-end avec impatience.",
+      "category": "family",
+      "score": 3.0,
+      "prediction_score": 3.0,
+      "probability": 0.5,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.5,
+      "family_id": 2169,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 8.0,
+      "total_marks_observed": 16.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1333,
+        1334,
+        1363
+      ],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 16.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 2 of 4 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2169,
+        "occurrences": 3,
+        "sample_size": 3,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 8.0,
+        "total_marks": 16.0,
+        "question_ids": [
+          1333,
+          1334,
+          1363
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "10. Comment on dit \u00ab Thank you very much \u00bb en fran\u00e7ais.\n(A) D'accord\n(B) Merci beaucoup\n(C) Ciao\n(D) Au revoir",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.5,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.5,
+      "family_id": 2155,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1318,
+        1345
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 4 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2155,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 1.0,
+        "total_marks": 2.0,
+        "question_ids": [
+          1318,
+          1345
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "15. Comment on dit \u00ab Enchant\u00e9 \u00bb en anglais.\n(A) Nice to meet you\n(B) Sorry\n(C) Welcome\n(D) See you later",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.5,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.5,
+      "family_id": 2160,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1323,
+        1355
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 4 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2160,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 1.0,
+        "total_marks": 2.0,
+        "question_ids": [
+          1323,
+          1355
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "21. Ecrivez vos habitudes alimentaires en 8 ou 10 lignes.\n    --- OR ---\n    21. D\u00e9crivez votre ami(e) en 8 ou 10 lignes.",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.3333,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 1,
+      "distinct_paper_count": 1,
+      "papers_with_family": 1,
+      "paper_coverage": 0.25,
+      "family_id": 2166,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1329,
+        1330
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 1 of 4 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2166,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 1,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 8.0,
+        "total_marks": 8.0,
+        "question_ids": [
+          1329,
+          1330
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "22. Remplissez avec les adjectifs possessifs :\n    (i) ______ fille parle fran\u00e7ais. (leur/nos/vos)\n    (ii) ______ tante est une excellente chanteuse. (Ton/ta/tes)\n    (iii) Il va chez ______ parents. (son/sa/ses)\n    (iv) Nous aimons ______ pays. (nos/ma/sa)\n    (v) Je fais du tennis et ______ s\u0153ur aime jouer au foot. (mon/ma/mes)\n    (vi) Catherine parle \u00e0 son fr\u00e8re et aussi joue avec ______ chien. (son/sa/ses)\n    (vii) ______ nouveau professeur arrive aujourd'hui pour la classe. (notre/ma/ta)\n    (viii) Moi, j'aime ______ enfants. (mon/ma/mes)",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.5,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 4,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.5,
+      "family_id": 2168,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": null,
+      "total_marks_observed": null,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1332,
+        1362
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": null,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 4 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2168,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": null,
+        "total_marks": null,
+        "question_ids": [
+          1332,
+          1362
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    }
+  ],
+  "study_priorities": [
+    {
+      "order": 1,
+      "topic": "Pays, Villes et Nationalit\u00e9s",
+      "name": "Pays, Villes et Nationalit\u00e9s",
+      "topic_id": 592,
+      "prediction_score": 0.1088,
+      "probability": 0.8333,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Pays, Villes et Nationalit\u00e9s",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 20
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 2,
+      "topic": "Les Nombres de 0 \u00e0 69, Jours et Mois",
+      "name": "Les Nombres de 0 \u00e0 69, Jours et Mois",
+      "topic_id": 586,
+      "prediction_score": 0.0864,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Nombres de 0 \u00e0 69, Jours et Mois",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 3,
+      "topic": "Les Nombres de 70 \u00e0 1000",
+      "name": "Les Nombres de 70 \u00e0 1000",
+      "topic_id": 588,
+      "prediction_score": 0.0571,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Nombres de 70 \u00e0 1000",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 4,
+      "topic": "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+      "name": "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+      "topic_id": 606,
+      "prediction_score": 0.0464,
+      "probability": 0.3333,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 5,
+      "topic": "L'Heure et les Horaires",
+      "name": "L'Heure et les Horaires",
+      "topic_id": 602,
+      "prediction_score": 0.0453,
+      "probability": 0.6667,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for L'Heure et les Horaires",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 6,
+      "topic": "Les Professions et M\u00e9tiers",
+      "name": "Les Professions et M\u00e9tiers",
+      "topic_id": 591,
+      "prediction_score": 0.0339,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Professions et M\u00e9tiers",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 7,
+      "topic": "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+      "name": "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+      "topic_id": 583,
+      "prediction_score": 0.0283,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 8,
+      "topic": "Les Mots et Structures Interrogatives",
+      "name": "Les Mots et Structures Interrogatives",
+      "topic_id": 596,
+      "prediction_score": 0.0228,
+      "probability": 0.5,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Mots et Structures Interrogatives",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 9,
+      "topic": "La Communication et les Consignes en Classe",
+      "name": "La Communication et les Consignes en Classe",
+      "topic_id": 580,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for La Communication et les Consignes en Classe",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 10,
+      "topic": "Le Futur Proche",
+      "name": "Le Futur Proche",
+      "topic_id": 601,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Le Futur Proche",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 11,
+      "topic": "Les Adjectifs Possessifs et la Famille",
+      "name": "Les Adjectifs Possessifs et la Famille",
+      "topic_id": 595,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Adjectifs Possessifs et la Famille",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 12,
+      "topic": "Les Articles D\u00e9finis et Ind\u00e9finis",
+      "name": "Les Articles D\u00e9finis et Ind\u00e9finis",
+      "topic_id": 585,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Articles D\u00e9finis et Ind\u00e9finis",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 13,
+      "topic": "Les Expressions de Quantit\u00e9 et Articles Partitifs",
+      "name": "Les Expressions de Quantit\u00e9 et Articles Partitifs",
+      "topic_id": 604,
+      "prediction_score": 0.0169,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Expressions de Quantit\u00e9 et Articles Partitifs",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 14,
+      "topic": "Les Salutations et Formules de Politesse",
+      "name": "Les Salutations et Formules de Politesse",
+      "topic_id": 581,
+      "prediction_score": 0.0114,
+      "probability": 0.3333,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Les Salutations et Formules de Politesse",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    }
+  ],
+  "coverage_summary": {
+    "total_predicted_topics": 14,
+    "mastered_topics": 0,
+    "in_progress_topics": 0,
+    "unstudied_topics": 14,
+    "student_preparation_coverage": 0.0,
+    "coverage_gap_topics": [],
+    "high_priority_gap_count": 0,
+    "mastered_topic_count": 0,
+    "in_progress_count": 0,
+    "unstudied_count": 14
+  },
+  "exam_schedule": null,
+  "metadata": {
+    "model_version": "2.2.0",
+    "taxonomy_version": "2.0.0",
+    "engine_version": "mintai-v2",
+    "corpus_version": "2026.1",
+    "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+    "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+    "sufficiency": "moderate",
+    "generated_at": "2026-09-21T16:36:17.925079",
+    "latency_ms": 1.86,
+    "cache_hit": true
+  }
+}

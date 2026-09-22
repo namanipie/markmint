@@ -1,0 +1,671 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Which of the following is a feature of the database? (A) No-backup for the data stored (B) User interface provided (C) Lack of Authentication (D) Store data in multiple locations [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Which of the following is a feature of the database? (A) No-backup for the data stored (B) User interface provided (C) Lack of Authentication (D) Store data in multiple locations",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which of the following establishes a top-to-bottom relationship among the items? (A) Relational schema (B) Network schema (C) Hierarchical schema (D) non - Relational Schema [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which of the following establishes a top-to-bottom relationship among the items? (A) Relational schema (B) Network schema (C) Hierarchical schema (D) non - Relational Schema",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. A window into a portion of a database is (A) Schema (B) View (C) Query (D) Data dictionary [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "A window into a portion of a database is (A) Schema (B) View (C) Query (D) Data dictionary",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. What is DBMS? (A) DBMS is a collection of queries (B) DBMS is a high-level language (C) DBMS is a programming language (D) DBMS stores, modifies and retrieves data [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "What is DBMS? (A) DBMS is a collection of queries (B) DBMS is a high-level language (C) DBMS is a programming language (D) DBMS stores, modifies and retrieves data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. The Rectangles divided into two parts represents (A) Entity set (B) Relationship set (C) Attributes of a relationship set (D) Primary key [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "The Rectangles divided into two parts represents (A) Entity set (B) Relationship set (C) Attributes of a relationship set (D) Primary key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which of the following indicates the maximum number of entities that can be involved in a relationship? (A) Minimum cardinality (B) Maximum cardinality (C) ERD (D) Greater Entity Count [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which of the following indicates the maximum number of entities that can be involved in a relationship? (A) Minimum cardinality (B) Maximum cardinality (C) ERD (D) Greater Entity Count",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. The entity set person is classified as student and employee. This process is called (A) Generalization (B) Specialization (C) Inheritance (D) Constraint generalization [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "The entity set person is classified as student and employee. This process is called (A) Generalization (B) Specialization (C) Inheritance (D) Constraint generalization",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The relational model is based on the concept that data is organized and stored in two-dimensional tables called ________ (A) Fields (B) Records (C) Relations (D) Keys [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The relational model is based on the concept that data is organized and stored in two-dimensional tables called ________ (A) Fields (B) Records (C) Relations (D) Keys",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. SELECT * FROM employee\nWhat type of statement is this? (A) DML (B) DDL (C) View (D) DCL [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "SELECT * FROM employee\nWhat type of statement is this? (A) DML (B) DDL (C) View (D) DCL",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. All aggregate functions except ________ ignore null values in their input collection. (A) Count(attribute) (B) Count(*) (C) Avg (D) Sum [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "All aggregate functions except ________ ignore null values in their input collection. (A) Count(attribute) (B) Count(*) (C) Avg (D) Sum",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. To remove a relation from an SQL database, we use the ________ command. (A) Delete (B) Purge (C) Remove (D) Drop table [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "To remove a relation from an SQL database, we use the ________ command. (A) Delete (B) Purge (C) Remove (D) Drop table",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Which of the following is/are TRUE about DDL command? (A) Our data is stored in a table that is described by the schema, thus DDL commands deal with the schema. (B) With the DDL commands, any structural changes can be made to the table, including creation, deletion, and alteration. (C) Both (A) and (B) (D) Neither (A) nor (B) [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Which of the following is/are TRUE about DDL command? (A) Our data is stored in a table that is described by the schema, thus DDL commands deal with the schema. (B) With the DDL commands, any structural changes can be made to the table, including creation, deletion, and alteration. (C) Both (A) and (B) (D) Neither (A) nor (B)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Tables in second normal form (2NF): (A) Eliminate all hidden dependencies (B) Eliminate the possibility of a insertion anomalies (C) Have a composite key (D) Have all non key fields depend on the whole primary key [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Tables in second normal form (2NF): (A) Eliminate all hidden dependencies (B) Eliminate the possibility of a insertion anomalies (C) Have a composite key (D) Have all non key fields depend on the whole primary key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Which form simplifies and ensures that there are minimal data aggregates and repetitive groups: (A) 1NF (B) 2NF (C) 3NF (D) All of the mentioned [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Which form simplifies and ensures that there are minimal data aggregates and repetitive groups: (A) 1NF (B) 2NF (C) 3NF (D) All of the mentioned",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The ________ operation allows the combining of two relations by merging pairs of tuples, one from each relation, into a single tuple. (A) Select (B) Join (C) Union (D) Intersection [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The ________ operation allows the combining of two relations by merging pairs of tuples, one from each relation, into a single tuple. (A) Select (B) Join (C) Union (D) Intersection",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. A table on the many side of a one to many or many to many relationship must: (A) Be in Second Normal Form (2NF) (B) Be in Third Normal Form (3NF) (C) Have a single attribute key (D) Have a composite key [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "A table on the many side of a one to many or many to many relationship must: (A) Be in Second Normal Form (2NF) (B) Be in Third Normal Form (3NF) (C) Have a single attribute key (D) Have a composite key",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Which of the following is correct according to the technology deployed by DBMS? (A) Pointers are used to maintain transactional integrity and consistency (B) Cursors are used to maintain transactional integrity and consistency (C) Locks are used to maintain transactional integrity and consistency (D) Triggers are used to maintain transactional integrity and consistency [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Which of the following is correct according to the technology deployed by DBMS? (A) Pointers are used to maintain transactional integrity and consistency (B) Cursors are used to maintain transactional integrity and consistency (C) Locks are used to maintain transactional integrity and consistency (D) Triggers are used to maintain transactional integrity and consistency",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. If a transaction does not modify the database until it has committed, it is said to use the ________ technique. (A) Deferred-modification (B) Late-modification (C) Immediate-modification (D) Undo [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "If a transaction does not modify the database until it has committed, it is said to use the ________ technique. (A) Deferred-modification (B) Late-modification (C) Immediate-modification (D) Undo",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Which refers to a property of computer to run several operation simultaneously and possible as computers await response of each other (A) Concurrency (B) Deadlock (C) Recovery (D) Backup [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Which refers to a property of computer to run several operation simultaneously and possible as computers await response of each other (A) Concurrency (B) Deadlock (C) Recovery (D) Backup",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. ________ means that the data used during the execution of a transaction cannot be used by a second transaction until the first one is completed. (A) Consistency (B) Atomicity (C) Durability (D) Isolation [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "________ means that the data used during the execution of a transaction cannot be used by a second transaction until the first one is completed. (A) Consistency (B) Atomicity (C) Durability (D) Isolation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer any 5 Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. List the limitations/disadvantages of DBMS. [4]",
+          "structured_content": {
+            "number": "21",
+            "text": "List the limitations/disadvantages of DBMS.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Explain with diagram the different Mapping Cardinalities [4]",
+          "structured_content": {
+            "number": "22",
+            "text": "Explain with diagram the different Mapping Cardinalities",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. What is an Entity? Explain different type of Entities. Define weak entity. Show with example. [4]",
+          "structured_content": {
+            "number": "23",
+            "text": "What is an Entity? Explain different type of Entities. Define weak entity. Show with example.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. List out the aggregation functions briefly explain with SQL syntax [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "List out the aggregation functions briefly explain with SQL syntax",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. 'Boyce-Codd normal form is found to be stricter than third normal form'. Justify the statement. [4]",
+          "structured_content": {
+            "number": "25",
+            "text": "'Boyce-Codd normal form is found to be stricter than third normal form'. Justify the statement.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Analyze about lossless Decomposition [4]",
+          "structured_content": {
+            "number": "26",
+            "text": "Analyze about lossless Decomposition",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. What are the Problems with Concurrent Execution. [4]",
+          "structured_content": {
+            "number": "27",
+            "text": "What are the Problems with Concurrent Execution.",
+            "marks": 4
+          },
+          "marks": 4.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "28",
+          "original_text": "28. Explain the different evolution models and discuss the advantages and limitations of each. [12]\n  a. Explain the different evolution models and discuss the advantages and limitations of each.\n  b. Explain in detail the components of Data Base system environment",
+          "structured_content": {
+            "number": "28",
+            "text": "Explain the different evolution models and discuss the advantages and limitations of each.",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Explain the different evolution models and discuss the advantages and limitations of each."
+              },
+              {
+                "number": "b",
+                "text": "Explain in detail the components of Data Base system environment"
+              }
+            ],
+            "or_alternative": {
+              "number": "28",
+              "text": "Explain in detail the components of Data Base system environment",
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Explain in detail the components of Data Base system environment"
+                }
+              ]
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Explain in detail the components of Data Base system environment\n  b. Explain in detail the components of Data Base system environment",
+          "structured_content": {
+            "number": "28",
+            "text": "Explain in detail the components of Data Base system environment",
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Explain in detail the components of Data Base system environment"
+              }
+            ]
+          },
+          "marks": null,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Draw an E-R diagram for a banking enterprise with almost all components and explain. Describe with suitable example, the constraints of specialization and generalization in ER data modelling. [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "Draw an E-R diagram for a banking enterprise with almost all components and explain. Describe with suitable example, the constraints of specialization and generalization in ER data modelling.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "29",
+              "text": "Explain ER model by taking Hospital management. Brief out ER design issues.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "29",
+          "original_text": "29. Explain ER model by taking Hospital management. Brief out ER design issues. [12]",
+          "structured_content": {
+            "number": "29",
+            "text": "Explain ER model by taking Hospital management. Brief out ER design issues.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. Explain in brief about Subqueries and Correlated queries. What is a Join? Discuss about various joins used in SQL. [12]",
+          "structured_content": {
+            "number": "30",
+            "text": "Explain in brief about Subqueries and Correlated queries. What is a Join? Discuss about various joins used in SQL.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "30",
+              "text": "emp (eno, ename, bdate, title, salary, dno) proj (pno, pname, budget, dno) dept (dno, dname, mgreno) workson (eno, pno, resp, hours)",
+              "marks": 12,
+              "subquestions": [
+                {
+                  "number": "1",
+                  "text": "Write an SQL query that returns the employee name, department name, and employee title."
+                },
+                {
+                  "number": "2",
+                  "text": "Write an SQL query that returns the project name, hours worked, and project number for all works on records where hours > 10."
+                },
+                {
+                  "number": "3",
+                  "text": "Write an SQL query that returns the project name, department name, and budget for all projects with a budget < $50,000."
+                },
+                {
+                  "number": "4",
+                  "text": "Write an SQL query that returns the employee numbers and salaries of all employees in the 'Consulting' department ordered by descending salary."
+                },
+                {
+                  "number": "5",
+                  "text": "Write an SQL query that returns the employee name, project name, employee title, and hours for all works on records"
+                }
+              ]
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "30",
+          "original_text": "30. emp (eno, ename, bdate, title, salary, dno) proj (pno, pname, budget, dno) dept (dno, dname, mgreno) workson (eno, pno, resp, hours) [12]\n  1. Write an SQL query that returns the employee name, department name, and employee title.\n  2. Write an SQL query that returns the project name, hours worked, and project number for all works on records where hours > 10.\n  3. Write an SQL query that returns the project name, department name, and budget for all projects with a budget < $50,000.\n  4. Write an SQL query that returns the employee numbers and salaries of all employees in the 'Consulting' department ordered by descending salary.\n  5. Write an SQL query that returns the employee name, project name, employee title, and hours for all works on records",
+          "structured_content": {
+            "number": "30",
+            "text": "emp (eno, ename, bdate, title, salary, dno) proj (pno, pname, budget, dno) dept (dno, dname, mgreno) workson (eno, pno, resp, hours)",
+            "marks": 12,
+            "subquestions": [
+              {
+                "number": "1",
+                "text": "Write an SQL query that returns the employee name, department name, and employee title."
+              },
+              {
+                "number": "2",
+                "text": "Write an SQL query that returns the project name, hours worked, and project number for all works on records where hours > 10."
+              },
+              {
+                "number": "3",
+                "text": "Write an SQL query that returns the project name, department name, and budget for all projects with a budget < $50,000."
+              },
+              {
+                "number": "4",
+                "text": "Write an SQL query that returns the employee numbers and salaries of all employees in the 'Consulting' department ordered by descending salary."
+              },
+              {
+                "number": "5",
+                "text": "Write an SQL query that returns the employee name, project name, employee title, and hours for all works on records"
+              }
+            ]
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Exemplify the multi-value dependency in relation. Explain in detail 2NF, 3NF and the fourth normal form-4NF. [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Exemplify the multi-value dependency in relation. Explain in detail 2NF, 3NF and the fourth normal form-4NF.",
+            "marks": 12,
+            "or_alternative": {
+              "number": "31",
+              "text": "Determine the closer of the following set of functional dependencies for a relational scheme R(A,B,C,D) and FDs {AB -> C, C -> D, D -> A}. List out the candidate keys of R.Find the highest normal form of the relation.",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "31",
+          "original_text": "31. Determine the closer of the following set of functional dependencies for a relational scheme R(A,B,C,D) and FDs {AB -> C, C -> D, D -> A}. List out the candidate keys of R.Find the highest normal form of the relation. [12]",
+          "structured_content": {
+            "number": "31",
+            "text": "Determine the closer of the following set of functional dependencies for a relational scheme R(A,B,C,D) and FDs {AB -> C, C -> D, D -> A}. List out the candidate keys of R.Find the highest normal form of the relation.",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. Describe the conflicts in concurrent transaction. (4marks)\nExplain Concurrency Control. What benefit does two phase locking provide? (8marks) [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "Describe the conflicts in concurrent transaction. (4marks)\nExplain Concurrency Control. What benefit does two phase locking provide? (8marks)",
+            "marks": 12,
+            "or_alternative": {
+              "number": "32",
+              "text": "What is a deadlock? Narrate the actions that are considered for deadlock detection and the recovery from deadlock",
+              "marks": 12
+            }
+          },
+          "marks": 12.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "32",
+          "original_text": "32. What is a deadlock? Narrate the actions that are considered for deadlock detection and the recovery from deadlock [12]",
+          "structured_content": {
+            "number": "32",
+            "text": "What is a deadlock? Narrate the actions that are considered for deadlock detection and the recovery from deadlock",
+            "marks": 12
+          },
+          "marks": 12.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

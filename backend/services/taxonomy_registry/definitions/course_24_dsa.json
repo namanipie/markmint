@@ -1,0 +1,511 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 24,
+    "name": "Data Structures and Algorithms",
+    "canonical_code": "21CSC201J",
+    "code": "SEM3-DSA",
+    "regulation_year": 2021,
+    "department": "Computing Technologies"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC201J Data Structures and Algorithms",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Introduction & Complexity, List Structures, Stacks & Queues, Trees & Hashing, and Graphs & Shortest Paths."
+  },
+  "units": [
+    {
+      "id": 156,
+      "number": 1,
+      "name": "Introduction and Complexity",
+      "topics": [
+        {
+          "id": 737,
+          "name": "C Memory Management and Pointers",
+          "canonical_name": "C Memory Management and Pointers",
+          "aliases": ["Pointers and Dynamic Memory Allocation", "Self-Referential Structures"],
+          "strong_phrases": [
+            "dynamic memory allocation",
+            "self referential structures",
+            "malloc",
+            "calloc",
+            "realloc",
+            "free function",
+            "pointers and structures",
+            "instantiate an array in c",
+            "pointer variable"
+          ],
+          "specific_keywords": ["self-referential", "dynamic memory", "pointers"],
+          "negative_guards": ["queue", "stack", "tree", "graph", "hash"],
+          "context_hints": ["memory allocation", "c programming"]
+        },
+        {
+          "id": 738,
+          "name": "Abstract Data Types and Operations",
+          "canonical_name": "Abstract Data Types and Operations",
+          "aliases": ["Data Structure Definition and ADT", "Operations on Data Structures"],
+          "strong_phrases": [
+            "abstract data type",
+            "definition of data structure",
+            "types of data structures",
+            "linear and non linear data structure",
+            "non linear type",
+            "operations on data structure"
+          ],
+          "specific_keywords": ["abstract data type", "non linear type", "linear type"],
+          "negative_guards": ["dijkstra", "kruskal", "avl", "b-tree"],
+          "context_hints": ["adt", "data structures definition"]
+        },
+        {
+          "id": 739,
+          "name": "Asymptotic Complexity and Notations",
+          "canonical_name": "Asymptotic Complexity and Notations",
+          "aliases": ["Big O, Omega and Theta Complexity", "Time and Space Complexity"],
+          "strong_phrases": [
+            "big o notation",
+            "big omega",
+            "theta notation",
+            "asymptotic notation",
+            "time complexity",
+            "space complexity",
+            "measure the complexity of the algorithm",
+            "different notations used",
+            "complexity trade off"
+          ],
+          "specific_keywords": ["asymptotic", "big o", "big omega", "time complexity"],
+          "negative_guards": ["master theorem", "recurrence relation"],
+          "context_hints": ["algorithm analysis", "growth rate"]
+        },
+        {
+          "id": 740,
+          "name": "Matrix Multiplication and Array Algorithms",
+          "canonical_name": "Matrix Multiplication and Array Algorithms",
+          "aliases": ["Array Implementation and Matrix Multiplication"],
+          "strong_phrases": [
+            "multiply two matrices",
+            "matrix multiplication",
+            "m x n matrices",
+            "elements in an array are accessed",
+            "multiplication of two matrices"
+          ],
+          "specific_keywords": ["matrix multiplication", "array operations"],
+          "negative_guards": ["strassen", "sparse matrix"],
+          "context_hints": ["matrix", "array"]
+        }
+      ]
+    },
+    {
+      "id": 157,
+      "number": 2,
+      "name": "List Structures and Applications",
+      "topics": [
+        {
+          "id": 741,
+          "name": "List ADT and Operations",
+          "canonical_name": "List ADT and Operations",
+          "aliases": ["Array Implementation of List ADT"],
+          "strong_phrases": [
+            "operations on list adt",
+            "list adt",
+            "insert element in list",
+            "delete element in list",
+            "display elements in list"
+          ],
+          "specific_keywords": ["list adt"],
+          "negative_guards": ["stack", "queue", "tree"],
+          "context_hints": ["list operations"]
+        },
+        {
+          "id": 742,
+          "name": "Singly Linked List",
+          "canonical_name": "Singly Linked List",
+          "aliases": ["Singly Linked List Insertion and Deletion"],
+          "strong_phrases": [
+            "singly linked list",
+            "insert node in linked list",
+            "delete node in linked list",
+            "traverse linked list",
+            "reverse a linked list",
+            "head pointer in linked list"
+          ],
+          "specific_keywords": ["singly linked", "linked list node"],
+          "negative_guards": ["doubly", "circular"],
+          "context_hints": ["linked list"]
+        },
+        {
+          "id": 743,
+          "name": "Doubly and Circular Linked Lists",
+          "canonical_name": "Doubly and Circular Linked Lists",
+          "aliases": ["Doubly Linked List", "Circular Linked List Operations"],
+          "strong_phrases": [
+            "doubly linked list",
+            "circular linked list",
+            "prev pointer",
+            "next pointer",
+            "circular doubly linked list"
+          ],
+          "specific_keywords": ["doubly linked", "circular linked"],
+          "negative_guards": ["singly"],
+          "context_hints": ["doubly linked list", "circular list"]
+        },
+        {
+          "id": 744,
+          "name": "Cursor-Based Implementation of Lists",
+          "canonical_name": "Cursor-Based Implementation of Lists",
+          "aliases": ["Cursor Implementation"],
+          "strong_phrases": [
+            "cursor based implementation",
+            "cursor based linked list",
+            "cursor implementation of list"
+          ],
+          "specific_keywords": ["cursor based", "cursor implementation"],
+          "negative_guards": [],
+          "context_hints": ["cursor list"]
+        },
+        {
+          "id": 745,
+          "name": "Polynomial Arithmetic Using Linked Lists",
+          "canonical_name": "Polynomial Arithmetic Using Linked Lists",
+          "aliases": ["Polynomial Addition", "Polynomial Subtraction"],
+          "strong_phrases": [
+            "polynomial addition",
+            "polynomial subtraction",
+            "polynomial arithmetic using linked list",
+            "demonstrate a polynomial equation using linked list",
+            "addition of two polynomials",
+            "represent polynomial using linked list"
+          ],
+          "specific_keywords": ["polynomial addition", "polynomial equation", "polynomial arithmetic"],
+          "negative_guards": [],
+          "context_hints": ["polynomials", "linked list application"]
+        },
+        {
+          "id": 746,
+          "name": "Sparse Matrix and Josephus Problem",
+          "canonical_name": "Sparse Matrix and Josephus Problem",
+          "aliases": ["Sparse Matrix Representation", "Josephus Problem"],
+          "strong_phrases": [
+            "sparse matrix representation",
+            "sparse matrix using linked list",
+            "josephus problem",
+            "joseph problem using circular linked list"
+          ],
+          "specific_keywords": ["sparse matrix", "josephus"],
+          "negative_guards": [],
+          "context_hints": ["sparse matrix", "josephus"]
+        }
+      ]
+    },
+    {
+      "id": 158,
+      "number": 3,
+      "name": "Stacks and Queues",
+      "topics": [
+        {
+          "id": 747,
+          "name": "Stack ADT and Operations",
+          "canonical_name": "Stack ADT and Operations",
+          "aliases": ["Stack Implementation", "Push and Pop Operations"],
+          "strong_phrases": [
+            "stack adt",
+            "push and pop",
+            "lifo order",
+            "stack overflow",
+            "stack underflow",
+            "array implementation of stack",
+            "linked list implementation of stack"
+          ],
+          "specific_keywords": ["stack adt", "push operation", "pop operation"],
+          "negative_guards": ["queue", "deque"],
+          "context_hints": ["stack"]
+        },
+        {
+          "id": 748,
+          "name": "Infix to Postfix Conversion and Evaluation",
+          "canonical_name": "Infix to Postfix Conversion and Evaluation",
+          "aliases": ["Postfix Evaluation", "Infix Expression Conversion"],
+          "strong_phrases": [
+            "infix to postfix",
+            "postfix evaluation",
+            "evaluate postfix expression",
+            "convert infix to postfix",
+            "prefix expression",
+            "polish notation",
+            "operator precedence stack"
+          ],
+          "specific_keywords": ["infix to postfix", "postfix evaluation"],
+          "negative_guards": [],
+          "context_hints": ["expression evaluation", "stack application"]
+        },
+        {
+          "id": 749,
+          "name": "Balancing Symbols and Recursion Stack",
+          "canonical_name": "Balancing Symbols and Recursion Stack",
+          "aliases": ["Parenthesis Matching", "Tower of Hanoi"],
+          "strong_phrases": [
+            "balancing symbols",
+            "balanced parenthesis",
+            "parentheses matching",
+            "tower of hanoi",
+            "function calls stack",
+            "recursion using stack"
+          ],
+          "specific_keywords": ["balancing symbols", "tower of hanoi", "balanced parentheses"],
+          "negative_guards": [],
+          "context_hints": ["stack application", "recursion"]
+        },
+        {
+          "id": 750,
+          "name": "Queue ADT and Operations",
+          "canonical_name": "Queue ADT and Operations",
+          "aliases": ["Queue Implementation", "Enqueue and Dequeue"],
+          "strong_phrases": [
+            "queue adt",
+            "enqueue and dequeue",
+            "fifo order",
+            "front and rear pointer",
+            "array implementation of queue",
+            "linked list implementation of queue"
+          ],
+          "specific_keywords": ["queue adt", "enqueue", "dequeue"],
+          "negative_guards": ["stack", "avl"],
+          "context_hints": ["queue"]
+        },
+        {
+          "id": 751,
+          "name": "Circular Queue and Deque",
+          "canonical_name": "Circular Queue and Deque",
+          "aliases": ["Circular Queue Implementation", "Double Ended Queue"],
+          "strong_phrases": [
+            "circular queue",
+            "double ended queue",
+            "deque implementation",
+            "circular queue modulo arithmetic"
+          ],
+          "specific_keywords": ["circular queue", "deque", "double ended queue"],
+          "negative_guards": [],
+          "context_hints": ["circular queue", "deque"]
+        },
+        {
+          "id": 752,
+          "name": "Priority Queue and Scheduling Applications",
+          "canonical_name": "Priority Queue and Scheduling Applications",
+          "aliases": ["Priority Queue ADT"],
+          "strong_phrases": [
+            "priority queue",
+            "priority queue implementation",
+            "job scheduling using queue",
+            "applications of priority queue"
+          ],
+          "specific_keywords": ["priority queue"],
+          "negative_guards": [],
+          "context_hints": ["priority queue"]
+        }
+      ]
+    },
+    {
+      "id": 159,
+      "number": 4,
+      "name": "Trees and Hashing",
+      "topics": [
+        {
+          "id": 753,
+          "name": "Binary Trees and Tree Traversals",
+          "canonical_name": "Binary Trees and Tree Traversals",
+          "aliases": ["Preorder Inorder Postorder Traversals"],
+          "strong_phrases": [
+            "binary tree traversals",
+            "inorder traversal",
+            "preorder traversal",
+            "postorder traversal",
+            "complete binary tree",
+            "height of binary tree",
+            "level order traversal"
+          ],
+          "specific_keywords": ["binary tree", "tree traversal", "inorder", "preorder", "postorder"],
+          "negative_guards": ["graph", "hash"],
+          "context_hints": ["binary tree"]
+        },
+        {
+          "id": 754,
+          "name": "Binary Search Trees (BST)",
+          "canonical_name": "Binary Search Trees (BST)",
+          "aliases": ["BST Insertion and Deletion"],
+          "strong_phrases": [
+            "binary search tree",
+            "bst insertion",
+            "bst deletion",
+            "search in bst",
+            "construct a binary search tree",
+            "inorder predecessor in bst"
+          ],
+          "specific_keywords": ["binary search tree", "bst"],
+          "negative_guards": ["avl", "b-tree"],
+          "context_hints": ["bst"]
+        },
+        {
+          "id": 755,
+          "name": "AVL Trees and Rotations",
+          "canonical_name": "AVL Trees and Rotations",
+          "aliases": ["Height Balanced Trees", "AVL Tree Rotations"],
+          "strong_phrases": [
+            "avl tree",
+            "balance factor",
+            "ll rotation",
+            "rr rotation",
+            "lr rotation",
+            "rl rotation",
+            "construct an avl tree",
+            "height balanced binary search tree"
+          ],
+          "specific_keywords": ["avl tree", "balance factor", "avl rotation"],
+          "negative_guards": [],
+          "context_hints": ["avl tree"]
+        },
+        {
+          "id": 756,
+          "name": "B-Trees and Multi-Way Trees",
+          "canonical_name": "B-Trees and Multi-Way Trees",
+          "aliases": ["B-Tree Properties and Operations"],
+          "strong_phrases": [
+            "b tree",
+            "b-tree of order",
+            "insert into b-tree",
+            "b-tree split",
+            "multiway search tree"
+          ],
+          "specific_keywords": ["b tree", "b-tree"],
+          "negative_guards": ["binary tree"],
+          "context_hints": ["b-tree"]
+        },
+        {
+          "id": 757,
+          "name": "Heaps and Priority Trees",
+          "canonical_name": "Heaps and Priority Trees",
+          "aliases": ["Binary Heap", "Min Heap and Max Heap"],
+          "strong_phrases": [
+            "binary heap",
+            "max heap",
+            "min heap",
+            "heapify",
+            "heap sort",
+            "array representation of heap"
+          ],
+          "specific_keywords": ["min heap", "max heap", "heapify"],
+          "negative_guards": [],
+          "context_hints": ["heap"]
+        },
+        {
+          "id": 758,
+          "name": "Hash Functions and Table Structure",
+          "canonical_name": "Hash Functions and Table Structure",
+          "aliases": ["Hash Functions", "Hash Table Implementation"],
+          "strong_phrases": [
+            "hash function",
+            "hash table with",
+            "h(k) =",
+            "hash value",
+            "division method hashing",
+            "collision avoidance"
+          ],
+          "specific_keywords": ["hash table", "hash function", "hash slots"],
+          "negative_guards": ["tree"],
+          "context_hints": ["hashing"]
+        },
+        {
+          "id": 759,
+          "name": "Collision Resolution Techniques",
+          "canonical_name": "Collision Resolution Techniques",
+          "aliases": ["Chaining and Open Addressing", "Linear and Quadratic Probing"],
+          "strong_phrases": [
+            "collision resolution",
+            "separate chaining",
+            "open addressing",
+            "linear probing",
+            "quadratic probing",
+            "double hashing",
+            "rehash"
+          ],
+          "specific_keywords": ["separate chaining", "linear probing", "quadratic probing", "open addressing"],
+          "negative_guards": [],
+          "context_hints": ["collision resolution", "hashing"]
+        }
+      ]
+    },
+    {
+      "id": 160,
+      "number": 5,
+      "name": "Graphs and Applications",
+      "topics": [
+        {
+          "id": 760,
+          "name": "Graph Representations and Traversals (BFS and DFS)",
+          "canonical_name": "Graph Representations and Traversals (BFS and DFS)",
+          "aliases": ["Breadth First Search", "Depth First Search"],
+          "strong_phrases": [
+            "breadth first search",
+            "depth first search",
+            "graph traversal",
+            "bfs traversal",
+            "dfs traversal",
+            "adjacency matrix",
+            "adjacency list"
+          ],
+          "specific_keywords": ["breadth first search", "depth first search", "graph traversal"],
+          "negative_guards": ["binary tree"],
+          "context_hints": ["graph algorithms"]
+        },
+        {
+          "id": 761,
+          "name": "Topological Sorting",
+          "canonical_name": "Topological Sorting",
+          "aliases": ["DAG Topological Sort"],
+          "strong_phrases": [
+            "topological sorting",
+            "topological sort",
+            "directed acyclic graph",
+            "in-degree topological sort"
+          ],
+          "specific_keywords": ["topological sort", "topological sorting"],
+          "negative_guards": [],
+          "context_hints": ["dag", "topological sort"]
+        },
+        {
+          "id": 762,
+          "name": "Minimum Spanning Tree: Prim's and Kruskal's",
+          "canonical_name": "Minimum Spanning Tree: Prim's and Kruskal's",
+          "aliases": ["Prim's Algorithm", "Kruskal's Algorithm"],
+          "strong_phrases": [
+            "minimum spanning tree",
+            "prims algorithm",
+            "kruskals algorithm",
+            "prim's algorithm",
+            "kruskal's algorithm",
+            "find minimum spanning tree"
+          ],
+          "specific_keywords": ["minimum spanning tree", "prim's", "kruskal's", "prims", "kruskals"],
+          "negative_guards": ["dijkstra"],
+          "context_hints": ["mst"]
+        },
+        {
+          "id": 763,
+          "name": "Shortest Path: Dijkstra's Algorithm",
+          "canonical_name": "Shortest Path: Dijkstra's Algorithm",
+          "aliases": ["Single Source Shortest Path"],
+          "strong_phrases": [
+            "dijkstras algorithm",
+            "dijkstra's algorithm",
+            "shortest path from",
+            "shortest path algorithm",
+            "single source shortest path"
+          ],
+          "specific_keywords": ["dijkstra's", "dijkstras", "shortest path"],
+          "negative_guards": ["prim", "kruskal"],
+          "context_hints": ["shortest path"]
+        }
+      ]
+    }
+  ]
+}

@@ -75,12 +75,25 @@ class CourseBase(BaseModel):
     department: Optional[str] = None
 
 
+class CourseTrackResponse(BaseModel):
+    id: int
+    course_id: int
+    track_key: str
+    track_name: str
+    track_code: Optional[str] = None
+    track_type: str = "LANGUAGE"
+
+    class Config:
+        from_attributes = True
+
+
 class CourseCreate(CourseBase):
     pass
 
 
 class Course(CourseBase):
     id: int
+    tracks: list[CourseTrackResponse] = []
 
     class Config:
         from_attributes = True
@@ -96,6 +109,8 @@ class CurriculumSubjectResponse(BaseModel):
     has_exams: bool = False
     exam_count: int = 0
     question_count: int = 0
+    has_tracks: bool = False
+    tracks: list[CourseTrackResponse] = []
     notes: Optional[str] = None
 
     class Config:

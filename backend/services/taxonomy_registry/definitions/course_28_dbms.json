@@ -1,0 +1,508 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 28,
+    "name": "Database Management Systems",
+    "canonical_code": "21CSC205P",
+    "code": "SEM4-DBMS",
+    "regulation_year": 2021,
+    "department": "Computing Technologies"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21CSC205P Database Management Systems",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering Introduction & ER Modeling, Relational Model & Algebra, SQL & PL/SQL, Normalization & FDs, and Transaction Processing, Concurrency & NoSQL."
+  },
+  "units": [
+    {
+      "id": 176,
+      "number": 1,
+      "name": "Introduction and Conceptual Data Modeling",
+      "topics": [
+        {
+          "id": 841,
+          "name": "Database System Concepts and Architecture",
+          "canonical_name": "Database System Concepts and Architecture",
+          "aliases": ["Need for DBMS", "Three Schema Architecture"],
+          "strong_phrases": [
+            "need for dbms",
+            "issues in file processing system",
+            "file system vs dbms",
+            "database system architecture",
+            "three schema architecture",
+            "internal level conceptual level external level"
+          ],
+          "specific_keywords": ["file processing system", "three-schema", "data abstraction", "dbms architecture"],
+          "negative_guards": ["deadlock avoidance", "banker's algorithm"],
+          "context_hints": ["dbms concepts", "database architecture"]
+        },
+        {
+          "id": 842,
+          "name": "Data Independence and DBMS Components",
+          "canonical_name": "Data Independence and DBMS Components",
+          "aliases": ["Physical and Logical Data Independence", "DBMS Components"],
+          "strong_phrases": [
+            "data independence",
+            "logical data independence",
+            "physical data independence",
+            "dbms components",
+            "query processor",
+            "storage manager",
+            "database administrator dba"
+          ],
+          "specific_keywords": ["logical data independence", "physical data independence", "dba", "storage manager"],
+          "negative_guards": ["paging", "mmu"],
+          "context_hints": ["data independence", "dbms components"]
+        },
+        {
+          "id": 843,
+          "name": "Data Models and Schemas",
+          "canonical_name": "Data Models and Schemas",
+          "aliases": ["Various Data Models", "Schemas and Instances"],
+          "strong_phrases": [
+            "various data models",
+            "hierarchical model",
+            "network model",
+            "relational model overview",
+            "object oriented data model",
+            "database schema and instance"
+          ],
+          "specific_keywords": ["data models", "hierarchical model", "network model", "database instance"],
+          "negative_guards": ["booth multiplier", "arm processor"],
+          "context_hints": ["data models", "schemas"]
+        },
+        {
+          "id": 844,
+          "name": "Entity Relationship (ER) Model and Diagrams",
+          "canonical_name": "Entity Relationship (ER) Model and Diagrams",
+          "aliases": ["ER Diagram", "Entities Attributes Relationships"],
+          "strong_phrases": [
+            "entity relationship diagram",
+            "er diagram basics",
+            "entity set and attributes",
+            "primary key foreign key candidate key",
+            "weak entity set",
+            "identifying relationship",
+            "relationship set cardinality ratio",
+            "one to one one to many many to many",
+            "participation constraints total partial"
+          ],
+          "specific_keywords": ["er diagram", "entity set", "weak entity", "cardinality ratio", "participation constraint"],
+          "negative_guards": ["divide and conquer", "master theorem"],
+          "context_hints": ["er model", "er diagram"]
+        },
+        {
+          "id": 845,
+          "name": "Extended ER (EER) Features: Specialization and Generalization",
+          "canonical_name": "Extended ER (EER) Features: Specialization and Generalization",
+          "aliases": ["Extended ER", "Specialization and Generalization"],
+          "strong_phrases": [
+            "extended er diagram",
+            "eer diagram",
+            "specialization and generalization",
+            "attribute inheritance",
+            "aggregation in er",
+            "disjoint and overlapping constraints"
+          ],
+          "specific_keywords": ["specialization", "generalization", "aggregation", "eer diagram", "disjoint constraint"],
+          "negative_guards": ["microinstruction", "hardwired control"],
+          "context_hints": ["extended er", "specialization"]
+        }
+      ]
+    },
+    {
+      "id": 177,
+      "number": 2,
+      "name": "Relational Data Model and Relational Languages",
+      "topics": [
+        {
+          "id": 846,
+          "name": "Relational Model Concepts and Integrity Constraints",
+          "canonical_name": "Relational Model Concepts and Integrity Constraints",
+          "aliases": ["Relational Model", "Integrity Constraints"],
+          "strong_phrases": [
+            "relational model concepts",
+            "tuples attributes relations",
+            "domain constraints",
+            "entity integrity constraint",
+            "referential integrity constraint",
+            "foreign key constraint",
+            "pitfalls in relational database systems"
+          ],
+          "specific_keywords": ["referential integrity", "entity integrity", "domain constraint", "foreign key"],
+          "negative_guards": ["round robin", "gantt chart"],
+          "context_hints": ["relational model", "integrity constraints"]
+        },
+        {
+          "id": 847,
+          "name": "ER-to-Relational Mapping",
+          "canonical_name": "ER-to-Relational Mapping",
+          "aliases": ["Conversion of ER to Relational Table", "ER to Schema Mapping"],
+          "strong_phrases": [
+            "conversion of er model to relational table",
+            "er to relational mapping",
+            "mapping regular entity types",
+            "mapping weak entity types",
+            "mapping binary 1:1 1:n m:n relationships",
+            "mapping multivalued attributes"
+          ],
+          "specific_keywords": ["er to relational", "relational table conversion", "mapping weak entity"],
+          "negative_guards": ["8086 microprocessor", "biu"],
+          "context_hints": ["er mapping", "table schema conversion"]
+        },
+        {
+          "id": 848,
+          "name": "Relational Algebra: Selection, Projection and Set Operations",
+          "canonical_name": "Relational Algebra: Selection, Projection and Set Operations",
+          "aliases": ["Relational Algebra Basics", "Select Project Union"],
+          "strong_phrases": [
+            "relational algebra",
+            "select operation sigma",
+            "project operation pi",
+            "union operation",
+            "set difference operation",
+            "cartesian product cross product",
+            "rename operation rho"
+          ],
+          "specific_keywords": ["relational algebra", "select operation", "project operation", "cartesian product"],
+          "negative_guards": ["relational calculus", "trc", "drc"],
+          "context_hints": ["relational algebra", "select project"]
+        },
+        {
+          "id": 849,
+          "name": "Relational Algebra: Joins, Division and Aggregate Operations",
+          "canonical_name": "Relational Algebra: Joins, Division and Aggregate Operations",
+          "aliases": ["Relational Joins", "Division Operator in Relational Algebra"],
+          "strong_phrases": [
+            "theta join",
+            "equijoin",
+            "natural join relational algebra",
+            "outer join left right full outer join",
+            "division operator relational algebra",
+            "aggregate functions in relational algebra"
+          ],
+          "specific_keywords": ["natural join", "outer join", "division operator", "theta join"],
+          "negative_guards": ["sql select", "pl/sql"],
+          "context_hints": ["relational algebra joins", "division operator"]
+        },
+        {
+          "id": 850,
+          "name": "Relational Calculus: Tuple and Domain Relational Calculus",
+          "canonical_name": "Relational Calculus: Tuple and Domain Relational Calculus",
+          "aliases": ["TRC", "DRC", "Calculus vs Algebra"],
+          "strong_phrases": [
+            "tuple relational calculus",
+            "trc",
+            "domain relational calculus",
+            "drc",
+            "existential quantifier for all there exists",
+            "calculus vs algebra",
+            "safety of relational calculus expressions"
+          ],
+          "specific_keywords": ["tuple relational calculus", "domain relational calculus", "trc", "drc"],
+          "negative_guards": ["huffman coding", "kruskal"],
+          "context_hints": ["relational calculus", "trc drc"]
+        }
+      ]
+    },
+    {
+      "id": 178,
+      "number": 3,
+      "name": "SQL and Advanced Database Programming",
+      "topics": [
+        {
+          "id": 851,
+          "name": "SQL Data Definition (DDL) and Integrity Constraints",
+          "canonical_name": "SQL Data Definition (DDL) and Integrity Constraints",
+          "aliases": ["DDL Commands", "Table Constraints in SQL"],
+          "strong_phrases": [
+            "data definition language ddl",
+            "create table alter table drop table",
+            "primary key unique not null check default",
+            "foreign key on delete cascade",
+            "truncate table",
+            "sql data types"
+          ],
+          "specific_keywords": ["ddl", "create table", "alter table", "check constraint", "on delete cascade"],
+          "negative_guards": ["drc", "trc"],
+          "context_hints": ["sql ddl", "table definition"]
+        },
+        {
+          "id": 852,
+          "name": "SQL Queries (DML), Joins and Nested Subqueries",
+          "canonical_name": "SQL Queries (DML), Joins and Nested Subqueries",
+          "aliases": ["SQL Queries", "Subqueries and Joins"],
+          "strong_phrases": [
+            "sql commands select insert update delete",
+            "group by having clause",
+            "order by clause",
+            "sql joins inner join left outer join",
+            "nested subqueries in sql",
+            "correlated subquery",
+            "in exists any all operators in sql",
+            "aggregate functions count sum avg min max"
+          ],
+          "specific_keywords": ["group by", "having", "correlated subquery", "inner join", "outer join"],
+          "negative_guards": ["pl/sql triggers", "cursor"],
+          "context_hints": ["sql queries", "subqueries"]
+        },
+        {
+          "id": 853,
+          "name": "SQL Views, Set Operations and Assertions",
+          "canonical_name": "SQL Views, Set Operations and Assertions",
+          "aliases": ["SQL Views", "Set Operations in SQL"],
+          "strong_phrases": [
+            "create view in sql",
+            "updatable views",
+            "drop view",
+            "union intersect except in sql",
+            "assertions in sql",
+            "database security and authorization grant revoke"
+          ],
+          "specific_keywords": ["create view", "updatable view", "union all", "intersect", "grant revoke"],
+          "negative_guards": ["pl/sql procedure"],
+          "context_hints": ["views", "sql set operations"]
+        },
+        {
+          "id": 854,
+          "name": "PL/SQL Programming: Blocks, Procedures and Functions",
+          "canonical_name": "PL/SQL Programming: Blocks, Procedures and Functions",
+          "aliases": ["PL/SQL", "Stored Procedures and Functions"],
+          "strong_phrases": [
+            "pl/sql block structure",
+            "declare begin exception end",
+            "stored procedures in pl/sql",
+            "stored functions in pl/sql",
+            "in out in out parameters",
+            "packages in pl/sql"
+          ],
+          "specific_keywords": ["pl/sql", "stored procedure", "stored function", "in out parameter"],
+          "negative_guards": ["relational algebra sigma"],
+          "context_hints": ["pl/sql", "stored procedures"]
+        },
+        {
+          "id": 855,
+          "name": "Cursors, Triggers and Exception Handling in PL/SQL",
+          "canonical_name": "Cursors, Triggers and Exception Handling in PL/SQL",
+          "aliases": ["PL/SQL Triggers", "PL/SQL Cursors"],
+          "strong_phrases": [
+            "database triggers",
+            "before trigger after trigger",
+            "row level trigger statement level trigger",
+            "implicit cursor explicit cursor",
+            "cursor open fetch close",
+            "cursor attributes %found %notfound",
+            "user defined exceptions in pl/sql"
+          ],
+          "specific_keywords": ["database trigger", "row level trigger", "explicit cursor", "cursor %found", "%notfound"],
+          "negative_guards": ["entity relationship"],
+          "context_hints": ["triggers", "cursors", "pl/sql"]
+        }
+      ]
+    },
+    {
+      "id": 179,
+      "number": 4,
+      "name": "Database Design Theory and Normalization",
+      "topics": [
+        {
+          "id": 856,
+          "name": "Functional Dependencies and Armstrong's Axioms",
+          "canonical_name": "Functional Dependencies and Armstrong's Axioms",
+          "aliases": ["Functional Dependency", "FDs Closure"],
+          "strong_phrases": [
+            "functional dependencies",
+            "definition of functional dependency",
+            "armstrong's axioms",
+            "reflexivity augmentation transitivity",
+            "closure of functional dependencies",
+            "closure of attribute set",
+            "canonical cover of fds",
+            "minimal cover"
+          ],
+          "specific_keywords": ["functional dependency", "armstrong's axioms", "attribute closure", "canonical cover"],
+          "negative_guards": ["concurrency control", "acid"],
+          "context_hints": ["functional dependencies", "closure"]
+        },
+        {
+          "id": 857,
+          "name": "First Normal Form (1NF) and Second Normal Form (2NF)",
+          "canonical_name": "First Normal Form (1NF) and Second Normal Form (2NF)",
+          "aliases": ["1NF", "2NF", "Partial Dependency"],
+          "strong_phrases": [
+            "need for normalization",
+            "first normal form 1nf",
+            "atomic values in 1nf",
+            "second normal form 2nf",
+            "partial dependency",
+            "prime attribute non prime attribute",
+            "elimination of partial dependency"
+          ],
+          "specific_keywords": ["1nf", "2nf", "partial dependency", "atomic values", "prime attribute"],
+          "negative_guards": ["3nf", "bcnf", "4nf"],
+          "context_hints": ["1nf", "2nf", "partial dependency"]
+        },
+        {
+          "id": 858,
+          "name": "Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+          "canonical_name": "Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+          "aliases": ["3NF", "BCNF", "Transitive Dependency"],
+          "strong_phrases": [
+            "third normal form 3nf",
+            "transitive dependency",
+            "boyce codd normal form",
+            "bcnf",
+            "super key condition in bcnf",
+            "comparison between 3nf and bcnf",
+            "dependency preservation in 3nf"
+          ],
+          "specific_keywords": ["3nf", "bcnf", "transitive dependency", "superkey", "boyce codd"],
+          "negative_guards": ["4nf", "5nf"],
+          "context_hints": ["3nf", "bcnf", "transitive dependency"]
+        },
+        {
+          "id": 859,
+          "name": "Multivalued Dependencies and Fourth Normal Form (4NF)",
+          "canonical_name": "Multivalued Dependencies and Fourth Normal Form (4NF)",
+          "aliases": ["4NF", "Multivalued Dependency MVD"],
+          "strong_phrases": [
+            "fourth normal form 4nf",
+            "multivalued dependency",
+            "mvd",
+            "fagin's theorem",
+            "trivial multivalued dependency",
+            "decomposition into 4nf"
+          ],
+          "specific_keywords": ["4nf", "multivalued dependency", "mvd"],
+          "negative_guards": ["1nf", "2nf"],
+          "context_hints": ["4nf", "multivalued dependency"]
+        },
+        {
+          "id": 860,
+          "name": "Join Dependencies, Fifth Normal Form (5NF) and Lossless Decomposition",
+          "canonical_name": "Join Dependencies, Fifth Normal Form (5NF) and Lossless Decomposition",
+          "aliases": ["5NF", "Join Dependency", "Lossless Join"],
+          "strong_phrases": [
+            "fifth normal form 5nf",
+            "project join normal form pj/nf",
+            "join dependency",
+            "lossless join decomposition",
+            "lossy decomposition",
+            "dependency preserving decomposition",
+            "testing for lossless join"
+          ],
+          "specific_keywords": ["5nf", "join dependency", "lossless join", "lossy decomposition"],
+          "negative_guards": ["2pl", "two phase locking"],
+          "context_hints": ["5nf", "join dependency", "lossless decomposition"]
+        }
+      ]
+    },
+    {
+      "id": 180,
+      "number": 5,
+      "name": "Transaction Management, Concurrency Control and Storage",
+      "topics": [
+        {
+          "id": 861,
+          "name": "Transaction Concepts and ACID Properties",
+          "canonical_name": "Transaction Concepts and ACID Properties",
+          "aliases": ["ACID Properties", "Transaction States"],
+          "strong_phrases": [
+            "transaction concept",
+            "acid properties",
+            "atomicity consistency isolation durability",
+            "transaction state diagram",
+            "active partially committed committed failed aborted",
+            "commit and rollback"
+          ],
+          "specific_keywords": ["acid properties", "atomicity", "isolation", "durability", "transaction state"],
+          "negative_guards": ["ieee 754", "arm processor"],
+          "context_hints": ["transactions", "acid properties"]
+        },
+        {
+          "id": 862,
+          "name": "Serializability and Schedule Types",
+          "canonical_name": "Serializability and Schedule Types",
+          "aliases": ["Serializability", "Conflict and View Serializability"],
+          "strong_phrases": [
+            "serializability",
+            "serial schedule non serial schedule",
+            "conflict serializability",
+            "conflict equivalent schedules",
+            "precedence graph conflict serializability",
+            "view serializability",
+            "recoverable schedules",
+            "cascadeless schedules"
+          ],
+          "specific_keywords": ["serializability", "conflict serializable", "precedence graph", "recoverable schedule"],
+          "negative_guards": ["bubble sort", "quick sort"],
+          "context_hints": ["serializability", "precedence graph"]
+        },
+        {
+          "id": 863,
+          "name": "Concurrency Control and Locking Protocols",
+          "canonical_name": "Concurrency Control and Locking Protocols",
+          "aliases": ["2PL", "Two Phase Locking", "Deadlocks in DBMS"],
+          "strong_phrases": [
+            "concurrency control algorithms",
+            "lock based protocols",
+            "shared lock exclusive lock",
+            "two phase locking protocol",
+            "2pl protocol",
+            "strict 2pl rigorous 2pl",
+            "lock conversion",
+            "deadlock prevention wait die wound wait",
+            "starvation in locking"
+          ],
+          "specific_keywords": ["two-phase locking", "2pl", "strict 2pl", "wait-die", "wound-wait", "exclusive lock"],
+          "negative_guards": ["paging segmentation"],
+          "context_hints": ["concurrency control", "2pl", "locking"]
+        },
+        {
+          "id": 864,
+          "name": "Timestamp Protocols and Database Recovery Techniques",
+          "canonical_name": "Timestamp Protocols and Database Recovery Techniques",
+          "aliases": ["Timestamp Ordering", "Database Recovery", "Log Based Recovery"],
+          "strong_phrases": [
+            "timestamp based protocols",
+            "thomas write rule",
+            "validation based protocol",
+            "failures and recovery algorithms",
+            "log based recovery",
+            "write ahead logging wal",
+            "deferred database modification",
+            "immediate database modification",
+            "checkpoints in database recovery",
+            "shadow paging"
+          ],
+          "specific_keywords": ["timestamp ordering", "thomas write rule", "write-ahead logging", "checkpoint", "shadow paging"],
+          "negative_guards": ["assembler 8086"],
+          "context_hints": ["timestamp ordering", "recovery", "wal"]
+        },
+        {
+          "id": 865,
+          "name": "Storage Structures and Introduction to NoSQL Databases",
+          "canonical_name": "Storage Structures and Introduction to NoSQL Databases",
+          "aliases": ["Storage Structure", "NoSQL Databases"],
+          "strong_phrases": [
+            "storage structure in dbms",
+            "magnetic disks flash memory",
+            "buffer management in dbms",
+            "nosql databases",
+            "document oriented database",
+            "key value pairs database",
+            "column oriented database",
+            "graph database",
+            "cap theorem",
+            "polyglot persistence"
+          ],
+          "specific_keywords": ["nosql", "document oriented", "key-value", "column oriented", "graph database", "cap theorem"],
+          "negative_guards": ["pipeline hazards", "forwarding"],
+          "context_hints": ["nosql", "storage structure", "document oriented"]
+        }
+      ]
+    }
+  ]
+}

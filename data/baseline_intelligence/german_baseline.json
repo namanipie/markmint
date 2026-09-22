@@ -1,0 +1,2728 @@
+{
+  "data_availability_status": "READY",
+  "prediction_mode": "topic",
+  "has_topic_taxonomy": true,
+  "taxonomy_topic_count": 27,
+  "topic_predictions_count": 9,
+  "family_predictions_count": 133,
+  "track": {
+    "id": 1,
+    "key": "german",
+    "track_key": "german",
+    "name": "German",
+    "track_name": "German",
+    "code": "21LEH104T",
+    "track_code": "21LEH104T",
+    "track_type": "LANGUAGE"
+  },
+  "tracks": [
+    {
+      "id": 1,
+      "key": "german",
+      "track_key": "german",
+      "name": "German",
+      "track_name": "German",
+      "code": "21LEH104T",
+      "track_code": "21LEH104T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 2,
+      "key": "french",
+      "track_key": "french",
+      "name": "French",
+      "track_name": "French",
+      "code": "21LEH103T",
+      "track_code": "21LEH103T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 3,
+      "key": "spanish",
+      "track_key": "spanish",
+      "name": "Spanish",
+      "track_name": "Spanish",
+      "code": "21LEH107T",
+      "track_code": "21LEH107T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 4,
+      "key": "japanese",
+      "track_key": "japanese",
+      "name": "Japanese",
+      "track_name": "Japanese",
+      "code": "21LEH105T",
+      "track_code": "21LEH105T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 5,
+      "key": "korean",
+      "track_key": "korean",
+      "name": "Korean",
+      "track_name": "Korean",
+      "code": "21LEH106T",
+      "track_code": "21LEH106T",
+      "track_type": "LANGUAGE"
+    },
+    {
+      "id": 6,
+      "key": "chinese",
+      "track_key": "chinese",
+      "name": "Chinese",
+      "track_name": "Chinese",
+      "code": "21LEH102T",
+      "track_code": "21LEH102T",
+      "track_type": "LANGUAGE"
+    }
+  ],
+  "course": {
+    "id": 8,
+    "name": "Foreign Languages",
+    "code": "SEM1-FORE",
+    "canonical_code": "21LEH-ELECTIVE",
+    "department": "English and Foreign Languages",
+    "regulation_year": 2021,
+    "has_tracks": true,
+    "tracks": [
+      {
+        "id": 1,
+        "key": "german",
+        "track_key": "german",
+        "name": "German",
+        "track_name": "German",
+        "code": "21LEH104T",
+        "track_code": "21LEH104T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 2,
+        "key": "french",
+        "track_key": "french",
+        "name": "French",
+        "track_name": "French",
+        "code": "21LEH103T",
+        "track_code": "21LEH103T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 3,
+        "key": "spanish",
+        "track_key": "spanish",
+        "name": "Spanish",
+        "track_name": "Spanish",
+        "code": "21LEH107T",
+        "track_code": "21LEH107T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 4,
+        "key": "japanese",
+        "track_key": "japanese",
+        "name": "Japanese",
+        "track_name": "Japanese",
+        "code": "21LEH105T",
+        "track_code": "21LEH105T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 5,
+        "key": "korean",
+        "track_key": "korean",
+        "name": "Korean",
+        "track_name": "Korean",
+        "code": "21LEH106T",
+        "track_code": "21LEH106T",
+        "track_type": "LANGUAGE"
+      },
+      {
+        "id": 6,
+        "key": "chinese",
+        "track_key": "chinese",
+        "name": "Chinese",
+        "track_name": "Chinese",
+        "code": "21LEH102T",
+        "track_code": "21LEH102T",
+        "track_type": "LANGUAGE"
+      }
+    ]
+  },
+  "curriculum": {
+    "curriculum_id": "aeros-1-0",
+    "subject_name": "Communicative English/Foreign Language",
+    "branch_name": "Aerospace Engineering",
+    "semester": 1,
+    "credits": 3,
+    "status": "MATCHED",
+    "notes": null
+  },
+  "exam_history": {
+    "total_papers": 6,
+    "all_course_papers": 6,
+    "historical_papers_analyzed": 5,
+    "total_questions": 159,
+    "years": [
+      2023,
+      2024
+    ],
+    "observed_years": [
+      2023,
+      2024
+    ],
+    "unobserved_years": [],
+    "gap_years": [],
+    "available_assessment_types": [
+      "END_SEM",
+      "UNKNOWN"
+    ],
+    "available_assessment_cycles": [
+      "ALL",
+      "ENDSEM"
+    ],
+    "assessment_cycle": "ALL",
+    "target_year": 2025
+  },
+  "available_assessment_types": [
+    "END_SEM",
+    "UNKNOWN"
+  ],
+  "available_assessment_cycles": [
+    "ALL",
+    "ENDSEM"
+  ],
+  "assessment_cycle": "ALL",
+  "assessment_component": "ALL",
+  "assessment_label": "All Assessments",
+  "evidence_status": "ALL_SCOPE",
+  "intended_scope": null,
+  "observed_scope": {
+    "paper_count": 6,
+    "total_questions": 191,
+    "mapped_questions_count": 24,
+    "unmapped_questions_count": 167,
+    "questions_with_known_marks": 181,
+    "questions_with_unknown_marks": 10,
+    "known_marks_total": 510.0,
+    "mapping_rate": 12.57,
+    "unit_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "topic_names": [
+      "Familie und Verwandtschaftsverh\u00e4ltnisse",
+      "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+      "L\u00e4nder, Sprachen und Wohnort",
+      "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+      "Negation mit kein und nicht",
+      "Pr\u00e4teritum von sein und haben",
+      "Trennbare und Untrennbare Verben",
+      "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+      "Wochentage, Monate und Jahreszeiten"
+    ],
+    "question_count_by_unit": {
+      "1": 6,
+      "2": 1,
+      "3": 3,
+      "4": 1,
+      "5": 13
+    },
+    "marks_by_unit": {
+      "1": 17.0,
+      "2": 8.0,
+      "3": 16.0,
+      "4": 8.0,
+      "5": 33.0
+    },
+    "papers": [
+      {
+        "exam_id": 48,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "German - PYQ 2023 Dec",
+        "total_questions": 32,
+        "mapped_questions": 3,
+        "unmapped_questions": 29,
+        "mapping_rate": 9.38,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 27,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "5": 2
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "5": 2.0
+        }
+      },
+      {
+        "exam_id": 49,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "German - PYQ 2023 Jan",
+        "total_questions": 32,
+        "mapped_questions": 2,
+        "unmapped_questions": 30,
+        "mapping_rate": 6.25,
+        "known_marks_total": 75.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          3
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "3": 1
+        },
+        "marks_by_unit": {
+          "3": 8.0
+        }
+      },
+      {
+        "exam_id": 50,
+        "year": 2023,
+        "raw_assessment_type": "UNKNOWN",
+        "normalized_code": "ENDSEM",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "German - PYQ 2023 July",
+        "total_questions": 32,
+        "mapped_questions": 6,
+        "unmapped_questions": 26,
+        "mapping_rate": 18.75,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "4": 1,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "4": 8.0,
+          "5": 3.0
+        }
+      },
+      {
+        "exam_id": 51,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "German - PYQ 2023 May",
+        "total_questions": 31,
+        "mapped_questions": 2,
+        "unmapped_questions": 29,
+        "mapping_rate": 6.45,
+        "known_marks_total": 75.0,
+        "questions_with_known_marks": 31,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          5
+        ],
+        "question_count_by_unit": {
+          "5": 2
+        },
+        "marks_by_unit": {
+          "5": 16.0
+        }
+      },
+      {
+        "exam_id": 52,
+        "year": 2024,
+        "raw_assessment_type": "UNKNOWN",
+        "normalized_code": "ENDSEM",
+        "identification_source": "document_title",
+        "identification_confidence": 0.9,
+        "document_title": "German - PYQ 2024 Jan",
+        "total_questions": 32,
+        "mapped_questions": 4,
+        "unmapped_questions": 28,
+        "mapping_rate": 12.5,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 1,
+          "2": 1,
+          "5": 2
+        },
+        "marks_by_unit": {
+          "2": 8.0,
+          "5": 2.0
+        }
+      },
+      {
+        "exam_id": 127,
+        "year": null,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Foreign Languages - SKM_750i23120504120.pdf",
+        "total_questions": 32,
+        "mapped_questions": 7,
+        "unmapped_questions": 25,
+        "mapping_rate": 21.88,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 27,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1,
+          3,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "3": 2,
+          "5": 3
+        },
+        "marks_by_unit": {
+          "1": 16.0,
+          "3": 8.0,
+          "5": 10.0
+        }
+      }
+    ]
+  },
+  "assessment_scope": {
+    "student_cycle": "ALL",
+    "component_code": "ALL",
+    "component_label": "All Assessments",
+    "student_label": "All Assessments",
+    "role": null,
+    "marks": null,
+    "evidence_status": "ALL_SCOPE",
+    "intended_scope": null,
+    "observed_scope": {
+      "paper_count": 6,
+      "total_questions": 191,
+      "mapped_questions_count": 24,
+      "unmapped_questions_count": 167,
+      "questions_with_known_marks": 181,
+      "questions_with_unknown_marks": 10,
+      "known_marks_total": 510.0,
+      "mapping_rate": 12.57,
+      "unit_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "topic_names": [
+        "Familie und Verwandtschaftsverh\u00e4ltnisse",
+        "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+        "L\u00e4nder, Sprachen und Wohnort",
+        "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+        "Negation mit kein und nicht",
+        "Pr\u00e4teritum von sein und haben",
+        "Trennbare und Untrennbare Verben",
+        "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+        "Wochentage, Monate und Jahreszeiten"
+      ],
+      "question_count_by_unit": {
+        "1": 6,
+        "2": 1,
+        "3": 3,
+        "4": 1,
+        "5": 13
+      },
+      "marks_by_unit": {
+        "1": 17.0,
+        "2": 8.0,
+        "3": 16.0,
+        "4": 8.0,
+        "5": 33.0
+      },
+      "papers": [
+        {
+          "exam_id": 48,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "German - PYQ 2023 Dec",
+          "total_questions": 32,
+          "mapped_questions": 3,
+          "unmapped_questions": 29,
+          "mapping_rate": 9.38,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 27,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "5": 2
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "5": 2.0
+          }
+        },
+        {
+          "exam_id": 49,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "German - PYQ 2023 Jan",
+          "total_questions": 32,
+          "mapped_questions": 2,
+          "unmapped_questions": 30,
+          "mapping_rate": 6.25,
+          "known_marks_total": 75.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            3
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "3": 1
+          },
+          "marks_by_unit": {
+            "3": 8.0
+          }
+        },
+        {
+          "exam_id": 50,
+          "year": 2023,
+          "raw_assessment_type": "UNKNOWN",
+          "normalized_code": "ENDSEM",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "German - PYQ 2023 July",
+          "total_questions": 32,
+          "mapped_questions": 6,
+          "unmapped_questions": 26,
+          "mapping_rate": 18.75,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "4": 1,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "4": 8.0,
+            "5": 3.0
+          }
+        },
+        {
+          "exam_id": 51,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "German - PYQ 2023 May",
+          "total_questions": 31,
+          "mapped_questions": 2,
+          "unmapped_questions": 29,
+          "mapping_rate": 6.45,
+          "known_marks_total": 75.0,
+          "questions_with_known_marks": 31,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            5
+          ],
+          "question_count_by_unit": {
+            "5": 2
+          },
+          "marks_by_unit": {
+            "5": 16.0
+          }
+        },
+        {
+          "exam_id": 52,
+          "year": 2024,
+          "raw_assessment_type": "UNKNOWN",
+          "normalized_code": "ENDSEM",
+          "identification_source": "document_title",
+          "identification_confidence": 0.9,
+          "document_title": "German - PYQ 2024 Jan",
+          "total_questions": 32,
+          "mapped_questions": 4,
+          "unmapped_questions": 28,
+          "mapping_rate": 12.5,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 1,
+            "2": 1,
+            "5": 2
+          },
+          "marks_by_unit": {
+            "2": 8.0,
+            "5": 2.0
+          }
+        },
+        {
+          "exam_id": 127,
+          "year": null,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Foreign Languages - SKM_750i23120504120.pdf",
+          "total_questions": 32,
+          "mapped_questions": 7,
+          "unmapped_questions": 25,
+          "mapping_rate": 21.88,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 27,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1,
+            3,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "3": 2,
+            "5": 3
+          },
+          "marks_by_unit": {
+            "1": 16.0,
+            "3": 8.0,
+            "5": 10.0
+          }
+        }
+      ]
+    },
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - SEM1-FORE Foreign Languages",
+    "unit_numbers": [],
+    "total_in_scope_topics": 0,
+    "observed_in_scope_topics": 9,
+    "unobserved_in_scope_topics": [],
+    "out_of_scope_observed_topics": []
+  },
+  "predictions": [
+    {
+      "rank": 1,
+      "name": "Pr\u00e4teritum von sein und haben",
+      "category": "topic",
+      "score": 0.09815251572327044,
+      "prediction_score": 0.0982,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 15.0,
+      "total_marks_observed": 15.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 15.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.3125,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 15.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.3125,
+        "average_marks": 15.0
+      },
+      "topic_id": 576,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+      "category": "topic",
+      "score": 0.06831761006289308,
+      "prediction_score": 0.0683,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 7,
+      "historical_occurrences": 7,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.044,
+      "recency_score": 0.044,
+      "marks_score": 0.125,
+      "evidence_count": 7,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 7 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0440251572327044,
+        "hist_freq": 0.0440251572327044,
+        "occurrences": 7,
+        "total_marks": 6.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 4,
+        "marks_weight": 0.125,
+        "average_marks": 1.0
+      },
+      "topic_id": 572,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Negation mit kein und nicht",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 564,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 571,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 557,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2024
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "L\u00e4nder, Sprachen und Wohnort",
+      "category": "topic",
+      "score": 0.013207547169811321,
+      "prediction_score": 0.0132,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.0,
+      "total_marks_observed": 0.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 0.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0189,
+      "recency_score": 0.0189,
+      "marks_score": 0.0,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 0 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.018867924528301886,
+        "hist_freq": 0.018867924528301886,
+        "occurrences": 3,
+        "total_marks": 0.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.0,
+        "average_marks": 0.0
+      },
+      "topic_id": 553,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Wochentage, Monate und Jahreszeiten",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 555,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Trennbare und Untrennbare Verben",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 573,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Familie und Verwandtschaftsverh\u00e4ltnisse",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 575,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2024
+      ]
+    }
+  ],
+  "topic_predictions": [
+    {
+      "rank": 1,
+      "name": "Pr\u00e4teritum von sein und haben",
+      "category": "topic",
+      "score": 0.09815251572327044,
+      "prediction_score": 0.0982,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 15.0,
+      "total_marks_observed": 15.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 15.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.3125,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 15.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.3125,
+        "average_marks": 15.0
+      },
+      "topic_id": 576,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+      "category": "topic",
+      "score": 0.06831761006289308,
+      "prediction_score": 0.0683,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 4,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 6.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 7,
+      "historical_occurrences": 7,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 6.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.044,
+      "recency_score": 0.044,
+      "marks_score": 0.125,
+      "evidence_count": 7,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 7 historical question(s) representing 6 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.0440251572327044,
+        "hist_freq": 0.0440251572327044,
+        "occurrences": 7,
+        "total_marks": 6.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 4,
+        "marks_weight": 0.125,
+        "average_marks": 1.0
+      },
+      "topic_id": 572,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Negation mit kein und nicht",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 564,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 571,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+      "category": "topic",
+      "score": 0.054402515723270435,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 8.0,
+      "total_marks_observed": 8.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 8.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.1667,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 8.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.16666666666666666,
+        "average_marks": 8.0
+      },
+      "topic_id": 557,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2024
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "L\u00e4nder, Sprachen und Wohnort",
+      "category": "topic",
+      "score": 0.013207547169811321,
+      "prediction_score": 0.0132,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.0,
+      "total_marks_observed": 0.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 0.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0189,
+      "recency_score": 0.0189,
+      "marks_score": 0.0,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 3 historical question(s) representing 0 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.018867924528301886,
+        "hist_freq": 0.018867924528301886,
+        "occurrences": 3,
+        "total_marks": 0.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 3,
+        "marks_weight": 0.0,
+        "average_marks": 0.0
+      },
+      "topic_id": 553,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Wochentage, Monate und Jahreszeiten",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 555,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Trennbare und Untrennbare Verben",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 573,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        }
+      ],
+      "historical_years": [
+        2023
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Familie und Verwandtschaftsverh\u00e4ltnisse",
+      "category": "topic",
+      "score": 0.01065251572327044,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 1,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.2,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.0,
+      "total_marks_observed": 1.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 1,
+      "historical_occurrences": 1,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 1.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0063,
+      "marks_score": 0.0208,
+      "evidence_count": 1,
+      "reason_codes": [
+        "LOW_EVIDENCE"
+      ],
+      "explanation": "Appeared in 1 question(s). Limited examination history (5 paper(s) indexed).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.006289308176100629,
+        "hist_freq": 0.006289308176100629,
+        "occurrences": 1,
+        "total_marks": 1.0,
+        "paper_coverage": 0.2,
+        "papers_with_topic": 1,
+        "marks_weight": 0.020833333333333332,
+        "average_marks": 1.0
+      },
+      "topic_id": 575,
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2024
+      ]
+    }
+  ],
+  "family_predictions": [
+    {
+      "rank": 1,
+      "name": "22. a. Schreiben Sie die Zahlen in W\u00f6rter.\n    (i) 24676\n    (ii) 567951\n    (iii) 45796\n    (iv) 25896\n    (v) 45789\n    (vi) 54963\n    (vii) 8796\n    (viii) 98756\n    --- OR ---\n    22. b. Lesen Sie. Schreiben Sie die Daten ins Formular\n        (i) Helen Schmitz ist vierzig Jahre alt. Er ist am 6. Februar 1979 in der Schweiz geboren. Er kommt aus Z\u00fcrich: Seit zwei Jahre wohnt er in Filderhauptstra\u00dfe 12, 70599 Stuttgart. Er ist Professor an Steinbeis Business Academy. Er interessiert sich f\u00fcr Filme. Sein Lieblingsfilm ist \u2013 Das Leben der Anderen. Er macht viel Sport auch. Am Wochenende spielt er gern Fu\u00dfball auf dem Spielplatz. Am sonntags geht er ins Restaurant mit Freunden. Linsen und Sp\u00e4tzle isst er gern.",
+      "category": "family",
+      "score": 4.0,
+      "prediction_score": 4.0,
+      "probability": 0.4286,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 2310,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023,
+        2024
+      ],
+      "average_marks": 8.0,
+      "total_marks_observed": 16.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1491,
+        1492,
+        1522,
+        1523
+      ],
+      "historyCount": 4,
+      "historical_occurrences": 4,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": 16.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 4,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 4 historical occurrence(s) across 2 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 2310,
+        "occurrences": 4,
+        "sample_size": 4,
+        "distinct_paper_count": 2,
+        "interval": 1.0,
+        "last_seen": "2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "average_marks": 8.0,
+        "total_marks": 16.0,
+        "question_ids": [
+          1491,
+          1492,
+          1522,
+          1523
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "23. Schreiben Sie die Uhrzeit:\n    (i) 06.40\n    (ii) 02.15\n    (iii) 07.10\n    (iv) 10.45\n    (v) 20.30\n    (vi) 17.45\n    (vii) 14.30\n    (viii) 23.55\n    --- OR ---\n    23. Schreiben Sie acht S\u00e4tze \u00fcber Ihr/e Freund/Freundin auf Deutsch.",
+      "category": "family",
+      "score": 3.0,
+      "prediction_score": 3.0,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": 3,
+      "papers_with_family": 3,
+      "paper_coverage": 0.6,
+      "family_id": 2280,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023,
+        2024
+      ],
+      "average_marks": 8.0,
+      "total_marks_observed": 24.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1461,
+        1493,
+        1524
+      ],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": 24.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 2280,
+        "occurrences": 3,
+        "sample_size": 3,
+        "distinct_paper_count": 3,
+        "interval": 1.0,
+        "last_seen": "2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "average_marks": 8.0,
+        "total_marks": 24.0,
+        "question_ids": [
+          1461,
+          1493,
+          1524
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "23. Schreiben Sie acht S\u00e4tze \u00fcber Ihr/e Freund/Freundin auf Deutsch.",
+      "category": "family",
+      "score": 3.0,
+      "prediction_score": 3.0,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 3,
+      "distinct_paper_count": 3,
+      "papers_with_family": 3,
+      "paper_coverage": 0.6,
+      "family_id": 2281,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023,
+        2024
+      ],
+      "average_marks": null,
+      "total_marks_observed": null,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1462,
+        1494,
+        1525
+      ],
+      "historyCount": 3,
+      "historical_occurrences": 3,
+      "recent_occurrences": 0,
+      "last_seen_year": 2024,
+      "lastSeen": "2024",
+      "marks_seen": null,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 3,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 5 examination papers, last seen in 2024.",
+      "evidence_details": {
+        "family_id": 2281,
+        "occurrences": 3,
+        "sample_size": 3,
+        "distinct_paper_count": 3,
+        "interval": 1.0,
+        "last_seen": "2024",
+        "years": [
+          2023,
+          2024
+        ],
+        "average_marks": null,
+        "total_marks": null,
+        "question_ids": [
+          1462,
+          1494,
+          1525
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023,
+        2024
+      ],
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "15. Das ist __________ Schokolade, das ist ein Bleistift. (A) kein (B) keine (C) keinen (D) keinem",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.4286,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 2209,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1387,
+        1415
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 5 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2209,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 1.0,
+        "total_marks": 2.0,
+        "question_ids": [
+          1387,
+          1415
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "4. In Finnland spricht man _____.\n    (A) Polnisch\n    (B) Finnisch\n    (C) Ungarisch\n    (D) Deutsch",
+      "category": "family",
+      "score": 2.0,
+      "prediction_score": 2.0,
+      "probability": 0.4286,
+      "confidence": "INSUFFICIENT",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 5,
+      "papers_with_topic": 2,
+      "distinct_paper_count": 2,
+      "papers_with_family": 2,
+      "paper_coverage": 0.4,
+      "family_id": 2230,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2023
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        1408,
+        1440
+      ],
+      "historyCount": 2,
+      "historical_occurrences": 2,
+      "recent_occurrences": 0,
+      "last_seen_year": 2023,
+      "lastSeen": "2023",
+      "marks_seen": 2.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 2,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 2 historical occurrence(s) across 2 of 5 examination papers, last seen in 2023.",
+      "evidence_details": {
+        "family_id": 2230,
+        "occurrences": 2,
+        "sample_size": 2,
+        "distinct_paper_count": 2,
+        "interval": 0.0,
+        "last_seen": "2023",
+        "years": [
+          2023
+        ],
+        "average_marks": 1.0,
+        "total_marks": 2.0,
+        "question_ids": [
+          1408,
+          1440
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2023
+      ],
+      "timeline": [
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        }
+      ]
+    }
+  ],
+  "study_priorities": [
+    {
+      "order": 1,
+      "topic": "Pr\u00e4teritum von sein und haben",
+      "name": "Pr\u00e4teritum von sein und haben",
+      "topic_id": 576,
+      "prediction_score": 0.0982,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Pr\u00e4teritum von sein und haben",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 2,
+      "topic": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+      "name": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+      "topic_id": 572,
+      "prediction_score": 0.0683,
+      "probability": 0.7143,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 9
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 3,
+      "topic": "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+      "name": "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+      "topic_id": 557,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 4,
+      "topic": "Negation mit kein und nicht",
+      "name": "Negation mit kein und nicht",
+      "topic_id": 564,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Negation mit kein und nicht",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 3
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 5,
+      "topic": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+      "name": "Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+      "topic_id": 571,
+      "prediction_score": 0.0544,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Uhrzeit: Offizielle und Inoffizielle Zeitangaben",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 6,
+      "topic": "L\u00e4nder, Sprachen und Wohnort",
+      "name": "L\u00e4nder, Sprachen und Wohnort",
+      "topic_id": 553,
+      "prediction_score": 0.0132,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for L\u00e4nder, Sprachen und Wohnort",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 7,
+      "topic": "Familie und Verwandtschaftsverh\u00e4ltnisse",
+      "name": "Familie und Verwandtschaftsverh\u00e4ltnisse",
+      "topic_id": 575,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Familie und Verwandtschaftsverh\u00e4ltnisse",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 8,
+      "topic": "Trennbare und Untrennbare Verben",
+      "name": "Trennbare und Untrennbare Verben",
+      "topic_id": 573,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Trennbare und Untrennbare Verben",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 9,
+      "topic": "Wochentage, Monate und Jahreszeiten",
+      "name": "Wochentage, Monate und Jahreszeiten",
+      "topic_id": 555,
+      "prediction_score": 0.0107,
+      "probability": 0.2857,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Wochentage, Monate und Jahreszeiten",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    }
+  ],
+  "coverage_summary": {
+    "total_predicted_topics": 9,
+    "mastered_topics": 0,
+    "in_progress_topics": 0,
+    "unstudied_topics": 9,
+    "student_preparation_coverage": 0.0,
+    "coverage_gap_topics": [],
+    "high_priority_gap_count": 0,
+    "mastered_topic_count": 0,
+    "in_progress_count": 0,
+    "unstudied_count": 9
+  },
+  "exam_schedule": null,
+  "metadata": {
+    "model_version": "2.2.0",
+    "taxonomy_version": "2.0.0",
+    "engine_version": "mintai-v2",
+    "corpus_version": "2026.1",
+    "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+    "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+    "sufficiency": "moderate",
+    "generated_at": "2026-09-21T16:35:34.792235",
+    "latency_ms": 1.41,
+    "cache_hit": true
+  }
+}

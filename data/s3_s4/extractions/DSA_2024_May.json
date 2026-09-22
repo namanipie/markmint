@@ -1,0 +1,532 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Which of the following case does not exist in complexity theory?\n(A) Best case\n(B) Worst case\n(C) Average case\n(D) Base case [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Which of the following case does not exist in complexity theory?\n(A) Best case\n(B) Worst case\n(C) Average case\n(D) Base case",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. How many times the following code prints the string \"hello\"\nfor (i = 1; i<=50; i++)\n    printf(\"hello\");\n(A) 1\n(B) 50\n(C) Zero\n(D) 49 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "How many times the following code prints the string \"hello\"\nfor (i = 1; i<=50; i++)\n    printf(\"hello\");\n(A) 1\n(B) 50\n(C) Zero\n(D) 49",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Elements in an array are accessed ____________\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Elements in an array are accessed ____________\n(A) Randomly\n(B) Sequentially\n(C) Exponentially\n(D) Logarithmically",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Which loop is guaranteed to execute at least one time\n(A) For\n(B) While\n(C) Do while\n(D) Both for and while [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Which loop is guaranteed to execute at least one time\n(A) For\n(B) While\n(C) Do while\n(D) Both for and while",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Linked list data structure offers considerable saving in _________\n(A) Computational time\n(B) Space utilization\n(C) Space utilization and computational time\n(D) Speed utilization [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Linked list data structure offers considerable saving in _________\n(A) Computational time\n(B) Space utilization\n(C) Space utilization and computational time\n(D) Speed utilization",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which of the following is false about a double linked list?\n(A) Navigate in both the directions\n(B) It requires more space than a singly linked list\n(C) The insertion and deletion of a node take a bit longer\n(D) Implementing a double LL is easier than SLL [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which of the following is false about a double linked list?\n(A) Navigate in both the directions\n(B) It requires more space than a singly linked list\n(C) The insertion and deletion of a node take a bit longer\n(D) Implementing a double LL is easier than SLL",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following application makes use of a circular linked list?\n(A) Undo operation in a text editor\n(B) Recursive function calls\n(C) Allocating CPU to resources\n(D) Implement hash tables [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following application makes use of a circular linked list?\n(A) Undo operation in a text editor\n(B) Recursive function calls\n(C) Allocating CPU to resources\n(D) Implement hash tables",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. What is the functionality of the below code:\npublic void function (Node node)\n{\n    if (size == 0)\n        head = node;\n    else\n    {\n        Node temp, cur;\n        for cur = head; (temp = cur.getNext() != null; cur = temp)    cur.setNext (node);\n    }\n    size ++;\n}\n(A) Inserting a node at the beginning of the list\n(B) Deleting a node at the beginning of the list\n(C) Inserting a node at the end of the list\n(D) Deleting a node at the end of the list [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "What is the functionality of the below code:\npublic void function (Node node)\n{\n    if (size == 0)\n        head = node;\n    else\n    {\n        Node temp, cur;\n        for cur = head; (temp = cur.getNext() != null; cur = temp)    cur.setNext (node);\n    }\n    size ++;\n}\n(A) Inserting a node at the beginning of the list\n(B) Deleting a node at the beginning of the list\n(C) Inserting a node at the end of the list\n(D) Deleting a node at the end of the list",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What does the following function check for?\n#define max 10\ntypedef struct stack\n{\n    int top;\n    int item [max];\n} stack;\nint function (stack *s)\n{\n    if (s->top == -1)\n        return 1;\n    else\n        return 0;\n}\n(A) Full stack\n(B) Invalid stack\n(C) Empty stack\n(D) Infinite stack [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What does the following function check for?\n#define max 10\ntypedef struct stack\n{\n    int top;\n    int item [max];\n} stack;\nint function (stack *s)\n{\n    if (s->top == -1)\n        return 1;\n    else\n        return 0;\n}\n(A) Full stack\n(B) Invalid stack\n(C) Empty stack\n(D) Infinite stack",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. The postfix form of the expression $(A + B) * (C * D - E) * F / G$\n(A) $AB + CD * E - FG / **$\n(B) $AB + CD * E - F ** G /$\n(C) $AB + CD * E - * F * G /$\n(D) $AB + CDE * - * F * G /$ [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "The postfix form of the expression $(A + B) * (C * D - E) * F / G$\n(A) $AB + CD * E - FG / **$\n(B) $AB + CD * E - F ** G /$\n(C) $AB + CD * E - * F * G /$\n(D) $AB + CDE * - * F * G /$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. A linear list of elements in which deletion can be done from one end and insertion can take in place only at the other end is known as\n(A) Queue\n(B) Stack\n(C) Tree\n(D) Linked list [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "A linear list of elements in which deletion can be done from one end and insertion can take in place only at the other end is known as\n(A) Queue\n(B) Stack\n(C) Tree\n(D) Linked list",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. A data structure in which elements can be inserted or deleted at / from both ends but not in the middle is?\n(A) Queue\n(B) Circular queue\n(C) Dequeue\n(D) Priority queue [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "A data structure in which elements can be inserted or deleted at / from both ends but not in the middle is?\n(A) Queue\n(B) Circular queue\n(C) Dequeue\n(D) Priority queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Find the pre-order traversal sequence.\n(A) HIDEGFJKGCA\n(B) HDIBEAFCJGK\n(C) ABDHIECFGJK\n(D) ABCDEFGHIJK [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Find the pre-order traversal sequence.\n(A) HIDEGFJKGCA\n(B) HDIBEAFCJGK\n(C) ABDHIECFGJK\n(D) ABCDEFGHIJK",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. What is direct addressing?\n(A) Distinct array position for every possible key\n(B) Fewer array positions than keys\n(C) Fewer keys than array positions\n(D) Same array position for all keys [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "What is direct addressing?\n(A) Distinct array position for every possible key\n(B) Fewer array positions than keys\n(C) Fewer keys than array positions\n(D) Same array position for all keys",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. A binary search tree contains values $7, 8, 13, 26, 35, 40, 70, 75$. Which one of the following is a valid post order sequence of the tree provided the pre-order sequence as $35, 13, 7, 8, 26, 70, 40$ and $75$?\n(A) $7, 8, 26, 13, 75, 40, 70, 35$\n(B) $26, 13, 7, 8, 70, 75, 40, 35$\n(C) $7, 8, 13, 26, 35, 40, 70, 75$\n(D) $8, 7, 26, 13, 40, 75, 70, 35$ [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "A binary search tree contains values $7, 8, 13, 26, 35, 40, 70, 75$. Which one of the following is a valid post order sequence of the tree provided the pre-order sequence as $35, 13, 7, 8, 26, 70, 40$ and $75$?\n(A) $7, 8, 26, 13, 75, 40, 70, 35$\n(B) $26, 13, 7, 8, 70, 75, 40, 35$\n(C) $7, 8, 13, 26, 35, 40, 70, 75$\n(D) $8, 7, 26, 13, 40, 75, 70, 35$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What data organization method is used in hash tables?\n(A) Stack\n(B) Array\n(C) Linked list\n(D) Queue [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What data organization method is used in hash tables?\n(A) Stack\n(B) Array\n(C) Linked list\n(D) Queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What would be the number of zero in the adjacency matrix of the given graph?\n(A) 10\n(B) 6\n(C) 16\n(D) 0 [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What would be the number of zero in the adjacency matrix of the given graph?\n(A) 10\n(B) 6\n(C) 16\n(D) 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following is not a topological sorting of the given graph?\n(A) ABCDEF\n(B) ABFEDC\n(C) ABECFD\n(D) ABCDFE [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following is not a topological sorting of the given graph?\n(A) ABCDEF\n(B) ABFEDC\n(C) ABECFD\n(D) ABCDFE",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The travelling salesman problem can be solved using.\n(A) Spanning tree\n(B) A minimum spanning tree\n(C) Bellman-Ford algorithm\n(D) DFS traversal [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The travelling salesman problem can be solved using.\n(A) Spanning tree\n(B) A minimum spanning tree\n(C) Bellman-Ford algorithm\n(D) DFS traversal",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Consider the graph... What is the total cost of minimum spanning tree using Kruskals algorithm?\n(A) 24\n(B) 23\n(C) 15\n(D) 19 [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Consider the graph... What is the total cost of minimum spanning tree using Kruskals algorithm?\n(A) 24\n(B) 23\n(C) 15\n(D) 19",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. a. How arrays can be created dynamically? Prove how it improves the performance of a program. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "a. How arrays can be created dynamically? Prove how it improves the performance of a program.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "b. Write a 'C' program to store students information using structures. How effectively improved using pointers?",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. b. Write a 'C' program to store students information using structures. How effectively improved using pointers? [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "b. Write a 'C' program to store students information using structures. How effectively improved using pointers?",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. a. Consider an array $A[1:n]$. Given a position, write an algorithm to insert an element in the array. If the position is empty, the element is inserted easily. If the position is already occupied the element should be inserted with the minimum number of shifts. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "a. Consider an array $A[1:n]$. Given a position, write an algorithm to insert an element in the array. If the position is empty, the element is inserted easily. If the position is already occupied the element should be inserted with the minimum number of shifts.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "b. Describe the following\n(i) Applications of list\n(ii) Polynomial manipulation",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. b. Describe the following\n(i) Applications of list\n(ii) Polynomial manipulation [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "b. Describe the following\n(i) Applications of list\n(ii) Polynomial manipulation",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. a. Develop and show the simulation using stack for evaluation of the following expression: $12 + 3 * 14 - (5 * 16) + 7$. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "a. Develop and show the simulation using stack for evaluation of the following expression: $12 + 3 * 14 - (5 * 16) + 7$.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "b. Illustrate the steps to insert the following elements step by step in sequence into an empty AVL tree $15, 18, 20, 21, 28, 23, 30, 26$.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. b. Illustrate the steps to insert the following elements step by step in sequence into an empty AVL tree $15, 18, 20, 21, 28, 23, 30, 26$. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "b. Illustrate the steps to insert the following elements step by step in sequence into an empty AVL tree $15, 18, 20, 21, 28, 23, 30, 26$.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. a. Consider the binary search tree given below: Show the result of in-order, pre-order and post-order traversal. Show the deletion of the root node and insert $11, 22, 33, 44, 55, 66$ and $77$ in the tree. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "a. Consider the binary search tree given below: Show the result of in-order, pre-order and post-order traversal. Show the deletion of the root node and insert $11, 22, 33, 44, 55, 66$ and $77$ in the tree.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "b. Illustrate how different notations performed on a AVL tree with suitable example and routines.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. b. Illustrate how different notations performed on a AVL tree with suitable example and routines. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "b. Illustrate how different notations performed on a AVL tree with suitable example and routines.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. a. Illustrate the algorithm to compute the shortest path using Dijkstra's algorithm. Validate the algorithm with suitable example. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "a. Illustrate the algorithm to compute the shortest path using Dijkstra's algorithm. Validate the algorithm with suitable example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "b. Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. Trace the algorithm for the following graph.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. b. Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. Trace the algorithm for the following graph. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "b. Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. Trace the algorithm for the following graph.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Given input $\\{4371, 1323, 6173, 4199, 4344, 9679, 1989\\}$ and a hash function $h(x) = x \\bmod 10$, show the resulting\n(i) Open hash table\n(ii) Closed hash table using linear probing\n(iii) Closed hash table using quadratic probing [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Given input $\\{4371, 1323, 6173, 4199, 4344, 9679, 1989\\}$ and a hash function $h(x) = x \\bmod 10$, show the resulting\n(i) Open hash table\n(ii) Closed hash table using linear probing\n(iii) Closed hash table using quadratic probing",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Apply an appropriate algorithm to find the shortest path from 'A' to every other node of A. For the given graph",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

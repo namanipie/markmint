@@ -36,12 +36,18 @@
             "n-type silicon",
             "p-type silicon",
             "conductivity of semiconductors",
-            "dopant concentration"
+            "dopant concentration",
+            "doped with donor impurities",
+            "intrinsic carrier concentration of silicon",
+            "donor impurity concentration",
+            "acceptor impurity concentration"
           ],
           "specific_keywords": [
             "doping",
             "donor impurities",
-            "acceptor impurities"
+            "acceptor impurities",
+            "doped with donor",
+            "intrinsic carrier concentration"
           ],
           "negative_guards": [
             "pn junction",
@@ -68,12 +74,20 @@
             "mass action law",
             "mass-action law",
             "intrinsic carrier concentration",
-            "energy distribution and fermi level"
+            "energy distribution and fermi level",
+            "define fermi energy and fermi energy level",
+            "fermi energy level position",
+            "fermi level for intrinsic p-type and n-type",
+            "forbidden energy gap of silicon",
+            "forbidden energy gap of germanium",
+            "energy band diagram of semiconductor"
           ],
           "specific_keywords": [
             "fermi level",
             "fermi energy",
-            "mass action law"
+            "mass action law",
+            "fermi energy level position",
+            "forbidden energy gap of silicon"
           ],
           "negative_guards": [
             "drift current",
@@ -134,13 +148,29 @@
             "bjt act as the amplifier",
             "depletion mosfet",
             "enhancement mosfet",
-            "mosfet is in saturation mode"
+            "mosfet is in saturation mode",
+            "construction of n channel e-mosfet",
+            "e-mosfet operation and applications",
+            "drain characteristics of jfet",
+            "gate oxide isolates gate terminal",
+            "fin structure double gate effective width",
+            "operation of npn transistor in active saturation and cutoff",
+            "input and output characteristics of common emitter configuration",
+            "relation between current gains alpha and beta in bjt",
+            "working principle of enhancement and depletion mosfet"
           ],
           "specific_keywords": [
             "pn junction",
             "pn-junction",
             "bjt",
-            "mosfet"
+            "mosfet",
+            "n channel e-mosfet",
+            "e-mosfet",
+            "gate oxide isolates",
+            "npn transistor",
+            "common emitter",
+            "current gain alpha and beta",
+            "mosfet characteristics"
           ],
           "negative_guards": [
             "power bjt",
@@ -168,12 +198,19 @@
             "double gate mosfet",
             "finfet",
             "nano mosfets",
-            "igfet"
+            "igfet",
+            "difference between npn and pnp transistor",
+            "npn and pnp transistor",
+            "eb junction and cb junction reverse biased",
+            "transistor in active cut-off saturation",
+            "current gain alpha and beta of bjt"
           ],
           "specific_keywords": [
             "finfet",
             "soi mosfet",
-            "scaling of mosfet"
+            "scaling of mosfet",
+            "difference between npn and pnp",
+            "npn and pnp transistor"
           ],
           "negative_guards": [
             "power bjt",
@@ -233,13 +270,18 @@
             "schottky diode",
             "impatt diode",
             "operating characteristics of power diodes",
-            "reverse recovery time of power diode"
+            "reverse recovery time of power diode",
+            "working principle and vi characteristics of gunn diode",
+            "gunn effect and transferred electron mechanism",
+            "impatt diode working and applications in microwaves",
+            "schottky barrier diode construction and characteristics"
           ],
           "specific_keywords": [
             "schottky diode",
             "gunn diode",
             "impatt diode",
-            "power diode"
+            "power diode",
+            "gunn effect"
           ],
           "negative_guards": [
             "thyristor",
@@ -265,12 +307,27 @@
             "pnpn diode",
             "two transistor analogy of scr",
             "turn on and turn off methods of thyristor",
-            "gate triggering of scr"
+            "gate triggering of scr",
+            "turn on the scr we need to provide gate current",
+            "latching current and holding current",
+            "minimum current required to trigger the device from off to on",
+            "vi characteristics of scr",
+            "two transistor analogy of scr",
+            "two transistor analogy of silicon controlled rectifier scr",
+            "vi characteristics of thyristor scr",
+            "latching current and holding current in scr",
+            "turn-on and turn-off methods of scr"
           ],
           "specific_keywords": [
             "thyristor",
             "silicon controlled rectifier",
-            "pnpn diode"
+            "pnpn diode",
+            "turn on the scr",
+            "latching current and holding",
+            "trigger the device from off to on",
+            "scr characteristics",
+            "latching current",
+            "holding current"
           ],
           "negative_guards": [
             "fabrication process",
@@ -295,11 +352,17 @@
             "switching characteristics of power bjt",
             "switching characteristics of power mosfet",
             "safe operating area of power bjt",
-            "quasi saturation in power bjt"
+            "quasi saturation in power bjt",
+            "salient features of power transistor",
+            "power bjt switching characteristics",
+            "safe operating area of power transistor",
+            "switching losses in power mosfet"
           ],
           "specific_keywords": [
             "power bjt",
-            "power mosfet"
+            "power mosfet",
+            "salient features of power transistor",
+            "power bjt switching"
           ],
           "negative_guards": [
             "monolithic fabrication",
@@ -361,12 +424,19 @@
             "bridge rectifier",
             "rectifier using scr",
             "ripple factor of rectifier",
-            "efficiency of rectifier"
+            "efficiency of rectifier",
+            "full wave bridge rectifier with capacitor filter circuit",
+            "ripple factor and efficiency of full wave rectifier",
+            "half wave and full wave rectifier working and waveforms",
+            "regulated power supply block diagram and components"
           ],
           "specific_keywords": [
             "half-wave rectifier",
             "full-wave rectifier",
-            "bridge rectifier"
+            "bridge rectifier",
+            "full wave rectifier",
+            "ripple factor",
+            "regulated power supply"
           ],
           "negative_guards": [
             "smps",
@@ -393,12 +463,18 @@
             "zener voltage regulator",
             "series voltage regulator",
             "shunt voltage regulator",
-            "percentage regulation"
+            "percentage regulation",
+            "zener diode shunt voltage regulator circuit and working",
+            "line regulation and load regulation definitions",
+            "three terminal fixed voltage regulators ic 7805 7905",
+            "adjustable voltage regulator lm317 working"
           ],
           "specific_keywords": [
             "voltage regulator",
             "line regulation",
-            "load regulation"
+            "load regulation",
+            "zener voltage regulator",
+            "ic 7805"
           ],
           "negative_guards": [
             "smps",
@@ -424,11 +500,17 @@
             "classification of smps",
             "flyback converter in smps",
             "buck boost converter in smps",
+            "advantages of smps over linear power supply",
+            "main switching element in a switched-mode power supply",
+            "switched mode power supply operating in 20 khz",
+            "block diagram of smps",
             "advantages of smps over linear power supply"
           ],
           "specific_keywords": [
             "smps",
-            "switched mode power supply"
+            "switched mode power supply",
+            "switched-mode power supply",
+            "switched mode power supply operating"
           ],
           "negative_guards": [
             "multivibrator",
@@ -457,7 +539,11 @@
             "negative clipper",
             "negative clamper",
             "biased negative clipper",
-            "schmitt trigger"
+            "schmitt trigger",
+            "astable multivibrator using 555 timer circuit and waveforms",
+            "monostable multivibrator using ic 555 timer",
+            "positive and negative clipper and clamper circuits",
+            "schmitt trigger circuit using op-amp"
           ],
           "specific_keywords": [
             "multivibrator",
@@ -465,7 +551,11 @@
             "monostable",
             "bistable",
             "clipping",
-            "clamping"
+            "clamping",
+            "astable multivibrator",
+            "555 timer",
+            "clipper and clamper",
+            "monostable multivibrator"
           ],
           "negative_guards": [
             "oscilloscope",
@@ -492,14 +582,20 @@
             "spectrum analyzer",
             "distortion meter",
             "energy meter and power meter",
-            "measurement instruments"
+            "measurement instruments",
+            "purpose of electron gun in cro",
+            "electron gun in cro is to produce electron beam",
+            "cathode ray oscilloscope time base generator",
+            "deflection sensitivity of cro"
           ],
           "specific_keywords": [
             "cathode ray oscilloscope",
             "oscilloscope",
             "multimeter",
             "spectrum analyzer",
-            "distortion meter"
+            "distortion meter",
+            "electron gun in cro",
+            "cathode ray oscilloscope cro"
           ],
           "negative_guards": [
             "pcb design",
@@ -533,12 +629,18 @@
             "multilayer pcb",
             "flexible pcb",
             "rigid flex pcb",
-            "types of boards in pcb"
+            "types of boards in pcb",
+            "single sided double sided and multilayer printed circuit boards",
+            "manufacturing steps of printed circuit boards (pcb)",
+            "etching and electroplating processes in pcb manufacturing",
+            "fr4 material and substrate selection in pcb"
           ],
           "specific_keywords": [
             "multilayer pcb",
             "flexible pcb",
-            "pcb manufacturing"
+            "pcb manufacturing",
+            "printed circuit board",
+            "printed circuit boards"
           ],
           "negative_guards": [
             "high frequency pcb",
@@ -562,12 +664,17 @@
             "schematic capture",
             "netlist generation in pcb",
             "pcb design block diagram",
-            "importance of pcb design"
+            "importance of pcb design",
+            "schematic capture and netlist generation in pcb design",
+            "design rule check (drc) and electrical rule check (erc)",
+            "component footprint creation and library management in pcb"
           ],
           "specific_keywords": [
             "layout planning",
             "schematic capture",
-            "netlist"
+            "netlist",
+            "design rule check",
+            "netlist generation"
           ],
           "negative_guards": [
             "thermal cooling",
@@ -624,13 +731,17 @@
             "smt and through hole",
             "tht components",
             "wave soldering and reflow soldering",
-            "soldering techniques in pcb"
+            "soldering techniques in pcb",
+            "surface mount technology (smt) vs through hole technology (tht)",
+            "wave soldering and reflow soldering techniques in pcb",
+            "solder paste application and stencil printing"
           ],
           "specific_keywords": [
             "surface mount technology",
             "through hole",
             "reflow soldering",
-            "wave soldering"
+            "wave soldering",
+            "smt vs tht"
           ],
           "negative_guards": [
             "signal integrity",
@@ -757,12 +868,17 @@
             "reflections in digital pcb",
             "signal noise in pcb",
             "electromagnetic interference in pcb",
-            "transmission line effects in pcb"
+            "transmission line effects in pcb",
+            "cross-talk and electromagnetic interference emi in pcb layout",
+            "signal integrity issues ground bounce and reflections in pcb",
+            "decoupling capacitors and power plane impedance"
           ],
           "specific_keywords": [
             "signal integrity",
             "cross talk",
-            "cross-talk"
+            "cross-talk",
+            "cross-talk in pcb",
+            "electromagnetic interference"
           ],
           "negative_guards": [
             "mechanical mounting",

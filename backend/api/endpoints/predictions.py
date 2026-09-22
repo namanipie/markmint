@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query, Depends
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import func
 from backend.services.prediction.engine import ExamScopeCombinedModel
 from backend.services.dna.analyzer import DNAAnalyzerService
@@ -7,11 +7,10 @@ from backend.services.prediction.context import HistoricalContext, PredictionTar
 from backend.services.prediction.repository import HistoricalRepository
 from backend.core.database import get_db
 from backend.models.core import Course, Exam, Topic, Unit, Syllabus
+from backend.services.assessment_cycle import normalize_assessment_cycle, AssessmentCycle
+from backend.services.assessment_plan_registry import get_course_assessment_scope
 import re
 from typing import Any, Optional
-from fastapi import APIRouter, HTTPException, Query, Depends
-from sqlalchemy.orm import Session
-from sqlalchemy import func
 
 router = APIRouter()
 
@@ -21,36 +20,42 @@ def _find_course(db: Session, identifier: str) -> Optional[Course]:
     if not identifier:
         return None
 
-    # 1. Canonical code match (e.g. 21MAB101T)
-    course = db.query(Course).filter(func.lower(Course.canonical_code) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 2. Exact or case-insensitive name match
-    course = db.query(Course).filter(func.lower(Course.name) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 3. Case-insensitive code match (e.g. SEM1-CALC)
-    course = db.query(Course).filter(func.lower(Course.code) == identifier.lower()).first()
-    if course:
-        return course
-
-    # 4. Numeric ID match
+    # 1. Numeric ID match (fastest if numeric ID passed)
     if str(identifier).isdigit():
-        course = db.query(Course).filter(Course.id == int(identifier)).first()
+        course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == int(identifier)).first()
         if course:
             return course
+
+    # 2. Canonical code match (e.g. 21MAB101T)
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.canonical_code) == identifier.lower()).first()
+    if course:
+        return course
+
+    # 3. Exact or case-insensitive name match
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.name) == identifier.lower()).first()
+    if course:
+        return course
+
+    # 4. Case-insensitive code match (e.g. SEM1-CALC)
+    course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.code) == identifier.lower()).first()
+    if course:
+        return course
 
     # 5. Normalized alphanumeric match (ignores spaces, punctuation, case)
     norm_id = re.sub(r'[^a-zA-Z0-9]', '', str(identifier)).lower()
     if norm_id:
-        for c in db.query(Course).all():
+        all_courses = db.query(Course).all()
+        for c in all_courses:
             if c.canonical_code and re.sub(r'[^a-zA-Z0-9]', '', c.canonical_code).lower() == norm_id:
                 return c
             if re.sub(r'[^a-zA-Z0-9]', '', c.name).lower() == norm_id:
                 return c
             if re.sub(r'[^a-zA-Z0-9]', '', c.code).lower() == norm_id:
+                return c
+
+        # 6. Prefix / substring match for course names (e.g. 'Calculus' -> 'Calculus And Linear Algebra')
+        for c in all_courses:
+            if norm_id in re.sub(r'[^a-zA-Z0-9]', '', c.name).lower():
                 return c
 
     return None
@@ -116,33 +121,113 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
     ]
 
 @router.get("/predictions/{subject}")
-def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: Session = Depends(get_db)):
+def get_prediction(
+    subject: str,
+    target_year: Optional[int] = Query(None),
+    assessment_cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None),
+    db: Session = Depends(get_db)
+):
     try:
         course = _find_course(db, subject)
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
 
+        active_track = None
+        if course and course.tracks:
+            if not (isinstance(language, str) and language.strip()):
+                raise HTTPException(
+                    status_code=400,
+                    detail="TRACK_SELECTION_REQUIRED: Language selection is required for Foreign Languages."
+                )
+            lang_low = language.strip().lower()
+            active_track = next(
+                (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+                None
+            )
+            if not active_track:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+                )
+
+        norm_cycle = normalize_assessment_cycle(assessment_cycle)
+
+        if hasattr(target_year, "default"):
+            target_year = None
+
         # Determine target year dynamically if not provided.
         # Rule: Target the next unseen exam year (most_recent_year + 1)
         if target_year is None:
-            max_year = db.query(func.max(Exam.year)).filter(Exam.course_id == course.id).scalar()
+            max_year_q = db.query(func.max(Exam.year)).filter(Exam.course_id == course.id)
+            if active_track:
+                max_year_q = max_year_q.filter(Exam.track_id == active_track.id)
+            max_year = max_year_q.scalar()
             if max_year:
                 target_year = max_year + 1
             else:
                 target_year = 2024
 
-        # Temporal isolation constraint
-        context = HistoricalContext(course_id=course.id, cutoff_year=target_year)
+        # Temporal isolation constraint with assessment cycle scoping
+        context = HistoricalContext(
+            course_id=course.id,
+            cutoff_year=target_year,
+            assessment_cycle=norm_cycle,
+            track_id=active_track.id if active_track else None
+        )
         repo = HistoricalRepository(db, context)
         
         hist_exams_orm = repo.get_historical_exams()
+        scope = get_course_assessment_scope(
+            course.id,
+            norm_cycle,
+            db=db,
+            track_id=active_track.id if active_track else None
+        )
         if not hist_exams_orm:
+            unobserved_in_scope = (
+                [
+                    {
+                        "name": name,
+                        "status": "UNOBSERVED_IN_SCOPE",
+                        "message": "In syllabus scope, but no historical evidence available",
+                    }
+                    for name in sorted(list(scope.in_scope_topic_names))
+                ]
+                if (not scope.is_all and scope.in_scope_topic_names)
+                else []
+            )
+            assessment_scope_payload = {
+                "student_cycle": norm_cycle or "ALL",
+                "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+                "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "role": scope.role,
+                "marks": scope.marks,
+                "evidence_status": scope.evidence_status,
+                "intended_scope": scope.intended_scope,
+                "observed_scope": scope.observed_scope,
+                "source_document": scope.source_document,
+                "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+                "total_in_scope_topics": len(scope.in_scope_topic_names),
+                "observed_in_scope_topics": 0,
+                "unobserved_in_scope_topics": unobserved_in_scope,
+                "out_of_scope_observed_topics": [],
+            }
             return {
+                "course_id": course.id,
                 "subject": course.name,
                 "target_year": target_year,
+                "assessment_cycle": norm_cycle or "ALL",
+                "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+                "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+                "evidence_status": scope.evidence_status,
+                "intended_scope": scope.intended_scope,
+                "observed_scope": scope.observed_scope,
+                "assessment_scope": assessment_scope_payload,
                 "predictions": [],
                 "evidence": "Insufficient historical data",
-                "data_quality": "No historical exams found prior to the cutoff year."
+                "data_quality": f"No historical exams found prior to the cutoff year for assessment cycle '{norm_cycle or 'ALL'}'."
             }
 
         hist_exams_dicts = _build_historical_exam_payloads(hist_exams_orm)
@@ -151,8 +236,54 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
         dna = analyzer.analyze(hist_exams_dicts)
         
         engine = ExamScopeCombinedModel(dna)
-        topic_preds = engine.predict(PredictionTarget.TOPIC)
+        all_topic_preds = engine.predict(PredictionTarget.TOPIC)
         family_preds = engine.predict(PredictionTarget.FAMILY)
+
+        # Restrict topic predictions to assessment component scope if not ALL
+        if not scope.is_all and scope.in_scope_topic_names:
+            topic_preds = [p for p in all_topic_preds if p.name in scope.in_scope_topic_names]
+            out_of_scope_preds = [p for p in all_topic_preds if p.name not in scope.in_scope_topic_names]
+        else:
+            topic_preds = all_topic_preds
+            out_of_scope_preds = []
+
+        unobserved_in_scope = (
+            [
+                {
+                    "name": name,
+                    "status": "UNOBSERVED_IN_SCOPE",
+                    "message": "In syllabus scope, but no historical evidence available",
+                }
+                for name in sorted(list(scope.in_scope_topic_names - {p.name for p in topic_preds}))
+            ]
+            if (not scope.is_all and scope.in_scope_topic_names)
+            else []
+        )
+        assessment_scope_payload = {
+            "student_cycle": norm_cycle or "ALL",
+            "component_code": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "component_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "student_label": scope.student_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "role": scope.role,
+            "marks": scope.marks,
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
+            "source_document": scope.source_document,
+            "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            "total_in_scope_topics": len(scope.in_scope_topic_names),
+            "observed_in_scope_topics": len(topic_preds) if (not scope.is_all and scope.in_scope_topic_names) else len(all_topic_preds),
+            "unobserved_in_scope_topics": unobserved_in_scope,
+            "out_of_scope_observed_topics": [
+                {
+                    "name": p.name,
+                    "status": "OUT_OF_SCOPE_OBSERVED",
+                    "score": round(float(p.score or 0.0), 4),
+                    "message": "Observed on historical examination papers despite being outside intended syllabus plan.",
+                }
+                for p in out_of_scope_preds
+            ],
+        }
         
         from datetime import datetime, timezone
         from backend.core.version import MODEL_VERSION, TAXONOMY_VERSION, ENGINE_VERSION
@@ -222,6 +353,13 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
             "course_id": course.id,
             "subject": course.name,
             "target_year": target_year,
+            "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
+            "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
+            "evidence_status": scope.evidence_status,
+            "intended_scope": scope.intended_scope,
+            "observed_scope": scope.observed_scope,
+            "assessment_scope": assessment_scope_payload,
             "predictions": predictions,
             "observed_years": observed_years,
             "unobserved_years": unobserved_years,
@@ -238,4 +376,12 @@ def get_prediction(subject: str, target_year: Optional[int] = Query(None), db: S
     except HTTPException:
         raise
     except Exception as e:
+        import logging
+        from backend.core.config import settings, Environment
+        logging.getLogger("markmint").exception("Prediction calculation error for subject '%s': %s", subject, e)
+        if settings.ENVIRONMENT == Environment.PRODUCTION:
+            raise HTTPException(
+                status_code=500,
+                detail="Unable to synthesize prediction forecast due to an internal calculation error. Please try again later."
+            )
         raise HTTPException(status_code=500, detail=str(e))

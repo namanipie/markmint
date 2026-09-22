@@ -35,11 +35,24 @@
             "change of variables from cartesian to polar",
             "cartesian to polar coordinates in double integral",
             "transforming to polar coordinates",
-            "double integration"
+            "double integration",
+            "evaluation of double integral",
+            "region bounded by x 0 y 0",
+            "double integral limits",
+            "double integral dxdy",
+            "iint limits",
+            "double integral over r",
+            "evaluate the double integral over the region",
+            "double integral dxdy region bounded",
+            "evaluation of double integral int int",
+            "double integral over the rectangular region"
           ],
           "specific_keywords": [
             "double integral",
-            "double integrals"
+            "double integrals",
+            "double integral dxdy",
+            "region bounded by",
+            "double integral over the region"
           ],
           "negative_guards": [
             "triple integral",
@@ -67,11 +80,16 @@
             "changing the order of integration",
             "change the order of integration",
             "reverse the order of integration",
-            "by changing the order of integration"
+            "by changing the order of integration",
+            "change the order of integration and evaluate",
+            "by changing the order of integration evaluate",
+            "change the order of integration in the double integral"
           ],
           "specific_keywords": [
             "change of order",
-            "order of integration"
+            "order of integration",
+            "change the order of integration",
+            "changing the order of integration"
           ],
           "negative_guards": [
             "laplace transform",
@@ -96,11 +114,15 @@
             "volume of the region bounded by",
             "volume enclosed by the cylinder",
             "volume of tetrahedron",
-            "triple integral over the sphere"
+            "triple integral over the sphere",
+            "evaluate the triple integral dxdydz",
+            "volume of the tetrahedron using triple integration"
           ],
           "specific_keywords": [
             "triple integral",
-            "triple integrals"
+            "triple integrals",
+            "triple integral dxdydz",
+            "triple integration"
           ],
           "negative_guards": [
             "gauss divergence",
@@ -125,11 +147,22 @@
             "find the area between the parabolas",
             "area enclosed by the cardioid",
             "find the area bounded by",
-            "area using double integral"
+            "area using double integral",
+            "area of an ellipse",
+            "area of the ellipse",
+            "area of ellipse is",
+            "area between the curves",
+            "area of cardioid",
+            "find the area of the ellipse using double integration",
+            "area of the cardioid using double integrals",
+            "volume under the paraboloid using double integrals"
           ],
           "specific_keywords": [
             "area enclosed",
-            "area bounded by"
+            "area bounded by",
+            "area of an ellipse",
+            "area of the ellipse",
+            "area using double integration"
           ],
           "negative_guards": [
             "green's theorem",
@@ -163,11 +196,17 @@
             "find the scalar potential",
             "unit normal vector to the surface",
             "angle between the surfaces",
-            "grad phi"
+            "grad phi",
+            "directional derivative of phi at the point",
+            "unit normal vector to the surface at",
+            "maximum directional derivative of scalar potential",
+            "gradient of scalar function phi"
           ],
           "specific_keywords": [
             "directional derivative",
-            "scalar potential"
+            "scalar potential",
+            "unit normal vector",
+            "gradient of phi"
           ],
           "negative_guards": [
             "solenoidal",
@@ -197,11 +236,26 @@
             "div f and curl f",
             "show that the vector field is irrotational",
             "find the constants such that the vector is solenoidal",
-            "curl of a vector"
+            "curl of a vector",
+            "unit vector normal to the surface",
+            "unit normal to the surface x^2",
+            "normal to the surface at",
+            "unit normal vector to the surface",
+            "divergence of position vector r",
+            "curl of vector field is zero show that",
+            "prove that the vector field is solenoidal",
+            "vector field is irrotational find potential",
+            "divergence and curl of vector field"
           ],
           "specific_keywords": [
             "solenoidal",
-            "irrotational"
+            "irrotational",
+            "unit vector normal",
+            "unit normal to the surface",
+            "solenoidal vector",
+            "irrotational vector",
+            "divergence of vec",
+            "curl of vec"
           ],
           "negative_guards": [
             "green's theorem",
@@ -228,11 +282,24 @@
             "evaluate using green's theorem",
             "apply green's theorem",
             "state green's theorem in a plane",
-            "green's theorem in the plane"
+            "green's theorem in the plane",
+            "divergence vec r",
+            "divergence of position vector",
+            "curl vec f",
+            "nabla cdot vec r",
+            "divergence is zero is called solenoidal",
+            "curl is zero is called irrotational",
+            "verify green's theorem in a plane for",
+            "evaluate using green's theorem in a plane",
+            "apply green's theorem to evaluate line integral"
           ],
           "specific_keywords": [
             "green's theorem",
-            "greens theorem"
+            "greens theorem",
+            "divergence vec r",
+            "curl vec f",
+            "nabla cdot",
+            "green's theorem in a plane"
           ],
           "negative_guards": [
             "stokes' theorem",
@@ -257,7 +324,10 @@
             "evaluate by stokes' theorem",
             "apply stokes' theorem",
             "state and prove stokes theorem",
-            "state stokes theorem"
+            "state stokes theorem",
+            "verify stokes' theorem for the vector field",
+            "evaluate by stokes' theorem around the curve",
+            "apply stokes' theorem to evaluate surface integral"
           ],
           "specific_keywords": [
             "stokes' theorem",
@@ -286,7 +356,10 @@
             "evaluate using divergence theorem",
             "apply gauss divergence theorem",
             "state gauss divergence theorem",
-            "state and prove gauss divergence"
+            "state and prove gauss divergence",
+            "verify gauss divergence theorem for the vector",
+            "evaluate by gauss divergence theorem over the closed",
+            "apply divergence theorem to evaluate flux"
           ],
           "specific_keywords": [
             "gauss divergence theorem",
@@ -324,12 +397,24 @@
             "second shifting theorem",
             "laplace transform of e^",
             "laplace transform of elementary functions",
-            "transform of unit step function"
+            "transform of unit step function",
+            "laplace transforms does not exists",
+            "laplace transform of e^",
+            "laplace transform does not exist",
+            "mathcal l e^",
+            "laplace transform of unit step",
+            "laplace transform of t^n e^{at}",
+            "find the laplace transform of sin(at)",
+            "first shifting theorem of laplace transform",
+            "laplace transform of periodic functions"
           ],
           "specific_keywords": [
             "shifting theorem",
             "unit step function",
-            "heaviside"
+            "heaviside",
+            "laplace transform does not exist",
+            "mathcal l",
+            "laplace transform of"
           ],
           "negative_guards": [
             "inverse laplace",
@@ -382,7 +467,10 @@
             "inverse laplace transform of",
             "evaluate inverse laplace",
             "l^-1",
-            "inverse transform using partial fractions"
+            "inverse transform using partial fractions",
+            "find the inverse laplace transform using partial fractions",
+            "inverse laplace transform of s/((s^2+a^2)^2)",
+            "inverse laplace transform of logarithmic"
           ],
           "specific_keywords": [
             "inverse laplace",
@@ -410,10 +498,13 @@
             "by convolution theorem",
             "state and prove convolution theorem",
             "state convolution theorem for laplace",
-            "apply convolution theorem"
+            "apply convolution theorem",
+            "apply convolution theorem to evaluate",
+            "convolution theorem for inverse laplace transform"
           ],
           "specific_keywords": [
-            "convolution theorem"
+            "convolution theorem",
+            "convolution theorem for laplace"
           ],
           "negative_guards": [
             "differential equation"
@@ -471,12 +562,26 @@
             "is an analytic function",
             "prove that the function is analytic",
             "necessary and sufficient condition for a function to be analytic",
-            "analytic function f(z)"
+            "analytic function f(z)",
+            "function f z u+iv is analytic if",
+            "analytic function with constant modulus",
+            "curves u c1 and v c2",
+            "analytic if u_x v_y",
+            "real and imaginary parts of analytic function",
+            "constant modulus is constant",
+            "cauchy-riemann equations in cartesian and polar",
+            "show that the function is analytic using cr",
+            "cauchy riemann equations satisfaction",
+            "analytic function f(z) = u + iv"
           ],
           "specific_keywords": [
             "cauchy-riemann",
             "analytic function",
-            "analytic functions"
+            "analytic functions",
+            "function f z is analytic",
+            "constant modulus",
+            "cauchy-riemann equations",
+            "cr equations"
           ],
           "negative_guards": [
             "harmonic",
@@ -502,11 +607,15 @@
             "find the harmonic conjugate",
             "harmonic conjugate of",
             "orthogonal trajectories of the family of curves",
-            "satisfies laplace equation in complex"
+            "satisfies laplace equation in complex",
+            "show that u is harmonic and find its harmonic conjugate",
+            "find the harmonic conjugate v(x,y)",
+            "orthogonal trajectories of family of curves"
           ],
           "specific_keywords": [
             "harmonic conjugate",
-            "harmonic function"
+            "harmonic function",
+            "orthogonal trajectories"
           ],
           "negative_guards": [
             "milne-thomson",
@@ -529,11 +638,14 @@
             "milne thomson method",
             "using milne-thomson method construct",
             "construct the analytic function f(z)",
-            "construct an analytic function"
+            "construct an analytic function",
+            "construct an analytic function f(z) using milne-thomson method",
+            "by milne-thomson method find f(z)"
           ],
           "specific_keywords": [
             "milne-thomson",
-            "milne thomson"
+            "milne thomson",
+            "milne-thomson method"
           ],
           "negative_guards": [
             "conformal mapping"
@@ -557,11 +669,21 @@
             "transformation w = 1/z",
             "transformation w = z^2",
             "transformation w = exp(z)",
-            "critical points of the conformal mapping"
+            "critical points of the conformal mapping",
+            "transformation w cz",
+            "transformation w = cz",
+            "transformation w 1 z",
+            "conformal transformation w",
+            "bilinear transformation maps",
+            "find the image of the circle under the transformation w = 1/z",
+            "conformal transformation w = z^2",
+            "magnification and rotation in conformal mapping"
           ],
           "specific_keywords": [
             "conformal mapping",
-            "conformal transformation"
+            "conformal transformation",
+            "transformation w cz",
+            "transformation w 1 z"
           ],
           "negative_guards": [
             "bilinear transformation",
@@ -586,13 +708,17 @@
             "cross-ratio of four points",
             "cross ratio",
             "fixed points of the bilinear transformation",
-            "invariant points of bilinear transformation"
+            "invariant points of bilinear transformation",
+            "find the bilinear transformation which maps the points",
+            "bilinear transformation cross ratio invariant property",
+            "mobius transformation mapping"
           ],
           "specific_keywords": [
             "bilinear transformation",
             "bilinear transformations",
             "cross-ratio",
-            "mobius transformation"
+            "mobius transformation",
+            "cross ratio"
           ],
           "negative_guards": [
             "cauchy's integral",
@@ -627,12 +753,16 @@
             "cauchy's integral theorem",
             "cauchy integral theorem",
             "evaluate using cauchy's integral formula",
-            "higher order cauchy integral formula"
+            "higher order cauchy integral formula",
+            "evaluate the integral using cauchy's integral formula",
+            "by cauchy's integral formula evaluate",
+            "cauchy integral theorem for closed contour"
           ],
           "specific_keywords": [
             "cauchy's integral formula",
             "cauchy integral formula",
-            "cauchys integral formula"
+            "cauchys integral formula",
+            "cauchy's integral theorem"
           ],
           "negative_guards": [
             "residue theorem",
@@ -661,13 +791,19 @@
             "expand in taylor's series",
             "laurent expansion in the region",
             "valid in the region 1 < |z| < 2",
-            "valid for |z| > 1"
+            "valid for |z| > 1",
+            "f z is analytic inside and on c",
+            "int c f z z-a dz",
+            "cauchy's integral formula evaluate",
+            "value of int c f z"
           ],
           "specific_keywords": [
             "laurent's series",
             "laurent series",
             "laurents series",
-            "taylor's series"
+            "taylor's series",
+            "f z is analytic inside and on c",
+            "int c f z"
           ],
           "negative_guards": [
             "contour integration",
@@ -693,12 +829,18 @@
             "essential singularity",
             "removable singularity",
             "find the poles and residues",
-            "residue at z ="
+            "residue at z =",
+            "find the residues at the poles of f(z)",
+            "residue of function at simple and multiple poles",
+            "isolated essential singularity and pole"
           ],
           "specific_keywords": [
             "residue of",
             "poles and residues",
-            "singular point"
+            "singular point",
+            "residue at the pole",
+            "residues at the poles",
+            "singularities and poles"
           ],
           "negative_guards": [
             "contour integration",
@@ -723,11 +865,15 @@
             "using cauchy's residue theorem evaluate",
             "by residue theorem evaluate",
             "state and prove cauchy residue theorem",
-            "state cauchy residue theorem"
+            "state cauchy residue theorem",
+            "evaluate using cauchy's residue theorem",
+            "by cauchy residue theorem evaluate the contour integral",
+            "apply residue theorem to evaluate integral around unit circle"
           ],
           "specific_keywords": [
             "cauchy's residue theorem",
-            "residue theorem"
+            "residue theorem",
+            "cauchy residue theorem"
           ],
           "negative_guards": [
             "contour integration"

@@ -12,11 +12,13 @@ from backend.api.endpoints import (
     search,
     study_connection,
     analytics,
+    submissions,
 )
 
 api_router = APIRouter()
 
 @api_router.get("/health")
+@api_router.head("/health")
 def health_check() -> dict[str, str]:
     return {"status": "ok"}
 
@@ -33,6 +35,7 @@ api_router.include_router(search.router, prefix="/search", tags=["search"])
 api_router.include_router(predictions.router, tags=["predictions"])
 api_router.include_router(study_connection.router, tags=["study"])
 api_router.include_router(practice.router, tags=["practice"])
+api_router.include_router(submissions.router, prefix="/submissions", tags=["submissions"])
 
 from backend.api.router_study import router as study_router
 api_router.include_router(study_router)

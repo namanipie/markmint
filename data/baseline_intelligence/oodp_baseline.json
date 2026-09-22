@@ -1,0 +1,4971 @@
+{
+  "data_availability_status": "READY",
+  "prediction_mode": "topic",
+  "has_topic_taxonomy": true,
+  "taxonomy_topic_count": 24,
+  "topic_predictions_count": 22,
+  "family_predictions_count": 259,
+  "track": null,
+  "tracks": [],
+  "course": {
+    "id": 16,
+    "name": "Advanced Calculus and Complex Analysis",
+    "code": "SEM2-ACCA",
+    "canonical_code": "21MAB102T",
+    "department": "Mathematics",
+    "regulation_year": 2021,
+    "has_tracks": false,
+    "tracks": []
+  },
+  "curriculum": {
+    "curriculum_id": "aeros-2-1",
+    "subject_name": "Advanced Calculus and Complex Analysis",
+    "branch_name": "Aerospace Engineering",
+    "semester": 2,
+    "credits": 4,
+    "status": "MATCHED",
+    "notes": null
+  },
+  "exam_history": {
+    "total_papers": 15,
+    "all_course_papers": 15,
+    "historical_papers_analyzed": 15,
+    "total_questions": 466,
+    "years": [
+      2018,
+      2019,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "observed_years": [
+      2018,
+      2019,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "unobserved_years": [
+      2020,
+      2021
+    ],
+    "gap_years": [
+      2020,
+      2021
+    ],
+    "available_assessment_types": [
+      "END_SEM"
+    ],
+    "available_assessment_cycles": [
+      "ALL",
+      "ENDSEM"
+    ],
+    "assessment_cycle": "ALL",
+    "target_year": 2026
+  },
+  "available_assessment_types": [
+    "END_SEM"
+  ],
+  "available_assessment_cycles": [
+    "ALL",
+    "ENDSEM"
+  ],
+  "assessment_cycle": "ALL",
+  "assessment_component": "ALL",
+  "assessment_label": "All Assessments",
+  "evidence_status": "ALL_SCOPE",
+  "intended_scope": null,
+  "observed_scope": {
+    "paper_count": 15,
+    "total_questions": 466,
+    "mapped_questions_count": 266,
+    "unmapped_questions_count": 200,
+    "questions_with_known_marks": 415,
+    "questions_with_unknown_marks": 51,
+    "known_marks_total": 1161.0,
+    "mapping_rate": 57.08,
+    "unit_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "topic_names": [
+      "Analytic Functions and Cauchy-Riemann Equations",
+      "Area and Volume as Multiple Integrals",
+      "Bilinear Transformations and Cross-Ratio",
+      "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+      "Cauchy's Residue Theorem",
+      "Change of Order of Integration",
+      "Conformal Mapping and Standard Transformations",
+      "Contour Integration",
+      "Convolution Theorem for Laplace Transforms",
+      "Divergence, Curl, Solenoidal, and Irrotational Fields",
+      "Double Integrals and Change of Variables",
+      "Gauss Divergence Theorem",
+      "Gradient, Directional Derivative, and Potential Functions",
+      "Green's Theorem in a Plane",
+      "Harmonic Functions and Orthogonal Trajectories",
+      "Inverse Laplace Transforms and Partial Fractions",
+      "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+      "Laplace Transforms of Elementary Functions and Shifting Properties",
+      "Milne-Thomson Method for Analytic Functions",
+      "Singularities, Poles, and Residues",
+      "Taylor's and Laurent's Series Expansions",
+      "Triple Integrals and Volume Evaluation"
+    ],
+    "question_count_by_unit": {
+      "1": 44,
+      "2": 72,
+      "3": 46,
+      "4": 43,
+      "5": 61
+    },
+    "marks_by_unit": {
+      "1": 91.0,
+      "2": 271.0,
+      "3": 105.0,
+      "4": 121.0,
+      "5": 248.0
+    },
+    "papers": [
+      {
+        "exam_id": 4,
+        "year": 2018,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Math Sample 2",
+        "total_questions": 10,
+        "mapped_questions": 8,
+        "unmapped_questions": 2,
+        "mapping_rate": 80.0,
+        "known_marks_total": 60.0,
+        "questions_with_known_marks": 9,
+        "questions_with_unknown_marks": 1,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 1,
+          "3": 1,
+          "4": 2,
+          "5": 2
+        },
+        "marks_by_unit": {
+          "1": 12.0,
+          "2": 12.0,
+          "3": 12.0,
+          "4": 12.0,
+          "5": 12.0
+        }
+      },
+      {
+        "exam_id": 14,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus and Complex Analysis - PYQ 2023 July",
+        "total_questions": 32,
+        "mapped_questions": 27,
+        "unmapped_questions": 5,
+        "mapping_rate": 84.38,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 5,
+          "2": 7,
+          "3": 5,
+          "4": 4,
+          "5": 6
+        },
+        "marks_by_unit": {
+          "1": 12.0,
+          "2": 27.0,
+          "3": 4.0,
+          "4": 10.0,
+          "5": 27.0
+        }
+      },
+      {
+        "exam_id": 15,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus and Complex Analysis - PYQ 2023 May",
+        "total_questions": 32,
+        "mapped_questions": 17,
+        "unmapped_questions": 15,
+        "mapping_rate": 53.12,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 6,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "1": 9.0,
+          "2": 26.0,
+          "3": 9.0,
+          "4": 9.0,
+          "5": 24.0
+        }
+      },
+      {
+        "exam_id": 16,
+        "year": 2024,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus and Complex Analysis - PYQ 2024 May",
+        "total_questions": 32,
+        "mapped_questions": 21,
+        "unmapped_questions": 11,
+        "mapping_rate": 65.62,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 5,
+          "2": 7,
+          "3": 3,
+          "4": 2,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "1": 12.0,
+          "2": 27.0,
+          "3": 10.0,
+          "4": 8.0,
+          "5": 24.0
+        }
+      },
+      {
+        "exam_id": 138,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2023",
+        "total_questions": 31,
+        "mapped_questions": 18,
+        "unmapped_questions": 13,
+        "mapping_rate": 58.06,
+        "known_marks_total": 66.0,
+        "questions_with_known_marks": 28,
+        "questions_with_unknown_marks": 3,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 4,
+          "2": 5,
+          "3": 2,
+          "4": 2,
+          "5": 5
+        },
+        "marks_by_unit": {
+          "1": 11.0,
+          "2": 18.0,
+          "3": 1.0,
+          "4": 8.0,
+          "5": 17.0
+        }
+      },
+      {
+        "exam_id": 139,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2023",
+        "total_questions": 32,
+        "mapped_questions": 24,
+        "unmapped_questions": 8,
+        "mapping_rate": 75.0,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 4,
+          "2": 7,
+          "3": 3,
+          "4": 4,
+          "5": 6
+        },
+        "marks_by_unit": {
+          "1": 11.0,
+          "2": 27.0,
+          "3": 2.0,
+          "4": 10.0,
+          "5": 27.0
+        }
+      },
+      {
+        "exam_id": 140,
+        "year": 2019,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2019",
+        "total_questions": 37,
+        "mapped_questions": 20,
+        "unmapped_questions": 17,
+        "mapping_rate": 54.05,
+        "known_marks_total": 108.0,
+        "questions_with_known_marks": 37,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 3,
+          "2": 5,
+          "3": 7,
+          "4": 2,
+          "5": 3
+        },
+        "marks_by_unit": {
+          "1": 5.0,
+          "2": 18.0,
+          "3": 23.0,
+          "4": 12.0,
+          "5": 13.0
+        }
+      },
+      {
+        "exam_id": 141,
+        "year": 2022,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2022",
+        "total_questions": 35,
+        "mapped_questions": 15,
+        "unmapped_questions": 20,
+        "mapping_rate": 42.86,
+        "known_marks_total": 75.0,
+        "questions_with_known_marks": 35,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 3,
+          "3": 3,
+          "4": 3,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "2": 11.0,
+          "3": 11.0,
+          "4": 11.0,
+          "5": 12.0
+        }
+      },
+      {
+        "exam_id": 142,
+        "year": 2019,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2019",
+        "total_questions": 38,
+        "mapped_questions": 17,
+        "unmapped_questions": 21,
+        "mapping_rate": 44.74,
+        "known_marks_total": 12.0,
+        "questions_with_known_marks": 1,
+        "questions_with_unknown_marks": 37,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 5,
+          "3": 3,
+          "4": 3,
+          "5": 4
+        },
+        "marks_by_unit": {}
+      },
+      {
+        "exam_id": 143,
+        "year": 2024,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2024",
+        "total_questions": 32,
+        "mapped_questions": 16,
+        "unmapped_questions": 16,
+        "mapping_rate": 50.0,
+        "known_marks_total": 50.0,
+        "questions_with_known_marks": 27,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 4,
+          "3": 3,
+          "4": 3,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "2": 2.0,
+          "3": 2.0,
+          "4": 1.0,
+          "5": 18.0
+        }
+      },
+      {
+        "exam_id": 144,
+        "year": 2025,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2025",
+        "total_questions": 32,
+        "mapped_questions": 22,
+        "unmapped_questions": 10,
+        "mapping_rate": 68.75,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 3,
+          "2": 5,
+          "3": 5,
+          "4": 5,
+          "5": 4
+        },
+        "marks_by_unit": {
+          "1": 2.0,
+          "2": 25.0,
+          "3": 12.0,
+          "4": 11.0,
+          "5": 24.0
+        }
+      },
+      {
+        "exam_id": 145,
+        "year": 2025,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2025",
+        "total_questions": 31,
+        "mapped_questions": 15,
+        "unmapped_questions": 16,
+        "mapping_rate": 48.39,
+        "known_marks_total": 50.0,
+        "questions_with_known_marks": 26,
+        "questions_with_unknown_marks": 5,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 5,
+          "3": 4,
+          "4": 2,
+          "5": 2
+        },
+        "marks_by_unit": {
+          "1": 1.0,
+          "2": 17.0,
+          "3": 2.0,
+          "5": 1.0
+        }
+      },
+      {
+        "exam_id": 146,
+        "year": 2025,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2025 (Paper - 2)",
+        "total_questions": 32,
+        "mapped_questions": 14,
+        "unmapped_questions": 18,
+        "mapping_rate": 43.75,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 3,
+          "2": 4,
+          "3": 2,
+          "4": 2,
+          "5": 3
+        },
+        "marks_by_unit": {
+          "1": 10.0,
+          "2": 10.0,
+          "3": 8.0,
+          "4": 8.0,
+          "5": 24.0
+        }
+      },
+      {
+        "exam_id": 147,
+        "year": 2025,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Dec 2025",
+        "total_questions": 32,
+        "mapped_questions": 19,
+        "unmapped_questions": 13,
+        "mapping_rate": 59.38,
+        "known_marks_total": 90.0,
+        "questions_with_known_marks": 32,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 3,
+          "2": 4,
+          "3": 3,
+          "4": 4,
+          "5": 5
+        },
+        "marks_by_unit": {
+          "1": 2.0,
+          "2": 24.0,
+          "3": 9.0,
+          "4": 10.0,
+          "5": 11.0
+        }
+      },
+      {
+        "exam_id": 148,
+        "year": 2023,
+        "raw_assessment_type": "END_SEM",
+        "normalized_code": "ENDSEM",
+        "identification_source": "metadata",
+        "identification_confidence": 1.0,
+        "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2023",
+        "total_questions": 28,
+        "mapped_questions": 13,
+        "unmapped_questions": 15,
+        "mapping_rate": 46.43,
+        "known_marks_total": 110.0,
+        "questions_with_known_marks": 28,
+        "questions_with_unknown_marks": 0,
+        "observed_units": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "question_count_by_unit": {
+          "1": 2,
+          "2": 4,
+          "4": 2,
+          "5": 5
+        },
+        "marks_by_unit": {
+          "1": 2.0,
+          "2": 27.0,
+          "4": 11.0,
+          "5": 14.0
+        }
+      }
+    ]
+  },
+  "assessment_scope": {
+    "student_cycle": "ALL",
+    "component_code": "ALL",
+    "component_label": "All Assessments",
+    "student_label": "All Assessments",
+    "role": null,
+    "marks": null,
+    "evidence_status": "ALL_SCOPE",
+    "intended_scope": null,
+    "observed_scope": {
+      "paper_count": 15,
+      "total_questions": 466,
+      "mapped_questions_count": 266,
+      "unmapped_questions_count": 200,
+      "questions_with_known_marks": 415,
+      "questions_with_unknown_marks": 51,
+      "known_marks_total": 1161.0,
+      "mapping_rate": 57.08,
+      "unit_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "topic_names": [
+        "Analytic Functions and Cauchy-Riemann Equations",
+        "Area and Volume as Multiple Integrals",
+        "Bilinear Transformations and Cross-Ratio",
+        "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+        "Cauchy's Residue Theorem",
+        "Change of Order of Integration",
+        "Conformal Mapping and Standard Transformations",
+        "Contour Integration",
+        "Convolution Theorem for Laplace Transforms",
+        "Divergence, Curl, Solenoidal, and Irrotational Fields",
+        "Double Integrals and Change of Variables",
+        "Gauss Divergence Theorem",
+        "Gradient, Directional Derivative, and Potential Functions",
+        "Green's Theorem in a Plane",
+        "Harmonic Functions and Orthogonal Trajectories",
+        "Inverse Laplace Transforms and Partial Fractions",
+        "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+        "Laplace Transforms of Elementary Functions and Shifting Properties",
+        "Milne-Thomson Method for Analytic Functions",
+        "Singularities, Poles, and Residues",
+        "Taylor's and Laurent's Series Expansions",
+        "Triple Integrals and Volume Evaluation"
+      ],
+      "question_count_by_unit": {
+        "1": 44,
+        "2": 72,
+        "3": 46,
+        "4": 43,
+        "5": 61
+      },
+      "marks_by_unit": {
+        "1": 91.0,
+        "2": 271.0,
+        "3": 105.0,
+        "4": 121.0,
+        "5": 248.0
+      },
+      "papers": [
+        {
+          "exam_id": 4,
+          "year": 2018,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Math Sample 2",
+          "total_questions": 10,
+          "mapped_questions": 8,
+          "unmapped_questions": 2,
+          "mapping_rate": 80.0,
+          "known_marks_total": 60.0,
+          "questions_with_known_marks": 9,
+          "questions_with_unknown_marks": 1,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 1,
+            "3": 1,
+            "4": 2,
+            "5": 2
+          },
+          "marks_by_unit": {
+            "1": 12.0,
+            "2": 12.0,
+            "3": 12.0,
+            "4": 12.0,
+            "5": 12.0
+          }
+        },
+        {
+          "exam_id": 14,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus and Complex Analysis - PYQ 2023 July",
+          "total_questions": 32,
+          "mapped_questions": 27,
+          "unmapped_questions": 5,
+          "mapping_rate": 84.38,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 5,
+            "2": 7,
+            "3": 5,
+            "4": 4,
+            "5": 6
+          },
+          "marks_by_unit": {
+            "1": 12.0,
+            "2": 27.0,
+            "3": 4.0,
+            "4": 10.0,
+            "5": 27.0
+          }
+        },
+        {
+          "exam_id": 15,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus and Complex Analysis - PYQ 2023 May",
+          "total_questions": 32,
+          "mapped_questions": 17,
+          "unmapped_questions": 15,
+          "mapping_rate": 53.12,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 6,
+            "3": 2,
+            "4": 3,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "1": 9.0,
+            "2": 26.0,
+            "3": 9.0,
+            "4": 9.0,
+            "5": 24.0
+          }
+        },
+        {
+          "exam_id": 16,
+          "year": 2024,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus and Complex Analysis - PYQ 2024 May",
+          "total_questions": 32,
+          "mapped_questions": 21,
+          "unmapped_questions": 11,
+          "mapping_rate": 65.62,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 5,
+            "2": 7,
+            "3": 3,
+            "4": 2,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "1": 12.0,
+            "2": 27.0,
+            "3": 10.0,
+            "4": 8.0,
+            "5": 24.0
+          }
+        },
+        {
+          "exam_id": 138,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2023",
+          "total_questions": 31,
+          "mapped_questions": 18,
+          "unmapped_questions": 13,
+          "mapping_rate": 58.06,
+          "known_marks_total": 66.0,
+          "questions_with_known_marks": 28,
+          "questions_with_unknown_marks": 3,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 4,
+            "2": 5,
+            "3": 2,
+            "4": 2,
+            "5": 5
+          },
+          "marks_by_unit": {
+            "1": 11.0,
+            "2": 18.0,
+            "3": 1.0,
+            "4": 8.0,
+            "5": 17.0
+          }
+        },
+        {
+          "exam_id": 139,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2023",
+          "total_questions": 32,
+          "mapped_questions": 24,
+          "unmapped_questions": 8,
+          "mapping_rate": 75.0,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 4,
+            "2": 7,
+            "3": 3,
+            "4": 4,
+            "5": 6
+          },
+          "marks_by_unit": {
+            "1": 11.0,
+            "2": 27.0,
+            "3": 2.0,
+            "4": 10.0,
+            "5": 27.0
+          }
+        },
+        {
+          "exam_id": 140,
+          "year": 2019,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2019",
+          "total_questions": 37,
+          "mapped_questions": 20,
+          "unmapped_questions": 17,
+          "mapping_rate": 54.05,
+          "known_marks_total": 108.0,
+          "questions_with_known_marks": 37,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 3,
+            "2": 5,
+            "3": 7,
+            "4": 2,
+            "5": 3
+          },
+          "marks_by_unit": {
+            "1": 5.0,
+            "2": 18.0,
+            "3": 23.0,
+            "4": 12.0,
+            "5": 13.0
+          }
+        },
+        {
+          "exam_id": 141,
+          "year": 2022,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2022",
+          "total_questions": 35,
+          "mapped_questions": 15,
+          "unmapped_questions": 20,
+          "mapping_rate": 42.86,
+          "known_marks_total": 75.0,
+          "questions_with_known_marks": 35,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 3,
+            "3": 3,
+            "4": 3,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "2": 11.0,
+            "3": 11.0,
+            "4": 11.0,
+            "5": 12.0
+          }
+        },
+        {
+          "exam_id": 142,
+          "year": 2019,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2019",
+          "total_questions": 38,
+          "mapped_questions": 17,
+          "unmapped_questions": 21,
+          "mapping_rate": 44.74,
+          "known_marks_total": 12.0,
+          "questions_with_known_marks": 1,
+          "questions_with_unknown_marks": 37,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 5,
+            "3": 3,
+            "4": 3,
+            "5": 4
+          },
+          "marks_by_unit": {}
+        },
+        {
+          "exam_id": 143,
+          "year": 2024,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2024",
+          "total_questions": 32,
+          "mapped_questions": 16,
+          "unmapped_questions": 16,
+          "mapping_rate": 50.0,
+          "known_marks_total": 50.0,
+          "questions_with_known_marks": 27,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 4,
+            "3": 3,
+            "4": 3,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "2": 2.0,
+            "3": 2.0,
+            "4": 1.0,
+            "5": 18.0
+          }
+        },
+        {
+          "exam_id": 144,
+          "year": 2025,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ May 2025",
+          "total_questions": 32,
+          "mapped_questions": 22,
+          "unmapped_questions": 10,
+          "mapping_rate": 68.75,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 3,
+            "2": 5,
+            "3": 5,
+            "4": 5,
+            "5": 4
+          },
+          "marks_by_unit": {
+            "1": 2.0,
+            "2": 25.0,
+            "3": 12.0,
+            "4": 11.0,
+            "5": 24.0
+          }
+        },
+        {
+          "exam_id": 145,
+          "year": 2025,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2025",
+          "total_questions": 31,
+          "mapped_questions": 15,
+          "unmapped_questions": 16,
+          "mapping_rate": 48.39,
+          "known_marks_total": 50.0,
+          "questions_with_known_marks": 26,
+          "questions_with_unknown_marks": 5,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 5,
+            "3": 4,
+            "4": 2,
+            "5": 2
+          },
+          "marks_by_unit": {
+            "1": 1.0,
+            "2": 17.0,
+            "3": 2.0,
+            "5": 1.0
+          }
+        },
+        {
+          "exam_id": 146,
+          "year": 2025,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Jul 2025 (Paper - 2)",
+          "total_questions": 32,
+          "mapped_questions": 14,
+          "unmapped_questions": 18,
+          "mapping_rate": 43.75,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 3,
+            "2": 4,
+            "3": 2,
+            "4": 2,
+            "5": 3
+          },
+          "marks_by_unit": {
+            "1": 10.0,
+            "2": 10.0,
+            "3": 8.0,
+            "4": 8.0,
+            "5": 24.0
+          }
+        },
+        {
+          "exam_id": 147,
+          "year": 2025,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Dec 2025",
+          "total_questions": 32,
+          "mapped_questions": 19,
+          "unmapped_questions": 13,
+          "mapping_rate": 59.38,
+          "known_marks_total": 90.0,
+          "questions_with_known_marks": 32,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 3,
+            "2": 4,
+            "3": 3,
+            "4": 4,
+            "5": 5
+          },
+          "marks_by_unit": {
+            "1": 2.0,
+            "2": 24.0,
+            "3": 9.0,
+            "4": 10.0,
+            "5": 11.0
+          }
+        },
+        {
+          "exam_id": 148,
+          "year": 2023,
+          "raw_assessment_type": "END_SEM",
+          "normalized_code": "ENDSEM",
+          "identification_source": "metadata",
+          "identification_confidence": 1.0,
+          "document_title": "Advanced Calculus And Complex Analysis - PYQ Nov 2023",
+          "total_questions": 28,
+          "mapped_questions": 13,
+          "unmapped_questions": 15,
+          "mapping_rate": 46.43,
+          "known_marks_total": 110.0,
+          "questions_with_known_marks": 28,
+          "questions_with_unknown_marks": 0,
+          "observed_units": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "question_count_by_unit": {
+            "1": 2,
+            "2": 4,
+            "4": 2,
+            "5": 5
+          },
+          "marks_by_unit": {
+            "1": 2.0,
+            "2": 27.0,
+            "4": 11.0,
+            "5": 14.0
+          }
+        }
+      ]
+    },
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB102T Advanced Calculus and Complex Analysis",
+    "unit_numbers": [],
+    "total_in_scope_topics": 0,
+    "observed_in_scope_topics": 22,
+    "unobserved_in_scope_topics": [],
+    "out_of_scope_observed_topics": []
+  },
+  "predictions": [
+    {
+      "rank": 1,
+      "name": "Contour Integration",
+      "category": "topic",
+      "score": 0.06834677668630909,
+      "prediction_score": 0.0683,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 11,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.7333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 12.909090909090908,
+      "total_marks_observed": 142.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 142.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0209,
+      "recency_score": 0.0237,
+      "marks_score": 0.1699,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (142 marks across 14 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.020942408376963352,
+        "hist_freq": 0.030042918454935622,
+        "occurrences": 14,
+        "total_marks": 142.0,
+        "paper_coverage": 0.7333333333333333,
+        "papers_with_topic": 11,
+        "marks_weight": 0.16985645933014354,
+        "average_marks": 12.909090909090908
+      },
+      "topic_id": 338,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Gauss Divergence Theorem",
+      "category": "topic",
+      "score": 0.06641544621420609,
+      "prediction_score": 0.0664,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 10,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 14.2,
+      "total_marks_observed": 142.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 11,
+      "historical_occurrences": 11,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 142.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0209,
+      "recency_score": 0.0217,
+      "marks_score": 0.1699,
+      "evidence_count": 11,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (142 marks across 11 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.020942408376963352,
+        "hist_freq": 0.023605150214592276,
+        "occurrences": 11,
+        "total_marks": 142.0,
+        "paper_coverage": 0.6666666666666666,
+        "papers_with_topic": 10,
+        "marks_weight": 0.16985645933014354,
+        "average_marks": 14.2
+      },
+      "topic_id": 323,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Taylor's and Laurent's Series Expansions",
+      "category": "topic",
+      "score": 0.05834187351704799,
+      "prediction_score": 0.0583,
+      "probability": 0.8824,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 14,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.9333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.7222222222222223,
+      "total_marks_observed": 67.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 24,
+      "historical_occurrences": 24,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 67.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0471,
+      "recency_score": 0.0484,
+      "marks_score": 0.0801,
+      "evidence_count": 24,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 24 historical question(s) representing 67 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04712041884816754,
+        "hist_freq": 0.05150214592274678,
+        "occurrences": 24,
+        "total_marks": 67.0,
+        "paper_coverage": 0.9333333333333333,
+        "papers_with_topic": 14,
+        "marks_weight": 0.08014354066985646,
+        "average_marks": 3.7222222222222223
+      },
+      "topic_id": 335,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+      "category": "topic",
+      "score": 0.05407946531640736,
+      "prediction_score": 0.0541,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 13,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.9545454545454546,
+      "total_marks_observed": 65.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 25,
+      "historical_occurrences": 25,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 65.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0366,
+      "recency_score": 0.0417,
+      "marks_score": 0.0778,
+      "evidence_count": 25,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 25 historical question(s) representing 65 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03664921465968586,
+        "hist_freq": 0.0536480686695279,
+        "occurrences": 25,
+        "total_marks": 65.0,
+        "paper_coverage": 0.8666666666666667,
+        "papers_with_topic": 13,
+        "marks_weight": 0.07775119617224881,
+        "average_marks": 2.9545454545454546
+      },
+      "topic_id": 320,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Green's Theorem in a Plane",
+      "category": "topic",
+      "score": 0.05372197369200528,
+      "prediction_score": 0.0537,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 12,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.8,
+      "total_marks_observed": 42.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 21,
+      "historical_occurrences": 21,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 42.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0628,
+      "recency_score": 0.0575,
+      "marks_score": 0.0502,
+      "evidence_count": 21,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 21 historical question(s) representing 42 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.06282722513089005,
+        "hist_freq": 0.045064377682403435,
+        "occurrences": 21,
+        "total_marks": 42.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 12,
+        "marks_weight": 0.050239234449760764,
+        "average_marks": 2.8
+      },
+      "topic_id": 321,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Inverse Laplace Transforms and Partial Fractions",
+      "category": "topic",
+      "score": 0.050177268840646945,
+      "prediction_score": 0.0502,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 11,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.7333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.3333333333333335,
+      "total_marks_observed": 42.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 22,
+      "historical_occurrences": 22,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 42.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0524,
+      "recency_score": 0.0508,
+      "marks_score": 0.0502,
+      "evidence_count": 22,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 22 historical question(s) representing 42 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.05235602094240838,
+        "hist_freq": 0.04721030042918455,
+        "occurrences": 22,
+        "total_marks": 42.0,
+        "paper_coverage": 0.7333333333333333,
+        "papers_with_topic": 11,
+        "marks_weight": 0.050239234449760764,
+        "average_marks": 2.3333333333333335
+      },
+      "topic_id": 326,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Change of Order of Integration",
+      "category": "topic",
+      "score": 0.04490367941433333,
+      "prediction_score": 0.0449,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 13,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 4.642857142857143,
+      "total_marks_observed": 65.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 65.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0314,
+      "recency_score": 0.031,
+      "marks_score": 0.0778,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 14 historical question(s) representing 65 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.031413612565445025,
+        "hist_freq": 0.030042918454935622,
+        "occurrences": 14,
+        "total_marks": 65.0,
+        "paper_coverage": 0.8666666666666667,
+        "papers_with_topic": 13,
+        "marks_weight": 0.07775119617224881,
+        "average_marks": 4.642857142857143
+      },
+      "topic_id": 316,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Analytic Functions and Cauchy-Riemann Equations",
+      "category": "topic",
+      "score": 0.04167829070606175,
+      "prediction_score": 0.0417,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 10,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.8666666666666667,
+      "total_marks_observed": 43.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 18,
+      "historical_occurrences": 18,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 43.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0366,
+      "recency_score": 0.0372,
+      "marks_score": 0.0514,
+      "evidence_count": 18,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 18 historical question(s) representing 43 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03664921465968586,
+        "hist_freq": 0.03862660944206009,
+        "occurrences": 18,
+        "total_marks": 43.0,
+        "paper_coverage": 0.6666666666666666,
+        "papers_with_topic": 10,
+        "marks_weight": 0.05143540669856459,
+        "average_marks": 2.8666666666666667
+      },
+      "topic_id": 329,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Bilinear Transformations and Cross-Ratio",
+      "category": "topic",
+      "score": 0.03861153599988475,
+      "prediction_score": 0.0386,
+      "probability": 0.5882,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 9,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.666666666666667,
+      "total_marks_observed": 34.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 15,
+      "historical_occurrences": 15,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 34.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0419,
+      "recency_score": 0.039,
+      "marks_score": 0.0407,
+      "evidence_count": 15,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 15 historical question(s) representing 34 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.041884816753926704,
+        "hist_freq": 0.032188841201716736,
+        "occurrences": 15,
+        "total_marks": 34.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 9,
+        "marks_weight": 0.04066985645933014,
+        "average_marks": 5.666666666666667
+      },
+      "topic_id": 333,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Double Integrals and Change of Variables",
+      "category": "topic",
+      "score": 0.03444238800308823,
+      "prediction_score": 0.0344,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 12,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.9444444444444444,
+      "total_marks_observed": 17.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 18,
+      "historical_occurrences": 18,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 17.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0419,
+      "recency_score": 0.0409,
+      "marks_score": 0.0203,
+      "evidence_count": 18,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 18 historical question(s) representing 17 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.041884816753926704,
+        "hist_freq": 0.03862660944206009,
+        "occurrences": 18,
+        "total_marks": 17.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 12,
+        "marks_weight": 0.02033492822966507,
+        "average_marks": 0.9444444444444444
+      },
+      "topic_id": 315,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ]
+    }
+  ],
+  "topic_predictions": [
+    {
+      "rank": 1,
+      "name": "Contour Integration",
+      "category": "topic",
+      "score": 0.06834677668630909,
+      "prediction_score": 0.0683,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 11,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.7333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 12.909090909090908,
+      "total_marks_observed": 142.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 142.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0209,
+      "recency_score": 0.0237,
+      "marks_score": 0.1699,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (142 marks across 14 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.020942408376963352,
+        "hist_freq": 0.030042918454935622,
+        "occurrences": 14,
+        "total_marks": 142.0,
+        "paper_coverage": 0.7333333333333333,
+        "papers_with_topic": 11,
+        "marks_weight": 0.16985645933014354,
+        "average_marks": 12.909090909090908
+      },
+      "topic_id": 338,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Gauss Divergence Theorem",
+      "category": "topic",
+      "score": 0.06641544621420609,
+      "prediction_score": 0.0664,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 10,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 14.2,
+      "total_marks_observed": 142.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 11,
+      "historical_occurrences": 11,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 142.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0209,
+      "recency_score": 0.0217,
+      "marks_score": 0.1699,
+      "evidence_count": 11,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT"
+      ],
+      "explanation": "Carries significant historical weight (142 marks across 11 question(s)).",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.020942408376963352,
+        "hist_freq": 0.023605150214592276,
+        "occurrences": 11,
+        "total_marks": 142.0,
+        "paper_coverage": 0.6666666666666666,
+        "papers_with_topic": 10,
+        "marks_weight": 0.16985645933014354,
+        "average_marks": 14.2
+      },
+      "topic_id": 323,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Taylor's and Laurent's Series Expansions",
+      "category": "topic",
+      "score": 0.05834187351704799,
+      "prediction_score": 0.0583,
+      "probability": 0.8824,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 14,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.9333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 3.7222222222222223,
+      "total_marks_observed": 67.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 24,
+      "historical_occurrences": 24,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 67.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0471,
+      "recency_score": 0.0484,
+      "marks_score": 0.0801,
+      "evidence_count": 24,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 24 historical question(s) representing 67 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.04712041884816754,
+        "hist_freq": 0.05150214592274678,
+        "occurrences": 24,
+        "total_marks": 67.0,
+        "paper_coverage": 0.9333333333333333,
+        "papers_with_topic": 14,
+        "marks_weight": 0.08014354066985646,
+        "average_marks": 3.7222222222222223
+      },
+      "topic_id": 335,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+      "category": "topic",
+      "score": 0.05407946531640736,
+      "prediction_score": 0.0541,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 13,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.9545454545454546,
+      "total_marks_observed": 65.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 25,
+      "historical_occurrences": 25,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 65.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0366,
+      "recency_score": 0.0417,
+      "marks_score": 0.0778,
+      "evidence_count": 25,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 25 historical question(s) representing 65 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03664921465968586,
+        "hist_freq": 0.0536480686695279,
+        "occurrences": 25,
+        "total_marks": 65.0,
+        "paper_coverage": 0.8666666666666667,
+        "papers_with_topic": 13,
+        "marks_weight": 0.07775119617224881,
+        "average_marks": 2.9545454545454546
+      },
+      "topic_id": 320,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Green's Theorem in a Plane",
+      "category": "topic",
+      "score": 0.05372197369200528,
+      "prediction_score": 0.0537,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 12,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.8,
+      "total_marks_observed": 42.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 21,
+      "historical_occurrences": 21,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 42.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0628,
+      "recency_score": 0.0575,
+      "marks_score": 0.0502,
+      "evidence_count": 21,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 21 historical question(s) representing 42 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.06282722513089005,
+        "hist_freq": 0.045064377682403435,
+        "occurrences": 21,
+        "total_marks": 42.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 12,
+        "marks_weight": 0.050239234449760764,
+        "average_marks": 2.8
+      },
+      "topic_id": 321,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Inverse Laplace Transforms and Partial Fractions",
+      "category": "topic",
+      "score": 0.050177268840646945,
+      "prediction_score": 0.0502,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 11,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.7333,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.3333333333333335,
+      "total_marks_observed": 42.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 22,
+      "historical_occurrences": 22,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 42.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0524,
+      "recency_score": 0.0508,
+      "marks_score": 0.0502,
+      "evidence_count": 22,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 22 historical question(s) representing 42 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.05235602094240838,
+        "hist_freq": 0.04721030042918455,
+        "occurrences": 22,
+        "total_marks": 42.0,
+        "paper_coverage": 0.7333333333333333,
+        "papers_with_topic": 11,
+        "marks_weight": 0.050239234449760764,
+        "average_marks": 2.3333333333333335
+      },
+      "topic_id": 326,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Change of Order of Integration",
+      "category": "topic",
+      "score": 0.04490367941433333,
+      "prediction_score": 0.0449,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 13,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 4.642857142857143,
+      "total_marks_observed": 65.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 14,
+      "historical_occurrences": 14,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 65.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0314,
+      "recency_score": 0.031,
+      "marks_score": 0.0778,
+      "evidence_count": 14,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 14 historical question(s) representing 65 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.031413612565445025,
+        "hist_freq": 0.030042918454935622,
+        "occurrences": 14,
+        "total_marks": 65.0,
+        "paper_coverage": 0.8666666666666667,
+        "papers_with_topic": 13,
+        "marks_weight": 0.07775119617224881,
+        "average_marks": 4.642857142857143
+      },
+      "topic_id": 316,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Analytic Functions and Cauchy-Riemann Equations",
+      "category": "topic",
+      "score": 0.04167829070606175,
+      "prediction_score": 0.0417,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 10,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6667,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 2.8666666666666667,
+      "total_marks_observed": 43.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 18,
+      "historical_occurrences": 18,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 43.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0366,
+      "recency_score": 0.0372,
+      "marks_score": 0.0514,
+      "evidence_count": 18,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 18 historical question(s) representing 43 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.03664921465968586,
+        "hist_freq": 0.03862660944206009,
+        "occurrences": 18,
+        "total_marks": 43.0,
+        "paper_coverage": 0.6666666666666666,
+        "papers_with_topic": 10,
+        "marks_weight": 0.05143540669856459,
+        "average_marks": 2.8666666666666667
+      },
+      "topic_id": 329,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Bilinear Transformations and Cross-Ratio",
+      "category": "topic",
+      "score": 0.03861153599988475,
+      "prediction_score": 0.0386,
+      "probability": 0.5882,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 9,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.6,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 5.666666666666667,
+      "total_marks_observed": 34.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 15,
+      "historical_occurrences": 15,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 34.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0419,
+      "recency_score": 0.039,
+      "marks_score": 0.0407,
+      "evidence_count": 15,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 15 historical question(s) representing 34 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.041884816753926704,
+        "hist_freq": 0.032188841201716736,
+        "occurrences": 15,
+        "total_marks": 34.0,
+        "paper_coverage": 0.6,
+        "papers_with_topic": 9,
+        "marks_weight": 0.04066985645933014,
+        "average_marks": 5.666666666666667
+      },
+      "topic_id": 333,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2018,
+        2022,
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "Double Integrals and Change of Variables",
+      "category": "topic",
+      "score": 0.03444238800308823,
+      "prediction_score": 0.0344,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 12,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.8,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 0.9444444444444444,
+      "total_marks_observed": 17.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 18,
+      "historical_occurrences": 18,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 17.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0419,
+      "recency_score": 0.0409,
+      "marks_score": 0.0203,
+      "evidence_count": 18,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 18 historical question(s) representing 17 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.041884816753926704,
+        "hist_freq": 0.03862660944206009,
+        "occurrences": 18,
+        "total_marks": 17.0,
+        "paper_coverage": 0.8,
+        "papers_with_topic": 12,
+        "marks_weight": 0.02033492822966507,
+        "average_marks": 0.9444444444444444
+      },
+      "topic_id": 315,
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ]
+    }
+  ],
+  "family_predictions": [
+    {
+      "rank": 1,
+      "name": "32b. \\text{Evaluate using Contour integration } \\int_{0}^{2\\pi} \\frac{d\\theta}{13 + 5 \\sin \\theta}",
+      "category": "family",
+      "score": 5.2,
+      "prediction_score": 5.2,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 10,
+      "distinct_paper_count": 10,
+      "papers_with_family": 10,
+      "paper_coverage": 0.6667,
+      "family_id": 4725,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "average_marks": 14.29,
+      "total_marks_observed": 100.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        3912,
+        3985,
+        3947,
+        390,
+        423,
+        3843,
+        3874,
+        4170,
+        4017,
+        4112
+      ],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": 100.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 10 historical occurrence(s) across 10 of 15 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 4725,
+        "occurrences": 10,
+        "sample_size": 10,
+        "distinct_paper_count": 10,
+        "interval": 1.5,
+        "last_seen": "2025",
+        "years": [
+          2019,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "average_marks": 14.29,
+        "total_marks": 100.0,
+        "question_ids": [
+          3912,
+          3985,
+          3947,
+          390,
+          423,
+          3843,
+          3874,
+          4170,
+          4017,
+          4112
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "20. If f(z) is analytic inside and on C, the value of \\oint_{C} \\frac{f(z)}{z-a}dz, where 'C' is a simple closed curve and 'a' is any point within 'C' is\n    (A) f'(a)\n    (B) 2\\pi i f(a)\n    (C) \\pi i f(a)\n    (D) 0",
+      "category": "family",
+      "score": 5.2,
+      "prediction_score": 5.2,
+      "probability": 0.5882,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 9,
+      "distinct_paper_count": 9,
+      "papers_with_family": 9,
+      "paper_coverage": 0.6,
+      "family_id": 4742,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 9.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        3967,
+        3935,
+        376,
+        411,
+        3832,
+        3860,
+        4161,
+        4162,
+        441,
+        4131
+      ],
+      "historyCount": 10,
+      "historical_occurrences": 10,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": 9.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 10,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 10 historical occurrence(s) across 9 of 15 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 4742,
+        "occurrences": 10,
+        "sample_size": 10,
+        "distinct_paper_count": 9,
+        "interval": 1.5,
+        "last_seen": "2025",
+        "years": [
+          2019,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "average_marks": 1.0,
+        "total_marks": 9.0,
+        "question_ids": [
+          3967,
+          3935,
+          376,
+          411,
+          3832,
+          3860,
+          4161,
+          4162,
+          441,
+          4131
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2019,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "16. \\text{Any analytic function with constant modulus is}\n    (A) \\text{Zero}\n    (B) \\text{Constants}\n    (C) \\text{Harmonic}\n    (D) \\text{Analytic}",
+      "category": "family",
+      "score": 4.6,
+      "prediction_score": 4.6,
+      "probability": 0.4706,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 7,
+      "distinct_paper_count": 7,
+      "papers_with_family": 7,
+      "paper_coverage": 0.4667,
+      "family_id": 4705,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 7.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        3891,
+        375,
+        3827,
+        3859,
+        439,
+        4000,
+        4064
+      ],
+      "historyCount": 7,
+      "historical_occurrences": 7,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": 7.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 7,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 7 historical occurrence(s) across 7 of 15 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 4705,
+        "occurrences": 7,
+        "sample_size": 7,
+        "distinct_paper_count": 7,
+        "interval": 2.0,
+        "last_seen": "2025",
+        "years": [
+          2019,
+          2023,
+          2024,
+          2025
+        ],
+        "average_marks": 1.0,
+        "total_marks": 7.0,
+        "question_ids": [
+          3891,
+          375,
+          3827,
+          3859,
+          439,
+          4000,
+          4064
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "18. \\text{If } f(z) = \\frac{\\sin z}{z} \\text{ then}\n    (A) z = 0 \\text{ is a removable singularity}\n    (B) z = 0 \\text{ is a simple pole}\n    (C) z = 0 \\text{ is an essential singularity}\n    (D) z = 0 \\text{ is a zero of } f(z)",
+      "category": "family",
+      "score": 4.6,
+      "prediction_score": 4.6,
+      "probability": 0.4706,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 7,
+      "distinct_paper_count": 7,
+      "papers_with_family": 7,
+      "paper_coverage": 0.4667,
+      "family_id": 4707,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ],
+      "average_marks": 1.0,
+      "total_marks_observed": 7.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        3893,
+        378,
+        3831,
+        3862,
+        443,
+        4003,
+        4098
+      ],
+      "historyCount": 7,
+      "historical_occurrences": 7,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": 7.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 7,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 7 historical occurrence(s) across 7 of 15 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 4707,
+        "occurrences": 7,
+        "sample_size": 7,
+        "distinct_paper_count": 7,
+        "interval": 2.0,
+        "last_seen": "2025",
+        "years": [
+          2019,
+          2023,
+          2024,
+          2025
+        ],
+        "average_marks": 1.0,
+        "total_marks": 7.0,
+        "question_ids": [
+          3893,
+          378,
+          3831,
+          3862,
+          443,
+          4003,
+          4098
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2019,
+        2023,
+        2024,
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "24. Find the bilinear transformation which maps the points 1, i, -1 of z-plane onto the points 0, 1, \\infty of w-plane.\n    (b) Find the bilinear transformation which maps the points 1, i, -1 of z-plane onto the points 0, 1, \\infty of w-plane.",
+      "category": "family",
+      "score": 4.0,
+      "prediction_score": 4.0,
+      "probability": 0.2941,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 15,
+      "papers_with_topic": 4,
+      "distinct_paper_count": 4,
+      "papers_with_family": 4,
+      "paper_coverage": 0.2667,
+      "family_id": 4855,
+      "repetition_type": "exact_repeat",
+      "observed_years": [
+        2024,
+        2025
+      ],
+      "average_marks": null,
+      "total_marks_observed": null,
+      "supporting_questions": [],
+      "supporting_question_ids": [
+        451,
+        4013,
+        4045,
+        4140
+      ],
+      "historyCount": 4,
+      "historical_occurrences": 4,
+      "recent_occurrences": 0,
+      "last_seen_year": 2025,
+      "lastSeen": "2025",
+      "marks_seen": null,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0,
+      "recency_score": 0.0,
+      "marks_score": 0.0,
+      "evidence_count": 4,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "QUESTION_FAMILY_RECURRING",
+        "LONG_ABSENCE"
+      ],
+      "explanation": "Exact verbatim repeat family with 4 historical occurrence(s) across 4 of 15 examination papers, last seen in 2025.",
+      "evidence_details": {
+        "family_id": 4855,
+        "occurrences": 4,
+        "sample_size": 4,
+        "distinct_paper_count": 4,
+        "interval": 1.0,
+        "last_seen": "2025",
+        "years": [
+          2024,
+          2025
+        ],
+        "average_marks": null,
+        "total_marks": null,
+        "question_ids": [
+          451,
+          4013,
+          4045,
+          4140
+        ],
+        "repetition_type": "exact_repeat"
+      },
+      "historical_years": [
+        2024,
+        2025
+      ],
+      "timeline": [
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2019,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2022,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "FAMILY_ABSENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": true,
+          "present": true,
+          "status": "FAMILY_PRESENT"
+        }
+      ]
+    }
+  ],
+  "study_priorities": [
+    {
+      "order": 1,
+      "topic": "Contour Integration",
+      "name": "Contour Integration",
+      "topic_id": 338,
+      "prediction_score": 0.0683,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Contour Integration",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 14
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 2,
+      "topic": "Gauss Divergence Theorem",
+      "name": "Gauss Divergence Theorem",
+      "topic_id": 323,
+      "prediction_score": 0.0664,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Carries significant historical marks weight.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Gauss Divergence Theorem",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 11
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 3,
+      "topic": "Taylor's and Laurent's Series Expansions",
+      "name": "Taylor's and Laurent's Series Expansions",
+      "topic_id": 335,
+      "prediction_score": 0.0583,
+      "probability": 0.8824,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Taylor's and Laurent's Series Expansions",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 24
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 4,
+      "topic": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+      "name": "Divergence, Curl, Solenoidal, and Irrotational Fields",
+      "topic_id": 320,
+      "prediction_score": 0.0541,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Divergence, Curl, Solenoidal, and Irrotational Fields",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 25
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 5,
+      "topic": "Green's Theorem in a Plane",
+      "name": "Green's Theorem in a Plane",
+      "topic_id": 321,
+      "prediction_score": 0.0537,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Green's Theorem in a Plane",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 21
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 6,
+      "topic": "Inverse Laplace Transforms and Partial Fractions",
+      "name": "Inverse Laplace Transforms and Partial Fractions",
+      "topic_id": 326,
+      "prediction_score": 0.0502,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Inverse Laplace Transforms and Partial Fractions",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 22
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 7,
+      "topic": "Change of Order of Integration",
+      "name": "Change of Order of Integration",
+      "topic_id": 316,
+      "prediction_score": 0.0449,
+      "probability": 0.8235,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Change of Order of Integration",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 14
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 8,
+      "topic": "Analytic Functions and Cauchy-Riemann Equations",
+      "name": "Analytic Functions and Cauchy-Riemann Equations",
+      "topic_id": 329,
+      "prediction_score": 0.0417,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Analytic Functions and Cauchy-Riemann Equations",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 18
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 9,
+      "topic": "Bilinear Transformations and Cross-Ratio",
+      "name": "Bilinear Transformations and Cross-Ratio",
+      "topic_id": 333,
+      "prediction_score": 0.0386,
+      "probability": 0.5882,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Bilinear Transformations and Cross-Ratio",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 15
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 10,
+      "topic": "Double Integrals and Change of Variables",
+      "name": "Double Integrals and Change of Variables",
+      "topic_id": 315,
+      "prediction_score": 0.0344,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Double Integrals and Change of Variables",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 18
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 11,
+      "topic": "Laplace Transforms of Elementary Functions and Shifting Properties",
+      "name": "Laplace Transforms of Elementary Functions and Shifting Properties",
+      "topic_id": 324,
+      "prediction_score": 0.0327,
+      "probability": 0.6471,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Laplace Transforms of Elementary Functions and Shifting Properties",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 15
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 12,
+      "topic": "Singularities, Poles, and Residues",
+      "name": "Singularities, Poles, and Residues",
+      "topic_id": 336,
+      "prediction_score": 0.0317,
+      "probability": 0.7059,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Singularities, Poles, and Residues",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 17
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 13,
+      "topic": "Gradient, Directional Derivative, and Potential Functions",
+      "name": "Gradient, Directional Derivative, and Potential Functions",
+      "topic_id": 319,
+      "prediction_score": 0.0301,
+      "probability": 0.7647,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Gradient, Directional Derivative, and Potential Functions",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 15
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 14,
+      "topic": "Convolution Theorem for Laplace Transforms",
+      "name": "Convolution Theorem for Laplace Transforms",
+      "topic_id": 327,
+      "prediction_score": 0.0256,
+      "probability": 0.2941,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Convolution Theorem for Laplace Transforms",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 8
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 15,
+      "topic": "Harmonic Functions and Orthogonal Trajectories",
+      "name": "Harmonic Functions and Orthogonal Trajectories",
+      "topic_id": 330,
+      "prediction_score": 0.0136,
+      "probability": 0.2353,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Harmonic Functions and Orthogonal Trajectories",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 16,
+      "topic": "Cauchy's Residue Theorem",
+      "name": "Cauchy's Residue Theorem",
+      "topic_id": 337,
+      "prediction_score": 0.0128,
+      "probability": 0.3529,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Cauchy's Residue Theorem",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 17,
+      "topic": "Milne-Thomson Method for Analytic Functions",
+      "name": "Milne-Thomson Method for Analytic Functions",
+      "topic_id": 331,
+      "prediction_score": 0.0112,
+      "probability": 0.1765,
+      "confidence": "MEDIUM",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_MARK_WEIGHT",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Milne-Thomson Method for Analytic Functions",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 2
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 18,
+      "topic": "Area and Volume as Multiple Integrals",
+      "name": "Area and Volume as Multiple Integrals",
+      "topic_id": 318,
+      "prediction_score": 0.0099,
+      "probability": 0.3529,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Area and Volume as Multiple Integrals",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 5
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 19,
+      "topic": "Triple Integrals and Volume Evaluation",
+      "name": "Triple Integrals and Volume Evaluation",
+      "topic_id": 317,
+      "prediction_score": 0.0094,
+      "probability": 0.4706,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Triple Integrals and Volume Evaluation",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 7
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 20,
+      "topic": "Conformal Mapping and Standard Transformations",
+      "name": "Conformal Mapping and Standard Transformations",
+      "topic_id": 332,
+      "prediction_score": 0.0037,
+      "probability": 0.2941,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_FREQUENCY",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Conformal Mapping and Standard Transformations",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 4
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 21,
+      "topic": "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+      "name": "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+      "topic_id": 334,
+      "prediction_score": 0.0031,
+      "probability": 0.1176,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Cauchy's Integral Theorem and Cauchy's Integral Formula",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 22,
+      "topic": "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+      "name": "Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+      "topic_id": 325,
+      "prediction_score": 0.0006,
+      "probability": 0.1176,
+      "confidence": "LOW",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "LOW_EVIDENCE",
+        "LONG_ABSENCE",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Laplace Transforms of Derivatives, Integrals, and Periodic Functions",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 1
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    }
+  ],
+  "coverage_summary": {
+    "total_predicted_topics": 22,
+    "mastered_topics": 0,
+    "in_progress_topics": 0,
+    "unstudied_topics": 22,
+    "student_preparation_coverage": 0.0,
+    "coverage_gap_topics": [],
+    "high_priority_gap_count": 0,
+    "mastered_topic_count": 0,
+    "in_progress_count": 0,
+    "unstudied_count": 22
+  },
+  "exam_schedule": null,
+  "metadata": {
+    "model_version": "2.2.0",
+    "taxonomy_version": "2.0.0",
+    "engine_version": "mintai-v2",
+    "corpus_version": "2026.1",
+    "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+    "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+    "sufficiency": "strong",
+    "generated_at": "2026-09-21T16:32:47.414942",
+    "latency_ms": 2.05,
+    "cache_hit": true
+  }
+}

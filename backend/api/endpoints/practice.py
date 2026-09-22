@@ -1,12 +1,19 @@
-from fastapi import APIRouter, HTTPException
+from typing import Optional
+from fastapi import APIRouter, HTTPException, Query
 from sqlalchemy.orm import Session
 from backend.core.database import SessionLocal
 from backend.models.core import Course, Exam, Section, Question
+from backend.services.assessment_cycle import normalize_assessment_cycle, filter_exams_by_cycle
 
 router = APIRouter()
 
 @router.get("/practice/{subject}")
-def get_practice_questions(subject: str, limit: int = 20):
+def get_practice_questions(
+    subject: str,
+    limit: int = 20,
+    assessment_cycle: Optional[str] = Query(None),
+    language: Optional[str] = Query(None)
+):
     db = SessionLocal()
     try:
         from backend.api.endpoints.predictions import _find_course
@@ -14,13 +21,50 @@ def get_practice_questions(subject: str, limit: int = 20):
         if not course:
             raise HTTPException(status_code=404, detail="Subject not found")
 
+        active_track = None
+        if course and course.tracks:
+            if not (isinstance(language, str) and language.strip()):
+                raise HTTPException(
+                    status_code=400,
+                    detail="TRACK_SELECTION_REQUIRED: Language selection is required for Foreign Languages."
+                )
+            lang_low = language.strip().lower()
+            active_track = next(
+                (t for t in course.tracks if t.track_key.lower() == lang_low or t.track_name.lower() == lang_low or str(t.id) == lang_low),
+                None
+            )
+            if not active_track:
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Invalid language track '{language}'. Available: {[t.track_key for t in course.tracks]}"
+                )
+
+        norm_cycle = normalize_assessment_cycle(assessment_cycle)
+
         # Fetch recent historical questions
-        questions = (
+        query = (
             db.query(Question, Exam.year)
             .select_from(Question)
             .join(Section, Question.section_id == Section.id)
             .join(Exam, Section.exam_id == Exam.id)
             .filter(Exam.course_id == course.id)
+        )
+        if active_track:
+            query = query.filter(Exam.track_id == active_track.id)
+
+        scope = None
+        if norm_cycle and norm_cycle != "ALL":
+            from backend.services.assessment_plan_registry import get_course_assessment_scope
+            scope = get_course_assessment_scope(
+                course.id,
+                norm_cycle,
+                db=db,
+                track_id=active_track.id if active_track else None
+            )
+            query = filter_exams_by_cycle(query, Exam.assessment_type, norm_cycle, course_id=course.id)
+
+        questions = (
+            query
             .order_by(Exam.year.desc().nullslast(), Question.id.asc())
             .limit(limit)
             .all()
@@ -38,6 +82,24 @@ def get_practice_questions(subject: str, limit: int = 20):
 
         return {
             "subject": subject,
+            "assessment_cycle": norm_cycle or "ALL",
+            "assessment_component": scope.component_code if scope else (norm_cycle or "ALL"),
+            "assessment_label": scope.component_label if scope else (norm_cycle or "All Assessments"),
+            "evidence_status": scope.evidence_status if scope else "ALL_SCOPE",
+            "intended_scope": scope.intended_scope if scope else None,
+            "observed_scope": scope.observed_scope if scope else None,
+            "assessment_scope": {
+                "student_cycle": norm_cycle or "ALL",
+                "component_code": scope.component_code,
+                "component_label": scope.component_label,
+                "student_label": scope.student_label,
+                "role": scope.role,
+                "marks": scope.marks,
+                "evidence_status": scope.evidence_status,
+                "intended_scope": scope.intended_scope,
+                "observed_scope": scope.observed_scope,
+                "unit_numbers": sorted(list(scope.in_scope_unit_numbers)),
+            } if scope else None,
             "questions": formatted_questions
         }
     finally:

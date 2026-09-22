@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "taxonomy_version": "1.0.0",
+  "taxonomy_version": "2.0.0",
   "course": {
     "id": 2,
     "name": "Chemistry",
@@ -19,7 +19,7 @@
     {
       "id": 20,
       "number": 1,
-      "name": "Periodic Properties",
+      "name": "Periodic Properties and Atomic Structure",
       "topics": [
         {
           "id": 20,
@@ -195,13 +195,289 @@
           ],
           "negative_guards": [],
           "context_hints": []
+        },
+        {
+          "id": 45,
+          "name": "Quantum Mechanics and Atomic Structure",
+          "canonical_name": "Quantum Mechanics and Atomic Structure",
+          "aliases": [],
+          "strong_phrases": [
+            "schrodinger wave equation",
+            "schrodinger equation",
+            "time independent schrodinger",
+            "time dependent schrodinger",
+            "heisenberg uncertainty",
+            "uncertainty principle",
+            "de-broglie",
+            "de broglie",
+            "wave-particle duality",
+            "planck's quantum",
+            "photoelectric effect",
+            "black body radiation",
+            "compton effect",
+            "wave function physical significance",
+            "born interpretation"
+          ],
+          "specific_keywords": [
+            "schrodinger",
+            "schr\u00f6dinger",
+            "de-broglie"
+          ],
+          "negative_guards": [
+            "particle in a box",
+            "one dimensional box",
+            "hydrogen atom",
+            "radial and angular"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 46,
+          "name": "Particle in a Box",
+          "canonical_name": "Particle in a Box",
+          "aliases": [],
+          "strong_phrases": [
+            "particle in a box",
+            "one dimensional box",
+            "1d box",
+            "particle in a 1-d box",
+            "particle in one-dimensional box",
+            "zero point energy of particle in a box",
+            "energy eigenvalues of particle in a box",
+            "wave function for particle in a box"
+          ],
+          "specific_keywords": [
+            "particle in a box",
+            "one-dimensional box"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 47,
+          "name": "Hydrogen Atomic Orbitals",
+          "canonical_name": "Hydrogen Atomic Orbitals",
+          "aliases": [],
+          "strong_phrases": [
+            "radial and angular wave",
+            "radial wave function",
+            "angular wave function",
+            "hydrogen atom",
+            "hydrogen atomic orbital",
+            "orbitals of hydrogen",
+            "1s orbital of hydrogen",
+            "radial probability distribution",
+            "nodes in hydrogen"
+          ],
+          "specific_keywords": [],
+          "negative_guards": [
+            "molecular orbital",
+            "lcao",
+            "h2 molecule",
+            "h2+ molecule"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 48,
+          "name": "Molecular Orbital Theory",
+          "canonical_name": "Molecular Orbital Theory",
+          "aliases": [],
+          "strong_phrases": [
+            "molecular orbital theory",
+            "mo theory",
+            "molecular orbital diagram",
+            "lcao",
+            "linear combination of atomic orbitals",
+            "bond order",
+            "bonding and antibonding",
+            "bonding and anti-bonding",
+            "homonuclear diatomic",
+            "heteronuclear diatomic",
+            "paramagnetism of o2",
+            "paramagnetic nature of o2",
+            "mo energy level diagram",
+            "h2 molecule",
+            "h2+ molecule",
+            "overlap of s and p",
+            "overlapping of p-p",
+            "sigma and pi molecular",
+            "mo concept"
+          ],
+          "specific_keywords": [
+            "bond order",
+            "lcao",
+            "anti-bonding"
+          ],
+          "negative_guards": [
+            "crystal field",
+            "cfse",
+            "aromaticity",
+            "huckel"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 49,
+          "name": "Aromaticity and Pi Molecular Orbitals",
+          "canonical_name": "Aromaticity and Pi Molecular Orbitals",
+          "aliases": [],
+          "strong_phrases": [
+            "aromaticity",
+            "huckel's rule",
+            "huckel rule",
+            "4n+2",
+            "pi molecular orbital",
+            "pi molecular orbitals of benzene",
+            "pi molecular orbitals of butadiene",
+            "annulene",
+            "antiaromatic",
+            "non-aromatic",
+            "tropylium ion",
+            "cyclopentadienyl anion"
+          ],
+          "specific_keywords": [
+            "aromaticity",
+            "huckel",
+            "antiaromatic"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 50,
+          "name": "Coordination Chemistry",
+          "canonical_name": "Coordination Chemistry",
+          "aliases": [],
+          "strong_phrases": [
+            "werner's theory",
+            "werner theory",
+            "coordination number",
+            "chelating ligand",
+            "chelate effect",
+            "edta ligand",
+            "denticity of ligand",
+            "monodentate",
+            "bidentate",
+            "polydentate",
+            "coordination sphere",
+            "sidgwick ean",
+            "effective atomic number rule"
+          ],
+          "specific_keywords": [
+            "werner",
+            "chelate",
+            "chelating",
+            "denticity",
+            "polydentate"
+          ],
+          "negative_guards": [
+            "crystal field",
+            "cfse",
+            "splitting in octahedral",
+            "splitting in tetrahedral",
+            "linkage isomerism",
+            "coordination isomerism"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 51,
+          "name": "Crystal Field Theory",
+          "canonical_name": "Crystal Field Theory",
+          "aliases": [],
+          "strong_phrases": [
+            "crystal field theory",
+            "crystal field splitting",
+            "cfse",
+            "octahedral splitting",
+            "tetrahedral splitting",
+            "spectrochemical series",
+            "high spin and low spin",
+            "pairing energy",
+            "d-d transition",
+            "d orbital splitting",
+            "crystal field stabilization energy",
+            "10 dq",
+            "splitting of d orbitals",
+            "octahedral field",
+            "tetrahedral field",
+            "increasing order of wavelength of light absorbed",
+            "wavelength of light absorbed"
+          ],
+          "specific_keywords": [
+            "cfse",
+            "spectrochemical series"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 52,
+          "name": "Coordination Isomerism",
+          "canonical_name": "Coordination Isomerism",
+          "aliases": [],
+          "strong_phrases": [
+            "isomerism in coordination",
+            "coordination isomerism",
+            "linkage isomerism",
+            "ionization isomerism",
+            "hydrate isomerism",
+            "solvate isomerism",
+            "optical isomerism in coordination",
+            "geometrical isomerism in coordination",
+            "fac and mer",
+            "facial and meridional",
+            "isomerism exhibited by coordination",
+            "isomerism exhibited by the coordination compounds",
+            "isomerism exhibited by coordination compounds",
+            "isomerism shown by the coordination compounds",
+            "isomerism shown by coordination compounds",
+            "isomerism exhibited in transition metal",
+            "isomerism in transition metal",
+            "isomerism in transition metal compounds",
+            "co-ordination isomerism"
+          ],
+          "specific_keywords": [
+            "linkage isomerism",
+            "ionization isomerism",
+            "hydrate isomerism"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 53,
+          "name": "Molecular Symmetry",
+          "canonical_name": "Molecular Symmetry",
+          "aliases": [],
+          "strong_phrases": [
+            "molecular symmetry",
+            "symmetry element",
+            "symmetry operation",
+            "center of inversion",
+            "plane of symmetry",
+            "proper axis of rotation",
+            "improper axis of rotation",
+            "point group",
+            "c2v point group",
+            "c3v point group",
+            "elements of symmetry"
+          ],
+          "specific_keywords": [
+            "point group",
+            "symmetry element",
+            "symmetry operation"
+          ],
+          "negative_guards": [],
+          "context_hints": []
         }
       ]
     },
     {
       "id": 21,
       "number": 2,
-      "name": "Chemical Equilibria",
+      "name": "Chemical Equilibria and Electrochemistry",
       "topics": [
         {
           "id": 23,
@@ -259,6 +535,185 @@
             "free energy change in equilibrium"
           ],
           "specific_keywords": [],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 61,
+          "name": "Chemical Thermodynamics",
+          "canonical_name": "Chemical Thermodynamics",
+          "aliases": [],
+          "strong_phrases": [
+            "first law of thermodynamics",
+            "second law of thermodynamics",
+            "third law of thermodynamics",
+            "carnot cycle",
+            "entropy change",
+            "gibbs free energy",
+            "helmholtz free energy",
+            "maxwell relations",
+            "maxwell's thermodynamic relations",
+            "joule-thomson effect",
+            "clapeyron equation",
+            "clausius-clapeyron",
+            "internal energy and enthalpy",
+            "gibbs-helmholtz",
+            "gibbs helmholtz",
+            "gibbs-helmhotz",
+            "gibbs helmhotz",
+            "entropy of the universe",
+            "entropy of an isolated system"
+          ],
+          "specific_keywords": [
+            "carnot cycle",
+            "maxwell relations",
+            "clausius-clapeyron"
+          ],
+          "negative_guards": [
+            "hard and soft",
+            "hsab",
+            "van der waals",
+            "intermolecular"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 62,
+          "name": "Hard and Soft Acids and Bases",
+          "canonical_name": "Hard and Soft Acids and Bases",
+          "aliases": [],
+          "strong_phrases": [
+            "hard and soft acids and bases",
+            "hsab principle",
+            "hsab theory",
+            "pearson's hsab",
+            "pearson hsab",
+            "hard acid",
+            "soft acid",
+            "hard base",
+            "soft base",
+            "symbiosis in hsab",
+            "pearson principle",
+            "acids and bases as hard and soft",
+            "classification of acids and bases as hard and soft"
+          ],
+          "specific_keywords": [
+            "hsab",
+            "pearson"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 63,
+          "name": "Intermolecular Forces",
+          "canonical_name": "Intermolecular Forces",
+          "aliases": [],
+          "strong_phrases": [
+            "intermolecular forces",
+            "van der waals forces",
+            "van der waals interactions",
+            "hydrogen bonding",
+            "dipole-dipole interaction",
+            "london dispersion forces",
+            "ion-dipole",
+            "intermolecular hydrogen bond",
+            "intramolecular hydrogen bond",
+            "vander waal's",
+            "vander waals interactions",
+            "vander waal interactions",
+            "vander waals forces"
+          ],
+          "specific_keywords": [
+            "london dispersion"
+          ],
+          "negative_guards": [
+            "van der waals equation",
+            "vander waals equation",
+            "vander waal equation",
+            "equation of state",
+            "critical constants",
+            "real gases"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 64,
+          "name": "Real Gases and Critical Phenomena",
+          "canonical_name": "Real Gases and Critical Phenomena",
+          "aliases": [],
+          "strong_phrases": [
+            "van der waals equation of state",
+            "real gases",
+            "critical temperature",
+            "critical pressure",
+            "critical volume",
+            "critical constants",
+            "liquefaction of gases",
+            "compressibility factor",
+            "deviation from ideal gas",
+            "van der waals constants",
+            "vander waals equation of state",
+            "vander waals equation",
+            "vander waals constants",
+            "clausius equation",
+            "berthelot equation"
+          ],
+          "specific_keywords": [
+            "compressibility factor"
+          ],
+          "negative_guards": [],
+          "context_hints": []
+        },
+        {
+          "id": 65,
+          "name": "Electrochemical Cells and Electrode Potentials",
+          "canonical_name": "Electrochemical Cells and Electrode Potentials",
+          "aliases": [],
+          "strong_phrases": [
+            "electrochemical cell",
+            "galvanic cell",
+            "nernst equation",
+            "standard electrode potential",
+            "reference electrode",
+            "calomel electrode",
+            "standard hydrogen electrode",
+            "she electrode",
+            "glass electrode",
+            "emf of cell",
+            "pourbaix diagram",
+            "electrochemical series",
+            "cell potential and free energy",
+            "nernst cquation"
+          ],
+          "specific_keywords": [
+            "nernst equation",
+            "pourbaix",
+            "calomel electrode"
+          ],
+          "negative_guards": [
+            "solubility product",
+            "precipitation"
+          ],
+          "context_hints": []
+        },
+        {
+          "id": 66,
+          "name": "Solubility Equilibria",
+          "canonical_name": "Solubility Equilibria",
+          "aliases": [],
+          "strong_phrases": [
+            "solubility product",
+            "common ion effect",
+            "precipitation titration",
+            "ksp and solubility",
+            "solubility equilibrium",
+            "solubility product constant"
+          ],
+          "specific_keywords": [
+            "solubility product",
+            "common ion effect"
+          ],
           "negative_guards": [],
           "context_hints": []
         }
@@ -637,311 +1092,7 @@
           ],
           "negative_guards": [],
           "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 27,
-      "number": 6,
-      "name": "Quantum and Atomic Structure",
-      "topics": [
-        {
-          "id": 45,
-          "name": "Quantum Mechanics and Atomic Structure",
-          "canonical_name": "Quantum Mechanics and Atomic Structure",
-          "aliases": [],
-          "strong_phrases": [
-            "schrodinger wave equation",
-            "schrodinger equation",
-            "time independent schrodinger",
-            "time dependent schrodinger",
-            "heisenberg uncertainty",
-            "uncertainty principle",
-            "de-broglie",
-            "de broglie",
-            "wave-particle duality",
-            "planck's quantum",
-            "photoelectric effect",
-            "black body radiation",
-            "compton effect",
-            "wave function physical significance",
-            "born interpretation"
-          ],
-          "specific_keywords": [
-            "schrodinger",
-            "schr\u00f6dinger",
-            "de-broglie"
-          ],
-          "negative_guards": [
-            "particle in a box",
-            "one dimensional box",
-            "hydrogen atom",
-            "radial and angular"
-          ],
-          "context_hints": []
         },
-        {
-          "id": 46,
-          "name": "Particle in a Box",
-          "canonical_name": "Particle in a Box",
-          "aliases": [],
-          "strong_phrases": [
-            "particle in a box",
-            "one dimensional box",
-            "1d box",
-            "particle in a 1-d box",
-            "particle in one-dimensional box",
-            "zero point energy of particle in a box",
-            "energy eigenvalues of particle in a box",
-            "wave function for particle in a box"
-          ],
-          "specific_keywords": [
-            "particle in a box",
-            "one-dimensional box"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        },
-        {
-          "id": 47,
-          "name": "Hydrogen Atomic Orbitals",
-          "canonical_name": "Hydrogen Atomic Orbitals",
-          "aliases": [],
-          "strong_phrases": [
-            "radial and angular wave",
-            "radial wave function",
-            "angular wave function",
-            "hydrogen atom",
-            "hydrogen atomic orbital",
-            "orbitals of hydrogen",
-            "1s orbital of hydrogen",
-            "radial probability distribution",
-            "nodes in hydrogen"
-          ],
-          "specific_keywords": [],
-          "negative_guards": [
-            "molecular orbital",
-            "lcao",
-            "h2 molecule",
-            "h2+ molecule"
-          ],
-          "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 28,
-      "number": 7,
-      "name": "Molecular Orbital Theory",
-      "topics": [
-        {
-          "id": 48,
-          "name": "Molecular Orbital Theory",
-          "canonical_name": "Molecular Orbital Theory",
-          "aliases": [],
-          "strong_phrases": [
-            "molecular orbital theory",
-            "mo theory",
-            "molecular orbital diagram",
-            "lcao",
-            "linear combination of atomic orbitals",
-            "bond order",
-            "bonding and antibonding",
-            "bonding and anti-bonding",
-            "homonuclear diatomic",
-            "heteronuclear diatomic",
-            "paramagnetism of o2",
-            "paramagnetic nature of o2",
-            "mo energy level diagram",
-            "h2 molecule",
-            "h2+ molecule",
-            "overlap of s and p",
-            "overlapping of p-p",
-            "sigma and pi molecular",
-            "mo concept"
-          ],
-          "specific_keywords": [
-            "bond order",
-            "lcao",
-            "anti-bonding"
-          ],
-          "negative_guards": [
-            "crystal field",
-            "cfse",
-            "aromaticity",
-            "huckel"
-          ],
-          "context_hints": []
-        },
-        {
-          "id": 49,
-          "name": "Aromaticity and Pi Molecular Orbitals",
-          "canonical_name": "Aromaticity and Pi Molecular Orbitals",
-          "aliases": [],
-          "strong_phrases": [
-            "aromaticity",
-            "huckel's rule",
-            "huckel rule",
-            "4n+2",
-            "pi molecular orbital",
-            "pi molecular orbitals of benzene",
-            "pi molecular orbitals of butadiene",
-            "annulene",
-            "antiaromatic",
-            "non-aromatic",
-            "tropylium ion",
-            "cyclopentadienyl anion"
-          ],
-          "specific_keywords": [
-            "aromaticity",
-            "huckel",
-            "antiaromatic"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 29,
-      "number": 8,
-      "name": "Coordination and Crystal Field Theory",
-      "topics": [
-        {
-          "id": 50,
-          "name": "Coordination Chemistry",
-          "canonical_name": "Coordination Chemistry",
-          "aliases": [],
-          "strong_phrases": [
-            "werner's theory",
-            "werner theory",
-            "coordination number",
-            "chelating ligand",
-            "chelate effect",
-            "edta ligand",
-            "denticity of ligand",
-            "monodentate",
-            "bidentate",
-            "polydentate",
-            "coordination sphere",
-            "sidgwick ean",
-            "effective atomic number rule"
-          ],
-          "specific_keywords": [
-            "werner",
-            "chelate",
-            "chelating",
-            "denticity",
-            "polydentate"
-          ],
-          "negative_guards": [
-            "crystal field",
-            "cfse",
-            "splitting in octahedral",
-            "splitting in tetrahedral",
-            "linkage isomerism",
-            "coordination isomerism"
-          ],
-          "context_hints": []
-        },
-        {
-          "id": 51,
-          "name": "Crystal Field Theory",
-          "canonical_name": "Crystal Field Theory",
-          "aliases": [],
-          "strong_phrases": [
-            "crystal field theory",
-            "crystal field splitting",
-            "cfse",
-            "octahedral splitting",
-            "tetrahedral splitting",
-            "spectrochemical series",
-            "high spin and low spin",
-            "pairing energy",
-            "d-d transition",
-            "d orbital splitting",
-            "crystal field stabilization energy",
-            "10 dq",
-            "splitting of d orbitals",
-            "octahedral field",
-            "tetrahedral field",
-            "increasing order of wavelength of light absorbed",
-            "wavelength of light absorbed"
-          ],
-          "specific_keywords": [
-            "cfse",
-            "spectrochemical series"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        },
-        {
-          "id": 52,
-          "name": "Coordination Isomerism",
-          "canonical_name": "Coordination Isomerism",
-          "aliases": [],
-          "strong_phrases": [
-            "isomerism in coordination",
-            "coordination isomerism",
-            "linkage isomerism",
-            "ionization isomerism",
-            "hydrate isomerism",
-            "solvate isomerism",
-            "optical isomerism in coordination",
-            "geometrical isomerism in coordination",
-            "fac and mer",
-            "facial and meridional",
-            "isomerism exhibited by coordination",
-            "isomerism exhibited by the coordination compounds",
-            "isomerism exhibited by coordination compounds",
-            "isomerism shown by the coordination compounds",
-            "isomerism shown by coordination compounds",
-            "isomerism exhibited in transition metal",
-            "isomerism in transition metal",
-            "isomerism in transition metal compounds",
-            "co-ordination isomerism"
-          ],
-          "specific_keywords": [
-            "linkage isomerism",
-            "ionization isomerism",
-            "hydrate isomerism"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        },
-        {
-          "id": 53,
-          "name": "Molecular Symmetry",
-          "canonical_name": "Molecular Symmetry",
-          "aliases": [],
-          "strong_phrases": [
-            "molecular symmetry",
-            "symmetry element",
-            "symmetry operation",
-            "center of inversion",
-            "plane of symmetry",
-            "proper axis of rotation",
-            "improper axis of rotation",
-            "point group",
-            "c2v point group",
-            "c3v point group",
-            "elements of symmetry"
-          ],
-          "specific_keywords": [
-            "point group",
-            "symmetry element",
-            "symmetry operation"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 30,
-      "number": 9,
-      "name": "Spectroscopy",
-      "topics": [
         {
           "id": 54,
           "name": "Spectroscopy Fundamentals",
@@ -1118,14 +1269,7 @@
           ],
           "negative_guards": [],
           "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 31,
-      "number": 10,
-      "name": "Solid State and Diffraction",
-      "topics": [
+        },
         {
           "id": 60,
           "name": "X-ray Diffraction and Crystal Structure",
@@ -1149,199 +1293,6 @@
             "bragg law",
             "miller indices",
             "bravais"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 32,
-      "number": 11,
-      "name": "Thermodynamics and Intermolecular Forces",
-      "topics": [
-        {
-          "id": 61,
-          "name": "Chemical Thermodynamics",
-          "canonical_name": "Chemical Thermodynamics",
-          "aliases": [],
-          "strong_phrases": [
-            "first law of thermodynamics",
-            "second law of thermodynamics",
-            "third law of thermodynamics",
-            "carnot cycle",
-            "entropy change",
-            "gibbs free energy",
-            "helmholtz free energy",
-            "maxwell relations",
-            "maxwell's thermodynamic relations",
-            "joule-thomson effect",
-            "clapeyron equation",
-            "clausius-clapeyron",
-            "internal energy and enthalpy",
-            "gibbs-helmholtz",
-            "gibbs helmholtz",
-            "gibbs-helmhotz",
-            "gibbs helmhotz",
-            "entropy of the universe",
-            "entropy of an isolated system"
-          ],
-          "specific_keywords": [
-            "carnot cycle",
-            "maxwell relations",
-            "clausius-clapeyron"
-          ],
-          "negative_guards": [
-            "hard and soft",
-            "hsab",
-            "van der waals",
-            "intermolecular"
-          ],
-          "context_hints": []
-        },
-        {
-          "id": 62,
-          "name": "Hard and Soft Acids and Bases",
-          "canonical_name": "Hard and Soft Acids and Bases",
-          "aliases": [],
-          "strong_phrases": [
-            "hard and soft acids and bases",
-            "hsab principle",
-            "hsab theory",
-            "pearson's hsab",
-            "pearson hsab",
-            "hard acid",
-            "soft acid",
-            "hard base",
-            "soft base",
-            "symbiosis in hsab",
-            "pearson principle",
-            "acids and bases as hard and soft",
-            "classification of acids and bases as hard and soft"
-          ],
-          "specific_keywords": [
-            "hsab",
-            "pearson"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        },
-        {
-          "id": 63,
-          "name": "Intermolecular Forces",
-          "canonical_name": "Intermolecular Forces",
-          "aliases": [],
-          "strong_phrases": [
-            "intermolecular forces",
-            "van der waals forces",
-            "van der waals interactions",
-            "hydrogen bonding",
-            "dipole-dipole interaction",
-            "london dispersion forces",
-            "ion-dipole",
-            "intermolecular hydrogen bond",
-            "intramolecular hydrogen bond",
-            "vander waal's",
-            "vander waals interactions",
-            "vander waal interactions",
-            "vander waals forces"
-          ],
-          "specific_keywords": [
-            "london dispersion"
-          ],
-          "negative_guards": [
-            "van der waals equation",
-            "vander waals equation",
-            "vander waal equation",
-            "equation of state",
-            "critical constants",
-            "real gases"
-          ],
-          "context_hints": []
-        },
-        {
-          "id": 64,
-          "name": "Real Gases and Critical Phenomena",
-          "canonical_name": "Real Gases and Critical Phenomena",
-          "aliases": [],
-          "strong_phrases": [
-            "van der waals equation of state",
-            "real gases",
-            "critical temperature",
-            "critical pressure",
-            "critical volume",
-            "critical constants",
-            "liquefaction of gases",
-            "compressibility factor",
-            "deviation from ideal gas",
-            "van der waals constants",
-            "vander waals equation of state",
-            "vander waals equation",
-            "vander waals constants",
-            "clausius equation",
-            "berthelot equation"
-          ],
-          "specific_keywords": [
-            "compressibility factor"
-          ],
-          "negative_guards": [],
-          "context_hints": []
-        }
-      ]
-    },
-    {
-      "id": 33,
-      "number": 12,
-      "name": "Electrochemistry",
-      "topics": [
-        {
-          "id": 65,
-          "name": "Electrochemical Cells and Electrode Potentials",
-          "canonical_name": "Electrochemical Cells and Electrode Potentials",
-          "aliases": [],
-          "strong_phrases": [
-            "electrochemical cell",
-            "galvanic cell",
-            "nernst equation",
-            "standard electrode potential",
-            "reference electrode",
-            "calomel electrode",
-            "standard hydrogen electrode",
-            "she electrode",
-            "glass electrode",
-            "emf of cell",
-            "pourbaix diagram",
-            "electrochemical series",
-            "cell potential and free energy",
-            "nernst cquation"
-          ],
-          "specific_keywords": [
-            "nernst equation",
-            "pourbaix",
-            "calomel electrode"
-          ],
-          "negative_guards": [
-            "solubility product",
-            "precipitation"
-          ],
-          "context_hints": []
-        },
-        {
-          "id": 66,
-          "name": "Solubility Equilibria",
-          "canonical_name": "Solubility Equilibria",
-          "aliases": [],
-          "strong_phrases": [
-            "solubility product",
-            "common ion effect",
-            "precipitation titration",
-            "ksp and solubility",
-            "solubility equilibrium",
-            "solubility product constant"
-          ],
-          "specific_keywords": [
-            "solubility product",
-            "common ion effect"
           ],
           "negative_guards": [],
           "context_hints": []

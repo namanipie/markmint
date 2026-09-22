@@ -39,11 +39,30 @@
             "kcl and kvl",
             "state and explain kcl",
             "state and explain kvl",
-            "basic terminologies in dc circuit"
+            "basic terminologies in dc circuit",
+            "maximum power transfer theorem find the maximum power consumed",
+            "thevenin's equivalent circuit across terminals",
+            "norton's theorem find short circuit current",
+            "superposition theorem find current flowing",
+            "using mesh analysis find the current",
+            "using mesh analysis find current",
+            "using nodal analysis find the voltage",
+            "norton's theorem across terminals",
+            "maximum power transfer theorem find the value of rl",
+            "find current through omega resistor using",
+            "watts lamp is connected across 220v dc supply",
+            "connected across 220v dc supply find the value of current"
           ],
           "specific_keywords": [
             "kcl",
-            "kvl"
+            "kvl",
+            "maximum power transfer theorem find",
+            "thevenin s equivalent",
+            "mesh analysis",
+            "nodal analysis",
+            "thevenin's theorem",
+            "norton's theorem",
+            "maximum power transfer"
           ],
           "negative_guards": [
             "mesh analysis",
@@ -52,7 +71,9 @@
             "maximum power",
             "superposition",
             "ac circuit",
-            "transformer"
+            "transformer",
+            "mesh current",
+            "mesh"
           ],
           "context_hints": [
             "circuits",
@@ -118,12 +139,22 @@
             "state thevenin",
             "state maximum power transfer theorem",
             "thevenin resistance",
-            "rth and vth"
+            "rth and vth",
+            "current power factor and active power",
+            "find the current power factor",
+            "impedance power factor and power consumed",
+            "series rlc circuit resonance condition",
+            "power factor of an ac circuit",
+            "frequency range of ac supply followed in indian standard",
+            "wave completed one cycle in 10 m.sec its frequency will be"
           ],
           "specific_keywords": [
             "thevenin",
             "thevenins",
-            "superposition theorem"
+            "superposition theorem",
+            "power factor",
+            "rlc series",
+            "resonant frequency"
           ],
           "negative_guards": [
             "mesh analysis",
@@ -153,12 +184,19 @@
             "average value of sinusoidal",
             "rms value of sinusoidal",
             "half wave alternating quantity",
-            "full wave alternating quantity"
+            "full wave alternating quantity",
+            "relation between line and phase quantities in star and delta",
+            "three phase star connected balanced load",
+            "three phase delta connected balanced load",
+            "two wattmeter method to measure three phase power"
           ],
           "specific_keywords": [
             "form factor",
             "peak factor",
-            "crest factor"
+            "crest factor",
+            "star and delta",
+            "two wattmeter method",
+            "three phase power"
           ],
           "negative_guards": [
             "rlc",
@@ -229,13 +267,21 @@
             "three phase balanced load",
             "three phase ac system",
             "star-connected system",
-            "delta-connected system"
+            "delta-connected system",
+            "construction and working principle of single phase transformer",
+            "emf equation of a single phase transformer",
+            "losses and efficiency of a single phase transformer",
+            "equivalent circuit of single phase transformer",
+            "open circuit and short circuit test of transformer"
           ],
           "specific_keywords": [
             "three-phase star",
             "three-phase delta",
             "star-connected",
-            "delta-connected"
+            "delta-connected",
+            "single phase transformer",
+            "emf equation of transformer",
+            "transformer losses"
           ],
           "negative_guards": [
             "induction motor",
@@ -307,13 +353,22 @@
             "input and output characteristics of bjt",
             "terminal of bjt",
             "zener diode as voltage regulator",
-            "overview of semiconductors diodes and transistors"
+            "overview of semiconductors diodes and transistors",
+            "construction and working principle of dc motor",
+            "back emf and torque equation of a dc motor",
+            "characteristics of dc shunt and series motors",
+            "speed control of dc shunt motor",
+            "the photodiode will be generally connected in",
+            "photodiode will be generally connected in"
           ],
           "specific_keywords": [
             "zener diode",
             "bjt",
             "npn transistor",
-            "pnp transistor"
+            "pnp transistor",
+            "dc motor",
+            "back emf",
+            "torque equation of dc motor"
           ],
           "negative_guards": [
             "jfet",
@@ -378,11 +433,18 @@
             "layers in scr",
             "terminals of scr",
             "terminals of igbt",
-            "anode cathode and gate"
+            "anode cathode and gate",
+            "construction and working principle of three phase induction motor",
+            "slip ring and squirrel cage induction motor",
+            "torque slip characteristics of induction motor",
+            "starting methods of three phase induction motor"
           ],
           "specific_keywords": [
             "scr",
-            "igbt"
+            "igbt",
+            "three phase induction motor",
+            "squirrel cage",
+            "slip ring induction"
           ],
           "negative_guards": [
             "commutation",
@@ -445,12 +507,26 @@
             "smps block diagram",
             "working of smps",
             "series voltage regulator",
-            "shunt voltage regulator"
+            "shunt voltage regulator",
+            "output of a logic gate is 1 when all its input is at logic 0",
+            "simplify the following boolean expression y a b c",
+            "de morgan's laws verification",
+            "universal gates nand and nor",
+            "simplify the following boolean expression using k map",
+            "simplify the following boolean expression",
+            "de morgan's laws verification using logic gates",
+            "universal logic gates nand and nor"
           ],
           "specific_keywords": [
             "smps",
             "voltage regulator",
-            "power converters"
+            "power converters",
+            "output of a logic gate is",
+            "boolean expression y a b c",
+            "logic gate",
+            "boolean expression",
+            "karnaugh map",
+            "universal gates"
           ],
           "negative_guards": [
             "zener diode",
@@ -516,12 +592,20 @@
             "4 variable k-map",
             "simplify using k-map",
             "minimize using k-map",
-            "solve using k-map"
+            "solve using k-map",
+            "ideal characteristics of operational amplifier op-amp",
+            "inverting and non-inverting operational amplifier",
+            "op-amp as summing amplifier and difference amplifier",
+            "op-amp as integrator and differentiator"
           ],
           "specific_keywords": [
             "karnaugh",
             "k-map",
-            "kmap"
+            "kmap",
+            "operational amplifier",
+            "inverting amplifier",
+            "non-inverting amplifier",
+            "op-amp"
           ],
           "negative_guards": [
             "fpga",
@@ -623,11 +707,24 @@
             "iron losses and copper losses in transformer",
             "core type and shell type transformer",
             "ideal transformer",
-            "step up and step down transformer"
+            "step up and step down transformer",
+            "chopper is a device that converts",
+            "chopper converts fixed dc to variable dc",
+            "vi characteristics of scr in eee",
+            "scr forward blocking mode",
+            "chopper is a device that converts fixed dc to variable dc",
+            "step up and step down chopper operation",
+            "principle of operation of dc chopper",
+            "buck and boost converters in power electronics"
           ],
           "specific_keywords": [
             "transformer",
-            "transformers"
+            "transformers",
+            "chopper is a device that converts",
+            "chopper converts",
+            "dc chopper",
+            "step-up chopper",
+            "buck converter"
           ],
           "negative_guards": [
             "lvdt",
@@ -758,11 +855,18 @@
             "drives for ev",
             "drives for cranes",
             "drives for pumping applications",
-            "real time applications of electrical drives"
+            "real time applications of electrical drives",
+            "construction and working of permanent magnet moving coil (pmmc)",
+            "moving iron attraction and repulsion type instruments",
+            "dynamometer type wattmeter construction and working",
+            "extension of range of ammeter and voltmeter"
           ],
           "specific_keywords": [
             "drive selection",
-            "drives for cranes"
+            "drives for cranes",
+            "pmmc instrument",
+            "moving iron instrument",
+            "wattmeter"
           ],
           "negative_guards": [
             "transformer",
@@ -1234,14 +1338,21 @@
             "electric vehicles ev",
             "types of wiring circuits",
             "wiring circuits and safety measures",
-            "staircase wiring"
+            "staircase wiring",
+            "conversion of solar radiation into electrical energy",
+            "solar photovoltaic pv system components and working",
+            "grid connected and standalone solar pv systems",
+            "wind energy conversion system block diagram and working"
           ],
           "specific_keywords": [
             "electric vehicle",
             "electric vehicles",
             "ev charging",
             "phev",
-            "hevs"
+            "hevs",
+            "solar radiation into",
+            "solar photovoltaic",
+            "wind energy conversion"
           ],
           "negative_guards": [
             "substation",

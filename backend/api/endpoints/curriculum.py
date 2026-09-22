@@ -5,39 +5,100 @@ from sqlalchemy import func
 
 from backend.core.database import get_db
 from backend.models.core import CurriculumMapping, Course, Exam, Section, Question
-from backend.schemas import CurriculumSubjectResponse
+from backend.schemas import CurriculumSubjectResponse, CourseTrackResponse
 
 router = APIRouter()
 
+_cached_branches: Optional[List[str]] = None
+_cached_semesters: dict[str, List[int]] = {}
 
-@router.get("/branches", response_model=List[str])
-def get_curriculum_branches(db: Session = Depends(get_db)) -> List[str]:
-    """Return all unique academic branches available in the curriculum catalog."""
-    from backend.services.curriculum_seeder import ensure_curriculum_seeded
-    ensure_curriculum_seeded(db)
 
+def get_cached_branches(db: Session) -> List[str]:
+    global _cached_branches
+    if _cached_branches is not None:
+        return _cached_branches
     branches = (
         db.query(CurriculumMapping.branch_name)
         .distinct()
         .order_by(CurriculumMapping.branch_name.asc())
         .all()
     )
-    return [b[0] for b in branches]
+    _cached_branches = [b[0] for b in branches]
+    return _cached_branches
 
 
-@router.get("/branches/{branch}/semesters", response_model=List[int])
-def get_branch_semesters(branch: str, db: Session = Depends(get_db)) -> List[int]:
-    """Return all available semesters for a specific academic branch."""
+def get_cached_semesters(branch: str, db: Session) -> List[int]:
+    global _cached_semesters
+    branch_key = branch.strip().lower()
+    if branch_key in _cached_semesters:
+        return _cached_semesters[branch_key]
     semesters = (
         db.query(CurriculumMapping.semester)
-        .filter(func.lower(CurriculumMapping.branch_name) == branch.lower())
+        .filter(func.lower(CurriculumMapping.branch_name) == branch_key)
         .distinct()
         .order_by(CurriculumMapping.semester.asc())
         .all()
     )
     if not semesters:
+        return []
+    res = [s[0] for s in semesters]
+    _cached_semesters[branch_key] = res
+    return res
+
+
+@router.get("/branches", response_model=List[str])
+def get_curriculum_branches(db: Session = Depends(get_db)) -> List[str]:
+    """Return all unique academic branches available in the curriculum catalog (cached)."""
+    return get_cached_branches(db)
+
+
+@router.get("/branches/{branch}/semesters", response_model=List[int])
+def get_branch_semesters(branch: str, db: Session = Depends(get_db)) -> List[int]:
+    """Return all available semesters for a specific academic branch (cached)."""
+    semesters = get_cached_semesters(branch, db)
+    if not semesters:
         raise HTTPException(status_code=404, detail="Branch not found")
-    return [s[0] for s in semesters]
+    return semesters
+
+
+@router.get("/initial-scope")
+def get_initial_scope(
+    branch: Optional[str] = None,
+    semester: Optional[int] = None,
+    db: Session = Depends(get_db)
+) -> dict:
+    """Return branches, default branch, semesters, and subjects in ONE single network round-trip."""
+    branches = get_cached_branches(db)
+    if not branches:
+        return {
+            "branches": [],
+            "default_branch": "",
+            "semesters": [],
+            "default_semester": 1,
+            "subjects": []
+        }
+
+    selected_branch = branch if branch and branch in branches else (
+        "Aerospace Engineering" if "Aerospace Engineering" in branches else branches[0]
+    )
+    semesters = get_cached_semesters(selected_branch, db)
+    selected_semester = semester if semester and semester in semesters else (
+        semesters[0] if semesters else 1
+    )
+
+    subjects = get_branch_semester_subjects(selected_branch, selected_semester, db)
+    serialized_subjects = [
+        s.model_dump() if hasattr(s, "model_dump") else s.dict()
+        for s in subjects
+    ]
+
+    return {
+        "branches": branches,
+        "default_branch": selected_branch,
+        "semesters": semesters,
+        "default_semester": selected_semester,
+        "subjects": serialized_subjects
+    }
 
 
 @router.get("/branches/{branch}/semesters/{semester}", response_model=List[CurriculumSubjectResponse])
@@ -99,6 +160,20 @@ def get_branch_semester_subjects(
         has_exams = c_stats["exams"] > 0
         canonical_code = m.course.canonical_code if m.course else None
 
+        course_tracks = []
+        if m.course and getattr(m.course, "tracks", None):
+            course_tracks = [
+                CourseTrackResponse(
+                    id=t.id,
+                    course_id=t.course_id,
+                    track_key=t.track_key,
+                    track_name=t.track_name,
+                    track_code=t.track_code,
+                    track_type=t.track_type,
+                )
+                for t in m.course.tracks
+            ]
+
         results.append(CurriculumSubjectResponse(
             curriculum_id=m.curriculum_id,
             subject_name=m.subject_name,
@@ -109,6 +184,8 @@ def get_branch_semester_subjects(
             has_exams=has_exams,
             exam_count=c_stats["exams"],
             question_count=c_stats["questions"],
+            has_tracks=len(course_tracks) > 0,
+            tracks=course_tracks,
             notes=m.notes
         ))
 

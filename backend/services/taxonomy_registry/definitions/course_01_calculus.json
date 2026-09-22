@@ -1,0 +1,690 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "2.0.0",
+  "course": {
+    "id": 1,
+    "name": "Calculus and Linear Algebra",
+    "canonical_code": "21MAB101T",
+    "code": "SEM1-CALC",
+    "regulation_year": 2021,
+    "department": "Mathematics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB101T Calculus and Linear Algebra",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative syllabus covering Matrices, Differential Equations, Partial Derivatives, Sequences and Series, and Multiple Integrals."
+  },
+  "units": [
+    {
+      "id": 13,
+      "number": 1,
+      "name": "Matrices and Linear Algebra",
+      "topics": [
+        {
+          "id": 1,
+          "name": "Eigenvalues and Eigenvectors",
+          "canonical_name": "Eigenvalues and Eigenvectors",
+          "aliases": [
+            "Eigen values",
+            "Eigen vectors",
+            "Characteristic roots"
+          ],
+          "strong_phrases": [
+            "eigenvalues and eigenvectors",
+            "eigen values and eigen vectors",
+            "eigen values of the matrix",
+            "eigenvalues of the matrix",
+            "find the eigenvalues",
+            "find the eigen values",
+            "eigen values of a",
+            "eigenvalues of a",
+            "characteristic roots",
+            "characteristic equation of the matrix",
+            "find the eigenvalues and eigenvectors of the matrix",
+            "eigen values and eigen vectors of the matrix",
+            "find eigenvalues and corresponding eigenvectors"
+          ],
+          "specific_keywords": [
+            "eigenvalue",
+            "eigenvalues",
+            "eigen value",
+            "eigen values",
+            "eigenvector",
+            "eigenvectors",
+            "eigenvalues and eigenvectors",
+            "eigen values and eigen vectors"
+          ],
+          "negative_guards": [
+            "cayley-hamilton",
+            "quadratic form",
+            "canonical form"
+          ],
+          "context_hints": [
+            "matrix",
+            "linear algebra"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Matrix Operations",
+          "canonical_name": "Matrix Operations",
+          "aliases": [
+            "Matrix Algebra",
+            "Rank of Matrix",
+            "Orthogonal Matrix"
+          ],
+          "strong_phrases": [
+            "orthogonal matrix",
+            "symmetric matrix",
+            "skew symmetric matrix",
+            "rank of the matrix",
+            "inverse of the matrix",
+            "adjoint of the matrix",
+            "trace of the matrix"
+          ],
+          "specific_keywords": [
+            "orthogonal matrix",
+            "rank of matrix",
+            "matrix operations"
+          ],
+          "negative_guards": [
+            "eigenvalue",
+            "eigenvalues",
+            "cayley-hamilton",
+            "quadratic form"
+          ],
+          "context_hints": [
+            "matrices",
+            "linear algebra"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Linear Systems",
+          "canonical_name": "Linear Systems",
+          "aliases": [
+            "System of Linear Equations",
+            "Cramer's Rule",
+            "Gaussian Elimination"
+          ],
+          "strong_phrases": [
+            "system of linear equations",
+            "consistency of system of equations",
+            "cramer's rule",
+            "gaussian elimination",
+            "gauss elimination method",
+            "gauss-jordan",
+            "homogeneous system of equations",
+            "non-homogeneous system"
+          ],
+          "specific_keywords": [
+            "cramer s rule",
+            "gauss elimination",
+            "system of equations"
+          ],
+          "negative_guards": [
+            "quadratic form",
+            "eigenvalue"
+          ],
+          "context_hints": [
+            "linear equations",
+            "linear algebra"
+          ]
+        },
+        {
+          "id": 32,
+          "name": "Cayley-Hamilton Theorem",
+          "canonical_name": "Cayley-Hamilton Theorem",
+          "aliases": [
+            "Cayley Hamilton Theorem",
+            "Cayley-Hamilton"
+          ],
+          "strong_phrases": [
+            "cayley-hamilton theorem",
+            "cayley hamilton theorem",
+            "verify cayley-hamilton",
+            "verify cayley hamilton",
+            "using cayley-hamilton",
+            "using cayley hamilton",
+            "verify cayley-hamilton theorem for the matrix",
+            "using cayley-hamilton theorem find a^{-1}",
+            "find a^4 and a^{-1} using cayley hamilton"
+          ],
+          "specific_keywords": [
+            "cayley-hamilton",
+            "cayley hamilton",
+            "cayley-hamilton theorem"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "matrices",
+            "linear algebra"
+          ]
+        },
+        {
+          "id": 33,
+          "name": "Quadratic Forms",
+          "canonical_name": "Quadratic Forms",
+          "aliases": [
+            "Reduction to Canonical Form",
+            "Nature of Quadratic Form",
+            "Index and Signature"
+          ],
+          "strong_phrases": [
+            "quadratic form",
+            "reduction of quadratic form",
+            "canonical form of the quadratic form",
+            "nature of the quadratic form",
+            "positive definite",
+            "negative definite",
+            "index and signature of the quadratic form",
+            "rank, signature, and nature",
+            "rank signature and nature",
+            "reduce the quadratic form to canonical form by orthogonal",
+            "nature index and signature of quadratic form",
+            "orthogonal transformation of quadratic form"
+          ],
+          "specific_keywords": [
+            "quadratic form",
+            "canonical form",
+            "positive definite",
+            "negative definite",
+            "indefinite quadratic",
+            "quadratic form to canonical",
+            "orthogonal reduction"
+          ],
+          "negative_guards": [
+            "cayley-hamilton"
+          ],
+          "context_hints": [
+            "matrices",
+            "linear algebra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "number": 2,
+      "name": "Functions of Several Variables",
+      "topics": [
+        {
+          "id": 14,
+          "name": "Partial Derivatives",
+          "canonical_name": "Partial Derivatives",
+          "aliases": [
+            "Euler's Theorem for Homogeneous Functions",
+            "Jacobian",
+            "Total Derivative",
+            "Curvature"
+          ],
+          "strong_phrases": [
+            "euler's theorem for homogeneous",
+            "euler's theorem",
+            "euler theorem",
+            "jacobian",
+            "total derivative",
+            "partial differentiation",
+            "partial derivatives",
+            "find dy dx if",
+            "radius of curvature",
+            "center of curvature",
+            "envelope of family of curves",
+            "envelope of the family"
+          ],
+          "specific_keywords": [
+            "euler s theorem",
+            "jacobian",
+            "total derivative",
+            "radius of curvature",
+            "envelope of the family"
+          ],
+          "negative_guards": [
+            "maxima and minima",
+            "lagrange multiplier",
+            "stationary point"
+          ],
+          "context_hints": [
+            "multivariable calculus"
+          ]
+        },
+        {
+          "id": 15,
+          "name": "Gradient",
+          "canonical_name": "Gradient",
+          "aliases": [
+            "Gradient of Scalar Field",
+            "Unit Normal Vector"
+          ],
+          "strong_phrases": [
+            "gradient of the scalar function",
+            "gradient of phi",
+            "unit normal vector to the surface",
+            "unit normal to the surface",
+            "normal derivative"
+          ],
+          "specific_keywords": [
+            "unit normal to the surface",
+            "unit normal vector"
+          ],
+          "negative_guards": [
+            "directional derivative",
+            "divergence",
+            "curl"
+          ],
+          "context_hints": [
+            "vector differential calculus"
+          ]
+        },
+        {
+          "id": 16,
+          "name": "Directional Derivatives",
+          "canonical_name": "Directional Derivatives",
+          "aliases": [
+            "Directional Derivative"
+          ],
+          "strong_phrases": [
+            "directional derivative of",
+            "directional derivative",
+            "maximum directional derivative"
+          ],
+          "specific_keywords": [
+            "directional derivative",
+            "directional derivatives"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "vector differential calculus"
+          ]
+        },
+        {
+          "id": 34,
+          "name": "Extrema and Optimization",
+          "canonical_name": "Extrema and Optimization",
+          "aliases": [
+            "Maxima and Minima",
+            "Lagrange Multipliers",
+            "Saddle Point"
+          ],
+          "strong_phrases": [
+            "maxima and minima",
+            "maximum and minimum values",
+            "lagrange's multiplier method",
+            "lagrange's multipliers",
+            "lagrange multiplier",
+            "saddle point",
+            "stationary point",
+            "rt - s^2",
+            "box of maximum capacity",
+            "box of maximum volume",
+            "rectangular box of maximum",
+            "find the maximum and minimum values of f(x,y)",
+            "find the maxima and minima of the function",
+            "lagrange's method of undetermined multipliers find extrema",
+            "saddle points of function of two variables"
+          ],
+          "specific_keywords": [
+            "lagrange multiplier",
+            "lagrange s multiplier",
+            "maxima and minima",
+            "stationary point",
+            "saddle point",
+            "lagrange's method of undetermined",
+            "saddle points"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "multivariable calculus",
+            "optimization"
+          ]
+        },
+        {
+          "id": 35,
+          "name": "Taylor Series",
+          "canonical_name": "Taylor Series",
+          "aliases": [
+            "Maclaurin Series",
+            "Taylor Expansion"
+          ],
+          "strong_phrases": [
+            "taylor's series",
+            "taylor's theorem",
+            "taylor series",
+            "taylor expansion",
+            "maclaurin's series",
+            "maclaurin series",
+            "maclaurin expansion",
+            "expand f x y in powers of"
+          ],
+          "specific_keywords": [
+            "taylor series",
+            "taylor s theorem",
+            "maclaurin series",
+            "maclaurin s series"
+          ],
+          "negative_guards": [
+            "fourier series"
+          ],
+          "context_hints": [
+            "series",
+            "calculus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "number": 3,
+      "name": "Ordinary Differential Equations",
+      "topics": [
+        {
+          "id": 4,
+          "name": "First-Order ODE",
+          "canonical_name": "First-Order ODE",
+          "aliases": [
+            "Exact Differential Equations",
+            "Linear First-Order ODE",
+            "Integrating Factor"
+          ],
+          "strong_phrases": [
+            "exact differential equation",
+            "integrating factor",
+            "bernoulli's equation",
+            "bernoulli equation",
+            "linear differential equation of first order",
+            "first order differential equation",
+            "separable variables",
+            "solve the exact differential equation",
+            "integrating factor of the differential equation",
+            "solve the first order linear differential equation dy/dx",
+            "bernoulli's differential equation solve"
+          ],
+          "specific_keywords": [
+            "integrating factor",
+            "exact differential",
+            "bernoulli equation",
+            "exact differential equation",
+            "bernoulli's differential"
+          ],
+          "negative_guards": [
+            "second order",
+            "d^2",
+            "particular integral",
+            "auxiliary equation"
+          ],
+          "context_hints": [
+            "differential equations",
+            "ode"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Second-Order ODE",
+          "canonical_name": "Second-Order ODE",
+          "aliases": [
+            "Higher Order ODE",
+            "Constant Coefficients ODE",
+            "Particular Integral"
+          ],
+          "strong_phrases": [
+            "particular integral",
+            "complementary function",
+            "auxiliary equation",
+            "variation of parameters",
+            "method of variation of parameters",
+            "cauchy's linear equation",
+            "legendre's linear equation",
+            "second order differential equation",
+            "d^2 +",
+            "d^2 -",
+            "solve by method of variation of parameters",
+            "method of variation of parameters solve",
+            "solve cauchy's homogeneous linear differential equation",
+            "second order linear differential equation with constant"
+          ],
+          "specific_keywords": [
+            "particular integral",
+            "complementary function",
+            "variation of parameters",
+            "auxiliary equation",
+            "cauchy's homogeneous",
+            "second order linear differential"
+          ],
+          "negative_guards": [
+            "partial differential",
+            "pde"
+          ],
+          "context_hints": [
+            "differential equations",
+            "ode"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "ODE Solutions",
+          "canonical_name": "ODE Solutions",
+          "aliases": [
+            "Wronskian",
+            "Linearly Independent Solutions",
+            "Initial Value Problems"
+          ],
+          "strong_phrases": [
+            "wronskian",
+            "linearly independent solutions of",
+            "initial value problem for ode",
+            "boundary value problem"
+          ],
+          "specific_keywords": [
+            "wronskian",
+            "linearly independent solution"
+          ],
+          "negative_guards": [
+            "pde"
+          ],
+          "context_hints": [
+            "differential equations",
+            "solutions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "number": 4,
+      "name": "Differential Calculus and Geometrical Applications",
+      "topics": [
+        {
+          "id": 17,
+          "name": "Beta and Gamma Functions",
+          "canonical_name": "Beta and Gamma Functions",
+          "aliases": [
+            "Change of Order of Integration",
+            "Beta and Gamma Functions",
+            "Area using Double Integrals"
+          ],
+          "strong_phrases": [
+            "double integral",
+            "double integrals",
+            "change the order of integration",
+            "change of order of integration",
+            "area enclosed by the curves",
+            "beta and gamma functions",
+            "gamma function",
+            "beta function",
+            "gamma n + 1",
+            "beta m, n"
+          ],
+          "specific_keywords": [
+            "double integral",
+            "double integrals",
+            "gamma function",
+            "beta function"
+          ],
+          "negative_guards": [
+            "triple integral"
+          ],
+          "context_hints": [
+            "multiple integrals",
+            "calculus"
+          ]
+        },
+        {
+          "id": 891,
+          "name": "Radius and Circle of Curvature",
+          "canonical_name": "Radius and Circle of Curvature",
+          "aliases": [],
+          "strong_phrases": [
+            "radius and circle of curvature"
+          ],
+          "specific_keywords": [
+            "radius",
+            "circle",
+            "curvature"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calculus",
+            "mathematics"
+          ]
+        },
+        {
+          "id": 892,
+          "name": "Evolutes and Envelopes",
+          "canonical_name": "Evolutes and Envelopes",
+          "aliases": [],
+          "strong_phrases": [
+            "evolutes and envelopes"
+          ],
+          "specific_keywords": [
+            "evolutes",
+            "envelopes"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "calculus",
+            "mathematics"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "number": 5,
+      "name": "Sequences and Series",
+      "topics": [
+        {
+          "id": 11,
+          "name": "Convergence Tests",
+          "canonical_name": "Convergence Tests",
+          "aliases": [
+            "Convergence of Series",
+            "Ratio Test",
+            "Comparison Test",
+            "D'Alembert's Test"
+          ],
+          "strong_phrases": [
+            "test the convergence of the series",
+            "convergence of the series",
+            "test for convergence",
+            "d'alembert's ratio test",
+            "ratio test",
+            "comparison test",
+            "cauchy's root test",
+            "rabee's test",
+            "integral test for series",
+            "alternating series",
+            "leibnitz's test",
+            "absolutely convergent",
+            "conditionally convergent",
+            "monotonically decreasing sequence",
+            "convergent or divergent",
+            "test the convergence of the series using d'alembert's ratio test",
+            "cauchy's root test test convergence of series",
+            "raabe's test for series convergence"
+          ],
+          "specific_keywords": [
+            "convergence of series",
+            "ratio test",
+            "comparison test",
+            "cauchy s root test",
+            "leibnitz s test",
+            "conditionally convergent",
+            "absolutely convergent",
+            "convergent sequence",
+            "d'alembert's ratio test",
+            "cauchy's root test",
+            "convergence of the series"
+          ],
+          "negative_guards": [
+            "fourier series",
+            "taylor series",
+            "maclaurin series",
+            "power series"
+          ],
+          "context_hints": [
+            "series",
+            "calculus"
+          ]
+        },
+        {
+          "id": 12,
+          "name": "Power Series",
+          "canonical_name": "Power Series",
+          "aliases": [
+            "Radius of Convergence",
+            "Interval of Convergence"
+          ],
+          "strong_phrases": [
+            "power series",
+            "radius of convergence",
+            "interval of convergence",
+            "series \\sum x^n",
+            "power series expansion"
+          ],
+          "specific_keywords": [
+            "power series",
+            "radius of convergence",
+            "interval of convergence"
+          ],
+          "negative_guards": [
+            "fourier series"
+          ],
+          "context_hints": [
+            "series",
+            "analysis"
+          ]
+        },
+        {
+          "id": 13,
+          "name": "Fourier Series",
+          "canonical_name": "Fourier Series",
+          "aliases": [
+            "Half-Range Fourier Series",
+            "Harmonic Analysis"
+          ],
+          "strong_phrases": [
+            "fourier series",
+            "fourier coefficients",
+            "half range sine series",
+            "half range cosine series",
+            "dirichlet's conditions",
+            "parseval's identity",
+            "harmonic analysis"
+          ],
+          "specific_keywords": [
+            "fourier series",
+            "half range sine",
+            "half range cosine",
+            "dirichlet s conditions"
+          ],
+          "negative_guards": [],
+          "context_hints": [
+            "series",
+            "fourier"
+          ]
+        }
+      ]
+    }
+  ]
+}
