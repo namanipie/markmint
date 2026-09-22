@@ -45,48 +45,50 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             </span>
           </div>
 
-        {/* Center: Navigation */}
-        
-        <nav className="hidden md:flex items-center gap-8">
-          {links.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              (link.href !== "/" && pathname?.startsWith(link.href));
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onMouseEnter={() => {
-                  if (link.href === "/mintai") {
-                    preloadCurriculumMetadata();
-                  }
-                }}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-foreground",
-                  isActive
-                    ? "text-foreground border-b-2 border-accent pb-1"
-                    : "text-muted-foreground"
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-        
-        <div className="hidden md:flex items-center gap-3 ml-6 pl-6 border-l border-border/40">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20" title={`${streak} Day Study Streak`}>
-            <Flame className={`w-3.5 h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/80'}`} />
-            <span className="text-xs font-bold text-orange-500">{streak}</span>
+        {/* Right Side: Nav + Streak + Mobile Toggle */}
+        <div className="flex items-center gap-2 md:gap-4 ml-auto">
+          {/* Center: Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {links.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname?.startsWith(link.href));
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onMouseEnter={() => {
+                    if (link.href === "/mintai") {
+                      preloadCurriculumMetadata();
+                    }
+                  }}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-foreground",
+                    isActive
+                      ? "text-foreground border-b-2 border-accent pb-1"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+          
+          <div className="flex items-center gap-2 md:gap-3 md:ml-6 md:pl-6 md:border-l border-border/40 mr-2 md:mr-0">
+            <div className="flex items-center gap-1 px-2 md:px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20" title={`${streak} Day Study Streak`}>
+              <Flame className={`w-3 h-3 md:w-3.5 md:h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/80'}`} />
+              <span className="text-[10px] md:text-xs font-bold text-orange-500">{streak}</span>
+            </div>
+            <DeepFocusToggle />
           </div>
-          <DeepFocusToggle />
-        </div>
-        
-        {/* Mobile Menu Toggle */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
       </div>
