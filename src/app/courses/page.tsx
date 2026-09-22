@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getAllCourses } from "@/lib/courses";
 import { CourseDirectoryView } from "@/components/courses/course-directory-view";
-import { ChevronRight, Leaf, BookOpen } from "lucide-react";
+import { ChevronRight, Leaf, BookOpen, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
