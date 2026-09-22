@@ -1,14 +1,15 @@
 """Deterministic study-priority and resource services."""
 
 from datetime import datetime, date, timezone
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from backend.models.core import (
-    Concept, Course, Document, Exam, MappingConfidence, Question, Section,
-    StudentTopicProgress, StudyEvidence, Syllabus, Topic, Unit,
+    Concept, Course, Document, Exam, MappingConfidence, Question, QuestionFamily,
+    QuestionFamilyMembership, Section, StudentTopicProgress, StudyEvidence, Syllabus,
+    Topic, Unit, question_topic,
 )
 from backend.services.prediction.engine import PredictionResult
 
@@ -191,6 +192,60 @@ class StudyIntelligenceService:
         return self.db.query(Topic).join(Unit).join(Syllabus).filter(
             Topic.id == topic_id, Syllabus.course_id == course_id
         ).first()
+
+    def resolve_family_to_topic(self, family_id: int, course_id: int) -> Optional[Topic]:
+        if not family_id or not course_id or not self.db:
+            return None
+
+        # 1. Query topics mapped to questions belonging to this family for this course
+        mapped_topics = (
+            self.db.query(Topic.id, Topic.name)
+            .join(question_topic, Topic.id == question_topic.c.topic_id)
+            .join(Question, Question.id == question_topic.c.question_id)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+            .outerjoin(QuestionFamilyMembership, Question.id == QuestionFamilyMembership.question_id)
+            .filter(
+                (Question.family_id == family_id) | (QuestionFamilyMembership.family_id == family_id),
+                Exam.course_id == course_id,
+                Syllabus.course_id == course_id,
+            )
+            .all()
+        )
+
+        if mapped_topics:
+            counts: Dict[int, int] = {}
+            names_by_id: Dict[int, str] = {}
+            for tid, tname in mapped_topics:
+                counts[tid] = counts.get(tid, 0) + 1
+                names_by_id[tid] = tname
+
+            # Deterministic: highest count, then alphabetical topic name, then lowest topic id
+            best_id = sorted(
+                counts.keys(),
+                key=lambda tid: (-counts[tid], names_by_id[tid], tid)
+            )[0]
+            return self.db.query(Topic).filter(Topic.id == best_id).first()
+
+        # 2. Fallback: match by canonical name of QuestionFamily to Topic.name in syllabus of this course
+        family = self.db.query(QuestionFamily).filter(QuestionFamily.id == family_id).first()
+        if family and family.canonical_name:
+            match = (
+                self.db.query(Topic)
+                .join(Unit, Topic.unit_id == Unit.id)
+                .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+                .filter(
+                    Syllabus.course_id == course_id,
+                    func.lower(Topic.name) == func.lower(family.canonical_name)
+                )
+                .first()
+            )
+            if match:
+                return match
+
+        return None
 
     def get_topic_resources(self, topic_name: str, course_id: int) -> List[Dict[str, Any]]:
         if self.db is None:
@@ -551,10 +606,17 @@ class StudyIntelligenceService:
 
     def record_progress(
         self, user_id: str = None, course_id: int = None, topic_id: int = None, status: str = None,
-        viewed_resource: bool = False, practice_attempted: bool = False,
+        viewed_resource: bool = False, practice_attempted: Union[bool, int] = False,
         practice_accuracy: float = None, student_id: str = None,
+        family_id: int = None,
     ) -> StudentTopicProgress:
         effective_user_id = student_id or user_id or "anonymous"
+        if topic_id is None and family_id is not None and course_id is not None:
+            resolved_topic = self.resolve_family_to_topic(family_id, course_id)
+            if not resolved_topic:
+                raise ValueError(f"No syllabus topic found for question family #{family_id} in course {course_id}")
+            topic_id = resolved_topic.id
+
         if not self._course_topic_by_id(topic_id, course_id):
             raise ValueError("Topic does not belong to the selected course")
         progress = self.db.query(StudentTopicProgress).filter_by(
@@ -564,13 +626,21 @@ class StudyIntelligenceService:
             progress = StudentTopicProgress(student_id=effective_user_id, topic_id=topic_id)
             self.db.add(progress)
         if status:
-            if status not in {"NOT_STARTED", "STARTED", "COMPLETED"}:
+            status_norm = status.strip().upper()
+            if status_norm == "IN_PROGRESS":
+                status_norm = "STARTED"
+            if status_norm not in {"NOT_STARTED", "STARTED", "COMPLETED"}:
                 raise ValueError("status must be NOT_STARTED, STARTED, or COMPLETED")
-            progress.status = status
+            progress.status = status_norm
         if practice_attempted:
-            progress.practice_attempted = (progress.practice_attempted or 0) + 1
-            if practice_accuracy is not None and practice_accuracy >= 0.5:
-                progress.practice_correct = (progress.practice_correct or 0) + 1
+            attempts = practice_attempted if (isinstance(practice_attempted, int) and not isinstance(practice_attempted, bool)) else 1
+            progress.practice_attempted = (progress.practice_attempted or 0) + max(0, attempts)
+            if practice_accuracy is not None:
+                if isinstance(practice_attempted, bool) or attempts == 1:
+                    if practice_accuracy >= 0.5:
+                        progress.practice_correct = (progress.practice_correct or 0) + 1
+                else:
+                    progress.practice_correct = (progress.practice_correct or 0) + round(attempts * practice_accuracy)
         progress.last_studied_at = datetime.now(timezone.utc)
         self.db.commit()
         self.db.refresh(progress)

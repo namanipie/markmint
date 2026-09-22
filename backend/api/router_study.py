@@ -1,6 +1,6 @@
 import hashlib
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel
@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 from backend.api.endpoints.predictions import get_prediction, resolve_course
 from backend.core.database import SessionLocal, get_db
-from backend.models.core import Course
+from backend.models.core import Course, QuestionFamily, Question, Section, Exam
 from backend.services.student_uploads import StudentUploadService
 from backend.services.study_intelligence import StudyIntelligenceService
 
@@ -19,10 +19,11 @@ class ProgressRequest(BaseModel):
     user_id: str = "anonymous"
     topic_id: Optional[int] = None
     topic: Optional[str] = None
+    family_id: Optional[int] = None
     action: Optional[str] = None
     status: Optional[str] = None
     viewed_resource: bool = False
-    practice_attempted: bool = False
+    practice_attempted: Union[bool, int] = False
     practice_accuracy: Optional[float] = None
 
 
@@ -278,16 +279,61 @@ def upload_study_resource(
 
 @router.post("/progress/{course_id}")
 def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(get_db)):
+    course = db.query(Course).filter(Course.id == course_id).first()
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+
     service = StudyIntelligenceService(db)
     topic_id = req.topic_id
+
+    # If family_id is provided, validate it exists and belongs to this course
+    if req.family_id is not None:
+        family = db.query(QuestionFamily).filter(QuestionFamily.id == req.family_id).first()
+        if not family:
+            raise HTTPException(status_code=404, detail="Question family not found")
+        course_name_clean = course.name.strip().lower()
+        family_subject_clean = (family.subject or "").strip().lower()
+        subject_matches = (
+            family_subject_clean == course_name_clean
+            or (course.code and family_subject_clean == course.code.strip().lower())
+            or (course.canonical_code and family_subject_clean == course.canonical_code.strip().lower())
+        )
+        has_course_questions = (
+            db.query(Question.id)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .filter(Question.family_id == family.id, Exam.course_id == course_id)
+            .first()
+            is not None
+        )
+        if not subject_matches and not has_course_questions:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Question family #{req.family_id} does not belong to course {course_id}"
+            )
+
     if topic_id is None and req.topic:
         topic_obj = service._course_topic(req.topic, course_id)
         if topic_obj:
             topic_id = topic_obj.id
         else:
             raise HTTPException(status_code=404, detail=f"Topic '{req.topic}' not found in course {course_id}")
+    elif topic_id is None and req.family_id is not None:
+        resolved_topic = service.resolve_family_to_topic(req.family_id, course_id)
+        if resolved_topic:
+            topic_id = resolved_topic.id
+        else:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No syllabus topic found for question family #{req.family_id} in course {course_id}"
+            )
     elif topic_id is None:
-        raise HTTPException(status_code=400, detail="Either 'topic_id' or 'topic' name must be provided")
+        raise HTTPException(status_code=400, detail="Either 'topic_id', 'topic', or 'family_id' must be provided")
+
+    # If topic_id was explicitly provided, verify it belongs to this course
+    if req.topic_id is not None:
+        if not service._course_topic_by_id(topic_id, course_id):
+            raise HTTPException(status_code=400, detail=f"Topic #{topic_id} does not belong to course {course_id}")
 
     status = req.status
     if req.action == "complete_topic":
@@ -311,6 +357,7 @@ def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return {
         "success": True,
+        "topic_id": progress.topic_id,
         "status": progress.status,
         "last_studied": progress.last_studied_at,
     }
