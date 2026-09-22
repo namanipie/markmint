@@ -6,6 +6,7 @@ import { Leaf, Activity, ChevronRight, Calculator, BookOpen, Clock, CheckCircle2
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getStudyContext, StudyContext } from "@/lib/study-context";
+import { MagneticButton } from "@/components/ui/magnetic-button";
 
 export default function Home() {
   const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
@@ -58,13 +59,18 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-              <Link 
-                href="/mintai"
-                className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium"
-              >
-                <Leaf className="w-4 h-4 text-accent" strokeWidth={2.5} />
-                Open MintAI
-              </Link>
+              <MagneticButton className="relative group w-full sm:w-auto" intensity={0.15}>
+                {/* Animated Glow Behind Button */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-600 rounded-lg blur-lg opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                
+                <Link 
+                  href="/mintai"
+                  className="relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+                >
+                  <Leaf className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform duration-500" strokeWidth={2.5} />
+                  Open MintAI
+                </Link>
+              </MagneticButton>
               
               <Link 
                 href="/study-plan"

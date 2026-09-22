@@ -8,6 +8,8 @@ import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from 
 import { BackendCourse } from "@/lib/types";
 import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers } from "lucide-react";
 import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
+import { GrowingMint } from "@/components/ui/growing-mint";
 import { MathText } from "@/components/ui/math-text";
 import { useAnalytics } from "@/hooks/use-analytics";
 
@@ -86,6 +88,24 @@ export default function StudyIntelligencePage() {
       const subject = selectedCourseObj.name;
       const data = await getStudyPlan(subject);
       setStudyData(data);
+      
+      confetti({
+        particleCount: 50,
+        spread: 45,
+        origin: { y: 0.8 },
+        colors: ['#10b981', '#34d399', '#f472b6']
+      });
+      
+      if (data.progress === "100%") {
+        setTimeout(() => {
+          confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.5 },
+            colors: ['#10b981', '#34d399', '#f472b6']
+          });
+        }, 500);
+      }
     } catch (err) {
       console.error("Failed to complete topic", err);
     }
@@ -107,6 +127,13 @@ export default function StudyIntelligencePage() {
     try {
       const result = await uploadStudyNotes(formData);
       setUploadResult(result);
+      
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#10b981', '#34d399', '#f472b6'] // Emerald and pink
+      });
       
       // Refresh study plan to show the new uploaded resources
       const subject = selectedCourseObj.name;
@@ -242,7 +269,14 @@ export default function StudyIntelligencePage() {
                       </p>
                       <div className="flex items-end gap-2">
                         <span className="text-2xl font-bold text-foreground font-mono">
-                          {isFamilyPlan ? `${totalResources} resources` : (studyData.progress || '0%')}
+                          {isFamilyPlan ? (
+                            `${totalResources} resources`
+                          ) : (
+                            <div className="flex items-center gap-3">
+                              <span>{studyData.progress || '0%'}</span>
+                              <GrowingMint progressStr={studyData.progress || '0%'} />
+                            </div>
+                          )}
                         </span>
                       </div>
                     </div>
