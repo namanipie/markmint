@@ -270,7 +270,7 @@ export default async function CoursePage({ params }: PageProps) {
             <div className="flex items-start gap-3 text-xs text-muted-foreground">
               <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
               <span>
-                <strong className="text-foreground">Cycle-Specific Blueprint:</strong> Separate prediction models for CT1 (Units 1–2), CT2 (Units 3–4), and End Semester.
+                <strong className="text-foreground">Cycle-Specific Blueprint:</strong> Separate prediction models for CT1, CT2, and End Semester calibrated to available historical evidence.
               </span>
             </div>
             <div className="flex items-start gap-3 text-xs text-muted-foreground">

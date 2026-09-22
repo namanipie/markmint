@@ -1673,7 +1673,7 @@ export default function MintAIPage() {
                       <span>Assessment Selector</span>
                     </div>
                     <p className="text-xs text-muted-foreground leading-relaxed">
-                      Tailor your forecast to <strong>CT1</strong> (Units 1–2), <strong>CT2</strong> (Units 3–4), or comprehensive <strong>End Semester</strong> (Units 1–5).
+                      Tailor your forecast to <strong>CT1</strong>, <strong>CT2</strong>, or comprehensive <strong>End Semester</strong> based on available historical evidence.
                     </p>
                   </div>
 
