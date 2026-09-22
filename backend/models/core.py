@@ -248,6 +248,23 @@ class Syllabus(Base):
     track = relationship("CourseTrack", back_populates="syllabuses")
     units = relationship("Unit", back_populates="syllabus")
 
+    def __init__(self, **kwargs):
+        self._expected_units = kwargs.pop("expected_units", None)
+        super().__init__(**kwargs)
+
+    @property
+    def expected_units(self) -> int:
+        if getattr(self, "_expected_units", None) is not None:
+            return self._expected_units
+        if self.course_id:
+            from backend.services.curriculum_units import get_expected_unit_count_for_course
+            return get_expected_unit_count_for_course(self.course_id, track_id=self.track_id)
+        return 5
+
+    @expected_units.setter
+    def expected_units(self, val: int) -> None:
+        self._expected_units = val
+
 
 class Unit(Base):
     __tablename__ = "units"
@@ -259,11 +276,28 @@ class Unit(Base):
     syllabus = relationship("Syllabus", back_populates="units")
     topics = relationship("Topic", back_populates="unit")
 
+    DEFAULT_MAX_UNITS = 5
+
+    def __init__(self, **kwargs):
+        self._max_units = kwargs.pop("max_units", None) or kwargs.pop("expected_units", None)
+        super().__init__(**kwargs)
+
+    def get_max_units(self) -> int:
+        if getattr(self, "_max_units", None) is not None:
+            return self._max_units
+        if getattr(self, "syllabus", None) is not None and hasattr(self.syllabus, "expected_units"):
+            return self.syllabus.expected_units
+        if getattr(self, "syllabus_id", None) is not None:
+            from backend.services.curriculum_units import get_expected_unit_count_for_syllabus_id
+            return get_expected_unit_count_for_syllabus_id(self.syllabus_id)
+        return self.DEFAULT_MAX_UNITS
+
     @validates("number")
     def validate_unit_number(self, key, value):
-        if value is not None and (value < 1 or value > 5):
+        max_units = self.get_max_units()
+        if value is not None and (value < 1 or value > max_units):
             raise ValueError(
-                f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {value}."
+                f"Canonical syllabus units must strictly be between 1 and {max_units}. Received unit number {value}."
             )
         return value
 

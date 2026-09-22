@@ -70,11 +70,12 @@ class UnitDefinition:
         return d
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "UnitDefinition":
+    def from_dict(cls, data: Dict[str, Any], max_units: Optional[int] = None) -> "UnitDefinition":
         num = data["number"]
-        if not (1 <= num <= 5):
+        allowed_max = max_units if max_units is not None else 5
+        if not (1 <= num <= allowed_max):
             raise ValueError(
-                f"Canonical syllabus units must strictly be between 1 and 5. Received unit number {num}."
+                f"Canonical syllabus units must strictly be between 1 and {allowed_max}. Received unit number {num}."
             )
         return cls(
             id=data["id"],
@@ -95,9 +96,10 @@ class CourseDefinition:
     code: str
     regulation_year: Optional[int] = None
     department: Optional[str] = None
+    expected_units: Optional[int] = None
 
     def to_dict(self) -> Dict[str, Any]:
-        return {
+        d = {
             "id": self.id,
             "name": self.name,
             "canonical_code": self.canonical_code,
@@ -105,6 +107,9 @@ class CourseDefinition:
             "regulation_year": self.regulation_year,
             "department": self.department,
         }
+        if self.expected_units is not None:
+            d["expected_units"] = self.expected_units
+        return d
 
     @classmethod
     def from_dict(cls, data: Dict[str, Any]) -> "CourseDefinition":
@@ -115,6 +120,7 @@ class CourseDefinition:
             code=data.get("code", ""),
             regulation_year=data.get("regulation_year"),
             department=data.get("department"),
+            expected_units=data.get("expected_units"),
         )
 
 
@@ -153,6 +159,7 @@ class CourseTaxonomyRegistryEntry:
     provenance: ProvenanceDefinition
     units: List[UnitDefinition] = field(default_factory=list)
     tracks: Optional[List[Dict[str, Any]]] = None
+    expected_units: Optional[int] = None
 
     def to_dict(self) -> Dict[str, Any]:
         d = {
@@ -164,6 +171,8 @@ class CourseTaxonomyRegistryEntry:
         }
         if self.tracks is not None:
             d["tracks"] = self.tracks
+        if self.expected_units is not None:
+            d["expected_units"] = self.expected_units
         return d
 
     @classmethod
@@ -173,11 +182,24 @@ class CourseTaxonomyRegistryEntry:
             if rf not in data:
                 raise ValueError(f"Malformed taxonomy definition: missing required field '{rf}'")
 
+        declared_expected = data.get("expected_units")
+        if declared_expected is None and isinstance(data.get("course"), dict):
+            declared_expected = data["course"].get("expected_units")
+
+        # Determine effective unit bounds for parsing individual units
+        if declared_expected is not None:
+            effective_max = int(declared_expected)
+        elif not data.get("tracks") and data.get("units"):
+            effective_max = max(len(data["units"]), 5)
+        else:
+            effective_max = 5
+
         return cls(
             schema_version=data["schema_version"],
             taxonomy_version=data["taxonomy_version"],
             course=CourseDefinition.from_dict(data["course"]),
             provenance=ProvenanceDefinition.from_dict(data["provenance"]),
-            units=[UnitDefinition.from_dict(u) for u in data["units"]],
+            units=[UnitDefinition.from_dict(u, max_units=effective_max) for u in data["units"]],
             tracks=data.get("tracks"),
+            expected_units=declared_expected,
         )

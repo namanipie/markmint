@@ -63,6 +63,27 @@ class TaxonomyRegistry:
                 f"conflicts with existing '{existing_source}'"
             )
 
+        # Enforce declarative unit cardinality
+        declared_expected = entry.expected_units or entry.course.expected_units
+        if declared_expected is not None:
+            expected_count = int(declared_expected)
+            from backend.services.curriculum_units import validate_unit_cardinality
+            if not entry.tracks:
+                validate_unit_cardinality(
+                    expected_count,
+                    [u.number for u in entry.units],
+                    context_label=f"Course {cid} ({entry.course.name})"
+                )
+            else:
+                for track_info in (entry.tracks or []):
+                    t_id = track_info.get("id")
+                    t_units = [u.number for u in entry.units if u.track_id == t_id]
+                    validate_unit_cardinality(
+                        expected_count,
+                        t_units,
+                        context_label=f"Course {cid} ({entry.course.name}) Track {track_info.get('track_name', t_id)}"
+                    )
+
         seen_unit_ids: Set[int] = set()
         seen_unit_keys: Set[Any] = set()
         seen_topic_names: Set[Any] = set()
@@ -117,6 +138,22 @@ class TaxonomyRegistry:
 
         self._courses[cid] = entry
         self._topic_rules_cache[cid] = topic_rules
+
+    def get_course_expected_units(self, course_id: int, track_id: Optional[int] = None) -> int:
+        """Retrieve declared expected units for a course (or default 5)."""
+        if course_id in self._courses:
+            entry = self._courses[course_id]
+            if entry.expected_units is not None:
+                return entry.expected_units
+            if entry.course.expected_units is not None:
+                return entry.course.expected_units
+            if entry.tracks and track_id is not None:
+                t_units = [u for u in entry.units if u.track_id == track_id]
+                if t_units:
+                    return len(t_units)
+            elif not entry.tracks and entry.units:
+                return len(entry.units)
+        return 5
 
     def get_course(self, course_id: int, track_key: Optional[str] = None) -> CourseTaxonomyRegistryEntry:
         """Retrieve a course's declarative taxonomy entry by course ID, optionally filtered by track."""
