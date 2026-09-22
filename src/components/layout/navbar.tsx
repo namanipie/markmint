@@ -20,7 +20,6 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { href: "/courses", label: "Courses" },
     { href: "/mintai", label: "MintAI" },
     { href: "/study-plan", label: "Study Plan" },
-    { href: "/practice", label: "Practice" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
   ];

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Home } from "lucide-react";
+import { Home, Leaf } from "lucide-react";
 
 type Stage = "NORMAL" | "ASTEROID" | "DESTRUCTION" | "BEAM" | "VOID" | "RESOLVED";
 
@@ -348,14 +348,12 @@ export default function NotFound() {
       <div 
         className={`absolute inset-0 z-[70] stars-bg transition-opacity duration-1000 flex flex-col items-center justify-center ${(stage === "VOID" || stage === "RESOLVED") ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        {/* Floating Lost Leaf */}
+        {/* Floating Lost Mint Logo */}
         <div className={`absolute top-1/2 left-1/2 animate-float-space transition-all duration-1000 ${stage === "RESOLVED" ? "scale-75 opacity-30 -translate-y-[15vh]" : "scale-100 opacity-85"}`}>
           <div className="relative">
-            <div className="absolute inset-0 bg-emerald-500 rounded-full blur-[50px] opacity-30"></div>
-            <img 
-              src="/secret-leaf.png" 
-              alt="Lost Leaf" 
-              className="w-24 h-24 sm:w-32 sm:h-32 drop-shadow-[0_0_20px_rgba(16,185,129,0.7)] brightness-110 object-contain" 
+            <div className="absolute inset-0 bg-accent rounded-full blur-[50px] opacity-30"></div>
+            <Leaf 
+              className="w-24 h-24 sm:w-32 sm:h-32 text-accent drop-shadow-[0_0_20px_rgba(16,185,129,0.7)]"
             />
           </div>
         </div>
