@@ -1,12 +1,59 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Moon } from 'lucide-react';
 
 export function DeepFocusToggle() {
   const [isActive, setIsActive] = useState(false);
 
+  const playAmbientChord = useCallback(() => {
+    try {
+      const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+      const ctx = new AudioContext();
+      
+      // E minor 9 chord for a very calm, ethereal feel
+      // E3 (164.81), G3 (196.00), B3 (246.94), D4 (293.66), F#4 (369.99)
+      const chord = [164.81, 196.00, 246.94, 293.66, 369.99];
+      
+      const masterGain = ctx.createGain();
+      masterGain.gain.setValueAtTime(0, ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 1.5); // slow fade in
+      masterGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 6); // very slow fade out
+      masterGain.connect(ctx.destination);
+      
+      // Gentle lowpass filter to make it sound muffled and soothing
+      const filter = ctx.createBiquadFilter();
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(800, ctx.currentTime);
+      filter.frequency.linearRampToValueAtTime(300, ctx.currentTime + 6);
+      filter.connect(masterGain);
+
+      chord.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        osc.type = "sine";
+        // Slight organic detune
+        osc.frequency.value = freq + (Math.random() * 1.5 - 0.75); 
+        
+        // Slight stereo spread
+        const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+        if (panner) {
+          panner.pan.value = (i % 2 === 0 ? -0.4 : 0.4);
+          osc.connect(panner);
+          panner.connect(filter);
+        } else {
+          osc.connect(filter);
+        }
+        
+        osc.start();
+        osc.stop(ctx.currentTime + 6);
+      });
+    } catch(e) {}
+  }, []);
+
   const toggle = () => {
+    if (!isActive) {
+      playAmbientChord();
+    }
     setIsActive(!isActive);
   };
 
@@ -17,8 +64,9 @@ export function DeepFocusToggle() {
       
       const bg = document.createElement("div");
       bg.id = "deep-focus-bg";
-      bg.className = "fixed inset-0 pointer-events-none z-[40] opacity-0 transition-opacity duration-1000 backdrop-blur-[2px]";
-      bg.style.background = "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, rgba(88, 28, 135, 0.15) 50%, rgba(0, 0, 0, 0.7) 100%)";
+      // Removed blur, just dimming the screen to lower contrast
+      bg.className = "fixed inset-0 pointer-events-none z-[40] opacity-0 transition-opacity duration-1000";
+      bg.style.backgroundColor = "rgba(0, 0, 0, 0.65)";
       
       document.body.appendChild(bg);
       
