@@ -43,10 +43,6 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
               For SRMIST Students
             </span>
-            <div className="ml-8 mt-1 hidden sm:flex items-center gap-1 opacity-80" title={`${streak} Day Study Streak`}>
-              <Flame className={`w-3.5 h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/50'}`} />
-              <span className="text-[10px] font-bold text-orange-500">{streak}</span>
-            </div>
           </div>
 
         {/* Center: Navigation */}
@@ -78,7 +74,13 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           })}
         </nav>
         
-        <DeepFocusToggle />
+        <div className="hidden md:flex items-center gap-3 ml-6 pl-6 border-l border-border/40">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20" title={`${streak} Day Study Streak`}>
+            <Flame className={`w-3.5 h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/80'}`} />
+            <span className="text-xs font-bold text-orange-500">{streak}</span>
+          </div>
+          <DeepFocusToggle />
+        </div>
         
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">

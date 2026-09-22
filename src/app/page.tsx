@@ -8,12 +8,9 @@ import { Footer } from "@/components/layout/footer";
 import { getStudyContext, StudyContext } from "@/lib/study-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 
-import { useUiSounds } from "@/hooks/use-ui-sounds";
-
 export default function Home() {
   const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
   const [isClient, setIsClient] = useState(false);
-  const { playWhoosh } = useUiSounds();
 
   useEffect(() => {
     setIsClient(true);
@@ -68,7 +65,6 @@ export default function Home() {
                 
                 <Link 
                   href="/mintai"
-                  onClick={playWhoosh}
                   className="relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.15)]"
                 >
                   <Leaf className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform duration-500" strokeWidth={2.5} />
