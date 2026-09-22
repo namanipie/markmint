@@ -62,7 +62,7 @@ export default function Home() {
                 href="/mintai"
                 className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium"
               >
-                <Activity className="w-4 h-4 text-accent" strokeWidth={2.5} />
+                <Leaf className="w-4 h-4 text-accent" strokeWidth={2.5} />
                 Open MintAI
               </Link>
               

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2 } from "lucide-react";
+import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2, Leaf } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchIntelligence } from "@/lib/api";
 import { SearchResult } from "@/lib/types";
@@ -17,7 +17,7 @@ interface CommandItem {
 }
 
 const DEFAULT_COMMANDS: CommandItem[] = [
-  { id: "mintai", title: "MintAI Intelligence Engine", icon: Activity, href: "/mintai", category: "App" },
+  { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/mintai", category: "App" },
   { id: "calc", title: "Mint+ GPA Calculator", icon: Calculator, href: "/calculator", category: "App" },
   { id: "study", title: "Study Intelligence & Personalization", icon: BookOpen, href: "/study-plan", category: "App" },
   { id: "dev", title: "The Duo (Developers)", icon: Code, href: "/developers", category: "App" },
@@ -67,7 +67,7 @@ export function CommandPalette() {
                 href = `/mintai?course_id=${r.id}`;
                 cat = "Course";
               } else if (r.result_type === "topic") {
-                icon = Activity;
+                icon = Leaf;
                 href = `/mintai?topic=${encodeURIComponent(r.title)}`;
                 cat = "Topic";
               } else if (r.result_type === "exam_question") {
