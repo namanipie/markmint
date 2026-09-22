@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Leaf, Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { HangingLamp } from "@/components/ambient/HangingLamp";
 import { cn } from "@/lib/utils";
 
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
@@ -62,17 +62,18 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           })}
         </nav>
         
-        {/* Right: Theme Toggle & Mobile Menu */}
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-          
-          <div className="md:hidden flex items-center">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
 
+      </div>
+
+      {/* The Hanging Lamp - Flush against the absolute right edge */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2">
+        <HangingLamp />
       </div>
 
       {/* Mobile Menu Dropdown (#5) */}
