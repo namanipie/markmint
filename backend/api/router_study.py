@@ -136,6 +136,8 @@ def get_study_priorities(
             model_predictions, course.id, user_id
         )
     elif family_predictions:
+        study_svc = StudyIntelligenceService(db)
+        clean_user_id = user_id.strip() if user_id and isinstance(user_id, str) else "anonymous"
         for index, item in enumerate(family_predictions, start=1):
             fam_id = item.get("family_id")
             score = float(item.get("score", 0.0))
@@ -147,11 +149,42 @@ def get_study_priorities(
             rep_label = "Exact verbatim repeat" if rep_type == "exact_repeat" else "Recurring question family"
 
             priority_band = "HIGH" if score >= 0.5 or occ >= 3 else "MEDIUM"
+            student_status = "NOT_STARTED"
+            practice_accuracy = None
+            resolved_topic = None
+            if fam_id and course:
+                resolved_topic = study_svc.resolve_family_to_topic(fam_id, course.id)
+            if resolved_topic and clean_user_id != "anonymous":
+                from backend.models.core import StudentTopicProgress
+                prog = db.query(StudentTopicProgress).filter_by(
+                    student_id=clean_user_id, topic_id=resolved_topic.id
+                ).first()
+                if prog:
+                    student_status = prog.status
+                    if prog.practice_attempted:
+                        practice_accuracy = round((prog.practice_correct or 0) / prog.practice_attempted, 2)
+
+            reasons = [
+                f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
+                f"Verified historical frequency: {occ} questions examined.",
+            ]
+            if student_status == "COMPLETED" and (practice_accuracy is None or practice_accuracy >= 0.8):
+                reasons.append("Topic completed with high mastery (>= 80%); deprioritized for active study.")
+                if priority_band == "VERY_HIGH":
+                    priority_band = "HIGH"
+                elif priority_band == "HIGH":
+                    priority_band = "MEDIUM"
+                elif priority_band == "MEDIUM":
+                    priority_band = "LOW"
+            elif student_status in {"STARTED", "IN_PROGRESS"}:
+                reasons.append("In progress: student has begun practicing questions in this topic.")
+
             plan.append({
                 "topic": item["name"],
                 "name": item["name"],
                 "category": "family",
                 "family_id": fam_id,
+                "topic_id": resolved_topic.id if resolved_topic else None,
                 "prediction_score": round(score, 4),
                 "probability": round(float(item.get("probability", score)), 4),
                 "confidence": item.get("confidence", "MEDIUM"),
@@ -161,10 +194,7 @@ def get_study_priorities(
                 "historical_occurrences": occ,
                 "observed_years": years,
                 "reason": f"{rep_label}: appeared across {p_cnt} past examination papers{years_str} with {occ} total occurrences.",
-                "reasons": [
-                    f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
-                    f"Verified historical frequency: {occ} questions examined.",
-                ],
+                "reasons": reasons,
                 "resources": [
                     {
                         "id": f"fam-{fam_id}" if fam_id else f"res-{index}",
@@ -175,7 +205,8 @@ def get_study_priorities(
                         "question_count": occ,
                     }
                 ],
-                "student_status": "NOT_STARTED",
+                "student_status": student_status,
+                "practice_accuracy": practice_accuracy,
             })
 
     return {

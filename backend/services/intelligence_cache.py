@@ -18,11 +18,18 @@ _memory_cache: OrderedDict[str, Dict[str, Any]] = OrderedDict()
 _lock = threading.Lock()
 
 
-def build_cache_key(identifier: Union[str, int], assessment_cycle: Optional[str], track: Optional[Union[str, int]] = None) -> str:
-    """Deterministic cache key incorporating identifier/course_id, cycle, track, and version invariants."""
+def build_cache_key(
+    identifier: Union[str, int],
+    assessment_cycle: Optional[str],
+    track: Optional[Union[str, int]] = None,
+    student_id: Optional[str] = None,
+) -> str:
+    """Deterministic cache key incorporating identifier/course_id, cycle, track, student_id, and version invariants."""
     norm_cycle = (assessment_cycle or "ALL").upper().strip()
     track_part = str(track).lower().strip() if track is not None else "none"
-    return f"{str(identifier).lower().strip()}:{norm_cycle}:{track_part}:{CORPUS_VERSION}:{TAXONOMY_VERSION}:{MODEL_VERSION}"
+    clean_student = student_id.strip() if student_id and isinstance(student_id, str) else ""
+    student_part = f":student:{clean_student}" if clean_student and clean_student != "anonymous" else ""
+    return f"{str(identifier).lower().strip()}:{norm_cycle}:{track_part}{student_part}:{CORPUS_VERSION}:{TAXONOMY_VERSION}:{MODEL_VERSION}"
 
 
 def _validate_snapshot_payload(payload: Any) -> bool:
@@ -46,9 +53,10 @@ class IntelligenceCacheService:
         identifier: Union[str, int],
         assessment_cycle: Optional[str] = None,
         track: Optional[Union[str, int]] = None,
+        student_id: Optional[str] = None,
     ) -> Optional[Dict[str, Any]]:
         """Retrieve snapshot from Tier 1 (LRU memory) or Tier 2 (Postgres/SQLite DB)."""
-        key = build_cache_key(identifier, assessment_cycle, track)
+        key = build_cache_key(identifier, assessment_cycle, track, student_id=student_id)
 
         # Tier 1: In-process LRU cache (0 SQL queries)
         with _lock:
@@ -97,6 +105,7 @@ class IntelligenceCacheService:
         payload: Dict[str, Any],
         identifier: Optional[Union[str, int]] = None,
         track_key: Optional[str] = None,
+        student_id: Optional[str] = None,
     ) -> None:
         """Store synthesized snapshot in Tier 1 (LRU memory) and Tier 2 (database table)."""
         norm_cycle = (assessment_cycle or "ALL").upper().strip()
@@ -104,7 +113,7 @@ class IntelligenceCacheService:
         # Canonical DB key uses course_id and track_id (or track_key)
         # E.g. for language tracks, if track_key is 'german', use track_key so lookup by language matches
         track_param = track_key or track_id
-        canonical_key = build_cache_key(course_id, norm_cycle, track_param)
+        canonical_key = build_cache_key(course_id, norm_cycle, track_param, student_id=student_id)
 
         # Store in Tier 1 memory cache under canonical key
         with _lock:
@@ -113,12 +122,12 @@ class IntelligenceCacheService:
 
             # Also alias by track_id if track_key was used
             if track_id is not None and track_key is not None:
-                id_key = build_cache_key(course_id, norm_cycle, track_id)
+                id_key = build_cache_key(course_id, norm_cycle, track_id, student_id=student_id)
                 _memory_cache[id_key] = payload
 
             # Also alias by original identifier string if different
             if identifier is not None and str(identifier).lower().strip() != str(course_id):
-                alias_key = build_cache_key(identifier, norm_cycle, track_param)
+                alias_key = build_cache_key(identifier, norm_cycle, track_param, student_id=student_id)
                 _memory_cache[alias_key] = payload
 
             while len(_memory_cache) > MAX_MEMORY_CACHE_ENTRIES:
@@ -161,11 +170,12 @@ class IntelligenceCacheService:
         assessment_cycle: Optional[str],
         track: Optional[Union[str, int]],
         payload: Dict[str, Any],
+        student_id: Optional[str] = None,
     ) -> None:
         """Alias an existing valid payload in Tier 1 memory cache under an alternative key."""
         if not _validate_snapshot_payload(payload):
             return
-        alias_key = build_cache_key(identifier, assessment_cycle, track)
+        alias_key = build_cache_key(identifier, assessment_cycle, track, student_id=student_id)
         with _lock:
             _memory_cache[alias_key] = payload
             _memory_cache.move_to_end(alias_key)

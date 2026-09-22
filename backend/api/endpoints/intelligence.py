@@ -381,7 +381,7 @@ def get_intelligence_snapshot(
         target_exam_date = None
     if not isinstance(student_id, str) or hasattr(student_id, "default"):
         student_id = "anonymous"
-    clean_student_id = student_id.strip()
+    clean_student_id = student_id.strip() if isinstance(student_id, str) and student_id.strip() else "anonymous"
     if not isinstance(assessment_cycle, str) or hasattr(assessment_cycle, "default"):
         assessment_cycle = None
     if not assessment_cycle and isinstance(cycle, str) and not hasattr(cycle, "default"):
@@ -798,15 +798,15 @@ def get_intelligence_snapshot(
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
     study_service.preload_course_resources(course.id)
-    study_service.preload_student_progress(course.id, student_id)
+    study_service.preload_student_progress(course.id, clean_student_id)
 
     priorities_objs = [
-        study_service.calculate_study_priority(p, course.id, student_id)
+        study_service.calculate_study_priority(p, course.id, clean_student_id)
         for p in topic_preds if getattr(p, "target", "topic") == "topic"
     ]
-    study_plan = study_service.generate_study_plan(topic_preds, course.id, student_id, priorities=priorities_objs)
+    study_plan = study_service.generate_study_plan(topic_preds, course.id, clean_student_id, priorities=priorities_objs)
+    family_plan = []
     if not study_plan and family_preds:
-        family_plan = []
         for index, item in enumerate(family_preds[:5], start=1):
             p_dict = item.to_dict()
             fam_id = item.family_id
@@ -818,11 +818,48 @@ def get_intelligence_snapshot(
             rep_type = item.repetition_type or "family_repeat"
             rep_label = "Exact verbatim repeat" if rep_type == "exact_repeat" else "Recurring question family"
             priority_band = "HIGH" if score >= 0.5 or occ >= 3 else "MEDIUM"
+
+            # Personalize family status and priority based on student progress on associated topic
+            student_status = "NOT_STARTED"
+            practice_accuracy = None
+            resolved_topic = None
+            if fam_id and course:
+                resolved_topic = study_service.resolve_family_to_topic(fam_id, course.id)
+
+            if resolved_topic and clean_student_id != "anonymous":
+                prog = None
+                if study_service._student_progress_by_topic_id is not None:
+                    prog = study_service._student_progress_by_topic_id.get(resolved_topic.id)
+                if not prog:
+                    prog = db.query(StudentTopicProgress).filter_by(
+                        student_id=clean_student_id, topic_id=resolved_topic.id
+                    ).first()
+                if prog:
+                    student_status = prog.status
+                    if prog.practice_attempted:
+                        practice_accuracy = round((prog.practice_correct or 0) / prog.practice_attempted, 2)
+
+            reasons = [
+                f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
+                f"Verified historical frequency: {occ} questions examined.",
+            ]
+            if student_status == "COMPLETED" and (practice_accuracy is None or practice_accuracy >= 0.8):
+                reasons.append("Topic completed with high mastery (>= 80%); deprioritized for active study.")
+                if priority_band == "VERY_HIGH":
+                    priority_band = "HIGH"
+                elif priority_band == "HIGH":
+                    priority_band = "MEDIUM"
+                elif priority_band == "MEDIUM":
+                    priority_band = "LOW"
+            elif student_status in {"STARTED", "IN_PROGRESS"}:
+                reasons.append("In progress: student has begun practicing questions in this topic.")
+
             family_plan.append({
                 "topic": item.name,
                 "name": item.name,
                 "category": "family",
                 "family_id": fam_id,
+                "topic_id": resolved_topic.id if resolved_topic else None,
                 "prediction_score": round(score, 4),
                 "probability": round(float(p_dict.get("probability", score)), 4),
                 "confidence": item.confidence or "MEDIUM",
@@ -832,10 +869,7 @@ def get_intelligence_snapshot(
                 "historical_occurrences": occ,
                 "observed_years": years,
                 "reason": f"{rep_label}: appeared across {p_cnt} past examination papers{years_str} with {occ} total occurrences.",
-                "reasons": [
-                    f"{rep_label} observed across {p_cnt} examination papers{years_str}.",
-                    f"Verified historical frequency: {occ} questions examined.",
-                ],
+                "reasons": reasons,
                 "resources": [
                     {
                         "id": f"fam-{fam_id}" if fam_id else f"res-{index}",
@@ -846,10 +880,34 @@ def get_intelligence_snapshot(
                         "question_count": occ,
                     }
                 ],
-                "student_status": "NOT_STARTED",
+                "student_status": student_status,
+                "practice_accuracy": practice_accuracy,
             })
         study_plan = family_plan
-    coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, student_id, priorities=priorities_objs)
+
+    if topic_preds:
+        coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, clean_student_id, priorities=priorities_objs)
+    elif family_plan:
+        total_predicted = len(family_plan)
+        mastered = sum(1 for f in family_plan if f.get("student_status") == "COMPLETED")
+        in_prog = sum(1 for f in family_plan if f.get("student_status") in {"STARTED", "IN_PROGRESS"})
+        unstudied = sum(1 for f in family_plan if f.get("student_status") == "NOT_STARTED")
+        gap_topics = [f["name"] for f in family_plan if f.get("priority") in {"VERY_HIGH", "HIGH"} and f.get("student_status") != "COMPLETED"]
+        coverage_pct = round(((mastered + 0.5 * in_prog) / total_predicted) * 100.0, 1) if total_predicted > 0 else 0.0
+        coverage_summary = {
+            "total_predicted_topics": total_predicted,
+            "mastered_topics": mastered,
+            "in_progress_topics": in_prog,
+            "unstudied_topics": unstudied,
+            "student_preparation_coverage": coverage_pct,
+            "coverage_gap_topics": gap_topics,
+            "high_priority_gap_count": len(gap_topics),
+            "mastered_topic_count": mastered,
+            "in_progress_count": in_prog,
+            "unstudied_count": unstudied,
+        }
+    else:
+        coverage_summary = None
 
     # 7. Exam Schedule if date provided
     exam_schedule = study_service.generate_exam_schedule(priorities_objs, target_exam_date)

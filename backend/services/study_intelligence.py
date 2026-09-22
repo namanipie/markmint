@@ -151,17 +151,29 @@ class StudyIntelligenceService:
 
     def preload_student_progress(self, course_id: int, student_id: str = "anonymous") -> None:
         """Preload student topic progress in 1 query (0 queries for anonymous)."""
-        if not student_id or student_id == "anonymous" or self.db is None:
+        clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
+        if not clean_student or clean_student == "anonymous" or self.db is None:
             self._student_progress_by_topic_id = {}
             return
-        topic_ids = list(self._topics_by_id.keys())
+        if self._topics_by_id:
+            topic_ids = list(self._topics_by_id.keys())
+        else:
+            topic_ids = [
+                r[0] for r in (
+                    self.db.query(Topic.id)
+                    .join(Unit, Topic.unit_id == Unit.id)
+                    .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+                    .filter(Syllabus.course_id == course_id)
+                    .all()
+                )
+            ]
         if not topic_ids:
             self._student_progress_by_topic_id = {}
             return
         rows = (
             self.db.query(StudentTopicProgress)
             .filter(
-                StudentTopicProgress.student_id == student_id,
+                StudentTopicProgress.student_id == clean_student,
                 StudentTopicProgress.topic_id.in_(topic_ids),
             )
             .all()
