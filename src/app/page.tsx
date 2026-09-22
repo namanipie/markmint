@@ -45,7 +45,7 @@ export default function Home() {
           <div className="w-full md:w-3/5 flex flex-col items-start">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MintAI Intelligence Engine
+              MarkMint v1.0 &bull; SRMIST First-Year Intelligence
             </p>
             
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
@@ -63,15 +63,15 @@ export default function Home() {
                 className="group flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium"
               >
                 <Activity className="w-4 h-4 text-accent" strokeWidth={2.5} />
-                Try MintAI
+                Open MintAI
               </Link>
               
               <Link 
-                href="/calculator"
+                href="/study-plan"
                 className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-transparent border border-border text-foreground rounded-md hover:border-foreground/50 transition-all duration-150 active:scale-[0.98] font-medium"
               >
-                <Calculator className="w-4 h-4" />
-                Mint+ Calculator
+                <Target className="w-4 h-4 text-accent" />
+                Study Plan
               </Link>
 
               <Link 

@@ -60,7 +60,7 @@ export function BetaFeedbackWidget({ courseCode, hasMeaningfulUsage }: BetaFeedb
   };
 
   return (
-    <aside aria-label="Beta Feedback" className="fixed bottom-5 right-5 z-40 max-w-xs sm:max-w-sm w-[calc(100vw-2.5rem)] rounded-xl border border-border/80 bg-card/95 backdrop-blur-md p-3.5 shadow-lg shadow-black/10 text-xs transition-all duration-300 animate-in fade-in slide-in-from-bottom-2">
+    <aside aria-label="Feedback" className="fixed bottom-5 right-5 z-40 max-w-xs sm:max-w-sm w-[calc(100vw-2.5rem)] rounded-xl border border-border/80 bg-card/95 backdrop-blur-md p-3.5 shadow-lg shadow-black/10 text-xs transition-all duration-300 animate-in fade-in slide-in-from-bottom-2">
       {step === "ask" && (
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-foreground font-medium">

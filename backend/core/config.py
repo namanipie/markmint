@@ -12,7 +12,8 @@ class Environment(str, Enum):
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "ExamScope API"
+    PROJECT_NAME: str = "MarkMint API"
+    VERSION: str = "1.0.0"
     ENVIRONMENT: Environment = Environment.DEVELOPMENT
     
     # Must be provided via .env or environment variable

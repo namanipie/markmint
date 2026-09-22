@@ -10,6 +10,7 @@ if settings.ENVIRONMENT != Environment.PRODUCTION:
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
+    version=settings.VERSION,
     debug=settings.DEBUG,
     docs_url="/docs" if settings.ENVIRONMENT != Environment.PRODUCTION else None, # Disable swagger in prod if wanted, but standard is to keep it or just disable debug
     redoc_url="/redoc" if settings.ENVIRONMENT != Environment.PRODUCTION else None
