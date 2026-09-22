@@ -64,7 +64,6 @@ export default function MintAIPage() {
   const [selectedSemester, setSelectedSemester] = useState<string>("");
   const [selectedSubject, setSelectedSubject] = useState<CurriculumSubject | null>(null);
   const [selectedExam, setSelectedExam] = useState<string>("ALL");
-  const [targetExamDate, setTargetExamDate] = useState<string>("");
   const [mainView, setMainView] = useState<"forecast" | "analytics">("forecast");
 
   // Multi-track language state
@@ -350,7 +349,7 @@ export default function MintAIPage() {
         const data = await getIntelligenceSnapshot(
           selectedSubject.course_id,
           undefined,
-          targetExamDate || undefined,
+          undefined,
           "anonymous",
           selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
           newLang
@@ -386,7 +385,7 @@ export default function MintAIPage() {
       const data = await getIntelligenceSnapshot(
         selectedSubject.course_id,
         undefined,
-        targetExamDate || undefined,
+        undefined,
         "anonymous",
         selectedExam && selectedExam !== "ALL" ? selectedExam : undefined,
         availableTracks.length > 0 ? selectedLanguage : undefined
@@ -461,7 +460,7 @@ export default function MintAIPage() {
         const data = await getIntelligenceSnapshot(
           selectedSubject.course_id,
           undefined,
-          targetExamDate || undefined,
+          undefined,
           "anonymous",
           newCycle !== "ALL" ? newCycle : undefined,
           availableTracks.length > 0 ? selectedLanguage : undefined
@@ -570,7 +569,7 @@ export default function MintAIPage() {
       const updated = await getIntelligenceSnapshot(
         selectedSubject.course_id,
         undefined,
-        targetExamDate || undefined,
+        undefined,
         "anonymous",
         selectedExam && selectedExam !== "ALL" ? selectedExam : undefined
       );
@@ -723,22 +722,6 @@ export default function MintAIPage() {
                 </div>
               )}
 
-              {/* Target Exam Date (Optional) */}
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground block mb-1">
-                  Target Exam Date <span className="text-[10px] text-muted-foreground/60">(Optional)</span>
-                </label>
-                <div className="relative">
-                  <input
-                    type="date"
-                    aria-label="Target Exam Date"
-                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent font-mono text-xs"
-                    value={targetExamDate}
-                    onChange={(e) => setTargetExamDate(e.target.value)}
-                  />
-                </div>
-              </div>
-
               {/* Assessment Cycle Selector */}
               {selectedSubject && (
                 <div>
@@ -816,13 +799,9 @@ export default function MintAIPage() {
                   {selectedSubject.status}
                 </span>
               </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Curriculum ID:</span>
-                <span className="font-mono">{selectedSubject.curriculum_id}</span>
-              </div>
               {selectedSubject.canonical_code && (
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Canonical Code:</span>
+                  <span className="text-muted-foreground">Course Code:</span>
                   <span className="font-mono font-bold text-accent">{selectedSubject.canonical_code}</span>
                 </div>
               )}
@@ -1000,9 +979,6 @@ export default function MintAIPage() {
                               Syllabus Plan (Intended Scope)
                             </h4>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/50">
-                            Curriculum Rule
-                          </span>
                         </div>
                         <p className="text-xs text-muted-foreground">
                           Prescribed units &amp; syllabus topics required by university academic regulation for this assessment.
@@ -1028,7 +1004,11 @@ export default function MintAIPage() {
                         </div>
                         {snapshot.assessment_scope.source_document && (
                           <div className="text-[11px] text-muted-foreground/80 truncate pt-1 border-t border-border/30" title={snapshot.assessment_scope.source_document}>
-                            Source: <span className="italic">{snapshot.assessment_scope.source_document}</span>
+                            Regulation: <span className="font-semibold text-foreground">
+                              {snapshot.assessment_scope.source_document.startsWith("data/")
+                                ? "SRMIST Academic Regulation & Syllabus"
+                                : snapshot.assessment_scope.source_document}
+                            </span>
                           </div>
                         )}
                         {snapshot.assessment_scope.intended_scope?.notes && (
@@ -1049,9 +1029,6 @@ export default function MintAIPage() {
                               Historical Paper Evidence (Observed Scope)
                             </h4>
                           </div>
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">
-                            Archived Reality
-                          </span>
                         </div>
                         <p className="text-xs text-muted-foreground">
                           Empirical units &amp; questions tested on actual archived examination papers for this cycle.
@@ -1299,11 +1276,6 @@ export default function MintAIPage() {
                   <h3 className="text-base font-bold tracking-tight">
                     {isFamilyMode ? "Predicted High-Yield Question Families" : "Predicted High-Yield Topics"}
                   </h3>
-                  {snapshot.metadata && (
-                    <span className="text-[10px] font-mono text-muted-foreground">
-                      Engine: {snapshot.metadata.engine_version} | Model: {snapshot.metadata.model_version}
-                    </span>
-                  )}
                 </div>
 
                 {snapshot.predictions && snapshot.predictions.length > 0 ? (
@@ -1364,9 +1336,6 @@ export default function MintAIPage() {
                             
                             {/* Tertiary Metadata */}
                             <div className="flex flex-wrap items-center gap-2 mt-3 text-[11px] font-mono text-muted-foreground">
-                                {isFamily && p.family_id && (
-                                  <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Family ID: {p.family_id}</span>
-                                )}
                                 {p.last_seen_year && (
                                   <span className="bg-secondary/50 px-1.5 py-0.5 rounded">Last Seen: {p.last_seen_year}</span>
                                 )}
@@ -1941,7 +1910,7 @@ export default function MintAIPage() {
       {/* Beta Student Feedback Widget */}
       <BetaFeedbackWidget
         courseCode={selectedSubject?.canonical_code || selectedSubject?.curriculum_id}
-        hasMeaningfulUsage={Boolean(snapshot && (snapshot.predictions?.length > 0 || snapshot.study_priorities?.length > 0))}
+        hasMeaningfulUsage={Boolean(mainView === "forecast" && snapshot && (snapshot.predictions?.length > 0 || snapshot.study_priorities?.length > 0))}
       />
 
       <Footer />

@@ -28,6 +28,10 @@ from backend.services.dna.analyzer import DNAAnalyzerService
 from backend.services.prediction.engine import ExamScopeCombinedModel
 from backend.services.prediction.context import PredictionTarget
 from backend.models.beta_telemetry import BetaEvent, BetaFeedback, BetaError
+from backend.services.observed_assessment_coverage import (
+    normalize_assessment_cycle,
+    normalize_course_assessment_type,
+)
 from pydantic import BaseModel, Field
 import re
 from datetime import datetime
@@ -292,7 +296,9 @@ def get_topic_repetition_analytics(
             if row.year in recent_years:
                 td["recent_q_count"] += 1
 
-        atype = row.assessment_type or "UNKNOWN"
+        raw_atype = (row.assessment_type or "UNKNOWN").strip()
+        norm_code = normalize_course_assessment_type(course.id, raw_atype) or normalize_assessment_cycle(raw_atype)
+        atype = norm_code if (norm_code and norm_code != "UNKNOWN") else ("University Paper" if raw_atype == "UNKNOWN" else raw_atype)
         td["assessment_types"][atype] = td["assessment_types"].get(atype, 0) + 1
 
     # Format result records

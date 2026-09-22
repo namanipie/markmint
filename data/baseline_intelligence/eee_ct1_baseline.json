@@ -23,10 +23,10 @@
     "total_questions": 0,
     "years": [],
     "available_assessment_types": [
-      "END_SEM",
-      "DEGREE EXAMINATION",
       "CT1",
       "CT3",
+      "DEGREE EXAMINATION",
+      "END_SEM",
       "MODEL",
       "UNKNOWN"
     ],
@@ -38,10 +38,10 @@
     "assessment_cycle": "CT1"
   },
   "available_assessment_types": [
-    "END_SEM",
-    "DEGREE EXAMINATION",
     "CT1",
     "CT3",
+    "DEGREE EXAMINATION",
+    "END_SEM",
     "MODEL",
     "UNKNOWN"
   ],
@@ -52,33 +52,9 @@
   ],
   "assessment_cycle": "CT1",
   "assessment_component": "CT1",
-  "assessment_label": "Cycle Test 1 (CLA-1)",
-  "evidence_status": "EVIDENCE_BACKED",
-  "intended_scope": {
-    "unit_numbers": [
-      1,
-      2
-    ],
-    "topic_names": [
-      "AC Circuit Fundamentals",
-      "DC Circuit Terminologies and Kirchhoff's Laws",
-      "Digital Logic and Combinational Design",
-      "FPGA and PCB Design",
-      "Field Effect Transistors",
-      "Karnaugh Map Minimization",
-      "Mesh Current and Nodal Voltage Analysis",
-      "Network Theorems",
-      "Power Converters and Regulators",
-      "Power Semiconductor Devices",
-      "Rectifier Circuits",
-      "SCR Switching and Commutation",
-      "Semiconductors, Diodes, and BJT",
-      "Single-Phase AC Series Circuits",
-      "Three-Phase AC Systems"
-    ],
-    "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
-    "notes": "Electric Circuits and Electronics"
-  },
+  "assessment_label": "Continuous Learning Assessment 1 (Cycle Test 1)",
+  "evidence_status": "UNPLANNED_OBSERVED_ONLY",
+  "intended_scope": null,
   "observed_scope": {
     "paper_count": 4,
     "total_questions": 14,
@@ -200,36 +176,12 @@
   "assessment_scope": {
     "student_cycle": "CT1",
     "component_code": "CT1",
-    "component_label": "Cycle Test 1 (CLA-1)",
+    "component_label": "Continuous Learning Assessment 1 (Cycle Test 1)",
     "student_label": "CT1",
     "role": "CYCLE_TEST",
     "marks": 15.0,
-    "evidence_status": "EVIDENCE_BACKED",
-    "intended_scope": {
-      "unit_numbers": [
-        1,
-        2
-      ],
-      "topic_names": [
-        "AC Circuit Fundamentals",
-        "DC Circuit Terminologies and Kirchhoff's Laws",
-        "Digital Logic and Combinational Design",
-        "FPGA and PCB Design",
-        "Field Effect Transistors",
-        "Karnaugh Map Minimization",
-        "Mesh Current and Nodal Voltage Analysis",
-        "Network Theorems",
-        "Power Converters and Regulators",
-        "Power Semiconductor Devices",
-        "Rectifier Circuits",
-        "SCR Switching and Commutation",
-        "Semiconductors, Diodes, and BJT",
-        "Single-Phase AC Series Circuits",
-        "Three-Phase AC Systems"
-      ],
-      "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
-      "notes": "Electric Circuits and Electronics"
-    },
+    "evidence_status": "UNPLANNED_OBSERVED_ONLY",
+    "intended_scope": null,
     "observed_scope": {
       "paper_count": 4,
       "total_questions": 14,
@@ -349,89 +301,10 @@
       ]
     },
     "source_document": "SRMIST B.Tech Regulation 2021 Syllabus - 21EEB101J / 21EES101T",
-    "unit_numbers": [
-      1,
-      2
-    ],
-    "total_in_scope_topics": 15,
+    "unit_numbers": [],
+    "total_in_scope_topics": 0,
     "observed_in_scope_topics": 0,
-    "unobserved_in_scope_topics": [
-      {
-        "name": "AC Circuit Fundamentals",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "DC Circuit Terminologies and Kirchhoff's Laws",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Digital Logic and Combinational Design",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "FPGA and PCB Design",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Field Effect Transistors",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Karnaugh Map Minimization",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Mesh Current and Nodal Voltage Analysis",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Network Theorems",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Power Converters and Regulators",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Power Semiconductor Devices",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Rectifier Circuits",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "SCR Switching and Commutation",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Semiconductors, Diodes, and BJT",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Single-Phase AC Series Circuits",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      },
-      {
-        "name": "Three-Phase AC Systems",
-        "status": "UNOBSERVED_IN_SCOPE",
-        "message": "In syllabus scope, but no historical evidence available"
-      }
-    ],
+    "unobserved_in_scope_topics": [],
     "out_of_scope_observed_topics": []
   },
   "message": "Insufficient historical examination papers prior to cutoff year for 'Electrical and Electronics Engineering' under assessment cycle 'CT1'.",
@@ -440,8 +313,8 @@
   "coverage_summary": null,
   "metadata": {
     "model_version": "2.2.0",
-    "taxonomy_version": "1.0.0",
+    "taxonomy_version": "2.0.0",
     "engine_version": "mintai-v2",
-    "generated_at": "2026-09-21T08:15:23.268013"
+    "generated_at": "2026-09-22T01:57:47.079679"
   }
 }

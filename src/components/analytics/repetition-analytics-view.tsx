@@ -197,12 +197,9 @@ export function RepetitionAnalyticsView({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accent/10 text-accent border border-accent/20">
-                EMPIRICAL EXAMINATION RECURRENCE
-              </span>
               {canonicalCode && (
-                <span className="font-mono text-xs text-muted-foreground">
-                  [{canonicalCode}]
+                <span className="font-mono text-xs px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
+                  {canonicalCode}
                 </span>
               )}
             </div>
@@ -364,7 +361,7 @@ export function RepetitionAnalyticsView({
                   className="bg-background border border-border rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent"
                 >
                   <option value="ALL">All Units</option>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((u) => (
+                  {[1, 2, 3, 4, 5].map((u) => (
                     <option key={u} value={String(u)}>
                       Unit {u}
                     </option>

@@ -74,7 +74,6 @@ _STANDARD_ENDSEM_LABELS = ["END_SEM", "DEGREE EXAMINATION", "ENDSEM", "END SEMES
 COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
     # --------------------------------------------------------------------------
     # Course 1: Calculus And Linear Algebra (21MAB101T / 18MAB101T)
-    # Source: data/1 Year/MATHS/detailed sylabbus.docx
     # Intended internal unit scope is not specified in syllabus (Bloom's % only).
     # Raw label mapping preserves examination cycle identification.
     # --------------------------------------------------------------------------
@@ -83,7 +82,7 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
         canonical_code="21MAB101T",
         course_name="Calculus And Linear Algebra",
         regulation_year=2021,
-        source_document="data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus)",
+        source_document="SRMIST B.Tech Regulation 2021 Syllabus - 21MAB101T",
         components=[
             ComponentDefinition(
                 code="CT1",
@@ -127,14 +126,13 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
 
     # --------------------------------------------------------------------------
     # Course 2: Chemistry (21CYB101J / 18CYB101J)
-    # Source: data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf
     # --------------------------------------------------------------------------
     2: CoursePlanDefinition(
         course_id=2,
         canonical_code="21CYB101J",
         course_name="Chemistry",
         regulation_year=2021,
-        source_document="data/1 Year/CHEMISTRY/PPTs/Chemistry - Classes 1 & 2.pdf",
+        source_document="SRMIST B.Tech Regulation 2021 Syllabus - 21CYB101J",
         components=[
             ComponentDefinition(
                 code="CT1",

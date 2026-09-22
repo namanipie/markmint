@@ -561,7 +561,7 @@
     "id": 5,
     "slug": "second-order-ode",
     "name": "Second-Order ODE",
-    "description": "Curriculum and historical examination lineage for Second-Order ODE under Unit 2 (Ordinary Differential Equations) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Second-Order ODE under Unit 3 (Ordinary Differential Equations) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -571,7 +571,7 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 2,
+    "unitNumber": 3,
     "unitName": "Ordinary Differential Equations",
     "appearanceCount": 28,
     "paperCount": 7,
@@ -714,7 +714,7 @@
     "id": 6,
     "slug": "ode-solutions",
     "name": "ODE Solutions",
-    "description": "Curriculum and historical examination lineage for ODE Solutions under Unit 2 (Ordinary Differential Equations) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for ODE Solutions under Unit 3 (Ordinary Differential Equations) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -724,7 +724,7 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 2,
+    "unitNumber": 3,
     "unitName": "Ordinary Differential Equations",
     "appearanceCount": 2,
     "paperCount": 2,
@@ -783,10 +783,10 @@
     "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/ode-solutions"
   },
   {
-    "id": 9,
-    "slug": "laplace-transform-tables",
-    "name": "Laplace Transform Tables",
-    "description": "Curriculum and historical examination lineage for Laplace Transform Tables under Unit 4 (Laplace Transforms) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "id": 17,
+    "slug": "beta-and-gamma-functions",
+    "name": "Beta and Gamma Functions",
+    "description": "Curriculum and historical examination lineage for Beta and Gamma Functions under Unit 4 (Differential Calculus and Geometrical Applications) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -797,54 +797,107 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 4,
-    "unitName": "Laplace Transforms",
-    "appearanceCount": 1,
-    "paperCount": 1,
+    "unitName": "Differential Calculus and Geometrical Applications",
+    "appearanceCount": 4,
+    "paperCount": 3,
     "papers": [
       {
-        "id": 4,
-        "title": "Math Sample 2",
-        "year": 2018,
-        "term": "FALL",
+        "id": 26,
+        "title": "Calculus and Linear Algebra - PYQ 2024 July",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 27,
+        "title": "Calculus and Linear Algebra - PYQ 2024 May",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 13,
+        "title": "Calculus and Linear Algebra - PYQ 2023 June",
+        "year": 2023,
+        "term": "Fall",
         "assessmentType": "EndSem"
       }
     ],
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 1,
+      "EndSem": 4,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
-      "12": 1
+      "1": 3
     },
     "questionFamilies": [
       {
-        "id": 366,
-        "name": "Find the Laplace transform of f(t) = \\begin{cases} t, & 0 \\le t \\le 2a \\\\ 4a - t, & 2a \\le t < 4a...",
+        "id": 666,
+        "name": "\\beta(m,n) = (A) \\frac{mn}{(m+n)} (B) \\frac{(m+n)}{(m-n)} (C) \\frac{(m+n)}{mn} (D)...",
         "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 694,
+        "name": "(b) Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 684,
+        "name": "The relation between the Gamma function and the Beta function is (A) \\(\\beta(m,n) =...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 561,
+        "name": "The value of \\Gamma(n + 1) is (A) n (B) \\Gamma(n) (C) n \\Gamma(n) (D) n/2",
+        "repetitionType": "family_repeat",
         "count": 1
       }
     ],
     "sampleQuestions": [
       {
-        "id": 21,
-        "text": "Find the Laplace transform of f(t) = \\begin{cases} t, & 0 \\le t \\le 2a \\\\ 4a - t, & 2a \\le t < 4a \\end{cases} and satisfy f(t + 4a) = f(t). --- OR --- 30. Solve y'' + 2y' - 3y =...",
-        "marks": 12,
-        "year": 2018,
+        "id": 690,
+        "text": "\\beta(m,n) = (A) \\frac{mn}{(m+n)} (B) \\frac{(m+n)}{(m-n)} (C) \\frac{(m+n)}{mn} (D) \\frac{\\sqrt{mn}}{(m+n)}",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 734,
+        "text": "(b) Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
+        "marks": 0,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 722,
+        "text": "The relation between the Gamma function and the Beta function is (A) \\(\\beta(m,n) = \\Gamma(m)\\Gamma(n)\\) (B) \\(\\beta(m,n) = \\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m-n)}\\) (C)...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 340,
+        "text": "The value of \\Gamma(n + 1) is (A) n (B) \\Gamma(n) (C) n \\Gamma(n) (D) n/2",
+        "marks": 1,
+        "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Laplace Transform Tables",
+    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Beta and Gamma Functions",
     "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/laplace-transform-tables"
+    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/beta-and-gamma-functions"
   },
   {
     "id": 11,
     "slug": "convergence-tests",
     "name": "Convergence Tests",
-    "description": "Curriculum and historical examination lineage for Convergence Tests under Unit 5 (Sequence and Series) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Convergence Tests under Unit 5 (Sequences and Series) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -855,7 +908,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 5,
-    "unitName": "Sequence and Series",
+    "unitName": "Sequences and Series",
     "appearanceCount": 25,
     "paperCount": 7,
     "papers": [
@@ -994,162 +1047,10 @@
     "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/convergence-tests"
   },
   {
-    "id": 35,
-    "slug": "taylor-series",
-    "name": "Taylor Series",
-    "description": "Curriculum and historical examination lineage for Taylor Series under Unit 5 (Sequence and Series) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
-    "courseId": 1,
-    "courseSlug": "calculus-and-linear-algebra",
-    "courseName": "Calculus And Linear Algebra",
-    "courseCode": "SEM1-CALC",
-    "canonicalCode": "21MAB101T",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 5,
-    "unitName": "Sequence and Series",
-    "appearanceCount": 9,
-    "paperCount": 7,
-    "papers": [
-      {
-        "id": 3,
-        "title": "Math Sample 1",
-        "year": 2015,
-        "term": "FALL",
-        "assessmentType": "CT2"
-      },
-      {
-        "id": 17,
-        "title": "Calculus And Linear Algebra - Updated Answer Key B2 FT2 Set A.pdf",
-        "year": 2025,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 18,
-        "title": "Calculus And Linear Algebra - Updated Answer Key B2 FT2 Set B.pdf",
-        "year": 2025,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 13,
-        "title": "Calculus and Linear Algebra - PYQ 2023 June",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 22,
-        "title": "Calculus and Linear Algebra - PYQ 2023 July",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 23,
-        "title": "Calculus and Linear Algebra - PYQ 2024 Jan",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 28,
-        "title": "Calculus and Linear Algebra - PYQ 2025 May",
-        "year": 2025,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 1,
-      "EndSem": 6,
-      "Internal": 0,
-      "Other": 2
-    },
-    "marksDistribution": {
-      "8": 7
-    },
-    "questionFamilies": [
-      {
-        "id": 572,
-        "name": "Find the Taylor series expansion of e^{xy} at (1, 1) upto third degree terms.",
-        "repetitionType": "family_repeat",
-        "count": 2
-      },
-      {
-        "id": 355,
-        "name": "Using Taylor's Series expand e^x \\log(1 + y) up to third degree term in the neighborhood of Origin.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 699,
-        "name": "Expand $f(x,y) = e^x \\sin y$ in powers of $(x-1)$ and $(y - \\pi/2)$ up to the second degree terms...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 704,
-        "name": "Expand $f(x,y) = xy + 3y - 2$ in powers of $(x-1)$ and $(y+2)$ up to second degree terms using...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 571,
-        "name": "Answer part a or b (a) Are the functions u = \\frac{x + y}{1 - xy} and v = \\tan^{-1} x + \\tan^{-1} y...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 14,
-        "text": "Using Taylor's Series expand e^x \\log(1 + y) up to third degree term in the neighborhood of Origin.",
-        "marks": 0,
-        "year": 2015,
-        "assessmentType": "CT2"
-      },
-      {
-        "id": 458,
-        "text": "Expand $f(x,y) = e^x \\sin y$ in powers of $(x-1)$ and $(y - \\pi/2)$ up to the second degree terms using Taylor's theorem.",
-        "marks": 8,
-        "year": 2025,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 465,
-        "text": "Expand $f(x,y) = xy + 3y - 2$ in powers of $(x-1)$ and $(y+2)$ up to second degree terms using Taylor's theorem.",
-        "marks": 8,
-        "year": 2025,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 350,
-        "text": "Answer part a or b (a) Are the functions u = \\frac{x + y}{1 - xy} and v = \\tan^{-1} x + \\tan^{-1} y functionally dependent? If so, find the relation between them. --- OR --- 22....",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 351,
-        "text": "Find the Taylor series expansion of e^{xy} at (1, 1) upto third degree terms.",
-        "marks": 8,
-        "year": 2023,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Taylor Series",
-    "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/taylor-series"
-  },
-  {
     "id": 14,
     "slug": "partial-derivatives",
     "name": "Partial Derivatives",
-    "description": "Curriculum and historical examination lineage for Partial Derivatives under Unit 6 (Functions of Several Variables) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Partial Derivatives under Unit 2 (Functions of Several Variables) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -1159,7 +1060,7 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 6,
+    "unitNumber": 2,
     "unitName": "Functions of Several Variables",
     "appearanceCount": 24,
     "paperCount": 10,
@@ -1309,7 +1210,7 @@
     "id": 34,
     "slug": "extrema-and-optimization",
     "name": "Extrema and Optimization",
-    "description": "Curriculum and historical examination lineage for Extrema and Optimization under Unit 6 (Functions of Several Variables) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Extrema and Optimization under Unit 2 (Functions of Several Variables) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -1319,7 +1220,7 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 6,
+    "unitNumber": 2,
     "unitName": "Functions of Several Variables",
     "appearanceCount": 9,
     "paperCount": 8,
@@ -1466,10 +1367,10 @@
     "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/extrema-and-optimization"
   },
   {
-    "id": 17,
-    "slug": "double-integrals",
-    "name": "Double Integrals",
-    "description": "Curriculum and historical examination lineage for Double Integrals under Unit 7 (Multiple Integrals) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
+    "id": 35,
+    "slug": "taylor-series",
+    "name": "Taylor Series",
+    "description": "Curriculum and historical examination lineage for Taylor Series under Unit 2 (Functions of Several Variables) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
     "courseId": 1,
     "courseSlug": "calculus-and-linear-algebra",
     "courseName": "Calculus And Linear Algebra",
@@ -1479,24 +1380,31 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 7,
-    "unitName": "Multiple Integrals",
-    "appearanceCount": 4,
-    "paperCount": 3,
+    "unitNumber": 2,
+    "unitName": "Functions of Several Variables",
+    "appearanceCount": 9,
+    "paperCount": 7,
     "papers": [
       {
-        "id": 26,
-        "title": "Calculus and Linear Algebra - PYQ 2024 July",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
+        "id": 3,
+        "title": "Math Sample 1",
+        "year": 2015,
+        "term": "FALL",
+        "assessmentType": "CT2"
       },
       {
-        "id": 27,
-        "title": "Calculus and Linear Algebra - PYQ 2024 May",
-        "year": 2024,
+        "id": 17,
+        "title": "Calculus And Linear Algebra - Updated Answer Key B2 FT2 Set A.pdf",
+        "year": 2025,
         "term": "Fall",
-        "assessmentType": "EndSem"
+        "assessmentType": "Other"
+      },
+      {
+        "id": 18,
+        "title": "Calculus And Linear Algebra - Updated Answer Key B2 FT2 Set B.pdf",
+        "year": 2025,
+        "term": "Fall",
+        "assessmentType": "Other"
       },
       {
         "id": 13,
@@ -1504,283 +1412,117 @@
         "year": 2023,
         "term": "Fall",
         "assessmentType": "EndSem"
+      },
+      {
+        "id": 22,
+        "title": "Calculus and Linear Algebra - PYQ 2023 July",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 23,
+        "title": "Calculus and Linear Algebra - PYQ 2024 Jan",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 28,
+        "title": "Calculus and Linear Algebra - PYQ 2025 May",
+        "year": 2025,
+        "term": "Fall",
+        "assessmentType": "EndSem"
       }
     ],
     "assessmentAppearances": {
       "CT1": 0,
-      "CT2": 0,
-      "EndSem": 4,
+      "CT2": 1,
+      "EndSem": 6,
       "Internal": 0,
-      "Other": 0
+      "Other": 2
     },
     "marksDistribution": {
-      "1": 3
+      "8": 7
     },
     "questionFamilies": [
       {
-        "id": 666,
-        "name": "\\beta(m,n) = (A) \\frac{mn}{(m+n)} (B) \\frac{(m+n)}{(m-n)} (C) \\frac{(m+n)}{mn} (D)...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 694,
-        "name": "(b) Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 684,
-        "name": "The relation between the Gamma function and the Beta function is (A) \\(\\beta(m,n) =...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 561,
-        "name": "The value of \\Gamma(n + 1) is (A) n (B) \\Gamma(n) (C) n \\Gamma(n) (D) n/2",
+        "id": 572,
+        "name": "Find the Taylor series expansion of e^{xy} at (1, 1) upto third degree terms.",
         "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 355,
+        "name": "Using Taylor's Series expand e^x \\log(1 + y) up to third degree term in the neighborhood of Origin.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 699,
+        "name": "Expand $f(x,y) = e^x \\sin y$ in powers of $(x-1)$ and $(y - \\pi/2)$ up to the second degree terms...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 704,
+        "name": "Expand $f(x,y) = xy + 3y - 2$ in powers of $(x-1)$ and $(y+2)$ up to second degree terms using...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 571,
+        "name": "Answer part a or b (a) Are the functions u = \\frac{x + y}{1 - xy} and v = \\tan^{-1} x + \\tan^{-1} y...",
+        "repetitionType": "singleton",
         "count": 1
       }
     ],
     "sampleQuestions": [
       {
-        "id": 690,
-        "text": "\\beta(m,n) = (A) \\frac{mn}{(m+n)} (B) \\frac{(m+n)}{(m-n)} (C) \\frac{(m+n)}{mn} (D) \\frac{\\sqrt{mn}}{(m+n)}",
-        "marks": 1,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 734,
-        "text": "(b) Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
+        "id": 14,
+        "text": "Using Taylor's Series expand e^x \\log(1 + y) up to third degree term in the neighborhood of Origin.",
         "marks": 0,
-        "year": 2024,
+        "year": 2015,
+        "assessmentType": "CT2"
+      },
+      {
+        "id": 458,
+        "text": "Expand $f(x,y) = e^x \\sin y$ in powers of $(x-1)$ and $(y - \\pi/2)$ up to the second degree terms using Taylor's theorem.",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 465,
+        "text": "Expand $f(x,y) = xy + 3y - 2$ in powers of $(x-1)$ and $(y+2)$ up to second degree terms using Taylor's theorem.",
+        "marks": 8,
+        "year": 2025,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 350,
+        "text": "Answer part a or b (a) Are the functions u = \\frac{x + y}{1 - xy} and v = \\tan^{-1} x + \\tan^{-1} y functionally dependent? If so, find the relation between them. --- OR --- 22....",
+        "marks": 0,
+        "year": 2023,
         "assessmentType": "EndSem"
       },
       {
-        "id": 722,
-        "text": "The relation between the Gamma function and the Beta function is (A) \\(\\beta(m,n) = \\Gamma(m)\\Gamma(n)\\) (B) \\(\\beta(m,n) = \\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m-n)}\\) (C)...",
-        "marks": 1,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 340,
-        "text": "The value of \\Gamma(n + 1) is (A) n (B) \\Gamma(n) (C) n \\Gamma(n) (D) n/2",
-        "marks": 1,
+        "id": 351,
+        "text": "Find the Taylor series expansion of e^{xy} at (1, 1) upto third degree terms.",
+        "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Double Integrals",
+    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Taylor Series",
     "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/double-integrals"
-  },
-  {
-    "id": 18,
-    "slug": "triple-integrals",
-    "name": "Triple Integrals",
-    "description": "Curriculum and historical examination lineage for Triple Integrals under Unit 7 (Multiple Integrals) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
-    "courseId": 1,
-    "courseSlug": "calculus-and-linear-algebra",
-    "courseName": "Calculus And Linear Algebra",
-    "courseCode": "SEM1-CALC",
-    "canonicalCode": "21MAB101T",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 7,
-    "unitName": "Multiple Integrals",
-    "appearanceCount": 2,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 4,
-        "title": "Math Sample 2",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 2,
-      "Internal": 0,
-      "Other": 0
-    },
-    "marksDistribution": {
-      "12": 2
-    },
-    "questionFamilies": [
-      {
-        "id": 363,
-        "name": "Find the volume of a sphere x^2 + y^2 + z^2 = a^2 using triple integration.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 362,
-        "name": "Change the order of integration and evaluate \\int_0^{a} \\int_{x^2/a}^{2a-x} xy \\, dy \\, dx. --- OR...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 18,
-        "text": "Find the volume of a sphere x^2 + y^2 + z^2 = a^2 using triple integration.",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 17,
-        "text": "Change the order of integration and evaluate \\int_0^{a} \\int_{x^2/a}^{2a-x} xy \\, dy \\, dx. --- OR --- 28. Find the volume of a sphere x^2 + y^2 + z^2 = a^2 using triple...",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Triple Integrals",
-    "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/triple-integrals"
-  },
-  {
-    "id": 36,
-    "slug": "vector-calculus",
-    "name": "Vector Calculus",
-    "description": "Curriculum and historical examination lineage for Vector Calculus under Unit 8 (Vector Calculus) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
-    "courseId": 1,
-    "courseSlug": "calculus-and-linear-algebra",
-    "courseName": "Calculus And Linear Algebra",
-    "courseCode": "SEM1-CALC",
-    "canonicalCode": "21MAB101T",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 8,
-    "unitName": "Vector Calculus",
-    "appearanceCount": 1,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 4,
-        "title": "Math Sample 2",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 0,
-      "Other": 0
-    },
-    "marksDistribution": {
-      "12": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 364,
-        "name": "Show that \\vec{F} = (2xy + z^3)\\hat{i} + x^2\\hat{j} + 3xz^2\\hat{k} is conservative vector field and...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 19,
-        "text": "Show that \\vec{F} = (2xy + z^3)\\hat{i} + x^2\\hat{j} + 3xz^2\\hat{k} is conservative vector field and hence find the scalar potential. --- OR --- 29. Verify Stoke's theorem for...",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Vector Calculus",
-    "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/vector-calculus"
-  },
-  {
-    "id": 39,
-    "slug": "residues-and-laurent-series",
-    "name": "Residues and Laurent Series",
-    "description": "Curriculum and historical examination lineage for Residues and Laurent Series under Unit 9 (Complex Analysis) of Calculus And Linear Algebra (21MAB101T) at SRMIST.",
-    "courseId": 1,
-    "courseSlug": "calculus-and-linear-algebra",
-    "courseName": "Calculus And Linear Algebra",
-    "courseCode": "SEM1-CALC",
-    "canonicalCode": "21MAB101T",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Complex Analysis",
-    "appearanceCount": 2,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 4,
-        "title": "Math Sample 2",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 2,
-      "Internal": 0,
-      "Other": 0
-    },
-    "marksDistribution": {
-      "12": 2
-    },
-    "questionFamilies": [
-      {
-        "id": 370,
-        "name": "\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta} by calculus of residues. --- OR --- 32. Find the...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 371,
-        "name": "Find the Laurent expansion to represent the function f(z) = \\frac{z^2 - 1}{(z + 2)(z + 3)} where...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 25,
-        "text": "\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta} by calculus of residues. --- OR --- 32. Find the Laurent expansion to represent the function f(z) = \\frac{z^2 - 1}{(z + 2)(z + 3)}...",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 26,
-        "text": "Find the Laurent expansion to represent the function f(z) = \\frac{z^2 - 1}{(z + 2)(z + 3)} where (i) |z| < 2, (ii) 2 < |z| < 3 and (iii) |z| > 3.",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CALC&tab=practice&topic=Residues and Laurent Series",
-    "mintAiUrl": "/mintai?course=SEM1-CALC",
-    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/residues-and-laurent-series"
+    "canonicalUrl": "https://markmint.vercel.app/courses/calculus-and-linear-algebra/topics/taylor-series"
   },
   {
     "id": 21,
     "slug": "atomic-radius",
     "name": "Atomic Radius",
-    "description": "Curriculum and historical examination lineage for Atomic Radius under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Atomic Radius under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -1791,7 +1533,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -1836,7 +1578,7 @@
     "id": 22,
     "slug": "ionization-energy",
     "name": "Ionization Energy",
-    "description": "Curriculum and historical examination lineage for Ionization Energy under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Ionization Energy under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -1847,7 +1589,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 4,
     "paperCount": 3,
     "papers": [
@@ -1947,7 +1689,7 @@
     "id": 40,
     "slug": "electron-affinity",
     "name": "Electron Affinity",
-    "description": "Curriculum and historical examination lineage for Electron Affinity under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Electron Affinity under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -1958,7 +1700,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 2,
     "paperCount": 1,
     "papers": [
@@ -2016,7 +1758,7 @@
     "id": 41,
     "slug": "electronegativity",
     "name": "Electronegativity",
-    "description": "Curriculum and historical examination lineage for Electronegativity under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Electronegativity under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -2027,7 +1769,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 2,
     "paperCount": 1,
     "papers": [
@@ -2085,7 +1827,7 @@
     "id": 43,
     "slug": "effective-nuclear-charge-and-screening",
     "name": "Effective Nuclear Charge and Screening",
-    "description": "Curriculum and historical examination lineage for Effective Nuclear Charge and Screening under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Effective Nuclear Charge and Screening under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -2096,7 +1838,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 5,
     "paperCount": 4,
     "papers": [
@@ -2217,7 +1959,7 @@
     "id": 44,
     "slug": "polarizability-and-polarizing-power",
     "name": "Polarizability and Polarizing Power",
-    "description": "Curriculum and historical examination lineage for Polarizability and Polarizing Power under Unit 1 (Periodic Properties) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Polarizability and Polarizing Power under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -2228,7 +1970,7 @@
     "languageName": null,
     "trackCode": null,
     "unitNumber": 1,
-    "unitName": "Periodic Properties",
+    "unitName": "Periodic Properties and Atomic Structure",
     "appearanceCount": 2,
     "paperCount": 1,
     "papers": [
@@ -2281,6 +2023,1546 @@
     "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Polarizability and Polarizing Power",
     "mintAiUrl": "/mintai?course=SEM1-CHEM",
     "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/polarizability-and-polarizing-power"
+  },
+  {
+    "id": 45,
+    "slug": "quantum-mechanics-and-atomic-structure",
+    "name": "Quantum Mechanics and Atomic Structure",
+    "description": "Curriculum and historical examination lineage for Quantum Mechanics and Atomic Structure under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 5,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 4
+    },
+    "marksDistribution": {
+      "1": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 390,
+        "name": "Derive time independent Schrodinger wave equation.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 400,
+        "name": "Explain Heisenberg uncertainty principle.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 372,
+        "name": "Derive time independant schrodinger wave equation",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 381,
+        "name": "Explain Heisenberg uncertainty principle.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 522,
+        "name": "The de-Broglie hypothesis is associated with (A) Wave nature of electrons only (B) Wave nature of...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 27,
+        "text": "Derive time independent Schrodinger wave equation.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 37,
+        "text": "Explain Heisenberg uncertainty principle.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 169,
+        "text": "Derive time independant schrodinger wave equation",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 188,
+        "text": "The de-Broglie hypothesis is associated with (A) Wave nature of electrons only (B) Wave nature of protons only (C) Wave nature of radiation (D) Wave nature of all material...",
+        "marks": 1,
+        "year": 2018,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Quantum Mechanics and Atomic Structure",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/quantum-mechanics-and-atomic-structure"
+  },
+  {
+    "id": 46,
+    "slug": "particle-in-a-box",
+    "name": "Particle in a Box",
+    "description": "Curriculum and historical examination lineage for Particle in a Box under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 2,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 0,
+      "Internal": 0,
+      "Other": 2
+    },
+    "marksDistribution": {},
+    "questionFamilies": [
+      {
+        "id": 391,
+        "name": "Derive Schrodinger equation for one dimensional box and obtain the Eigen value by solving the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 373,
+        "name": "Derive schrodinger equation for one dimensional box and obtain the eigen value by solving the...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 28,
+        "text": "Derive Schrodinger equation for one dimensional box and obtain the Eigen value by solving the equation.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 170,
+        "text": "Derive schrodinger equation for one dimensional box and obtain the eigen value by solving the equation.",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Particle in a Box",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/particle-in-a-box"
+  },
+  {
+    "id": 47,
+    "slug": "hydrogen-atomic-orbitals",
+    "name": "Hydrogen Atomic Orbitals",
+    "description": "Curriculum and historical examination lineage for Hydrogen Atomic Orbitals under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 3,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 2
+    },
+    "marksDistribution": {
+      "4": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 392,
+        "name": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
+        "repetitionType": "singleton",
+        "count": 2
+      },
+      {
+        "id": 374,
+        "name": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 29,
+        "text": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 207,
+        "text": "Discuss the radial wave functions of hydrogen atom.",
+        "marks": 4,
+        "year": 2018,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Hydrogen Atomic Orbitals",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/hydrogen-atomic-orbitals"
+  },
+  {
+    "id": 48,
+    "slug": "molecular-orbital-theory",
+    "name": "Molecular Orbital Theory",
+    "description": "Curriculum and historical examination lineage for Molecular Orbital Theory under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 18,
+    "paperCount": 3,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 0,
+      "Other": 16
+    },
+    "marksDistribution": {
+      "1": 1,
+      "12": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 402,
+        "name": "Draw and explain the molecular orbital energy level diagram for hydrogen molecule ($H_2$) and...",
+        "repetitionType": "singleton",
+        "count": 4
+      },
+      {
+        "id": 401,
+        "name": "Draw the shape of Molecular Orbitals obtained by overlap of s and p orbitals.",
+        "repetitionType": "singleton",
+        "count": 2
+      },
+      {
+        "id": 393,
+        "name": "What is Linear Combination of Atomic Orbitals (LCAO)? Give the wave function equations for the...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 394,
+        "name": "Discuss in detail the features of MO theory with energy level diagram.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 395,
+        "name": "Differentiate bonding and anti-bonding molecular orbital.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 30,
+        "text": "What is Linear Combination of Atomic Orbitals (LCAO)? Give the wave function equations for the formation of molecular orbitals by the combination of atomic orbitals?",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 31,
+        "text": "Discuss in detail the features of MO theory with energy level diagram.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 32,
+        "text": "Differentiate bonding and anti-bonding molecular orbital.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 33,
+        "text": "Describe the combination of s-s orbitals to give bonding and anti-bonding molecular orbitals.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 36,
+        "text": "CO is diamagnetic. Justify it with MO concept.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Molecular Orbital Theory",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/molecular-orbital-theory"
+  },
+  {
+    "id": 49,
+    "slug": "aromaticity-and-pi-molecular-orbitals",
+    "name": "Aromaticity and Pi Molecular Orbitals",
+    "description": "Curriculum and historical examination lineage for Aromaticity and Pi Molecular Orbitals under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 6,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 0,
+      "Internal": 0,
+      "Other": 6
+    },
+    "marksDistribution": {},
+    "questionFamilies": [
+      {
+        "id": 406,
+        "name": "Explain Huckel's rule on aromatic, Non-aromatic and Anti-aromatic compounds.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 407,
+        "name": "Identify from the following aromatic, non-aromatic and anti-aromatic compounds. (a)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 408,
+        "name": "Explain in detail pi molecular orbitals of Benzene and Butadiene.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 387,
+        "name": "Explain huckel rule on aromatic, non aromatic and anti aromatic compound.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 388,
+        "name": "Identify from the following aromatic, non aromatic and anti aromatic compounds (1) Cyclopentadienyl...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 47,
+        "text": "Explain Huckel's rule on aromatic, Non-aromatic and Anti-aromatic compounds.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 48,
+        "text": "Identify from the following aromatic, non-aromatic and anti-aromatic compounds. (a) Cyclopentadienyl anion (b) Cyclopentadienyl cation (c) Napthalene (d) Pyrrole",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 49,
+        "text": "Explain in detail pi molecular orbitals of Benzene and Butadiene.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 184,
+        "text": "Explain huckel rule on aromatic, non aromatic and anti aromatic compound.",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 185,
+        "text": "Identify from the following aromatic, non aromatic and anti aromatic compounds (1) Cyclopentadienyl anion (2) Cyclopentadienyl cation (3) Naphthalene (4) Pyrrole",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Aromaticity and Pi Molecular Orbitals",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/aromaticity-and-pi-molecular-orbitals"
+  },
+  {
+    "id": 50,
+    "slug": "coordination-chemistry",
+    "name": "Coordination Chemistry",
+    "description": "Curriculum and historical examination lineage for Coordination Chemistry under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 1,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 0
+    },
+    "marksDistribution": {
+      "1": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 802,
+        "name": "The coordination number, oxidation number, number of electron in d-orbital and Number of unpaired...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 799,
+        "text": "The coordination number, oxidation number, number of electron in d-orbital and Number of unpaired electrons on complex $[Co(en)_2(NH_3)_2]^{2+}$ is ____________ respectively. (A)...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Coordination Chemistry",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/coordination-chemistry"
+  },
+  {
+    "id": 51,
+    "slug": "crystal-field-theory",
+    "name": "Crystal Field Theory",
+    "description": "Curriculum and historical examination lineage for Crystal Field Theory under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 22,
+    "paperCount": 8,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 7,
+        "title": "chem qb ans.pdf",
+        "year": 2023,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 11,
+        "title": "Chemistry - PYQ 2023 May",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 91,
+        "title": "More PYQs",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 92,
+        "title": "CT Papers 09_09_2025",
+        "year": 2025,
+        "term": "Fall",
+        "assessmentType": "Internal"
+      },
+      {
+        "id": 94,
+        "title": "Chemistry - CHEMISTRY CT 1.pdf",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Internal"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 5,
+      "Internal": 4,
+      "Other": 13
+    },
+    "marksDistribution": {
+      "1": 5,
+      "4": 1,
+      "10": 2,
+      "14": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 414,
+        "name": "Explain briefly about high spin and low spin complexes with examples.",
+        "repetitionType": "singleton",
+        "count": 2
+      },
+      {
+        "id": 762,
+        "name": "Describe the crystal field splitting of an octahedral complex with neat diagram. Show the CFSE and...",
+        "repetitionType": "family_repeat",
+        "count": 2
+      },
+      {
+        "id": 403,
+        "name": "Give the salient features of crystal field theory.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 404,
+        "name": "Discuss the crystal field splitting in octahedral complex.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 405,
+        "name": "Discus the crystal field splitting in a tetrahedral complex.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 44,
+        "text": "Give the salient features of crystal field theory.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 45,
+        "text": "Discuss the crystal field splitting in octahedral complex.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 46,
+        "text": "Discus the crystal field splitting in a tetrahedral complex.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 50,
+        "text": "What is spectrochemical series? Mention its importance.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 51,
+        "text": "Draw energy level diagrams to show the splitting of d orbitals in an octahedral and tetrahedral ligand field.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Crystal Field Theory",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/crystal-field-theory"
+  },
+  {
+    "id": 52,
+    "slug": "coordination-isomerism",
+    "name": "Coordination Isomerism",
+    "description": "Curriculum and historical examination lineage for Coordination Isomerism under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 4,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 91,
+        "title": "More PYQs",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 3,
+      "Internal": 0,
+      "Other": 1
+    },
+    "marksDistribution": {
+      "12": 1,
+      "8": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 520,
+        "name": "How is isomerism exhibited in transition metal compounds? Explain its types with an example.",
+        "repetitionType": "singleton",
+        "count": 2
+      },
+      {
+        "id": 821,
+        "name": "Answer parts (i) and (ii) (i) Brief about any two isomerism exhibited by the coordination compounds...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 738,
+        "name": "b. Write short notes on structural isomerism in coordination compounds. Give examples.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 168,
+        "text": "How is isomerism exhibited in transition metal compounds? Explain its types with an example.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 223,
+        "text": "How is isomerism exhibited in transition metal compounds? Explain the types with an example each?",
+        "marks": 12,
+        "year": 2018,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 820,
+        "text": "Answer parts (i) and (ii) (i) Brief about any two isomerism exhibited by the coordination compounds with a suitable example for each. (ii) Define and explain any two periodic...",
+        "marks": 0,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 2677,
+        "text": "b. Write short notes on structural isomerism in coordination compounds. Give examples.",
+        "marks": 8,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Coordination Isomerism",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/coordination-isomerism"
+  },
+  {
+    "id": 53,
+    "slug": "molecular-symmetry",
+    "name": "Molecular Symmetry",
+    "description": "Curriculum and historical examination lineage for Molecular Symmetry under Unit 1 (Periodic Properties and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 1,
+    "unitName": "Periodic Properties and Atomic Structure",
+    "appearanceCount": 2,
+    "paperCount": 2,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 0,
+      "Other": 1
+    },
+    "marksDistribution": {
+      "1": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 486,
+        "name": "Define the following with example. (a) Plane of symmetry (b) Centre of symmetry (c) Alternating...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 812,
+        "name": "The plane which divide the molecule into two equal parts so that each half is the mirror image of...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 131,
+        "text": "Define the following with example. (a) Plane of symmetry (b) Centre of symmetry (c) Alternating axis of symmetry",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 810,
+        "text": "The plane which divide the molecule into two equal parts so that each half is the mirror image of other half is called (A) Ceter of symmetry (B) Axis of symmetry (C) Plane of...",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Molecular Symmetry",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/molecular-symmetry"
+  },
+  {
+    "id": 61,
+    "slug": "chemical-thermodynamics",
+    "name": "Chemical Thermodynamics",
+    "description": "Curriculum and historical examination lineage for Chemical Thermodynamics under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 5,
+    "paperCount": 5,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 11,
+        "title": "Chemistry - PYQ 2023 May",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 91,
+        "title": "More PYQs",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 95,
+        "title": "Chemistry - ALL CT COMPILATION.pdf",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Internal"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 2,
+      "Internal": 1,
+      "Other": 2
+    },
+    "marksDistribution": {
+      "1": 3
+    },
+    "questionFamilies": [
+      {
+        "id": 474,
+        "name": "Comment on the statement, \"the entropy of the Universe is always increasing\".",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 533,
+        "name": "First law of thermodynamics states that (A) \\Delta U = q - w (B) \\Delta U = q + w (C) \\Delta U = q...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 781,
+        "name": "Helmholtz free energy A is expressed (B) 4=H+TS (A) A=U+TS (D) A=H-TS. (C) A=U-TS 1 1 2 1",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 723,
+        "name": "Helmholtz free energy A is expressed",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 766,
+        "name": "The entropy of an isolated system always _______ and reaches _______ when equilibrium is reached....",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 119,
+        "text": "Comment on the statement, \"the entropy of the Universe is always increasing\".",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 199,
+        "text": "First law of thermodynamics states that (A) \\Delta U = q - w (B) \\Delta U = q + w (C) \\Delta U = q + \\Delta w (D) \\Delta E = \\Delta q + w",
+        "marks": 1,
+        "year": 2018,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 273,
+        "text": "Helmholtz free energy A is expressed (B) 4=H+TS (A) A=U+TS (D) A=H-TS. (C) A=U-TS 1 1 2 1",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 2661,
+        "text": "Helmholtz free energy A is expressed",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 2718,
+        "text": "The entropy of an isolated system always _______ and reaches _______ when equilibrium is reached. a) remains constant, maximum b) decreases, minimum c) increases, maximum d)...",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "Internal"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Chemical Thermodynamics",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/chemical-thermodynamics"
+  },
+  {
+    "id": 62,
+    "slug": "hard-and-soft-acids-and-bases",
+    "name": "Hard and Soft Acids and Bases",
+    "description": "Curriculum and historical examination lineage for Hard and Soft Acids and Bases under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 5,
+    "paperCount": 4,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 11,
+        "title": "Chemistry - PYQ 2023 May",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 93,
+        "title": "Chemistry - CHEMISTRY - CT'S Papers.pdf",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Internal"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 1,
+      "Internal": 1,
+      "Other": 3
+    },
+    "marksDistribution": {
+      "1": 2
+    },
+    "questionFamilies": [
+      {
+        "id": 467,
+        "name": "Give the differences between hard and soft acids.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 468,
+        "name": "Write notes on hard and soft bases with examples for each.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 780,
+        "name": "HASBp rinciple was given by (B) Arhenius (A) Lewis (D) Pearson (C) Bransted 1 2 2 1",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 804,
+        "name": "Classification of acids and bases as HSAB was putforth by (A) Lewis (B) Arrhenius (C) Pearson (D)...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 752,
+        "name": "Which of the following is not a hard acid? (a) \\(H^+\\) (b) \\(Li^+\\) (c) \\(BH_3\\) (d) \\(BF_3\\)",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 112,
+        "text": "Give the differences between hard and soft acids.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 113,
+        "text": "Write notes on hard and soft bases with examples for each.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 272,
+        "text": "HASBp rinciple was given by (B) Arhenius (A) Lewis (D) Pearson (C) Bransted 1 2 2 1",
+        "marks": 0,
+        "year": 2023,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 802,
+        "text": "Classification of acids and bases as HSAB was putforth by (A) Lewis (B) Arrhenius (C) Pearson (D) Bronsted",
+        "marks": 1,
+        "year": 2024,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 2701,
+        "text": "Which of the following is not a hard acid? (a) \\(H^+\\) (b) \\(Li^+\\) (c) \\(BH_3\\) (d) \\(BF_3\\)",
+        "marks": 1,
+        "year": 2023,
+        "assessmentType": "Internal"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Hard and Soft Acids and Bases",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/hard-and-soft-acids-and-bases"
+  },
+  {
+    "id": 63,
+    "slug": "intermolecular-forces",
+    "name": "Intermolecular Forces",
+    "description": "Curriculum and historical examination lineage for Intermolecular Forces under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 1,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 0,
+      "Internal": 0,
+      "Other": 1
+    },
+    "marksDistribution": {},
+    "questionFamilies": [
+      {
+        "id": 452,
+        "name": "Write notes on dipole-dipole interactions.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 97,
+        "text": "Write notes on dipole-dipole interactions.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Intermolecular Forces",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/intermolecular-forces"
+  },
+  {
+    "id": 64,
+    "slug": "real-gases-and-critical-phenomena",
+    "name": "Real Gases and Critical Phenomena",
+    "description": "Curriculum and historical examination lineage for Real Gases and Critical Phenomena under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 3,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 0,
+      "Internal": 0,
+      "Other": 3
+    },
+    "marksDistribution": {},
+    "questionFamilies": [
+      {
+        "id": 448,
+        "name": "Write the following equations of state for real gases i. Clausius equation, ii. Berthelot equation.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 451,
+        "name": "Define the terms i. Critical temperature ii. Critical volume iii. Critical pressure.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 453,
+        "name": "Explain Vander Waals equation of state with corrections for volume and pressure.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 93,
+        "text": "Write the following equations of state for real gases i. Clausius equation, ii. Berthelot equation.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 96,
+        "text": "Define the terms i. Critical temperature ii. Critical volume iii. Critical pressure.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 98,
+        "text": "Explain Vander Waals equation of state with corrections for volume and pressure.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Real Gases and Critical Phenomena",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/real-gases-and-critical-phenomena"
+  },
+  {
+    "id": 65,
+    "slug": "electrochemical-cells-and-electrode-potentials",
+    "name": "Electrochemical Cells and Electrode Potentials",
+    "description": "Curriculum and historical examination lineage for Electrochemical Cells and Electrode Potentials under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 13,
+    "paperCount": 6,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 8,
+        "title": "chem UE ques paper.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 11,
+        "title": "Chemistry - PYQ 2023 May",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Other"
+      },
+      {
+        "id": 30,
+        "title": "PYQ May 2024",
+        "year": 2024,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 91,
+        "title": "More PYQs",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 95,
+        "title": "Chemistry - ALL CT COMPILATION.pdf",
+        "year": 2023,
+        "term": "Fall",
+        "assessmentType": "Internal"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 5,
+      "Internal": 1,
+      "Other": 7
+    },
+    "marksDistribution": {
+      "1": 3,
+      "12": 1,
+      "8": 1,
+      "15": 1
+    },
+    "questionFamilies": [
+      {
+        "id": 485,
+        "name": "With a neat sketch explain Pourbaix diagram for Iron.",
+        "repetitionType": "singleton",
+        "count": 2
+      },
+      {
+        "id": 475,
+        "name": "Explain how Nernst equation is applied in determining potential of a redox reaction?",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 482,
+        "name": "What is an Electrochemical cell or Galvanic cell? Give its representation.",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 483,
+        "name": "Define Single electrode potential. Write the mathematical expression for Nernst equation for :...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 484,
+        "name": "In an electrochemical cell, the anode is given a negative charge and cathode is given a positive...",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 120,
+        "text": "Explain how Nernst equation is applied in determining potential of a redox reaction?",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 127,
+        "text": "What is an Electrochemical cell or Galvanic cell? Give its representation.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 128,
+        "text": "Define Single electrode potential. Write the mathematical expression for Nernst equation for : Zn_{(s)}/Zn^{2+}_{(aq)} // Cu^{2+}_{(aq)}/Cu_{(s)}",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 129,
+        "text": "In an electrochemical cell, the anode is given a negative charge and cathode is given a positive charge. Give reasons.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      },
+      {
+        "id": 130,
+        "text": "With a neat sketch explain Pourbaix diagram for Iron.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Electrochemical Cells and Electrode Potentials",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/electrochemical-cells-and-electrode-potentials"
+  },
+  {
+    "id": 66,
+    "slug": "solubility-equilibria",
+    "name": "Solubility Equilibria",
+    "description": "Curriculum and historical examination lineage for Solubility Equilibria under Unit 2 (Chemical Equilibria and Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
+    "courseId": 2,
+    "courseSlug": "chemistry",
+    "courseName": "Chemistry",
+    "courseCode": "SEM1-CHEM",
+    "canonicalCode": "21CYB101J",
+    "isLanguageTrack": false,
+    "languageKey": null,
+    "languageName": null,
+    "trackCode": null,
+    "unitNumber": 2,
+    "unitName": "Chemical Equilibria and Electrochemistry",
+    "appearanceCount": 1,
+    "paperCount": 1,
+    "papers": [
+      {
+        "id": 6,
+        "title": "Chem Q-Bank.pdf",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "Other"
+      }
+    ],
+    "assessmentAppearances": {
+      "CT1": 0,
+      "CT2": 0,
+      "EndSem": 0,
+      "Internal": 0,
+      "Other": 1
+    },
+    "marksDistribution": {},
+    "questionFamilies": [
+      {
+        "id": 481,
+        "name": "Define Solubility product [K_{sp}]. Explain with an example.",
+        "repetitionType": "singleton",
+        "count": 1
+      }
+    ],
+    "sampleQuestions": [
+      {
+        "id": 126,
+        "text": "Define Solubility product [K_{sp}]. Explain with an example.",
+        "marks": 0,
+        "year": 2018,
+        "assessmentType": "Other"
+      }
+    ],
+    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Solubility Equilibria",
+    "mintAiUrl": "/mintai?course=SEM1-CHEM",
+    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/solubility-equilibria"
   },
   {
     "id": 26,
@@ -3471,939 +4753,10 @@
     "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/corrosion-resistance"
   },
   {
-    "id": 45,
-    "slug": "quantum-mechanics-and-atomic-structure",
-    "name": "Quantum Mechanics and Atomic Structure",
-    "description": "Curriculum and historical examination lineage for Quantum Mechanics and Atomic Structure under Unit 6 (Quantum and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 6,
-    "unitName": "Quantum and Atomic Structure",
-    "appearanceCount": 5,
-    "paperCount": 3,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 0,
-      "Other": 4
-    },
-    "marksDistribution": {
-      "1": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 390,
-        "name": "Derive time independent Schrodinger wave equation.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 400,
-        "name": "Explain Heisenberg uncertainty principle.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 372,
-        "name": "Derive time independant schrodinger wave equation",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 381,
-        "name": "Explain Heisenberg uncertainty principle.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 522,
-        "name": "The de-Broglie hypothesis is associated with (A) Wave nature of electrons only (B) Wave nature of...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 27,
-        "text": "Derive time independent Schrodinger wave equation.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 37,
-        "text": "Explain Heisenberg uncertainty principle.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 169,
-        "text": "Derive time independant schrodinger wave equation",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 188,
-        "text": "The de-Broglie hypothesis is associated with (A) Wave nature of electrons only (B) Wave nature of protons only (C) Wave nature of radiation (D) Wave nature of all material...",
-        "marks": 1,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Quantum Mechanics and Atomic Structure",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/quantum-mechanics-and-atomic-structure"
-  },
-  {
-    "id": 46,
-    "slug": "particle-in-a-box",
-    "name": "Particle in a Box",
-    "description": "Curriculum and historical examination lineage for Particle in a Box under Unit 6 (Quantum and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 6,
-    "unitName": "Quantum and Atomic Structure",
-    "appearanceCount": 2,
-    "paperCount": 2,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 0,
-      "Internal": 0,
-      "Other": 2
-    },
-    "marksDistribution": {},
-    "questionFamilies": [
-      {
-        "id": 391,
-        "name": "Derive Schrodinger equation for one dimensional box and obtain the Eigen value by solving the...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 373,
-        "name": "Derive schrodinger equation for one dimensional box and obtain the eigen value by solving the...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 28,
-        "text": "Derive Schrodinger equation for one dimensional box and obtain the Eigen value by solving the equation.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 170,
-        "text": "Derive schrodinger equation for one dimensional box and obtain the eigen value by solving the equation.",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Particle in a Box",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/particle-in-a-box"
-  },
-  {
-    "id": 47,
-    "slug": "hydrogen-atomic-orbitals",
-    "name": "Hydrogen Atomic Orbitals",
-    "description": "Curriculum and historical examination lineage for Hydrogen Atomic Orbitals under Unit 6 (Quantum and Atomic Structure) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 6,
-    "unitName": "Quantum and Atomic Structure",
-    "appearanceCount": 3,
-    "paperCount": 3,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 0,
-      "Other": 2
-    },
-    "marksDistribution": {
-      "4": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 392,
-        "name": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
-        "repetitionType": "singleton",
-        "count": 2
-      },
-      {
-        "id": 374,
-        "name": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 29,
-        "text": "Discuss briefly the plots of radial and angular wave functions for 1s orbital of hydrogen atom.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 207,
-        "text": "Discuss the radial wave functions of hydrogen atom.",
-        "marks": 4,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Hydrogen Atomic Orbitals",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/hydrogen-atomic-orbitals"
-  },
-  {
-    "id": 48,
-    "slug": "molecular-orbital-theory",
-    "name": "Molecular Orbital Theory",
-    "description": "Curriculum and historical examination lineage for Molecular Orbital Theory under Unit 7 (Molecular Orbital Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 7,
-    "unitName": "Molecular Orbital Theory",
-    "appearanceCount": 18,
-    "paperCount": 3,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 2,
-      "Internal": 0,
-      "Other": 16
-    },
-    "marksDistribution": {
-      "1": 1,
-      "12": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 402,
-        "name": "Draw and explain the molecular orbital energy level diagram for hydrogen molecule ($H_2$) and...",
-        "repetitionType": "singleton",
-        "count": 4
-      },
-      {
-        "id": 401,
-        "name": "Draw the shape of Molecular Orbitals obtained by overlap of s and p orbitals.",
-        "repetitionType": "singleton",
-        "count": 2
-      },
-      {
-        "id": 393,
-        "name": "What is Linear Combination of Atomic Orbitals (LCAO)? Give the wave function equations for the...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 394,
-        "name": "Discuss in detail the features of MO theory with energy level diagram.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 395,
-        "name": "Differentiate bonding and anti-bonding molecular orbital.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 30,
-        "text": "What is Linear Combination of Atomic Orbitals (LCAO)? Give the wave function equations for the formation of molecular orbitals by the combination of atomic orbitals?",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 31,
-        "text": "Discuss in detail the features of MO theory with energy level diagram.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 32,
-        "text": "Differentiate bonding and anti-bonding molecular orbital.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 33,
-        "text": "Describe the combination of s-s orbitals to give bonding and anti-bonding molecular orbitals.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 36,
-        "text": "CO is diamagnetic. Justify it with MO concept.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Molecular Orbital Theory",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/molecular-orbital-theory"
-  },
-  {
-    "id": 49,
-    "slug": "aromaticity-and-pi-molecular-orbitals",
-    "name": "Aromaticity and Pi Molecular Orbitals",
-    "description": "Curriculum and historical examination lineage for Aromaticity and Pi Molecular Orbitals under Unit 7 (Molecular Orbital Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 7,
-    "unitName": "Molecular Orbital Theory",
-    "appearanceCount": 6,
-    "paperCount": 2,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 0,
-      "Internal": 0,
-      "Other": 6
-    },
-    "marksDistribution": {},
-    "questionFamilies": [
-      {
-        "id": 406,
-        "name": "Explain Huckel's rule on aromatic, Non-aromatic and Anti-aromatic compounds.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 407,
-        "name": "Identify from the following aromatic, non-aromatic and anti-aromatic compounds. (a)...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 408,
-        "name": "Explain in detail pi molecular orbitals of Benzene and Butadiene.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 387,
-        "name": "Explain huckel rule on aromatic, non aromatic and anti aromatic compound.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 388,
-        "name": "Identify from the following aromatic, non aromatic and anti aromatic compounds (1) Cyclopentadienyl...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 47,
-        "text": "Explain Huckel's rule on aromatic, Non-aromatic and Anti-aromatic compounds.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 48,
-        "text": "Identify from the following aromatic, non-aromatic and anti-aromatic compounds. (a) Cyclopentadienyl anion (b) Cyclopentadienyl cation (c) Napthalene (d) Pyrrole",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 49,
-        "text": "Explain in detail pi molecular orbitals of Benzene and Butadiene.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 184,
-        "text": "Explain huckel rule on aromatic, non aromatic and anti aromatic compound.",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 185,
-        "text": "Identify from the following aromatic, non aromatic and anti aromatic compounds (1) Cyclopentadienyl anion (2) Cyclopentadienyl cation (3) Naphthalene (4) Pyrrole",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Aromaticity and Pi Molecular Orbitals",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/aromaticity-and-pi-molecular-orbitals"
-  },
-  {
-    "id": 50,
-    "slug": "coordination-chemistry",
-    "name": "Coordination Chemistry",
-    "description": "Curriculum and historical examination lineage for Coordination Chemistry under Unit 8 (Coordination and Crystal Field Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 8,
-    "unitName": "Coordination and Crystal Field Theory",
-    "appearanceCount": 1,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 0,
-      "Other": 0
-    },
-    "marksDistribution": {
-      "1": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 802,
-        "name": "The coordination number, oxidation number, number of electron in d-orbital and Number of unpaired...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 799,
-        "text": "The coordination number, oxidation number, number of electron in d-orbital and Number of unpaired electrons on complex $[Co(en)_2(NH_3)_2]^{2+}$ is ____________ respectively. (A)...",
-        "marks": 1,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Coordination Chemistry",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/coordination-chemistry"
-  },
-  {
-    "id": 51,
-    "slug": "crystal-field-theory",
-    "name": "Crystal Field Theory",
-    "description": "Curriculum and historical examination lineage for Crystal Field Theory under Unit 8 (Coordination and Crystal Field Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 8,
-    "unitName": "Coordination and Crystal Field Theory",
-    "appearanceCount": 22,
-    "paperCount": 8,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 7,
-        "title": "chem qb ans.pdf",
-        "year": 2023,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 11,
-        "title": "Chemistry - PYQ 2023 May",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 91,
-        "title": "More PYQs",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 92,
-        "title": "CT Papers 09_09_2025",
-        "year": 2025,
-        "term": "Fall",
-        "assessmentType": "Internal"
-      },
-      {
-        "id": 94,
-        "title": "Chemistry - CHEMISTRY CT 1.pdf",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Internal"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 5,
-      "Internal": 4,
-      "Other": 13
-    },
-    "marksDistribution": {
-      "1": 5,
-      "4": 1,
-      "10": 2,
-      "14": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 414,
-        "name": "Explain briefly about high spin and low spin complexes with examples.",
-        "repetitionType": "singleton",
-        "count": 2
-      },
-      {
-        "id": 762,
-        "name": "Describe the crystal field splitting of an octahedral complex with neat diagram. Show the CFSE and...",
-        "repetitionType": "family_repeat",
-        "count": 2
-      },
-      {
-        "id": 403,
-        "name": "Give the salient features of crystal field theory.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 404,
-        "name": "Discuss the crystal field splitting in octahedral complex.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 405,
-        "name": "Discus the crystal field splitting in a tetrahedral complex.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 44,
-        "text": "Give the salient features of crystal field theory.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 45,
-        "text": "Discuss the crystal field splitting in octahedral complex.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 46,
-        "text": "Discus the crystal field splitting in a tetrahedral complex.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 50,
-        "text": "What is spectrochemical series? Mention its importance.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 51,
-        "text": "Draw energy level diagrams to show the splitting of d orbitals in an octahedral and tetrahedral ligand field.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Crystal Field Theory",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/crystal-field-theory"
-  },
-  {
-    "id": 52,
-    "slug": "coordination-isomerism",
-    "name": "Coordination Isomerism",
-    "description": "Curriculum and historical examination lineage for Coordination Isomerism under Unit 8 (Coordination and Crystal Field Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 8,
-    "unitName": "Coordination and Crystal Field Theory",
-    "appearanceCount": 4,
-    "paperCount": 4,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 91,
-        "title": "More PYQs",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 3,
-      "Internal": 0,
-      "Other": 1
-    },
-    "marksDistribution": {
-      "12": 1,
-      "8": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 520,
-        "name": "How is isomerism exhibited in transition metal compounds? Explain its types with an example.",
-        "repetitionType": "singleton",
-        "count": 2
-      },
-      {
-        "id": 821,
-        "name": "Answer parts (i) and (ii) (i) Brief about any two isomerism exhibited by the coordination compounds...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 738,
-        "name": "b. Write short notes on structural isomerism in coordination compounds. Give examples.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 168,
-        "text": "How is isomerism exhibited in transition metal compounds? Explain its types with an example.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 223,
-        "text": "How is isomerism exhibited in transition metal compounds? Explain the types with an example each?",
-        "marks": 12,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 820,
-        "text": "Answer parts (i) and (ii) (i) Brief about any two isomerism exhibited by the coordination compounds with a suitable example for each. (ii) Define and explain any two periodic...",
-        "marks": 0,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 2677,
-        "text": "b. Write short notes on structural isomerism in coordination compounds. Give examples.",
-        "marks": 8,
-        "year": 2023,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Coordination Isomerism",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/coordination-isomerism"
-  },
-  {
-    "id": 53,
-    "slug": "molecular-symmetry",
-    "name": "Molecular Symmetry",
-    "description": "Curriculum and historical examination lineage for Molecular Symmetry under Unit 8 (Coordination and Crystal Field Theory) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 8,
-    "unitName": "Coordination and Crystal Field Theory",
-    "appearanceCount": 2,
-    "paperCount": 2,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 0,
-      "Other": 1
-    },
-    "marksDistribution": {
-      "1": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 486,
-        "name": "Define the following with example. (a) Plane of symmetry (b) Centre of symmetry (c) Alternating...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 812,
-        "name": "The plane which divide the molecule into two equal parts so that each half is the mirror image of...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 131,
-        "text": "Define the following with example. (a) Plane of symmetry (b) Centre of symmetry (c) Alternating axis of symmetry",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 810,
-        "text": "The plane which divide the molecule into two equal parts so that each half is the mirror image of other half is called (A) Ceter of symmetry (B) Axis of symmetry (C) Plane of...",
-        "marks": 1,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Molecular Symmetry",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/molecular-symmetry"
-  },
-  {
     "id": 54,
     "slug": "spectroscopy-fundamentals",
     "name": "Spectroscopy Fundamentals",
-    "description": "Curriculum and historical examination lineage for Spectroscopy Fundamentals under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Spectroscopy Fundamentals under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4413,8 +4766,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 2,
     "paperCount": 1,
     "papers": [
@@ -4472,7 +4825,7 @@
     "id": 55,
     "slug": "electronic-and-uv-visible-spectroscopy",
     "name": "Electronic and UV-Visible Spectroscopy",
-    "description": "Curriculum and historical examination lineage for Electronic and UV-Visible Spectroscopy under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Electronic and UV-Visible Spectroscopy under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4482,8 +4835,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 3,
     "paperCount": 1,
     "papers": [
@@ -4554,7 +4907,7 @@
     "id": 56,
     "slug": "rotational-spectroscopy",
     "name": "Rotational Spectroscopy",
-    "description": "Curriculum and historical examination lineage for Rotational Spectroscopy under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Rotational Spectroscopy under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4564,8 +4917,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 3,
     "paperCount": 2,
     "papers": [
@@ -4645,7 +4998,7 @@
     "id": 57,
     "slug": "vibrational-and-infrared-spectroscopy",
     "name": "Vibrational and Infrared Spectroscopy",
-    "description": "Curriculum and historical examination lineage for Vibrational and Infrared Spectroscopy under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Vibrational and Infrared Spectroscopy under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4655,8 +5008,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 5,
     "paperCount": 2,
     "papers": [
@@ -4751,7 +5104,7 @@
     "id": 58,
     "slug": "nuclear-magnetic-resonance",
     "name": "Nuclear Magnetic Resonance",
-    "description": "Curriculum and historical examination lineage for Nuclear Magnetic Resonance under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Nuclear Magnetic Resonance under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4761,8 +5114,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 5,
     "paperCount": 1,
     "papers": [
@@ -4853,7 +5206,7 @@
     "id": 59,
     "slug": "photoelectron-spectroscopy",
     "name": "Photoelectron Spectroscopy",
-    "description": "Curriculum and historical examination lineage for Photoelectron Spectroscopy under Unit 9 (Spectroscopy) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Photoelectron Spectroscopy under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4863,8 +5216,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 9,
-    "unitName": "Spectroscopy",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 5,
     "paperCount": 4,
     "papers": [
@@ -4978,7 +5331,7 @@
     "id": 60,
     "slug": "x-ray-diffraction-and-crystal-structure",
     "name": "X-ray Diffraction and Crystal Structure",
-    "description": "Curriculum and historical examination lineage for X-ray Diffraction and Crystal Structure under Unit 10 (Solid State and Diffraction) of Chemistry (21CYB101J) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for X-ray Diffraction and Crystal Structure under Unit 5 (Advanced Engineering Materials) of Chemistry (21CYB101J) at SRMIST.",
     "courseId": 2,
     "courseSlug": "chemistry",
     "courseName": "Chemistry",
@@ -4988,8 +5341,8 @@
     "languageKey": null,
     "languageName": null,
     "trackCode": null,
-    "unitNumber": 10,
-    "unitName": "Solid State and Diffraction",
+    "unitNumber": 5,
+    "unitName": "Advanced Engineering Materials",
     "appearanceCount": 11,
     "paperCount": 4,
     "papers": [
@@ -5104,617 +5457,6 @@
     "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=X-ray Diffraction and Crystal Structure",
     "mintAiUrl": "/mintai?course=SEM1-CHEM",
     "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/x-ray-diffraction-and-crystal-structure"
-  },
-  {
-    "id": 61,
-    "slug": "chemical-thermodynamics",
-    "name": "Chemical Thermodynamics",
-    "description": "Curriculum and historical examination lineage for Chemical Thermodynamics under Unit 11 (Thermodynamics and Intermolecular Forces) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 11,
-    "unitName": "Thermodynamics and Intermolecular Forces",
-    "appearanceCount": 5,
-    "paperCount": 5,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 11,
-        "title": "Chemistry - PYQ 2023 May",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 91,
-        "title": "More PYQs",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 95,
-        "title": "Chemistry - ALL CT COMPILATION.pdf",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Internal"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 2,
-      "Internal": 1,
-      "Other": 2
-    },
-    "marksDistribution": {
-      "1": 3
-    },
-    "questionFamilies": [
-      {
-        "id": 474,
-        "name": "Comment on the statement, \"the entropy of the Universe is always increasing\".",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 533,
-        "name": "First law of thermodynamics states that (A) \\Delta U = q - w (B) \\Delta U = q + w (C) \\Delta U = q...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 781,
-        "name": "Helmholtz free energy A is expressed (B) 4=H+TS (A) A=U+TS (D) A=H-TS. (C) A=U-TS 1 1 2 1",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 723,
-        "name": "Helmholtz free energy A is expressed",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 766,
-        "name": "The entropy of an isolated system always _______ and reaches _______ when equilibrium is reached....",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 119,
-        "text": "Comment on the statement, \"the entropy of the Universe is always increasing\".",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 199,
-        "text": "First law of thermodynamics states that (A) \\Delta U = q - w (B) \\Delta U = q + w (C) \\Delta U = q + \\Delta w (D) \\Delta E = \\Delta q + w",
-        "marks": 1,
-        "year": 2018,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 273,
-        "text": "Helmholtz free energy A is expressed (B) 4=H+TS (A) A=U+TS (D) A=H-TS. (C) A=U-TS 1 1 2 1",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 2661,
-        "text": "Helmholtz free energy A is expressed",
-        "marks": 1,
-        "year": 2023,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 2718,
-        "text": "The entropy of an isolated system always _______ and reaches _______ when equilibrium is reached. a) remains constant, maximum b) decreases, minimum c) increases, maximum d)...",
-        "marks": 1,
-        "year": 2023,
-        "assessmentType": "Internal"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Chemical Thermodynamics",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/chemical-thermodynamics"
-  },
-  {
-    "id": 62,
-    "slug": "hard-and-soft-acids-and-bases",
-    "name": "Hard and Soft Acids and Bases",
-    "description": "Curriculum and historical examination lineage for Hard and Soft Acids and Bases under Unit 11 (Thermodynamics and Intermolecular Forces) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 11,
-    "unitName": "Thermodynamics and Intermolecular Forces",
-    "appearanceCount": 5,
-    "paperCount": 4,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 11,
-        "title": "Chemistry - PYQ 2023 May",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 93,
-        "title": "Chemistry - CHEMISTRY - CT'S Papers.pdf",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Internal"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 1,
-      "Internal": 1,
-      "Other": 3
-    },
-    "marksDistribution": {
-      "1": 2
-    },
-    "questionFamilies": [
-      {
-        "id": 467,
-        "name": "Give the differences between hard and soft acids.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 468,
-        "name": "Write notes on hard and soft bases with examples for each.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 780,
-        "name": "HASBp rinciple was given by (B) Arhenius (A) Lewis (D) Pearson (C) Bransted 1 2 2 1",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 804,
-        "name": "Classification of acids and bases as HSAB was putforth by (A) Lewis (B) Arrhenius (C) Pearson (D)...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 752,
-        "name": "Which of the following is not a hard acid? (a) \\(H^+\\) (b) \\(Li^+\\) (c) \\(BH_3\\) (d) \\(BF_3\\)",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 112,
-        "text": "Give the differences between hard and soft acids.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 113,
-        "text": "Write notes on hard and soft bases with examples for each.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 272,
-        "text": "HASBp rinciple was given by (B) Arhenius (A) Lewis (D) Pearson (C) Bransted 1 2 2 1",
-        "marks": 0,
-        "year": 2023,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 802,
-        "text": "Classification of acids and bases as HSAB was putforth by (A) Lewis (B) Arrhenius (C) Pearson (D) Bronsted",
-        "marks": 1,
-        "year": 2024,
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 2701,
-        "text": "Which of the following is not a hard acid? (a) \\(H^+\\) (b) \\(Li^+\\) (c) \\(BH_3\\) (d) \\(BF_3\\)",
-        "marks": 1,
-        "year": 2023,
-        "assessmentType": "Internal"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Hard and Soft Acids and Bases",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/hard-and-soft-acids-and-bases"
-  },
-  {
-    "id": 63,
-    "slug": "intermolecular-forces",
-    "name": "Intermolecular Forces",
-    "description": "Curriculum and historical examination lineage for Intermolecular Forces under Unit 11 (Thermodynamics and Intermolecular Forces) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 11,
-    "unitName": "Thermodynamics and Intermolecular Forces",
-    "appearanceCount": 1,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 0,
-      "Internal": 0,
-      "Other": 1
-    },
-    "marksDistribution": {},
-    "questionFamilies": [
-      {
-        "id": 452,
-        "name": "Write notes on dipole-dipole interactions.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 97,
-        "text": "Write notes on dipole-dipole interactions.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Intermolecular Forces",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/intermolecular-forces"
-  },
-  {
-    "id": 64,
-    "slug": "real-gases-and-critical-phenomena",
-    "name": "Real Gases and Critical Phenomena",
-    "description": "Curriculum and historical examination lineage for Real Gases and Critical Phenomena under Unit 11 (Thermodynamics and Intermolecular Forces) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 11,
-    "unitName": "Thermodynamics and Intermolecular Forces",
-    "appearanceCount": 3,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 0,
-      "Internal": 0,
-      "Other": 3
-    },
-    "marksDistribution": {},
-    "questionFamilies": [
-      {
-        "id": 448,
-        "name": "Write the following equations of state for real gases i. Clausius equation, ii. Berthelot equation.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 451,
-        "name": "Define the terms i. Critical temperature ii. Critical volume iii. Critical pressure.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 453,
-        "name": "Explain Vander Waals equation of state with corrections for volume and pressure.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 93,
-        "text": "Write the following equations of state for real gases i. Clausius equation, ii. Berthelot equation.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 96,
-        "text": "Define the terms i. Critical temperature ii. Critical volume iii. Critical pressure.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 98,
-        "text": "Explain Vander Waals equation of state with corrections for volume and pressure.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Real Gases and Critical Phenomena",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/real-gases-and-critical-phenomena"
-  },
-  {
-    "id": 65,
-    "slug": "electrochemical-cells-and-electrode-potentials",
-    "name": "Electrochemical Cells and Electrode Potentials",
-    "description": "Curriculum and historical examination lineage for Electrochemical Cells and Electrode Potentials under Unit 12 (Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 12,
-    "unitName": "Electrochemistry",
-    "appearanceCount": 13,
-    "paperCount": 6,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 8,
-        "title": "chem UE ques paper.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 11,
-        "title": "Chemistry - PYQ 2023 May",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Other"
-      },
-      {
-        "id": 30,
-        "title": "PYQ May 2024",
-        "year": 2024,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 91,
-        "title": "More PYQs",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "EndSem"
-      },
-      {
-        "id": 95,
-        "title": "Chemistry - ALL CT COMPILATION.pdf",
-        "year": 2023,
-        "term": "Fall",
-        "assessmentType": "Internal"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 5,
-      "Internal": 1,
-      "Other": 7
-    },
-    "marksDistribution": {
-      "1": 3,
-      "12": 1,
-      "8": 1,
-      "15": 1
-    },
-    "questionFamilies": [
-      {
-        "id": 485,
-        "name": "With a neat sketch explain Pourbaix diagram for Iron.",
-        "repetitionType": "singleton",
-        "count": 2
-      },
-      {
-        "id": 475,
-        "name": "Explain how Nernst equation is applied in determining potential of a redox reaction?",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 482,
-        "name": "What is an Electrochemical cell or Galvanic cell? Give its representation.",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 483,
-        "name": "Define Single electrode potential. Write the mathematical expression for Nernst equation for :...",
-        "repetitionType": "singleton",
-        "count": 1
-      },
-      {
-        "id": 484,
-        "name": "In an electrochemical cell, the anode is given a negative charge and cathode is given a positive...",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 120,
-        "text": "Explain how Nernst equation is applied in determining potential of a redox reaction?",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 127,
-        "text": "What is an Electrochemical cell or Galvanic cell? Give its representation.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 128,
-        "text": "Define Single electrode potential. Write the mathematical expression for Nernst equation for : Zn_{(s)}/Zn^{2+}_{(aq)} // Cu^{2+}_{(aq)}/Cu_{(s)}",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 129,
-        "text": "In an electrochemical cell, the anode is given a negative charge and cathode is given a positive charge. Give reasons.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      },
-      {
-        "id": 130,
-        "text": "With a neat sketch explain Pourbaix diagram for Iron.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Electrochemical Cells and Electrode Potentials",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/electrochemical-cells-and-electrode-potentials"
-  },
-  {
-    "id": 66,
-    "slug": "solubility-equilibria",
-    "name": "Solubility Equilibria",
-    "description": "Curriculum and historical examination lineage for Solubility Equilibria under Unit 12 (Electrochemistry) of Chemistry (21CYB101J) at SRMIST.",
-    "courseId": 2,
-    "courseSlug": "chemistry",
-    "courseName": "Chemistry",
-    "courseCode": "SEM1-CHEM",
-    "canonicalCode": "21CYB101J",
-    "isLanguageTrack": false,
-    "languageKey": null,
-    "languageName": null,
-    "trackCode": null,
-    "unitNumber": 12,
-    "unitName": "Electrochemistry",
-    "appearanceCount": 1,
-    "paperCount": 1,
-    "papers": [
-      {
-        "id": 6,
-        "title": "Chem Q-Bank.pdf",
-        "year": 2018,
-        "term": "FALL",
-        "assessmentType": "Other"
-      }
-    ],
-    "assessmentAppearances": {
-      "CT1": 0,
-      "CT2": 0,
-      "EndSem": 0,
-      "Internal": 0,
-      "Other": 1
-    },
-    "marksDistribution": {},
-    "questionFamilies": [
-      {
-        "id": 481,
-        "name": "Define Solubility product [K_{sp}]. Explain with an example.",
-        "repetitionType": "singleton",
-        "count": 1
-      }
-    ],
-    "sampleQuestions": [
-      {
-        "id": 126,
-        "text": "Define Solubility product [K_{sp}]. Explain with an example.",
-        "marks": 0,
-        "year": 2018,
-        "assessmentType": "Other"
-      }
-    ],
-    "practiceUrl": "/mintai?course=SEM1-CHEM&tab=practice&topic=Solubility Equilibria",
-    "mintAiUrl": "/mintai?course=SEM1-CHEM",
-    "canonicalUrl": "https://markmint.vercel.app/courses/chemistry/topics/solubility-equilibria"
   },
   {
     "id": 100,
@@ -40540,8 +40282,8 @@
     "trackCode": null,
     "unitNumber": 1,
     "unitName": "Multiple Integrals",
-    "appearanceCount": 13,
-    "paperCount": 12,
+    "appearanceCount": 14,
+    "paperCount": 13,
     "papers": [
       {
         "id": 14,
@@ -40603,13 +40345,14 @@
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 13,
+      "EndSem": 14,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
       "8": 6,
-      "1": 5
+      "1": 5,
+      "12": 1
     },
     "questionFamilies": [
       {
@@ -40700,8 +40443,8 @@
     "trackCode": null,
     "unitNumber": 1,
     "unitName": "Multiple Integrals",
-    "appearanceCount": 6,
-    "paperCount": 6,
+    "appearanceCount": 7,
+    "paperCount": 7,
     "papers": [
       {
         "id": 140,
@@ -40744,17 +40487,24 @@
         "year": 2023,
         "term": "Fall",
         "assessmentType": "EndSem"
+      },
+      {
+        "id": 4,
+        "title": "Math Sample 2",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
       }
     ],
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 6,
+      "EndSem": 7,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
-      "12": 1,
+      "12": 2,
       "10": 1,
       "8": 1,
       "1": 2
@@ -40771,6 +40521,12 @@
         "name": "Evaluation of \\(\\iiint dxdyz\\) is equal to (A) \\(3\\) (B) \\(4\\) (C) \\(2\\) (D) \\(6\\)",
         "repetitionType": "family_repeat",
         "count": 2
+      },
+      {
+        "id": 363,
+        "name": "Find the volume of a sphere x^2 + y^2 + z^2 = a^2 using triple integration.",
+        "repetitionType": "singleton",
+        "count": 1
       }
     ],
     "sampleQuestions": [
@@ -40964,8 +40720,8 @@
     "trackCode": null,
     "unitNumber": 2,
     "unitName": "Vector Calculus",
-    "appearanceCount": 14,
-    "paperCount": 11,
+    "appearanceCount": 15,
+    "paperCount": 12,
     "papers": [
       {
         "id": 14,
@@ -41027,13 +40783,14 @@
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 14,
+      "EndSem": 15,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
       "8": 2,
-      "1": 10
+      "1": 10,
+      "12": 1
     },
     "questionFamilies": [
       {
@@ -41597,8 +41354,8 @@
     "trackCode": null,
     "unitNumber": 3,
     "unitName": "Laplace Transforms",
-    "appearanceCount": 14,
-    "paperCount": 9,
+    "appearanceCount": 15,
+    "paperCount": 10,
     "papers": [
       {
         "id": 15,
@@ -41660,7 +41417,7 @@
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 14,
+      "EndSem": 15,
       "Internal": 0,
       "Other": 0
     },
@@ -41668,7 +41425,8 @@
       "8": 1,
       "4": 1,
       "10": 2,
-      "1": 7
+      "1": 7,
+      "12": 1
     },
     "questionFamilies": [
       {
@@ -42270,8 +42028,8 @@
     "trackCode": null,
     "unitNumber": 4,
     "unitName": "Analytic Functions",
-    "appearanceCount": 3,
-    "paperCount": 2,
+    "appearanceCount": 4,
+    "paperCount": 3,
     "papers": [
       {
         "id": 140,
@@ -42286,17 +42044,24 @@
         "year": 2025,
         "term": "Fall",
         "assessmentType": "EndSem"
+      },
+      {
+        "id": 4,
+        "title": "Math Sample 2",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
       }
     ],
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 3,
+      "EndSem": 4,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
-      "12": 2,
+      "12": 3,
       "1": 1
     },
     "questionFamilies": [
@@ -42315,6 +42080,12 @@
       {
         "id": 4927,
         "name": "Real and imaginary parts of an analytic functions are (A) holomorphic functions (B) harmonic...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 368,
+        "name": "Verify whether the function \\frac{1}{2} \\log(x^2 + y^2) is harmonic. Find the harmonic conjugate....",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -42339,6 +42110,13 @@
         "text": "Real and imaginary parts of an analytic functions are (A) holomorphic functions (B) harmonic functions (C) convex functions (D) concave functions",
         "marks": 1,
         "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 23,
+        "text": "Verify whether the function \\frac{1}{2} \\log(x^2 + y^2) is harmonic. Find the harmonic conjugate. Also find f(z). --- OR --- 31. Find the images of the infinite strips (A) 1/4 < y...",
+        "marks": 12,
+        "year": 2018,
         "assessmentType": "EndSem"
       }
     ],
@@ -42539,8 +42317,8 @@
     "trackCode": null,
     "unitNumber": 4,
     "unitName": "Analytic Functions",
-    "appearanceCount": 14,
-    "paperCount": 8,
+    "appearanceCount": 15,
+    "paperCount": 9,
     "papers": [
       {
         "id": 15,
@@ -42602,7 +42380,7 @@
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 14,
+      "EndSem": 15,
       "Internal": 0,
       "Other": 0
     },
@@ -42757,8 +42535,8 @@
     "trackCode": null,
     "unitNumber": 5,
     "unitName": "Complex Integration",
-    "appearanceCount": 23,
-    "paperCount": 13,
+    "appearanceCount": 24,
+    "paperCount": 14,
     "papers": [
       {
         "id": 14,
@@ -42820,14 +42598,15 @@
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 23,
+      "EndSem": 24,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
       "8": 11,
       "1": 9,
-      "10": 1
+      "10": 1,
+      "12": 1
     },
     "questionFamilies": [
       {
@@ -43077,8 +42856,8 @@
     "trackCode": null,
     "unitNumber": 5,
     "unitName": "Complex Integration",
-    "appearanceCount": 4,
-    "paperCount": 4,
+    "appearanceCount": 5,
+    "paperCount": 5,
     "papers": [
       {
         "id": 15,
@@ -43107,18 +42886,26 @@
         "year": 2025,
         "term": "Fall",
         "assessmentType": "EndSem"
+      },
+      {
+        "id": 4,
+        "title": "Math Sample 2",
+        "year": 2018,
+        "term": "FALL",
+        "assessmentType": "EndSem"
       }
     ],
     "assessmentAppearances": {
       "CT1": 0,
       "CT2": 0,
-      "EndSem": 4,
+      "EndSem": 5,
       "Internal": 0,
       "Other": 0
     },
     "marksDistribution": {
       "8": 1,
-      "1": 1
+      "1": 1,
+      "12": 1
     },
     "questionFamilies": [
       {
@@ -43136,6 +42923,12 @@
       {
         "id": 4881,
         "name": "By Cauchy's residue theorem, the value of \\oint_{C} \\frac{z}{z - 3} dz where C is the circle |z| =...",
+        "repetitionType": "singleton",
+        "count": 1
+      },
+      {
+        "id": 370,
+        "name": "\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta} by calculus of residues. --- OR --- 32. Find the...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -43167,6 +42960,13 @@
         "text": "By Cauchy's residue theorem, the value of \\oint_{C} \\frac{z}{z - 3} dz where C is the circle |z| = 2 is",
         "marks": 1,
         "year": 2025,
+        "assessmentType": "EndSem"
+      },
+      {
+        "id": 25,
+        "text": "\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta} by calculus of residues. --- OR --- 32. Find the Laurent expansion to represent the function f(z) = \\frac{z^2 - 1}{(z + 2)(z + 3)}...",
+        "marks": 12,
+        "year": 2018,
         "assessmentType": "EndSem"
       }
     ],

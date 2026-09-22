@@ -2,9 +2,9 @@
   "data_availability_status": "READY",
   "prediction_mode": "topic",
   "has_topic_taxonomy": true,
-  "taxonomy_topic_count": 27,
-  "topic_predictions_count": 15,
-  "family_predictions_count": 195,
+  "taxonomy_topic_count": 19,
+  "topic_predictions_count": 11,
+  "family_predictions_count": 185,
   "track": null,
   "tracks": [],
   "course": {
@@ -27,10 +27,10 @@
     "notes": null
   },
   "exam_history": {
-    "total_papers": 14,
-    "all_course_papers": 14,
-    "historical_papers_analyzed": 13,
-    "total_questions": 278,
+    "total_papers": 13,
+    "all_course_papers": 13,
+    "historical_papers_analyzed": 12,
+    "total_questions": 268,
     "years": [
       2015,
       2018,
@@ -94,105 +94,49 @@
   "assessment_component": "ALL",
   "assessment_label": "All Assessments",
   "evidence_status": "ALL_SCOPE",
-  "intended_scope": {
+  "intended_scope": null,
+  "observed_scope": {
+    "paper_count": 13,
+    "total_questions": 272,
+    "mapped_questions_count": 158,
+    "unmapped_questions_count": 114,
+    "questions_with_known_marks": 220,
+    "questions_with_unknown_marks": 52,
+    "known_marks_total": 647.0,
+    "mapping_rate": 58.09,
     "unit_numbers": [
       1,
       2,
       3,
       4,
-      5,
-      6,
-      7,
-      8,
-      9
+      5
     ],
     "topic_names": [
-      "Cayley-Hamilton Theorem",
-      "Change of Variables",
-      "Complex Variables and Analytic Functions",
-      "Conformal Mapping",
-      "Convergence Tests",
-      "Directional Derivatives",
-      "Double Integrals",
-      "Eigenvalues and Eigenvectors",
-      "Extrema and Optimization",
-      "First-Order ODE",
-      "Fourier Series",
-      "Gradient",
-      "Inverse Laplace Transforms",
-      "Laplace Transform Tables",
-      "Linear Systems",
-      "Matrix Operations",
-      "ODE Solutions",
-      "PDE Classification",
-      "Partial Derivatives",
-      "Power Series",
-      "Quadratic Forms",
-      "Residues and Laurent Series",
-      "Second-Order ODE",
-      "Separation of Variables",
-      "Taylor Series",
-      "Triple Integrals",
-      "Vector Calculus"
-    ],
-    "source_document": "data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus & Assessment Plan)",
-    "notes": "Authoritative Course Learning Syllabus Table 5 defines CA-1, CA-2, CA-3, and Final Exam."
-  },
-  "observed_scope": {
-    "paper_count": 14,
-    "total_questions": 282,
-    "mapped_questions_count": 164,
-    "unmapped_questions_count": 118,
-    "questions_with_known_marks": 229,
-    "questions_with_unknown_marks": 53,
-    "known_marks_total": 707.0,
-    "mapping_rate": 58.16,
-    "unit_numbers": [
-      1,
-      2,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9
-    ],
-    "topic_names": [
+      "Beta and Gamma Functions",
       "Cayley-Hamilton Theorem",
       "Convergence Tests",
-      "Double Integrals",
       "Eigenvalues and Eigenvectors",
       "Extrema and Optimization",
-      "Laplace Transform Tables",
       "Matrix Operations",
       "ODE Solutions",
       "Partial Derivatives",
       "Quadratic Forms",
-      "Residues and Laurent Series",
       "Second-Order ODE",
-      "Taylor Series",
-      "Triple Integrals",
-      "Vector Calculus"
+      "Taylor Series"
     ],
     "question_count_by_unit": {
       "1": 57,
-      "2": 30,
-      "4": 1,
-      "5": 34,
-      "6": 33,
-      "7": 6,
-      "8": 1,
-      "9": 2
+      "2": 42,
+      "3": 30,
+      "4": 4,
+      "5": 25
     },
     "marks_by_unit": {
       "1": 241.0,
-      "2": 36.0,
-      "4": 12.0,
-      "5": 75.0,
-      "6": 72.0,
-      "7": 15.0,
-      "8": 12.0,
-      "9": 12.0
+      "2": 112.0,
+      "3": 36.0,
+      "4": 3.0,
+      "5": 35.0
     },
     "papers": [
       {
@@ -261,48 +205,12 @@
         "questions_with_known_marks": 0,
         "questions_with_unknown_marks": 8,
         "observed_units": [
-          5,
-          6
+          2
         ],
         "question_count_by_unit": {
-          "5": 1,
-          "6": 2
+          "2": 3
         },
         "marks_by_unit": {}
-      },
-      {
-        "exam_id": 4,
-        "year": 2018,
-        "raw_assessment_type": "END_SEM",
-        "normalized_code": "ENDSEM",
-        "identification_source": "metadata",
-        "identification_confidence": 1.0,
-        "document_title": "Math Sample 2",
-        "total_questions": 10,
-        "mapped_questions": 6,
-        "unmapped_questions": 4,
-        "mapping_rate": 60.0,
-        "known_marks_total": 60.0,
-        "questions_with_known_marks": 9,
-        "questions_with_unknown_marks": 1,
-        "observed_units": [
-          4,
-          7,
-          8,
-          9
-        ],
-        "question_count_by_unit": {
-          "4": 1,
-          "7": 2,
-          "8": 1,
-          "9": 2
-        },
-        "marks_by_unit": {
-          "4": 12.0,
-          "7": 12.0,
-          "8": 12.0,
-          "9": 12.0
-        }
       },
       {
         "exam_id": 13,
@@ -322,23 +230,23 @@
         "observed_units": [
           1,
           2,
-          5,
-          6,
-          7
+          3,
+          4,
+          5
         ],
         "question_count_by_unit": {
           "1": 6,
-          "2": 6,
-          "5": 5,
-          "6": 5,
-          "7": 1
+          "2": 7,
+          "3": 6,
+          "4": 1,
+          "5": 3
         },
         "marks_by_unit": {
           "1": 4.0,
-          "2": 4.0,
-          "5": 1.0,
-          "6": 5.0,
-          "7": 1.0
+          "2": 5.0,
+          "3": 4.0,
+          "4": 1.0,
+          "5": 1.0
         }
       },
       {
@@ -358,18 +266,15 @@
         "questions_with_unknown_marks": 0,
         "observed_units": [
           1,
-          5,
-          6
+          2
         ],
         "question_count_by_unit": {
           "1": 4,
-          "5": 1,
-          "6": 2
+          "2": 3
         },
         "marks_by_unit": {
           "1": 42.0,
-          "5": 8.0,
-          "6": 21.0
+          "2": 29.0
         }
       },
       {
@@ -389,18 +294,15 @@
         "questions_with_unknown_marks": 0,
         "observed_units": [
           1,
-          5,
-          6
+          2
         ],
         "question_count_by_unit": {
           "1": 4,
-          "5": 1,
-          "6": 2
+          "2": 3
         },
         "marks_by_unit": {
           "1": 42.0,
-          "5": 8.0,
-          "6": 21.0
+          "2": 29.0
         }
       },
       {
@@ -421,20 +323,20 @@
         "observed_units": [
           1,
           2,
-          5,
-          6
+          3,
+          5
         ],
         "question_count_by_unit": {
           "1": 5,
           "2": 5,
-          "5": 5,
-          "6": 4
+          "3": 5,
+          "5": 4
         },
         "marks_by_unit": {
           "1": 18.0,
-          "2": 11.0,
-          "5": 18.0,
-          "6": 4.0
+          "2": 12.0,
+          "3": 11.0,
+          "5": 10.0
         }
       },
       {
@@ -455,20 +357,20 @@
         "observed_units": [
           1,
           2,
-          5,
-          6
+          3,
+          5
         ],
         "question_count_by_unit": {
           "1": 7,
-          "2": 2,
-          "5": 6,
-          "6": 5
+          "2": 7,
+          "3": 2,
+          "5": 4
         },
         "marks_by_unit": {
           "1": 27.0,
-          "2": 2.0,
-          "5": 18.0,
-          "6": 5.0
+          "2": 13.0,
+          "3": 2.0,
+          "5": 10.0
         }
       },
       {
@@ -489,20 +391,20 @@
         "observed_units": [
           1,
           2,
-          5,
-          6
+          3,
+          5
         ],
         "question_count_by_unit": {
           "1": 6,
-          "2": 4,
-          "5": 3,
-          "6": 3
+          "2": 3,
+          "3": 4,
+          "5": 3
         },
         "marks_by_unit": {
           "1": 18.0,
-          "2": 2.0,
-          "5": 1.0,
-          "6": 1.0
+          "2": 1.0,
+          "3": 2.0,
+          "5": 1.0
         }
       },
       {
@@ -542,23 +444,23 @@
         "observed_units": [
           1,
           2,
-          5,
-          6,
-          7
+          3,
+          4,
+          5
         ],
         "question_count_by_unit": {
           "1": 6,
-          "2": 5,
-          "5": 3,
-          "6": 3,
-          "7": 1
+          "2": 3,
+          "3": 5,
+          "4": 1,
+          "5": 3
         },
         "marks_by_unit": {
           "1": 18.0,
-          "2": 3.0,
-          "5": 1.0,
-          "6": 1.0,
-          "7": 1.0
+          "2": 1.0,
+          "3": 3.0,
+          "4": 1.0,
+          "5": 1.0
         }
       },
       {
@@ -579,23 +481,23 @@
         "observed_units": [
           1,
           2,
-          5,
-          6,
-          7
+          3,
+          4,
+          5
         ],
         "question_count_by_unit": {
           "1": 5,
-          "2": 3,
-          "5": 4,
-          "6": 4,
-          "7": 2
+          "2": 4,
+          "3": 3,
+          "4": 2,
+          "5": 4
         },
         "marks_by_unit": {
           "1": 3.0,
-          "2": 2.0,
-          "5": 2.0,
-          "6": 4.0,
-          "7": 1.0
+          "2": 4.0,
+          "3": 2.0,
+          "4": 1.0,
+          "5": 2.0
         }
       },
       {
@@ -616,20 +518,20 @@
         "observed_units": [
           1,
           2,
-          5,
-          6
+          3,
+          5
         ],
         "question_count_by_unit": {
           "1": 6,
-          "2": 5,
-          "5": 5,
-          "6": 3
+          "2": 4,
+          "3": 5,
+          "5": 4
         },
         "marks_by_unit": {
           "1": 19.0,
-          "2": 12.0,
-          "5": 18.0,
-          "6": 10.0
+          "2": 18.0,
+          "3": 12.0,
+          "5": 10.0
         }
       }
     ]
@@ -642,105 +544,49 @@
     "role": null,
     "marks": null,
     "evidence_status": "ALL_SCOPE",
-    "intended_scope": {
+    "intended_scope": null,
+    "observed_scope": {
+      "paper_count": 13,
+      "total_questions": 272,
+      "mapped_questions_count": 158,
+      "unmapped_questions_count": 114,
+      "questions_with_known_marks": 220,
+      "questions_with_unknown_marks": 52,
+      "known_marks_total": 647.0,
+      "mapping_rate": 58.09,
       "unit_numbers": [
         1,
         2,
         3,
         4,
-        5,
-        6,
-        7,
-        8,
-        9
+        5
       ],
       "topic_names": [
-        "Cayley-Hamilton Theorem",
-        "Change of Variables",
-        "Complex Variables and Analytic Functions",
-        "Conformal Mapping",
-        "Convergence Tests",
-        "Directional Derivatives",
-        "Double Integrals",
-        "Eigenvalues and Eigenvectors",
-        "Extrema and Optimization",
-        "First-Order ODE",
-        "Fourier Series",
-        "Gradient",
-        "Inverse Laplace Transforms",
-        "Laplace Transform Tables",
-        "Linear Systems",
-        "Matrix Operations",
-        "ODE Solutions",
-        "PDE Classification",
-        "Partial Derivatives",
-        "Power Series",
-        "Quadratic Forms",
-        "Residues and Laurent Series",
-        "Second-Order ODE",
-        "Separation of Variables",
-        "Taylor Series",
-        "Triple Integrals",
-        "Vector Calculus"
-      ],
-      "source_document": "data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus & Assessment Plan)",
-      "notes": "Authoritative Course Learning Syllabus Table 5 defines CA-1, CA-2, CA-3, and Final Exam."
-    },
-    "observed_scope": {
-      "paper_count": 14,
-      "total_questions": 282,
-      "mapped_questions_count": 164,
-      "unmapped_questions_count": 118,
-      "questions_with_known_marks": 229,
-      "questions_with_unknown_marks": 53,
-      "known_marks_total": 707.0,
-      "mapping_rate": 58.16,
-      "unit_numbers": [
-        1,
-        2,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9
-      ],
-      "topic_names": [
+        "Beta and Gamma Functions",
         "Cayley-Hamilton Theorem",
         "Convergence Tests",
-        "Double Integrals",
         "Eigenvalues and Eigenvectors",
         "Extrema and Optimization",
-        "Laplace Transform Tables",
         "Matrix Operations",
         "ODE Solutions",
         "Partial Derivatives",
         "Quadratic Forms",
-        "Residues and Laurent Series",
         "Second-Order ODE",
-        "Taylor Series",
-        "Triple Integrals",
-        "Vector Calculus"
+        "Taylor Series"
       ],
       "question_count_by_unit": {
         "1": 57,
-        "2": 30,
-        "4": 1,
-        "5": 34,
-        "6": 33,
-        "7": 6,
-        "8": 1,
-        "9": 2
+        "2": 42,
+        "3": 30,
+        "4": 4,
+        "5": 25
       },
       "marks_by_unit": {
         "1": 241.0,
-        "2": 36.0,
-        "4": 12.0,
-        "5": 75.0,
-        "6": 72.0,
-        "7": 15.0,
-        "8": 12.0,
-        "9": 12.0
+        "2": 112.0,
+        "3": 36.0,
+        "4": 3.0,
+        "5": 35.0
       },
       "papers": [
         {
@@ -809,48 +655,12 @@
           "questions_with_known_marks": 0,
           "questions_with_unknown_marks": 8,
           "observed_units": [
-            5,
-            6
+            2
           ],
           "question_count_by_unit": {
-            "5": 1,
-            "6": 2
+            "2": 3
           },
           "marks_by_unit": {}
-        },
-        {
-          "exam_id": 4,
-          "year": 2018,
-          "raw_assessment_type": "END_SEM",
-          "normalized_code": "ENDSEM",
-          "identification_source": "metadata",
-          "identification_confidence": 1.0,
-          "document_title": "Math Sample 2",
-          "total_questions": 10,
-          "mapped_questions": 6,
-          "unmapped_questions": 4,
-          "mapping_rate": 60.0,
-          "known_marks_total": 60.0,
-          "questions_with_known_marks": 9,
-          "questions_with_unknown_marks": 1,
-          "observed_units": [
-            4,
-            7,
-            8,
-            9
-          ],
-          "question_count_by_unit": {
-            "4": 1,
-            "7": 2,
-            "8": 1,
-            "9": 2
-          },
-          "marks_by_unit": {
-            "4": 12.0,
-            "7": 12.0,
-            "8": 12.0,
-            "9": 12.0
-          }
         },
         {
           "exam_id": 13,
@@ -870,23 +680,23 @@
           "observed_units": [
             1,
             2,
-            5,
-            6,
-            7
+            3,
+            4,
+            5
           ],
           "question_count_by_unit": {
             "1": 6,
-            "2": 6,
-            "5": 5,
-            "6": 5,
-            "7": 1
+            "2": 7,
+            "3": 6,
+            "4": 1,
+            "5": 3
           },
           "marks_by_unit": {
             "1": 4.0,
-            "2": 4.0,
-            "5": 1.0,
-            "6": 5.0,
-            "7": 1.0
+            "2": 5.0,
+            "3": 4.0,
+            "4": 1.0,
+            "5": 1.0
           }
         },
         {
@@ -906,18 +716,15 @@
           "questions_with_unknown_marks": 0,
           "observed_units": [
             1,
-            5,
-            6
+            2
           ],
           "question_count_by_unit": {
             "1": 4,
-            "5": 1,
-            "6": 2
+            "2": 3
           },
           "marks_by_unit": {
             "1": 42.0,
-            "5": 8.0,
-            "6": 21.0
+            "2": 29.0
           }
         },
         {
@@ -937,18 +744,15 @@
           "questions_with_unknown_marks": 0,
           "observed_units": [
             1,
-            5,
-            6
+            2
           ],
           "question_count_by_unit": {
             "1": 4,
-            "5": 1,
-            "6": 2
+            "2": 3
           },
           "marks_by_unit": {
             "1": 42.0,
-            "5": 8.0,
-            "6": 21.0
+            "2": 29.0
           }
         },
         {
@@ -969,20 +773,20 @@
           "observed_units": [
             1,
             2,
-            5,
-            6
+            3,
+            5
           ],
           "question_count_by_unit": {
             "1": 5,
             "2": 5,
-            "5": 5,
-            "6": 4
+            "3": 5,
+            "5": 4
           },
           "marks_by_unit": {
             "1": 18.0,
-            "2": 11.0,
-            "5": 18.0,
-            "6": 4.0
+            "2": 12.0,
+            "3": 11.0,
+            "5": 10.0
           }
         },
         {
@@ -1003,20 +807,20 @@
           "observed_units": [
             1,
             2,
-            5,
-            6
+            3,
+            5
           ],
           "question_count_by_unit": {
             "1": 7,
-            "2": 2,
-            "5": 6,
-            "6": 5
+            "2": 7,
+            "3": 2,
+            "5": 4
           },
           "marks_by_unit": {
             "1": 27.0,
-            "2": 2.0,
-            "5": 18.0,
-            "6": 5.0
+            "2": 13.0,
+            "3": 2.0,
+            "5": 10.0
           }
         },
         {
@@ -1037,20 +841,20 @@
           "observed_units": [
             1,
             2,
-            5,
-            6
+            3,
+            5
           ],
           "question_count_by_unit": {
             "1": 6,
-            "2": 4,
-            "5": 3,
-            "6": 3
+            "2": 3,
+            "3": 4,
+            "5": 3
           },
           "marks_by_unit": {
             "1": 18.0,
-            "2": 2.0,
-            "5": 1.0,
-            "6": 1.0
+            "2": 1.0,
+            "3": 2.0,
+            "5": 1.0
           }
         },
         {
@@ -1090,23 +894,23 @@
           "observed_units": [
             1,
             2,
-            5,
-            6,
-            7
+            3,
+            4,
+            5
           ],
           "question_count_by_unit": {
             "1": 6,
-            "2": 5,
-            "5": 3,
-            "6": 3,
-            "7": 1
+            "2": 3,
+            "3": 5,
+            "4": 1,
+            "5": 3
           },
           "marks_by_unit": {
             "1": 18.0,
-            "2": 3.0,
-            "5": 1.0,
-            "6": 1.0,
-            "7": 1.0
+            "2": 1.0,
+            "3": 3.0,
+            "4": 1.0,
+            "5": 1.0
           }
         },
         {
@@ -1127,23 +931,23 @@
           "observed_units": [
             1,
             2,
-            5,
-            6,
-            7
+            3,
+            4,
+            5
           ],
           "question_count_by_unit": {
             "1": 5,
-            "2": 3,
-            "5": 4,
-            "6": 4,
-            "7": 2
+            "2": 4,
+            "3": 3,
+            "4": 2,
+            "5": 4
           },
           "marks_by_unit": {
             "1": 3.0,
-            "2": 2.0,
-            "5": 2.0,
-            "6": 4.0,
-            "7": 1.0
+            "2": 4.0,
+            "3": 2.0,
+            "4": 1.0,
+            "5": 2.0
           }
         },
         {
@@ -1164,38 +968,28 @@
           "observed_units": [
             1,
             2,
-            5,
-            6
+            3,
+            5
           ],
           "question_count_by_unit": {
             "1": 6,
-            "2": 5,
-            "5": 5,
-            "6": 3
+            "2": 4,
+            "3": 5,
+            "5": 4
           },
           "marks_by_unit": {
             "1": 19.0,
-            "2": 12.0,
-            "5": 18.0,
-            "6": 10.0
+            "2": 18.0,
+            "3": 12.0,
+            "5": 10.0
           }
         }
       ]
     },
-    "source_document": "data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus & Assessment Plan)",
-    "unit_numbers": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9
-    ],
-    "total_in_scope_topics": 27,
-    "observed_in_scope_topics": 15,
+    "source_document": "data/1 Year/MATHS/detailed sylabbus.docx (Template 6: Course Learning Syllabus)",
+    "unit_numbers": [],
+    "total_in_scope_topics": 0,
+    "observed_in_scope_topics": 11,
     "unobserved_in_scope_topics": [],
     "out_of_scope_observed_topics": []
   },
@@ -1204,18 +998,18 @@
       "rank": 1,
       "name": "Quadratic Forms",
       "category": "topic",
-      "score": 0.13417026378896882,
-      "prediction_score": 0.1342,
-      "probability": 0.6667,
+      "score": 0.14552238805970147,
+      "prediction_score": 0.1455,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 9,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6923,
+      "paper_coverage": 0.75,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1231,8 +1025,8 @@
       "marks_seen": 133.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0625,
-      "recency_score": 0.0643,
-      "marks_score": 0.2956,
+      "recency_score": 0.065,
+      "marks_score": 0.3308,
       "evidence_count": 19,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1244,12 +1038,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0625,
-        "hist_freq": 0.0683453237410072,
+        "hist_freq": 0.0708955223880597,
         "occurrences": 19,
         "total_marks": 133.0,
-        "paper_coverage": 0.6923076923076923,
+        "paper_coverage": 0.75,
         "papers_with_topic": 9,
-        "marks_weight": 0.29555555555555557,
+        "marks_weight": 0.3308457711442786,
         "average_marks": 7.388888888888889
       },
       "topic_id": 33,
@@ -1306,18 +1100,18 @@
       "rank": 2,
       "name": "Second-Order ODE",
       "category": "topic",
-      "score": 0.08788249400479616,
-      "prediction_score": 0.0879,
-      "probability": 0.5333,
+      "score": 0.09171641791044777,
+      "prediction_score": 0.0917,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 7,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.5385,
+      "paper_coverage": 0.5833,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1333,8 +1127,8 @@
       "marks_seen": 34.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0875,
-      "recency_score": 0.0915,
-      "marks_score": 0.0756,
+      "recency_score": 0.0926,
+      "marks_score": 0.0846,
       "evidence_count": 28,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1345,12 +1139,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0875,
-        "hist_freq": 0.10071942446043165,
+        "hist_freq": 0.1044776119402985,
         "occurrences": 28,
         "total_marks": 34.0,
-        "paper_coverage": 0.5384615384615384,
+        "paper_coverage": 0.5833333333333334,
         "papers_with_topic": 7,
-        "marks_weight": 0.07555555555555556,
+        "marks_weight": 0.0845771144278607,
         "average_marks": 1.4166666666666667
       },
       "topic_id": 5,
@@ -1404,120 +1198,20 @@
     },
     {
       "rank": 3,
-      "name": "Convergence Tests",
-      "category": "topic",
-      "score": 0.08781175059952039,
-      "prediction_score": 0.0878,
-      "probability": 0.5333,
-      "confidence": "HIGH",
-      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
-      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
-      "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
-      "papers_with_topic": 7,
-      "distinct_paper_count": null,
-      "papers_with_family": null,
-      "paper_coverage": 0.5385,
-      "family_id": null,
-      "repetition_type": null,
-      "observed_years": [],
-      "average_marks": 1.9444444444444444,
-      "total_marks_observed": 35.0,
-      "supporting_questions": [],
-      "supporting_question_ids": [],
-      "historyCount": 25,
-      "historical_occurrences": 25,
-      "recent_occurrences": 0,
-      "last_seen_year": null,
-      "lastSeen": "Multiple",
-      "marks_seen": 35.0,
-      "family_recurrence_score": 0.0,
-      "recent_frequency_score": 0.0938,
-      "recency_score": 0.0926,
-      "marks_score": 0.0778,
-      "evidence_count": 25,
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_EVIDENCE",
-        "HIGH_FREQUENCY"
-      ],
-      "explanation": "Appeared in 25 historical question(s) representing 35 marks.",
-      "evidence_details": {
-        "combo": true,
-        "recent_freq": 0.09375,
-        "hist_freq": 0.08992805755395683,
-        "occurrences": 25,
-        "total_marks": 35.0,
-        "paper_coverage": 0.5384615384615384,
-        "papers_with_topic": 7,
-        "marks_weight": 0.07777777777777778,
-        "average_marks": 1.9444444444444444
-      },
-      "topic_id": 11,
-      "timeline": [
-        {
-          "year": 2015,
-          "exam_exists": true,
-          "topic_present": false,
-          "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
-        },
-        {
-          "year": 2018,
-          "exam_exists": true,
-          "topic_present": false,
-          "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
-        },
-        {
-          "year": 2023,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2024,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2025,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        }
-      ],
-      "historical_years": [
-        2023,
-        2024,
-        2025
-      ]
-    },
-    {
-      "rank": 4,
       "name": "Partial Derivatives",
       "category": "topic",
-      "score": 0.08756594724220623,
-      "prediction_score": 0.0876,
-      "probability": 0.7333,
+      "score": 0.09171641791044775,
+      "prediction_score": 0.0917,
+      "probability": 0.7857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 10,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.7692,
+      "paper_coverage": 0.8333,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1533,8 +1227,8 @@
       "marks_seen": 40.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0875,
-      "recency_score": 0.0871,
-      "marks_score": 0.0889,
+      "recency_score": 0.0881,
+      "marks_score": 0.0995,
       "evidence_count": 24,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1545,12 +1239,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0875,
-        "hist_freq": 0.08633093525179857,
+        "hist_freq": 0.08955223880597014,
         "occurrences": 24,
         "total_marks": 40.0,
-        "paper_coverage": 0.7692307692307693,
+        "paper_coverage": 0.8333333333333334,
         "papers_with_topic": 10,
-        "marks_weight": 0.08888888888888889,
+        "marks_weight": 0.09950248756218906,
         "average_marks": 1.8181818181818181
       },
       "topic_id": 14,
@@ -1604,21 +1298,121 @@
       ]
     },
     {
-      "rank": 5,
-      "name": "Eigenvalues and Eigenvectors",
+      "rank": 4,
+      "name": "Convergence Tests",
       "category": "topic",
-      "score": 0.07742446043165467,
-      "prediction_score": 0.0774,
-      "probability": 0.7333,
+      "score": 0.09160447761194031,
+      "prediction_score": 0.0916,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
+      "papers_with_topic": 7,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5833,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.9444444444444444,
+      "total_marks_observed": 35.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 25,
+      "historical_occurrences": 25,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 35.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0938,
+      "recency_score": 0.0936,
+      "marks_score": 0.0871,
+      "evidence_count": 25,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 25 historical question(s) representing 35 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.09375,
+        "hist_freq": 0.09328358208955224,
+        "occurrences": 25,
+        "total_marks": 35.0,
+        "paper_coverage": 0.5833333333333334,
+        "papers_with_topic": 7,
+        "marks_weight": 0.08706467661691543,
+        "average_marks": 1.9444444444444444
+      },
+      "topic_id": 11,
+      "timeline": [
+        {
+          "year": 2015,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Eigenvalues and Eigenvectors",
+      "category": "topic",
+      "score": 0.08149253731343284,
+      "prediction_score": 0.0815,
+      "probability": 0.7857,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 12,
       "papers_with_topic": 10,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.7692,
+      "paper_coverage": 0.8333,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1634,8 +1428,8 @@
       "marks_seen": 42.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.075,
-      "recency_score": 0.0719,
-      "marks_score": 0.0933,
+      "recency_score": 0.0726,
+      "marks_score": 0.1045,
       "evidence_count": 18,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1646,12 +1440,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.075,
-        "hist_freq": 0.06474820143884892,
+        "hist_freq": 0.06716417910447761,
         "occurrences": 18,
         "total_marks": 42.0,
-        "paper_coverage": 0.7692307692307693,
+        "paper_coverage": 0.8333333333333334,
         "papers_with_topic": 10,
-        "marks_weight": 0.09333333333333334,
+        "marks_weight": 0.1044776119402985,
         "average_marks": 2.3333333333333335
       },
       "topic_id": 1,
@@ -1708,18 +1502,18 @@
       "rank": 6,
       "name": "Cayley-Hamilton Theorem",
       "category": "topic",
-      "score": 0.06360791366906475,
-      "prediction_score": 0.0636,
-      "probability": 0.6667,
+      "score": 0.06727611940298507,
+      "prediction_score": 0.0673,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 9,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6923,
+      "paper_coverage": 0.75,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1735,8 +1529,8 @@
       "marks_seen": 39.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0563,
-      "recency_score": 0.0545,
-      "marks_score": 0.0867,
+      "recency_score": 0.055,
+      "marks_score": 0.097,
       "evidence_count": 14,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1747,12 +1541,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.05625,
-        "hist_freq": 0.050359712230215826,
+        "hist_freq": 0.05223880597014925,
         "occurrences": 14,
         "total_marks": 39.0,
-        "paper_coverage": 0.6923076923076923,
+        "paper_coverage": 0.75,
         "papers_with_topic": 9,
-        "marks_weight": 0.08666666666666667,
+        "marks_weight": 0.09701492537313433,
         "average_marks": 4.875
       },
       "topic_id": 32,
@@ -1809,18 +1603,18 @@
       "rank": 7,
       "name": "Taylor Series",
       "category": "topic",
-      "score": 0.048878896882494006,
-      "prediction_score": 0.0489,
-      "probability": 0.5333,
+      "score": 0.05242537313432836,
+      "prediction_score": 0.0524,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 7,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.5385,
+      "paper_coverage": 0.5833,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1836,8 +1630,8 @@
       "marks_seen": 40.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0312,
-      "recency_score": 0.0316,
-      "marks_score": 0.0889,
+      "recency_score": 0.0319,
+      "marks_score": 0.0995,
       "evidence_count": 9,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1848,12 +1642,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.03125,
-        "hist_freq": 0.03237410071942446,
+        "hist_freq": 0.033582089552238806,
         "occurrences": 9,
         "total_marks": 40.0,
-        "paper_coverage": 0.5384615384615384,
+        "paper_coverage": 0.5833333333333334,
         "papers_with_topic": 7,
-        "marks_weight": 0.08888888888888889,
+        "marks_weight": 0.09950248756218906,
         "average_marks": 5.714285714285714
       },
       "topic_id": 35,
@@ -1910,18 +1704,18 @@
       "rank": 8,
       "name": "Extrema and Optimization",
       "category": "topic",
-      "score": 0.04354556354916067,
-      "prediction_score": 0.0435,
-      "probability": 0.6,
+      "score": 0.046455223880597016,
+      "prediction_score": 0.0465,
+      "probability": 0.6429,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 8,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6154,
+      "paper_coverage": 0.6667,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -1937,8 +1731,8 @@
       "marks_seen": 32.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0312,
-      "recency_score": 0.0316,
-      "marks_score": 0.0711,
+      "recency_score": 0.0319,
+      "marks_score": 0.0796,
       "evidence_count": 9,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -1949,12 +1743,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.03125,
-        "hist_freq": 0.03237410071942446,
+        "hist_freq": 0.033582089552238806,
         "occurrences": 9,
         "total_marks": 32.0,
-        "paper_coverage": 0.6153846153846154,
+        "paper_coverage": 0.6666666666666666,
         "papers_with_topic": 8,
-        "marks_weight": 0.07111111111111111,
+        "marks_weight": 0.07960199004975124,
         "average_marks": 3.5555555555555554
       },
       "topic_id": 34,
@@ -2009,20 +1803,20 @@
     },
     {
       "rank": 9,
-      "name": "Double Integrals",
+      "name": "Beta and Gamma Functions",
       "category": "topic",
-      "score": 0.013816546762589928,
-      "prediction_score": 0.0138,
-      "probability": 0.2667,
+      "score": 0.01421641791044776,
+      "prediction_score": 0.0142,
+      "probability": 0.2857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 3,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.2308,
+      "paper_coverage": 0.25,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2038,8 +1832,8 @@
       "marks_seen": 3.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0187,
-      "recency_score": 0.0174,
-      "marks_score": 0.0067,
+      "recency_score": 0.0176,
+      "marks_score": 0.0075,
       "evidence_count": 4,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2049,12 +1843,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.01875,
-        "hist_freq": 0.014388489208633094,
+        "hist_freq": 0.014925373134328358,
         "occurrences": 4,
         "total_marks": 3.0,
-        "paper_coverage": 0.23076923076923078,
+        "paper_coverage": 0.25,
         "papers_with_topic": 3,
-        "marks_weight": 0.006666666666666667,
+        "marks_weight": 0.007462686567164179,
         "average_marks": 1.0
       },
       "topic_id": 17,
@@ -2107,25 +1901,25 @@
     },
     {
       "rank": 10,
-      "name": "Triple Integrals",
+      "name": "ODE Solutions",
       "category": "topic",
-      "score": 0.010158273381294963,
-      "prediction_score": 0.0102,
-      "probability": 0.1333,
+      "score": 0.0062313432835820895,
+      "prediction_score": 0.0062,
+      "probability": 0.2143,
       "confidence": "MEDIUM",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
-      "papers_with_topic": 1,
+      "papers_analyzed": 12,
+      "papers_with_topic": 2,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.0769,
+      "paper_coverage": 0.1667,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
-      "average_marks": 12.0,
-      "total_marks_observed": 12.0,
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
       "supporting_questions": [],
       "supporting_question_ids": [],
       "historyCount": 2,
@@ -2133,30 +1927,28 @@
       "recent_occurrences": 0,
       "last_seen_year": null,
       "lastSeen": "Multiple",
-      "marks_seen": 12.0,
+      "marks_seen": 2.0,
       "family_recurrence_score": 0.0,
-      "recent_frequency_score": 0.0,
-      "recency_score": 0.0022,
-      "marks_score": 0.0267,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0066,
+      "marks_score": 0.005,
       "evidence_count": 2,
       "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE"
+        "SUFFICIENT_HISTORY"
       ],
-      "explanation": "Historically appeared in 2 question(s) (12 marks total), but absent from recent examinations.",
+      "explanation": "Appeared in 2 historical question(s) representing 2 marks.",
       "evidence_details": {
         "combo": true,
-        "recent_freq": 0.0,
-        "hist_freq": 0.007194244604316547,
+        "recent_freq": 0.00625,
+        "hist_freq": 0.007462686567164179,
         "occurrences": 2,
-        "total_marks": 12.0,
-        "paper_coverage": 0.07692307692307693,
-        "papers_with_topic": 1,
-        "marks_weight": 0.02666666666666667,
-        "average_marks": 12.0
+        "total_marks": 2.0,
+        "paper_coverage": 0.16666666666666666,
+        "papers_with_topic": 2,
+        "marks_weight": 0.004975124378109453,
+        "average_marks": 1.0
       },
-      "topic_id": 18,
+      "topic_id": 6,
       "timeline": [
         {
           "year": 2015,
@@ -2169,18 +1961,18 @@
         {
           "year": 2018,
           "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2023,
-          "exam_exists": true,
           "topic_present": false,
           "family_present": false,
           "present": false,
           "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
         },
         {
           "year": 2024,
@@ -2193,14 +1985,15 @@
         {
           "year": 2025,
           "exam_exists": true,
-          "topic_present": false,
+          "topic_present": true,
           "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
+          "present": true,
+          "status": "TOPIC_PRESENT"
         }
       ],
       "historical_years": [
-        2018
+        2023,
+        2025
       ]
     }
   ],
@@ -2209,18 +2002,18 @@
       "rank": 1,
       "name": "Quadratic Forms",
       "category": "topic",
-      "score": 0.13417026378896882,
-      "prediction_score": 0.1342,
-      "probability": 0.6667,
+      "score": 0.14552238805970147,
+      "prediction_score": 0.1455,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 9,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6923,
+      "paper_coverage": 0.75,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2236,8 +2029,8 @@
       "marks_seen": 133.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0625,
-      "recency_score": 0.0643,
-      "marks_score": 0.2956,
+      "recency_score": 0.065,
+      "marks_score": 0.3308,
       "evidence_count": 19,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2249,12 +2042,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0625,
-        "hist_freq": 0.0683453237410072,
+        "hist_freq": 0.0708955223880597,
         "occurrences": 19,
         "total_marks": 133.0,
-        "paper_coverage": 0.6923076923076923,
+        "paper_coverage": 0.75,
         "papers_with_topic": 9,
-        "marks_weight": 0.29555555555555557,
+        "marks_weight": 0.3308457711442786,
         "average_marks": 7.388888888888889
       },
       "topic_id": 33,
@@ -2311,18 +2104,18 @@
       "rank": 2,
       "name": "Second-Order ODE",
       "category": "topic",
-      "score": 0.08788249400479616,
-      "prediction_score": 0.0879,
-      "probability": 0.5333,
+      "score": 0.09171641791044777,
+      "prediction_score": 0.0917,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 7,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.5385,
+      "paper_coverage": 0.5833,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2338,8 +2131,8 @@
       "marks_seen": 34.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0875,
-      "recency_score": 0.0915,
-      "marks_score": 0.0756,
+      "recency_score": 0.0926,
+      "marks_score": 0.0846,
       "evidence_count": 28,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2350,12 +2143,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0875,
-        "hist_freq": 0.10071942446043165,
+        "hist_freq": 0.1044776119402985,
         "occurrences": 28,
         "total_marks": 34.0,
-        "paper_coverage": 0.5384615384615384,
+        "paper_coverage": 0.5833333333333334,
         "papers_with_topic": 7,
-        "marks_weight": 0.07555555555555556,
+        "marks_weight": 0.0845771144278607,
         "average_marks": 1.4166666666666667
       },
       "topic_id": 5,
@@ -2409,120 +2202,20 @@
     },
     {
       "rank": 3,
-      "name": "Convergence Tests",
-      "category": "topic",
-      "score": 0.08781175059952039,
-      "prediction_score": 0.0878,
-      "probability": 0.5333,
-      "confidence": "HIGH",
-      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
-      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
-      "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
-      "papers_with_topic": 7,
-      "distinct_paper_count": null,
-      "papers_with_family": null,
-      "paper_coverage": 0.5385,
-      "family_id": null,
-      "repetition_type": null,
-      "observed_years": [],
-      "average_marks": 1.9444444444444444,
-      "total_marks_observed": 35.0,
-      "supporting_questions": [],
-      "supporting_question_ids": [],
-      "historyCount": 25,
-      "historical_occurrences": 25,
-      "recent_occurrences": 0,
-      "last_seen_year": null,
-      "lastSeen": "Multiple",
-      "marks_seen": 35.0,
-      "family_recurrence_score": 0.0,
-      "recent_frequency_score": 0.0938,
-      "recency_score": 0.0926,
-      "marks_score": 0.0778,
-      "evidence_count": 25,
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_EVIDENCE",
-        "HIGH_FREQUENCY"
-      ],
-      "explanation": "Appeared in 25 historical question(s) representing 35 marks.",
-      "evidence_details": {
-        "combo": true,
-        "recent_freq": 0.09375,
-        "hist_freq": 0.08992805755395683,
-        "occurrences": 25,
-        "total_marks": 35.0,
-        "paper_coverage": 0.5384615384615384,
-        "papers_with_topic": 7,
-        "marks_weight": 0.07777777777777778,
-        "average_marks": 1.9444444444444444
-      },
-      "topic_id": 11,
-      "timeline": [
-        {
-          "year": 2015,
-          "exam_exists": true,
-          "topic_present": false,
-          "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
-        },
-        {
-          "year": 2018,
-          "exam_exists": true,
-          "topic_present": false,
-          "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
-        },
-        {
-          "year": 2023,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2024,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2025,
-          "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        }
-      ],
-      "historical_years": [
-        2023,
-        2024,
-        2025
-      ]
-    },
-    {
-      "rank": 4,
       "name": "Partial Derivatives",
       "category": "topic",
-      "score": 0.08756594724220623,
-      "prediction_score": 0.0876,
-      "probability": 0.7333,
+      "score": 0.09171641791044775,
+      "prediction_score": 0.0917,
+      "probability": 0.7857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 10,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.7692,
+      "paper_coverage": 0.8333,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2538,8 +2231,8 @@
       "marks_seen": 40.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0875,
-      "recency_score": 0.0871,
-      "marks_score": 0.0889,
+      "recency_score": 0.0881,
+      "marks_score": 0.0995,
       "evidence_count": 24,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2550,12 +2243,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.0875,
-        "hist_freq": 0.08633093525179857,
+        "hist_freq": 0.08955223880597014,
         "occurrences": 24,
         "total_marks": 40.0,
-        "paper_coverage": 0.7692307692307693,
+        "paper_coverage": 0.8333333333333334,
         "papers_with_topic": 10,
-        "marks_weight": 0.08888888888888889,
+        "marks_weight": 0.09950248756218906,
         "average_marks": 1.8181818181818181
       },
       "topic_id": 14,
@@ -2609,21 +2302,121 @@
       ]
     },
     {
-      "rank": 5,
-      "name": "Eigenvalues and Eigenvectors",
+      "rank": 4,
+      "name": "Convergence Tests",
       "category": "topic",
-      "score": 0.07742446043165467,
-      "prediction_score": 0.0774,
-      "probability": 0.7333,
+      "score": 0.09160447761194031,
+      "prediction_score": 0.0916,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
+      "papers_with_topic": 7,
+      "distinct_paper_count": null,
+      "papers_with_family": null,
+      "paper_coverage": 0.5833,
+      "family_id": null,
+      "repetition_type": null,
+      "observed_years": [],
+      "average_marks": 1.9444444444444444,
+      "total_marks_observed": 35.0,
+      "supporting_questions": [],
+      "supporting_question_ids": [],
+      "historyCount": 25,
+      "historical_occurrences": 25,
+      "recent_occurrences": 0,
+      "last_seen_year": null,
+      "lastSeen": "Multiple",
+      "marks_seen": 35.0,
+      "family_recurrence_score": 0.0,
+      "recent_frequency_score": 0.0938,
+      "recency_score": 0.0936,
+      "marks_score": 0.0871,
+      "evidence_count": 25,
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY"
+      ],
+      "explanation": "Appeared in 25 historical question(s) representing 35 marks.",
+      "evidence_details": {
+        "combo": true,
+        "recent_freq": 0.09375,
+        "hist_freq": 0.09328358208955224,
+        "occurrences": 25,
+        "total_marks": 35.0,
+        "paper_coverage": 0.5833333333333334,
+        "papers_with_topic": 7,
+        "marks_weight": 0.08706467661691543,
+        "average_marks": 1.9444444444444444
+      },
+      "topic_id": 11,
+      "timeline": [
+        {
+          "year": 2015,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2018,
+          "exam_exists": true,
+          "topic_present": false,
+          "family_present": false,
+          "present": false,
+          "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2024,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        },
+        {
+          "year": 2025,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
+        }
+      ],
+      "historical_years": [
+        2023,
+        2024,
+        2025
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Eigenvalues and Eigenvectors",
+      "category": "topic",
+      "score": 0.08149253731343284,
+      "prediction_score": 0.0815,
+      "probability": 0.7857,
+      "confidence": "HIGH",
+      "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
+      "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
+      "evidence_sufficiency": "SUFFICIENT",
+      "papers_analyzed": 12,
       "papers_with_topic": 10,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.7692,
+      "paper_coverage": 0.8333,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2639,8 +2432,8 @@
       "marks_seen": 42.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.075,
-      "recency_score": 0.0719,
-      "marks_score": 0.0933,
+      "recency_score": 0.0726,
+      "marks_score": 0.1045,
       "evidence_count": 18,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2651,12 +2444,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.075,
-        "hist_freq": 0.06474820143884892,
+        "hist_freq": 0.06716417910447761,
         "occurrences": 18,
         "total_marks": 42.0,
-        "paper_coverage": 0.7692307692307693,
+        "paper_coverage": 0.8333333333333334,
         "papers_with_topic": 10,
-        "marks_weight": 0.09333333333333334,
+        "marks_weight": 0.1044776119402985,
         "average_marks": 2.3333333333333335
       },
       "topic_id": 1,
@@ -2713,18 +2506,18 @@
       "rank": 6,
       "name": "Cayley-Hamilton Theorem",
       "category": "topic",
-      "score": 0.06360791366906475,
-      "prediction_score": 0.0636,
-      "probability": 0.6667,
+      "score": 0.06727611940298507,
+      "prediction_score": 0.0673,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 9,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6923,
+      "paper_coverage": 0.75,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2740,8 +2533,8 @@
       "marks_seen": 39.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0563,
-      "recency_score": 0.0545,
-      "marks_score": 0.0867,
+      "recency_score": 0.055,
+      "marks_score": 0.097,
       "evidence_count": 14,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2752,12 +2545,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.05625,
-        "hist_freq": 0.050359712230215826,
+        "hist_freq": 0.05223880597014925,
         "occurrences": 14,
         "total_marks": 39.0,
-        "paper_coverage": 0.6923076923076923,
+        "paper_coverage": 0.75,
         "papers_with_topic": 9,
-        "marks_weight": 0.08666666666666667,
+        "marks_weight": 0.09701492537313433,
         "average_marks": 4.875
       },
       "topic_id": 32,
@@ -2814,18 +2607,18 @@
       "rank": 7,
       "name": "Taylor Series",
       "category": "topic",
-      "score": 0.048878896882494006,
-      "prediction_score": 0.0489,
-      "probability": 0.5333,
+      "score": 0.05242537313432836,
+      "prediction_score": 0.0524,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 7,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.5385,
+      "paper_coverage": 0.5833,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2841,8 +2634,8 @@
       "marks_seen": 40.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0312,
-      "recency_score": 0.0316,
-      "marks_score": 0.0889,
+      "recency_score": 0.0319,
+      "marks_score": 0.0995,
       "evidence_count": 9,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2853,12 +2646,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.03125,
-        "hist_freq": 0.03237410071942446,
+        "hist_freq": 0.033582089552238806,
         "occurrences": 9,
         "total_marks": 40.0,
-        "paper_coverage": 0.5384615384615384,
+        "paper_coverage": 0.5833333333333334,
         "papers_with_topic": 7,
-        "marks_weight": 0.08888888888888889,
+        "marks_weight": 0.09950248756218906,
         "average_marks": 5.714285714285714
       },
       "topic_id": 35,
@@ -2915,18 +2708,18 @@
       "rank": 8,
       "name": "Extrema and Optimization",
       "category": "topic",
-      "score": 0.04354556354916067,
-      "prediction_score": 0.0435,
-      "probability": 0.6,
+      "score": 0.046455223880597016,
+      "prediction_score": 0.0465,
+      "probability": 0.6429,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 8,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.6154,
+      "paper_coverage": 0.6667,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -2942,8 +2735,8 @@
       "marks_seen": 32.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0312,
-      "recency_score": 0.0316,
-      "marks_score": 0.0711,
+      "recency_score": 0.0319,
+      "marks_score": 0.0796,
       "evidence_count": 9,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -2954,12 +2747,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.03125,
-        "hist_freq": 0.03237410071942446,
+        "hist_freq": 0.033582089552238806,
         "occurrences": 9,
         "total_marks": 32.0,
-        "paper_coverage": 0.6153846153846154,
+        "paper_coverage": 0.6666666666666666,
         "papers_with_topic": 8,
-        "marks_weight": 0.07111111111111111,
+        "marks_weight": 0.07960199004975124,
         "average_marks": 3.5555555555555554
       },
       "topic_id": 34,
@@ -3014,20 +2807,20 @@
     },
     {
       "rank": 9,
-      "name": "Double Integrals",
+      "name": "Beta and Gamma Functions",
       "category": "topic",
-      "score": 0.013816546762589928,
-      "prediction_score": 0.0138,
-      "probability": 0.2667,
+      "score": 0.01421641791044776,
+      "prediction_score": 0.0142,
+      "probability": 0.2857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 3,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.2308,
+      "paper_coverage": 0.25,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
@@ -3043,8 +2836,8 @@
       "marks_seen": 3.0,
       "family_recurrence_score": 0.0,
       "recent_frequency_score": 0.0187,
-      "recency_score": 0.0174,
-      "marks_score": 0.0067,
+      "recency_score": 0.0176,
+      "marks_score": 0.0075,
       "evidence_count": 4,
       "reason_codes": [
         "SUFFICIENT_HISTORY",
@@ -3054,12 +2847,12 @@
       "evidence_details": {
         "combo": true,
         "recent_freq": 0.01875,
-        "hist_freq": 0.014388489208633094,
+        "hist_freq": 0.014925373134328358,
         "occurrences": 4,
         "total_marks": 3.0,
-        "paper_coverage": 0.23076923076923078,
+        "paper_coverage": 0.25,
         "papers_with_topic": 3,
-        "marks_weight": 0.006666666666666667,
+        "marks_weight": 0.007462686567164179,
         "average_marks": 1.0
       },
       "topic_id": 17,
@@ -3112,25 +2905,25 @@
     },
     {
       "rank": 10,
-      "name": "Triple Integrals",
+      "name": "ODE Solutions",
       "category": "topic",
-      "score": 0.010158273381294963,
-      "prediction_score": 0.0102,
-      "probability": 0.1333,
+      "score": 0.0062313432835820895,
+      "prediction_score": 0.0062,
+      "probability": 0.2143,
       "confidence": "MEDIUM",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
-      "papers_with_topic": 1,
+      "papers_analyzed": 12,
+      "papers_with_topic": 2,
       "distinct_paper_count": null,
       "papers_with_family": null,
-      "paper_coverage": 0.0769,
+      "paper_coverage": 0.1667,
       "family_id": null,
       "repetition_type": null,
       "observed_years": [],
-      "average_marks": 12.0,
-      "total_marks_observed": 12.0,
+      "average_marks": 1.0,
+      "total_marks_observed": 2.0,
       "supporting_questions": [],
       "supporting_question_ids": [],
       "historyCount": 2,
@@ -3138,30 +2931,28 @@
       "recent_occurrences": 0,
       "last_seen_year": null,
       "lastSeen": "Multiple",
-      "marks_seen": 12.0,
+      "marks_seen": 2.0,
       "family_recurrence_score": 0.0,
-      "recent_frequency_score": 0.0,
-      "recency_score": 0.0022,
-      "marks_score": 0.0267,
+      "recent_frequency_score": 0.0063,
+      "recency_score": 0.0066,
+      "marks_score": 0.005,
       "evidence_count": 2,
       "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE"
+        "SUFFICIENT_HISTORY"
       ],
-      "explanation": "Historically appeared in 2 question(s) (12 marks total), but absent from recent examinations.",
+      "explanation": "Appeared in 2 historical question(s) representing 2 marks.",
       "evidence_details": {
         "combo": true,
-        "recent_freq": 0.0,
-        "hist_freq": 0.007194244604316547,
+        "recent_freq": 0.00625,
+        "hist_freq": 0.007462686567164179,
         "occurrences": 2,
-        "total_marks": 12.0,
-        "paper_coverage": 0.07692307692307693,
-        "papers_with_topic": 1,
-        "marks_weight": 0.02666666666666667,
-        "average_marks": 12.0
+        "total_marks": 2.0,
+        "paper_coverage": 0.16666666666666666,
+        "papers_with_topic": 2,
+        "marks_weight": 0.004975124378109453,
+        "average_marks": 1.0
       },
-      "topic_id": 18,
+      "topic_id": 6,
       "timeline": [
         {
           "year": 2015,
@@ -3174,18 +2965,18 @@
         {
           "year": 2018,
           "exam_exists": true,
-          "topic_present": true,
-          "family_present": false,
-          "present": true,
-          "status": "TOPIC_PRESENT"
-        },
-        {
-          "year": 2023,
-          "exam_exists": true,
           "topic_present": false,
           "family_present": false,
           "present": false,
           "status": "TOPIC_ABSENT"
+        },
+        {
+          "year": 2023,
+          "exam_exists": true,
+          "topic_present": true,
+          "family_present": false,
+          "present": true,
+          "status": "TOPIC_PRESENT"
         },
         {
           "year": 2024,
@@ -3198,14 +2989,15 @@
         {
           "year": 2025,
           "exam_exists": true,
-          "topic_present": false,
+          "topic_present": true,
           "family_present": false,
-          "present": false,
-          "status": "TOPIC_ABSENT"
+          "present": true,
+          "status": "TOPIC_PRESENT"
         }
       ],
       "historical_years": [
-        2018
+        2023,
+        2025
       ]
     }
   ],
@@ -3216,16 +3008,16 @@
       "category": "family",
       "score": 7.199999999999999,
       "prediction_score": 7.2,
-      "probability": 0.4667,
+      "probability": 0.5,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 6,
       "distinct_paper_count": 6,
       "papers_with_family": 6,
-      "paper_coverage": 0.4615,
+      "paper_coverage": 0.5,
       "family_id": 595,
       "repetition_type": "exact_repeat",
       "observed_years": [
@@ -3266,7 +3058,7 @@
         "QUESTION_FAMILY_RECURRING",
         "LONG_ABSENCE"
       ],
-      "explanation": "Exact verbatim repeat family with 9 historical occurrence(s) across 6 of 13 examination papers, last seen in 2025.",
+      "explanation": "Exact verbatim repeat family with 9 historical occurrence(s) across 6 of 12 examination papers, last seen in 2025.",
       "evidence_details": {
         "family_id": 595,
         "occurrences": 9,
@@ -3348,16 +3140,16 @@
       "category": "family",
       "score": 3.4,
       "prediction_score": 3.4,
-      "probability": 0.3333,
+      "probability": 0.3571,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 4,
       "distinct_paper_count": 4,
       "papers_with_family": 4,
-      "paper_coverage": 0.3077,
+      "paper_coverage": 0.3333,
       "family_id": 589,
       "repetition_type": "exact_repeat",
       "observed_years": [
@@ -3390,7 +3182,7 @@
         "QUESTION_FAMILY_RECURRING",
         "LONG_ABSENCE"
       ],
-      "explanation": "Exact verbatim repeat family with 4 historical occurrence(s) across 4 of 13 examination papers, last seen in 2024.",
+      "explanation": "Exact verbatim repeat family with 4 historical occurrence(s) across 4 of 12 examination papers, last seen in 2024.",
       "evidence_details": {
         "family_id": 589,
         "occurrences": 4,
@@ -3465,16 +3257,16 @@
       "category": "family",
       "score": 3.0,
       "prediction_score": 3.0,
-      "probability": 0.2667,
+      "probability": 0.2857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 3,
       "distinct_paper_count": 3,
       "papers_with_family": 3,
-      "paper_coverage": 0.2308,
+      "paper_coverage": 0.25,
       "family_id": 633,
       "repetition_type": "exact_repeat",
       "observed_years": [
@@ -3506,7 +3298,7 @@
         "QUESTION_FAMILY_RECURRING",
         "LONG_ABSENCE"
       ],
-      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 13 examination papers, last seen in 2025.",
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 12 examination papers, last seen in 2025.",
       "evidence_details": {
         "family_id": 633,
         "occurrences": 3,
@@ -3580,16 +3372,16 @@
       "category": "family",
       "score": 3.0,
       "prediction_score": 3.0,
-      "probability": 0.2667,
+      "probability": 0.2857,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 3,
       "distinct_paper_count": 3,
       "papers_with_family": 3,
-      "paper_coverage": 0.2308,
+      "paper_coverage": 0.25,
       "family_id": 637,
       "repetition_type": "exact_repeat",
       "observed_years": [
@@ -3621,7 +3413,7 @@
         "QUESTION_FAMILY_RECURRING",
         "LONG_ABSENCE"
       ],
-      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 13 examination papers, last seen in 2025.",
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 3 of 12 examination papers, last seen in 2025.",
       "evidence_details": {
         "family_id": 637,
         "occurrences": 3,
@@ -3695,16 +3487,16 @@
       "category": "family",
       "score": 3.0,
       "prediction_score": 3.0,
-      "probability": 0.2,
+      "probability": 0.2143,
       "confidence": "HIGH",
       "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
       "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
       "evidence_sufficiency": "SUFFICIENT",
-      "papers_analyzed": 13,
+      "papers_analyzed": 12,
       "papers_with_topic": 2,
       "distinct_paper_count": 2,
       "papers_with_family": 2,
-      "paper_coverage": 0.1538,
+      "paper_coverage": 0.1667,
       "family_id": 639,
       "repetition_type": "exact_repeat",
       "observed_years": [
@@ -3737,7 +3529,7 @@
         "QUESTION_FAMILY_RECURRING",
         "LONG_ABSENCE"
       ],
-      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 2 of 13 examination papers, last seen in 2025.",
+      "explanation": "Exact verbatim repeat family with 3 historical occurrence(s) across 2 of 12 examination papers, last seen in 2025.",
       "evidence_details": {
         "family_id": 639,
         "occurrences": 3,
@@ -3812,8 +3604,8 @@
       "topic": "Quadratic Forms",
       "name": "Quadratic Forms",
       "topic_id": 33,
-      "prediction_score": 0.1342,
-      "probability": 0.6667,
+      "prediction_score": 0.1455,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -3845,79 +3637,11 @@
     },
     {
       "order": 2,
-      "topic": "Second-Order ODE",
-      "name": "Second-Order ODE",
-      "topic_id": 5,
-      "prediction_score": 0.0879,
-      "probability": 0.5333,
-      "confidence": "HIGH",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Appears repeatedly in historical papers.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_EVIDENCE",
-        "HIGH_FREQUENCY",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Second-Order ODE",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 28
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 3,
-      "topic": "Convergence Tests",
-      "name": "Convergence Tests",
-      "topic_id": 11,
-      "prediction_score": 0.0878,
-      "probability": 0.5333,
-      "confidence": "HIGH",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Appears repeatedly in historical papers.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_EVIDENCE",
-        "HIGH_FREQUENCY",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Convergence Tests",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 25
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 4,
       "topic": "Partial Derivatives",
       "name": "Partial Derivatives",
       "topic_id": 14,
-      "prediction_score": 0.0876,
-      "probability": 0.7333,
+      "prediction_score": 0.0917,
+      "probability": 0.7857,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -3946,12 +3670,80 @@
       "practice_accuracy": null
     },
     {
+      "order": 3,
+      "topic": "Second-Order ODE",
+      "name": "Second-Order ODE",
+      "topic_id": 5,
+      "prediction_score": 0.0917,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Second-Order ODE",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 28
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
+      "order": 4,
+      "topic": "Convergence Tests",
+      "name": "Convergence Tests",
+      "topic_id": 11,
+      "prediction_score": 0.0916,
+      "probability": 0.5714,
+      "confidence": "HIGH",
+      "priority": "LOW",
+      "recommended_action": "FOUNDATIONAL_EXPLORATION",
+      "reasons": [
+        "Lower predicted exam probability.",
+        "Appears repeatedly in historical papers.",
+        "Study material or related past questions are available.",
+        "No student progress evidence is recorded."
+      ],
+      "reason_codes": [
+        "SUFFICIENT_HISTORY",
+        "HIGH_EVIDENCE",
+        "HIGH_FREQUENCY",
+        "STUDENT_UNSTUDIED"
+      ],
+      "resources": [
+        {
+          "id": null,
+          "title": "Previous exam questions for Convergence Tests",
+          "source": "historical_exams",
+          "resource_type": "previous_exam_questions",
+          "question_count": 25
+        }
+      ],
+      "student_status": "NOT_STARTED",
+      "practice_accuracy": null
+    },
+    {
       "order": 5,
       "topic": "Eigenvalues and Eigenvectors",
       "name": "Eigenvalues and Eigenvectors",
       "topic_id": 1,
-      "prediction_score": 0.0774,
-      "probability": 0.7333,
+      "prediction_score": 0.0815,
+      "probability": 0.7857,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -3984,8 +3776,8 @@
       "topic": "Cayley-Hamilton Theorem",
       "name": "Cayley-Hamilton Theorem",
       "topic_id": 32,
-      "prediction_score": 0.0636,
-      "probability": 0.6667,
+      "prediction_score": 0.0673,
+      "probability": 0.7143,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4018,8 +3810,8 @@
       "topic": "Taylor Series",
       "name": "Taylor Series",
       "topic_id": 35,
-      "prediction_score": 0.0489,
-      "probability": 0.5333,
+      "prediction_score": 0.0524,
+      "probability": 0.5714,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4052,8 +3844,8 @@
       "topic": "Extrema and Optimization",
       "name": "Extrema and Optimization",
       "topic_id": 34,
-      "prediction_score": 0.0435,
-      "probability": 0.6,
+      "prediction_score": 0.0465,
+      "probability": 0.6429,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4083,11 +3875,11 @@
     },
     {
       "order": 9,
-      "topic": "Double Integrals",
-      "name": "Double Integrals",
+      "topic": "Beta and Gamma Functions",
+      "name": "Beta and Gamma Functions",
       "topic_id": 17,
-      "prediction_score": 0.0138,
-      "probability": 0.2667,
+      "prediction_score": 0.0142,
+      "probability": 0.2857,
       "confidence": "HIGH",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4105,7 +3897,7 @@
       "resources": [
         {
           "id": null,
-          "title": "Previous exam questions for Double Integrals",
+          "title": "Previous exam questions for Beta and Gamma Functions",
           "source": "historical_exams",
           "resource_type": "previous_exam_questions",
           "question_count": 4
@@ -4116,145 +3908,11 @@
     },
     {
       "order": 10,
-      "topic": "Residues and Laurent Series",
-      "name": "Residues and Laurent Series",
-      "topic_id": 39,
-      "prediction_score": 0.0102,
-      "probability": 0.1333,
-      "confidence": "MEDIUM",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Appears repeatedly in historical papers.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Residues and Laurent Series",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 2
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 11,
-      "topic": "Triple Integrals",
-      "name": "Triple Integrals",
-      "topic_id": 18,
-      "prediction_score": 0.0102,
-      "probability": 0.1333,
-      "confidence": "MEDIUM",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Appears repeatedly in historical papers.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "SUFFICIENT_HISTORY",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Triple Integrals",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 2
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 12,
-      "topic": "Laplace Transform Tables",
-      "name": "Laplace Transform Tables",
-      "topic_id": 9,
-      "prediction_score": 0.0091,
-      "probability": 0.1333,
-      "confidence": "LOW",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "LOW_EVIDENCE",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Laplace Transform Tables",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 1
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 13,
-      "topic": "Vector Calculus",
-      "name": "Vector Calculus",
-      "topic_id": 36,
-      "prediction_score": 0.0091,
-      "probability": 0.1333,
-      "confidence": "LOW",
-      "priority": "LOW",
-      "recommended_action": "FOUNDATIONAL_EXPLORATION",
-      "reasons": [
-        "Lower predicted exam probability.",
-        "Study material or related past questions are available.",
-        "No student progress evidence is recorded."
-      ],
-      "reason_codes": [
-        "LOW_EVIDENCE",
-        "HIGH_MARK_WEIGHT",
-        "LONG_ABSENCE",
-        "STUDENT_UNSTUDIED"
-      ],
-      "resources": [
-        {
-          "id": null,
-          "title": "Previous exam questions for Vector Calculus",
-          "source": "historical_exams",
-          "resource_type": "previous_exam_questions",
-          "question_count": 1
-        }
-      ],
-      "student_status": "NOT_STARTED",
-      "practice_accuracy": null
-    },
-    {
-      "order": 14,
       "topic": "Matrix Operations",
       "name": "Matrix Operations",
       "topic_id": 2,
-      "prediction_score": 0.006,
-      "probability": 0.2,
+      "prediction_score": 0.0062,
+      "probability": 0.2143,
       "confidence": "MEDIUM",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4281,12 +3939,12 @@
       "practice_accuracy": null
     },
     {
-      "order": 15,
+      "order": 11,
       "topic": "ODE Solutions",
       "name": "ODE Solutions",
       "topic_id": 6,
-      "prediction_score": 0.006,
-      "probability": 0.2,
+      "prediction_score": 0.0062,
+      "probability": 0.2143,
       "confidence": "MEDIUM",
       "priority": "LOW",
       "recommended_action": "FOUNDATIONAL_EXPLORATION",
@@ -4314,27 +3972,28 @@
     }
   ],
   "coverage_summary": {
-    "total_predicted_topics": 15,
+    "total_predicted_topics": 11,
     "mastered_topics": 0,
     "in_progress_topics": 0,
-    "unstudied_topics": 15,
+    "unstudied_topics": 11,
     "student_preparation_coverage": 0.0,
     "coverage_gap_topics": [],
     "high_priority_gap_count": 0,
     "mastered_topic_count": 0,
     "in_progress_count": 0,
-    "unstudied_count": 15
+    "unstudied_count": 11
   },
   "exam_schedule": null,
   "metadata": {
     "model_version": "2.2.0",
-    "taxonomy_version": "1.0.0",
+    "taxonomy_version": "2.0.0",
     "engine_version": "mintai-v2",
     "corpus_version": "2026.1",
     "calibration_method": "LAPLACE_SMOOTHED_PAPER_RECURRENCE",
     "score_semantics": "EMPIRICAL_PAPER_RECURRENCE_PROBABILITY",
     "sufficiency": "strong",
-    "generated_at": "2026-09-21T08:15:22.940128",
-    "latency_ms": 189.77
+    "generated_at": "2026-09-21T16:32:46.720490",
+    "latency_ms": 41.45,
+    "cache_hit": true
   }
 }
