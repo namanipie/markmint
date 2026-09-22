@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Drawer } from "@/components/ui/drawer";
@@ -15,12 +16,14 @@ import {
   getCurriculumBranches,
   getCurriculumSemesters,
   getCurriculumSubjects,
+  findCurriculumSubjectByCourseId,
   getIntelligenceSnapshot,
   getHistoricalQuestions,
   getCourseTracks,
   updateStudyProgress,
   ApiError
 } from "@/lib/api";
+import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import {
   CurriculumSubject,
   IntelligenceSnapshot,
@@ -111,6 +114,16 @@ export default function MintAIPage() {
     setSelectedTopicIdForModal(topicId || null);
     setSelectedTopicNameForModal(topicName || "");
     setIsTopicModalOpen(true);
+    if (selectedSubject?.course_id) {
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_id: topicId || null,
+        last_topic_name: topicName || null,
+        last_activity_type: "open_topic",
+      });
+    }
     trackBetaEvent("why_opened", {
       course_id: selectedSubject?.course_id || undefined,
       course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
@@ -128,6 +141,16 @@ export default function MintAIPage() {
     setSelectedFamilyIdForModal(familyId || null);
     setSelectedFamilyNameForModal(familyName || "");
     setIsFamilyModalOpen(true);
+    if (selectedSubject?.course_id) {
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_id: familyId || null,
+        last_topic_name: familyName || null,
+        last_activity_type: "open_topic",
+      });
+    }
     trackBetaEvent("why_opened", {
       course_id: selectedSubject?.course_id || undefined,
       course_code: selectedSubject?.canonical_code || selectedSubject?.curriculum_id,
@@ -191,12 +214,67 @@ export default function MintAIPage() {
     try {
       const data = await getCurriculumInitialScope();
       setBranches(data.branches || []);
-      setSelectedBranch(data.default_branch || "");
-      setSemesters(data.semesters || []);
-      setSelectedSemester(String(data.default_semester || 1));
-      setSubjects(data.subjects || []);
-      if (data.subjects && data.subjects.length > 0) {
-        setSelectedSubject(data.subjects[0]);
+
+      // Check URL query params first (e.g. from Study Plan or Home link)
+      const urlParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+      const targetCourseId = urlParams?.get("course_id") ? Number(urlParams.get("course_id")) : null;
+      const targetCycle = urlParams?.get("cycle") || urlParams?.get("assessment_cycle");
+      const targetLanguage = urlParams?.get("language");
+
+      let resolvedTarget = false;
+
+      if (targetCourseId) {
+        const found = findCurriculumSubjectByCourseId(targetCourseId);
+        if (found) {
+          setSelectedBranch(found.branch);
+          const semList = await getCurriculumSemesters(found.branch);
+          setSemesters(semList);
+          setSelectedSemester(String(found.semester));
+          const subList = await getCurriculumSubjects(found.branch, found.semester);
+          setSubjects(subList);
+          setSelectedSubject(found.subject);
+          if (targetCycle) {
+            setSelectedExam(targetCycle);
+          }
+          if (targetLanguage) {
+            setSelectedLanguage(targetLanguage);
+          }
+          resolvedTarget = true;
+        }
+      }
+
+      if (!resolvedTarget) {
+        // Check saved study context
+        const savedCtx = getStudyContext();
+        if (savedCtx && savedCtx.course_id) {
+          const found = findCurriculumSubjectByCourseId(savedCtx.course_id);
+          if (found) {
+            setSelectedBranch(found.branch);
+            const semList = await getCurriculumSemesters(found.branch);
+            setSemesters(semList);
+            setSelectedSemester(String(found.semester));
+            const subList = await getCurriculumSubjects(found.branch, found.semester);
+            setSubjects(subList);
+            setSelectedSubject(found.subject);
+            if (savedCtx.assessment_cycle) {
+              setSelectedExam(savedCtx.assessment_cycle);
+            }
+            if (savedCtx.language) {
+              setSelectedLanguage(savedCtx.language);
+            }
+            resolvedTarget = true;
+          }
+        }
+      }
+
+      if (!resolvedTarget) {
+        setSelectedBranch(data.default_branch || "");
+        setSemesters(data.semesters || []);
+        setSelectedSemester(String(data.default_semester || 1));
+        setSubjects(data.subjects || []);
+        if (data.subjects && data.subjects.length > 0) {
+          setSelectedSubject(data.subjects[0]);
+        }
       }
       isInitialMountedRef.current = true;
     } catch (err: any) {
@@ -355,6 +433,18 @@ export default function MintAIPage() {
           newLang
         );
         setSnapshot(data);
+        updateStudyContext({
+          course_id: selectedSubject.course_id,
+          course_name: selectedSubject.subject_name,
+          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+          track_id: availableTracks.find(t => t.track_key === newLang)?.id || null,
+          track_key: newLang || null,
+          language: newLang,
+          branch: selectedBranch,
+          semester: Number(selectedSemester),
+          assessment_cycle: selectedExam,
+          last_activity_type: "open_mintai",
+        });
       } catch (err: any) {
         console.error("Intelligence snapshot generation failed for language track", err);
         setError("Exam intelligence is temporarily unavailable.");
@@ -391,6 +481,19 @@ export default function MintAIPage() {
         availableTracks.length > 0 ? selectedLanguage : undefined
       );
       setSnapshot(data);
+
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        track_id: availableTracks.find(t => t.track_key === selectedLanguage)?.id || null,
+        track_key: selectedLanguage || null,
+        language: availableTracks.length > 0 ? selectedLanguage : null,
+        branch: selectedBranch,
+        semester: Number(selectedSemester),
+        assessment_cycle: selectedExam,
+        last_activity_type: "open_mintai",
+      });
 
       trackBetaEvent("intelligence_view", {
         course_id: selectedSubject.course_id,
@@ -466,6 +569,14 @@ export default function MintAIPage() {
           availableTracks.length > 0 ? selectedLanguage : undefined
         );
         setSnapshot(data);
+        updateStudyContext({
+          course_id: selectedSubject.course_id,
+          course_name: selectedSubject.subject_name,
+          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+          language: availableTracks.length > 0 ? selectedLanguage : null,
+          assessment_cycle: newCycle,
+          last_activity_type: "open_mintai",
+        });
       } catch (err: any) {
         console.error("Intelligence snapshot generation failed for cycle", err);
         setError("Exam intelligence is temporarily unavailable.");
@@ -489,6 +600,14 @@ export default function MintAIPage() {
     setQuestionFilterMinMarks("");
     setQuestionFilterRepetition("");
     setIsQuestionsModalOpen(true);
+
+    updateStudyContext({
+      course_id: selectedSubject.course_id,
+      course_name: selectedSubject.subject_name,
+      course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+      last_topic_name: familyName || topicName || null,
+      last_activity_type: "open_question",
+    });
 
     trackBetaEvent("practice_started", {
       course_id: selectedSubject.course_id,
@@ -565,6 +684,18 @@ export default function MintAIPage() {
         topic: topicName,
         action: nextStatus === "COMPLETED" ? "complete_topic" : "reset_topic",
       });
+
+      updateStudyContext({
+        course_id: selectedSubject.course_id,
+        course_name: selectedSubject.subject_name,
+        course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+        last_topic_name: topicName,
+        last_activity_type: nextStatus === "COMPLETED" ? "complete_task" : "reset_task",
+        task_statuses: {
+          [topicName]: nextStatus,
+        },
+      });
+
       // Refresh snapshot to show re-evaluated priority and coverage
       const updated = await getIntelligenceSnapshot(
         selectedSubject.course_id,
@@ -1404,6 +1535,27 @@ export default function MintAIPage() {
                                   >
                                     Questions
                                   </button>
+                                  <Link
+                                    href={`/study-plan?course_id=${selectedSubject?.course_id}&topic=${encodeURIComponent(p.name)}${selectedExam && selectedExam !== "ALL" ? `&cycle=${encodeURIComponent(selectedExam)}` : ""}${selectedLanguage ? `&language=${encodeURIComponent(selectedLanguage)}` : ""}`}
+                                    onClick={() => {
+                                      if (selectedSubject?.course_id) {
+                                        updateStudyContext({
+                                          course_id: selectedSubject.course_id,
+                                          course_name: selectedSubject.subject_name,
+                                          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+                                          language: selectedLanguage || null,
+                                          assessment_cycle: selectedExam,
+                                          last_topic_name: p.name,
+                                          last_activity_type: "start_study_task",
+                                        });
+                                      }
+                                    }}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-medium bg-foreground text-background hover:bg-foreground/90 transition-all flex items-center gap-1 shrink-0 active:scale-95 shadow-sm"
+                                    title="Add to study plan and focus on this question family"
+                                  >
+                                    <span>Study this</span>
+                                    <ArrowRight className="w-3.5 h-3.5" />
+                                  </Link>
                                 </>
                               ) : (
                                 <>
@@ -1421,6 +1573,27 @@ export default function MintAIPage() {
                                   >
                                     Questions
                                   </button>
+                                  <Link
+                                    href={`/study-plan?course_id=${selectedSubject?.course_id}&topic=${encodeURIComponent(p.name)}${selectedExam && selectedExam !== "ALL" ? `&cycle=${encodeURIComponent(selectedExam)}` : ""}${selectedLanguage ? `&language=${encodeURIComponent(selectedLanguage)}` : ""}`}
+                                    onClick={() => {
+                                      if (selectedSubject?.course_id) {
+                                        updateStudyContext({
+                                          course_id: selectedSubject.course_id,
+                                          course_name: selectedSubject.subject_name,
+                                          course_code: selectedSubject.canonical_code || selectedSubject.curriculum_id,
+                                          language: selectedLanguage || null,
+                                          assessment_cycle: selectedExam,
+                                          last_topic_name: p.name,
+                                          last_activity_type: "start_study_task",
+                                        });
+                                      }
+                                    }}
+                                    className="text-xs px-3 py-1.5 rounded-lg font-medium bg-foreground text-background hover:bg-foreground/90 transition-all flex items-center gap-1 shrink-0 active:scale-95 shadow-sm"
+                                    title="Add to study plan and focus on this syllabus topic"
+                                  >
+                                    <span>Study this</span>
+                                    <ArrowRight className="w-3.5 h-3.5" />
+                                  </Link>
                                 </>
                               )}
                               

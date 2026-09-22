@@ -180,6 +180,26 @@ export async function getCurriculumSubjects(
   return catalogHierarchy[branchKey][String(semester)] || [];
 }
 
+export function findCurriculumSubjectByCourseId(courseId: number): {
+  branch: string;
+  semester: number;
+  subject: CurriculumSubject;
+} | null {
+  for (const [branch, sems] of Object.entries(catalogHierarchy)) {
+    for (const [semStr, subs] of Object.entries(sems)) {
+      const match = (subs as CurriculumSubject[]).find((s) => s.course_id === courseId);
+      if (match) {
+        return {
+          branch,
+          semester: Number(semStr),
+          subject: match,
+        };
+      }
+    }
+  }
+  return null;
+}
+
 export async function getCurriculumInitialScope(
   branch?: string,
   semester?: number

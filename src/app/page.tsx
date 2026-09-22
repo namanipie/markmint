@@ -2,22 +2,35 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Leaf, Activity, ChevronRight, Calculator, BookOpen, Clock } from "lucide-react";
+import { Leaf, Activity, ChevronRight, Calculator, BookOpen, Clock, CheckCircle2, ArrowRight, Target } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { getStudyContext, StudyContext } from "@/lib/study-context";
 
 export default function Home() {
-  const [recentStudy, setRecentStudy] = useState<{ course: string; type: string } | null>(null);
+  const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    // Read from localStorage (simulate remembered state)
-    const stored = localStorage.getItem("markmint_recent");
-    if (stored) {
-      try {
-        setRecentStudy(JSON.parse(stored));
-      } catch (e) {}
-    }
+    setIsClient(true);
+    setStudyContext(getStudyContext());
+
+    const handleUpdate = () => setStudyContext(getStudyContext());
+    window.addEventListener("markmint:study_context_updated", handleUpdate);
+    window.addEventListener("markmint:study_context_cleared", handleUpdate);
+    return () => {
+      window.removeEventListener("markmint:study_context_updated", handleUpdate);
+      window.removeEventListener("markmint:study_context_cleared", handleUpdate);
+    };
   }, []);
+
+  // Compute completed tasks summary if available
+  const completedCount = studyContext?.task_statuses
+    ? Object.values(studyContext.task_statuses).filter((s) => s === "COMPLETED").length
+    : 0;
+  const inProgressCount = studyContext?.task_statuses
+    ? Object.values(studyContext.task_statuses).filter((s) => s === "IN_PROGRESS").length
+    : 0;
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-accent/20 font-sans">
@@ -87,32 +100,107 @@ export default function Home() {
           </div>
         </section>
 
-        {/* --- CONTINUE STUDYING --- */}
-        {recentStudy && (
-          <section className="w-full max-w-xl mt-4 mb-8">
-            <h2 className="text-xs font-semibold tracking-wider text-muted-foreground mb-4">Continue Studying</h2>
-            
-            <Link href="/mintai" className="group block bg-card border border-border hover:border-accent/40 rounded-xl p-5 transition-all duration-150 hover:-translate-y-[2px]">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
-                    <Clock className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm group-hover:text-accent transition-colors">
-                      {recentStudy.course}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-0.5 flex items-center gap-2">
-                      <BookOpen className="w-3 h-3" />
-                      {recentStudy.type} &bull; Last opened today
-                    </p>
-                  </div>
-                </div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+        {/* --- CONTINUE STUDYING OR ORIENTATION --- */}
+        {isClient && studyContext ? (
+          <section className="w-full max-w-2xl mt-2 mb-10 p-6 rounded-2xl bg-card border border-border/80 shadow-sm space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
+                  Continue Studying
+                </h2>
               </div>
-            </Link>
+              {studyContext.assessment_cycle && studyContext.assessment_cycle !== "ALL" && (
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-accent/15 text-accent border border-accent/20">
+                  Target: {studyContext.assessment_cycle}
+                </span>
+              )}
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-1">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h3 className="font-bold text-foreground text-lg hover:text-accent transition-colors">
+                    {studyContext.course_name}
+                  </h3>
+                  {studyContext.course_code && (
+                    <span className="text-xs font-mono text-muted-foreground">
+                      ({studyContext.course_code})
+                    </span>
+                  )}
+                  {studyContext.language && (
+                    <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary text-secondary-foreground border border-border">
+                      {studyContext.language}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap pt-0.5">
+                  {studyContext.last_topic_name ? (
+                    <span className="flex items-center gap-1.5 text-foreground">
+                      <Target className="w-3.5 h-3.5 text-accent" />
+                      Last target: <span className="font-medium text-accent">{studyContext.last_topic_name}</span>
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5" />
+                      Active study session
+                    </span>
+                  )}
+                  {completedCount > 0 && (
+                    <span className="flex items-center gap-1 text-emerald-500 font-medium">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      {completedCount} completed
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <Link
+                  href={`/study-plan?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
+                  className="px-4 py-2 bg-foreground text-background font-medium rounded-lg hover:bg-foreground/90 transition-all text-xs flex items-center gap-1.5 active:scale-95 shadow-sm"
+                >
+                  <span>Go to Study Plan</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href={`/mintai?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
+                  className="px-3.5 py-2 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/80 transition-all text-xs border border-border/60"
+                >
+                  Inspect Forecast
+                </Link>
+              </div>
+            </div>
           </section>
-        )}
+        ) : isClient ? (
+          <section className="w-full max-w-2xl mt-2 mb-10 p-5 rounded-2xl bg-card/60 border border-border/50 space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
+                What should I study?
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Start by discovering which topics and question families carry the highest frequency for your upcoming exams.
+            </p>
+            <div className="flex items-center gap-3 pt-1">
+              <Link
+                href="/mintai"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+              >
+                Open MintAI Intelligence <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
+              <span className="text-muted-foreground text-xs">&bull;</span>
+              <Link
+                href="/courses"
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Select from 23 courses
+              </Link>
+            </div>
+          </section>
+        ) : null}
 
         {/* --- FEATURED COURSES & DISCOVERY --- */}
         <section className="w-full pt-8 pb-4 border-t border-border/40 space-y-6">

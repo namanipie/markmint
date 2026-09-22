@@ -140,7 +140,14 @@ export default async function CoursePage({ params }: PageProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-accent/20 font-sans">
       <Navbar />
-      <CourseTracker courseSlug={course.slug} semester={course.semester} hasTracks={course.hasTracks} />
+      <CourseTracker
+        courseId={course.id}
+        courseName={course.name}
+        courseCode={course.canonicalCode || course.code}
+        courseSlug={course.slug}
+        semester={course.semester}
+        hasTracks={course.hasTracks}
+      />
 
       {/* Structured Data */}
       <script

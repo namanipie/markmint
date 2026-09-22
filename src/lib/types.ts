@@ -161,6 +161,7 @@ export interface BackendCourse {
   canonical_code?: string | null;
   department?: string | null;
   regulation_year?: number | null;
+  has_tracks?: boolean;
 }
 
 export interface BackendPrediction {
