@@ -1455,7 +1455,7 @@ export default function MintAIPage() {
                     const percent = totalPapers > 0 ? Math.min(100, Math.round((distinctPapers / totalPapers) * 100)) : 0;
                     const totalBlocks = 12;
                     const filledBlocks = Math.round((percent / 100) * totalBlocks);
-                    const visualBar = "?".repeat(filledBlocks) + "?".repeat(totalBlocks - filledBlocks);
+                    const visualBar = "\u2588".repeat(filledBlocks) + "\u2591".repeat(totalBlocks - filledBlocks);
 
                     let priorityLabel = "";
                     if (priorityInfo?.priority_tier === "P0" || p.confidence === "HIGH") priorityLabel = "Study First";
