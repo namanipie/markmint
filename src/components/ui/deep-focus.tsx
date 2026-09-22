@@ -1,32 +1,82 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Moon } from 'lucide-react';
 
 export function DeepFocusToggle() {
   const [isActive, setIsActive] = useState(false);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const masterGainRef = useRef<GainNode | null>(null);
+  const oscillatorsRef = useRef<OscillatorNode[]>([]);
 
-  const playAmbientChord = useCallback(() => {
+  const stopAmbientSound = useCallback((immediate = false) => {
+    if (audioCtxRef.current && masterGainRef.current) {
+      const ctx = audioCtxRef.current;
+      const gain = masterGainRef.current;
+      
+      if (immediate) {
+        gain.gain.cancelScheduledValues(ctx.currentTime);
+        gain.gain.setValueAtTime(0, ctx.currentTime);
+        oscillatorsRef.current.forEach(osc => {
+          try { osc.stop(); } catch (e) {}
+        });
+        oscillatorsRef.current = [];
+      } else {
+        // Smooth 2-second fade out
+        gain.gain.cancelScheduledValues(ctx.currentTime);
+        gain.gain.setValueAtTime(gain.gain.value, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2);
+        
+        setTimeout(() => {
+          oscillatorsRef.current.forEach(osc => {
+            try { osc.stop(); } catch (e) {}
+          });
+          oscillatorsRef.current = [];
+        }, 2100);
+      }
+    }
+  }, []);
+
+  const startAmbientSound = useCallback(() => {
     try {
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-      const ctx = new AudioContext();
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new AudioContext();
+      }
+      const ctx = audioCtxRef.current;
+      
+      if (ctx.state === 'suspended') {
+        ctx.resume();
+      }
+
+      // Clear any existing drones
+      stopAmbientSound(true);
       
       // E minor 9 chord for a very calm, ethereal feel
-      // E3 (164.81), G3 (196.00), B3 (246.94), D4 (293.66), F#4 (369.99)
       const chord = [164.81, 196.00, 246.94, 293.66, 369.99];
       
       const masterGain = ctx.createGain();
       masterGain.gain.setValueAtTime(0, ctx.currentTime);
-      masterGain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 1.5); // slow fade in
-      masterGain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 6); // very slow fade out
+      masterGain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 3); // 3-second gentle fade in
       masterGain.connect(ctx.destination);
+      masterGainRef.current = masterGain;
       
-      // Gentle lowpass filter to make it sound muffled and soothing
+      // Gentle lowpass filter for a muffled, atmospheric sound
       const filter = ctx.createBiquadFilter();
       filter.type = "lowpass";
-      filter.frequency.setValueAtTime(800, ctx.currentTime);
-      filter.frequency.linearRampToValueAtTime(300, ctx.currentTime + 6);
+      filter.frequency.value = 400; // Base cutoff frequency
       filter.connect(masterGain);
+
+      // Create a slow LFO to gently modulate the filter cutoff (breathing effect)
+      const lfo = ctx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 0.1; // 1 cycle every 10 seconds
+      const lfoGain = ctx.createGain();
+      lfoGain.gain.value = 150; // Modulate frequency by +/- 150Hz
+      lfo.connect(lfoGain);
+      lfoGain.connect(filter.frequency);
+      lfo.start();
+      oscillatorsRef.current.push(lfo);
 
       chord.forEach((freq, i) => {
         const osc = ctx.createOscillator();
@@ -45,17 +95,26 @@ export function DeepFocusToggle() {
         }
         
         osc.start();
-        osc.stop(ctx.currentTime + 6);
+        oscillatorsRef.current.push(osc);
       });
     } catch(e) {}
-  }, []);
+  }, [stopAmbientSound]);
 
   const toggle = () => {
     if (!isActive) {
-      playAmbientChord();
+      startAmbientSound();
+    } else {
+      stopAmbientSound();
     }
     setIsActive(!isActive);
   };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      stopAmbientSound(true);
+    };
+  }, [stopAmbientSound]);
 
   // When active, append a div to body
   useEffect(() => {
@@ -64,7 +123,6 @@ export function DeepFocusToggle() {
       
       const bg = document.createElement("div");
       bg.id = "deep-focus-bg";
-      // Removed blur, just dimming the screen to lower contrast
       bg.className = "fixed inset-0 pointer-events-none z-[40] opacity-0 transition-opacity duration-1000";
       bg.style.backgroundColor = "rgba(0, 0, 0, 0.65)";
       
