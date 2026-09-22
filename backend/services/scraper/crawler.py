@@ -100,11 +100,20 @@ class AcademicResourceCrawler:
         from backend.models.core import CurriculumMapping
         from .curriculum_resolver import normalize_text
 
-        # Cache canonical subject semesters
-        fy_mappings = self.db.query(CurriculumMapping.subject_name, CurriculumMapping.semester).all()
+        # Cache authoritative catalog subject semesters
+        catalog_mappings = self.db.query(CurriculumMapping.subject_name, CurriculumMapping.semester).all()
         subj_to_sems: Dict[str, Set[int]] = {}
-        for c_name, c_sem in fy_mappings:
-            subj_to_sems.setdefault(normalize_text(c_name), set()).add(c_sem)
+        supported_catalog_sems: Set[int] = set()
+        for c_name, c_sem in catalog_mappings:
+            if isinstance(c_sem, int) and c_sem > 0:
+                subj_to_sems.setdefault(normalize_text(c_name), set()).add(c_sem)
+                supported_catalog_sems.add(c_sem)
+
+        # Early rejection for invalid or unsupported semester filters
+        if semester_filter is not None:
+            if not isinstance(semester_filter, int) or semester_filter <= 0 or (supported_catalog_sems and semester_filter not in supported_catalog_sems):
+                logger.warning("Requested semester_filter=%s is invalid or not in supported catalog semesters %s.", semester_filter, supported_catalog_sems)
+                return []
 
         for subj_data in subjects:
             subj_name = subj_data.get("name", "").strip()
@@ -118,21 +127,18 @@ class AcademicResourceCrawler:
                 if norm_alias == c_norm or norm_alias in c_norm or c_norm in norm_alias:
                     valid_sems.update(sems)
 
-            # Strict first-year filter (Semesters 1 and 2 only)
-            is_first_year = any(s in [1, 2] for s in valid_sems)
-            if not is_first_year and any(s > 2 for s in valid_sems):
-                # Pure higher-semester subject (e.g. Compiler Design, DBMS, OS)
-                continue
-            if not is_first_year and not valid_sems:
-                # Subject not recognized in first-year canonical curriculum
+            # Enforce positive integer semesters from authoritative catalog
+            positive_sems = {s for s in valid_sems if isinstance(s, int) and s > 0}
+            if not positive_sems:
+                # Subject not recognized in authoritative curriculum catalog
                 continue
 
-            if semester_filter:
-                if valid_sems and semester_filter not in valid_sems:
+            if semester_filter is not None:
+                if semester_filter not in positive_sems:
                     continue
                 assigned_sem = str(semester_filter)
             else:
-                assigned_sem = str(min(valid_sems & {1, 2})) if (valid_sems & {1, 2}) else "1"
+                assigned_sem = str(min(positive_sems))
 
             if subject_filter and subject_filter.lower() not in subj_name.lower():
                 continue
@@ -284,12 +290,32 @@ class AcademicResourceCrawler:
             len(semester_map)
         )
 
+        from backend.models.core import CurriculumMapping
+        from .curriculum_resolver import normalize_text
+
+        # Cache authoritative catalog subject semesters
+        catalog_mappings = self.db.query(CurriculumMapping.subject_name, CurriculumMapping.semester).all()
+        subj_to_sems: Dict[str, Set[int]] = {}
+        supported_catalog_sems: Set[int] = set()
+        for c_name, c_sem in catalog_mappings:
+            if isinstance(c_sem, int) and c_sem > 0:
+                subj_to_sems.setdefault(normalize_text(c_name), set()).add(c_sem)
+                supported_catalog_sems.add(c_sem)
+
+        # Early rejection for invalid or unsupported semester filters
+        if semester_filter is not None:
+            if not isinstance(semester_filter, int) or semester_filter <= 0 or (supported_catalog_sems and semester_filter not in supported_catalog_sems):
+                logger.warning("Requested semester_filter=%s is invalid or not in supported catalog semesters %s.", semester_filter, supported_catalog_sems)
+                return []
+
         # Robust brace-matching subject resource extraction (handles both quoted and unquoted subject names)
         subject_resources: Dict[str, List[Dict[str, str]]] = {}
         for sem, subjects in semester_map.items():
-            if semester_filter and semester_filter != sem:
+            if not isinstance(sem, int) or sem <= 0:
                 continue
-            elif not semester_filter and sem not in [1, 2]:
+            if supported_catalog_sems and sem not in supported_catalog_sems:
+                continue
+            if semester_filter is not None and semester_filter != sem:
                 continue
             for subj in subjects:
                 escaped_subj = re.escape(subj)
@@ -315,15 +341,31 @@ class AcademicResourceCrawler:
         discovered_records: List[ManifestRecord] = []
 
         for sem, subjects in semester_map.items():
-            if semester_filter:
-                if semester_filter != sem:
-                    continue
-            elif sem not in [1, 2]:
-                # Strictly isolate first-year crawl (Semesters 1 and 2 only)
+            if not isinstance(sem, int) or sem <= 0:
+                continue
+            if supported_catalog_sems and sem not in supported_catalog_sems:
+                continue
+            if semester_filter is not None and semester_filter != sem:
                 continue
 
             for subj in subjects:
                 if subject_filter and subject_filter.lower() not in subj.lower():
+                    continue
+
+                # Validate subject against authoritative catalog
+                norm_name = normalize_text(subj)
+                alias_name = self.resolver.KNOWN_ALIASES.get(norm_name, subj)
+                norm_alias = normalize_text(alias_name)
+                valid_sems: Set[int] = set()
+                for c_norm, sems in subj_to_sems.items():
+                    if norm_alias == c_norm or norm_alias in c_norm or c_norm in norm_alias:
+                        valid_sems.update(sems)
+
+                if subj_to_sems and not valid_sems:
+                    # Subject not recognized in authoritative curriculum catalog
+                    continue
+                if valid_sems and sem not in valid_sems:
+                    # Subject is not associated with this semester in authoritative catalog
                     continue
 
                 resources = subject_resources.get(subj, [])
