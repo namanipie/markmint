@@ -272,13 +272,8 @@ export default function MintAIPage() {
       }
 
       if (!resolvedTarget) {
-        setSelectedBranch(data.default_branch || "");
-        setSemesters(data.semesters || []);
-        setSelectedSemester(String(data.default_semester || 1));
-        setSubjects(data.subjects || []);
-        if (data.subjects && data.subjects.length > 0) {
-          setSelectedSubject(data.subjects[0]);
-        }
+        setSemesters([]);
+        setSubjects([]);
       }
       isInitialMountedRef.current = true;
     } catch (err: any) {
@@ -315,9 +310,6 @@ export default function MintAIPage() {
       .then((semList) => {
         if (!active) return;
         setSemesters(semList);
-        if (semList.length > 0) {
-          setSelectedSemester(String(semList[0]));
-        }
       })
       .catch((err) => {
         if (!active) return;
@@ -353,9 +345,6 @@ export default function MintAIPage() {
       .then((subjectList) => {
         if (!active) return;
         setSubjects(subjectList);
-        if (subjectList.length > 0) {
-          setSelectedSubject(subjectList[0]);
-        }
       })
       .catch((err) => {
         if (!active) return;
