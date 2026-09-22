@@ -10,6 +10,8 @@
 <div align="center">
   <h2>🍃 MarkMint</h2>
   <p><strong>A deterministic exam-intelligence platform built for SRMIST students.</strong></p>
+<p><strong>MarkMint v1.0 – First-Year Release</strong></p>
+<p>Stable production release. See <a href="CHANGELOG.md">CHANGELOG.md</a> for details.</p>
   <p>
     <a href="https://markmint.vercel.app">View Live Demo</a>
     ·
