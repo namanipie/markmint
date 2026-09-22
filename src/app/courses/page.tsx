@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getAllCourses } from "@/lib/courses";
 import { CourseDirectoryView } from "@/components/courses/course-directory-view";
-import { ChevronRight, Sparkles, BookOpen } from "lucide-react";
+import { ChevronRight, Leaf, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
@@ -60,7 +60,7 @@ export default function CoursesPage() {
               href="/mintai"
               className="px-5 py-3 bg-foreground text-background text-sm font-medium rounded-xl hover:bg-foreground/90 transition-all active:scale-[0.98] flex items-center gap-2 shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-accent" />
+              <Leaf className="w-4 h-4 text-accent" />
               Open MintAI Engine
             </Link>
           </div>
