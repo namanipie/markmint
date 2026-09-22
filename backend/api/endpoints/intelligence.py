@@ -974,6 +974,27 @@ def get_intelligence_snapshot(
             for y in (cycle_years if cycle_years else all_years)
         ]
         p_dict["historical_years"] = sorted(list(topic_years))
+        matching_topic_exams = [
+            {
+                "exam_id": e.id,
+                "year": e.year,
+                "assessment_type": e.assessment_type,
+                "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
+            }
+            for e in hist_exams_orm
+            if e.year is not None and any(
+                any(t.name == p.name for t in q.topics)
+                for s in e.sections for q in s.questions
+            )
+        ]
+        if "evidence_breakdown" in p_dict:
+            p_dict["evidence_breakdown"]["source_exams"] = matching_topic_exams
+            if topic_years:
+                p_dict["evidence_breakdown"]["source_years"] = sorted(list(topic_years))
+        if "explainability" in p_dict:
+            p_dict["explainability"]["source_exams"] = matching_topic_exams
+            if topic_years:
+                p_dict["explainability"]["source_years"] = sorted(list(topic_years))
         topic_predictions_payload.append(p_dict)
 
     family_predictions_payload = []
@@ -1040,6 +1061,41 @@ def get_intelligence_snapshot(
             }
             for y in (cycle_years if cycle_years else all_years)
         ]
+        matching_fam_exams = [
+            {
+                "exam_id": e.id,
+                "year": e.year,
+                "assessment_type": e.assessment_type,
+                "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
+            }
+            for e in hist_exams_orm
+            if e.year is not None and (
+                e.id in fam_exams or any(
+                    (q.family_id == fam_id if fam_id else (q.family and q.family.canonical_name == p.name))
+                    for s in e.sections for q in s.questions
+                )
+            )
+        ]
+        if "evidence_breakdown" in p_dict:
+            p_dict["evidence_breakdown"]["source_exams"] = matching_fam_exams
+            p_dict["evidence_breakdown"]["distinct_exam_count"] = distinct_papers
+            p_dict["evidence_breakdown"]["total_papers_analyzed"] = cycle_papers_count
+            p_dict["evidence_breakdown"]["exam_coverage_ratio"] = round(distinct_papers / cycle_papers_count, 4) if cycle_papers_count > 0 else 0.0
+            p_dict["evidence_breakdown"]["family_recurrence"]["family_id"] = fam_id
+            p_dict["evidence_breakdown"]["family_recurrence"]["repetition_type"] = p_dict["repetition_type"]
+            p_dict["evidence_breakdown"]["family_recurrence"]["is_recurring"] = (p.family_recurrence_score > 0.0) or (p_dict["repetition_type"] in {"exact_repeat", "family_repeat", "exact", "near"})
+            if fam_years:
+                p_dict["evidence_breakdown"]["source_years"] = sorted(list(fam_years))
+        if "explainability" in p_dict:
+            p_dict["explainability"]["source_exams"] = matching_fam_exams
+            p_dict["explainability"]["distinct_exam_count"] = distinct_papers
+            p_dict["explainability"]["total_papers_analyzed"] = cycle_papers_count
+            p_dict["explainability"]["exam_coverage_ratio"] = round(distinct_papers / cycle_papers_count, 4) if cycle_papers_count > 0 else 0.0
+            p_dict["explainability"]["family_recurrence"]["family_id"] = fam_id
+            p_dict["explainability"]["family_recurrence"]["repetition_type"] = p_dict["repetition_type"]
+            p_dict["explainability"]["family_recurrence"]["is_recurring"] = (p.family_recurrence_score > 0.0) or (p_dict["repetition_type"] in {"exact_repeat", "family_repeat", "exact", "near"})
+            if fam_years:
+                p_dict["explainability"]["source_years"] = sorted(list(fam_years))
         family_predictions_payload.append(p_dict)
 
     if active_track:

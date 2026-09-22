@@ -321,6 +321,27 @@ def get_prediction(
                 for y in observed_years
             ]
             p_dict["historical_years"] = sorted(list(topic_years))
+            matching_topic_exams = [
+                {
+                    "exam_id": e.id,
+                    "year": e.year,
+                    "assessment_type": e.assessment_type,
+                    "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
+                }
+                for e in hist_exams_orm
+                if e.year is not None and any(
+                    any(t.name == p.name for t in q.topics)
+                    for s in e.sections for q in s.questions
+                )
+            ]
+            if "evidence_breakdown" in p_dict:
+                p_dict["evidence_breakdown"]["source_exams"] = matching_topic_exams
+                if topic_years:
+                    p_dict["evidence_breakdown"]["source_years"] = sorted(list(topic_years))
+            if "explainability" in p_dict:
+                p_dict["explainability"]["source_exams"] = matching_topic_exams
+                if topic_years:
+                    p_dict["explainability"]["source_years"] = sorted(list(topic_years))
             predictions.append(p_dict)
 
         for p in family_preds[:5]:
@@ -344,6 +365,27 @@ def get_prediction(
                 for y in observed_years
             ]
             p_dict["historical_years"] = sorted(list(fam_years))
+            matching_fam_exams = [
+                {
+                    "exam_id": e.id,
+                    "year": e.year,
+                    "assessment_type": e.assessment_type,
+                    "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
+                }
+                for e in hist_exams_orm
+                if e.year is not None and any(
+                    q.family and q.family.canonical_name == p.name
+                    for s in e.sections for q in s.questions
+                )
+            ]
+            if "evidence_breakdown" in p_dict:
+                p_dict["evidence_breakdown"]["source_exams"] = matching_fam_exams
+                if fam_years:
+                    p_dict["evidence_breakdown"]["source_years"] = sorted(list(fam_years))
+            if "explainability" in p_dict:
+                p_dict["explainability"]["source_exams"] = matching_fam_exams
+                if fam_years:
+                    p_dict["explainability"]["source_years"] = sorted(list(fam_years))
             predictions.append(p_dict)
 
         all_span = list(range(observed_years[0], observed_years[-1] + 1)) if observed_years else []

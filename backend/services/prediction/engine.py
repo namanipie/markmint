@@ -87,6 +87,56 @@ class PredictionResult:
 
     def to_dict(self) -> Dict[str, Any]:
         p_cov = round(self.distinct_paper_count / self.papers_analyzed, 4) if (self.distinct_paper_count is not None and self.papers_analyzed > 0) else (round(self.papers_with_topic / self.papers_analyzed, 4) if self.papers_analyzed > 0 else 0.0)
+
+        # Derive temporal trend from existing evidence
+        hist_f = float(self.evidence.get("hist_freq", 0.0))
+        recent_f = float(self.recent_frequency_score)
+        if self.target == PredictionTarget.FAMILY or self.family_id is not None:
+            if self.historical_occurrences > 0 and self.recent_occurrences == 0:
+                trend = "declining"
+            elif self.recent_occurrences > 0:
+                trend = "rising"
+            else:
+                trend = self.evidence.get("trend") or "stable"
+        else:
+            if self.historical_occurrences > 0 and self.recent_occurrences == 0 and recent_f == 0.0:
+                trend = "declining"
+            elif recent_f > hist_f * 1.15 and recent_f > 0.0:
+                trend = "rising"
+            elif recent_f < hist_f * 0.85 and hist_f > 0.0:
+                trend = "declining"
+            else:
+                trend = "stable"
+
+        source_years = sorted(list({int(y) for y in self.observed_years if y is not None})) if self.observed_years else []
+        if not source_years and self.last_seen_year is not None:
+            source_years = [self.last_seen_year]
+
+        evidence_breakdown = {
+            "historical_frequency": round(float(self.evidence.get("hist_freq", 0.0)), 4),
+            "recent_frequency": round(float(self.recent_frequency_score), 4),
+            "recency_weighted_evidence": round(float(self.recency_score), 4),
+            "marks_weighting": round(float(self.marks_score), 4),
+            "total_marks_observed": self.total_marks_observed,
+            "average_marks": self.average_marks,
+            "distinct_exam_count": self.distinct_paper_count if self.distinct_paper_count is not None else self.papers_with_topic,
+            "total_papers_analyzed": self.papers_analyzed,
+            "exam_coverage_ratio": p_cov,
+            "historical_occurrences": self.historical_occurrences,
+            "recent_occurrences": self.recent_occurrences,
+            "last_seen_year": self.last_seen_year,
+            "temporal_trend": trend,
+            "family_recurrence": {
+                "family_id": self.family_id,
+                "repetition_type": self.repetition_type or "singleton",
+                "recurrence_score": round(float(self.family_recurrence_score), 4),
+                "is_recurring": (self.family_recurrence_score > 0.0) or (self.repetition_type in {"exact_repeat", "family_repeat", "exact", "near"}),
+            },
+            "source_years": source_years,
+            "source_exams": [],
+            "reason_summary": self.explanation,
+        }
+
         return {
             "rank": self.rank,
             "name": self.name,
@@ -124,6 +174,8 @@ class PredictionResult:
             "reason_codes": self.reason_codes,
             "explanation": self.explanation,
             "evidence_details": self.evidence,
+            "evidence_breakdown": evidence_breakdown,
+            "explainability": evidence_breakdown,
         }
 
 class BaseModel:
