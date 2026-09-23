@@ -395,3 +395,34 @@ def test_thehelpers_semester_4_discovery(test_db):
         # 3. Invalid semester rejected
         assert crawler.discover_thehelpers(semester_filter=-5) == []
         assert crawler.discover_thehelpers(semester_filter=999) == []
+
+
+def test_studique_syllabus_and_pyq_discovery_semester_4(test_db):
+    """Verify Studique discover_studique handles syllabi and PYQs correctly for Semester 4."""
+    crawler = AcademicResourceCrawler(db=test_db, download_only=True)
+
+    mock_catalog = {
+        "subjects": [
+            {
+                "name": "Database Management Systems (DBMS)",
+                "ppts": [{"name": "Unit 1", "fileKey": "DBMS_PPT_1"}],
+                "pyqs": [{"name": "2023 Dec", "fileKey": "DBMS_PYQ_1"}],
+                "syllabus": [{"name": "Syllabus 2021", "fileKey": "DBMS_SYLL_1"}],
+            },
+        ]
+    }
+
+    with patch("requests.get") as mock_get:
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = mock_catalog
+        mock_resp.raise_for_status = MagicMock()
+        mock_get.return_value = mock_resp
+
+        records = crawler.discover_studique(semester_filter=4)
+        assert len(records) == 3
+        types = {r.resource_type for r in records}
+        assert types == {"ppt", "pyq", "syllabus"}
+        for r in records:
+            assert r.semester == "4"
+            assert r.subject == "Database Management Systems (DBMS)"
+            assert r.google_drive_id is not None

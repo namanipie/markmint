@@ -223,11 +223,16 @@ class AcademicResourceCrawler:
                     source_site="Studique",
                     source_url=source_url,
                     resolved_url=direct_url,
-                    semester=subj_sem or "1",
+                    sources=["Studique"],
+                    source_urls=[source_url],
+                    resolved_urls=[direct_url],
+                    drive_ids=[fkey],
+                    google_drive_id=fkey,
+                    resource_id=f"studique_{fkey}",
+                    semester=assigned_sem,
                     subject=subj_name,
                     title=f"{subj_name} - {name}",
                     resource_type="syllabus",
-                    google_drive_id=fkey,
                     download_status=DownloadStatus.DISCOVERED,
                 )
                 discovered_records.append(rec)

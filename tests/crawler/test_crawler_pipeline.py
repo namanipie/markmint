@@ -512,7 +512,8 @@ def test_unknown_year_pyq_ingestion(in_memory_db, tmp_crawler_dir):
         ],
     )
 
-    with patch("backend.services.scraper.ingester.VisionExtractor.extract_pdf", return_value=None), \
+    with patch("backend.services.scraper.ingester.PDFParser.extract_text_with_pages", return_value=[{"page_number": 1, "text": "Part A Question 1: " + "Calculate derivative " * 25}]), \
+         patch("backend.services.scraper.ingester.VisionExtractor.extract_pdf", return_value=None), \
          patch("backend.services.scraper.ingester.QuestionExtractor.extract", return_value=valid_extraction):
         ingester.ingest_record(rec)
 
