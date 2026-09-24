@@ -73,6 +73,7 @@ class CourseBase(BaseModel):
     canonical_code: Optional[str] = None
     regulation_year: Optional[int] = None
     department: Optional[str] = None
+    semester: Optional[int] = None
 
 
 class CourseTrackResponse(BaseModel):

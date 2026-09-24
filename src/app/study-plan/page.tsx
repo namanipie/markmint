@@ -190,7 +190,7 @@ export default function StudyIntelligencePage() {
                 <option value="" disabled>Select a course</option>
                 {courses.map((c) => (
                   <option key={c.id} value={String(c.id)}>
-                    {c.code} - {c.name}
+                    {c.code} - {c.name}{c.semester ? ` (Sem ${c.semester})` : ""}
                   </option>
                 ))}
               </select>

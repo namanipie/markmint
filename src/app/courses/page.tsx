@@ -9,14 +9,14 @@ import { ChevronRight, Leaf, BookOpen, Sparkles } from "lucide-react";
 export const metadata: Metadata = {
   title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
   description:
-    "Explore all 23 SRMIST B.Tech Semester 1 & 2 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, high-yield exam predictions, and assessment blueprints.",
+    "Explore all 31 SRMIST B.Tech Semester 1, 2, 3 & 4 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, high-yield exam predictions, and assessment blueprints.",
   alternates: {
     canonical: "https://markmint.vercel.app/courses",
   },
   openGraph: {
     title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
     description:
-      "Explore all 23 SRMIST B.Tech Semester 1 & 2 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, and exam predictions.",
+      "Explore all 31 SRMIST B.Tech Semester 1, 2, 3 & 4 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, and exam predictions.",
     url: "https://markmint.vercel.app/courses",
     siteName: "MarkMint",
     type: "website",
@@ -51,7 +51,7 @@ export default function CoursesPage() {
               Course Discovery & Exam Intelligence
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Authoritative syllabus breakdowns, past question papers, and empirical recurrence intelligence for all First-Year Engineering courses at SRMIST.
+              Authoritative syllabus breakdowns, past question papers, and empirical recurrence intelligence for First and Second-Year Engineering courses at SRMIST.
             </p>
           </div>
 

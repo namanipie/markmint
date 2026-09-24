@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { CourseCatalogItem } from "@/lib/courses";
+import { CourseCatalogItem, getYearForSemester } from "@/lib/courses";
 import { 
   Search, 
   BookOpen, 
@@ -22,13 +22,26 @@ interface CourseDirectoryViewProps {
 
 export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedYear, setSelectedYear] = useState<number | "all">("all");
   const [selectedSemester, setSelectedSemester] = useState<number | "all">("all");
 
   const totalPapers = useMemo(() => courses.reduce((acc, c) => acc + c.paperCount, 0), [courses]);
   const totalQuestions = useMemo(() => courses.reduce((acc, c) => acc + c.questionCount, 0), [courses]);
 
+  const year1Courses = useMemo(() => courses.filter((c) => getYearForSemester(c.semester) === 1), [courses]);
+  const year2Courses = useMemo(() => courses.filter((c) => getYearForSemester(c.semester) === 2), [courses]);
+  const sem1Courses = useMemo(() => courses.filter((c) => c.semester === 1), [courses]);
+  const sem2Courses = useMemo(() => courses.filter((c) => c.semester === 2), [courses]);
+  const sem3Courses = useMemo(() => courses.filter((c) => c.semester === 3), [courses]);
+  const sem4Courses = useMemo(() => courses.filter((c) => c.semester === 4), [courses]);
+
   const filteredCourses = useMemo(() => {
     return courses.filter((c) => {
+      // Year filter
+      if (selectedYear !== "all" && getYearForSemester(c.semester) !== selectedYear) {
+        return false;
+      }
+
       // Semester filter
       if (selectedSemester !== "all" && c.semester !== selectedSemester) {
         return false;
@@ -47,7 +60,7 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
 
       return matchName || matchCode || matchCanonical || matchAliases || matchTopics || matchTracks;
     });
-  }, [courses, searchQuery, selectedSemester]);
+  }, [courses, searchQuery, selectedYear, selectedSemester]);
 
   return (
     <div className="w-full space-y-10">
@@ -59,7 +72,7 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
             <span>Courses</span>
           </div>
           <div className="text-3xl font-bold text-foreground">{courses.length}</div>
-          <div className="text-xs text-muted-foreground mt-1">First-Year B.Tech</div>
+          <div className="text-xs text-muted-foreground mt-1">Years 1 &amp; 2 • Sem 1–4</div>
         </div>
 
         <div className="p-5 rounded-2xl bg-card border border-border/60 shadow-sm">
@@ -77,7 +90,7 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
             <span>Exam Questions</span>
           </div>
           <div className="text-3xl font-bold text-foreground">{totalQuestions.toLocaleString()}+</div>
-          <div className="text-xs text-muted-foreground mt-1">Indexed & Structured</div>
+          <div className="text-xs text-muted-foreground mt-1">Indexed &amp; Structured</div>
         </div>
 
         <div className="p-5 rounded-2xl bg-card border border-border/60 shadow-sm">
@@ -91,51 +104,142 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
       </div>
 
       {/* Filter & Search Controls */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 p-4 rounded-2xl bg-secondary/30 border border-border/60">
-        {/* Search input */}
-        <div className="relative flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search by course name, code (e.g. 21MAB101T, SPCM, Chemistry)..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-background border border-border/60 rounded-xl text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all"
-          />
+      <div className="space-y-4 p-4 rounded-2xl bg-secondary/30 border border-border/60">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+          {/* Search input */}
+          <div className="relative flex-1">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Search by course name, code (e.g. 21MAB101T, 21CSC201J, DSA, TBVP)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2.5 bg-background border border-border/60 rounded-xl text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-all"
+            />
+          </div>
+
+          {/* Year Filter Tabs */}
+          <div className="flex items-center gap-1.5 p-1 bg-background/80 rounded-xl border border-border/50 self-start md:self-auto">
+            <button
+              onClick={() => {
+                setSelectedYear("all");
+              }}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                selectedYear === "all"
+                  ? "bg-foreground text-background shadow-xs"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              All Years ({courses.length})
+            </button>
+            <button
+              onClick={() => {
+                setSelectedYear(1);
+                if (selectedSemester === 3 || selectedSemester === 4) {
+                  setSelectedSemester("all");
+                }
+              }}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                selectedYear === 1
+                  ? "bg-foreground text-background shadow-xs"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Year 1 ({year1Courses.length})
+            </button>
+            <button
+              onClick={() => {
+                setSelectedYear(2);
+                if (selectedSemester === 1 || selectedSemester === 2) {
+                  setSelectedSemester("all");
+                }
+              }}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                selectedYear === 2
+                  ? "bg-foreground text-background shadow-xs"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Year 2 ({year2Courses.length})
+            </button>
+          </div>
         </div>
 
-        {/* Semester Filter Tabs */}
-        <div className="flex items-center gap-1.5 p-1 bg-background/80 rounded-xl border border-border/50 self-start md:self-auto">
+        {/* Semester Sub-Filter Tabs */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-border/40">
+          <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mr-1">
+            Semester:
+          </span>
           <button
             onClick={() => setSelectedSemester("all")}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
               selectedSemester === "all"
-                ? "bg-foreground text-background shadow-xs"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-accent/20 text-accent font-semibold"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
             }`}
           >
-            All Semesters ({courses.length})
+            All {selectedYear === "all" ? "Semesters" : `Year ${selectedYear} Semesters`}
           </button>
-          <button
-            onClick={() => setSelectedSemester(1)}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              selectedSemester === 1
-                ? "bg-foreground text-background shadow-xs"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Semester 1 ({courses.filter((c) => c.semester === 1).length})
-          </button>
-          <button
-            onClick={() => setSelectedSemester(2)}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              selectedSemester === 2
-                ? "bg-foreground text-background shadow-xs"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Semester 2 ({courses.filter((c) => c.semester === 2).length})
-          </button>
+          {(selectedYear === "all" || selectedYear === 1) && (
+            <>
+              <button
+                onClick={() => {
+                  setSelectedSemester(1);
+                  setSelectedYear(1);
+                }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                  selectedSemester === 1
+                    ? "bg-accent/20 text-accent font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                Semester 1 ({sem1Courses.length})
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedSemester(2);
+                  setSelectedYear(1);
+                }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                  selectedSemester === 2
+                    ? "bg-accent/20 text-accent font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                Semester 2 ({sem2Courses.length})
+              </button>
+            </>
+          )}
+          {(selectedYear === "all" || selectedYear === 2) && (
+            <>
+              <button
+                onClick={() => {
+                  setSelectedSemester(3);
+                  setSelectedYear(2);
+                }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                  selectedSemester === 3
+                    ? "bg-accent/20 text-accent font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                Semester 3 ({sem3Courses.length})
+              </button>
+              <button
+                onClick={() => {
+                  setSelectedSemester(4);
+                  setSelectedYear(2);
+                }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                  selectedSemester === 4
+                    ? "bg-accent/20 text-accent font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                Semester 4 ({sem4Courses.length})
+              </button>
+            </>
+          )}
         </div>
       </div>
 
@@ -144,12 +248,16 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
         <span>
           Showing <strong className="text-foreground">{filteredCourses.length}</strong> of {courses.length} courses
         </span>
-        {searchQuery && (
+        {(searchQuery || selectedYear !== "all" || selectedSemester !== "all") && (
           <button
-            onClick={() => setSearchQuery("")}
+            onClick={() => {
+              setSearchQuery("");
+              setSelectedYear("all");
+              setSelectedSemester("all");
+            }}
             className="text-accent hover:underline font-medium"
           >
-            Clear search
+            Clear all filters
           </button>
         )}
       </div>
@@ -166,9 +274,14 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
               <div className="space-y-4">
                 {/* Badges Bar */}
                 <div className="flex items-center justify-between gap-2">
-                  <span className="px-2.5 py-1 rounded-md bg-accent/10 text-accent font-semibold text-xs tracking-wide">
-                    Semester {course.semester}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="px-2.5 py-1 rounded-md bg-accent/10 text-accent font-semibold text-xs tracking-wide">
+                      Semester {course.semester}
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-secondary text-secondary-foreground text-xs font-mono">
+                      Year {getYearForSemester(course.semester)}
+                    </span>
+                  </div>
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
                     <span className="px-2 py-0.5 rounded bg-secondary text-secondary-foreground">
                       {course.credits} Credits
@@ -263,6 +376,7 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
           <button
             onClick={() => {
               setSearchQuery("");
+              setSelectedYear("all");
               setSelectedSemester("all");
             }}
             className="px-4 py-2 bg-secondary hover:bg-secondary/80 text-foreground text-xs font-medium rounded-lg transition-all"

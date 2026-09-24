@@ -41,7 +41,10 @@ DESCRIPTIONS = {
     25: 'Operating Systems covers operating system architecture, process scheduling, interprocess communication, synchronization, deadlocks, virtual memory, paging, page replacement, disk scheduling, and access control under SRMIST Regulation 2021.',
     26: 'Computer Organization and Architecture covers binary number systems, digital logic gates, functional computer units, addressing modes, 8086 architecture, ALU design, multiplication/division hardware, control unit design, pipelining, and ARM processors under SRMIST Regulation 2021.',
     27: 'Design and Analysis of Algorithms covers algorithm asymptotic analysis, recurrence relations, divide-and-conquer, greedy algorithms, dynamic programming, backtracking, branch-and-bound, and NP-completeness under SRMIST Regulation 2021.',
-    28: 'Database Management Systems covers relational database modeling, ER diagrams, relational algebra and calculus, SQL queries, normalization (1NF-5NF), transaction management, concurrency control (2PL), recovery protocols, and NoSQL databases under SRMIST Regulation 2021.'
+    28: 'Database Management Systems covers relational database modeling, ER diagrams, relational algebra and calculus, SQL queries, normalization (1NF-5NF), transaction management, concurrency control (2PL), recovery protocols, and NoSQL databases under SRMIST Regulation 2021.',
+    29: 'Artificial Intelligence covers problem-solving agents, heuristic search, knowledge representation, inference engines, probabilistic reasoning, machine learning foundations, and AI ethics under SRMIST Regulation 2021.',
+    30: 'Transforms and Boundary Value Problems covers partial differential equations, Fourier series, boundary value problems (heat and wave equations), Fourier transforms, and Z-transforms under SRMIST Regulation 2021.',
+    31: 'Probability and Queueing Theory covers random variables, two-dimensional probability distributions, random processes, Markov chains, single-server and multi-server queueing networks under SRMIST Regulation 2021.'
 }
 
 SLUG_MAP = {
@@ -66,18 +69,22 @@ SLUG_MAP = {
     19: ('electromagnetic-theory-and-quantum-mechanics', ['emphy', '21pyb101j', 'sem2-emphy', 'physics']),
     20: ('physics-mechanics', ['phymech', '18pyb103j', 'sem2-phymech', 'mechanics']),
     21: ('engineering-mechanics', ['engmech', '21meb101t', 'sem2-engmech']),
-    22: ('probability-and-statistics', ['prob', '21mab204t', 'sem2-prob', 'statistics']),
+    22: ('probability-and-statistics', ['prob', '21mab202t', 'sem2-prob', 'statistics']),
     23: ('building-materials-in-the-built-environment', ['bldmat', '21ceb102t', 'sem2-bldmat', 'building-materials']),
     24: ('data-structures-and-algorithms', ['dsa', '21csc201j', 'sem3-dsa', 'data-structures']),
     25: ('operating-systems', ['os', '21csc202j', 'sem3-os', 'operating-system']),
     26: ('computer-organization-and-architecture', ['coa', '21css201t', 'sem3-coa', 'computer-architecture']),
     27: ('design-and-analysis-of-algorithms', ['daa', '21csc204j', 'sem4-daa', 'algorithms']),
-    28: ('database-management-systems', ['dbms', '21csc205p', 'sem4-dbms', 'database'])
+    28: ('database-management-systems', ['dbms', '21csc205p', 'sem4-dbms', 'database']),
+    29: ('artificial-intelligence', ['ai', '21csc207j', 'sem4-ai']),
+    30: ('transforms-and-boundary-value-problems', ['tbvp', '21mab201t', 'sem3-tbvp', 'transforms']),
+    31: ('probability-and-queueing-theory', ['pqt', '21mab204t', 'sem4-pqt', 'queueing-theory'])
 }
 
 CREDITS_MAP = {
     1: 4, 2: 4, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 3, 11: 3, 12: 3,
-    13: 4, 14: 4, 15: 3, 16: 4, 17: 4, 18: 3, 19: 4, 20: 4, 21: 4, 22: 4, 23: 3
+    13: 4, 14: 4, 15: 3, 16: 4, 17: 4, 18: 3, 19: 4, 20: 4, 21: 4, 22: 4, 23: 3,
+    24: 4, 25: 4, 26: 3, 27: 4, 28: 4, 29: 4, 30: 4, 31: 4
 }
 
 def compile_catalog():
@@ -87,7 +94,9 @@ def compile_catalog():
 
     for c in courses:
         slug, aliases = SLUG_MAP.get(c.id, (c.code.lower(), []))
-        semester = 1 if c.code.startswith("SEM1") else 2
+        semester = c.semester
+        if semester is None:
+            raise ValueError(f"Course {c.id} ({c.name}) has no authoritative semester metadata!")
         regulation = "2018" if c.code.startswith("18") or (c.canonical_code and c.canonical_code.startswith("18")) else "2021"
         credits = CREDITS_MAP.get(c.id, 3)
         description = DESCRIPTIONS.get(c.id, f"{c.name} ({c.canonical_code}) academic curriculum at SRMIST.")

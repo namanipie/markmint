@@ -2919,8 +2919,8 @@
     "description": "Advanced Calculus and Complex Analysis covers analytic functions, conformal mapping, contour integration, Cauchy residue theorems, Fourier transforms, and Laplace transformation calculus.",
     "paperCount": 15,
     "questionCount": 466,
-    "mappedQuestionCount": 264,
-    "mappingRate": 0.567,
+    "mappedQuestionCount": 266,
+    "mappingRate": 0.571,
     "hasTracks": false,
     "tracks": [],
     "units": [
@@ -3020,8 +3020,8 @@
       {
         "topic": "Divergence, Curl, Solenoidal, and Irrotational Fields",
         "unitNumber": 2,
-        "questionCount": 26,
-        "paperCount": 14
+        "questionCount": 25,
+        "paperCount": 13
       },
       {
         "topic": "Taylor's and Laurent's Series Expansions",
@@ -3857,14 +3857,14 @@
     "slug": "probability-and-statistics",
     "aliases": [
       "prob",
-      "21mab204t",
+      "21mab202t",
       "sem2-prob",
       "statistics"
     ],
     "name": "Probability and Statistics",
     "code": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
-    "semester": 2,
+    "canonicalCode": "21MAB202T",
+    "semester": 4,
     "regulation": "2021",
     "credits": 4,
     "description": "Probability and Statistics covers probability axioms, random variables, probability density distributions, sampling theory, hypothesis testing, ANOVA, and regression modeling.",
@@ -4178,9 +4178,9 @@
     "name": "Data Structures and Algorithms",
     "code": "SEM3-DSA",
     "canonicalCode": "21CSC201J",
-    "semester": 2,
+    "semester": 3,
     "regulation": "2021",
-    "credits": 3,
+    "credits": 4,
     "description": "Data Structures and Algorithms covers linear lists, stacks, queues, trees, binary search trees, AVL trees, hashing, heaps, graph traversals, and shortest path algorithms under SRMIST Regulation 2021.",
     "paperCount": 7,
     "questionCount": 220,
@@ -4337,9 +4337,9 @@
     "name": "Operating Systems",
     "code": "SEM3-OS",
     "canonicalCode": "21CSC202J",
-    "semester": 2,
+    "semester": 3,
     "regulation": "2021",
-    "credits": 3,
+    "credits": 4,
     "description": "Operating Systems covers operating system architecture, process scheduling, interprocess communication, synchronization, deadlocks, virtual memory, paging, page replacement, disk scheduling, and access control under SRMIST Regulation 2021.",
     "paperCount": 6,
     "questionCount": 198,
@@ -4496,7 +4496,7 @@
     "name": "Computer Organization and Architecture",
     "code": "SEM3-COA",
     "canonicalCode": "21CSS201T",
-    "semester": 2,
+    "semester": 3,
     "regulation": "2021",
     "credits": 3,
     "description": "Computer Organization and Architecture covers binary number systems, digital logic gates, functional computer units, addressing modes, 8086 architecture, ALU design, multiplication/division hardware, control unit design, pipelining, and ARM processors under SRMIST Regulation 2021.",
@@ -4653,9 +4653,9 @@
     "name": "Design and Analysis of Algorithms",
     "code": "SEM4-DAA",
     "canonicalCode": "21CSC204J",
-    "semester": 2,
+    "semester": 4,
     "regulation": "2021",
-    "credits": 3,
+    "credits": 4,
     "description": "Design and Analysis of Algorithms covers algorithm asymptotic analysis, recurrence relations, divide-and-conquer, greedy algorithms, dynamic programming, backtracking, branch-and-bound, and NP-completeness under SRMIST Regulation 2021.",
     "paperCount": 8,
     "questionCount": 255,
@@ -4810,9 +4810,9 @@
     "name": "Database Management Systems",
     "code": "SEM4-DBMS",
     "canonicalCode": "21CSC205P",
-    "semester": 2,
+    "semester": 4,
     "regulation": "2021",
-    "credits": 3,
+    "credits": 4,
     "description": "Database Management Systems covers relational database modeling, ER diagrams, relational algebra and calculus, SQL queries, normalization (1NF-5NF), transaction management, concurrency control (2PL), recovery protocols, and NoSQL databases under SRMIST Regulation 2021.",
     "paperCount": 4,
     "questionCount": 143,
@@ -4957,15 +4957,19 @@
   },
   {
     "id": 29,
-    "slug": "sem4-ai",
-    "aliases": [],
+    "slug": "artificial-intelligence",
+    "aliases": [
+      "ai",
+      "21csc207j",
+      "sem4-ai"
+    ],
     "name": "Artificial Intelligence",
     "code": "SEM4-AI",
     "canonicalCode": "21CSC207J",
-    "semester": 2,
+    "semester": 4,
     "regulation": "2021",
-    "credits": 3,
-    "description": "Artificial Intelligence (21CSC207J) academic curriculum at SRMIST.",
+    "credits": 4,
+    "description": "Artificial Intelligence covers problem-solving agents, heuristic search, knowledge representation, inference engines, probabilistic reasoning, machine learning foundations, and AI ethics under SRMIST Regulation 2021.",
     "paperCount": 5,
     "questionCount": 156,
     "mappedQuestionCount": 134,
@@ -5106,5 +5110,310 @@
     ],
     "mintAiUrl": "/mintai?course=SEM4-AI",
     "practiceUrl": "/mintai?course=SEM4-AI&tab=practice"
+  },
+  {
+    "id": 30,
+    "slug": "transforms-and-boundary-value-problems",
+    "aliases": [
+      "tbvp",
+      "21mab201t",
+      "sem3-tbvp",
+      "transforms"
+    ],
+    "name": "Transforms and Boundary Value Problems",
+    "code": "SEM3-TBVP",
+    "canonicalCode": "21MAB201T",
+    "semester": 3,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Transforms and Boundary Value Problems covers partial differential equations, Fourier series, boundary value problems (heat and wave equations), Fourier transforms, and Z-transforms under SRMIST Regulation 2021.",
+    "paperCount": 10,
+    "questionCount": 337,
+    "mappedQuestionCount": 337,
+    "mappingRate": 1.0,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Partial Differential Equations",
+        "topicCount": 5,
+        "topics": [
+          "Formation of PDEs by Elimination of Arbitrary Constants and Functions",
+          "Lagrange's Linear Partial Differential Equations",
+          "Non-Linear First Order PDEs and Charpit's Method",
+          "Homogeneous Linear PDEs with Constant Coefficients",
+          "Non-Homogeneous Linear PDEs with Constant Coefficients"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Fourier Series",
+        "topicCount": 4,
+        "topics": [
+          "Dirichlet's Conditions and General Fourier Series Expansion",
+          "Half-Range Fourier Sine and Cosine Series",
+          "Parseval's Identity and Root Mean Square Value",
+          "Harmonic Analysis and Practical Fourier Analysis"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Applications of Partial Differential Equations",
+        "topicCount": 4,
+        "topics": [
+          "Classification of Second-Order PDEs and Separation of Variables",
+          "One-Dimensional Wave Equation and Vibrating String",
+          "One-Dimensional Heat Conduction Equation",
+          "Transient Heat Flow with Insulated and Non-Insulated Ends"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Two Dimensional Heat Equations",
+        "topicCount": 4,
+        "topics": [
+          "Steady-State Two-Dimensional Heat Conduction in Cartesian Coordinates",
+          "Boundary Value Problems for Finite Rectangular Plates",
+          "Steady-State Heat Flow in Semi-Infinite Plates",
+          "Dirichlet and Neumann Boundary Value Problems for Laplace Equation"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Fourier Transforms",
+        "topicCount": 4,
+        "topics": [
+          "Fourier Integral Theorem and Complex Fourier Transform",
+          "Fourier Sine and Cosine Transforms",
+          "Properties of Fourier Transforms and Convolution Theorem",
+          "Parseval's Identity for Fourier Transforms and Evaluation of Integrals"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Formation of PDEs by Elimination of Arbitrary Constants and Functions",
+        "unitNumber": 1,
+        "questionCount": 190,
+        "paperCount": 10
+      },
+      {
+        "topic": "Dirichlet's Conditions and General Fourier Series Expansion",
+        "unitNumber": 2,
+        "questionCount": 37,
+        "paperCount": 10
+      },
+      {
+        "topic": "Fourier Integral Theorem and Complex Fourier Transform",
+        "unitNumber": 5,
+        "questionCount": 35,
+        "paperCount": 10
+      },
+      {
+        "topic": "Lagrange's Linear Partial Differential Equations",
+        "unitNumber": 1,
+        "questionCount": 26,
+        "paperCount": 10
+      },
+      {
+        "topic": "One-Dimensional Wave Equation and Vibrating String",
+        "unitNumber": 3,
+        "questionCount": 22,
+        "paperCount": 10
+      },
+      {
+        "topic": "Parseval's Identity and Root Mean Square Value",
+        "unitNumber": 2,
+        "questionCount": 10,
+        "paperCount": 9
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM3-TBVP",
+    "practiceUrl": "/mintai?course=SEM3-TBVP&tab=practice"
+  },
+  {
+    "id": 31,
+    "slug": "probability-and-queueing-theory",
+    "aliases": [
+      "pqt",
+      "21mab204t",
+      "sem4-pqt",
+      "queueing-theory"
+    ],
+    "name": "Probability and Queueing Theory",
+    "code": "SEM4-PQT",
+    "canonicalCode": "21MAB204T",
+    "semester": 4,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Probability and Queueing Theory covers random variables, two-dimensional probability distributions, random processes, Markov chains, single-server and multi-server queueing networks under SRMIST Regulation 2021.",
+    "paperCount": 6,
+    "questionCount": 191,
+    "mappedQuestionCount": 191,
+    "mappingRate": 1.0,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Random Variables and Standard Distributions",
+        "topicCount": 4,
+        "topics": [
+          "Discrete and Continuous Random Variables and Probability Distributions",
+          "Moment Generating Functions, Expectation, and Variance",
+          "Binomial, Poisson, and Geometric Distributions",
+          "Uniform, Exponential, and Normal Distributions"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Two-Dimensional Random Variables",
+        "topicCount": 4,
+        "topics": [
+          "Joint, Marginal, and Conditional Distributions",
+          "Covariance and Karl Pearson's Correlation Coefficient",
+          "Regression Lines and Equations of Two Variables",
+          "Transformation of Bivariate Random Variables and Central Limit Theorem"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Random Processes and Markov Chains",
+        "topicCount": 4,
+        "topics": [
+          "Classification of Random Processes and Wide-Sense Stationarity",
+          "Markov Chains and Transition Probability Matrix",
+          "Chapman-Kolmogorov Equations and Limiting Distributions",
+          "Poisson Process and Memoryless Property"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Queueing Models (Single Server)",
+        "topicCount": 4,
+        "topics": [
+          "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
+          "(M/M/1) : (Infinity / FCFS) Single-Server Infinite Capacity Queue",
+          "(M/M/1) : (k / FCFS) Single-Server Finite Capacity Queue",
+          "Queue Length, Waiting Time, and Busy Period Distributions"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Advanced Queueing Models (Multi-Server)",
+        "topicCount": 4,
+        "topics": [
+          "(M/M/c) : (Infinity / FCFS) Multi-Server Infinite Capacity Queue",
+          "(M/M/c) : (k / FCFS) Multi-Server Finite Capacity Queue",
+          "Non-Markovian (M/G/1) Queue and Pollaczek-Khinchine Formula",
+          "Queueing Networks and System Performance Analysis"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Discrete and Continuous Random Variables and Probability Distributions",
+        "unitNumber": 1,
+        "questionCount": 78,
+        "paperCount": 6
+      },
+      {
+        "topic": "Markov Chains and Transition Probability Matrix",
+        "unitNumber": 3,
+        "questionCount": 29,
+        "paperCount": 6
+      },
+      {
+        "topic": "Joint, Marginal, and Conditional Distributions",
+        "unitNumber": 2,
+        "questionCount": 13,
+        "paperCount": 5
+      },
+      {
+        "topic": "(M/M/1) : (Infinity / FCFS) Single-Server Infinite Capacity Queue",
+        "unitNumber": 4,
+        "questionCount": 11,
+        "paperCount": 5
+      },
+      {
+        "topic": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
+        "unitNumber": 4,
+        "questionCount": 10,
+        "paperCount": 5
+      },
+      {
+        "topic": "Uniform, Exponential, and Normal Distributions",
+        "unitNumber": 1,
+        "questionCount": 9,
+        "paperCount": 6
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM4-PQT",
+    "practiceUrl": "/mintai?course=SEM4-PQT&tab=practice"
   }
 ]

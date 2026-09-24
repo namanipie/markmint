@@ -168,6 +168,29 @@ class Course(Base):
     curriculum_mappings = relationship("CurriculumMapping", back_populates="course")
     tracks = relationship("CourseTrack", back_populates="course", cascade="all, delete-orphan")
 
+    @property
+    def semester(self) -> int | None:
+        """Resolve authoritative semester for the course."""
+        CANONICAL_SEMESTER_MAP = {
+            '21MAB101T': 1, '21CYB101J': 1, '21GNH101J': 1, '21BTB102T': 1,
+            '21CSS101J': 1, '18MSS101T': 1, '21BMB101T': 1, '21LEH-ELECTIVE': 1,
+            '21BTC102J': 1, '21BTC201T': 1, '21CHC101J': 1, '21BTC101T': 1,
+            '21PYB102J': 1, '21EEB101J': 1, '21LEH101T': 1, '21PYB101J': 1,
+            '21PYB104J': 1, '21MAB102T': 2, '21CSC102J': 2, '21ECC101J': 2,
+            '21MEB101T': 2, '21CEB101T': 2,
+            '21CSC201J': 3, '21CSC202J': 3, '21CSS201T': 3, '21MAB201T': 3,
+            '21CSC204J': 4, '21CSC205P': 4, '21CSC207J': 4, '21MAB204T': 4,
+            '21MAB202T': 4,
+        }
+        if self.canonical_code and self.canonical_code in CANONICAL_SEMESTER_MAP:
+            return CANONICAL_SEMESTER_MAP[self.canonical_code]
+        if self.curriculum_mappings:
+            from collections import Counter
+            sem_counts = Counter(m.semester for m in self.curriculum_mappings if m.semester is not None)
+            if sem_counts:
+                return sem_counts.most_common(1)[0][0]
+        return None
+
 
 class CourseTrack(Base):
     """
