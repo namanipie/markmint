@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 30,
+    "name": "Transforms and Boundary Value Problems",
+    "canonical_code": "21MAB201T",
+    "code": "SEM3-TBVP",
+    "regulation_year": 2021,
+    "department": "Mathematics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB201T Transforms and Boundary Value Problems",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering partial differential equations, Fourier series, one-dimensional boundary value problems, two-dimensional heat equations, and Fourier transforms."
+  },
+  "units": [
+    {
+      "id": 186,
+      "number": 1,
+      "name": "Partial Differential Equations",
+      "topics": [
+        {
+          "id": 893,
+          "name": "Formation of PDEs by Elimination of Arbitrary Constants and Functions"
+        },
+        {
+          "id": 894,
+          "name": "Lagrange's Linear Partial Differential Equations"
+        },
+        {
+          "id": 895,
+          "name": "Non-Linear First Order PDEs and Charpit's Method"
+        },
+        {
+          "id": 896,
+          "name": "Homogeneous Linear PDEs with Constant Coefficients"
+        },
+        {
+          "id": 897,
+          "name": "Non-Homogeneous Linear PDEs with Constant Coefficients"
+        }
+      ]
+    },
+    {
+      "id": 187,
+      "number": 2,
+      "name": "Fourier Series",
+      "topics": [
+        {
+          "id": 898,
+          "name": "Dirichlet's Conditions and General Fourier Series Expansion"
+        },
+        {
+          "id": 899,
+          "name": "Half-Range Fourier Sine and Cosine Series"
+        },
+        {
+          "id": 900,
+          "name": "Parseval's Identity and Root Mean Square Value"
+        },
+        {
+          "id": 901,
+          "name": "Harmonic Analysis and Practical Fourier Analysis"
+        }
+      ]
+    },
+    {
+      "id": 188,
+      "number": 3,
+      "name": "Applications of Partial Differential Equations",
+      "topics": [
+        {
+          "id": 902,
+          "name": "Classification of Second-Order PDEs and Separation of Variables"
+        },
+        {
+          "id": 903,
+          "name": "One-Dimensional Wave Equation and Vibrating String"
+        },
+        {
+          "id": 904,
+          "name": "One-Dimensional Heat Conduction Equation"
+        },
+        {
+          "id": 905,
+          "name": "Transient Heat Flow with Insulated and Non-Insulated Ends"
+        }
+      ]
+    },
+    {
+      "id": 189,
+      "number": 4,
+      "name": "Two Dimensional Heat Equations",
+      "topics": [
+        {
+          "id": 906,
+          "name": "Steady-State Two-Dimensional Heat Conduction in Cartesian Coordinates"
+        },
+        {
+          "id": 907,
+          "name": "Boundary Value Problems for Finite Rectangular Plates"
+        },
+        {
+          "id": 908,
+          "name": "Steady-State Heat Flow in Semi-Infinite Plates"
+        },
+        {
+          "id": 909,
+          "name": "Dirichlet and Neumann Boundary Value Problems for Laplace Equation"
+        }
+      ]
+    },
+    {
+      "id": 190,
+      "number": 5,
+      "name": "Fourier Transforms",
+      "topics": [
+        {
+          "id": 910,
+          "name": "Fourier Integral Theorem and Complex Fourier Transform"
+        },
+        {
+          "id": 911,
+          "name": "Fourier Sine and Cosine Transforms"
+        },
+        {
+          "id": 912,
+          "name": "Properties of Fourier Transforms and Convolution Theorem"
+        },
+        {
+          "id": 913,
+          "name": "Parseval's Identity for Fourier Transforms and Evaluation of Integrals"
+        }
+      ]
+    }
+  ]
+}

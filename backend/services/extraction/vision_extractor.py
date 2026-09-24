@@ -119,12 +119,14 @@ class VisionExtractor:
         base_delay = 2.0
         last_error = None
 
+        models_to_try = ["gemini-3-flash-preview", "gemini-3.5-flash", "gemini-3.6-flash"]
         try:
             for attempt in range(max_retries):
+                model_name = models_to_try[attempt % len(models_to_try)]
                 try:
-                    print(f"[VisionExtractor] Generating structured content (attempt {attempt + 1}/{max_retries})...")
+                    print(f"[VisionExtractor] Generating structured content with {model_name} (attempt {attempt + 1}/{max_retries})...")
                     response = client.models.generate_content(
-                        model="gemini-3.5-flash-lite",
+                        model=model_name,
                         contents=[gemini_file, prompt],
                         config=types.GenerateContentConfig(
                             response_mime_type="application/json",

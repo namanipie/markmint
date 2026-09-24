@@ -97,6 +97,13 @@ class CurriculumResolver:
         "physicselectromagnetictheoryquantummechanicswavesandoptics": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
         "measuringinstrument": "Electrical and Electronics Engineering",
         "measuringinstruments": "Electrical and Electronics Engineering",
+        "transformsandboundaryvalueproblems": "Transforms and Boundary Value Problems",
+        "transformsandboundaryvalueproblemstbvp": "Transforms and Boundary Value Problems",
+        "tbvp": "Transforms and Boundary Value Problems",
+        "probabilityandqueueingtheory": "Probability and Queueing Theory",
+        "probabilityandqueueingtheorypqt": "Probability and Queueing Theory",
+        "pqt": "Probability and Queueing Theory",
+        "probabilityappliedstatistics": "Probability and Statistics",
     }
 
     def __init__(self, db: Session):

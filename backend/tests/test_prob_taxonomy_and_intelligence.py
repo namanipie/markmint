@@ -35,7 +35,7 @@ def test_prob_registry_integrity():
     entry = registry.get_course(22)
 
     assert entry.course.id == 22
-    assert entry.course.canonical_code == "21MAB201T"
+    assert entry.course.canonical_code == "21MAB202T"
     assert entry.course.code == "SEM2-PROB"
     assert entry.course.name == "Probability and Statistics"
     assert entry.provenance.regulation == "2021"
@@ -183,7 +183,7 @@ def test_prob_intelligence_snapshot_reports_topic_mode(client: TestClient):
 
     assert data["course"]["id"] == 22
     assert data["course"]["code"] == "SEM2-PROB"
-    assert data["course"]["canonical_code"] == "21MAB201T"
+    assert data["course"]["canonical_code"] == "21MAB202T"
     assert data["has_topic_taxonomy"] is True
     assert data["taxonomy_topic_count"] == 25
     assert data["prediction_mode"] == "topic"
@@ -200,7 +200,7 @@ def test_prob_intelligence_snapshot_reports_topic_mode(client: TestClient):
 
 def test_prob_study_priorities_endpoint(client: TestClient):
     """Verify study priorities endpoint supports all Course 22 identifiers and returns topic plan."""
-    for ident in ["22", "SEM2-PROB", "21MAB201T", "Probability and Statistics"]:
+    for ident in ["22", "SEM2-PROB", "21MAB202T", "Probability and Statistics"]:
         res = client.get(f"/api/study/priorities/{ident}")
         assert res.status_code == 200, f"Failed for identifier: {ident}"
         data = res.json()

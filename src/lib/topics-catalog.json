@@ -9295,7 +9295,7 @@
       },
       {
         "id": 1599,
-        "text": "______ determines the propensity or intrinsic tendency of each residue to be in the helix, strand, and β-turn conformation A) PHD B) Chou Fasman C) GOR D) Propred",
+        "text": "______ determines the propensity or intrinsic tendency of each residue to be in the helix, strand, and \u03b2-turn conformation A) PHD B) Chou Fasman C) GOR D) Propred",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -15943,8 +15943,8 @@
   {
     "id": 553,
     "slug": "lander-sprachen-und-wohnort",
-    "name": "Länder, Sprachen und Wohnort",
-    "description": "Curriculum and historical examination lineage for Länder, Sprachen und Wohnort under Unit 1 (Begrüßungen, Sich Vorstellen und Grundlagen) of German (21LEH104T) at SRMIST.",
+    "name": "L\u00e4nder, Sprachen und Wohnort",
+    "description": "Curriculum and historical examination lineage for L\u00e4nder, Sprachen und Wohnort under Unit 1 (Begr\u00fc\u00dfungen, Sich Vorstellen und Grundlagen) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -15955,7 +15955,7 @@
     "languageName": "German",
     "trackCode": "21LEH104T",
     "unitNumber": 1,
-    "unitName": "Begrüßungen, Sich Vorstellen und Grundlagen",
+    "unitName": "Begr\u00fc\u00dfungen, Sich Vorstellen und Grundlagen",
     "appearanceCount": 4,
     "paperCount": 4,
     "papers": [
@@ -16008,13 +16008,13 @@
       },
       {
         "id": 2279,
-        "name": "Schreiben Sie die Zahlen in Wörtern. (i) 35476 (ii) 57431 (iii) 8796 (iv) 54619 (v) 24650 (vi)...",
+        "name": "Schreiben Sie die Zahlen in W\u00f6rtern. (i) 35476 (ii) 57431 (iii) 8796 (iv) 54619 (v) 24650 (vi)...",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 2310,
-        "name": "a. Schreiben Sie die Zahlen in Wörter. (i) 24676 (ii) 567951 (iii) 45796 (iv) 25896 (v) 45789 (vi)...",
+        "name": "a. Schreiben Sie die Zahlen in W\u00f6rter. (i) 24676 (ii) 567951 (iii) 45796 (iv) 25896 (v) 45789 (vi)...",
         "repetitionType": "family_repeat",
         "count": 1
       },
@@ -16028,21 +16028,21 @@
     "sampleQuestions": [
       {
         "id": 1436,
-        "text": "a. Leseverstehen- Beantworten Sie die Fragen: Vinay ist sechsundzwanzig Jahre alt. Er kommt aus Deutschland. Er spielt gern Eishockey, aber Fußball ist sein Lieblingssport. Er...",
+        "text": "a. Leseverstehen- Beantworten Sie die Fragen: Vinay ist sechsundzwanzig Jahre alt. Er kommt aus Deutschland. Er spielt gern Eishockey, aber Fu\u00dfball ist sein Lieblingssport. Er...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1460,
-        "text": "Lesen Sie den Text und füllen Sie die Daten in das Formular aus. Sie heißt Lore Schulz und ist 25 Jahre alt. Sie kommt aus Frankreich und wohnt in Athen. Sieist am 15.Februar...",
+        "text": "Lesen Sie den Text und f\u00fcllen Sie die Daten in das Formular aus. Sie hei\u00dft Lore Schulz und ist 25 Jahre alt. Sie kommt aus Frankreich und wohnt in Athen. Sieist am 15.Februar...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 1523,
-        "text": "Lesen Sie. Schreiben Sie die Daten ins Formular Helen Schmitz ist vierzig Jahre alt. Er ist am 6. Februar 1979 in der Schweiz geboren. Er kommt aus Zürich. Seit zwei Jahre wohnt...",
+        "text": "Lesen Sie. Schreiben Sie die Daten ins Formular Helen Schmitz ist vierzig Jahre alt. Er ist am 6. Februar 1979 in der Schweiz geboren. Er kommt aus Z\u00fcrich. Seit zwei Jahre wohnt...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "Other"
@@ -16055,7 +16055,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Länder, Sprachen und Wohnort",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=L\u00e4nder, Sprachen und Wohnort",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/german/topics/lander-sprachen-und-wohnort"
   },
@@ -16063,7 +16063,7 @@
     "id": 555,
     "slug": "wochentage-monate-und-jahreszeiten",
     "name": "Wochentage, Monate und Jahreszeiten",
-    "description": "Curriculum and historical examination lineage for Wochentage, Monate und Jahreszeiten under Unit 1 (Begrüßungen, Sich Vorstellen und Grundlagen) of German (21LEH104T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Wochentage, Monate und Jahreszeiten under Unit 1 (Begr\u00fc\u00dfungen, Sich Vorstellen und Grundlagen) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -16074,7 +16074,7 @@
     "languageName": "German",
     "trackCode": "21LEH104T",
     "unitNumber": 1,
-    "unitName": "Begrüßungen, Sich Vorstellen und Grundlagen",
+    "unitName": "Begr\u00fc\u00dfungen, Sich Vorstellen und Grundlagen",
     "appearanceCount": 2,
     "paperCount": 2,
     "papers": [
@@ -16106,13 +16106,13 @@
     "questionFamilies": [
       {
         "id": 2198,
-        "name": "Wie sagt man \"The Spring\" auf Deutsch? (A) Der Herbst (B) Der Sommer (C) Der Frühling (D) Der Winter",
+        "name": "Wie sagt man \"The Spring\" auf Deutsch? (A) Der Herbst (B) Der Sommer (C) Der Fr\u00fchling (D) Der Winter",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1780,
-        "name": "Wie sagt man \"The Autumn\" auf Deutsch? (A) Der Herbst (C) Der Frühling (B) Der Sommer (D) Der Winter",
+        "name": "Wie sagt man \"The Autumn\" auf Deutsch? (A) Der Herbst (C) Der Fr\u00fchling (B) Der Sommer (D) Der Winter",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -16120,14 +16120,14 @@
     "sampleQuestions": [
       {
         "id": 1376,
-        "text": "Wie sagt man \"The Spring\" auf Deutsch? (A) Der Herbst (B) Der Sommer (C) Der Frühling (D) Der Winter",
+        "text": "Wie sagt man \"The Spring\" auf Deutsch? (A) Der Herbst (B) Der Sommer (C) Der Fr\u00fchling (D) Der Winter",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3465,
-        "text": "Wie sagt man \"The Autumn\" auf Deutsch? (A) Der Herbst (C) Der Frühling (B) Der Sommer (D) Der Winter",
+        "text": "Wie sagt man \"The Autumn\" auf Deutsch? (A) Der Herbst (C) Der Fr\u00fchling (B) Der Sommer (D) Der Winter",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16140,8 +16140,8 @@
   {
     "id": 557,
     "slug": "konjugation-regelmassiger-und-unregelmassiger-verben",
-    "name": "Konjugation Regelmäßiger und Unregelmäßiger Verben",
-    "description": "Curriculum and historical examination lineage for Konjugation Regelmäßiger und Unregelmäßiger Verben under Unit 2 (Personalpronomen, Verben und Satzbau) of German (21LEH104T) at SRMIST.",
+    "name": "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
+    "description": "Curriculum and historical examination lineage for Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben under Unit 2 (Personalpronomen, Verben und Satzbau) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -16191,7 +16191,7 @@
         "assessmentType": "Other"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Konjugation Regelmäßiger und Unregelmäßiger Verben",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/german/topics/konjugation-regelmassiger-und-unregelmassiger-verben"
   },
@@ -16248,7 +16248,7 @@
       },
       {
         "id": 1800,
-        "name": "Bitte schreiben Sie die Zeit im Wörtern (a) Bitte schreiben Sie die Zeit im Wörtern (i) 10.00 -...",
+        "name": "Bitte schreiben Sie die Zeit im W\u00f6rtern (a) Bitte schreiben Sie die Zeit im W\u00f6rtern (i) 10.00 -...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -16269,14 +16269,14 @@
       },
       {
         "id": 3486,
-        "text": "Bitte schreiben Sie die Zeit im Wörtern (a) Bitte schreiben Sie die Zeit im Wörtern (i) 10.00 - (ii) 14.11 - (iii) 3.30 - (iv) 8.40 - (v) 17.56 - (vi) 19.12 - (vii) 5.05 - (viii)...",
+        "text": "Bitte schreiben Sie die Zeit im W\u00f6rtern (a) Bitte schreiben Sie die Zeit im W\u00f6rtern (i) 10.00 - (ii) 14.11 - (iii) 3.30 - (iv) 8.40 - (v) 17.56 - (vi) 19.12 - (vii) 5.05 - (viii)...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3487,
-        "text": "Wie sagt man auf Englisch? (i) Lesen Sie (ii) Noch einmal, bitte. (iii) Kreuzen Sie an (iv) Ordnen Sie zu. (v) Wie heißt das auf Deutsch? (vi) Ich verstehe das nicht (vii) Ist das...",
+        "text": "Wie sagt man auf Englisch? (i) Lesen Sie (ii) Noch einmal, bitte. (iii) Kreuzen Sie an (iv) Ordnen Sie zu. (v) Wie hei\u00dft das auf Deutsch? (vi) Ich verstehe das nicht (vii) Ist das...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16334,7 +16334,7 @@
     "sampleQuestions": [
       {
         "id": 1461,
-        "text": "Schreiben Sie die Uhrzeit: (i) 06.40 (ii) 02.15 (iii) 07.10 (iv) 10.45 (v) 20.30 (vi) 17.45 (vii) 14.30 (viii) 23.55 --- OR --- 23. Schreiben Sie acht Sätze über Ihr/e...",
+        "text": "Schreiben Sie die Uhrzeit: (i) 06.40 (ii) 02.15 (iii) 07.10 (iv) 10.45 (v) 20.30 (vi) 17.45 (vii) 14.30 (viii) 23.55 --- OR --- 23. Schreiben Sie acht S\u00e4tze \u00fcber Ihr/e...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
@@ -16347,8 +16347,8 @@
   {
     "id": 572,
     "slug": "modalverben-mussen-konnen-wollen-sollen-durfen-mogen",
-    "name": "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
-    "description": "Curriculum and historical examination lineage for Modalverben: müssen, können, wollen, sollen, dürfen, mögen under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
+    "name": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
+    "description": "Curriculum and historical examination lineage for Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -16413,13 +16413,13 @@
     "questionFamilies": [
       {
         "id": 2211,
-        "name": "Elisa __________ singen. (können) (A) kann (B) kannst (C) konnen (D) könnt",
+        "name": "Elisa __________ singen. (k\u00f6nnen) (A) kann (B) kannst (C) konnen (D) k\u00f6nnt",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2212,
-        "name": "Johannes __________ Pizza essen. (mögen) (A) mögen (B) mag (C) mögst (D) mögt",
+        "name": "Johannes __________ Pizza essen. (m\u00f6gen) (A) m\u00f6gen (B) mag (C) m\u00f6gst (D) m\u00f6gt",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -16431,7 +16431,7 @@
       },
       {
         "id": 2274,
-        "name": "du mir helfen? (A) Kannst (B) Kann (C) Können (D) Könnt",
+        "name": "du mir helfen? (A) Kannst (B) Kann (C) K\u00f6nnen (D) K\u00f6nnt",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -16445,14 +16445,14 @@
     "sampleQuestions": [
       {
         "id": 1389,
-        "text": "Elisa __________ singen. (können) (A) kann (B) kannst (C) konnen (D) könnt",
+        "text": "Elisa __________ singen. (k\u00f6nnen) (A) kann (B) kannst (C) konnen (D) k\u00f6nnt",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1390,
-        "text": "Johannes __________ Pizza essen. (mögen) (A) mögen (B) mag (C) mögst (D) mögt",
+        "text": "Johannes __________ Pizza essen. (m\u00f6gen) (A) m\u00f6gen (B) mag (C) m\u00f6gst (D) m\u00f6gt",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16466,7 +16466,7 @@
       },
       {
         "id": 1454,
-        "text": "du mir helfen? (A) Kannst (B) Kann (C) Können (D) Könnt",
+        "text": "du mir helfen? (A) Kannst (B) Kann (C) K\u00f6nnen (D) K\u00f6nnt",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
@@ -16479,7 +16479,7 @@
         "assessmentType": "Other"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/german/topics/modalverben-mussen-konnen-wollen-sollen-durfen-mogen"
   },
@@ -16544,8 +16544,8 @@
   {
     "id": 575,
     "slug": "familie-und-verwandtschaftsverhaltnisse",
-    "name": "Familie und Verwandtschaftsverhältnisse",
-    "description": "Curriculum and historical examination lineage for Familie und Verwandtschaftsverhältnisse under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
+    "name": "Familie und Verwandtschaftsverh\u00e4ltnisse",
+    "description": "Curriculum and historical examination lineage for Familie und Verwandtschaftsverh\u00e4ltnisse under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -16595,15 +16595,15 @@
         "assessmentType": "Other"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Familie und Verwandtschaftsverhältnisse",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Familie und Verwandtschaftsverh\u00e4ltnisse",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/german/topics/familie-und-verwandtschaftsverhaltnisse"
   },
   {
     "id": 576,
     "slug": "prateritum-von-sein-und-haben",
-    "name": "Präteritum von sein und haben",
-    "description": "Curriculum and historical examination lineage for Präteritum von sein und haben under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
+    "name": "Pr\u00e4teritum von sein und haben",
+    "description": "Curriculum and historical examination lineage for Pr\u00e4teritum von sein und haben under Unit 5 (Modalverben, Trennbare Verben und Familie) of German (21LEH104T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - German",
@@ -16661,7 +16661,7 @@
     "sampleQuestions": [
       {
         "id": 1499,
-        "text": "Lesen Sie den Text und antworten Sie die Fragen: Paul Sieber ist Ingenieur und arbeitet bei Daimler. Seine Frau heißt Mara. Sie ist Krankenschwester bei einem Krankenhaus. Sie...",
+        "text": "Lesen Sie den Text und antworten Sie die Fragen: Paul Sieber ist Ingenieur und arbeitet bei Daimler. Seine Frau hei\u00dft Mara. Sie ist Krankenschwester bei einem Krankenhaus. Sie...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16674,7 +16674,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Präteritum von sein und haben",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=german&tab=practice&topic=Pr\u00e4teritum von sein und haben",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=german",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/german/topics/prateritum-von-sein-und-haben"
   },
@@ -16682,7 +16682,7 @@
     "id": 580,
     "slug": "la-communication-et-les-consignes-en-classe",
     "name": "La Communication et les Consignes en Classe",
-    "description": "Curriculum and historical examination lineage for La Communication et les Consignes en Classe under Unit 1 (Alphabet, Phonétique et Communication en Classe) of French (21LEH103T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for La Communication et les Consignes en Classe under Unit 1 (Alphabet, Phon\u00e9tique et Communication en Classe) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -16693,7 +16693,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 1,
-    "unitName": "Alphabet, Phonétique et Communication en Classe",
+    "unitName": "Alphabet, Phon\u00e9tique et Communication en Classe",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -16718,7 +16718,7 @@
     "questionFamilies": [
       {
         "id": 1975,
-        "name": "Mettez les phrases au négatif : (a) Nous allons au cinéma ce soir. (b) Vous écoutez la...",
+        "name": "Mettez les phrases au n\u00e9gatif : (a) Nous allons au cin\u00e9ma ce soir. (b) Vous \u00e9coutez la...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -16726,7 +16726,7 @@
     "sampleQuestions": [
       {
         "id": 3359,
-        "text": "Mettez les phrases au négatif : (a) Nous allons au cinéma ce soir. (b) Vous écoutez la conversation. (c) Tu coupes les fruits. (d) Tu fais ce test. (e) Nous parlons la vérité.",
+        "text": "Mettez les phrases au n\u00e9gatif : (a) Nous allons au cin\u00e9ma ce soir. (b) Vous \u00e9coutez la conversation. (c) Tu coupes les fruits. (d) Tu fais ce test. (e) Nous parlons la v\u00e9rit\u00e9.",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -16797,8 +16797,8 @@
   {
     "id": 583,
     "slug": "verbes-fondamentaux-etre-avoir-s-appeler-habiter",
-    "name": "Verbes Fondamentaux: être, avoir, s'appeler, habiter",
-    "description": "Curriculum and historical examination lineage for Verbes Fondamentaux: être, avoir, s'appeler, habiter under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
+    "name": "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+    "description": "Curriculum and historical examination lineage for Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -16842,13 +16842,13 @@
     "questionFamilies": [
       {
         "id": 2149,
-        "name": "êtes intelligents. (A) Tu (B) Vous (C) Nous (D) Je",
+        "name": "\u00eates intelligents. (A) Tu (B) Vous (C) Nous (D) Je",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1963,
-        "name": "Répondez aux questions : (a) D'où venez-vous ? (b) Quelle est votre numéro de téléphone ? (c) Quel...",
+        "name": "R\u00e9pondez aux questions : (a) D'o\u00f9 venez-vous ? (b) Quelle est votre num\u00e9ro de t\u00e9l\u00e9phone ? (c) Quel...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -16856,28 +16856,28 @@
     "sampleQuestions": [
       {
         "id": 1312,
-        "text": "êtes intelligents. (A) Tu (B) Vous (C) Nous (D) Je",
+        "text": "\u00eates intelligents. (A) Tu (B) Vous (C) Nous (D) Je",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3347,
-        "text": "Répondez aux questions : (a) D'où venez-vous ? (b) Quelle est votre numéro de téléphone ? (c) Quel âge as-tu ? (d) Vous êtes marié ? (e) Où habite-t-il ?",
+        "text": "R\u00e9pondez aux questions : (a) D'o\u00f9 venez-vous ? (b) Quelle est votre num\u00e9ro de t\u00e9l\u00e9phone ? (c) Quel \u00e2ge as-tu ? (d) Vous \u00eates mari\u00e9 ? (e) O\u00f9 habite-t-il ?",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Verbes Fondamentaux: être, avoir, s'appeler, habiter",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/verbes-fondamentaux-etre-avoir-s-appeler-habiter"
   },
   {
     "id": 585,
     "slug": "les-articles-definis-et-indefinis",
-    "name": "Les Articles Définis et Indéfinis",
-    "description": "Curriculum and historical examination lineage for Les Articles Définis et Indéfinis under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
+    "name": "Les Articles D\u00e9finis et Ind\u00e9finis",
+    "description": "Curriculum and historical examination lineage for Les Articles D\u00e9finis et Ind\u00e9finis under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -16913,7 +16913,7 @@
     "questionFamilies": [
       {
         "id": 1976,
-        "name": "Remplissez les tirets avec les articles définis : (a) Elle aime ________ glace (b) ________...",
+        "name": "Remplissez les tirets avec les articles d\u00e9finis : (a) Elle aime ________ glace (b) ________...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -16921,21 +16921,21 @@
     "sampleQuestions": [
       {
         "id": 3396,
-        "text": "Remplissez les tirets avec les articles définis : (a) Tu finis __________ chocolat (b) __________ étudiant parle français. (c) Mon Fils a __________ yeux noirs (d) Les enfants...",
+        "text": "Remplissez les tirets avec les articles d\u00e9finis : (a) Tu finis __________ chocolat (b) __________ \u00e9tudiant parle fran\u00e7ais. (c) Mon Fils a __________ yeux noirs (d) Les enfants...",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Articles Définis et Indéfinis",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Articles D\u00e9finis et Ind\u00e9finis",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/les-articles-definis-et-indefinis"
   },
   {
     "id": 586,
     "slug": "les-nombres-de-0-a-69-jours-et-mois",
-    "name": "Les Nombres de 0 à 69, Jours et Mois",
-    "description": "Curriculum and historical examination lineage for Les Nombres de 0 à 69, Jours et Mois under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
+    "name": "Les Nombres de 0 \u00e0 69, Jours et Mois",
+    "description": "Curriculum and historical examination lineage for Les Nombres de 0 \u00e0 69, Jours et Mois under Unit 2 (Salutations, Pronoms Sujets, Verbes de Base et Nombres) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -16986,13 +16986,13 @@
     "questionFamilies": [
       {
         "id": 1967,
-        "name": "Écrivez les nombres : (a) 550 (b) 1000 (c) 2200 (d) 5500 (e) 10000",
+        "name": "\u00c9crivez les nombres : (a) 550 (b) 1000 (c) 2200 (d) 5500 (e) 10000",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2174,
-        "name": "Lisez le passage et répondez aux questions suivantes : Le Festival de Cannes : La ville de Cannes...",
+        "name": "Lisez le passage et r\u00e9pondez aux questions suivantes : Le Festival de Cannes : La ville de Cannes...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -17000,35 +17000,35 @@
     "sampleQuestions": [
       {
         "id": 1372,
-        "text": "Lisez le passage et répondez aux questions: Le Festival de Cannes: La ville de Cannes est une commune française située dans le département des Alpes-Maritimes. C'est la ville qui...",
+        "text": "Lisez le passage et r\u00e9pondez aux questions: Le Festival de Cannes: La ville de Cannes est une commune fran\u00e7aise situ\u00e9e dans le d\u00e9partement des Alpes-Maritimes. C'est la ville qui...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3351,
-        "text": "Écrivez les nombres : (a) 550 (b) 1000 (c) 2200 (d) 5500 (e) 10000",
+        "text": "\u00c9crivez les nombres : (a) 550 (b) 1000 (c) 2200 (d) 5500 (e) 10000",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3387,
-        "text": "Écrivez les nombres : (a) 100 (b) 550 (c) 1000 (d) 2500 (e) 10000",
+        "text": "\u00c9crivez les nombres : (a) 100 (b) 550 (c) 1000 (d) 2500 (e) 10000",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Nombres de 0 à 69, Jours et Mois",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Nombres de 0 \u00e0 69, Jours et Mois",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/les-nombres-de-0-a-69-jours-et-mois"
   },
   {
     "id": 588,
     "slug": "les-nombres-de-70-a-1000",
-    "name": "Les Nombres de 70 à 1000",
-    "description": "Curriculum and historical examination lineage for Les Nombres de 70 à 1000 under Unit 3 (Verbes du 1er Groupe, Nationalités et Famille) of French (21LEH103T) at SRMIST.",
+    "name": "Les Nombres de 70 \u00e0 1000",
+    "description": "Curriculum and historical examination lineage for Les Nombres de 70 \u00e0 1000 under Unit 3 (Verbes du 1er Groupe, Nationalit\u00e9s et Famille) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17039,7 +17039,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 3,
-    "unitName": "Verbes du 1er Groupe, Nationalités et Famille",
+    "unitName": "Verbes du 1er Groupe, Nationalit\u00e9s et Famille",
     "appearanceCount": 5,
     "paperCount": 2,
     "papers": [
@@ -17137,15 +17137,15 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Nombres de 70 à 1000",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Nombres de 70 \u00e0 1000",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/les-nombres-de-70-a-1000"
   },
   {
     "id": 591,
     "slug": "les-professions-et-metiers",
-    "name": "Les Professions et Métiers",
-    "description": "Curriculum and historical examination lineage for Les Professions et Métiers under Unit 3 (Verbes du 1er Groupe, Nationalités et Famille) of French (21LEH103T) at SRMIST.",
+    "name": "Les Professions et M\u00e9tiers",
+    "description": "Curriculum and historical examination lineage for Les Professions et M\u00e9tiers under Unit 3 (Verbes du 1er Groupe, Nationalit\u00e9s et Famille) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17156,7 +17156,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 3,
-    "unitName": "Verbes du 1er Groupe, Nationalités et Famille",
+    "unitName": "Verbes du 1er Groupe, Nationalit\u00e9s et Famille",
     "appearanceCount": 2,
     "paperCount": 2,
     "papers": [
@@ -17188,13 +17188,13 @@
     "questionFamilies": [
       {
         "id": 1969,
-        "name": "Complétez avec l'orientation : (a) La cafeteria est ________ la deuxième étage (on). (b) Vous...",
+        "name": "Compl\u00e9tez avec l'orientation : (a) La cafeteria est ________ la deuxi\u00e8me \u00e9tage (on). (b) Vous...",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1963,
-        "name": "Répondez aux questions : (a) D'où venez-vous ? (b) Quelle est votre numéro de téléphone ? (c) Quel...",
+        "name": "R\u00e9pondez aux questions : (a) D'o\u00f9 venez-vous ? (b) Quelle est votre num\u00e9ro de t\u00e9l\u00e9phone ? (c) Quel...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -17202,28 +17202,28 @@
     "sampleQuestions": [
       {
         "id": 3353,
-        "text": "Complétez avec l'orientation : (a) La cafeteria est ________ la deuxième étage (on). (b) Vous prenez la rue de Asgard ________ jusqu'au boulevard saint- Michael. (Straight). (c)...",
+        "text": "Compl\u00e9tez avec l'orientation : (a) La cafeteria est ________ la deuxi\u00e8me \u00e9tage (on). (b) Vous prenez la rue de Asgard ________ jusqu'au boulevard saint- Michael. (Straight). (c)...",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3382,
-        "text": "Répondez aux questions : (a) D'où venez-vous ? (b) Quelle est votre numéro de téléphone ? (c) Quel âge as-tu ? (d) Quelle est votre profession ? (e) Quelle est votre adresse...",
+        "text": "R\u00e9pondez aux questions : (a) D'o\u00f9 venez-vous ? (b) Quelle est votre num\u00e9ro de t\u00e9l\u00e9phone ? (c) Quel \u00e2ge as-tu ? (d) Quelle est votre profession ? (e) Quelle est votre adresse...",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Professions et Métiers",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Professions et M\u00e9tiers",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/les-professions-et-metiers"
   },
   {
     "id": 592,
     "slug": "pays-villes-et-nationalites",
-    "name": "Pays, Villes et Nationalités",
-    "description": "Curriculum and historical examination lineage for Pays, Villes et Nationalités under Unit 3 (Verbes du 1er Groupe, Nationalités et Famille) of French (21LEH103T) at SRMIST.",
+    "name": "Pays, Villes et Nationalit\u00e9s",
+    "description": "Curriculum and historical examination lineage for Pays, Villes et Nationalit\u00e9s under Unit 3 (Verbes du 1er Groupe, Nationalit\u00e9s et Famille) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17234,7 +17234,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 3,
-    "unitName": "Verbes du 1er Groupe, Nationalités et Famille",
+    "unitName": "Verbes du 1er Groupe, Nationalit\u00e9s et Famille",
     "appearanceCount": 20,
     "paperCount": 4,
     "papers": [
@@ -17286,7 +17286,7 @@
       },
       {
         "id": 1944,
-        "name": "La France est située en ________ (A) Asie (B) Afrique (C) Europe (D) Australie",
+        "name": "La France est situ\u00e9e en ________ (A) Asie (B) Afrique (C) Europe (D) Australie",
         "repetitionType": "family_repeat",
         "count": 2
       },
@@ -17319,14 +17319,14 @@
       },
       {
         "id": 1311,
-        "text": "TGV est (A) Train à grande vitesse (B) Train en grande vitesse (C) Train à grand vitesse (D) Train en grand vitesse",
+        "text": "TGV est (A) Train \u00e0 grande vitesse (B) Train en grande vitesse (C) Train \u00e0 grand vitesse (D) Train en grand vitesse",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1326,
-        "text": "est un pays francophones asiatiques. (A) Cambodge (B) Sénégal (C) Luxembourg (D) Ile Maurice",
+        "text": "est un pays francophones asiatiques. (A) Cambodge (B) S\u00e9n\u00e9gal (C) Luxembourg (D) Ile Maurice",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -17346,7 +17346,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Pays, Villes et Nationalités",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Pays, Villes et Nationalit\u00e9s",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/pays-villes-et-nationalites"
   },
@@ -17354,7 +17354,7 @@
     "id": 595,
     "slug": "les-adjectifs-possessifs-et-la-famille",
     "name": "Les Adjectifs Possessifs et la Famille",
-    "description": "Curriculum and historical examination lineage for Les Adjectifs Possessifs et la Famille under Unit 3 (Verbes du 1er Groupe, Nationalités et Famille) of French (21LEH103T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Les Adjectifs Possessifs et la Famille under Unit 3 (Verbes du 1er Groupe, Nationalit\u00e9s et Famille) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17365,7 +17365,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 3,
-    "unitName": "Verbes du 1er Groupe, Nationalités et Famille",
+    "unitName": "Verbes du 1er Groupe, Nationalit\u00e9s et Famille",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -17390,7 +17390,7 @@
     "questionFamilies": [
       {
         "id": 1965,
-        "name": "Lisez le passage et répondez aux questions : La tour Eiffel La tour Eiffel est le symbole de la...",
+        "name": "Lisez le passage et r\u00e9pondez aux questions : La tour Eiffel La tour Eiffel est le symbole de la...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17398,7 +17398,7 @@
     "sampleQuestions": [
       {
         "id": 3349,
-        "text": "Lisez le passage et répondez aux questions : La tour Eiffel La tour Eiffel est le symbole de la ville de Paris. Elle a été construite par Gustave Eiffel pour l'Exposition...",
+        "text": "Lisez le passage et r\u00e9pondez aux questions : La tour Eiffel La tour Eiffel est le symbole de la ville de Paris. Elle a \u00e9t\u00e9 construite par Gustave Eiffel pour l'Exposition...",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -17455,13 +17455,13 @@
     "questionFamilies": [
       {
         "id": 2160,
-        "name": "Comment on dit « Enchanté » en anglais. (A) Nice to meet you (B) Sorry (C) Welcome (D) See you later",
+        "name": "Comment on dit \u00ab Enchant\u00e9 \u00bb en anglais. (A) Nice to meet you (B) Sorry (C) Welcome (D) See you later",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 2186,
-        "name": "Comment on dit \"Monday\" en français. (A) Lundi (B) Mardi (C) Mercredi (D) Jeudi",
+        "name": "Comment on dit \"Monday\" en fran\u00e7ais. (A) Lundi (B) Mardi (C) Mercredi (D) Jeudi",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17469,14 +17469,14 @@
     "sampleQuestions": [
       {
         "id": 1323,
-        "text": "Comment on dit « Enchanté » en anglais. (A) Nice to meet you (B) Sorry (C) Welcome (D) See you later",
+        "text": "Comment on dit \u00ab Enchant\u00e9 \u00bb en anglais. (A) Nice to meet you (B) Sorry (C) Welcome (D) See you later",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1360,
-        "text": "Comment on dit \"Monday\" en français. (A) Lundi (B) Mardi (C) Mercredi (D) Jeudi",
+        "text": "Comment on dit \"Monday\" en fran\u00e7ais. (A) Lundi (B) Mardi (C) Mercredi (D) Jeudi",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -17526,7 +17526,7 @@
     "questionFamilies": [
       {
         "id": 1971,
-        "name": "Écrivez les phrases en futur proche : (a) Les étudiants ________ (préparer) un concours. (b) Je...",
+        "name": "\u00c9crivez les phrases en futur proche : (a) Les \u00e9tudiants ________ (pr\u00e9parer) un concours. (b) Je...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -17534,7 +17534,7 @@
     "sampleQuestions": [
       {
         "id": 3355,
-        "text": "Écrivez les phrases en futur proche : (a) Les étudiants ________ (préparer) un concours. (b) Je ________ (remplir) une fiche d'inscription. (c) Il ________ (obtenir) un diplôme....",
+        "text": "\u00c9crivez les phrases en futur proche : (a) Les \u00e9tudiants ________ (pr\u00e9parer) un concours. (b) Je ________ (remplir) une fiche d'inscription. (c) Il ________ (obtenir) un dipl\u00f4me....",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -17599,13 +17599,13 @@
     "questionFamilies": [
       {
         "id": 1972,
-        "name": "Écrivez l'heure : (a) 08h10 (b) 12h15 (c) 05h30 (d) 23h45 (e) 00h05",
+        "name": "\u00c9crivez l'heure : (a) 08h10 (b) 12h15 (c) 05h30 (d) 23h45 (e) 00h05",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2161,
-        "name": "sommes à l'heure. (A) Vous (B) Nous (C) Tu (D) Ils",
+        "name": "sommes \u00e0 l'heure. (A) Vous (B) Nous (C) Tu (D) Ils",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17613,21 +17613,21 @@
     "sampleQuestions": [
       {
         "id": 1324,
-        "text": "sommes à l'heure. (A) Vous (B) Nous (C) Tu (D) Ils",
+        "text": "sommes \u00e0 l'heure. (A) Vous (B) Nous (C) Tu (D) Ils",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3356,
-        "text": "Écrivez l'heure : (a) 08h10 (b) 12h15 (c) 05h30 (d) 23h45 (e) 00h05",
+        "text": "\u00c9crivez l'heure : (a) 08h10 (b) 12h15 (c) 05h30 (d) 23h45 (e) 00h05",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3392,
-        "text": "Écrivez l'heure : (a) 09 h10 (b) 11 h15 (c) 06 h30 (d) 23 h50 (e) 00 h10",
+        "text": "\u00c9crivez l'heure : (a) 09 h10 (b) 11 h15 (c) 06 h30 (d) 23 h50 (e) 00 h10",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -17640,8 +17640,8 @@
   {
     "id": 604,
     "slug": "les-expressions-de-quantite-et-articles-partitifs",
-    "name": "Les Expressions de Quantité et Articles Partitifs",
-    "description": "Curriculum and historical examination lineage for Les Expressions de Quantité et Articles Partitifs under Unit 5 (Adjectifs Démonstratifs, Quantités, Vêtements et Sorties) of French (21LEH103T) at SRMIST.",
+    "name": "Les Expressions de Quantit\u00e9 et Articles Partitifs",
+    "description": "Curriculum and historical examination lineage for Les Expressions de Quantit\u00e9 et Articles Partitifs under Unit 5 (Adjectifs D\u00e9monstratifs, Quantit\u00e9s, V\u00eatements et Sorties) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17652,7 +17652,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 5,
-    "unitName": "Adjectifs Démonstratifs, Quantités, Vêtements et Sorties",
+    "unitName": "Adjectifs D\u00e9monstratifs, Quantit\u00e9s, V\u00eatements et Sorties",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -17677,7 +17677,7 @@
     "questionFamilies": [
       {
         "id": 1974,
-        "name": "Complétez avec l'expression de quantité : (a) Je veux un ________ (bottle of) vins. (b) Elle a...",
+        "name": "Compl\u00e9tez avec l'expression de quantit\u00e9 : (a) Je veux un ________ (bottle of) vins. (b) Elle a...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17685,21 +17685,21 @@
     "sampleQuestions": [
       {
         "id": 3358,
-        "text": "Complétez avec l'expression de quantité : (a) Je veux un ________ (bottle of) vins. (b) Elle a ________ (enough of) d'argent. (c) Il y a ________ (lots of) étudiants dans la...",
+        "text": "Compl\u00e9tez avec l'expression de quantit\u00e9 : (a) Je veux un ________ (bottle of) vins. (b) Elle a ________ (enough of) d'argent. (c) Il y a ________ (lots of) \u00e9tudiants dans la...",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Expressions de Quantité et Articles Partitifs",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Les Expressions de Quantit\u00e9 et Articles Partitifs",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/les-expressions-de-quantite-et-articles-partitifs"
   },
   {
     "id": 606,
     "slug": "verbes-du-3eme-groupe-irreguliers",
-    "name": "Verbes du 3ème Groupe Irréguliers",
-    "description": "Curriculum and historical examination lineage for Verbes du 3ème Groupe Irréguliers under Unit 5 (Adjectifs Démonstratifs, Quantités, Vêtements et Sorties) of French (21LEH103T) at SRMIST.",
+    "name": "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+    "description": "Curriculum and historical examination lineage for Verbes du 3\u00e8me Groupe Irr\u00e9guliers under Unit 5 (Adjectifs D\u00e9monstratifs, Quantit\u00e9s, V\u00eatements et Sorties) of French (21LEH103T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - French",
@@ -17710,7 +17710,7 @@
     "languageName": "French",
     "trackCode": "21LEH103T",
     "unitNumber": 5,
-    "unitName": "Adjectifs Démonstratifs, Quantités, Vêtements et Sorties",
+    "unitName": "Adjectifs D\u00e9monstratifs, Quantit\u00e9s, V\u00eatements et Sorties",
     "appearanceCount": 2,
     "paperCount": 1,
     "papers": [
@@ -17742,7 +17742,7 @@
       },
       {
         "id": 2194,
-        "name": "Traduisez en français: (a) Two students Elena and Julien are meeting in the university of Paris in...",
+        "name": "Traduisez en fran\u00e7ais: (a) Two students Elena and Julien are meeting in the university of Paris in...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17757,21 +17757,21 @@
       },
       {
         "id": 1371,
-        "text": "Traduisez en français: (a) Two students Elena and Julien are meeting in the university of Paris in France. They speak about their studies. And the France is a wonderful country....",
+        "text": "Traduisez en fran\u00e7ais: (a) Two students Elena and Julien are meeting in the university of Paris in France. They speak about their studies. And the France is a wonderful country....",
         "marks": 10,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Verbes du 3ème Groupe Irréguliers",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=french&tab=practice&topic=Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=french",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/french/topics/verbes-du-3eme-groupe-irreguliers"
   },
   {
     "id": 613,
     "slug": "numeros-del-1-al-100",
-    "name": "Números del 1 al 100",
-    "description": "Curriculum and historical examination lineage for Números del 1 al 100 under Unit 1 (Abecedario, Saludos, Presentación y Verbos Básicos) of Spanish (21LEH107T) at SRMIST.",
+    "name": "N\u00fameros del 1 al 100",
+    "description": "Curriculum and historical examination lineage for N\u00fameros del 1 al 100 under Unit 1 (Abecedario, Saludos, Presentaci\u00f3n y Verbos B\u00e1sicos) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -17782,7 +17782,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 1,
-    "unitName": "Abecedario, Saludos, Presentación y Verbos Básicos",
+    "unitName": "Abecedario, Saludos, Presentaci\u00f3n y Verbos B\u00e1sicos",
     "appearanceCount": 4,
     "paperCount": 3,
     "papers": [
@@ -17822,13 +17822,13 @@
     "questionFamilies": [
       {
         "id": 2417,
-        "name": "Escribe los números en palabras: (i) 25 (ii) 55 (iii) 100 (iv) 150 (v) 350 (vi) 500 (vii) 850...",
+        "name": "Escribe los n\u00fameros en palabras: (i) 25 (ii) 55 (iii) 100 (iv) 150 (v) 350 (vi) 500 (vii) 850...",
         "repetitionType": "family_repeat",
         "count": 3
       },
       {
         "id": 2491,
-        "name": "¿cuántos días tiene el mes de febrero? (A) treinta (B) veintinueve (C) veintiocho (D) Treinta y uno",
+        "name": "\u00bfcu\u00e1ntos d\u00edas tiene el mes de febrero? (A) treinta (B) veintinueve (C) veintiocho (D) Treinta y uno",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -17836,34 +17836,34 @@
     "sampleQuestions": [
       {
         "id": 2580,
-        "text": "Escribe los números en palabras: (i) 25 (ii) 55 (iii) 100 (iv) 150 (v) 350 (vi) 500 (vii) 850 (viii) 1000",
+        "text": "Escribe los n\u00fameros en palabras: (i) 25 (ii) 55 (iii) 100 (iv) 150 (v) 350 (vi) 500 (vii) 850 (viii) 1000",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2612,
-        "text": "b. Escribe los números en palabras: (i) 25 (ii) 50 (iii) 100 (iv) 150 (v) 200 (vi) 250 (vii) 900 (viii) 1000",
+        "text": "b. Escribe los n\u00fameros en palabras: (i) 25 (ii) 50 (iii) 100 (iv) 150 (v) 200 (vi) 250 (vii) 900 (viii) 1000",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2626,
-        "text": "¿cuántos días tiene el mes de febrero? (A) treinta (B) veintinueve (C) veintiocho (D) Treinta y uno",
+        "text": "\u00bfcu\u00e1ntos d\u00edas tiene el mes de febrero? (A) treinta (B) veintinueve (C) veintiocho (D) Treinta y uno",
         "marks": 1,
         "year": 2024,
         "assessmentType": "Other"
       },
       {
         "id": 2645,
-        "text": "b. Escríbe los números en palabras: (i) 55 (ii) 85 (iii) 200 (iv) 450 (v) 2000 (vi) 3500 (vii) 6000 (viii) 10000",
+        "text": "b. Escr\u00edbe los n\u00fameros en palabras: (i) 55 (ii) 85 (iii) 200 (iv) 450 (v) 2000 (vi) 3500 (vii) 6000 (viii) 10000",
         "marks": 8,
         "year": 2024,
         "assessmentType": "Other"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Números del 1 al 100",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=N\u00fameros del 1 al 100",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/spanish/topics/numeros-del-1-al-100"
   },
@@ -17871,7 +17871,7 @@
     "id": 617,
     "slug": "la-familia-y-relaciones",
     "name": "La Familia y Relaciones",
-    "description": "Curriculum and historical examination lineage for La Familia y Relaciones under Unit 1 (Abecedario, Saludos, Presentación y Verbos Básicos) of Spanish (21LEH107T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for La Familia y Relaciones under Unit 1 (Abecedario, Saludos, Presentaci\u00f3n y Verbos B\u00e1sicos) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -17882,7 +17882,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 1,
-    "unitName": "Abecedario, Saludos, Presentación y Verbos Básicos",
+    "unitName": "Abecedario, Saludos, Presentaci\u00f3n y Verbos B\u00e1sicos",
     "appearanceCount": 3,
     "paperCount": 3,
     "papers": [
@@ -17921,7 +17921,7 @@
     "questionFamilies": [
       {
         "id": 2415,
-        "name": "Los hijos de mi tío son mis _______________ (A) nieta (B) hermanos (C) primo (D) hermano",
+        "name": "Los hijos de mi t\u00edo son mis _______________ (A) nieta (B) hermanos (C) primo (D) hermano",
         "repetitionType": "family_repeat",
         "count": 2
       },
@@ -17935,7 +17935,7 @@
     "sampleQuestions": [
       {
         "id": 2577,
-        "text": "Los hijos de mi tío son mis _______________ (A) nieta (B) hermanos (C) primo (D) hermano",
+        "text": "Los hijos de mi t\u00edo son mis _______________ (A) nieta (B) hermanos (C) primo (D) hermano",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -17962,8 +17962,8 @@
   {
     "id": 618,
     "slug": "articulos-indefinidos-y-numeros-hasta-1000",
-    "name": "Artículos Indefinidos y Números hasta 1000",
-    "description": "Curriculum and historical examination lineage for Artículos Indefinidos y Números hasta 1000 under Unit 2 (Artículos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
+    "name": "Art\u00edculos Indefinidos y N\u00fameros hasta 1000",
+    "description": "Curriculum and historical examination lineage for Art\u00edculos Indefinidos y N\u00fameros hasta 1000 under Unit 2 (Art\u00edculos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -17974,7 +17974,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 2,
-    "unitName": "Artículos Indefinidos, Direcciones y Presente Regular",
+    "unitName": "Art\u00edculos Indefinidos, Direcciones y Presente Regular",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -17999,7 +17999,7 @@
     "questionFamilies": [
       {
         "id": 2401,
-        "name": "¿Qué año es? (A) dos mil veintiuno (B) dos mil veintitrés (C) dos mil veinte (D) dos mil veintidós",
+        "name": "\u00bfQu\u00e9 a\u00f1o es? (A) dos mil veintiuno (B) dos mil veintitr\u00e9s (C) dos mil veinte (D) dos mil veintid\u00f3s",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -18007,13 +18007,13 @@
     "sampleQuestions": [
       {
         "id": 2627,
-        "text": "¿Qué es el ano pasado? (A) dos mil veintiuno (B) dos mil veintidos (C) dos mil veinticuatro (D) dos mil veintitrés",
+        "text": "\u00bfQu\u00e9 es el ano pasado? (A) dos mil veintiuno (B) dos mil veintidos (C) dos mil veinticuatro (D) dos mil veintitr\u00e9s",
         "marks": 1,
         "year": 2024,
         "assessmentType": "Other"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Artículos Indefinidos y Números hasta 1000",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Art\u00edculos Indefinidos y N\u00fameros hasta 1000",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/spanish/topics/articulos-indefinidos-y-numeros-hasta-1000"
   },
@@ -18021,7 +18021,7 @@
     "id": 622,
     "slug": "presente-de-indicativo-verbos-regulares-ar-er-ir",
     "name": "Presente de Indicativo: Verbos Regulares -ar, -er, -ir",
-    "description": "Curriculum and historical examination lineage for Presente de Indicativo: Verbos Regulares -ar, -er, -ir under Unit 2 (Artículos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Presente de Indicativo: Verbos Regulares -ar, -er, -ir under Unit 2 (Art\u00edculos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -18032,7 +18032,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 2,
-    "unitName": "Artículos Indefinidos, Direcciones y Presente Regular",
+    "unitName": "Art\u00edculos Indefinidos, Direcciones y Presente Regular",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -18057,7 +18057,7 @@
     "questionFamilies": [
       {
         "id": 2423,
-        "name": "escribir las oraciones usando los verbos: (ejemplo: aprender: yo aprendo español) (i) ver (ii)...",
+        "name": "escribir las oraciones usando los verbos: (ejemplo: aprender: yo aprendo espa\u00f1ol) (i) ver (ii)...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -18065,7 +18065,7 @@
     "sampleQuestions": [
       {
         "id": 2590,
-        "text": "escribir las oraciones usando los verbos: (ejemplo: aprender: yo aprendo español) (i) ver (ii) tener (iii) escribir (iv) vivir (v) leer",
+        "text": "escribir las oraciones usando los verbos: (ejemplo: aprender: yo aprendo espa\u00f1ol) (i) ver (ii) tener (iii) escribir (iv) vivir (v) leer",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -18078,8 +18078,8 @@
   {
     "id": 625,
     "slug": "preguntas-interrogativas-que-cual-cuantos-donde-como",
-    "name": "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
-    "description": "Curriculum and historical examination lineage for Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo under Unit 2 (Artículos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
+    "name": "Preguntas Interrogativas: qu\u00e9, cu\u00e1l, cu\u00e1ntos, d\u00f3nde, c\u00f3mo",
+    "description": "Curriculum and historical examination lineage for Preguntas Interrogativas: qu\u00e9, cu\u00e1l, cu\u00e1ntos, d\u00f3nde, c\u00f3mo under Unit 2 (Art\u00edculos Indefinidos, Direcciones y Presente Regular) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -18090,7 +18090,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 2,
-    "unitName": "Artículos Indefinidos, Direcciones y Presente Regular",
+    "unitName": "Art\u00edculos Indefinidos, Direcciones y Presente Regular",
     "appearanceCount": 15,
     "paperCount": 3,
     "papers": [
@@ -18129,31 +18129,31 @@
     "questionFamilies": [
       {
         "id": 2409,
-        "name": "¿Cómo se dice \"it's sunny\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
+        "name": "\u00bfC\u00f3mo se dice \"it's sunny\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
         "repetitionType": "family_repeat",
         "count": 4
       },
       {
         "id": 2400,
-        "name": "Qué mes del año en español no es similar a la versión en inglés: (A) Febrero (B) octubre (C) enero...",
+        "name": "Qu\u00e9 mes del a\u00f1o en espa\u00f1ol no es similar a la versi\u00f3n en ingl\u00e9s: (A) Febrero (B) octubre (C) enero...",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2411,
-        "name": "¿Cómo se dice \"What is the weather like\"? (A) qué es la temperatura (B) hoy hace calor (C) La...",
+        "name": "\u00bfC\u00f3mo se dice \"What is the weather like\"? (A) qu\u00e9 es la temperatura (B) hoy hace calor (C) La...",
         "repetitionType": "exact_repeat",
         "count": 2
       },
       {
         "id": 2413,
-        "name": "¿Cómo se dice \"Brown hat\" in spanish? (A) un sombrero marrón (B) un marrón sombrero (C) un sombrero...",
+        "name": "\u00bfC\u00f3mo se dice \"Brown hat\" in spanish? (A) un sombrero marr\u00f3n (B) un marr\u00f3n sombrero (C) un sombrero...",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2424,
-        "name": "¿Cómo se dice \"hello\" en español? (A) Hola (B) Adiós (C) Gracias (D) Por favor",
+        "name": "\u00bfC\u00f3mo se dice \"hello\" en espa\u00f1ol? (A) Hola (B) Adi\u00f3s (C) Gracias (D) Por favor",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -18161,49 +18161,49 @@
     "sampleQuestions": [
       {
         "id": 2560,
-        "text": "Qué mes del año en español no es similar a la versión en inglés: (A) Febrero (B) octubre (C) enero (D) Marzo",
+        "text": "Qu\u00e9 mes del a\u00f1o en espa\u00f1ol no es similar a la versi\u00f3n en ingl\u00e9s: (A) Febrero (B) octubre (C) enero (D) Marzo",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2570,
-        "text": "¿Cómo se dice \"it's sunny\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
+        "text": "\u00bfC\u00f3mo se dice \"it's sunny\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2571,
-        "text": "¿Cómo se dice \"it's cold\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
+        "text": "\u00bfC\u00f3mo se dice \"it's cold\"? (A) hace sol (B) hace frio (C) hace fresco (D) hace calor",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2573,
-        "text": "¿Cómo se dice \"What is the weather like\"? (A) qué es la temperatura (B) hoy hace calor (C) La temperatura es... (D) que tiempo hace",
+        "text": "\u00bfC\u00f3mo se dice \"What is the weather like\"? (A) qu\u00e9 es la temperatura (B) hoy hace calor (C) La temperatura es... (D) que tiempo hace",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2575,
-        "text": "¿Cómo se dice \"Brown hat\" in spanish? (A) un sombrero marrón (B) un marrón sombrero (C) un sombrero rosa (D) un sombrero negro",
+        "text": "\u00bfC\u00f3mo se dice \"Brown hat\" in spanish? (A) un sombrero marr\u00f3n (B) un marr\u00f3n sombrero (C) un sombrero rosa (D) un sombrero negro",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Preguntas Interrogativas: qu\u00e9, cu\u00e1l, cu\u00e1ntos, d\u00f3nde, c\u00f3mo",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/spanish/topics/preguntas-interrogativas-que-cual-cuantos-donde-como"
   },
   {
     "id": 629,
     "slug": "expresiones-del-clima-y-estaciones-del-ano",
-    "name": "Expresiones del Clima y Estaciones del Año",
-    "description": "Curriculum and historical examination lineage for Expresiones del Clima y Estaciones del Año under Unit 3 (Verbos Ser y Estar, Clima y Verbos Irregulares) of Spanish (21LEH107T) at SRMIST.",
+    "name": "Expresiones del Clima y Estaciones del A\u00f1o",
+    "description": "Curriculum and historical examination lineage for Expresiones del Clima y Estaciones del A\u00f1o under Unit 3 (Verbos Ser y Estar, Clima y Verbos Irregulares) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -18239,7 +18239,7 @@
     "questionFamilies": [
       {
         "id": 2402,
-        "name": "Estamos en la temporada de _______________ (A) invierno (B) primavera (C) verano (D) otoño",
+        "name": "Estamos en la temporada de _______________ (A) invierno (B) primavera (C) verano (D) oto\u00f1o",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -18247,13 +18247,13 @@
     "sampleQuestions": [
       {
         "id": 2562,
-        "text": "Estamos en la temporada de _______________ (A) invierno (B) primavera (C) verano (D) otoño",
+        "text": "Estamos en la temporada de _______________ (A) invierno (B) primavera (C) verano (D) oto\u00f1o",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Expresiones del Clima y Estaciones del Año",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Expresiones del Clima y Estaciones del A\u00f1o",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/spanish/topics/expresiones-del-clima-y-estaciones-del-ano"
   },
@@ -18261,7 +18261,7 @@
     "id": 633,
     "slug": "demostrativos-este-esta-estos-estas-esto",
     "name": "Demostrativos: este, esta, estos, estas, esto",
-    "description": "Curriculum and historical examination lineage for Demostrativos: este, esta, estos, estas, esto under Unit 4 (Compras, Precios, Demostrativos y Perífrasis Obligativa) of Spanish (21LEH107T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Demostrativos: este, esta, estos, estas, esto under Unit 4 (Compras, Precios, Demostrativos y Per\u00edfrasis Obligativa) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -18272,7 +18272,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 4,
-    "unitName": "Compras, Precios, Demostrativos y Perífrasis Obligativa",
+    "unitName": "Compras, Precios, Demostrativos y Per\u00edfrasis Obligativa",
     "appearanceCount": 1,
     "paperCount": 1,
     "papers": [
@@ -18297,7 +18297,7 @@
     "questionFamilies": [
       {
         "id": 2421,
-        "name": "Ordenar las palabras en las preguntas: (i) ¿tiene / en la mano / Julián / qué? (ii) ¿quién / este...",
+        "name": "Ordenar las palabras en las preguntas: (i) \u00bftiene / en la mano / Juli\u00e1n / qu\u00e9? (ii) \u00bfqui\u00e9n / este...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -18305,7 +18305,7 @@
     "sampleQuestions": [
       {
         "id": 2588,
-        "text": "Ordenar las palabras en las preguntas: (i) ¿tiene / en la mano / Julián / qué? (ii) ¿quién / este abrigo / es / de? (iii) ¿ese anillo / para / es / quién? (iv) ¿anoche / pasó /...",
+        "text": "Ordenar las palabras en las preguntas: (i) \u00bftiene / en la mano / Juli\u00e1n / qu\u00e9? (ii) \u00bfqui\u00e9n / este abrigo / es / de? (iii) \u00bfese anillo / para / es / qui\u00e9n? (iv) \u00bfanoche / pas\u00f3 /...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -18318,8 +18318,8 @@
   {
     "id": 637,
     "slug": "descripcion-del-aspecto-fisico-y-caracter",
-    "name": "Descripción del Aspecto Físico y Carácter",
-    "description": "Curriculum and historical examination lineage for Descripción del Aspecto Físico y Carácter under Unit 5 (Aspecto, Carácter, Gustos con Gustar y Restaurante) of Spanish (21LEH107T) at SRMIST.",
+    "name": "Descripci\u00f3n del Aspecto F\u00edsico y Car\u00e1cter",
+    "description": "Curriculum and historical examination lineage for Descripci\u00f3n del Aspecto F\u00edsico y Car\u00e1cter under Unit 5 (Aspecto, Car\u00e1cter, Gustos con Gustar y Restaurante) of Spanish (21LEH107T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Spanish",
@@ -18330,7 +18330,7 @@
     "languageName": "Spanish",
     "trackCode": "21LEH107T",
     "unitNumber": 5,
-    "unitName": "Aspecto, Carácter, Gustos con Gustar y Restaurante",
+    "unitName": "Aspecto, Car\u00e1cter, Gustos con Gustar y Restaurante",
     "appearanceCount": 2,
     "paperCount": 2,
     "papers": [
@@ -18362,7 +18362,7 @@
     "questionFamilies": [
       {
         "id": 2414,
-        "name": "Él es _______________ (tall) (A) alto (B) grande (C) alta (D) corta",
+        "name": "\u00c9l es _______________ (tall) (A) alto (B) grande (C) alta (D) corta",
         "repetitionType": "family_repeat",
         "count": 2
       }
@@ -18370,20 +18370,20 @@
     "sampleQuestions": [
       {
         "id": 2576,
-        "text": "Él es _______________ (tall) (A) alto (B) grande (C) alta (D) corta",
+        "text": "\u00c9l es _______________ (tall) (A) alto (B) grande (C) alta (D) corta",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2608,
-        "text": "Él es _____ (tall) (A) alto (B) grand (C) alta (D) corta",
+        "text": "\u00c9l es _____ (tall) (A) alto (B) grand (C) alta (D) corta",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Descripción del Aspecto Físico y Carácter",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=spanish&tab=practice&topic=Descripci\u00f3n del Aspecto F\u00edsico y Car\u00e1cter",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=spanish",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/spanish/topics/descripcion-del-aspecto-fisico-y-caracter"
   },
@@ -19032,7 +19032,7 @@
       },
       {
         "id": 1997,
-        "name": "TAKAI (A) だがいえ (B) たがい (C) たかい (D) ちがい",
+        "name": "TAKAI (A) \u3060\u304c\u3044\u3048 (B) \u305f\u304c\u3044 (C) \u305f\u304b\u3044 (D) \u3061\u304c\u3044",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -19047,7 +19047,7 @@
       },
       {
         "id": 3496,
-        "text": "TAKAI (A) だがいえ (B) たがい (C) たかい (D) ちがい",
+        "text": "TAKAI (A) \u3060\u304c\u3044\u3048 (B) \u305f\u304c\u3044 (C) \u305f\u304b\u3044 (D) \u3061\u304c\u3044",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -19060,8 +19060,8 @@
   {
     "id": 680,
     "slug": "single-vowels-and-double-vowels",
-    "name": "Single Vowels and Double Vowels (단모음, 이중모음)",
-    "description": "Curriculum and historical examination lineage for Single Vowels and Double Vowels (단모음, 이중모음) under Unit 1 (Hangul Alphabet, Vowels, Consonants and Self-Introduction) of Korean (21LEH106T) at SRMIST.",
+    "name": "Single Vowels and Double Vowels (\ub2e8\ubaa8\uc74c, \uc774\uc911\ubaa8\uc74c)",
+    "description": "Curriculum and historical examination lineage for Single Vowels and Double Vowels (\ub2e8\ubaa8\uc74c, \uc774\uc911\ubaa8\uc74c) under Unit 1 (Hangul Alphabet, Vowels, Consonants and Self-Introduction) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19109,7 +19109,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Single Vowels and Double Vowels (단모음, 이중모음)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Single Vowels and Double Vowels (\ub2e8\ubaa8\uc74c, \uc774\uc911\ubaa8\uc74c)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/single-vowels-and-double-vowels"
   },
@@ -19187,7 +19187,7 @@
       },
       {
         "id": 2050,
-        "name": "Fill in the blanks. (Order of the consonants does not matter). (ex) ㄱ (a) ㄴ (b) ㄷ (e) ㅁ (f) ㅂ (g) ㅅ...",
+        "name": "Fill in the blanks. (Order of the consonants does not matter). (ex) \u3131 (a) \u3134 (b) \u3137 (e) \u3141 (f) \u3142 (g) \u3145...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -19208,14 +19208,14 @@
       },
       {
         "id": 1854,
-        "text": "Write the full structure of the following consonants in Korean. Write your Self-Introduction in Korean (여러분의 자기소개를 쓰세요). (i) Write the full structure of the following consonants...",
+        "text": "Write the full structure of the following consonants in Korean. Write your Self-Introduction in Korean (\uc5ec\ub7ec\ubd84\uc758 \uc790\uae30\uc18c\uac1c\ub97c \uc4f0\uc138\uc694). (i) Write the full structure of the following consonants...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3575,
-        "text": "Fill in the blanks. (Order of the consonants does not matter). (ex) ㄱ (a) ㄴ (b) ㄷ (e) ㅁ (f) ㅂ (g) ㅅ (h) ㅇ (i) ㅈ (j) ㅊ",
+        "text": "Fill in the blanks. (Order of the consonants does not matter). (ex) \u3131 (a) \u3134 (b) \u3137 (e) \u3141 (f) \u3142 (g) \u3145 (h) \u3147 (i) \u3148 (j) \u314a",
         "marks": 10,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -19235,8 +19235,8 @@
   {
     "id": 683,
     "slug": "self-introduction-and-daily-greetings",
-    "name": "Self-Introduction and Daily Greetings (자기 소개, 인사말)",
-    "description": "Curriculum and historical examination lineage for Self-Introduction and Daily Greetings (자기 소개, 인사말) under Unit 1 (Hangul Alphabet, Vowels, Consonants and Self-Introduction) of Korean (21LEH106T) at SRMIST.",
+    "name": "Self-Introduction and Daily Greetings (\uc790\uae30 \uc18c\uac1c, \uc778\uc0ac\ub9d0)",
+    "description": "Curriculum and historical examination lineage for Self-Introduction and Daily Greetings (\uc790\uae30 \uc18c\uac1c, \uc778\uc0ac\ub9d0) under Unit 1 (Hangul Alphabet, Vowels, Consonants and Self-Introduction) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19309,31 +19309,31 @@
     "questionFamilies": [
       {
         "id": 2079,
-        "name": "'Thank you' is _________ in Korean? (A) 안녕 (B) 감사합니다 (C) 가세요 (D) 고마워",
+        "name": "'Thank you' is _________ in Korean? (A) \uc548\ub155 (B) \uac10\uc0ac\ud569\ub2c8\ub2e4 (C) \uac00\uc138\uc694 (D) \uace0\ub9c8\uc6cc",
         "repetitionType": "family_repeat",
         "count": 3
       },
       {
         "id": 2081,
-        "name": "'yes' is _________ in Korean? (A) 아니요 (B) 사람 (C) 네 (D) 의사",
+        "name": "'yes' is _________ in Korean? (A) \uc544\ub2c8\uc694 (B) \uc0ac\ub78c (C) \ub124 (D) \uc758\uc0ac",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 1889,
-        "name": "Check the grammar/coherence of the sentences. Mark (✓) for correct, (x) for incorrect ones. (i) A:...",
+        "name": "Check the grammar/coherence of the sentences. Mark (\u2713) for correct, (x) for incorrect ones. (i) A:...",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 1890,
-        "name": "Translate the following sentences. (i) 여기 있어요. (ii) 좀 깎아 주세요. (iii) 중 더 주세요. (iv) 인도 사람이에요. (v) 만나서...",
+        "name": "Translate the following sentences. (i) \uc5ec\uae30 \uc788\uc5b4\uc694. (ii) \uc880 \uae4e\uc544 \uc8fc\uc138\uc694. (iii) \uc911 \ub354 \uc8fc\uc138\uc694. (iv) \uc778\ub3c4 \uc0ac\ub78c\uc774\uc5d0\uc694. (v) \ub9cc\ub098\uc11c...",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 1808,
-        "name": "'Thank you' is _______ in Korean? (A) 안녕 (B) 감사합니다 (C) 가세요 (D) 고마워",
+        "name": "'Thank you' is _______ in Korean? (A) \uc548\ub155 (B) \uac10\uc0ac\ud569\ub2c8\ub2e4 (C) \uac00\uc138\uc694 (D) \uace0\ub9c8\uc6cc",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -19341,49 +19341,49 @@
     "sampleQuestions": [
       {
         "id": 1733,
-        "text": "'Thank you' is _________ in Korean? (A) 안녕 (B) 감사합니다 (C) 가세요 (D) 고마워",
+        "text": "'Thank you' is _________ in Korean? (A) \uc548\ub155 (B) \uac10\uc0ac\ud569\ub2c8\ub2e4 (C) \uac00\uc138\uc694 (D) \uace0\ub9c8\uc6cc",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 1765,
-        "text": "'Yes' is _______ in Korean. (A) 아니요 (B) 네 (C) 돈 (D) 인도",
+        "text": "'Yes' is _______ in Korean. (A) \uc544\ub2c8\uc694 (B) \ub124 (C) \ub3c8 (D) \uc778\ub3c4",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1767,
-        "text": "'Thank you' is _______ in Korean. (A) 안녕 (B) 잘자요 (C) 감사합니다 (D) 가세요",
+        "text": "'Thank you' is _______ in Korean. (A) \uc548\ub155 (B) \uc798\uc790\uc694 (C) \uac10\uc0ac\ud569\ub2c8\ub2e4 (D) \uac00\uc138\uc694",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1833,
-        "text": "'Hello'는 한국어로 _________? (A) 안녕하세요 (B) 감사합니다 (C) 만나서 반갑습니다 (D) 가세요",
+        "text": "'Hello'\ub294 \ud55c\uad6d\uc5b4\ub85c _________? (A) \uc548\ub155\ud558\uc138\uc694 (B) \uac10\uc0ac\ud569\ub2c8\ub2e4 (C) \ub9cc\ub098\uc11c \ubc18\uac11\uc2b5\ub2c8\ub2e4 (D) \uac00\uc138\uc694",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3577,
-        "text": "Check the grammar/coherence of the sentences. Mark (✓) for correct, (x) for incorrect ones. (a) A: 한국 사람이에요?/ B: 네, 한국 사람이에요. ( ) (b) A: 어서 오세요. / B: 안녕히 가세요. ( ) (c) A: 감사합니다. /...",
+        "text": "Check the grammar/coherence of the sentences. Mark (\u2713) for correct, (x) for incorrect ones. (a) A: \ud55c\uad6d \uc0ac\ub78c\uc774\uc5d0\uc694?/ B: \ub124, \ud55c\uad6d \uc0ac\ub78c\uc774\uc5d0\uc694. ( ) (b) A: \uc5b4\uc11c \uc624\uc138\uc694. / B: \uc548\ub155\ud788 \uac00\uc138\uc694. ( ) (c) A: \uac10\uc0ac\ud569\ub2c8\ub2e4. /...",
         "marks": 10,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Self-Introduction and Daily Greetings (자기 소개, 인사말)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Self-Introduction and Daily Greetings (\uc790\uae30 \uc18c\uac1c, \uc778\uc0ac\ub9d0)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/self-introduction-and-daily-greetings"
   },
   {
     "id": 686,
     "slug": "informal-polite-sentence-endings-ieyo-yeyo",
-    "name": "Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
-    "description": "Curriculum and historical examination lineage for Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요) under Unit 2 (Particles, Sentence Endings and Demonstratives) of Korean (21LEH106T) at SRMIST.",
+    "name": "Informal Polite Sentence Endings: ieyo / yeyo (\uc774\uc5d0\uc694/\uc608\uc694)",
+    "description": "Curriculum and historical examination lineage for Informal Polite Sentence Endings: ieyo / yeyo (\uc774\uc5d0\uc694/\uc608\uc694) under Unit 2 (Particles, Sentence Endings and Demonstratives) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19419,7 +19419,7 @@
     "questionFamilies": [
       {
         "id": 1834,
-        "name": "a. Explain about세요/으세요 in Korean? Change the following verbs in (르까요/을까요) form. (i) 오다 (ii) 주다...",
+        "name": "a. Explain about\uc138\uc694/\uc73c\uc138\uc694 in Korean? Change the following verbs in (\ub974\uae4c\uc694/\uc744\uae4c\uc694) form. (i) \uc624\ub2e4 (ii) \uc8fc\ub2e4...",
         "repetitionType": "family_repeat",
         "count": 2
       }
@@ -19427,28 +19427,28 @@
     "sampleQuestions": [
       {
         "id": 3695,
-        "text": "a. Explain about세요/으세요 in Korean? Change the following verbs in (르까요/을까요) form. (i) 오다 (ii) 주다 (iii) 사다 (iv) 만나다 --- OR --- 25. b. Translate the following sentences in to English?...",
+        "text": "a. Explain about\uc138\uc694/\uc73c\uc138\uc694 in Korean? Change the following verbs in (\ub974\uae4c\uc694/\uc744\uae4c\uc694) form. (i) \uc624\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uc0ac\ub2e4 (iv) \ub9cc\ub098\ub2e4 --- OR --- 25. b. Translate the following sentences in to English?...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3696,
-        "text": "b. Translate the following sentences in to English? (i) 물 마실까요? (ii) 책 얼마예요? (iii) 카메라 사세요. (iv) 내일 금요일 이지요? (v) 저는 공부할수있어요. (vi) 저는 영화 보고싶어요. (vii) 저는 집에 가있어요. (viii) 저는 인도사람 이에요",
+        "text": "b. Translate the following sentences in to English? (i) \ubb3c \ub9c8\uc2e4\uae4c\uc694? (ii) \ucc45 \uc5bc\ub9c8\uc608\uc694? (iii) \uce74\uba54\ub77c \uc0ac\uc138\uc694. (iv) \ub0b4\uc77c \uae08\uc694\uc77c \uc774\uc9c0\uc694? (v) \uc800\ub294 \uacf5\ubd80\ud560\uc218\uc788\uc5b4\uc694. (vi) \uc800\ub294 \uc601\ud654 \ubcf4\uace0\uc2f6\uc5b4\uc694. (vii) \uc800\ub294 \uc9d1\uc5d0 \uac00\uc788\uc5b4\uc694. (viii) \uc800\ub294 \uc778\ub3c4\uc0ac\ub78c \uc774\uc5d0\uc694",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Informal Polite Sentence Endings: ieyo / yeyo (\uc774\uc5d0\uc694/\uc608\uc694)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/informal-polite-sentence-endings-ieyo-yeyo"
   },
   {
     "id": 690,
     "slug": "present-tense-verb-conjugation-ayo-eoyo-haeyo",
-    "name": "Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
-    "description": "Curriculum and historical examination lineage for Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요) under Unit 3 (Verb Conjugations, Tenses and Weather) of Korean (21LEH106T) at SRMIST.",
+    "name": "Present Tense Verb Conjugation: ayo / eoyo / haeyo (\uc544\uc694/\uc5b4\uc694/\ud574\uc694)",
+    "description": "Curriculum and historical examination lineage for Present Tense Verb Conjugation: ayo / eoyo / haeyo (\uc544\uc694/\uc5b4\uc694/\ud574\uc694) under Unit 3 (Verb Conjugations, Tenses and Weather) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19490,21 +19490,21 @@
     "sampleQuestions": [
       {
         "id": 1789,
-        "text": "Answer the following subquestions: (a) Write 3 Rules to Conjugate a Verb in the Present Tensor as 아요/어요/해요 form. Conjugate the following verbs in Present Tense i. 사다 ii. 마시다 iii....",
+        "text": "Answer the following subquestions: (a) Write 3 Rules to Conjugate a Verb in the Present Tensor as \uc544\uc694/\uc5b4\uc694/\ud574\uc694 form. Conjugate the following verbs in Present Tense i. \uc0ac\ub2e4 ii. \ub9c8\uc2dc\ub2e4 iii....",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Present Tense Verb Conjugation: ayo / eoyo / haeyo (\uc544\uc694/\uc5b4\uc694/\ud574\uc694)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/present-tense-verb-conjugation-ayo-eoyo-haeyo"
   },
   {
     "id": 691,
     "slug": "past-tense-verb-conjugation-asseoyo-eosseoyo",
-    "name": "Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
-    "description": "Curriculum and historical examination lineage for Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요) under Unit 3 (Verb Conjugations, Tenses and Weather) of Korean (21LEH106T) at SRMIST.",
+    "name": "Past Tense Verb Conjugation: asseoyo / eosseoyo (\uc558/\uc5c8/\ud588\uc5b4\uc694)",
+    "description": "Curriculum and historical examination lineage for Past Tense Verb Conjugation: asseoyo / eosseoyo (\uc558/\uc5c8/\ud588\uc5b4\uc694) under Unit 3 (Verb Conjugations, Tenses and Weather) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19568,7 +19568,7 @@
       },
       {
         "id": 2074,
-        "name": "Convert the following verbs into past tense forms using '앉었어요/었어요/했어요' (a) 먹다 (b) 마시다 (c) 가다 (d) 보다...",
+        "name": "Convert the following verbs into past tense forms using '\uc549\uc5c8\uc5b4\uc694/\uc5c8\uc5b4\uc694/\ud588\uc5b4\uc694' (a) \uba39\ub2e4 (b) \ub9c8\uc2dc\ub2e4 (c) \uac00\ub2e4 (d) \ubcf4\ub2e4...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -19582,35 +19582,35 @@
     "sampleQuestions": [
       {
         "id": 1757,
-        "text": "a. Explain all 3 rules to conjugate a Verb in Past tense? Conjugate the following Verbs in PAST TENSE as (았어요/었어요/했어요) form. (i) 요리하다 (ii) 만나다 (iii) 보다 (iv) 마시다 --- OR --- 23. b....",
+        "text": "a. Explain all 3 rules to conjugate a Verb in Past tense? Conjugate the following Verbs in PAST TENSE as (\uc558\uc5b4\uc694/\uc5c8\uc5b4\uc694/\ud588\uc5b4\uc694) form. (i) \uc694\ub9ac\ud558\ub2e4 (ii) \ub9cc\ub098\ub2e4 (iii) \ubcf4\ub2e4 (iv) \ub9c8\uc2dc\ub2e4 --- OR --- 23. b....",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 1857,
-        "text": "Write the rules to conjugate a verb in PAST TENSE. Conjugate the following Verbs in PAST TENSE as(었어요/았어요/했어요) form. (i) 자다 (ii) 주다 (iii) 오다 (iv) 공부하다 --- OR --- 23. Explain 있다...",
+        "text": "Write the rules to conjugate a verb in PAST TENSE. Conjugate the following Verbs in PAST TENSE as(\uc5c8\uc5b4\uc694/\uc558\uc5b4\uc694/\ud588\uc5b4\uc694) form. (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uc624\ub2e4 (iv) \uacf5\ubd80\ud558\ub2e4 --- OR --- 23. Explain \uc788\ub2e4...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3661,
-        "text": "Convert the following verbs into past tense forms using '앉었어요/었어요/했어요' (a) 먹다 (b) 마시다 (c) 가다 (d) 보다 (e) 공부하다",
+        "text": "Convert the following verbs into past tense forms using '\uc549\uc5c8\uc5b4\uc694/\uc5c8\uc5b4\uc694/\ud588\uc5b4\uc694' (a) \uba39\ub2e4 (b) \ub9c8\uc2dc\ub2e4 (c) \uac00\ub2e4 (d) \ubcf4\ub2e4 (e) \uacf5\ubd80\ud558\ub2e4",
         "marks": 5,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Past Tense Verb Conjugation: asseoyo / eosseoyo (\uc558/\uc5c8/\ud588\uc5b4\uc694)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/past-tense-verb-conjugation-asseoyo-eosseoyo"
   },
   {
     "id": 697,
     "slug": "future-tense-conjugation-eu-l-geoyeyo",
-    "name": "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
-    "description": "Curriculum and historical examination lineage for Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
+    "name": "Future Tense Conjugation: (eu)l geoyeyo ((\uc73c)\u3139 \uac70\uc608\uc694)",
+    "description": "Curriculum and historical examination lineage for Future Tense Conjugation: (eu)l geoyeyo ((\uc73c)\u3139 \uac70\uc608\uc694) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19699,7 +19699,7 @@
       },
       {
         "id": 1760,
-        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (ㄹ거예요/을거예요) form (i) 자다 (ii) 주다 (iii) 공부하다 (iv) 마시다",
+        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139\uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -19713,28 +19713,28 @@
       },
       {
         "id": 1860,
-        "text": "Explain the rules to conjugate a verb in the Future Tense. Conjugate the following verbs in Future Tense as (ㄹ거에요/을거에요) form (i) 요리하다 (ii) 주다 (iii) 먹다 (iv) 사다",
+        "text": "Explain the rules to conjugate a verb in the Future Tense. Conjugate the following verbs in Future Tense as (\u3139\uac70\uc5d0\uc694/\uc744\uac70\uc5d0\uc694) form (i) \uc694\ub9ac\ud558\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uba39\ub2e4 (iv) \uc0ac\ub2e4",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3694,
-        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (ㄹ 거예요/을거예요) form (i) 자다 (ii) 주다 (iii) 공부하다 (iv) 마시다",
+        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139 \uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Future Tense Conjugation: (eu)l geoyeyo ((\uc73c)\u3139 \uac70\uc608\uc694)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/future-tense-conjugation-eu-l-geoyeyo"
   },
   {
     "id": 698,
     "slug": "object-marking-particles-eul-reul",
-    "name": "Object Marking Particles: eul / reul (을/를)",
-    "description": "Curriculum and historical examination lineage for Object Marking Particles: eul / reul (을/를) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
+    "name": "Object Marking Particles: eul / reul (\uc744/\ub97c)",
+    "description": "Curriculum and historical examination lineage for Object Marking Particles: eul / reul (\uc744/\ub97c) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19777,13 +19777,13 @@
     "questionFamilies": [
       {
         "id": 2099,
-        "name": "a. Explain about object marking particles? Fill in the blanks with Object marking particles(을/를)...",
+        "name": "a. Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c)...",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 1830,
-        "name": "Explain about object marking particles? Fill in the blanks with Object marking particles(을/를) (i)...",
+        "name": "Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c) (i)...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -19791,28 +19791,28 @@
     "sampleQuestions": [
       {
         "id": 1755,
-        "text": "a. Explain about object marking particles? Fill in the blanks with Object marking particles(을/를) (i) 카메라 _________ 사아요. (ii) 한국어 _________ 공부해요 (iii) 물 _________ 마시어요 (iv) 공책...",
+        "text": "a. Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c) (i) \uce74\uba54\ub77c _________ \uc0ac\uc544\uc694. (ii) \ud55c\uad6d\uc5b4 _________ \uacf5\ubd80\ud574\uc694 (iii) \ubb3c _________ \ub9c8\uc2dc\uc5b4\uc694 (iv) \uacf5\ucc45...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 3689,
-        "text": "Explain about object marking particles? Fill in the blanks with Object marking particles(을/를) (i) (i) 카메라 ____ 사아요. (ii) (ii) 한국어 ____ 공부해요 (iii) (iii) 물 ____ 마시어요 (iv) (iv) 공책...",
+        "text": "Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c) (i) (i) \uce74\uba54\ub77c ____ \uc0ac\uc544\uc694. (ii) (ii) \ud55c\uad6d\uc5b4 ____ \uacf5\ubd80\ud574\uc694 (iii) (iii) \ubb3c ____ \ub9c8\uc2dc\uc5b4\uc694 (iv) (iv) \uacf5\ucc45...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Object Marking Particles: eul / reul (을/를)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Object Marking Particles: eul / reul (\uc744/\ub97c)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/object-marking-particles-eul-reul"
   },
   {
     "id": 699,
     "slug": "honorific-particle-kkeseo-and-subject-honorifics",
-    "name": "Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
-    "description": "Curriculum and historical examination lineage for Honorific Particle: kkeseo and Subject Honorifics (시/으시) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
+    "name": "Honorific Particle: kkeseo and Subject Honorifics (\uc2dc/\uc73c\uc2dc)",
+    "description": "Curriculum and historical examination lineage for Honorific Particle: kkeseo and Subject Honorifics (\uc2dc/\uc73c\uc2dc) under Unit 4 (Time System, Calendar, Future Tense and Honorifics) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -19893,31 +19893,31 @@
     "questionFamilies": [
       {
         "id": 1863,
-        "name": "'Russia' is in Korean. (A) 러시아 (B) 미국 (C) 중국 (D) 인도",
+        "name": "'Russia' is in Korean. (A) \ub7ec\uc2dc\uc544 (B) \ubbf8\uad6d (C) \uc911\uad6d (D) \uc778\ub3c4",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 1847,
-        "name": "'영국' is in English. (A) The United Kingdom (B) U.S.A (C) Earth (D) Alcohol",
+        "name": "'\uc601\uad6d' is in English. (A) The United Kingdom (B) U.S.A (C) Earth (D) Alcohol",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2080,
-        "name": "'U.S.A' is _________ in Korean? (A) 호주 (B) 캐나다 (C) 미국 (D) 일본",
+        "name": "'U.S.A' is _________ in Korean? (A) \ud638\uc8fc (B) \uce90\ub098\ub2e4 (C) \ubbf8\uad6d (D) \uc77c\ubcf8",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2082,
-        "name": "'선생님' is _________ in Korean? (A) student (B) Teacher (C) chef (D) Doctor",
+        "name": "'\uc120\uc0dd\ub2d8' is _________ in Korean? (A) student (B) Teacher (C) chef (D) Doctor",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2365,
-        "name": "'독일' is _______ in English. (A) U.S.A (B) Japan (C) Australia (D) Germany",
+        "name": "'\ub3c5\uc77c' is _______ in English. (A) U.S.A (B) Japan (C) Australia (D) Germany",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -19925,28 +19925,28 @@
     "sampleQuestions": [
       {
         "id": 1734,
-        "text": "'U.S.A' is _________ in Korean? (A) 호주 (B) 캐나다 (C) 미국 (D) 일본",
+        "text": "'U.S.A' is _________ in Korean? (A) \ud638\uc8fc (B) \uce90\ub098\ub2e4 (C) \ubbf8\uad6d (D) \uc77c\ubcf8",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 1736,
-        "text": "'선생님' is _________ in Korean? (A) student (B) Teacher (C) chef (D) Doctor",
+        "text": "'\uc120\uc0dd\ub2d8' is _________ in Korean? (A) student (B) Teacher (C) chef (D) Doctor",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 1766,
-        "text": "'독일' is _______ in English. (A) U.S.A (B) Japan (C) Australia (D) Germany",
+        "text": "'\ub3c5\uc77c' is _______ in English. (A) U.S.A (B) Japan (C) Australia (D) Germany",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1794,
-        "text": "Explain about 지요/이지요 form. Fill in the blanks with 지요/이지요 form. i. 내일 금요일 _______? ii. 그 사람 의사 _______? iii. 영화 좋 _______? iv. 김치 맛 _______?",
+        "text": "Explain about \uc9c0\uc694/\uc774\uc9c0\uc694 form. Fill in the blanks with \uc9c0\uc694/\uc774\uc9c0\uc694 form. i. \ub0b4\uc77c \uae08\uc694\uc77c _______? ii. \uadf8 \uc0ac\ub78c \uc758\uc0ac _______? iii. \uc601\ud654 \uc88b _______? iv. \uae40\uce58 \ub9db _______?",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -19959,15 +19959,15 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Honorific Particle: kkeseo and Subject Honorifics (\uc2dc/\uc73c\uc2dc)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/honorific-particle-kkeseo-and-subject-honorifics"
   },
   {
     "id": 701,
     "slug": "imperatives-and-requests-eu-seyo",
-    "name": "Imperatives and Requests: (eu)seyo ((으)세요)",
-    "description": "Curriculum and historical examination lineage for Imperatives and Requests: (eu)seyo ((으)세요) under Unit 5 (Ability, Obligations, Requests and Daily Activities) of Korean (21LEH106T) at SRMIST.",
+    "name": "Imperatives and Requests: (eu)seyo ((\uc73c)\uc138\uc694)",
+    "description": "Curriculum and historical examination lineage for Imperatives and Requests: (eu)seyo ((\uc73c)\uc138\uc694) under Unit 5 (Ability, Obligations, Requests and Daily Activities) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -20003,7 +20003,7 @@
     "questionFamilies": [
       {
         "id": 2489,
-        "name": "Explain about the 세요/으세요 form in Korean with examples.",
+        "name": "Explain about the \uc138\uc694/\uc73c\uc138\uc694 form in Korean with examples.",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -20011,21 +20011,21 @@
     "sampleQuestions": [
       {
         "id": 1864,
-        "text": "Explain about the 세요/으세요 form in Korean with examples.",
+        "text": "Explain about the \uc138\uc694/\uc73c\uc138\uc694 form in Korean with examples.",
         "marks": 15,
         "year": 2024,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Imperatives and Requests: (eu)seyo ((으)세요)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Imperatives and Requests: (eu)seyo ((\uc73c)\uc138\uc694)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/imperatives-and-requests-eu-seyo"
   },
   {
     "id": 704,
     "slug": "complex-sentences-with-connective-particles",
-    "name": "Complex Sentences with Connective Particles (고, 서)",
-    "description": "Curriculum and historical examination lineage for Complex Sentences with Connective Particles (고, 서) under Unit 5 (Ability, Obligations, Requests and Daily Activities) of Korean (21LEH106T) at SRMIST.",
+    "name": "Complex Sentences with Connective Particles (\uace0, \uc11c)",
+    "description": "Curriculum and historical examination lineage for Complex Sentences with Connective Particles (\uace0, \uc11c) under Unit 5 (Ability, Obligations, Requests and Daily Activities) of Korean (21LEH106T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Korean",
@@ -20082,19 +20082,19 @@
       },
       {
         "id": 2369,
-        "name": "'마시다' is _______ in English. (A) To drink (B) To go (C) To sleep (D) To eat",
+        "name": "'\ub9c8\uc2dc\ub2e4' is _______ in English. (A) To drink (B) To go (C) To sleep (D) To eat",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2375,
-        "name": "'가세요' is _______ in English. (A) Please go (B) Please come (C) Please eat (D) Please drink",
+        "name": "'\uac00\uc138\uc694' is _______ in English. (A) Please go (B) Please come (C) Please eat (D) Please drink",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1836,
-        "name": "Translate the following sentences from English to Korean? (i) Nice to meet you (ii) 안녕 (iii) where...",
+        "name": "Translate the following sentences from English to Korean? (i) Nice to meet you (ii) \uc548\ub155 (iii) where...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -20109,27 +20109,27 @@
       },
       {
         "id": 1771,
-        "text": "'마시다' is _______ in English. (A) To drink (B) To go (C) To sleep (D) To eat",
+        "text": "'\ub9c8\uc2dc\ub2e4' is _______ in English. (A) To drink (B) To go (C) To sleep (D) To eat",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1781,
-        "text": "'가세요' is _______ in English. (A) Please go (B) Please come (C) Please eat (D) Please drink",
+        "text": "'\uac00\uc138\uc694' is _______ in English. (A) Please go (B) Please come (C) Please eat (D) Please drink",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3698,
-        "text": "Translate the following sentences from English to Korean? (i) Nice to meet you (ii) 안녕 (iii) where are you going? (iv) Please drink water. (v) I will study. (vi) I don't have...",
+        "text": "Translate the following sentences from English to Korean? (i) Nice to meet you (ii) \uc548\ub155 (iii) where are you going? (iv) Please drink water. (v) I will study. (vi) I don't have...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Complex Sentences with Connective Particles (고, 서)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=korean&tab=practice&topic=Complex Sentences with Connective Particles (\uace0, \uc11c)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=korean",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/korean/topics/complex-sentences-with-connective-particles"
   },
@@ -20257,8 +20257,8 @@
   {
     "id": 711,
     "slug": "grammar-particles-hen-ye-ma-ne-de",
-    "name": "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
-    "description": "Curriculum and historical examination lineage for Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的) under Unit 1 (Pinyin, Tones, Basic Strokes and Daily Greetings) of Chinese (21LEH102T) at SRMIST.",
+    "name": "Grammar Particles: hen (\u5f88), ye (\u4e5f), ma (\u5417), ne (\u5462), de (\u7684)",
+    "description": "Curriculum and historical examination lineage for Grammar Particles: hen (\u5f88), ye (\u4e5f), ma (\u5417), ne (\u5462), de (\u7684) under Unit 1 (Pinyin, Tones, Basic Strokes and Daily Greetings) of Chinese (21LEH102T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Chinese",
@@ -20302,25 +20302,25 @@
     "questionFamilies": [
       {
         "id": 2142,
-        "name": "Write the meaning of the following words in English. (i) 黄色/黃色 (ii) 白色 (iii) 绿色/綠色 (iv) 黑色 --- OR...",
+        "name": "Write the meaning of the following words in English. (i) \u9ec4\u8272/\u9ec3\u8272 (ii) \u767d\u8272 (iii) \u7eff\u8272/\u7da0\u8272 (iv) \u9ed1\u8272 --- OR...",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2130,
-        "name": "Which of the following is the Chinese equivalent for 'Also'? (A) 他 (B) 也 (C) 你 (D) 都",
+        "name": "Which of the following is the Chinese equivalent for 'Also'? (A) \u4ed6 (B) \u4e5f (C) \u4f60 (D) \u90fd",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2108,
-        "name": "这 是 我 ______ 书。/ 這 是 我 ______ 书。 (Fill in the blank) (A) 也 (B) 地 (C) 那 (D) 的",
+        "name": "\u8fd9 \u662f \u6211 ______ \u4e66\u3002/ \u9019 \u662f \u6211 ______ \u4e66\u3002 (Fill in the blank) (A) \u4e5f (B) \u5730 (C) \u90a3 (D) \u7684",
         "repetitionType": "family_repeat",
         "count": 1
       },
       {
         "id": 1907,
-        "name": "我_______打板块。(Fill in the blanks) (A) 喝 (B) 喜欢 (C) 很 (D) 谁",
+        "name": "\u6211_______\u6253\u677f\u5757\u3002(Fill in the blanks) (A) \u559d (B) \u559c\u6b22 (C) \u5f88 (D) \u8c01",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -20328,41 +20328,41 @@
     "sampleQuestions": [
       {
         "id": 866,
-        "text": "Which of the following is the Chinese equivalent for 'Also'? (A) 他 (B) 也 (C) 你 (D) 都",
+        "text": "Which of the following is the Chinese equivalent for 'Also'? (A) \u4ed6 (B) \u4e5f (C) \u4f60 (D) \u90fd",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 870,
-        "text": "那是我_____朋友。(Fill in the blank) (A) 也 (B) 地 (C) 的 (D) 那",
+        "text": "\u90a3\u662f\u6211_____\u670b\u53cb\u3002(Fill in the blank) (A) \u4e5f (B) \u5730 (C) \u7684 (D) \u90a3",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 892,
-        "text": "Write the meaning of the following words in English. (i) 黄色/黃色 (ii) 白色 (iii) 绿色/綠色 (iv) 黑色 --- OR --- 25. Fill in the blanks (use the following words). 板球, 有, 叫, 口/個, 也, 日本人 (i)...",
+        "text": "Write the meaning of the following words in English. (i) \u9ec4\u8272/\u9ec3\u8272 (ii) \u767d\u8272 (iii) \u7eff\u8272/\u7da0\u8272 (iv) \u9ed1\u8272 --- OR --- 25. Fill in the blanks (use the following words). \u677f\u7403, \u6709, \u53eb, \u53e3/\u500b, \u4e5f, \u65e5\u672c\u4eba (i)...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 893,
-        "text": "Fill in the blanks (use the following words). 板球, 有, 叫, 口/個, 也, 日本人 (i) 他喜欢/喜歡_____。 (ii) 他_____马大为/馬大為。(Mǎ dà wéi - Name of the person). (iii) 她是_____。 (iv) 你家有_____口/個人人？",
+        "text": "Fill in the blanks (use the following words). \u677f\u7403, \u6709, \u53eb, \u53e3/\u500b, \u4e5f, \u65e5\u672c\u4eba (i) \u4ed6\u559c\u6b22/\u559c\u6b61_____\u3002 (ii) \u4ed6_____\u9a6c\u5927\u4e3a/\u99ac\u5927\u70ba\u3002(M\u01ce d\u00e0 w\u00e9i - Name of the person). (iii) \u5979\u662f_____\u3002 (iv) \u4f60\u5bb6\u6709_____\u53e3/\u500b\u4eba\u4eba\uff1f",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3276,
-        "text": "我_______打板块。(Fill in the blanks) (A) 喝 (B) 喜欢 (C) 很 (D) 谁",
+        "text": "\u6211_______\u6253\u677f\u5757\u3002(Fill in the blanks) (A) \u559d (B) \u559c\u6b22 (C) \u5f88 (D) \u8c01",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Grammar Particles: hen (\u5f88), ye (\u4e5f), ma (\u5417), ne (\u5462), de (\u7684)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=chinese",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/chinese/topics/grammar-particles-hen-ye-ma-ne-de"
   },
@@ -20419,7 +20419,7 @@
       },
       {
         "id": 1917,
-        "name": "Translate the following numbers into English. (i) 三千六十 (ii) 四百六六 (iii) 七十一 (iv) 五万",
+        "name": "Translate the following numbers into English. (i) \u4e09\u5343\u516d\u5341 (ii) \u56db\u767e\u516d\u516d (iii) \u4e03\u5341\u4e00 (iv) \u4e94\u4e07",
         "repetitionType": "family_repeat",
         "count": 2
       }
@@ -20434,7 +20434,7 @@
       },
       {
         "id": 3287,
-        "text": "Translate the following numbers into English. (i) 三千六十 (ii) 四百六六 (iii) 七十一 (iv) 五万",
+        "text": "Translate the following numbers into English. (i) \u4e09\u5343\u516d\u5341 (ii) \u56db\u767e\u516d\u516d (iii) \u4e03\u5341\u4e00 (iv) \u4e94\u4e07",
         "marks": 4,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -20448,7 +20448,7 @@
       },
       {
         "id": 3319,
-        "text": "Translate the following numbers into English. (a) 三十 (b) 二百 (c) 五十八 (d) 六万/六萬",
+        "text": "Translate the following numbers into English. (a) \u4e09\u5341 (b) \u4e8c\u767e (c) \u4e94\u5341\u516b (d) \u516d\u4e07/\u516d\u842c",
         "marks": 4,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -20461,8 +20461,8 @@
   {
     "id": 714,
     "slug": "chinese-currency-and-monetary-terms",
-    "name": "Chinese Currency and Monetary Terms (元, 角, 分)",
-    "description": "Curriculum and historical examination lineage for Chinese Currency and Monetary Terms (元, 角, 分) under Unit 2 (Numbers, Currency, Time and Simple Sentence Patterns) of Chinese (21LEH102T) at SRMIST.",
+    "name": "Chinese Currency and Monetary Terms (\u5143, \u89d2, \u5206)",
+    "description": "Curriculum and historical examination lineage for Chinese Currency and Monetary Terms (\u5143, \u89d2, \u5206) under Unit 2 (Numbers, Currency, Time and Simple Sentence Patterns) of Chinese (21LEH102T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Chinese",
@@ -20512,15 +20512,15 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Chinese Currency and Monetary Terms (元, 角, 分)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Chinese Currency and Monetary Terms (\u5143, \u89d2, \u5206)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=chinese",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/chinese/topics/chinese-currency-and-monetary-terms"
   },
   {
     "id": 718,
     "slug": "verbs-shi-bu-shi-and-you-mei-you",
-    "name": "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
-    "description": "Curriculum and historical examination lineage for Verbs: shi / bu shi (是/不是) and you / mei you (有/没有) under Unit 2 (Numbers, Currency, Time and Simple Sentence Patterns) of Chinese (21LEH102T) at SRMIST.",
+    "name": "Verbs: shi / bu shi (\u662f/\u4e0d\u662f) and you / mei you (\u6709/\u6ca1\u6709)",
+    "description": "Curriculum and historical examination lineage for Verbs: shi / bu shi (\u662f/\u4e0d\u662f) and you / mei you (\u6709/\u6ca1\u6709) under Unit 2 (Numbers, Currency, Time and Simple Sentence Patterns) of Chinese (21LEH102T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Chinese",
@@ -20578,13 +20578,13 @@
     "questionFamilies": [
       {
         "id": 2110,
-        "name": "他 ______ 印度人。(Choose the appropriate answer). (A) 是 (B) 不 (C) 踢 (D) 好",
+        "name": "\u4ed6 ______ \u5370\u5ea6\u4eba\u3002(Choose the appropriate answer). (A) \u662f (B) \u4e0d (C) \u8e22 (D) \u597d",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 2114,
-        "name": "What is the Chinese equivalent for “To study”? (A) 运动/運動 (B) 是 (C) 学习/學習 (D) 苹果/蘋果",
+        "name": "What is the Chinese equivalent for \u201cTo study\u201d? (A) \u8fd0\u52a8/\u904b\u52d5 (B) \u662f (C) \u5b66\u4e60/\u5b78\u7fd2 (D) \u82f9\u679c/\u860b\u679c",
         "repetitionType": "family_repeat",
         "count": 2
       },
@@ -20596,13 +20596,13 @@
       },
       {
         "id": 2131,
-        "name": "Which of the following is the English equivalent for '你们/你們'? (A) You all (B) His (C) Their (D) She",
+        "name": "Which of the following is the English equivalent for '\u4f60\u4eec/\u4f60\u5011'? (A) You all (B) His (C) Their (D) She",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 2115,
-        "name": "What is the Chinese equivalent for “To play”? (A) 那 (B) 打 (C) 学习/學習 (D) 苹果/蘋果",
+        "name": "What is the Chinese equivalent for \u201cTo play\u201d? (A) \u90a3 (B) \u6253 (C) \u5b66\u4e60/\u5b78\u7fd2 (D) \u82f9\u679c/\u860b\u679c",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -20610,41 +20610,41 @@
     "sampleQuestions": [
       {
         "id": 839,
-        "text": "他 ______ 印度人。(Choose the appropriate answer). (A) 是 (B) 不 (C) 踢 (D) 好",
+        "text": "\u4ed6 ______ \u5370\u5ea6\u4eba\u3002(Choose the appropriate answer). (A) \u662f (B) \u4e0d (C) \u8e22 (D) \u597d",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 845,
-        "text": "What is the Chinese equivalent for “To study”? (A) 运动/運動 (B) 是 (C) 学习/學習 (D) 苹果/蘋果",
+        "text": "What is the Chinese equivalent for \u201cTo study\u201d? (A) \u8fd0\u52a8/\u904b\u52d5 (B) \u662f (C) \u5b66\u4e60/\u5b78\u7fd2 (D) \u82f9\u679c/\u860b\u679c",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 867,
-        "text": "Which of the following is the English equivalent for '你们/你們'? (A) You all (B) His (C) Their (D) She",
+        "text": "Which of the following is the English equivalent for '\u4f60\u4eec/\u4f60\u5011'? (A) You all (B) His (C) Their (D) She",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 872,
-        "text": "她_____印度人。(Choose the appropriate answer) (A) 是 (B) 不 (C) 踢 (D) 好",
+        "text": "\u5979_____\u5370\u5ea6\u4eba\u3002(Choose the appropriate answer) (A) \u662f (B) \u4e0d (C) \u8e22 (D) \u597d",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 878,
-        "text": "What is the Chinese equivalent for 'To study'? (A) 学习/學習 (B) 是 (C) 学生/學生 (D) 苹果/蘋果",
+        "text": "What is the Chinese equivalent for 'To study'? (A) \u5b66\u4e60/\u5b78\u7fd2 (B) \u662f (C) \u5b66\u751f/\u5b78\u751f (D) \u82f9\u679c/\u860b\u679c",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Verbs: shi / bu shi (\u662f/\u4e0d\u662f) and you / mei you (\u6709/\u6ca1\u6709)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=chinese",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/chinese/topics/verbs-shi-bu-shi-and-you-mei-you"
   },
@@ -20710,31 +20710,31 @@
     "questionFamilies": [
       {
         "id": 1929,
-        "name": "Choose the correct English equivalent for '哥哥'. (A) Sister (B) Father (C) Elder brother (D) Elder...",
+        "name": "Choose the correct English equivalent for '\u54e5\u54e5'. (A) Sister (B) Father (C) Elder brother (D) Elder...",
         "repetitionType": "family_repeat",
         "count": 3
       },
       {
         "id": 2129,
-        "name": "Which of the following is the Chinese equivalent for 'Elder brother'? (A) 哥哥 (B) 妈妈/媽媽 (C) 爸爸 (D) 爷爷",
+        "name": "Which of the following is the Chinese equivalent for 'Elder brother'? (A) \u54e5\u54e5 (B) \u5988\u5988/\u5abd\u5abd (C) \u7238\u7238 (D) \u7237\u7237",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1897,
-        "name": "Which of the following is the Chinese equivalent for 'Mother'? (A) 妈妈 (B) 爷爷 (C) 哥哥 (D) 弟弟",
+        "name": "Which of the following is the Chinese equivalent for 'Mother'? (A) \u5988\u5988 (B) \u7237\u7237 (C) \u54e5\u54e5 (D) \u5f1f\u5f1f",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1927,
-        "name": "Which of the following is the Chinese equivalent for 'Sorry'? (A) 谢谢/謝謝 (B) 不用谢/不用謝 (C) 爸爸 (D)...",
+        "name": "Which of the following is the Chinese equivalent for 'Sorry'? (A) \u8c22\u8c22/\u8b1d\u8b1d (B) \u4e0d\u7528\u8c22/\u4e0d\u7528\u8b1d (C) \u7238\u7238 (D)...",
         "repetitionType": "singleton",
         "count": 1
       },
       {
         "id": 1921,
-        "name": "Write the meaning of the following words. (In English) (a) 一月 (b) 高兴 (c) 进来 (d) 星期四 (e) 看 (f) 几 (g)...",
+        "name": "Write the meaning of the following words. (In English) (a) \u4e00\u6708 (b) \u9ad8\u5174 (c) \u8fdb\u6765 (d) \u661f\u671f\u56db (e) \u770b (f) \u51e0 (g)...",
         "repetitionType": "family_repeat",
         "count": 1
       }
@@ -20742,35 +20742,35 @@
     "sampleQuestions": [
       {
         "id": 832,
-        "text": "Which of the following is the Chinese equivalent for 'Elder sister'? (A) 爸爸 (B) 妈妈/媽媽 (C) 哥哥 (D) 姐姐",
+        "text": "Which of the following is the Chinese equivalent for 'Elder sister'? (A) \u7238\u7238 (B) \u5988\u5988/\u5abd\u5abd (C) \u54e5\u54e5 (D) \u59d0\u59d0",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 834,
-        "text": "Which of the following is the English equivalent for '妈妈/媽媽'? (A) Mother (B) Elder sister (C) Father (D) Younger brother",
+        "text": "Which of the following is the English equivalent for '\u5988\u5988/\u5abd\u5abd'? (A) Mother (B) Elder sister (C) Father (D) Younger brother",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 865,
-        "text": "Which of the following is the Chinese equivalent for 'Elder brother'? (A) 哥哥 (B) 妈妈/媽媽 (C) 爸爸 (D) 爷爷",
+        "text": "Which of the following is the Chinese equivalent for 'Elder brother'? (A) \u54e5\u54e5 (B) \u5988\u5988/\u5abd\u5abd (C) \u7238\u7238 (D) \u7237\u7237",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3266,
-        "text": "Which of the following is the Chinese equivalent for 'Mother'? (A) 妈妈 (B) 爷爷 (C) 哥哥 (D) 弟弟",
+        "text": "Which of the following is the Chinese equivalent for 'Mother'? (A) \u5988\u5988 (B) \u7237\u7237 (C) \u54e5\u54e5 (D) \u5f1f\u5f1f",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3298,
-        "text": "Which of the following is the Chinese equivalent for 'Sorry'? (A) 谢谢/謝謝 (B) 不用谢/不用謝 (C) 爸爸 (D) 对不起/對不起",
+        "text": "Which of the following is the Chinese equivalent for 'Sorry'? (A) \u8c22\u8c22/\u8b1d\u8b1d (B) \u4e0d\u7528\u8c22/\u4e0d\u7528\u8b1d (C) \u7238\u7238 (D) \u5bf9\u4e0d\u8d77/\u5c0d\u4e0d\u8d77",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -20783,8 +20783,8 @@
   {
     "id": 734,
     "slug": "optative-modal-verbs-hui-neng-keyi",
-    "name": "Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
-    "description": "Curriculum and historical examination lineage for Optative Modal Verbs: hui (会), neng (能), keyi (可以) under Unit 5 (Family, University, Time Sequence and Modal Verbs) of Chinese (21LEH102T) at SRMIST.",
+    "name": "Optative Modal Verbs: hui (\u4f1a), neng (\u80fd), keyi (\u53ef\u4ee5)",
+    "description": "Curriculum and historical examination lineage for Optative Modal Verbs: hui (\u4f1a), neng (\u80fd), keyi (\u53ef\u4ee5) under Unit 5 (Family, University, Time Sequence and Modal Verbs) of Chinese (21LEH102T) at SRMIST.",
     "courseId": 8,
     "courseSlug": "foreign-languages",
     "courseName": "Foreign Languages - Chinese",
@@ -20818,7 +20818,7 @@
     "questionFamilies": [
       {
         "id": 1939,
-        "name": "Which of the following is the Chinese equivalent for 'After'? (A) 以后/以後 (B) 以前 (C) 可以 (D) 会/會",
+        "name": "Which of the following is the Chinese equivalent for 'After'? (A) \u4ee5\u540e/\u4ee5\u5f8c (B) \u4ee5\u524d (C) \u53ef\u4ee5 (D) \u4f1a/\u6703",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -20826,13 +20826,13 @@
     "sampleQuestions": [
       {
         "id": 3313,
-        "text": "Which of the following is the Chinese equivalent for 'After'? (A) 以后/以後 (B) 以前 (C) 可以 (D) 会/會",
+        "text": "Which of the following is the Chinese equivalent for 'After'? (A) \u4ee5\u540e/\u4ee5\u5f8c (B) \u4ee5\u524d (C) \u53ef\u4ee5 (D) \u4f1a/\u6703",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
+    "practiceUrl": "/mintai?course=SEM1-FORE&language=chinese&tab=practice&topic=Optative Modal Verbs: hui (\u4f1a), neng (\u80fd), keyi (\u53ef\u4ee5)",
     "mintAiUrl": "/mintai?course=SEM1-FORE&language=chinese",
     "canonicalUrl": "https://markmint.vercel.app/courses/foreign-languages/chinese/topics/optative-modal-verbs-hui-neng-keyi"
   },
@@ -24624,7 +24624,7 @@
       },
       {
         "id": 3774,
-        "text": "Answer the following subquestions. (a) Define Raoult's law for ideal solutions. (b) Liquids A and B form an ideal solution obeying Raoult's law. At 50 °C, the total vapour...",
+        "text": "Answer the following subquestions. (a) Define Raoult's law for ideal solutions. (b) Liquids A and B form an ideal solution obeying Raoult's law. At 50 \u00b0C, the total vapour...",
         "marks": 15,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -25380,7 +25380,7 @@
       },
       {
         "id": 314,
-        "name": "a. Radiation of wavelength 2500 A° as passed through a cell containing 10 nl of a solution which as...",
+        "name": "a. Radiation of wavelength 2500 A\u00b0 as passed through a cell containing 10 nl of a solution which as...",
         "repetitionType": "family_repeat",
         "count": 1
       },
@@ -31157,7 +31157,7 @@
       },
       {
         "id": 5206,
-        "text": "Which fundamental equation governs the quantum mechanical treatment of electrons? A) Maxwell's equations B) Schrödinger equation C) Newton's second law D) Boltzmann equation",
+        "text": "Which fundamental equation governs the quantum mechanical treatment of electrons? A) Maxwell's equations B) Schr\u00f6dinger equation C) Newton's second law D) Boltzmann equation",
         "marks": 1,
         "year": 2024,
         "assessmentType": "Other"
@@ -31908,7 +31908,7 @@
       },
       {
         "id": 3538,
-        "name": "Kirchoff ’s Current Law (KCL) Statement: The algebraic sum of currents meeting at a junction or...",
+        "name": "Kirchoff \u2019s Current Law (KCL) Statement: The algebraic sum of currents meeting at a junction or...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -31943,7 +31943,7 @@
       },
       {
         "id": 4686,
-        "text": "Kirchoff ’s Current Law (KCL) Statement: The algebraic sum of currents meeting at a junction or node in an electrical circuit is zero. [OR] Statement: The sum of the currents...",
+        "text": "Kirchoff \u2019s Current Law (KCL) Statement: The algebraic sum of currents meeting at a junction or node in an electrical circuit is zero. [OR] Statement: The sum of the currents...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "CT1"
@@ -32436,14 +32436,14 @@
     "sampleQuestions": [
       {
         "id": 4524,
-        "text": "In RL series circuit the voltage and current equations are given as v = 282.84 sin 314t, i = 70.71 sin(314t - 60°) A. Find the circuit element values R, L, power factor and power...",
+        "text": "In RL series circuit the voltage and current equations are given as v = 282.84 sin 314t, i = 70.71 sin(314t - 60\u00b0) A. Find the circuit element values R, L, power factor and power...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 4714,
-        "text": "In a RL series circuit, the voltage and current equations are given by v = 282.84 sin314t volts i = 70.71 sin (314t - 60º) amps (i) Find the circuit constants R and L. (ii) Find...",
+        "text": "In a RL series circuit, the voltage and current equations are given by v = 282.84 sin314t volts i = 70.71 sin (314t - 60\u00ba) amps (i) Find the circuit constants R and L. (ii) Find...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -37564,7 +37564,7 @@
       },
       {
         "id": 4506,
-        "name": "Choose the correct verb forms for the following sentence: The theatre company ___ a grant of £6,000...",
+        "name": "Choose the correct verb forms for the following sentence: The theatre company ___ a grant of \u00a36,000...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -37591,7 +37591,7 @@
       },
       {
         "id": 902,
-        "text": "Choose the correct verb forms for the following sentence: The theatre company ___ a grant of £6,000 and it ___ a further £2,000 from elsewhere now. (A) is given / has been seeking...",
+        "text": "Choose the correct verb forms for the following sentence: The theatre company ___ a grant of \u00a36,000 and it ___ a further \u00a32,000 from elsewhere now. (A) is given / has been seeking...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -38124,8 +38124,8 @@
   {
     "id": 475,
     "slug": "paragraph-development-topic-sentences-and-precis-writing",
-    "name": "Paragraph Development, Topic Sentences, and Précis Writing",
-    "description": "Curriculum and historical examination lineage for Paragraph Development, Topic Sentences, and Précis Writing under Unit 3 (Professional Correspondence and Mechanics of Writing) of Communicative English (21LEH101T) at SRMIST.",
+    "name": "Paragraph Development, Topic Sentences, and Pr\u00e9cis Writing",
+    "description": "Curriculum and historical examination lineage for Paragraph Development, Topic Sentences, and Pr\u00e9cis Writing under Unit 3 (Professional Correspondence and Mechanics of Writing) of Communicative English (21LEH101T) at SRMIST.",
     "courseId": 15,
     "courseSlug": "communicative-english",
     "courseName": "Communicative English",
@@ -38213,13 +38213,13 @@
     "questionFamilies": [
       {
         "id": 4432,
-        "name": "Write the précis for the following passage: Water makes up about 60% of your body's weight, and...",
+        "name": "Write the pr\u00e9cis for the following passage: Water makes up about 60% of your body's weight, and...",
         "repetitionType": "family_repeat",
         "count": 2
       },
       {
         "id": 4387,
-        "name": "Which of the following is NOT a rule of précis writing? (A) Always have a heading B) Use as...",
+        "name": "Which of the following is NOT a rule of pr\u00e9cis writing? (A) Always have a heading B) Use as...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -38245,14 +38245,14 @@
     "sampleQuestions": [
       {
         "id": 230,
-        "text": "Which of the following is NOT a rule of précis writing? (A) Always have a heading B) Use as extensive vocabulary as possible Remove any irrelevant information (P) Do not use any...",
+        "text": "Which of the following is NOT a rule of pr\u00e9cis writing? (A) Always have a heading B) Use as extensive vocabulary as possible Remove any irrelevant information (P) Do not use any...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 950,
-        "text": "Write the précis for the following passage: Water makes up about 60% of your body's weight, and although you can survive without food for weeks, dehydration can kill you within...",
+        "text": "Write the pr\u00e9cis for the following passage: Water makes up about 60% of your body's weight, and although you can survive without food for weeks, dehydration can kill you within...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -38279,7 +38279,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-ENG&tab=practice&topic=Paragraph Development, Topic Sentences, and Précis Writing",
+    "practiceUrl": "/mintai?course=SEM1-ENG&tab=practice&topic=Paragraph Development, Topic Sentences, and Pr\u00e9cis Writing",
     "mintAiUrl": "/mintai?course=SEM1-ENG",
     "canonicalUrl": "https://markmint.vercel.app/courses/communicative-english/topics/paragraph-development-topic-sentences-and-precis-writing"
   },
@@ -46198,7 +46198,7 @@
       },
       {
         "id": 6100,
-        "text": "Explain the various functions given below related to Algorithms in Standard Template Library (STL) .Discuss with syntax and example program. • Count() • Merge() • Sort() •...",
+        "text": "Explain the various functions given below related to Algorithms in Standard Template Library (STL) .Discuss with syntax and example program. \u2022 Count() \u2022 Merge() \u2022 Sort() \u2022...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -48142,7 +48142,7 @@
       },
       {
         "id": 7016,
-        "text": "(a) A single-phase full-wave bridge rectifier is supplied with a 230V RMS, 50Hz AC voltage. The load connected to the rectifier is a 10Ω resistor. Assume ideal diodes. (i)...",
+        "text": "(a) A single-phase full-wave bridge rectifier is supplied with a 230V RMS, 50Hz AC voltage. The load connected to the rectifier is a 10\u03a9 resistor. Assume ideal diodes. (i)...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -48156,14 +48156,14 @@
       },
       {
         "id": 7026,
-        "text": "Draw the ciruit diagram of negative clamper and explain the working principle of the negative clamper Diagram – 2 marks Explaination – 2 marks",
+        "text": "Draw the ciruit diagram of negative clamper and explain the working principle of the negative clamper Diagram \u2013 2 marks Explaination \u2013 2 marks",
         "marks": 4,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 7028,
-        "text": "Illustrate the working principle of Astable multivibrator Diagram – 2marks Explaination - 2 marks",
+        "text": "Illustrate the working principle of Astable multivibrator Diagram \u2013 2marks Explaination - 2 marks",
         "marks": 4,
         "year": 2023,
         "assessmentType": "Other"
@@ -48401,7 +48401,7 @@
       },
       {
         "id": 5269,
-        "name": "Explain the process of electroless plating in double sided plate through holes PCB manufacturing •...",
+        "name": "Explain the process of electroless plating in double sided plate through holes PCB manufacturing \u2022...",
         "repetitionType": "singleton",
         "count": 1
       },
@@ -48422,14 +48422,14 @@
       },
       {
         "id": 7030,
-        "text": "Explain the process of electroless plating in double sided plate through holes PCB manufacturing • Electroless Copper Plating: The board is first sensitized by immersing it in a...",
+        "text": "Explain the process of electroless plating in double sided plate through holes PCB manufacturing \u2022 Electroless Copper Plating: The board is first sensitized by immersing it in a...",
         "marks": 4,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 7033,
-        "text": "Explain the steps involved in manufacturing of PCB in single side board and benefits of single sided PCB with necessary diagram Artwork Generation • The components and connections...",
+        "text": "Explain the steps involved in manufacturing of PCB in single side board and benefits of single sided PCB with necessary diagram Artwork Generation \u2022 The components and connections...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -50742,8 +50742,8 @@
   {
     "id": 505,
     "slug": "schrodinger-wave-equations",
-    "name": "Schrödinger Wave Equations",
-    "description": "Curriculum and historical examination lineage for Schrödinger Wave Equations under Unit 3 (Quantum Mechanics) of Electromagnetic Theory, Quantum Mechanics, Waves and Optics (21PYB101J) at SRMIST.",
+    "name": "Schr\u00f6dinger Wave Equations",
+    "description": "Curriculum and historical examination lineage for Schr\u00f6dinger Wave Equations under Unit 3 (Quantum Mechanics) of Electromagnetic Theory, Quantum Mechanics, Waves and Optics (21PYB101J) at SRMIST.",
     "courseId": 19,
     "courseSlug": "electromagnetic-theory-and-quantum-mechanics",
     "courseName": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
@@ -50876,7 +50876,7 @@
         "assessmentType": "EndSem"
       }
     ],
-    "practiceUrl": "/mintai?course=SEM1-EMPHY&tab=practice&topic=Schrödinger Wave Equations",
+    "practiceUrl": "/mintai?course=SEM1-EMPHY&tab=practice&topic=Schr\u00f6dinger Wave Equations",
     "mintAiUrl": "/mintai?course=SEM1-EMPHY",
     "canonicalUrl": "https://markmint.vercel.app/courses/electromagnetic-theory-and-quantum-mechanics/topics/schrodinger-wave-equations"
   },
@@ -54557,7 +54557,7 @@
       },
       {
         "id": 5925,
-        "name": "A ladder 4m long leans against a smooth vertical wall at an angle of 60° with the horizontal. The...",
+        "name": "A ladder 4m long leans against a smooth vertical wall at an angle of 60\u00b0 with the horizontal. The...",
         "repetitionType": "singleton",
         "count": 1
       }
@@ -54586,14 +54586,14 @@
       },
       {
         "id": 1299,
-        "text": "Derive an expression for the applied force \"P\" required to move the block up the plane. --- OR --- 22. A ladder 4m long leans against a smooth vertical wall at an angle of 60°...",
+        "text": "Derive an expression for the applied force \"P\" required to move the block up the plane. --- OR --- 22. A ladder 4m long leans against a smooth vertical wall at an angle of 60\u00b0...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1300,
-        "text": "A ladder 4m long leans against a smooth vertical wall at an angle of 60° with the horizontal. The weight of the ladder is 700N. When a person of 600N stands on a rung 1.2m from...",
+        "text": "A ladder 4m long leans against a smooth vertical wall at an angle of 60\u00b0 with the horizontal. The weight of the ladder is 700N. When a person of 600N stands on a rung 1.2m from...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -55770,12 +55770,12 @@
     "id": 414,
     "slug": "axioms-of-probability-conditional-probability-and-bayes-theorem",
     "name": "Axioms of Probability, Conditional Probability, and Bayes' Theorem",
-    "description": "Curriculum and historical examination lineage for Axioms of Probability, Conditional Probability, and Bayes' Theorem under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Axioms of Probability, Conditional Probability, and Bayes' Theorem under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -55875,12 +55875,12 @@
     "id": 415,
     "slug": "discrete-and-continuous-random-variables",
     "name": "Discrete and Continuous Random Variables",
-    "description": "Curriculum and historical examination lineage for Discrete and Continuous Random Variables under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Discrete and Continuous Random Variables under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56000,12 +56000,12 @@
     "id": 416,
     "slug": "probability-mass-function-and-probability-density-function",
     "name": "Probability Mass Function and Probability Density Function",
-    "description": "Curriculum and historical examination lineage for Probability Mass Function and Probability Density Function under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Probability Mass Function and Probability Density Function under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56058,12 +56058,12 @@
     "id": 418,
     "slug": "expectation-variance-moments-and-moment-generating-functions",
     "name": "Expectation, Variance, Moments, and Moment Generating Functions",
-    "description": "Curriculum and historical examination lineage for Expectation, Variance, Moments, and Moment Generating Functions under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Expectation, Variance, Moments, and Moment Generating Functions under Unit 1 (Probability and Random Variables) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56116,12 +56116,12 @@
     "id": 419,
     "slug": "binomial-distribution",
     "name": "Binomial Distribution",
-    "description": "Curriculum and historical examination lineage for Binomial Distribution under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Binomial Distribution under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56195,12 +56195,12 @@
     "id": 420,
     "slug": "poisson-distribution",
     "name": "Poisson Distribution",
-    "description": "Curriculum and historical examination lineage for Poisson Distribution under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Poisson Distribution under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56300,12 +56300,12 @@
     "id": 421,
     "slug": "geometric-and-hypergeometric-distributions",
     "name": "Geometric and Hypergeometric Distributions",
-    "description": "Curriculum and historical examination lineage for Geometric and Hypergeometric Distributions under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Geometric and Hypergeometric Distributions under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56358,12 +56358,12 @@
     "id": 422,
     "slug": "uniform-and-exponential-distributions",
     "name": "Uniform and Exponential Distributions",
-    "description": "Curriculum and historical examination lineage for Uniform and Exponential Distributions under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Uniform and Exponential Distributions under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56449,12 +56449,12 @@
     "id": 423,
     "slug": "normal-distribution-and-standard-normal-curves",
     "name": "Normal Distribution and Standard Normal Curves",
-    "description": "Curriculum and historical examination lineage for Normal Distribution and Standard Normal Curves under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Normal Distribution and Standard Normal Curves under Unit 2 (Standard Probability Distributions) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56542,12 +56542,12 @@
     "id": 424,
     "slug": "null-hypothesis-alternative-hypothesis-and-errors-in-testing",
     "name": "Null Hypothesis, Alternative Hypothesis, and Errors in Testing",
-    "description": "Curriculum and historical examination lineage for Null Hypothesis, Alternative Hypothesis, and Errors in Testing under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Null Hypothesis, Alternative Hypothesis, and Errors in Testing under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56613,12 +56613,12 @@
     "id": 426,
     "slug": "small-sample-tests-student-s-t-test",
     "name": "Small Sample Tests: Student's t-Test",
-    "description": "Curriculum and historical examination lineage for Small Sample Tests: Student's t-Test under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Small Sample Tests: Student's t-Test under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56671,12 +56671,12 @@
     "id": 428,
     "slug": "chi-square-test-for-goodness-of-fit-and-contingency-tables",
     "name": "Chi-Square Test for Goodness of Fit and Contingency Tables",
-    "description": "Curriculum and historical examination lineage for Chi-Square Test for Goodness of Fit and Contingency Tables under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Chi-Square Test for Goodness of Fit and Contingency Tables under Unit 3 (Testing of Hypothesis) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56762,12 +56762,12 @@
     "id": 429,
     "slug": "karl-pearson-s-and-spearman-s-rank-correlation",
     "name": "Karl Pearson's and Spearman's Rank Correlation",
-    "description": "Curriculum and historical examination lineage for Karl Pearson's and Spearman's Rank Correlation under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Karl Pearson's and Spearman's Rank Correlation under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56834,12 +56834,12 @@
     "id": 430,
     "slug": "lines-of-regression-and-regression-equations",
     "name": "Lines of Regression and Regression Equations",
-    "description": "Curriculum and historical examination lineage for Lines of Regression and Regression Equations under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Lines of Regression and Regression Equations under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56912,12 +56912,12 @@
     "id": 431,
     "slug": "one-way-analysis-of-variance-anova",
     "name": "One-Way Analysis of Variance (ANOVA)",
-    "description": "Curriculum and historical examination lineage for One-Way Analysis of Variance (ANOVA) under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for One-Way Analysis of Variance (ANOVA) under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -56970,12 +56970,12 @@
     "id": 432,
     "slug": "two-way-analysis-of-variance-anova",
     "name": "Two-Way Analysis of Variance (ANOVA)",
-    "description": "Curriculum and historical examination lineage for Two-Way Analysis of Variance (ANOVA) under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Two-Way Analysis of Variance (ANOVA) under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -57041,12 +57041,12 @@
     "id": 433,
     "slug": "design-of-experiments-crd-rbd-and-latin-square-design",
     "name": "Design of Experiments: CRD, RBD, and Latin Square Design",
-    "description": "Curriculum and historical examination lineage for Design of Experiments: CRD, RBD, and Latin Square Design under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Design of Experiments: CRD, RBD, and Latin Square Design under Unit 4 (Correlation, Regression, and Design of Experiments) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -57099,12 +57099,12 @@
     "id": 434,
     "slug": "concepts-of-statistical-quality-control-and-shewhart-control-charts",
     "name": "Concepts of Statistical Quality Control and Shewhart Control Charts",
-    "description": "Curriculum and historical examination lineage for Concepts of Statistical Quality Control and Shewhart Control Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Concepts of Statistical Quality Control and Shewhart Control Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -57196,12 +57196,12 @@
     "id": 437,
     "slug": "control-charts-for-attributes-fraction-defective-p-and-np-charts",
     "name": "Control Charts for Attributes: Fraction Defective (p and np) Charts",
-    "description": "Curriculum and historical examination lineage for Control Charts for Attributes: Fraction Defective (p and np) Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Control Charts for Attributes: Fraction Defective (p and np) Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -57254,12 +57254,12 @@
     "id": 438,
     "slug": "control-charts-for-attributes-number-of-defects-c-and-u-charts",
     "name": "Control Charts for Attributes: Number of Defects (c and u) Charts",
-    "description": "Curriculum and historical examination lineage for Control Charts for Attributes: Number of Defects (c and u) Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB201T) at SRMIST.",
+    "description": "Curriculum and historical examination lineage for Control Charts for Attributes: Number of Defects (c and u) Charts under Unit 5 (Statistical Quality Control) of Probability and Statistics (21MAB202T) at SRMIST.",
     "courseId": 22,
     "courseSlug": "probability-and-statistics",
     "courseName": "Probability and Statistics",
     "courseCode": "SEM2-PROB",
-    "canonicalCode": "21MAB201T",
+    "canonicalCode": "21MAB202T",
     "isLanguageTrack": false,
     "languageKey": null,
     "languageName": null,
@@ -64711,7 +64711,7 @@
       },
       {
         "id": 8355,
-        "text": "b. i. What are the advantages of bit pair recoding of multipliers? [3] ii. Multiply (+13) × (-6) by using bit pair recoding method. [5]",
+        "text": "b. i. What are the advantages of bit pair recoding of multipliers? [3] ii. Multiply (+13) \u00d7 (-6) by using bit pair recoding method. [5]",
         "marks": 3,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -67740,7 +67740,7 @@
     "sampleQuestions": [
       {
         "id": 8732,
-        "text": "Choose the correct symbol for the relational algebra operator 'SELECT' (A) ̀ (C) x (B) ∪ (D) ̃ [1]",
+        "text": "Choose the correct symbol for the relational algebra operator 'SELECT' (A) \u0300 (C) x (B) \u222a (D) \u0303 [1]",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"

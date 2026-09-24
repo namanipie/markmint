@@ -4,13 +4,13 @@
   "course": {
     "id": 22,
     "name": "Probability and Statistics",
-    "canonical_code": "21MAB201T",
+    "canonical_code": "21MAB202T",
     "code": "SEM2-PROB",
     "regulation_year": 2021,
     "department": "Mathematics"
   },
   "provenance": {
-    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB201T Probability and Statistics",
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB202T Probability and Statistics",
     "regulation": "2021",
     "approved_by": "Academic Council SRMIST",
     "notes": "Authoritative 5-unit syllabus covering Probability & Random Variables, Standard Distributions, Testing of Hypothesis, Correlation & Regression & ANOVA, and Statistical Quality Control."

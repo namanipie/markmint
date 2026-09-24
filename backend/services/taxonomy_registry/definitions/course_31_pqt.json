@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "taxonomy_version": "1.0.0",
+  "course": {
+    "id": 31,
+    "name": "Probability and Queueing Theory",
+    "canonical_code": "21MAB204T",
+    "code": "SEM4-PQT",
+    "regulation_year": 2021,
+    "department": "Mathematics"
+  },
+  "provenance": {
+    "source_document": "SRMIST B.Tech Regulation 2021 Curriculum & Syllabus - 21MAB204T Probability and Queueing Theory",
+    "regulation": "2021",
+    "approved_by": "Academic Council SRMIST",
+    "notes": "Authoritative 5-unit syllabus covering random variables, two-dimensional random variables, random processes, and single/multi-server queueing models."
+  },
+  "units": [
+    {
+      "id": 191,
+      "number": 1,
+      "name": "Random Variables and Standard Distributions",
+      "topics": [
+        {
+          "id": 914,
+          "name": "Discrete and Continuous Random Variables and Probability Distributions"
+        },
+        {
+          "id": 915,
+          "name": "Moment Generating Functions, Expectation, and Variance"
+        },
+        {
+          "id": 916,
+          "name": "Binomial, Poisson, and Geometric Distributions"
+        },
+        {
+          "id": 917,
+          "name": "Uniform, Exponential, and Normal Distributions"
+        }
+      ]
+    },
+    {
+      "id": 192,
+      "number": 2,
+      "name": "Two-Dimensional Random Variables",
+      "topics": [
+        {
+          "id": 918,
+          "name": "Joint, Marginal, and Conditional Distributions"
+        },
+        {
+          "id": 919,
+          "name": "Covariance and Karl Pearson's Correlation Coefficient"
+        },
+        {
+          "id": 920,
+          "name": "Regression Lines and Equations of Two Variables"
+        },
+        {
+          "id": 921,
+          "name": "Transformation of Bivariate Random Variables and Central Limit Theorem"
+        }
+      ]
+    },
+    {
+      "id": 193,
+      "number": 3,
+      "name": "Random Processes and Markov Chains",
+      "topics": [
+        {
+          "id": 922,
+          "name": "Classification of Random Processes and Wide-Sense Stationarity"
+        },
+        {
+          "id": 923,
+          "name": "Markov Chains and Transition Probability Matrix"
+        },
+        {
+          "id": 924,
+          "name": "Chapman-Kolmogorov Equations and Limiting Distributions"
+        },
+        {
+          "id": 925,
+          "name": "Poisson Process and Memoryless Property"
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "number": 4,
+      "name": "Queueing Models (Single Server)",
+      "topics": [
+        {
+          "id": 926,
+          "name": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula"
+        },
+        {
+          "id": 927,
+          "name": "(M/M/1) : (Infinity / FCFS) Single-Server Infinite Capacity Queue"
+        },
+        {
+          "id": 928,
+          "name": "(M/M/1) : (k / FCFS) Single-Server Finite Capacity Queue"
+        },
+        {
+          "id": 929,
+          "name": "Queue Length, Waiting Time, and Busy Period Distributions"
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "number": 5,
+      "name": "Advanced Queueing Models (Multi-Server)",
+      "topics": [
+        {
+          "id": 930,
+          "name": "(M/M/c) : (Infinity / FCFS) Multi-Server Infinite Capacity Queue"
+        },
+        {
+          "id": 931,
+          "name": "(M/M/c) : (k / FCFS) Multi-Server Finite Capacity Queue"
+        },
+        {
+          "id": 932,
+          "name": "Non-Markovian (M/G/1) Queue and Pollaczek-Khinchine Formula"
+        },
+        {
+          "id": 933,
+          "name": "Queueing Networks and System Performance Analysis"
+        }
+      ]
+    }
+  ]
+}

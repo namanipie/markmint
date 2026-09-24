@@ -469,8 +469,10 @@ _OTHER_COURSE_CODES = {
     19: ("21PYB101J", "Electromagnetic Theory, Quantum Mechanics, Waves and Optics", 2021),
     20: ("21PYB103J", "Physics: Mechanics", 2021),
     21: ("21MEB101T", "Engineering Mechanics", 2021),
-    22: ("21MAB201T", "Probability and Statistics", 2021),
+    22: ("21MAB202T", "Probability and Statistics", 2021),
     23: ("21CEB101T", "Building Materials in the Built Environment", 2021),
+    30: ("21MAB201T", "Transforms and Boundary Value Problems", 2021),
+    31: ("21MAB204T", "Probability and Queueing Theory", 2021),
 }
 
 for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
