@@ -206,6 +206,11 @@ class DNASampleSize(BaseModel):
     time_range_years: tuple[int, int]
     exam_types: list[str]
     sufficiency: DataSufficiency
+    contributing_exam_ids: list[int | str] = []
+    unmapped_question_count: int = 0
+    unscored_question_count: int = 0
+    total_marks: float = 0.0
+    years: list[int] = []
 
 class MetricWithEvidence(BaseModel):
     value: float | str | int
@@ -232,12 +237,58 @@ class UnitDNA(BaseModel):
     paper_coverage: float
     recent_weighting: float
     historical_weighting: float
+    percentage_of_questions: Optional[float] = None
+    percentage_of_marks: Optional[float] = None
+
+class UnitDistributionDNA(BaseModel):
+    units: list[UnitDNA]
+    unmapped_question_count: int = 0
+    unmapped_marks: float = 0.0
+    is_marks_weighted: bool = True
+    total_marks_evaluated: float = 0.0
+    total_questions_evaluated: int = 0
 
 class QuestionTypeDNA(BaseModel):
     question_type: str
     count: int
     percentage: float
     marks_weighting: float
+
+class MarkBucketDNA(BaseModel):
+    marks: float
+    question_count: int
+    percentage_of_questions: float
+    cumulative_marks: float
+    percentage_of_marks: float
+
+class MarksDistributionDNA(BaseModel):
+    buckets: list[MarkBucketDNA] = []
+    unscored_question_count: int = 0
+    unscored_percentage: float = 0.0
+    total_scored_questions: int = 0
+    total_marks: float = 0.0
+    min_marks: Optional[float] = None
+    max_marks: Optional[float] = None
+    avg_marks: Optional[float] = None
+
+class StemPatternDNA(BaseModel):
+    pattern: str
+    question_count: int
+    percentage: float
+    example_verbs: list[str] = []
+
+class RepetitionBreakdownDNA(BaseModel):
+    exact_repeat_count: int = 0
+    family_repeat_count: int = 0
+    singleton_count: int = 0
+    exact_repeat_percentage: float = 0.0
+    family_repeat_percentage: float = 0.0
+    singleton_percentage: float = 0.0
+
+class QuestionPatternSummaryDNA(BaseModel):
+    top_recurring_families: list[FamilyDNA] = []
+    stem_patterns: list[StemPatternDNA] = []
+    repetition_breakdown: RepetitionBreakdownDNA = RepetitionBreakdownDNA()
 
 class RepetitionDNA(BaseModel):
     exact_count: int
@@ -279,6 +330,10 @@ class ExamDNA(BaseModel):
     families: list[FamilyDNA]
 
     temporal_trends: list[TemporalTrend]
+
+    unit_distribution: Optional[UnitDistributionDNA] = None
+    marks_distribution: Optional[MarksDistributionDNA] = None
+    pattern_summary: Optional[QuestionPatternSummaryDNA] = None
 
 class ProvenanceNode(BaseModel):
     record_type: str # 'question', 'exam', 'document', 'study_evidence'
