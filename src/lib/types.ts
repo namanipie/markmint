@@ -189,6 +189,124 @@ export interface PredictionResponse {
   data_quality: string;
 }
 
+export interface DNASampleSize {
+  papers: number;
+  questions: number;
+  time_range_years: [number, number];
+  years?: number[];
+  exam_types: string[];
+  sufficiency: "insufficient" | "limited" | "moderate" | "strong";
+  contributing_exam_ids?: (number | string)[];
+  unmapped_question_count?: number;
+  unscored_question_count?: number;
+  total_marks?: number;
+}
+
+export interface UnitDNA {
+  unit: string;
+  question_count: number;
+  marks: number;
+  paper_coverage: number;
+  recent_weighting: number;
+  historical_weighting: number;
+  percentage_of_questions?: number | null;
+  percentage_of_marks?: number | null;
+}
+
+export interface UnitDistributionDNA {
+  units: UnitDNA[];
+  unmapped_question_count: number;
+  unmapped_marks: number;
+  is_marks_weighted: boolean;
+  total_marks_evaluated: number;
+  total_questions_evaluated: number;
+}
+
+export interface QuestionTypeDNA {
+  question_type: string;
+  count: number;
+  percentage: number;
+  marks_weighting: number;
+}
+
+export interface MarkBucketDNA {
+  marks: number;
+  question_count: number;
+  percentage_of_questions: number;
+  cumulative_marks: number;
+  percentage_of_marks: number;
+}
+
+export interface MarksDistributionDNA {
+  buckets: MarkBucketDNA[];
+  unscored_question_count: number;
+  unscored_percentage: number;
+  total_scored_questions: number;
+  total_marks: number;
+  min_marks?: number | null;
+  max_marks?: number | null;
+  avg_marks?: number | null;
+}
+
+export interface StemPatternDNA {
+  pattern: string;
+  question_count: number;
+  percentage: number;
+  example_verbs: string[];
+}
+
+export interface RepetitionBreakdownDNA {
+  exact_repeat_count: number;
+  family_repeat_count: number;
+  singleton_count: number;
+  exact_repeat_percentage: number;
+  family_repeat_percentage: number;
+  singleton_percentage: number;
+}
+
+export interface QuestionPatternSummaryDNA {
+  top_recurring_families: FamilyDNA[];
+  stem_patterns: StemPatternDNA[];
+  repetition_breakdown: RepetitionBreakdownDNA;
+}
+
+export interface RepetitionDNA {
+  exact_count: number;
+  near_count: number;
+  conceptual_count: number;
+  structural_count: number;
+}
+
+export interface FamilyDNA {
+  family_id?: number | null;
+  family_name: string;
+  occurrences: number;
+  years: number[];
+  exam_types: string[];
+  average_marks?: number | null;
+  total_marks?: number | null;
+  distinct_paper_count: number;
+  paper_ids?: number[];
+  question_ids?: number[];
+  repetition_type?: string | null;
+  recurrence_interval_years: number;
+  recent_recurrence_count: number;
+  trend: string;
+}
+
+export interface ExamDNA {
+  sample_size: DNASampleSize;
+  topics: any[];
+  units: UnitDNA[];
+  question_types: QuestionTypeDNA[];
+  repetition: RepetitionDNA;
+  families: FamilyDNA[];
+  temporal_trends: any[];
+  unit_distribution?: UnitDistributionDNA;
+  marks_distribution?: MarksDistributionDNA;
+  pattern_summary?: QuestionPatternSummaryDNA;
+}
+
 export interface ExamDNAAnalysis {
   course_id: string;
   analysis_summary: string;

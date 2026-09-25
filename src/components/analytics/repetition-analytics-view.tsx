@@ -18,7 +18,8 @@ import {
   Hash,
   ArrowRight,
   HelpCircle,
-  FileText
+  FileText,
+  Dna
 } from "lucide-react";
 import {
   getRepetitionOverview,
@@ -41,6 +42,7 @@ import {
   AssessmentComparisonResponse
 } from "@/lib/types";
 import { TopicIntelligenceModal } from "./topic-intelligence-modal";
+import { ExamDNAView } from "./exam-dna-view";
 import { MathText } from "@/components/ui/math-text";
 
 interface RepetitionAnalyticsViewProps {
@@ -51,7 +53,7 @@ interface RepetitionAnalyticsViewProps {
   onSelectTopic?: (topicName: string) => void;
 }
 
-type AnalyticsTab = "topics" | "families" | "assessment" | "evolution" | "marks";
+type AnalyticsTab = "dna" | "topics" | "families" | "assessment" | "evolution" | "marks";
 
 export function RepetitionAnalyticsView({
   courseId,
@@ -233,6 +235,21 @@ export function RepetitionAnalyticsView({
         {/* Tab Navigation */}
         <div className="flex items-center gap-2 mt-6 pt-4 border-t border-border/50 overflow-x-auto">
           <button
+            onClick={() => setActiveTab("dna")}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              activeTab === "dna"
+                ? "bg-accent text-accent-foreground font-semibold shadow-sm"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            }`}
+          >
+            <Dna className="w-3.5 h-3.5" />
+            <span>Exam DNA</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-background/30 font-mono">
+              v1
+            </span>
+          </button>
+
+          <button
             onClick={() => setActiveTab("topics")}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
               activeTab === "topics"
@@ -308,6 +325,16 @@ export function RepetitionAnalyticsView({
 
       {/* Main Tab Content */}
       <div className="p-6 pt-0 space-y-6">
+        {/* TAB 0: EXAM DNA VIEW */}
+        {activeTab === "dna" && (
+          <ExamDNAView
+            courseId={courseId}
+            courseName={courseName}
+            canonicalCode={canonicalCode}
+            language={language}
+          />
+        )}
+
         {/* TAB 1: TOPIC REPETITION VIEW */}
         {activeTab === "topics" && (
           <div className="space-y-4">

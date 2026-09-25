@@ -74,7 +74,8 @@ import {
   PaperSubmissionRecord,
   AdminReviewSummary,
   SubmitterFeedback,
-  SubmissionQualityMetrics
+  SubmissionQualityMetrics,
+  ExamDNA
 } from "./types";
 
 // ==========================================
@@ -346,10 +347,33 @@ export async function getExamQuestions(
   return fetchAPI(`/exams/${encodeURIComponent(String(id))}/questions?page=${page}&size=${size}`);
 }
 
-export async function getExamDNA(course_id: string | number, assessmentCycle?: string) {
+export async function getExamDNA(
+  course_id: string | number,
+  assessmentCycleOrOptions?: string | {
+    assessmentCycle?: string;
+    cutoffYear?: number;
+    language?: string;
+    trackId?: number;
+  }
+): Promise<ExamDNA> {
   let url = `/analysis/dna?course_id=${encodeURIComponent(String(course_id))}`;
-  if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `&assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+  if (typeof assessmentCycleOrOptions === "string") {
+    if (assessmentCycleOrOptions && assessmentCycleOrOptions !== "ALL") {
+      url += `&assessment_cycle=${encodeURIComponent(assessmentCycleOrOptions)}`;
+    }
+  } else if (assessmentCycleOrOptions) {
+    if (assessmentCycleOrOptions.assessmentCycle && assessmentCycleOrOptions.assessmentCycle !== "ALL") {
+      url += `&assessment_cycle=${encodeURIComponent(assessmentCycleOrOptions.assessmentCycle)}`;
+    }
+    if (assessmentCycleOrOptions.cutoffYear) {
+      url += `&cutoff_year=${encodeURIComponent(String(assessmentCycleOrOptions.cutoffYear))}`;
+    }
+    if (assessmentCycleOrOptions.language) {
+      url += `&language=${encodeURIComponent(assessmentCycleOrOptions.language)}`;
+    }
+    if (assessmentCycleOrOptions.trackId) {
+      url += `&track_id=${encodeURIComponent(String(assessmentCycleOrOptions.trackId))}`;
+    }
   }
   return fetchAPI(url);
 }
