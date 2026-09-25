@@ -55,7 +55,7 @@ def test_course_setup(db_session: Session):
 
     syl = Syllabus(course_id=course.id, version="v1")
     db_session.add(syl)
-    db_session.flush()
+    db_session.commit()
 
     unit1 = Unit(syllabus_id=syl.id, number=1, name="Electrochemistry")
     unit2 = Unit(syllabus_id=syl.id, number=2, name="Corrosion and its Control")
@@ -71,6 +71,14 @@ def test_course_setup(db_session: Session):
 
 
 class TestPhase14StudentCorpusLoop:
+
+    @pytest.fixture(autouse=True)
+    def admin_auth_override(self):
+        from backend.core.security import require_admin_auth
+        from backend.main import app
+        app.dependency_overrides[require_admin_auth] = lambda: "admin"
+        yield
+        app.dependency_overrides.pop(require_admin_auth, None)
 
     def test_full_student_corpus_loop_with_question_families(self, client: TestClient, db_session: Session, test_course_setup):
         """

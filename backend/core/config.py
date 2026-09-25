@@ -21,6 +21,9 @@ class Settings(BaseSettings):
     CORS_ORIGINS: Union[list[str], str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
     DEBUG: bool = False
 
+    # Administrative credential for sensitive moderation endpoints (fail closed if None)
+    ADMIN_API_KEY: Optional[str] = None
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def assemble_cors_origins(cls, v: object) -> list[str]:

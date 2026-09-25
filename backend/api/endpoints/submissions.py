@@ -18,6 +18,7 @@ from backend.services.submission_validator import (
     MAX_SUBMISSION_SIZE_BYTES,
 )
 from backend.services.submission_approval import SubmissionApprovalService
+from backend.core.security import require_admin_auth
 
 router = APIRouter()
 
@@ -312,18 +313,20 @@ def get_submission(submission_id: int, db: Session = Depends(get_db)) -> Any:
 def approve_submission(
     submission_id: int,
     payload: Optional[ApproveSubmissionRequest] = None,
+    admin: str = Depends(require_admin_auth),
     db: Session = Depends(get_db),
 ) -> Any:
     """
     Moderation endpoint: Approves paper submission and ingests it into production
-    documents, exams, sections, and questions.
+    documents, exams, sections, and questions. Requires administrative authorization.
     """
     req = payload or ApproveSubmissionRequest()
+    reviewer_name = req.reviewer if (req.reviewer and req.reviewer != "admin") else admin
     svc = SubmissionApprovalService(db)
     try:
         result = svc.approve_submission(
             submission_id=submission_id,
-            reviewer=req.reviewer,
+            reviewer=reviewer_name,
             override_course_id=req.override_course_id,
             override_track_id=req.override_track_id,
             override_assessment=req.override_assessment,
@@ -341,6 +344,7 @@ def approve_submission(
 @router.get("/{submission_id}/review-summary")
 def get_submission_review_summary(
     submission_id: int,
+    admin: str = Depends(require_admin_auth),
     db: Session = Depends(get_db),
 ) -> Any:
     """
@@ -352,6 +356,7 @@ def get_submission_review_summary(
     - Mapping rate
     - Provenance
     - Approval state
+    Requires administrative authorization.
     """
     svc = SubmissionApprovalService(db)
     try:
@@ -407,18 +412,21 @@ def get_submission_by_tracking(
 def reject_submission(
     submission_id: int,
     payload: RejectSubmissionRequest,
+    admin: str = Depends(require_admin_auth),
     db: Session = Depends(get_db),
 ) -> Any:
     """
     Moderation endpoint: Rejects paper submission with reason.
     Guarantees no records are created in production documents or exams.
+    Requires administrative authorization.
     """
+    reviewer_name = payload.reviewer if (payload.reviewer and payload.reviewer != "admin") else admin
     svc = SubmissionApprovalService(db)
     try:
         result = svc.reject_submission(
             submission_id=submission_id,
             reason=payload.reason,
-            reviewer=payload.reviewer,
+            reviewer=reviewer_name,
         )
         return {"status": "success", "result": result}
     except ValueError as ve:

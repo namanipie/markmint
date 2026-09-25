@@ -53,3 +53,15 @@ def client(db_session):
             yield test_client
     finally:
         app.dependency_overrides.clear()
+
+
+@pytest.fixture
+def admin_client(client):
+    """Create a TestClient with authenticated admin credentials via FastAPI dependency override."""
+    from backend.core.security import require_admin_auth
+    app.dependency_overrides[require_admin_auth] = lambda: "admin"
+    try:
+        yield client
+    finally:
+        app.dependency_overrides.pop(require_admin_auth, None)
+

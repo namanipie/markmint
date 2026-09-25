@@ -210,9 +210,28 @@ def test_rejection_workflow(client: TestClient, db_session: Session):
     )
     sub_id = res.json()["id"]
 
-    # Reject submission
+    from backend.core.config import settings
+    # 1. Unauthenticated rejection must fail closed (401 / 503)
+    settings.ADMIN_API_KEY = "test-secret-moderation-key"
+    unauth_res = client.post(
+        f"/api/submissions/{sub_id}/reject",
+        json={"reason": "Scanned document is illegible.", "reviewer": "moderator_1"},
+    )
+    assert unauth_res.status_code == 401
+    assert "Unauthorized" in unauth_res.json()["detail"]
+
+    # 2. Rejection with invalid key must fail (401)
+    bad_res = client.post(
+        f"/api/submissions/{sub_id}/reject",
+        headers={"X-Admin-Key": "wrong-key"},
+        json={"reason": "Scanned document is illegible.", "reviewer": "moderator_1"},
+    )
+    assert bad_res.status_code == 401
+
+    # 3. Authorized rejection succeeds
     rej_res = client.post(
         f"/api/submissions/{sub_id}/reject",
+        headers={"X-Admin-Key": "test-secret-moderation-key"},
         json={"reason": "Scanned document is illegible and missing page 2.", "reviewer": "moderator_1"},
     )
     assert rej_res.status_code == 200
@@ -259,9 +278,20 @@ def test_approval_workflow_promotes_to_production(client: TestClient, db_session
     assert db_session.query(Exam).count() == 0
     assert db_session.query(Question).count() == 0
 
-    # Approve paper
+    from backend.core.config import settings
+    settings.ADMIN_API_KEY = "test-secret-moderation-key"
+
+    # Unauthenticated approval must fail closed (401)
+    unauth_app = client.post(
+        f"/api/submissions/{sub_id}/approve",
+        json={"reviewer": "lead_moderator", "override_year": 2024},
+    )
+    assert unauth_app.status_code == 401
+
+    # Approve paper with valid admin key
     app_res = client.post(
         f"/api/submissions/{sub_id}/approve",
+        headers={"X-Admin-Key": "test-secret-moderation-key"},
         json={"reviewer": "lead_moderator", "override_year": 2024},
     )
     assert app_res.status_code == 200
@@ -297,6 +327,7 @@ def test_approval_workflow_promotes_to_production(client: TestClient, db_session
     # Attempting to approve again should be idempotent (Phase 13)
     dup_app = client.post(
         f"/api/submissions/{sub_id}/approve",
+        headers={"Authorization": "Bearer test-secret-moderation-key"},
         json={"reviewer": "lead_moderator"},
     )
     assert dup_app.status_code == 200
@@ -305,3 +336,69 @@ def test_approval_workflow_promotes_to_production(client: TestClient, db_session
     # Verify no duplicate documents or exams were created
     assert db_session.query(Document).count() == 1
     assert db_session.query(Exam).count() == 1
+
+    # Verify review summary endpoint auth
+    summary_unauth = client.get(f"/api/submissions/{sub_id}/review-summary")
+    assert summary_unauth.status_code == 401
+
+    summary_auth = client.get(
+        f"/api/submissions/{sub_id}/review-summary",
+        headers={"X-Admin-Key": "test-secret-moderation-key"},
+    )
+    assert summary_auth.status_code == 200
+    assert summary_auth.json()["submission_id"] == sub_id
+
+
+def test_moderation_security_invariants(client: TestClient, db_session: Session):
+    """
+    Verify administrative authentication invariants:
+    1. Missing ADMIN_API_KEY fails closed with 503 Service Unavailable.
+    2. Setting TESTING=true in environment does NOT bypass authentication.
+    3. FastAPI dependency override enables clean test-scoped authorization.
+    """
+    from backend.core.config import settings
+    from backend.core.security import require_admin_auth
+    from backend.main import app
+    import os
+
+    orig_key = settings.ADMIN_API_KEY
+    try:
+        # 1. Missing key fails closed with 503
+        settings.ADMIN_API_KEY = None
+        os.environ["TESTING"] = "true"  # Even if TESTING=true is in env
+        res_503 = client.post(
+            "/api/submissions/1/approve",
+            json={"reviewer": "test"},
+        )
+        assert res_503.status_code == 503
+        assert "not configured" in res_503.json()["detail"].lower()
+
+        # 2. Key configured but unauthenticated request -> 401
+        settings.ADMIN_API_KEY = "configured-admin-key"
+        res_401 = client.post(
+            "/api/submissions/1/approve",
+            json={"reviewer": "test"},
+        )
+        assert res_401.status_code == 401
+
+        # 3. Invalid credentials -> 401
+        res_bad = client.post(
+            "/api/submissions/1/approve",
+            headers={"X-Admin-Key": "wrong-key"},
+            json={"reviewer": "test"},
+        )
+        assert res_bad.status_code == 401
+
+        # 4. Dependency override enables explicit test-scoped authorization
+        app.dependency_overrides[require_admin_auth] = lambda: "test_admin"
+        res_override = client.get("/api/submissions/999999/review-summary")
+        # 404 indicates auth passed and reached route handler for nonexistent ID
+        assert res_override.status_code == 404
+        app.dependency_overrides.pop(require_admin_auth, None)
+
+    finally:
+        settings.ADMIN_API_KEY = orig_key
+        os.environ.pop("TESTING", None)
+        app.dependency_overrides.pop(require_admin_auth, None)
+
+
