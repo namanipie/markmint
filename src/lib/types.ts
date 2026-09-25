@@ -61,6 +61,8 @@ export interface MarksDistribution {
   marks: number;
   count: number;
   label: string;
+  name?: string;
+  percentage?: number;
 }
 
 export interface UnitDistribution {

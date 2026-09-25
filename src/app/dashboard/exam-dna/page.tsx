@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ExamDNAView } from "@/components/analytics/exam-dna-view";
 import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
-import { Dna, ChevronRight, BookOpen, Filter, Sparkles, Layers } from "lucide-react";
+import { Dna, ChevronRight, BookOpen, Filter } from "lucide-react";
 
 export default function ExamDNAPage() {
   // Only show courses with papers in the corpus by default

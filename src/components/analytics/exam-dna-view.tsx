@@ -3,26 +3,19 @@
 import React, { useState, useEffect, useMemo } from "react";
 import {
   Dna,
-  Layers,
   BarChart3,
   Calendar,
   AlertCircle,
   HelpCircle,
-  BookOpen,
   Hash,
   Sparkles,
   GitBranch,
-  CheckCircle2,
-  PieChart as PieChartIcon,
   ShieldCheck,
   FileText
 } from "lucide-react";
 import { getExamDNA } from "@/lib/api";
 import {
   ExamDNA,
-  UnitDNA,
-  MarkBucketDNA,
-  QuestionTypeDNA,
   UnitDistribution,
   QuestionTypeBreakdown,
   MarksDistribution
@@ -53,10 +46,18 @@ export function ExamDNAView({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    let active = true;
+  // Sync loading state upon prop changes without direct setState in effect body
+  const [queryKey, setQueryKey] = useState(() => `${courseId}-${language || ""}-${assessmentCycle || ""}-${cutoffYear || ""}`);
+  const targetKey = `${courseId}-${language || ""}-${assessmentCycle || ""}-${cutoffYear || ""}`;
+
+  if (queryKey !== targetKey) {
+    setQueryKey(targetKey);
     setIsLoading(true);
     setError(null);
+  }
+
+  useEffect(() => {
+    let active = true;
 
     getExamDNA(courseId, {
       assessmentCycle: assessmentCycle || "ALL",
@@ -66,14 +67,13 @@ export function ExamDNAView({
       .then((res) => {
         if (!active) return;
         setDna(res);
+        setIsLoading(false);
       })
       .catch((err) => {
         if (!active) return;
         console.error("Failed to load Exam DNA", err);
         setError("Unable to compute Exam DNA for this course. Please verify historical corpus availability.");
-      })
-      .finally(() => {
-        if (active) setIsLoading(false);
+        setIsLoading(false);
       });
 
     return () => {
@@ -112,7 +112,7 @@ export function ExamDNAView({
       count: b.question_count,
       label: `${b.marks}m`,
       percentage: Math.round(b.percentage_of_questions * 100)
-    } as any));
+    }));
   }, [dna]);
 
   if (isLoading) {
@@ -163,7 +163,7 @@ export function ExamDNAView({
               </h2>
             </div>
             <p className="text-sm text-muted-foreground">
-              Empirical historical observations answering: <em>&ldquo;How does {courseName} historically ask questions?&rdquo;</em>
+              Empirical historical observations answering: <em>&ldquo;How does {canonicalCode ? `${courseName} (${canonicalCode})` : courseName} historically ask questions?&rdquo;</em>
             </p>
             <div className="text-xs font-medium text-accent pt-1">
               Based on {historicalExamCount} historical {historicalExamCount === 1 ? "exam" : "exams"} ({historicalQuestionCount} questions analyzed)
