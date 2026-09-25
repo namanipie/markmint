@@ -185,11 +185,12 @@ class SubmissionApprovalService:
             if final_assessment:
                 exam.assessment_type = final_assessment
 
-            # Attempt conservative taxonomy mapping (unresolved questions remain explicitly unmapped)
-            mapped_count = self._try_map_taxonomy(course.id, exam.id, track_id=target_track_id)
-
-            # Link questions into QuestionFamily and QuestionFamilyMembership
-            families_linked = self._link_question_families(course, exam)
+            # Authoritative post-ingestion pipeline: topic mapping and family assignment
+            from backend.services.scraper.post_processor import PostIngestionPipeline
+            pipeline = PostIngestionPipeline(self.db)
+            post_res = pipeline.process_exam(exam.id, course.id, track_id=target_track_id, auto_commit=False)
+            mapped_count = post_res["questions_mapped"]
+            families_linked = post_res["families_linked"]
 
             # Compute Paper-derived observed coverage
             coverage = compute_paper_observed_coverage(exam)
@@ -208,7 +209,7 @@ class SubmissionApprovalService:
             self.db.refresh(submission)
 
             # Invalidate cached intelligence snapshots for this course
-            IntelligenceCacheService.invalidate_course(self.db, course.id)
+            pipeline.invalidate_cache(course.id)
 
             summary = self.get_admin_review_summary(submission.id)
             total_questions = sum(len(sec.questions) for sec in exam.sections)
@@ -453,103 +454,9 @@ class SubmissionApprovalService:
         Supports both declarative TaxonomyRegistry definitions and individual course rules.
         Mapping failures remain explicitly unresolved (no row in question_topic).
         """
-        try:
-            from backend.services.taxonomy_classifier import TaxonomyClassifierService
-
-            rules = None
-            # 1. Try declarative TaxonomyRegistry first
-            try:
-                from backend.services.taxonomy_registry.registry import TaxonomyRegistry
-                registry = TaxonomyRegistry()
-                if registry.has_course(course_id):
-                    rules = registry.get_topic_rules(course_id, track_id=track_id)
-            except Exception:
-                pass
-
-            # 2. Fallback to hardcoded course rules map
-            if not rules:
-                from backend.services.taxonomy_rules import (
-                    CHEMISTRY_TAXONOMY_RULES,
-                    SPCM_TAXONOMY_RULES,
-                    POE_TAXONOMY_RULES,
-                    ICB_TAXONOMY_RULES,
-                    PPS_TAXONOMY_RULES,
-                    FOE_TAXONOMY_RULES,
-                    BMB_TAXONOMY_RULES,
-                    CELLBIO_TAXONOMY_RULES,
-                    MICROBIO_TAXONOMY_RULES,
-                    PAC_TAXONOMY_RULES,
-                    BIOCHEM_TAXONOMY_RULES,
-                    EEE_TAXONOMY_RULES,
-                    ACCA_TAXONOMY_RULES,
-                    OODP_TAXONOMY_RULES,
-                    ESPCB_TAXONOMY_RULES,
-                    ENGMECH_TAXONOMY_RULES,
-                    PROB_TAXONOMY_RULES,
-                    BLDMAT_TAXONOMY_RULES,
-                    ENG_TAXONOMY_RULES,
-                )
-
-                course_rules_map = {
-                    2: CHEMISTRY_TAXONOMY_RULES,
-                    3: SPCM_TAXONOMY_RULES,
-                    4: POE_TAXONOMY_RULES,
-                    5: ICB_TAXONOMY_RULES,
-                    6: PPS_TAXONOMY_RULES,
-                    7: FOE_TAXONOMY_RULES,
-                    8: BMB_TAXONOMY_RULES,
-                    9: CELLBIO_TAXONOMY_RULES,
-                    10: MICROBIO_TAXONOMY_RULES,
-                    11: PAC_TAXONOMY_RULES,
-                    12: BIOCHEM_TAXONOMY_RULES,
-                    13: EEE_TAXONOMY_RULES,
-                    14: ACCA_TAXONOMY_RULES,
-                    15: OODP_TAXONOMY_RULES,
-                    16: ESPCB_TAXONOMY_RULES,
-                    17: ENGMECH_TAXONOMY_RULES,
-                    18: PROB_TAXONOMY_RULES,
-                    19: BLDMAT_TAXONOMY_RULES,
-                    20: ENG_TAXONOMY_RULES,
-                }
-                rules = course_rules_map.get(course_id)
-
-            if not rules:
-                return 0
-
-            classifier = TaxonomyClassifierService(rules)
-
-            # Get newly inserted questions for this exam
-            questions = (
-                self.db.query(Question)
-                .join(Exam, Question.section.has(exam_id=exam_id))
-                .all()
-            )
-
-            if not questions:
-                return 0
-
-            payloads = [{"id": q.id, "original_text": q.original_text} for q in questions]
-            proposals = classifier.classify_batch(payloads)
-
-            mapped_count = 0
-            for prop in proposals:
-                # Conservative threshold: HIGH or MEDIUM confidence only
-                if prop.topic_id and prop.confidence in ["HIGH", "MEDIUM"]:
-                    self.db.execute(
-                        question_topic.insert().values(
-                            question_id=prop.question_id,
-                            topic_id=prop.topic_id,
-                        )
-                    )
-                    mapped_count += 1
-                # Any question that does NOT meet the threshold remains unmapped (explicitly unresolved)
-
-            self.db.flush()
-            return mapped_count
-        except Exception as e:
-            import logging
-            logging.getLogger("markmint").warning(f"Taxonomy auto-mapping deferred for Exam #{exam_id}: {e}")
-            return 0
+        from backend.services.scraper.post_processor import PostIngestionPipeline
+        pipeline = PostIngestionPipeline(self.db)
+        return pipeline.map_exam_topics(course_id, exam_id, track_id=track_id)
 
     def _link_question_families(self, course: Course, exam: Exam) -> int:
         """
@@ -557,84 +464,9 @@ class SubmissionApprovalService:
         If a question matches an existing historical family in the subject, it joins that family.
         Otherwise, a new QuestionFamily is spawned (as a singleton) anchored to the exam year.
         """
-        questions = (
-            self.db.query(Question)
-            .join(Section, Question.section_id == Section.id)
-            .filter(Section.exam_id == exam.id)
-            .all()
-        )
-        if not questions:
-            return 0
-
-        # Load existing candidate families for this course/subject
-        existing_families = (
-            self.db.query(QuestionFamily)
-            .filter(QuestionFamily.subject == course.name)
-            .all()
-        )
-
-        from backend.services.families.normalizer import QuestionNormalizer
-        norm_to_family = {}
-        for fam in existing_families:
-            fn = QuestionNormalizer.normalize(fam.canonical_name)
-            if fn and len(fn) > 10:
-                norm_to_family[fn] = fam
-
-        count_linked = 0
-        for q in questions:
-            if q.family_id is not None:
-                count_linked += 1
-                continue
-
-            q_norm = QuestionNormalizer.normalize(q.original_text or "")
-            matched_fam = norm_to_family.get(q_norm) if len(q_norm) > 10 else None
-
-            if matched_fam:
-                q.family_id = matched_fam.id
-                if exam.year:
-                    if matched_fam.latest_seen_year is None or exam.year > matched_fam.latest_seen_year:
-                        matched_fam.latest_seen_year = exam.year
-                if matched_fam.repetition_type in ("singleton", None):
-                    matched_fam.repetition_type = "exact_repeat"
-
-                membership = QuestionFamilyMembership(
-                    question_id=q.id,
-                    family_id=matched_fam.id,
-                    match_type="exact",
-                    similarity_score=1.0,
-                    decision_method="lexical_hash",
-                    algorithm_version="v1.0",
-                )
-                self.db.add(membership)
-            else:
-                new_family = QuestionFamily(
-                    canonical_name=q.original_text or f"Question #{q.id}",
-                    subject=course.name,
-                    first_seen_year=exam.year,
-                    latest_seen_year=exam.year,
-                    repetition_type="singleton",
-                )
-                self.db.add(new_family)
-                self.db.flush()
-
-                q.family_id = new_family.id
-                if len(q_norm) > 10:
-                    norm_to_family[q_norm] = new_family
-
-                membership = QuestionFamilyMembership(
-                    question_id=q.id,
-                    family_id=new_family.id,
-                    match_type="exact",
-                    similarity_score=1.0,
-                    decision_method="spawn",
-                    algorithm_version="v1.0",
-                )
-                self.db.add(membership)
-
-            count_linked += 1
-
-        self.db.flush()
-        return count_linked
+        from backend.services.scraper.post_processor import PostIngestionPipeline
+        pipeline = PostIngestionPipeline(self.db)
+        return pipeline.assign_exam_families(course, exam)
 
     @classmethod
     def get_submission_quality_metrics(cls, db: Session) -> Dict[str, Any]:

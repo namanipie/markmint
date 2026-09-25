@@ -270,29 +270,67 @@ class PostIngestionPipeline:
         return count_linked
 
     def invalidate_cache(self, course_id: int) -> int:
-        """Invalidates Tier 1 memory cache and Tier 2 persistent cache for the course."""
+        """Invalidates Tier 1 memory cache, Tier 2 persistent cache, and analysis cache for the course."""
         return IntelligenceCacheService.invalidate_course(self.db, course_id)
 
-    def process_exam(self, exam_id: int, course_id: int, track_id: Optional[int] = None) -> Dict[str, Any]:
+    def process_exam(
+        self,
+        exam_id: int,
+        course_id: int,
+        track_id: Optional[int] = None,
+        auto_commit: bool = True,
+    ) -> Dict[str, Any]:
         """
-        Executes complete post-ingestion pipeline for an exam:
-        1. Topic mapping
-        2. Family assignment
-        3. Cache invalidation
+        Executes complete authoritative post-ingestion pipeline for an exam:
+        1. Topic mapping (track-scoped, idempotent)
+        2. Family assignment (track-scoped, idempotent)
+        3. Transaction commit (if auto_commit=True)
+        4. Coordinated intelligence cache invalidation (post-commit)
         """
+        # Ensure exam track_id is synchronized if supplied
+        if track_id is not None:
+            exam = self.db.query(Exam).filter(Exam.id == exam_id).first()
+            if exam and exam.track_id is None:
+                exam.track_id = track_id
+                self.db.flush()
+
         mapped = self.map_exam_topics(course_id, exam_id, track_id=track_id)
         linked = self.assign_exam_families(course_id, exam_id)
-        cache_deleted = self.invalidate_cache(course_id)
-        self.db.commit()
+
+        if auto_commit:
+            self.db.commit()
+            cache_deleted = self.invalidate_cache(course_id)
+        else:
+            self.db.flush()
+            cache_deleted = 0
 
         logger.info(
-            "Post-ingestion complete for Exam #%d (Course %d): mapped=%d, families=%d, cache_evicted=%d",
-            exam_id, course_id, mapped, linked, cache_deleted
+            "Post-ingestion complete for Exam #%d (Course %d, Track %s): mapped=%d, families=%d, cache_evicted=%d",
+            exam_id, course_id, track_id, mapped, linked, cache_deleted
         )
         return {
             "exam_id": exam_id,
             "course_id": course_id,
+            "track_id": track_id,
             "questions_mapped": mapped,
             "families_linked": linked,
+            "cache_invalidated": cache_deleted,
+        }
+
+    def process_study_material(self, course_id: int, auto_commit: bool = True) -> Dict[str, Any]:
+        """
+        Authoritative post-ingestion for study material/knowledge extractions:
+        1. Commits underlying StudyEvidence (if auto_commit=True)
+        2. Invalidates affected course intelligence cache across all tiers
+        """
+        if auto_commit:
+            self.db.commit()
+        cache_deleted = self.invalidate_cache(course_id)
+        logger.info(
+            "Study material post-ingestion complete for Course %d: cache_evicted=%d",
+            course_id, cache_deleted
+        )
+        return {
+            "course_id": course_id,
             "cache_invalidated": cache_deleted,
         }

@@ -103,11 +103,11 @@ class ExamService:
 
 
 
-    def import_extraction(self, course_id: int, year: int, term: str, extraction_data: dict) -> Exam:
+    def import_extraction(self, course_id: int, year: int, term: str, extraction_data: dict, track_id: Optional[int] = None) -> Exam:
         from backend.models.core import Section
         
         # Create exam
-        new_exam = Exam(course_id=course_id, year=year, term=term)
+        new_exam = Exam(course_id=course_id, year=year, term=term, track_id=track_id)
         self.db.add(new_exam)
         self.db.flush() # get ID
         
@@ -131,4 +131,10 @@ class ExamService:
                 
         self.db.commit()
         self.db.refresh(new_exam)
+
+        # Authoritative post-ingestion: topic mapping, family assignment, cache invalidation
+        from backend.services.scraper.post_processor import PostIngestionPipeline
+        pipeline = PostIngestionPipeline(self.db)
+        pipeline.process_exam(new_exam.id, course_id, track_id=track_id, auto_commit=True)
+
         return new_exam

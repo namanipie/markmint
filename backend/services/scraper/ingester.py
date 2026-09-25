@@ -261,8 +261,16 @@ class CorpusIngester:
                         term="Fall",
                         extraction_data={**result.model_dump(), "year": record.extracted_year},
                     )
-                    # DB COMMIT FIRST
-                    self.db.commit()
+
+                    # Authoritative post-ingestion: topic mapping, family assignment, commit, and cache invalidation
+                    from .post_processor import PostIngestionPipeline
+                    post_proc = PostIngestionPipeline(self.db)
+                    resolved_track_id = getattr(record, "track_id", None) or new_exam.track_id
+                    post_summary = post_proc.process_exam(
+                        new_exam.id, record.course_id, track_id=resolved_track_id, auto_commit=True
+                    )
+                    logger.info("Post-ingestion executed for exam %d: %s", new_exam.id, post_summary)
+
                     # SUCCESS CHECKPOINT ONLY AFTER COMMIT
                     record.ingestion_status = "INGESTED"
                     q_count = sum(len(s.questions) for s in result.sections)
@@ -306,8 +314,10 @@ class CorpusIngester:
                             extraction_data=result.model_dump(),
                             course_id=record.course_id,
                         )
-                        # DB COMMIT FIRST
-                        self.db.commit()
+                        # Authoritative post-ingestion: commit and invalidate intelligence cache
+                        from .post_processor import PostIngestionPipeline
+                        PostIngestionPipeline(self.db).process_study_material(record.course_id, auto_commit=True)
+
                         # SUCCESS CHECKPOINT ONLY AFTER COMMIT
                         record.ingestion_status = "INGESTED"
                         self.stats["ingested"] += 1

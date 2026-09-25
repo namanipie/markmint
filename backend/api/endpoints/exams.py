@@ -27,6 +27,7 @@ class ExamImportRequest(BaseModel):
     year: int
     term: str
     extraction: DocumentExtractionResult
+    track_id: Optional[int] = None
 
 @router.post("/import", response_model=Exam)
 def import_exam_extraction(import_req: ExamImportRequest, db: Session = Depends(get_db)) -> Exam:
@@ -35,9 +36,9 @@ def import_exam_extraction(import_req: ExamImportRequest, db: Session = Depends(
         course_id=import_req.course_id,
         year=import_req.year,
         term=import_req.term,
-        extraction_data=import_req.extraction.model_dump()
+        extraction_data=import_req.extraction.model_dump(),
+        track_id=import_req.track_id,
     )
-    IntelligenceCacheService.invalidate_course(db, exam.course_id)
     return exam
 
 @router.get("/{exam_id}", response_model=Exam)

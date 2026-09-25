@@ -79,4 +79,7 @@ class StudentUploadService:
             
         self.db.commit()
         self.db.refresh(doc)
+        if doc.processing_status == "completed":
+            from backend.services.scraper.post_processor import PostIngestionPipeline
+            PostIngestionPipeline(self.db).process_study_material(course_id, auto_commit=False)
         return doc
