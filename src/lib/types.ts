@@ -64,7 +64,7 @@ export interface MarksDistribution {
 }
 
 export interface UnitDistribution {
-  unit: number;
+  unit: number | string;
   name: string;
   weight: number;
   questionCount: number;

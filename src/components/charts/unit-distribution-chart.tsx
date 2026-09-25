@@ -13,12 +13,18 @@ interface Props {
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
+    const item = payload[0].payload;
     return (
       <div className="rounded-lg border border-[#27272a] bg-[#18181b] p-3 shadow-md">
-        <p className="mb-2 font-medium text-zinc-300">{label}</p>
+        <p className="mb-1.5 font-medium text-zinc-200">{item?.name || label}</p>
         <p className="text-sm" style={{ color: ACCENT_COLOR }}>
-          Weight: <span className="font-semibold">{payload[0].value}</span>
+          Historical Weight: <span className="font-semibold">{payload[0].value}%</span>
         </p>
+        {item?.questionCount !== undefined && (
+          <p className="text-xs text-zinc-400 mt-1">
+            Questions: <span className="font-medium text-zinc-300">{item.questionCount}</span>
+          </p>
+        )}
       </div>
     );
   }

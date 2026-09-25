@@ -25,7 +25,8 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
-  ExternalLink
+  ExternalLink,
+  Dna
 } from "lucide-react";
 
 interface PageProps {
@@ -208,6 +209,13 @@ export default async function CoursePage({ params }: PageProps) {
                 Analyze in MintAI Engine
               </Link>
               <Link
+                href={`/dashboard/exam-dna?course=${course.id}`}
+                className="flex items-center justify-center gap-2 px-6 py-3.5 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-medium rounded-xl border border-accent/20 transition-all"
+              >
+                <Dna className="w-4 h-4" />
+                View Course Exam DNA
+              </Link>
+              <Link
                 href={course.practiceUrl}
                 className="flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary hover:bg-secondary/80 text-foreground text-sm font-medium rounded-xl border border-border/60 transition-all"
               >
@@ -291,6 +299,74 @@ export default async function CoursePage({ params }: PageProps) {
               <span>
                 <strong className="text-foreground">Zero Guesswork:</strong> Every forecast includes verifiable historical paper citations.
               </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Exam DNA Callout Section */}
+        <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border/80 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-wider">
+                <Dna className="w-4 h-4" />
+                <span>Empirical Examination Architecture</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+                {course.name} Exam DNA
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                How does this course historically ask questions? Grounded strictly in {course.paperCount} verified historical papers ({course.questionCount.toLocaleString()} questions).
+              </p>
+            </div>
+
+            <Link
+              href={`/dashboard/exam-dna?course=${course.id}`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground text-xs font-semibold rounded-xl hover:bg-accent/90 transition-all shrink-0 self-start sm:self-auto shadow-sm"
+            >
+              <span>Explore Full Exam DNA</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-accent" />
+                Unit Distribution
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Marks-weighted historical unit contributions across verified papers.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <BookOpen className="w-3.5 h-3.5 text-accent" />
+                Question Types
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Factual distribution of classified and unclassified question archetypes.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-accent" />
+                Marks Distribution
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Discrete mark tiers and weight frequencies derived from actual exams.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-accent" />
+                Question Patterns
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Deterministic formulation stems and recurring question family lineages.
+              </p>
             </div>
           </div>
         </section>

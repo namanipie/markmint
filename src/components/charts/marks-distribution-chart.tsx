@@ -15,10 +15,15 @@ const CustomTooltip = ({ active, payload }: any) => {
     const data = payload[0].payload;
     return (
       <div className="rounded-lg border border-[#27272a] bg-[#18181b] p-3 shadow-md">
-        <p className="font-medium text-zinc-300 mb-1">{data.name || data.marks}</p>
+        <p className="font-medium text-zinc-200 mb-1">{data.name || `${data.marks} Marks`}</p>
         <p className="text-sm" style={{ color: payload[0].color }}>
-          Count: <span className="font-semibold">{payload[0].value}</span>
+          Questions: <span className="font-semibold">{payload[0].value}</span>
         </p>
+        {data.percentage !== undefined && (
+          <p className="text-xs text-zinc-400 mt-1">
+            Share: <span className="font-medium text-zinc-300">{data.percentage}%</span>
+          </p>
+        )}
       </div>
     );
   }
