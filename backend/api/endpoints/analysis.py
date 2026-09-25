@@ -15,12 +15,22 @@ from backend.services.prediction.context import HistoricalContext
 from backend.services.prediction.repository import HistoricalRepository
 
 
+from backend.services.intelligence_cache import analysis_cache as _ANALYSIS_CACHE, BoundedAnalysisCache
+
+
 router = APIRouter()
 
-# Simple in-memory cache for expensive analysis to avoid repeated DB hits
-# Key: (course_id, assessment_cycle, cutoff_year, track_id, analysis_type), Value: (timestamp, data)
-_ANALYSIS_CACHE = {}
-CACHE_TTL = 300 # 5 minutes
+# Bounded, thread-safe in-memory cache for expensive analysis to avoid repeated DB hits
+CACHE_TTL = 300  # 5 minutes
+
+
+def invalidate_analysis_cache(course_id: Optional[int] = None) -> int:
+    """Explicitly invalidate in-memory analysis reports for a course, or all courses if None."""
+    if course_id is not None:
+        return _ANALYSIS_CACHE.invalidate_course(course_id)
+    cleared = len(_ANALYSIS_CACHE)
+    _ANALYSIS_CACHE.clear()
+    return cleared
 
 def _resolve_track(course: Course, language: Optional[str]) -> Optional[CourseTrack]:
     if not course or not course.tracks or not language:
@@ -168,10 +178,9 @@ def get_course_dna(
     resolved_track_id = active_track.id if active_track else track_id
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
     cache_key = (course.id, norm_cycle or "ALL", cutoff_year, resolved_track_id, "dna")
-    if cache_key in _ANALYSIS_CACHE:
-        ts, data = _ANALYSIS_CACHE[cache_key]
-        if time.time() - ts < CACHE_TTL:
-            return data
+    cached_dna = _ANALYSIS_CACHE.get(cache_key)
+    if cached_dna is not None:
+        return cached_dna
 
     exams_dict = _get_exams_as_dicts(
         course.id,
@@ -182,7 +191,7 @@ def get_course_dna(
     )
     dna_report = DNAAnalyzerService.analyze(exams_dict, target_course_id=course.id)
     
-    _ANALYSIS_CACHE[cache_key] = (time.time(), dna_report)
+    _ANALYSIS_CACHE.set(cache_key, dna_report)
     return dna_report
 
 @router.get("/evolution", response_model=EvolutionReport)
@@ -194,15 +203,14 @@ def get_course_evolution(
     course = _resolve_course(db, course_id)
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
     cache_key = (course.id, norm_cycle or "ALL", "evolution")
-    if cache_key in _ANALYSIS_CACHE:
-        ts, data = _ANALYSIS_CACHE[cache_key]
-        if time.time() - ts < CACHE_TTL:
-            return data
+    cached_evolution = _ANALYSIS_CACHE.get(cache_key)
+    if cached_evolution is not None:
+        return cached_evolution
 
     exams_dict = _get_exams_as_dicts(course.id, db, norm_cycle)
     evolution_report = ExamEvolutionService.analyze_evolution(course.id, exams_dict)
     
-    _ANALYSIS_CACHE[cache_key] = (time.time(), evolution_report)
+    _ANALYSIS_CACHE.set(cache_key, evolution_report)
     return evolution_report
 
 

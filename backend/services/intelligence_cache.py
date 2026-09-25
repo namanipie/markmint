@@ -2,6 +2,7 @@
 
 import logging
 import threading
+import time
 from collections import OrderedDict
 from datetime import datetime
 from typing import Any, Dict, Optional, Union
@@ -18,18 +19,132 @@ _memory_cache: OrderedDict[str, Dict[str, Any]] = OrderedDict()
 _lock = threading.Lock()
 
 
+class BoundedAnalysisCache:
+    """Thread-safe bounded LRU cache with TTL for analysis reports."""
+
+    def __init__(self, max_size: int = 256, ttl: float = 300.0):
+        self._max_size = max_size
+        self._ttl = ttl
+        self._cache: OrderedDict[Any, Any] = OrderedDict()
+        self._lock = threading.Lock()
+
+    def get(self, key: Any) -> Optional[Any]:
+        with self._lock:
+            if key not in self._cache:
+                return None
+            ts, data = self._cache[key]
+            if time.time() - ts >= self._ttl:
+                self._cache.pop(key, None)
+                return None
+            self._cache.move_to_end(key)
+            return data
+
+    def set(self, key: Any, data: Any) -> None:
+        with self._lock:
+            self._cache[key] = (time.time(), data)
+            self._cache.move_to_end(key)
+            while len(self._cache) > self._max_size:
+                self._cache.popitem(last=False)
+
+    def invalidate_course(self, course_id: int) -> int:
+        with self._lock:
+            keys_to_delete = [
+                k for k in self._cache
+                if (isinstance(k, tuple) and len(k) > 0 and (k[0] == course_id or str(k[0]).strip() == str(course_id)))
+            ]
+            for k in keys_to_delete:
+                self._cache.pop(k, None)
+            return len(keys_to_delete)
+
+    def clear(self) -> None:
+        with self._lock:
+            self._cache.clear()
+
+    def __contains__(self, key: Any) -> bool:
+        with self._lock:
+            if key not in self._cache:
+                return False
+            ts, _ = self._cache[key]
+            if time.time() - ts >= self._ttl:
+                self._cache.pop(key, None)
+                return False
+            return True
+
+    def __getitem__(self, key: Any) -> Any:
+        with self._lock:
+            return self._cache[key]
+
+    def __setitem__(self, key: Any, val: Any) -> None:
+        with self._lock:
+            # val can be (timestamp, data) or raw data
+            if isinstance(val, tuple) and len(val) == 2 and isinstance(val[0], (int, float)):
+                self._cache[key] = val
+            else:
+                self._cache[key] = (time.time(), val)
+            self._cache.move_to_end(key)
+            while len(self._cache) > self._max_size:
+                self._cache.popitem(last=False)
+
+    def __len__(self) -> int:
+        with self._lock:
+            return len(self._cache)
+
+
+analysis_cache = BoundedAnalysisCache(max_size=256, ttl=300.0)
+
+
+def canonicalize_identifier(identifier: Union[str, int]) -> str:
+    """Canonicalize course identifier: digits string converted to integer string, others lowercased and stripped."""
+    s = str(identifier).strip()
+    if s.isdigit():
+        return str(int(s))
+    return s.lower()
+
+
+def canonicalize_cycle(assessment_cycle: Optional[str]) -> str:
+    """Canonicalize assessment cycle, mapping None/empty/unknown to 'ALL'."""
+    if not assessment_cycle or not isinstance(assessment_cycle, str):
+        return "ALL"
+    from backend.services.assessment_cycle import normalize_assessment_cycle
+    norm = normalize_assessment_cycle(assessment_cycle)
+    return norm if norm else "ALL"
+
+
+def canonicalize_track(track: Optional[Union[str, int]]) -> str:
+    """Canonicalize track identifier or track key."""
+    if track is None:
+        return "none"
+    s = str(track).strip().lower()
+    if s in ("", "none", "null"):
+        return "none"
+    return s
+
+
+def canonicalize_student_id(student_id: Optional[str]) -> str:
+    """Canonicalize student identifier, treating None/empty/anonymous/case-insensitive as empty string (anonymous)."""
+    if not student_id or not isinstance(student_id, str):
+        return ""
+    clean = student_id.strip()
+    if clean.lower() in ("", "anonymous", "none", "null"):
+        return ""
+    return clean
+
+
 def build_cache_key(
     identifier: Union[str, int],
-    assessment_cycle: Optional[str],
+    assessment_cycle: Optional[str] = None,
     track: Optional[Union[str, int]] = None,
     student_id: Optional[str] = None,
+    cutoff_year: Optional[int] = None,
 ) -> str:
-    """Deterministic cache key incorporating identifier/course_id, cycle, track, student_id, and version invariants."""
-    norm_cycle = (assessment_cycle or "ALL").upper().strip()
-    track_part = str(track).lower().strip() if track is not None else "none"
-    clean_student = student_id.strip() if student_id and isinstance(student_id, str) else ""
-    student_part = f":student:{clean_student}" if clean_student and clean_student != "anonymous" else ""
-    return f"{str(identifier).lower().strip()}:{norm_cycle}:{track_part}{student_part}:{CORPUS_VERSION}:{TAXONOMY_VERSION}:{MODEL_VERSION}"
+    """Deterministic, canonical cache key incorporating course identifier, cycle, track, student_id, cutoff, and versions."""
+    clean_id = canonicalize_identifier(identifier)
+    norm_cycle = canonicalize_cycle(assessment_cycle)
+    track_part = canonicalize_track(track)
+    clean_student = canonicalize_student_id(student_id)
+    student_part = f":student:{clean_student}" if clean_student else ""
+    cutoff_part = f":cutoff:{cutoff_year}" if cutoff_year is not None else ""
+    return f"{clean_id}:{norm_cycle}:{track_part}{student_part}{cutoff_part}:{CORPUS_VERSION}:{TAXONOMY_VERSION}:{MODEL_VERSION}"
 
 
 def _validate_snapshot_payload(payload: Any) -> bool:
@@ -183,8 +298,8 @@ class IntelligenceCacheService:
                 _memory_cache.popitem(last=False)
 
     @staticmethod
-    def invalidate_course(db: Session, course_id: int) -> int:
-        """Invalidate all cached snapshots for a specific course across Tier 1 and Tier 2."""
+    def invalidate_course(db: Optional[Session], course_id: int) -> int:
+        """Invalidate all cached snapshots and analysis reports for a specific course across Tier 1, Tier 2, and analysis cache."""
         prefix = f"{course_id}:"
         with _lock:
             keys_to_delete = [
@@ -193,6 +308,9 @@ class IntelligenceCacheService:
             ]
             for k in keys_to_delete:
                 _memory_cache.pop(k, None)
+
+        # Invalidate in-memory analysis cache (DNA / Evolution)
+        analysis_cache.invalidate_course(course_id)
 
         db_deleted = 0
         if db is not None:
@@ -212,6 +330,7 @@ class IntelligenceCacheService:
 
     @staticmethod
     def clear_memory_cache() -> None:
-        """Clear all entries from Tier 1 memory cache (useful for tests)."""
+        """Clear all entries from Tier 1 memory cache and analysis cache (useful for tests)."""
         with _lock:
             _memory_cache.clear()
+        analysis_cache.clear()
