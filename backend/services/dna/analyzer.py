@@ -11,6 +11,7 @@ from backend.schemas import (
     UnitDNA,
     UnitDistributionDNA,
     QuestionTypeDNA,
+    UnitQuestionTypeBreakdown,
     MarkBucketDNA,
     MarksDistributionDNA,
     StemPatternDNA,
@@ -18,7 +19,7 @@ from backend.schemas import (
     QuestionPatternSummaryDNA,
     RepetitionDNA,
     FamilyDNA,
-    TemporalTrend
+    TemporalUnitQuestionTypeBreakdown, TemporalTrend, 
 )
 
 class DNAAnalyzerService:
@@ -445,6 +446,66 @@ class DNAAnalyzerService:
             total_marks=round(total_marks, 2)
         )
 
+        # Temporal unit-question-type breakdown
+        year_exam_counts = defaultdict(int)
+        for e in sanitized_exams:
+            y = e.get("year")
+            if y is not None:
+                year_exam_counts[y] += 1
+
+        temporal_breakdowns = []
+        if year_exam_counts:
+            agg = defaultdict(lambda: defaultdict(lambda: {"count": 0, "marks": 0.0}))
+            for e in sanitized_exams:
+                y = e.get("year")
+                if y is None:
+                    continue
+                for q in e.get("questions", []):
+                    is_alt = bool(q.get("is_alternative", False))
+                    raw_m = q.get("marks")
+                    m = float(raw_m) if raw_m is not None else 0.0
+                    q_units = q.get("units")
+                    if q_units is None:
+                        unit_single = q.get("unit")
+                        q_units = [unit_single] if unit_single else []
+                    clean_units = list(dict.fromkeys(u for u in q_units if u))
+                    if not clean_units:
+                        continue
+                    raw_qtype = q.get("question_type")
+                    qtype_key = raw_qtype.strip() if (raw_qtype and isinstance(raw_qtype, str) and raw_qtype.strip()) else "unclassified"
+                    for unit in clean_units:
+                        bucket = agg[(y, unit)][qtype_key]
+                        bucket["count"] += 1
+                        if not is_alt:
+                            bucket["marks"] += m
+
+            for (y, unit), qtype_dict in agg.items():
+                total_q = sum(v["count"] for v in qtype_dict.values())
+                total_m = sum(v["marks"] for v in qtype_dict.values())
+                exams_in_y = year_exam_counts[y]
+                is_sparse = (exams_in_y < 3) or (total_q < 5)
+                for qtype, stats in qtype_dict.items():
+                    cnt = stats["count"]
+                    marks = round(stats["marks"], 2)
+                    q_pct = round(cnt / total_q, 4) if total_q > 0 else 0.0
+                    m_pct = round(marks / total_m, 4) if total_m > 0 else 0.0
+                    temporal_breakdowns.append(
+                        TemporalUnitQuestionTypeBreakdown(
+                            year=y,
+                            unit=unit,
+                            question_type=qtype,
+                            question_count=cnt,
+                            question_percentage=q_pct,
+                            scored_marks=marks,
+                            marks_weight_percentage=m_pct,
+                            exam_count=exams_in_y,
+                            total_unit_questions=total_q,
+                            is_sparse=is_sparse
+                        )
+                    )
+
+            temporal_breakdowns.sort(key=lambda r: (r.year, str(r.unit), r.question_type))
+
         return ExamDNA(
             sample_size=sample_size,
             topics=topics_dna,
@@ -460,7 +521,8 @@ class DNAAnalyzerService:
             temporal_trends=[],
             unit_distribution=unit_distribution,
             marks_distribution=marks_distribution,
-            pattern_summary=pattern_summary
+            pattern_summary=pattern_summary,
+            temporal_unit_question_type_breakdown=temporal_breakdowns
         )
 
     @classmethod

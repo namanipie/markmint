@@ -296,6 +296,19 @@ export interface FamilyDNA {
   trend: string;
 }
 
+export interface TemporalUnitQuestionTypeBreakdown {
+  year: number;
+  unit: string;
+  question_type: string;
+  question_count: number;
+  question_percentage: number;
+  scored_marks: number;
+  marks_weight_percentage: number;
+  exam_count?: number | null;
+  total_unit_questions?: number | null;
+  is_sparse?: boolean | null;
+}
+
 export interface ExamDNA {
   sample_size: DNASampleSize;
   topics: any[];
@@ -307,6 +320,7 @@ export interface ExamDNA {
   unit_distribution?: UnitDistributionDNA;
   marks_distribution?: MarksDistributionDNA;
   pattern_summary?: QuestionPatternSummaryDNA;
+  temporal_unit_question_type_breakdown?: TemporalUnitQuestionTypeBreakdown[];
 }
 
 export interface ExamDNAAnalysis {

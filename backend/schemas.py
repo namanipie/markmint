@@ -254,6 +254,13 @@ class QuestionTypeDNA(BaseModel):
     percentage: float
     marks_weighting: float
 
+class UnitQuestionTypeBreakdown(BaseModel):
+    unit: str
+    question_type: str
+    question_count: int
+    question_percentage: float
+    marks_weight_percentage: float
+
 class MarkBucketDNA(BaseModel):
     marks: float
     question_count: int
@@ -319,6 +326,18 @@ class TemporalTrend(BaseModel):
     recent_avg: float
     description: str
 
+class TemporalUnitQuestionTypeBreakdown(BaseModel):
+    year: int
+    unit: str
+    question_type: str
+    question_count: int
+    question_percentage: float
+    scored_marks: float = 0.0
+    marks_weight_percentage: float
+    exam_count: Optional[int] = None
+    total_unit_questions: Optional[int] = None
+    is_sparse: Optional[bool] = None
+
 class ExamDNA(BaseModel):
     sample_size: DNASampleSize
 
@@ -334,6 +353,7 @@ class ExamDNA(BaseModel):
     unit_distribution: Optional[UnitDistributionDNA] = None
     marks_distribution: Optional[MarksDistributionDNA] = None
     pattern_summary: Optional[QuestionPatternSummaryDNA] = None
+    temporal_unit_question_type_breakdown: Optional[list[TemporalUnitQuestionTypeBreakdown]] = None
 
 class ProvenanceNode(BaseModel):
     record_type: str # 'question', 'exam', 'document', 'study_evidence'

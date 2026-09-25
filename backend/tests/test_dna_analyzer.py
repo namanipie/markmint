@@ -69,3 +69,72 @@ def test_repetition_distinction():
     assert dna.repetition.near_count == 2
     assert dna.repetition.conceptual_count == 1
     assert dna.repetition.structural_count == 3
+
+
+def test_temporal_unit_question_type_breakdown():
+    exams = [
+        # Year 2023 - 3 exams
+        {
+            "id": 1,
+            "year": 2023,
+            "questions": [
+                {"unit": "Unit 1", "question_type": "Numerical", "marks": 10},
+                {"unit": "Unit 1", "question_type": "Descriptive", "marks": 5},
+            ]
+        },
+        {
+            "id": 2,
+            "year": 2023,
+            "questions": [
+                {"unit": "Unit 1", "question_type": "Numerical", "marks": 10},
+                {"unit": "Unit 1", "question_type": "Numerical", "marks": 10},
+            ]
+        },
+        {
+            "id": 3,
+            "year": 2023,
+            "questions": [
+                {"unit": "Unit 1", "question_type": "Numerical", "marks": 10},
+                {"unit": "Unit 1", "question_type": None, "marks": None},  # unclassified & unscored
+            ]
+        },
+        # Year 2024 - 1 exam (sparse)
+        {
+            "id": 4,
+            "year": 2024,
+            "questions": [
+                {"unit": "Unit 1", "question_type": "Descriptive", "marks": 15},
+            ]
+        }
+    ]
+
+    dna = DNAAnalyzerService.analyze(exams)
+    temp = dna.temporal_unit_question_type_breakdown
+    assert temp is not None
+    assert len(temp) == 4
+
+    # 2023: 6 questions total (Numerical: 4, Descriptive: 1, unclassified: 1)
+    # Total marks: 40 (Numerical) + 5 (Descriptive) = 45 marks
+    # 3 exams >= 3 and 6 questions >= 5 -> is_sparse is False
+    y2023_num = next(r for r in temp if r.year == 2023 and r.question_type == "Numerical")
+    assert y2023_num.question_count == 4
+    assert y2023_num.total_unit_questions == 6
+    assert y2023_num.question_percentage == round(4 / 6, 4)
+    assert y2023_num.scored_marks == 40.0
+    assert y2023_num.marks_weight_percentage == round(40 / 45, 4)
+    assert y2023_num.is_sparse is False
+
+    y2023_unclass = next(r for r in temp if r.year == 2023 and r.question_type == "unclassified")
+    assert y2023_unclass.question_count == 1
+    assert y2023_unclass.scored_marks == 0.0
+    assert y2023_unclass.marks_weight_percentage == 0.0
+
+    # 2024: 1 exam < 3 and 1 question < 5 -> is_sparse is True
+    y2024 = next(r for r in temp if r.year == 2024)
+    assert y2024.question_count == 1
+    assert y2024.total_unit_questions == 1
+    assert y2024.question_percentage == 1.0
+    assert y2024.scored_marks == 15.0
+    assert y2024.marks_weight_percentage == 1.0
+    assert y2024.is_sparse is True
+
