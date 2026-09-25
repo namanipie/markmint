@@ -77,7 +77,8 @@ class DeterministicQuestionTypeClassifier:
 
     # 3. Regex patterns for Programming / Algorithm Implementation
     RE_PROGRAMMING = re.compile(
-        r'\b(?:write\s+a\s+(?:c|python|java|cpp|c\+\+|shell)?\s*(?:program|code|script)|'
+        r'\b(?:write\s+a\s+(?:c|python|java|cpp|c\+\+|shell|bash)?\s*(?:program|code)|'
+        r'write\s+a\s+(?:shell|bash|python|perl)\s+script|'
         r'write\s+a\s+function|write\s+an\s+algorithm|write\s+a\s+pseudocode|'
         r'write\s+(?:an?\s+)?sql\s+quer(?:y|ies)|write\s+(?:a\s+)?query\s+to|'
         r'implement\s+(?:an?\s+)?(?:algorithm|function|data\s+structure|stack|queue|linked\s+list)|'
@@ -95,23 +96,27 @@ class DeterministicQuestionTypeClassifier:
 
     # 4. Regex patterns for Derivation / Proof
     RE_DERIVATION = re.compile(
-        r'\b(?:derive\s+the\s+expression|derive\s+an\s+expression|derive\s+the\s+equation|'
+        r'\b(?:derive\s+(?:the|an)\s+expression|derive\s+the\s+equation|'
         r'derive\s+the\s+relation|derive\s+the\s+formula|derive\s+schrodinger|'
         r'derive\s+time\s+independent|derive\s+hall\s+coefficient|'
-        r'deduce\s+the\s+expression|deduce\s+the\s+relation|'
+        r'deduce\s+(?:the|an)\s+expression|deduce\s+(?:the|an)\s+relation|'
         r'obtain\s+an\s+expression\s+for|establish\s+the\s+relation|'
         r'state\s+and\s+prove|prove\s+that|show\s+that|'
-        r'verify\s+cayley\s*-?\s*hamilton|verify\s+(?:green\'?s|stokes\'?|divergence)\s+theorem)\b',
+        r'verify\s+cayley\s*-?\s*hamilton|verify\s+(?:green\'?s?|stoke\'?s?|divergence)\s+theorem)\b',
         re.IGNORECASE
     )
 
     # 5. Regex patterns for Numerical / Calculation
     RE_CALCULATION = re.compile(
         r'\b(?:calculate|compute|find\s+the\s+value\s+of|evaluate\s+the\s+(?:integral|limit|expression|value)|'
-        r'determine\s+the\s+value\s+of|solve\s+the\s+differential\s+equation|'
-        r'solve\s+the\s+system\s+of|find\s+the\s+eigen\s*values?|'
+        r'determine\s+the\s+value\s+of|solve\s+(?:the\s+differential\s+equation|the\s+equation|the\s+system|the\s+initial\s+value|[a-zA-Z]\'\'|[a-zA-Z]\'|for\s+[a-zA-Z])|'
+        r'find\s+the\s+eigen\s*values?|'
+        r'find\s+(?:the\s+)?(?:taylor|laurent|fourier|laplace|bilinear|envelope|series|expansion|map|transformation|analytic|harmonic)\b|'
+        r'find\s+f\(z\)|find\s+the\s+(?:general\s+solution|particular\s+integral|complementary\s+function)|'
+        r'write\s+down\s+the\s+quadratic\s+form|reduce\s+the\s+quadratic\s+form|'
+        r'expand\s+.*?\s+(?:in|as)\s+(?:a\s+)?(?:taylor|laurent|powers|series)|'
         r'find\s+the\s+(?:radius|centre|center|equation|solution|area|volume|perimeter|length|angle|slope|gradient|divergence|curl|laplacian)|'
-        r'find\s+the\s+rank|find\s+the\s+inverse|reduce\s+the\s+quadratic\s+form|'
+        r'find\s+the\s+rank|find\s+the\s+inverse|'
         r'find\s+the\s+maximum\s+and\s+minimum|find\s+the\s+roots?|'
         r'calculate\s+the\s+(?:concentration|efficiency|potential|work|energy|force|velocity|acceleration|current|voltage|power)|'
         r'determine\s+the\s+(?:current|voltage|efficiency|frequency|impedance))\b',
@@ -188,8 +193,11 @@ class DeterministicQuestionTypeClassifier:
             # Guard against subquestions: e.g. "(a) Explain... (b) Derive..."
             # In genuine MCQs, choices are short words/values, not multi-line questions with subquestion marks
             is_subquestion_false_positive = False
-            if has_mcq_structure and len(distinct_options) == 2 and not ("C" in distinct_options or "D" in distinct_options):
-                if re.search(r'\([a-b]\)\s*(?:explain|derive|calculate|discuss|write|define|prove)', clean_text):
+            if has_mcq_structure and not ("C" in distinct_options and "D" in distinct_options and len(distinct_options) >= 3) and not has_true_false:
+                # If only 1-2 choices detected (like A & B) and marks >= 3.0, it is subparts (a) & (b), not an MCQ
+                if marks_val is not None and marks_val >= 3.0:
+                    is_subquestion_false_positive = True
+                elif re.search(r'\([a-b]\)\s*(?:explain|derive|calculate|discuss|write|define|prove|find|evaluate|verify|solve|determine|with|change|by)', clean_text):
                     is_subquestion_false_positive = True
 
             if not is_subquestion_false_positive:
@@ -417,15 +425,6 @@ class DeterministicQuestionTypeClassifier:
                     signals=signals,
                     raw_type="explanation"
                 )
-
-        # If question has high marks and substantial length, it is likely descriptive
-        if marks_val is not None and marks_val >= 8.0 and word_count >= 15:
-            return TypeClassificationProposal(
-                question_type=QuestionType.EXPLANATION,
-                confidence=ClassificationConfidence.LOW,
-                signals=[f"high_marks_descriptive_heuristic:{marks_val}", f"word_count:{word_count}"],
-                raw_type="explanation"
-            )
 
         # -------------------------------------------------------------
         # STEP 9: Conservative Unclassified Fallback
