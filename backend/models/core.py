@@ -211,6 +211,7 @@ class CourseTrack(Base):
     course = relationship("Course", back_populates="tracks")
     syllabuses = relationship("Syllabus", back_populates="track", cascade="all, delete-orphan")
     exams = relationship("Exam", back_populates="track")
+    question_families = relationship("QuestionFamily", back_populates="track")
 
     __table_args__ = (
         UniqueConstraint("course_id", "track_key", name="uq_course_track_key"),
@@ -383,10 +384,12 @@ class QuestionFamily(Base):
     canonical_name = Column(String, nullable=False)
     description = Column(Text, nullable=True)
     subject = Column(String, nullable=False, index=True)
+    track_id = Column(Integer, ForeignKey("course_tracks.id", ondelete="SET NULL"), nullable=True, index=True)
     first_seen_year = Column(Integer, nullable=True)
     latest_seen_year = Column(Integer, nullable=True)
     repetition_type = Column(String, nullable=True)
 
+    track = relationship("CourseTrack", back_populates="question_families")
     questions = relationship("Question", back_populates="family")
     memberships = relationship("QuestionFamilyMembership", back_populates="family")
 
@@ -394,7 +397,7 @@ class QuestionFamily(Base):
 class QuestionFamilyMembership(Base):
     __tablename__ = "question_family_memberships"
     id = Column(Integer, primary_key=True, index=True)
-    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False, index=True)
+    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False, unique=True, index=True)
     family_id = Column(Integer, ForeignKey("question_families.id"), nullable=False, index=True)
     match_type = Column(String, nullable=False)
     similarity_score = Column(Float, nullable=True)
@@ -403,6 +406,11 @@ class QuestionFamilyMembership(Base):
 
     question = relationship("Question", back_populates="memberships")
     family = relationship("QuestionFamily", back_populates="memberships")
+
+    __table_args__ = (
+        UniqueConstraint("question_id", name="uq_question_family_memberships_question_id"),
+    )
+
 
 
 class Question(Base):
