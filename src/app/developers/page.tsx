@@ -139,7 +139,7 @@ function IDCard({ dev, index }: { dev: Developer; index: number }) {
   const [isTapped, setIsTapped] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [dropped, setDropped] = useState(false);
-  const todayDate = new Date().toISOString().split('T')[0].replace(/-/g, '.');
+  const issueDate = "2026.09.14";
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -214,7 +214,7 @@ function IDCard({ dev, index }: { dev: Developer; index: number }) {
         <div className="px-6 flex gap-6 mt-1 mb-4">
           <div>
             <p className="text-[8px] uppercase tracking-widest text-muted-foreground/70">Issue Date</p>
-            <p className="text-[10px] font-mono font-medium">{todayDate}</p>
+            <p className="text-[10px] font-mono font-medium">{issueDate}</p>
           </div>
           <div>
             <p className="text-[8px] uppercase tracking-widest text-muted-foreground/70">Clearance</p>
