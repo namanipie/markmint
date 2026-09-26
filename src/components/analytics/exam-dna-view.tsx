@@ -28,6 +28,7 @@ import { UnitDistributionChart } from "@/components/charts/unit-distribution-cha
 import { QuestionTypeChart } from "@/components/charts/question-type-chart";
 import { MarksDistributionChart } from "@/components/charts/marks-distribution-chart";
 import { TemporalUnitChart, TemporalChartRow, formatQuestionTypeName } from "@/components/charts/temporal-unit-chart";
+import { HistoricalFocusEvolution } from "@/components/analytics/historical-focus-evolution";
 
 interface ExamDNAViewProps {
   courseId: number | string;
@@ -661,6 +662,14 @@ export function ExamDNAView({
           </div>
         )}
       </section>
+
+      {/* 3c. Historical Exam Focus Evolution: Syllabus & Topics */}
+      <HistoricalFocusEvolution
+        temporalUnitFocus={dna.temporal_unit_focus}
+        topicHistoricalFootprints={dna.topic_historical_footprints}
+        temporalTopicFocus={dna.temporal_topic_focus}
+        syllabusUnits={dna.units}
+      />
 
       {/* 4. Marks Distribution */}
       <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
