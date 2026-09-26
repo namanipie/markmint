@@ -132,7 +132,7 @@ def test_pps_intelligence_snapshot():
         assert len(snapshot["topic_predictions"]) > 0
         assert len(snapshot["family_predictions"]) > 0
         assert snapshot["exam_history"]["total_papers"] == 20
-        assert snapshot["exam_history"]["years"] == [2019, 2023, 2024]
+        assert snapshot["exam_history"]["years"] == [2019, 2022, 2023, 2024]
     finally:
         db.close()
 

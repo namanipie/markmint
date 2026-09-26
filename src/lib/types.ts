@@ -309,6 +309,49 @@ export interface TemporalUnitQuestionTypeBreakdown {
   is_sparse?: boolean | null;
 }
 
+export interface TemporalUnitFocusBreakdown {
+  year: number;
+  unit: string;
+  unit_number?: number | null;
+  question_count: number;
+  question_percentage: number;
+  scored_marks: number;
+  marks_weight_percentage: number;
+  exam_count: number;
+  is_sparse: boolean;
+}
+
+export interface TopicHistoricalFootprint {
+  topic_id: number;
+  topic_name: string;
+  unit_name: string;
+  unit_number?: number | null;
+  total_questions: number;
+  total_marks: number;
+  years_observed: number[];
+  first_seen_year?: number | null;
+  latest_seen_year?: number | null;
+  paper_coverage_percentage: number;
+}
+
+export interface TemporalTopicFocusBreakdown {
+  year: number;
+  unit: string;
+  unit_number?: number | null;
+  topic: string;
+  topic_id?: number | null;
+  question_count: number;
+  question_percentage: number;
+  scored_marks: number;
+  marks_weight_percentage: number;
+  exam_count: number;
+  persistence_years: number[];
+  first_seen_year?: number | null;
+  latest_seen_year?: number | null;
+  is_sparse: boolean;
+  question_types: Record<string, number>;
+}
+
 export interface ExamDNA {
   sample_size: DNASampleSize;
   topics: any[];
@@ -321,6 +364,9 @@ export interface ExamDNA {
   marks_distribution?: MarksDistributionDNA;
   pattern_summary?: QuestionPatternSummaryDNA;
   temporal_unit_question_type_breakdown?: TemporalUnitQuestionTypeBreakdown[];
+  temporal_unit_focus?: TemporalUnitFocusBreakdown[];
+  topic_historical_footprints?: TopicHistoricalFootprint[];
+  temporal_topic_focus?: TemporalTopicFocusBreakdown[];
 }
 
 export interface ExamDNAAnalysis {

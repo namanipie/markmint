@@ -6,7 +6,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session, selectinload
 
 from backend.core.database import get_db
-from backend.models.core import Exam, Course, Section, Question, Topic, CourseTrack
+from backend.models.core import Exam, Course, Section, Question, Topic, CourseTrack, Unit, Syllabus
 from backend.schemas import ExamDNA, EvolutionReport
 from backend.services.dna.analyzer import DNAAnalyzerService
 from backend.services.dna.evolution import ExamEvolutionService
@@ -110,6 +110,29 @@ def _get_exams_as_dicts(
                     if getattr(q, "topics", None)
                     else []
                 )
+                q_topic_objects = [
+                    {
+                        "id": t.id,
+                        "name": t.name,
+                        "unit_name": t.unit.name if getattr(t, "unit", None) else None,
+                        "unit_number": t.unit.number if getattr(t, "unit", None) else None,
+                    }
+                    for t in q.topics
+                ] if getattr(q, "topics", None) else []
+
+                q_unit_objects = []
+                if getattr(q, "topics", None):
+                    seen_u_names = set()
+                    for t in q.topics:
+                        if getattr(t, "unit", None) and t.unit.name:
+                            if t.unit.name not in seen_u_names:
+                                seen_u_names.add(t.unit.name)
+                                q_unit_objects.append({
+                                    "id": t.unit.id,
+                                    "name": t.unit.name,
+                                    "number": t.unit.number,
+                                })
+
                 rep_type = None
                 if getattr(q, "memberships", None) and len(q.memberships) > 0:
                     rep_type = q.memberships[0].match_type
@@ -122,8 +145,10 @@ def _get_exams_as_dicts(
                     "is_alternative": q.is_alternative,
                     "topic": q_topics[0] if q_topics else None,
                     "topics": q_topics,
+                    "topic_objects": q_topic_objects,
                     "unit": q_units[0] if q_units else None,
                     "units": q_units,
+                    "unit_objects": q_unit_objects,
                     "question_type": q.question_type,
                     "original_text": q.original_text or q.normalized_text,
                     "repetition_type": rep_type,
@@ -189,7 +214,23 @@ def get_course_dna(
         cutoff_year=cutoff_year,
         track_id=resolved_track_id
     )
-    dna_report = DNAAnalyzerService.analyze(exams_dict, target_course_id=course.id)
+
+    syllabus_units = []
+    syll_query = db.query(Unit).join(Syllabus).filter(Syllabus.course_id == course.id)
+    if resolved_track_id:
+        syll_query = syll_query.filter(Syllabus.track_id == resolved_track_id)
+    for u in syll_query.order_by(Unit.number.asc()).all():
+        syllabus_units.append({
+            "id": u.id,
+            "name": u.name,
+            "number": u.number,
+        })
+
+    dna_report = DNAAnalyzerService.analyze(
+        exams_dict,
+        target_course_id=course.id,
+        syllabus_units=syllabus_units
+    )
     
     _ANALYSIS_CACHE.set(cache_key, dna_report)
     return dna_report

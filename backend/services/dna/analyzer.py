@@ -19,7 +19,9 @@ from backend.schemas import (
     QuestionPatternSummaryDNA,
     RepetitionDNA,
     FamilyDNA,
-    TemporalUnitQuestionTypeBreakdown, TemporalTrend, 
+    TemporalUnitQuestionTypeBreakdown, TemporalTrend,
+    TemporalUnitFocusBreakdown, TopicHistoricalFootprint,
+    TemporalTopicFocusBreakdown,
 )
 
 class DNAAnalyzerService:
@@ -34,7 +36,26 @@ class DNAAnalyzerService:
         return DataSufficiency.STRONG
 
     @classmethod
-    def analyze(cls, exams: list[dict[str, Any]], target_course_id: Optional[int] = None) -> ExamDNA:
+    def _resolve_unit_number(cls, unit_name: Any, explicit_number: Optional[int] = None) -> Optional[int]:
+        if explicit_number is not None:
+            try:
+                return int(explicit_number)
+            except (ValueError, TypeError):
+                pass
+        if not unit_name or str(unit_name).strip() in ("Unmapped / Unknown", "Unspecified Unit"):
+            return None
+        m = re.search(r"(?i)\bunit\s*[-:]?\s*(\d+)\b", str(unit_name))
+        if m:
+            return int(m.group(1))
+        return None
+
+    @classmethod
+    def analyze(
+        cls,
+        exams: list[dict[str, Any]],
+        target_course_id: Optional[int] = None,
+        syllabus_units: Optional[list[dict[str, Any]]] = None
+    ) -> ExamDNA:
         """
         Analyzes historical exams mathematically with full temporal, course boundary,
         and evidence integrity.
@@ -506,6 +527,378 @@ class DNAAnalyzerService:
 
             temporal_breakdowns.sort(key=lambda r: (r.year, str(r.unit), r.question_type))
 
+        # -------------------------------------------------------------
+        # 9. Historical Exam Focus Evolution: Feature 1 - Temporal Unit Focus
+        # -------------------------------------------------------------
+        known_units_dict: dict[str, Optional[int]] = {}
+        if syllabus_units:
+            for su in syllabus_units:
+                u_name = su.get("name")
+                if u_name:
+                    known_units_dict[u_name] = cls._resolve_unit_number(u_name, su.get("number"))
+
+        # Collect all units present on questions across sanitized_exams
+        for e in sanitized_exams:
+            for q in e.get("questions", []):
+                if q.get("unit_objects"):
+                    for uo in q.get("unit_objects"):
+                        uo_name = uo.get("name")
+                        if uo_name and uo_name not in known_units_dict:
+                            known_units_dict[uo_name] = cls._resolve_unit_number(uo_name, uo.get("number"))
+                else:
+                    q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                    for u in q_units:
+                        if u and u not in known_units_dict and u != "Unmapped / Unknown":
+                            known_units_dict[u] = cls._resolve_unit_number(u, q.get("unit_number"))
+
+        sorted_mapped_units = sorted(
+            known_units_dict.items(),
+            key=lambda item: (item[1] is None, item[1] or 0, item[0])
+        )
+
+        all_unit_slots: list[tuple[str, Optional[int]]] = list(sorted_mapped_units)
+        all_unit_slots.append(("Unmapped / Unknown", None))
+
+        dated_years = sorted(list({int(e.get("year")) for e in sanitized_exams if e.get("year") is not None}))
+
+        temporal_unit_focus: list[TemporalUnitFocusBreakdown] = []
+
+        for y in dated_years:
+            year_exams = [e for e in sanitized_exams if e.get("year") == y]
+            exam_count_in_year = len(set(e.get("id") for e in year_exams if e.get("id") is not None)) or len(year_exams)
+
+            questions_in_year = [q for e in year_exams for q in e.get("questions", [])]
+            total_year_questions = len(questions_in_year)
+            if total_year_questions == 0:
+                continue
+
+            total_year_scored_marks = sum(
+                float(q.get("marks"))
+                for q in questions_in_year
+                if not q.get("is_alternative") and q.get("marks") is not None
+            )
+
+            mapped_questions_in_year = 0
+            for q in questions_in_year:
+                q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                q_topics = q.get("topics") if q.get("topics") is not None else ([q.get("topic")] if q.get("topic") else [])
+                if (
+                    (q_units and any(u for u in q_units if u and u != "Unmapped / Unknown"))
+                    or (q.get("unit") and q.get("unit") != "Unmapped / Unknown")
+                    or (q_topics and any(q_topics))
+                    or q.get("topic")
+                    or (q.get("topic_objects") and len(q.get("topic_objects")) > 0)
+                    or (q.get("unit_objects") and len(q.get("unit_objects")) > 0)
+                ):
+                    mapped_questions_in_year += 1
+
+            is_sparse_year = (exam_count_in_year <= 1) or (mapped_questions_in_year < 10)
+
+            unit_q_lists: dict[str, list[dict[str, Any]]] = defaultdict(list)
+            for q in questions_in_year:
+                q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                clean_units = list(dict.fromkeys(u for u in q_units if u and u != "Unmapped / Unknown"))
+                if not clean_units:
+                    unit_q_lists["Unmapped / Unknown"].append(q)
+                else:
+                    for u in clean_units:
+                        unit_q_lists[u].append(q)
+
+            for u_name, u_num in all_unit_slots:
+                u_questions = unit_q_lists.get(u_name, [])
+                q_cnt = len(u_questions)
+                q_pct = round((q_cnt / total_year_questions) * 100.0, 2) if total_year_questions > 0 else 0.0
+
+                u_scored_marks = sum(
+                    float(q.get("marks"))
+                    for q in u_questions
+                    if not q.get("is_alternative") and q.get("marks") is not None
+                )
+                m_weight_pct = round((u_scored_marks / total_year_scored_marks) * 100.0, 2) if total_year_scored_marks > 0 else 0.0
+
+                temporal_unit_focus.append(
+                    TemporalUnitFocusBreakdown(
+                        year=y,
+                        unit=u_name,
+                        unit_number=u_num,
+                        question_count=q_cnt,
+                        question_percentage=q_pct,
+                        scored_marks=round(u_scored_marks, 2),
+                        marks_weight_percentage=m_weight_pct,
+                        exam_count=exam_count_in_year,
+                        is_sparse=is_sparse_year
+                    )
+                )
+
+        temporal_unit_focus.sort(key=lambda r: (r.year, r.unit_number is None, r.unit_number or 0, r.unit))
+
+        # -------------------------------------------------------------
+        # 10. Historical Exam Focus Evolution: Feature 2 - Topic Historical Footprints
+        # -------------------------------------------------------------
+        dated_exam_ids = {
+            e.get("id")
+            for e in sanitized_exams
+            if e.get("year") is not None and e.get("id") is not None and len(e.get("questions", [])) > 0
+        }
+        total_dated_papers = len(dated_exam_ids)
+
+        topic_aggregates: dict[Any, dict[str, Any]] = {}
+        for e in sanitized_exams:
+            eid = e.get("id")
+            eyear = e.get("year")
+            for q in e.get("questions", []):
+                is_alt = bool(q.get("is_alternative", False))
+                raw_m = q.get("marks")
+                m = float(raw_m) if raw_m is not None else 0.0
+
+                t_items = []
+                if q.get("topic_objects"):
+                    for to in q.get("topic_objects"):
+                        t_items.append({
+                            "id": to.get("id"),
+                            "name": to.get("name"),
+                            "unit_name": to.get("unit_name"),
+                            "unit_number": to.get("unit_number"),
+                        })
+                else:
+                    raw_topics = q.get("topics") if q.get("topics") is not None else ([q.get("topic")] if q.get("topic") else [])
+                    q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                    u_name = q_units[0] if q_units else "Unspecified Unit"
+                    u_num = q.get("unit_number") or cls._resolve_unit_number(u_name)
+                    for rt in raw_topics:
+                        if rt:
+                            t_items.append({
+                                "id": q.get("topic_id"),
+                                "name": str(rt),
+                                "unit_name": u_name,
+                                "unit_number": u_num,
+                            })
+
+                for item in t_items:
+                    t_name = item.get("name")
+                    if not t_name:
+                        continue
+                    t_id = item.get("id")
+                    if t_id is None:
+                        t_id = abs(hash(t_name)) % 1000000
+
+                    t_key = (t_id, t_name)
+                    if t_key not in topic_aggregates:
+                        topic_aggregates[t_key] = {
+                            "topic_id": t_id,
+                            "topic_name": t_name,
+                            "unit_name": item.get("unit_name") or "Unspecified Unit",
+                            "unit_number": item.get("unit_number"),
+                            "total_questions": 0,
+                            "total_marks": 0.0,
+                            "years_observed": set(),
+                            "dated_papers": set(),
+                        }
+                    agg = topic_aggregates[t_key]
+                    if item.get("unit_name") and (agg["unit_name"] == "Unspecified Unit" or not agg["unit_name"]):
+                        agg["unit_name"] = item.get("unit_name")
+                    if item.get("unit_number") is not None and agg["unit_number"] is None:
+                        agg["unit_number"] = item.get("unit_number")
+
+                    agg["total_questions"] += 1
+                    if not is_alt:
+                        agg["total_marks"] += m
+
+                    if eyear is not None:
+                        agg["years_observed"].add(int(eyear))
+                        if eid is not None and eid in dated_exam_ids:
+                            agg["dated_papers"].add(eid)
+
+        topic_historical_footprints: list[TopicHistoricalFootprint] = []
+        for agg in topic_aggregates.values():
+            years_obs = sorted(list(agg["years_observed"]))
+            first_seen = min(years_obs) if years_obs else None
+            latest_seen = max(years_obs) if years_obs else None
+            cov_pct = round((len(agg["dated_papers"]) / total_dated_papers) * 100.0, 2) if total_dated_papers > 0 else 0.0
+
+            topic_historical_footprints.append(TopicHistoricalFootprint(
+                topic_id=agg["topic_id"],
+                topic_name=agg["topic_name"],
+                unit_name=agg["unit_name"],
+                unit_number=agg["unit_number"],
+                total_questions=agg["total_questions"],
+                total_marks=round(agg["total_marks"], 2),
+                years_observed=years_obs,
+                first_seen_year=first_seen,
+                latest_seen_year=latest_seen,
+                paper_coverage_percentage=cov_pct
+            ))
+
+        topic_historical_footprints.sort(key=lambda f: (
+            f.unit_number is None,
+            f.unit_number or 0,
+            -f.total_questions,
+            f.topic_name
+        ))
+
+        # -------------------------------------------------------------
+        # 11. Historical Exam Focus Evolution: Feature 3 - Temporal Topic Focus Breakdown
+        # -------------------------------------------------------------
+        unmapped_years_observed = sorted(list({
+            int(e.get("year"))
+            for e in sanitized_exams
+            if e.get("year") is not None
+            for q in e.get("questions", [])
+            if not (q.get("topics") or q.get("topic") or q.get("topic_objects"))
+        }))
+
+        temporal_topic_focus: list[TemporalTopicFocusBreakdown] = []
+
+        for y in dated_years:
+            year_exams = [e for e in sanitized_exams if e.get("year") == y]
+            exam_count_in_year = len(set(e.get("id") for e in year_exams if e.get("id") is not None)) or len(year_exams)
+
+            questions_in_year = [q for e in year_exams for q in e.get("questions", [])]
+            total_year_questions = len(questions_in_year)
+            if total_year_questions == 0:
+                continue
+
+            total_year_scored_marks = sum(
+                float(q.get("marks"))
+                for q in questions_in_year
+                if not q.get("is_alternative") and q.get("marks") is not None
+            )
+
+            mapped_questions_in_year = 0
+            for q in questions_in_year:
+                q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                q_topics = q.get("topics") if q.get("topics") is not None else ([q.get("topic")] if q.get("topic") else [])
+                if (
+                    (q_units and any(u for u in q_units if u and u != "Unmapped / Unknown"))
+                    or (q.get("unit") and q.get("unit") != "Unmapped / Unknown")
+                    or (q_topics and any(q_topics))
+                    or q.get("topic")
+                    or (q.get("topic_objects") and len(q.get("topic_objects")) > 0)
+                    or (q.get("unit_objects") and len(q.get("unit_objects")) > 0)
+                ):
+                    mapped_questions_in_year += 1
+
+            is_sparse_year = (exam_count_in_year <= 1) or (mapped_questions_in_year < 10)
+
+            topic_year_groups: dict[Any, dict[str, Any]] = {}
+            for q in questions_in_year:
+                is_alt = bool(q.get("is_alternative", False))
+                raw_m = q.get("marks")
+                m = float(raw_m) if raw_m is not None else 0.0
+                raw_qtype = q.get("question_type")
+                qtype_key = raw_qtype.strip() if (raw_qtype and isinstance(raw_qtype, str) and raw_qtype.strip()) else "Other / Unclassified"
+
+                t_items = []
+                if q.get("topic_objects"):
+                    for to in q.get("topic_objects"):
+                        t_items.append({
+                            "id": to.get("id"),
+                            "name": to.get("name"),
+                            "unit_name": to.get("unit_name"),
+                            "unit_number": to.get("unit_number"),
+                        })
+                else:
+                    raw_topics = q.get("topics") if q.get("topics") is not None else ([q.get("topic")] if q.get("topic") else [])
+                    q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+                    u_name = q_units[0] if q_units else "Unspecified Unit"
+                    u_num = q.get("unit_number") or cls._resolve_unit_number(u_name)
+                    for rt in raw_topics:
+                        if rt:
+                            t_items.append({
+                                "id": q.get("topic_id"),
+                                "name": str(rt),
+                                "unit_name": u_name,
+                                "unit_number": u_num,
+                            })
+
+                if not t_items:
+                    g_key = ("Unmapped / Unknown", None, "Unmapped / Unknown", None)
+                    if g_key not in topic_year_groups:
+                        topic_year_groups[g_key] = {
+                            "unit": "Unmapped / Unknown",
+                            "unit_number": None,
+                            "topic": "Unmapped / Unknown",
+                            "topic_id": None,
+                            "question_count": 0,
+                            "scored_marks": 0.0,
+                            "question_types": defaultdict(int)
+                        }
+                    grp = topic_year_groups[g_key]
+                    grp["question_count"] += 1
+                    if not is_alt and raw_m is not None:
+                        grp["scored_marks"] += m
+                    grp["question_types"][qtype_key] += 1
+                else:
+                    for item in t_items:
+                        t_name = item.get("name")
+                        if not t_name:
+                            continue
+                        t_id = item.get("id")
+                        if t_id is None:
+                            t_id = abs(hash(t_name)) % 1000000
+                        u_name = item.get("unit_name") or "Unspecified Unit"
+                        u_num = item.get("unit_number")
+                        g_key = (u_name, u_num, t_name, t_id)
+                        if g_key not in topic_year_groups:
+                            topic_year_groups[g_key] = {
+                                "unit": u_name,
+                                "unit_number": u_num,
+                                "topic": t_name,
+                                "topic_id": t_id,
+                                "question_count": 0,
+                                "scored_marks": 0.0,
+                                "question_types": defaultdict(int)
+                            }
+                        grp = topic_year_groups[g_key]
+                        grp["question_count"] += 1
+                        if not is_alt and raw_m is not None:
+                            grp["scored_marks"] += m
+                        grp["question_types"][qtype_key] += 1
+
+            for grp in topic_year_groups.values():
+                q_cnt = grp["question_count"]
+                q_pct = round((q_cnt / total_year_questions) * 100.0, 2) if total_year_questions > 0 else 0.0
+                s_m = round(grp["scored_marks"], 2)
+                m_pct = round((s_m / total_year_scored_marks) * 100.0, 2) if total_year_scored_marks > 0 else 0.0
+
+                if grp["topic"] == "Unmapped / Unknown":
+                    p_years = unmapped_years_observed
+                else:
+                    t_k = (grp["topic_id"], grp["topic"])
+                    p_years = sorted(list(topic_aggregates[t_k]["years_observed"])) if t_k in topic_aggregates else [y]
+
+                first_y = min(p_years) if p_years else None
+                latest_y = max(p_years) if p_years else None
+
+                temporal_topic_focus.append(
+                    TemporalTopicFocusBreakdown(
+                        year=y,
+                        unit=grp["unit"],
+                        unit_number=grp["unit_number"],
+                        topic=grp["topic"],
+                        topic_id=grp["topic_id"],
+                        question_count=q_cnt,
+                        question_percentage=q_pct,
+                        scored_marks=s_m,
+                        marks_weight_percentage=m_pct,
+                        exam_count=exam_count_in_year,
+                        persistence_years=p_years,
+                        first_seen_year=first_y,
+                        latest_seen_year=latest_y,
+                        is_sparse=is_sparse_year,
+                        question_types=dict(grp["question_types"])
+                    )
+                )
+
+        temporal_topic_focus.sort(key=lambda r: (
+            r.year,
+            r.unit_number is None,
+            r.unit_number or 0,
+            r.topic == "Unmapped / Unknown",
+            -r.question_count,
+            r.topic
+        ))
+
         return ExamDNA(
             sample_size=sample_size,
             topics=topics_dna,
@@ -522,7 +915,10 @@ class DNAAnalyzerService:
             unit_distribution=unit_distribution,
             marks_distribution=marks_distribution,
             pattern_summary=pattern_summary,
-            temporal_unit_question_type_breakdown=temporal_breakdowns
+            temporal_unit_question_type_breakdown=temporal_breakdowns,
+            temporal_unit_focus=temporal_unit_focus,
+            topic_historical_footprints=topic_historical_footprints,
+            temporal_topic_focus=temporal_topic_focus
         )
 
     @classmethod
@@ -577,6 +973,10 @@ class DNAAnalyzerService:
                 top_recurring_families=[],
                 stem_patterns=[],
                 repetition_breakdown=RepetitionBreakdownDNA()
-            )
+            ),
+            temporal_unit_question_type_breakdown=[],
+            temporal_unit_focus=[],
+            topic_historical_footprints=[],
+            temporal_topic_focus=[]
         )
 

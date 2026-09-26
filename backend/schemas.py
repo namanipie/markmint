@@ -338,6 +338,46 @@ class TemporalUnitQuestionTypeBreakdown(BaseModel):
     total_unit_questions: Optional[int] = None
     is_sparse: Optional[bool] = None
 
+class TemporalUnitFocusBreakdown(BaseModel):
+    year: int
+    unit: str
+    unit_number: Optional[int] = None
+    question_count: int
+    question_percentage: float
+    scored_marks: float
+    marks_weight_percentage: float
+    exam_count: int
+    is_sparse: bool
+
+class TopicHistoricalFootprint(BaseModel):
+    topic_id: int
+    topic_name: str
+    unit_name: str
+    unit_number: Optional[int] = None
+    total_questions: int
+    total_marks: float
+    years_observed: list[int]
+    first_seen_year: Optional[int] = None
+    latest_seen_year: Optional[int] = None
+    paper_coverage_percentage: float
+
+class TemporalTopicFocusBreakdown(BaseModel):
+    year: int
+    unit: str
+    unit_number: Optional[int] = None
+    topic: str
+    topic_id: Optional[int] = None
+    question_count: int
+    question_percentage: float
+    scored_marks: float = 0.0
+    marks_weight_percentage: float
+    exam_count: int
+    persistence_years: list[int] = []
+    first_seen_year: Optional[int] = None
+    latest_seen_year: Optional[int] = None
+    is_sparse: bool
+    question_types: dict[str, int] = {}
+
 class ExamDNA(BaseModel):
     sample_size: DNASampleSize
 
@@ -354,6 +394,9 @@ class ExamDNA(BaseModel):
     marks_distribution: Optional[MarksDistributionDNA] = None
     pattern_summary: Optional[QuestionPatternSummaryDNA] = None
     temporal_unit_question_type_breakdown: Optional[list[TemporalUnitQuestionTypeBreakdown]] = None
+    temporal_unit_focus: Optional[list[TemporalUnitFocusBreakdown]] = None
+    topic_historical_footprints: Optional[list[TopicHistoricalFootprint]] = None
+    temporal_topic_focus: Optional[list[TemporalTopicFocusBreakdown]] = None
 
 class ProvenanceNode(BaseModel):
     record_type: str # 'question', 'exam', 'document', 'study_evidence'
