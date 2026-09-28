@@ -8,7 +8,7 @@ import { Drawer } from "@/components/ui/drawer";
 import { Combobox } from "@/components/ui/combobox";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
-  CheckCircle2, ChevronDown, ChevronUp, BookOpen, Target, Calendar, HelpCircle,
+  CheckCircle2, ChevronDown, ChevronUp, ChevronRight, BookOpen, Target, Calendar, HelpCircle,
   X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers, Loader2, RefreshCw
 } from "lucide-react";
 import {
@@ -688,6 +688,21 @@ export default function MintAIPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Navbar />
+
+      {/* Breadcrumb Navigation: Authentic hierarchy */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-10 pt-6 -mb-2">
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Link href="/" className="hover:text-foreground transition-colors">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5" />
+          <Link href="/dashboard" className="hover:text-foreground transition-colors">
+            Dashboard
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5" />
+          <span className="text-foreground font-medium">Predictive Exam Forecast</span>
+        </nav>
+      </div>
 
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <h1 className="sr-only">MintAI Prediction Engine</h1>

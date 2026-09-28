@@ -1,7 +1,21 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  
+  compress: true,
+  outputFileTracingExcludes: {
+    "*": [
+      "./backend/**/*",
+      "./data/**/*",
+      "./scripts/**/*",
+      "./corpus/**/*",
+      "./**/*.db",
+      "./**/*.sqlite",
+      "./**/*.sqlite3",
+      "./**/*.dump",
+      "./**/*.pdf",
+    ],
+  },
+
   async headers() {
     return [
       {
@@ -32,6 +46,16 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
         ],
+      },
+    ];
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/dashboard/exam-dna",
+        destination: "/mintai/exam-dna",
+        permanent: true,
       },
     ];
   },

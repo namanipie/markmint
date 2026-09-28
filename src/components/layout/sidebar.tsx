@@ -21,7 +21,7 @@ export function Sidebar() {
   const items = [
     { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
     { href: "/dashboard/questions", label: "Questions", icon: FileQuestion },
-    { href: "/dashboard/exam-dna", label: "Exam DNA", icon: Dna },
+    { href: "/mintai/exam-dna", label: "Exam DNA", icon: Dna },
     { href: "/dashboard/question-family", label: "Question Family", icon: GitBranch },
   ];
 

@@ -476,7 +476,7 @@ export function ExamDNAView({
           <div className="p-3 rounded-xl bg-secondary/30 border border-border/40 text-xs text-muted-foreground flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
             <span>
-              <strong>Non-Predictive Historical Layer:</strong> These metrics describe documented historical examination behaviors across verified papers. MarkMint never speculates or fabricates missing information.
+              <strong>Non-Predictive Historical Layer:</strong> These metrics describe documented historical examination behaviors across verified papers. MintAI never speculates or fabricates missing information.
             </span>
           </div>
         )}

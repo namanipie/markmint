@@ -187,7 +187,7 @@ export function EvidenceCalibratedPanel({
         <div className="flex items-center gap-2">
           <HelpCircle className="w-4 h-4 text-accent shrink-0" />
           <span className="font-bold text-xs text-foreground uppercase tracking-wide">
-            Why is MarkMint showing me this?
+            Why is MintAI showing me this?
           </span>
         </div>
         <div className="flex items-center gap-2 flex-wrap">

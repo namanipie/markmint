@@ -115,3 +115,61 @@ def test_recommended_action_transitions(test_db):
 
     p_mastered = service.calculate_study_priority(pred_high, course.id, student_id="student_b")
     assert p_mastered.recommended_action == "MAINTAIN_AND_REVIEW"
+
+
+def test_anonymous_request_remains_unbiased_without_student_claims(test_db):
+    course = Course(name="Discrete Mathematics", code="MAT201")
+    test_db.add(course)
+    test_db.commit()
+
+    syllabus = Syllabus(course_id=course.id, version="v1")
+    test_db.add(syllabus)
+    test_db.commit()
+
+    unit = Unit(syllabus_id=syllabus.id, name="Combinatorics", number=1)
+    test_db.add(unit)
+    test_db.commit()
+
+    t1 = Topic(unit_id=unit.id, name="Permutations")
+    test_db.add(t1)
+    test_db.commit()
+
+    service = StudyIntelligenceService(test_db)
+
+    # Topic with score 0.5 (MEDIUM priority)
+    pred_medium = PredictionResult(
+        target="topic",
+        name="Permutations",
+        rank=1,
+        score=0.5,
+        confidence="MEDIUM",
+        evidence={},
+        reason_codes=["HISTORICAL_HIGH_WEIGHT"],
+    )
+
+    # 1. Anonymous user: Priority must remain MEDIUM, no student claims
+    anon_p = service.calculate_study_priority(pred_medium, course.id, student_id="anonymous")
+    assert anon_p.priority == StudyPriority.MEDIUM
+    assert anon_p.student_status is None
+    assert anon_p.practice_accuracy is None
+    assert anon_p.recommended_action == "CONCEPT_REINFORCEMENT"
+    assert "STUDENT_UNSTUDIED" not in anon_p.reason_codes
+    assert "STUDENT_MASTERED" not in anon_p.reason_codes
+    assert "HISTORICAL_HIGH_WEIGHT" in anon_p.reason_codes
+    for reason in anon_p.reasons:
+        assert "No student progress evidence" not in reason
+        assert "Recorded practice accuracy" not in reason
+
+    # 2. None / Empty student_id treated as anonymous
+    blank_p = service.calculate_study_priority(pred_medium, course.id, student_id="")
+    assert blank_p.priority == StudyPriority.MEDIUM
+    assert blank_p.student_status is None
+    assert "STUDENT_UNSTUDIED" not in blank_p.reason_codes
+
+    # 3. Authenticated student with no progress: Priority escalates MEDIUM -> HIGH
+    auth_unstudied = service.calculate_study_priority(pred_medium, course.id, student_id="student_123")
+    assert auth_unstudied.priority == StudyPriority.HIGH
+    assert auth_unstudied.student_status == "NOT_STARTED"
+    assert "STUDENT_UNSTUDIED" in auth_unstudied.reason_codes
+    assert any("No student progress evidence" in r for r in auth_unstudied.reasons)
+

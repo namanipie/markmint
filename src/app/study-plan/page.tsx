@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
 import { BackendCourse } from "@/lib/types";
-import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers } from "lucide-react";
+import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
@@ -32,6 +33,31 @@ export default function StudyIntelligencePage() {
     getCourses().then((data) => {
       const courseList = Array.isArray(data) ? data : (data.items || data.courses || []);
       setCourses(courseList);
+
+      // Auto-select course if course_id or course query parameter is provided
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        const courseParam = params.get("course_id") || params.get("course");
+        if (courseParam) {
+          const matched = courseList.find((c: BackendCourse) => String(c.id) === courseParam || String(c.code).toLowerCase() === courseParam.toLowerCase());
+          if (matched) {
+            setSelectedCourse(String(matched.id));
+            setSelectedCourseObj(matched);
+            setLoading(true);
+            getStudyPlan(matched.name).then(plan => {
+              setStudyData(plan);
+            }).catch(err => {
+              if (err.status === 404 || err.status === 400) {
+                setStudyData({ empty: true });
+              } else {
+                setError(err.message || "Failed to load study plan.");
+              }
+            }).finally(() => {
+              setLoading(false);
+            });
+          }
+        }
+      }
     }).catch(err => {
       console.error("Failed to load courses", err);
     });
@@ -156,7 +182,7 @@ export default function StudyIntelligencePage() {
       case "student":
         return <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-500"><Upload className="w-3 h-3"/> Your Note</span>;
       default:
-        return <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary"><BookOpen className="w-3 h-3"/> MarkMint</span>;
+        return <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary"><BookOpen className="w-3 h-3"/> MintAI</span>;
     }
   };
 
@@ -164,10 +190,19 @@ export default function StudyIntelligencePage() {
     <div className="min-h-screen flex flex-col bg-background selection:bg-accent/20">
       <Navbar />
       
-      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8 space-y-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8 space-y-6">
+        {/* Authentic Breadcrumbs */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground">
+          <Link href="/" className="hover:text-foreground transition-colors">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5" />
+          <Link href="/dashboard" className="hover:text-foreground transition-colors">Dashboard</Link>
+          <ChevronRight className="w-3.5 h-3.5" />
+          <span className="text-foreground font-medium">Study Plan</span>
+        </nav>
+
         <PageHeader 
-          title="Study Intelligence" 
-          description="AI-generated study schedules and resource recommendations based on exam patterns." 
+          title="Study Plan & Execution" 
+          description="Track topic coverage, manage revision checklists, and access recommended study materials tailored to past exam patterns." 
         />
 
         {/* Configuration Section */}

@@ -22,8 +22,6 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
     { href: "/dashboard", label: "Dashboard" },
-    { href: "/mintai", label: "MintAI" },
-    { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
   ];
@@ -59,7 +57,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => {
-                    if (link.href === "/mintai") {
+                    if (link.href === "/dashboard" || link.href === "/mintai") {
                       preloadCurriculumMetadata();
                     }
                   }}

@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
-  FileQuestion,
   Dna,
-  GitBranch,
+  Leaf,
+  Sparkles,
+  BookOpen,
+  GraduationCap,
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -21,12 +23,11 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const pathname = usePathname();
 
   const items = [
-    { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-    { href: "/dashboard/questions", label: "Questions", icon: FileQuestion },
-    { href: "/dashboard/exam-dna", label: "Exam DNA", icon: Dna },
-    { href: "/dashboard/question-family", label: "Question Family", icon: GitBranch },
-    { href: "/predictions", label: "Predictions", icon: Dna },
-    { href: "/study-plan", label: "Study Plan", icon: LayoutDashboard },
+    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/mintai", label: "Predictive Forecast", icon: Sparkles },
+    { href: "/mintai/exam-dna", label: "Exam DNA", icon: Dna },
+    { href: "/study-plan", label: "Study Plan", icon: BookOpen },
+    { href: "/courses", label: "Courses", icon: GraduationCap },
   ];
 
   return (
@@ -49,9 +50,9 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
           >
             <div className="flex items-center justify-between p-4 border-b border-border">
               <div className="flex items-center gap-2">
-                <Dna className="h-6 w-6 text-primary" />
+                <Leaf className="h-6 w-6 text-primary" />
                 <span className="text-xl font-bold tracking-tight text-foreground">
-                  Exam<span className="text-primary">Scope</span>
+                  Mint<span className="text-primary">AI</span>
                 </span>
               </div>
               <button

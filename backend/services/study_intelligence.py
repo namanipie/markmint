@@ -364,25 +364,32 @@ class StudyIntelligenceService:
             if resources else "No trusted topic-mapped study material is available."
         )
 
+        clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
+        is_authenticated = bool(clean_student and clean_student != "anonymous")
+
         topic = self._course_topic(prediction.name, course_id) if course_id is not None else None
-        if self._student_progress_by_topic_id is not None and topic:
-            progress = self._student_progress_by_topic_id.get(topic.id)
-        elif topic and self.db is not None:
-            progress = (
-                self.db.query(StudentTopicProgress).filter_by(
-                    student_id=student_id, topic_id=topic.id
-                ).first()
-            )
+        if is_authenticated:
+            if self._student_progress_by_topic_id is not None and topic:
+                progress = self._student_progress_by_topic_id.get(topic.id)
+            elif topic and self.db is not None:
+                progress = (
+                    self.db.query(StudentTopicProgress).filter_by(
+                        student_id=clean_student, topic_id=topic.id
+                    ).first()
+                )
+            else:
+                progress = None
+            student_status = progress.status if progress else "NOT_STARTED"
         else:
             progress = None
-        
-        student_status = progress.status if progress else "NOT_STARTED"
+            student_status = None
+
         practice_accuracy = None
         if progress and progress.practice_attempted:
             practice_accuracy = round((progress.practice_correct or 0) / progress.practice_attempted, 2)
 
         # Personalization: Adjust priority based on mastery / progress
-        if progress and progress.status == "COMPLETED" and (practice_accuracy is None or practice_accuracy >= 0.8):
+        if is_authenticated and progress and progress.status == "COMPLETED" and (practice_accuracy is None or practice_accuracy >= 0.8):
             reasons.append("Topic completed with high mastery (>= 80%); deprioritized for active study.")
             if priority == StudyPriority.VERY_HIGH:
                 priority = StudyPriority.HIGH
@@ -392,17 +399,19 @@ class StudyIntelligenceService:
                 priority = StudyPriority.LOW
             recommended_action = "MAINTAIN_AND_REVIEW"
         else:
-            weak = course_id is not None and self.db is not None and not progress
-            if progress and progress.practice_attempted:
-                weak = (progress.practice_correct or 0) / progress.practice_attempted < 0.6
-                if weak:
-                    reasons.append("Recorded practice accuracy is below 60%.")
-            elif weak:
-                reasons.append("No student progress evidence is recorded.")
-            if weak and priority == StudyPriority.HIGH:
-                priority = StudyPriority.VERY_HIGH
-            elif weak and priority == StudyPriority.MEDIUM:
-                priority = StudyPriority.HIGH
+            weak = False
+            if is_authenticated:
+                weak = course_id is not None and self.db is not None and not progress
+                if progress and progress.practice_attempted:
+                    weak = (progress.practice_correct or 0) / progress.practice_attempted < 0.6
+                    if weak:
+                        reasons.append("Recorded practice accuracy is below 60%.")
+                elif weak:
+                    reasons.append("No student progress evidence is recorded.")
+                if weak and priority == StudyPriority.HIGH:
+                    priority = StudyPriority.VERY_HIGH
+                elif weak and priority == StudyPriority.MEDIUM:
+                    priority = StudyPriority.HIGH
 
             if priority == StudyPriority.VERY_HIGH:
                 recommended_action = "DEEP_STUDY_URGENT"
@@ -414,10 +423,11 @@ class StudyIntelligenceService:
                 recommended_action = "FOUNDATIONAL_EXPLORATION"
 
         reason_codes = list(getattr(prediction, "reason_codes", []))
-        if progress and progress.status == "COMPLETED":
-            reason_codes.append("STUDENT_MASTERED")
-        elif not progress:
-            reason_codes.append("STUDENT_UNSTUDIED")
+        if is_authenticated:
+            if progress and progress.status == "COMPLETED":
+                reason_codes.append("STUDENT_MASTERED")
+            elif not progress:
+                reason_codes.append("STUDENT_UNSTUDIED")
 
         return PriorityResult(
             topic=prediction.name,

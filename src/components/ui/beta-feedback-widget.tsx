@@ -135,7 +135,7 @@ export function BetaFeedbackWidget({ courseCode, hasMeaningfulUsage }: BetaFeedb
       {step === "thanks" && (
         <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-medium py-0.5">
           <Check className="w-4 h-4" />
-          <span>Thank you! Your feedback helps calibrate MarkMint.</span>
+          <span>Thank you! Your feedback helps calibrate MintAI.</span>
         </div>
       )}
     </aside>

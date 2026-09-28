@@ -106,7 +106,7 @@ export function ScopeCalculator() {
   const gpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : "0.00";
 
   const copyResults = () => {
-    navigator.clipboard.writeText(`MarkMint GPA Estimate: ${gpa} (${totalCredits} Credits)`);
+    navigator.clipboard.writeText(`MintAI GPA Estimate: ${gpa} (${totalCredits} Credits)`);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

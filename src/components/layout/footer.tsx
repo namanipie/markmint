@@ -9,6 +9,7 @@ export function Footer() {
 
   const links = [
     { href: "/", label: "Home" },
+    { href: "/dashboard", label: "Dashboard" },
     { href: "/courses", label: "Courses" },
     { href: "/mintai", label: "MintAI" },
     { href: "/calculator", label: "Calculator" },
@@ -25,13 +26,13 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <Leaf className="h-5 w-5 text-accent opacity-50" />
             <span className="text-xl font-bold tracking-tight text-foreground">
-              MarkMint
+              MintAI
             </span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <span>Built for SRMIST students</span>
             <span className="w-1 h-1 rounded-full bg-border" />
-            <span>MarkMint v1.0</span>
+            <span>MintAI v1.0</span>
           </div>
         </div>
 

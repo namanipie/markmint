@@ -126,7 +126,7 @@ export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
         <div className="p-3.5 rounded-lg bg-accent/5 border border-accent/20 flex items-start gap-3 text-xs text-muted-foreground leading-relaxed">
           <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
           <div>
-            <strong className="text-foreground">Isolated Academic Track:</strong> MarkMint strictly isolates {activeTrack.trackName} exam intelligence. Historical exam distributions, frequency patterns, and predictions are not blended with other foreign languages.
+            <strong className="text-foreground">Isolated Academic Track:</strong> MintAI strictly isolates {activeTrack.trackName} exam intelligence. Historical exam distributions, frequency patterns, and predictions are not blended with other foreign languages.
           </div>
         </div>
 

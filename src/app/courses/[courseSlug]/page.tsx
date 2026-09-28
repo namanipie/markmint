@@ -209,7 +209,7 @@ export default async function CoursePage({ params }: PageProps) {
                 Analyze in MintAI Engine
               </Link>
               <Link
-                href={`/dashboard/exam-dna?course=${course.id}`}
+                href={`/mintai/exam-dna?course=${course.id}`}
                 className="flex items-center justify-center gap-2 px-6 py-3.5 bg-accent/10 hover:bg-accent/20 text-accent text-sm font-medium rounded-xl border border-accent/20 transition-all"
               >
                 <Dna className="w-4 h-4" />
@@ -320,7 +320,7 @@ export default async function CoursePage({ params }: PageProps) {
             </div>
 
             <Link
-              href={`/dashboard/exam-dna?course=${course.id}`}
+              href={`/mintai/exam-dna?course=${course.id}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground text-xs font-semibold rounded-xl hover:bg-accent/90 transition-all shrink-0 self-start sm:self-auto shadow-sm"
             >
               <span>Explore Full Exam DNA</span>

@@ -43,7 +43,7 @@ export function HomeView() {
           <div className="w-full md:w-3/5 flex flex-col items-start">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MarkMint v1.0 &bull; SRMIST First-Year Intelligence
+              MintAI v1.0 &bull; SRMIST First-Year Intelligence
             </p>
             
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
@@ -171,7 +171,13 @@ export function HomeView() {
                   href={`/mintai?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
                   className="px-3.5 py-2 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/80 transition-all text-xs border border-border/60"
                 >
-                  Inspect Forecast
+                  Forecast
+                </Link>
+                <Link
+                  href={`/mintai/exam-dna?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
+                  className="px-3.5 py-2 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-lg transition-all text-xs border border-accent/20"
+                >
+                  Exam DNA
                 </Link>
               </div>
             </div>

@@ -138,12 +138,12 @@ export function FamilyEvidenceModal({
                 </div>
               </div>
             )}
-            {/* "Why is MarkMint showing this Question Family?" Concise Student Evidence Card */}
+            {/* "Why is MintAI showing this Question Family?" Concise Student Evidence Card */}
             <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <HelpCircle className="h-5 w-5 text-accent" />
-                  <h3 className="text-sm font-bold text-foreground">Why is MarkMint showing me this?</h3>
+                  <h3 className="text-sm font-bold text-foreground">Why is MintAI showing me this?</h3>
                 </div>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
                   Question Family Pattern
