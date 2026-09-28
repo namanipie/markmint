@@ -373,6 +373,7 @@ export interface SectionBlueprint {
   unscored_questions_count: number;
   question_types: Record<string, number>;
   unit_distribution: Record<string, number>;
+  cognitive_demand_distribution?: Record<string, number>;
 }
 
 export interface ExamBlueprint {
@@ -408,6 +409,55 @@ export interface BlueprintCluster {
   representative_blueprint: ExamBlueprint;
 }
 
+export interface CognitiveDemandItemDNA {
+  demand: string;
+  question_count: number;
+  percentage: number;
+  scored_marks: number;
+  marks_percentage?: number | null;
+}
+
+export interface UnitCognitiveProfileDNA {
+  unit: string;
+  unit_number?: number | null;
+  total_questions: number;
+  demand_counts: Record<string, number>;
+  demand_percentages: Record<string, number>;
+  unclassified_percentage: number;
+}
+
+export interface SectionCognitiveProfileDNA {
+  section_name: string;
+  total_questions: number;
+  demand_counts: Record<string, number>;
+  demand_percentages: Record<string, number>;
+  unclassified_percentage: number;
+}
+
+export interface TemporalCognitiveDemandBreakdown {
+  year: number;
+  exam_count: number;
+  total_questions: number;
+  demand_counts: Record<string, number>;
+  demand_percentages: Record<string, number>;
+  is_sparse: boolean;
+  scored_marks: number;
+  marks_percentages?: Record<string, number> | null;
+}
+
+export interface CognitiveDemandDistributionDNA {
+  items: CognitiveDemandItemDNA[];
+  total_questions: number;
+  unclassified_count: number;
+  unclassified_percentage: number;
+  is_marks_reliable: boolean;
+  marks_completeness_pct: number;
+  total_scored_marks: number;
+  by_assessment_cycle: Record<string, Record<string, number>>;
+  by_unit: UnitCognitiveProfileDNA[];
+  by_section: SectionCognitiveProfileDNA[];
+}
+
 export interface ExamDNA {
   sample_size: DNASampleSize;
   topics: any[];
@@ -424,6 +474,10 @@ export interface ExamDNA {
   topic_historical_footprints?: TopicHistoricalFootprint[];
   temporal_topic_focus?: TemporalTopicFocusBreakdown[];
   assessment_blueprints?: BlueprintCluster[];
+  cognitive_demand_distribution?: CognitiveDemandDistributionDNA;
+  temporal_cognitive_demand?: TemporalCognitiveDemandBreakdown[];
+  section_cognitive_profiles?: SectionCognitiveProfileDNA[];
+  demand_question_type_cross_tabulation?: Record<string, Record<string, number>>;
 }
 
 export interface ExamDNAAnalysis {

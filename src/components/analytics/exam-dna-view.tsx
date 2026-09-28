@@ -30,6 +30,7 @@ import { MarksDistributionChart } from "@/components/charts/marks-distribution-c
 import { TemporalUnitChart, TemporalChartRow, formatQuestionTypeName } from "@/components/charts/temporal-unit-chart";
 import { HistoricalFocusEvolution } from "@/components/analytics/historical-focus-evolution";
 import { HistoricalAssessmentBlueprints } from "@/components/analytics/historical-assessment-blueprints";
+import { HistoricalCognitiveDemand } from "@/components/analytics/historical-cognitive-demand";
 
 interface ExamDNAViewProps {
   courseId: number | string;
@@ -676,6 +677,15 @@ export function ExamDNAView({
       <HistoricalAssessmentBlueprints
         assessmentBlueprints={dna.assessment_blueprints}
         selectedCycle={assessmentCycle}
+      />
+
+      {/* 3e. Historical Cognitive Demand */}
+      <HistoricalCognitiveDemand
+        cognitiveDemandDistribution={dna.cognitive_demand_distribution}
+        temporalCognitiveDemand={dna.temporal_cognitive_demand}
+        sectionCognitiveProfiles={dna.section_cognitive_profiles}
+        demandQuestionTypeCrossTabulation={dna.demand_question_type_cross_tabulation}
+        assessmentCycle={assessmentCycle}
       />
 
       {/* 4. Marks Distribution */}
