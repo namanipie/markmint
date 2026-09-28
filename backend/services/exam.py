@@ -129,12 +129,16 @@ class ExamService:
                 )
                 self.db.add(new_q)
                 
-        self.db.commit()
-        self.db.refresh(new_exam)
+        self.db.flush()
 
         # Authoritative post-ingestion: topic mapping, family assignment, cache invalidation
-        from backend.services.scraper.post_processor import PostIngestionPipeline
-        pipeline = PostIngestionPipeline(self.db)
-        pipeline.process_exam(new_exam.id, course_id, track_id=track_id, auto_commit=True)
+        try:
+            from backend.services.scraper.post_processor import PostIngestionPipeline
+            pipeline = PostIngestionPipeline(self.db)
+            pipeline.process_exam(new_exam.id, course_id, track_id=track_id, auto_commit=True)
+        except Exception:
+            self.db.rollback()
+            raise
 
+        self.db.refresh(new_exam)
         return new_exam

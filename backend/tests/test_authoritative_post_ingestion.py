@@ -278,26 +278,274 @@ def test_5_track_id_propagation_to_post_processor(post_ingest_db):
     assert fam_de.subject == "Foreign Language"
 
 
-def test_6_failure_rollback_preserves_valid_cache(post_ingest_db):
-    """6. Failed post-processing does not invalidate existing valid cache."""
-    IntelligenceCacheService.clear_memory_cache()
+def test_6_exam_service_import_atomic_rollback_on_failure(post_ingest_db):
+    """6. Downstream failure in ExamService.import_extraction rolls back exam & questions, preserving cache."""
+    from unittest.mock import patch
 
+    IntelligenceCacheService.clear_memory_cache()
     valid_payload = {"data_availability_status": "AVAILABLE", "course": {"id": 2}, "metadata": {}}
     IntelligenceCacheService.store_snapshot(post_ingest_db, 2, "ALL", None, valid_payload)
     assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) is not None
 
-    pipeline = PostIngestionPipeline(post_ingest_db)
+    service = ExamService(post_ingest_db)
+    extraction_data = {
+        "sections": [
+            {
+                "name": "Part A",
+                "questions": [
+                    {"question_number": "1", "original_text": "Sample failure rollback test question.", "marks": 5.0}
+                ],
+            }
+        ]
+    }
 
-    # Invalidate with non-existent exam should safely handle without wiping cache if aborted
-    try:
-        post_ingest_db.begin_nested()
-        # Simulate an error inside transaction
-        post_ingest_db.add(Question(section_id=999999, question_number="99", original_text="Error"))
-        raise RuntimeError("Simulated failure during exam processing")
-    except RuntimeError:
-        post_ingest_db.rollback()
+    # Force downstream family linking to raise an unhandled exception
+    with patch(
+        "backend.services.scraper.post_processor.PostIngestionPipeline.assign_exam_families",
+        side_effect=RuntimeError("Simulated family assignment crash"),
+    ):
+        with pytest.raises(RuntimeError, match="Simulated family assignment crash"):
+            service.import_extraction(
+                course_id=2,
+                year=2023,
+                term="CT1",
+                extraction_data=extraction_data,
+            )
 
-    # Cache must remain intact because transaction was rolled back
+    # Asserts zero newly-created Exam and Question rows remain in DB
+    assert post_ingest_db.query(Exam).filter(Exam.course_id == 2).count() == 0
+    assert post_ingest_db.query(Question).count() == 0
+
+    # Asserts existing valid cache state remains completely intact
     cached = IntelligenceCacheService.get_snapshot(post_ingest_db, 2)
     assert cached is not None
     assert cached["course"]["id"] == 2
+
+    # Asserts successful ingestion still commits everything atomically
+    successful_exam = service.import_extraction(
+        course_id=2,
+        year=2023,
+        term="CT1",
+        extraction_data=extraction_data,
+    )
+    assert successful_exam.id is not None
+    assert post_ingest_db.query(Exam).filter(Exam.course_id == 2).count() == 1
+    assert post_ingest_db.query(Question).count() == 1
+    assert post_ingest_db.query(QuestionFamilyMembership).count() == 1
+    # Cache was invalidated upon successful atomic commit
+    assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) is None
+
+
+def test_7_stored_exam_omitted_track_id_inherits_track(post_ingest_db):
+    """7. Stored track-specific exam with omitted track_id inherits exam.track_id and avoids cross-track rules."""
+    from unittest.mock import patch
+
+    # Stored German exam (track_id=1) for Course 8
+    exam_de = Exam(id=801, course_id=8, track_id=1, year=2023, term="CT1")
+    post_ingest_db.add(exam_de)
+    post_ingest_db.flush()
+
+    sec = Section(exam_id=exam_de.id, name="Grammar")
+    post_ingest_db.add(sec)
+    post_ingest_db.flush()
+
+    q = Question(section_id=sec.id, question_number="1", original_text="Guten Tag wie geht es Ihnen?")
+    post_ingest_db.add(q)
+    post_ingest_db.commit()
+
+    pipeline = PostIngestionPipeline(post_ingest_db)
+
+    # Call process_exam with track_id=None (omitted)
+    with patch.object(pipeline, "map_exam_topics", wraps=pipeline.map_exam_topics) as mock_map:
+        res = pipeline.process_exam(exam_de.id, course_id=8, track_id=None, auto_commit=True)
+
+        # Asserts German track was inherited and passed to map_exam_topics
+        assert mock_map.call_args[1].get("track_id") == 1
+        assert res["track_id"] == 1
+
+    # Verify family created/linked carries track_id == 1
+    post_ingest_db.refresh(q)
+    assert q.family_id is not None
+    fam = post_ingest_db.query(QuestionFamily).filter_by(id=q.family_id).first()
+    assert fam is not None
+    assert fam.track_id == 1
+    assert fam.subject == "Foreign Language"
+
+
+def test_8_explicit_track_id_respected_and_trackless_course_remains_trackless(post_ingest_db):
+    """8. Explicit track_id assigns to untracked exam; trackless course remains trackless with no cross-track leakage."""
+    from unittest.mock import patch
+
+    # 1. Untracked exam receives explicit track_id=2 (French)
+    exam_untracked = Exam(id=802, course_id=8, track_id=None, year=2023, term="CT1")
+    post_ingest_db.add(exam_untracked)
+    post_ingest_db.flush()
+    sec = Section(exam_id=exam_untracked.id, name="Vocab")
+    post_ingest_db.add(sec)
+    post_ingest_db.flush()
+    q_fr = Question(section_id=sec.id, question_number="1", original_text="Bonjour comment allez vous?")
+    post_ingest_db.add(q_fr)
+    post_ingest_db.commit()
+
+    pipeline = PostIngestionPipeline(post_ingest_db)
+    res_fr = pipeline.process_exam(exam_untracked.id, course_id=8, track_id=2, auto_commit=True)
+    assert res_fr["track_id"] == 2
+    post_ingest_db.refresh(exam_untracked)
+    assert exam_untracked.track_id == 2
+
+    # 2. Trackless course (Course 2 Chemistry) with track_id=None
+    exam_chem = Exam(id=202, course_id=2, track_id=None, year=2023, term="CT1")
+    post_ingest_db.add(exam_chem)
+    post_ingest_db.flush()
+    sec_chem = Section(exam_id=exam_chem.id, name="Part A")
+    post_ingest_db.add(sec_chem)
+    post_ingest_db.flush()
+    q_chem = Question(section_id=sec_chem.id, question_number="1", original_text="Explain secondary batteries.")
+    post_ingest_db.add(q_chem)
+    post_ingest_db.commit()
+
+    with patch.object(pipeline, "map_exam_topics", wraps=pipeline.map_exam_topics) as mock_chem_map:
+        res_chem = pipeline.process_exam(exam_chem.id, course_id=2, track_id=None, auto_commit=True)
+        assert mock_chem_map.call_args[1].get("track_id") is None
+        assert res_chem["track_id"] is None
+
+
+def test_9_taxonomy_classification_failure_propagates_and_preserves_cache(post_ingest_db):
+    """9. Classifier or DB mapping exception raises TaxonomyMappingError, aborts commit, and keeps cache intact."""
+    from unittest.mock import patch
+    from backend.services.scraper.post_processor import TaxonomyMappingError
+
+    IntelligenceCacheService.clear_memory_cache()
+    valid_payload = {"data_availability_status": "AVAILABLE", "course": {"id": 2}, "metadata": {}}
+    IntelligenceCacheService.store_snapshot(post_ingest_db, 2, "ALL", None, valid_payload)
+    assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) is not None
+
+    exam = Exam(id=901, course_id=2, year=2024, term="CT1")
+    post_ingest_db.add(exam)
+    post_ingest_db.flush()
+    sec = Section(exam_id=exam.id, name="Sec A")
+    post_ingest_db.add(sec)
+    post_ingest_db.flush()
+    q = Question(section_id=sec.id, question_number="1", original_text="Calculate potential.")
+    post_ingest_db.add(q)
+    post_ingest_db.commit()
+
+    pipeline = PostIngestionPipeline(post_ingest_db)
+
+    # Force classify_batch to raise an unexpected crash
+    with patch(
+        "backend.services.taxonomy_classifier.TaxonomyClassifierService.classify_batch",
+        side_effect=RuntimeError("Classifier engine internal crash"),
+    ):
+        with pytest.raises(TaxonomyMappingError, match="Taxonomy mapping failed for Exam #901"):
+            pipeline.process_exam(exam.id, course_id=2, auto_commit=True)
+
+    # Valid cache must NOT have been invalidated because transaction failed before commit
+    cached = IntelligenceCacheService.get_snapshot(post_ingest_db, 2)
+    assert cached is not None
+    assert cached["course"]["id"] == 2
+
+
+def test_10_legitimate_nothing_to_map_returns_zero_safely(post_ingest_db):
+    """10. Legitimate cases (no rules, no unmapped questions, zero proposal matches) return 0 cleanly without raising."""
+    pipeline = PostIngestionPipeline(post_ingest_db)
+
+    # Case A: Course 999 with no rules returns 0
+    mapped_no_rules = pipeline.map_exam_topics(course_id=999, exam_id=999)
+    assert mapped_no_rules == 0
+
+    # Case B: Exam with no questions returns 0
+    empty_exam = Exam(id=902, course_id=2, year=2024, term="CT1")
+    post_ingest_db.add(empty_exam)
+    post_ingest_db.commit()
+    mapped_empty = pipeline.map_exam_topics(course_id=2, exam_id=empty_exam.id)
+    assert mapped_empty == 0
+
+
+def test_11_corpus_ingester_failure_prevents_checkpoint_and_allows_retry(post_ingest_db, tmp_path):
+    """11. CorpusIngester: taxonomy mapping failure records FAILED checkpoint, prevents INGESTED, and permits retry."""
+    import json
+    from unittest.mock import patch, MagicMock
+    from backend.services.scraper.ingester import CorpusIngester
+    from backend.services.scraper.models import (
+        ManifestRecord,
+        ResourceClassification,
+        DownloadStatus,
+        CurriculumMatchState,
+    )
+    from backend.schemas import DocumentExtractionResult, ExtractedSection, ExtractedQuestion
+
+    ckpt_file = tmp_path / "checkpoint.json"
+    ingester = CorpusIngester(post_ingest_db, checkpoint_path=str(ckpt_file))
+
+    # Mock extraction result with 1 question
+    mock_result = DocumentExtractionResult(
+        successful=True,
+        confidence=0.9,
+        total_pages=1,
+        sections=[
+            ExtractedSection(
+                name="Section A",
+                questions=[
+                    ExtractedQuestion(
+                        question_number="1",
+                        original_text="What is electrochemical series?",
+                        marks=5.0,
+                        page_number=1,
+                        confidence=0.9,
+                    )
+                ],
+            )
+        ],
+    )
+
+    import hashlib
+
+    dummy_bytes = b"%PDF-1.4 dummy content"
+    real_sha = hashlib.sha256(dummy_bytes).hexdigest()
+
+    record = ManifestRecord(
+        source_site="Studique",
+        source_url="https://studique.test/chem2023.pdf",
+        title="Engineering Chemistry 2023",
+        local_path=str(tmp_path / "test.pdf"),
+        sha256=real_sha,
+        download_status=DownloadStatus.DOWNLOADED,
+        classification=ResourceClassification.PYQ,
+        curriculum_status=CurriculumMatchState.MATCHED,
+        course_id=2,
+        extracted_year=2023,
+    )
+
+    # Write a dummy pdf file on disk
+    with open(record.local_path, "wb") as f:
+        f.write(dummy_bytes)
+
+    mock_pages = [{"page_number": 1, "text": "Question 1. " + ("What is electrochemical series and Nernst equation? " * 5)}]
+
+    # 1. First run: classifier crashes
+    with patch("backend.services.scraper.ingester.PDFParser.extract_text_with_pages", return_value=mock_pages), \
+         patch("backend.services.scraper.ingester.QuestionExtractor.extract", return_value=mock_result), \
+         patch("backend.services.taxonomy_classifier.TaxonomyClassifierService.classify_batch", side_effect=RuntimeError("Classifier OOM")):
+        ingester.ingest_record(record)
+
+    assert record.ingestion_status == "FAILED"
+    assert "Taxonomy mapping failed" in record.failure_reason
+
+    # Verify checkpoint file exists and has FAILED, NOT INGESTED
+    with open(ckpt_file, "r") as f:
+        data = json.load(f)
+    assert data[record.sha256]["status"] == "FAILED"
+
+    # 2. Retry run: classifier recovers
+    with patch("backend.services.scraper.ingester.PDFParser.extract_text_with_pages", return_value=mock_pages), \
+         patch("backend.services.scraper.ingester.QuestionExtractor.extract", return_value=mock_result):
+        ingester.ingest_record(record)
+
+    assert record.ingestion_status == "INGESTED"
+
+    # Verify checkpoint file is now INGESTED
+    with open(ckpt_file, "r") as f:
+        data = json.load(f)
+    assert data[record.sha256]["status"] == "INGESTED"
+

@@ -26,6 +26,11 @@ from backend.services.intelligence_cache import IntelligenceCacheService
 logger = logging.getLogger(__name__)
 
 
+class TaxonomyMappingError(RuntimeError):
+    """Raised when taxonomy classification or database mapping encounters an unrecoverable failure."""
+    pass
+
+
 class PostIngestionPipeline:
     """
     Deterministic post-ingestion pipeline ensuring newly crawled or submitted exams
@@ -41,69 +46,69 @@ class PostIngestionPipeline:
         Idempotently maps unmapped questions in exam_id using TaxonomyRegistry or fallback syllabus rules.
         Only questions not yet mapped in question_topic will be processed.
         """
+        from backend.services.taxonomy_classifier import TaxonomyClassifierService
+
+        rules = None
+        # 1. Try declarative TaxonomyRegistry first
         try:
-            from backend.services.taxonomy_classifier import TaxonomyClassifierService
+            from backend.services.taxonomy_registry.registry import TaxonomyRegistry
+            registry = TaxonomyRegistry()
+            if registry.has_course(course_id):
+                rules = registry.get_topic_rules(course_id, track_id=track_id)
+        except Exception as e:
+            logger.debug("TaxonomyRegistry lookup skipped or failed for course %s: %s", course_id, e)
 
-            rules = None
-            # 1. Try declarative TaxonomyRegistry first
-            try:
-                from backend.services.taxonomy_registry.registry import TaxonomyRegistry
-                registry = TaxonomyRegistry()
-                if registry.has_course(course_id):
-                    rules = registry.get_topic_rules(course_id, track_id=track_id)
-            except Exception as e:
-                logger.debug("TaxonomyRegistry lookup skipped or failed for course %s: %s", course_id, e)
+        # 2. Fallback to hardcoded course rules map
+        if not rules:
+            from backend.services.taxonomy_rules import (
+                CHEMISTRY_TAXONOMY_RULES,
+                SPCM_TAXONOMY_RULES,
+                POE_TAXONOMY_RULES,
+                ICB_TAXONOMY_RULES,
+                PPS_TAXONOMY_RULES,
+                FOE_TAXONOMY_RULES,
+                BMB_TAXONOMY_RULES,
+                CELLBIO_TAXONOMY_RULES,
+                MICROBIO_TAXONOMY_RULES,
+                PAC_TAXONOMY_RULES,
+                BIOCHEM_TAXONOMY_RULES,
+                EEE_TAXONOMY_RULES,
+                ACCA_TAXONOMY_RULES,
+                OODP_TAXONOMY_RULES,
+                ESPCB_TAXONOMY_RULES,
+                ENGMECH_TAXONOMY_RULES,
+                PROB_TAXONOMY_RULES,
+                BLDMAT_TAXONOMY_RULES,
+                ENG_TAXONOMY_RULES,
+            )
 
-            # 2. Fallback to hardcoded course rules map
-            if not rules:
-                from backend.services.taxonomy_rules import (
-                    CHEMISTRY_TAXONOMY_RULES,
-                    SPCM_TAXONOMY_RULES,
-                    POE_TAXONOMY_RULES,
-                    ICB_TAXONOMY_RULES,
-                    PPS_TAXONOMY_RULES,
-                    FOE_TAXONOMY_RULES,
-                    BMB_TAXONOMY_RULES,
-                    CELLBIO_TAXONOMY_RULES,
-                    MICROBIO_TAXONOMY_RULES,
-                    PAC_TAXONOMY_RULES,
-                    BIOCHEM_TAXONOMY_RULES,
-                    EEE_TAXONOMY_RULES,
-                    ACCA_TAXONOMY_RULES,
-                    OODP_TAXONOMY_RULES,
-                    ESPCB_TAXONOMY_RULES,
-                    ENGMECH_TAXONOMY_RULES,
-                    PROB_TAXONOMY_RULES,
-                    BLDMAT_TAXONOMY_RULES,
-                    ENG_TAXONOMY_RULES,
-                )
+            course_rules_map = {
+                2: CHEMISTRY_TAXONOMY_RULES,
+                3: SPCM_TAXONOMY_RULES,
+                4: POE_TAXONOMY_RULES,
+                5: ICB_TAXONOMY_RULES,
+                6: PPS_TAXONOMY_RULES,
+                7: FOE_TAXONOMY_RULES,
+                8: BMB_TAXONOMY_RULES,
+                9: CELLBIO_TAXONOMY_RULES,
+                10: MICROBIO_TAXONOMY_RULES,
+                11: PAC_TAXONOMY_RULES,
+                12: BIOCHEM_TAXONOMY_RULES,
+                13: EEE_TAXONOMY_RULES,
+                14: ACCA_TAXONOMY_RULES,
+                15: OODP_TAXONOMY_RULES,
+                16: ESPCB_TAXONOMY_RULES,
+                17: ENGMECH_TAXONOMY_RULES,
+                18: PROB_TAXONOMY_RULES,
+                19: BLDMAT_TAXONOMY_RULES,
+                20: ENG_TAXONOMY_RULES,
+            }
+            rules = course_rules_map.get(course_id)
 
-                course_rules_map = {
-                    2: CHEMISTRY_TAXONOMY_RULES,
-                    3: SPCM_TAXONOMY_RULES,
-                    4: POE_TAXONOMY_RULES,
-                    5: ICB_TAXONOMY_RULES,
-                    6: PPS_TAXONOMY_RULES,
-                    7: FOE_TAXONOMY_RULES,
-                    8: BMB_TAXONOMY_RULES,
-                    9: CELLBIO_TAXONOMY_RULES,
-                    10: MICROBIO_TAXONOMY_RULES,
-                    11: PAC_TAXONOMY_RULES,
-                    12: BIOCHEM_TAXONOMY_RULES,
-                    13: EEE_TAXONOMY_RULES,
-                    14: ACCA_TAXONOMY_RULES,
-                    15: OODP_TAXONOMY_RULES,
-                    16: ESPCB_TAXONOMY_RULES,
-                    17: ENGMECH_TAXONOMY_RULES,
-                    18: PROB_TAXONOMY_RULES,
-                    19: BLDMAT_TAXONOMY_RULES,
-                    20: ENG_TAXONOMY_RULES,
-                }
-                rules = course_rules_map.get(course_id)
+        if not rules:
+            return 0
 
-            if not rules:
-                return 0
-
+        try:
             classifier = TaxonomyClassifierService(rules)
 
             # Get questions for this exam
@@ -142,8 +147,8 @@ class PostIngestionPipeline:
             self.db.flush()
             return mapped_count
         except Exception as e:
-            logger.warning("Taxonomy mapping deferred/failed for Exam #%s: %s", exam_id, e)
-            return 0
+            logger.error("Taxonomy mapping failed for Exam #%s (Course %s, Track %s): %s", exam_id, course_id, track_id, e)
+            raise TaxonomyMappingError(f"Taxonomy mapping failed for Exam #{exam_id}: {e}") from e
 
     def assign_exam_families(self, course_or_id: Union[Course, int], exam_or_id: Union[Exam, int]) -> int:
         """
@@ -287,12 +292,14 @@ class PostIngestionPipeline:
         3. Transaction commit (if auto_commit=True)
         4. Coordinated intelligence cache invalidation (post-commit)
         """
-        # Ensure exam track_id is synchronized if supplied
-        if track_id is not None:
-            exam = self.db.query(Exam).filter(Exam.id == exam_id).first()
-            if exam and exam.track_id is None:
+        # Ensure exam track_id is synchronized if supplied, or inherited from stored exam if omitted
+        exam = self.db.query(Exam).filter(Exam.id == exam_id).first()
+        if exam:
+            if track_id is not None and exam.track_id is None:
                 exam.track_id = track_id
                 self.db.flush()
+            elif track_id is None and exam.track_id is not None:
+                track_id = exam.track_id
 
         mapped = self.map_exam_topics(course_id, exam_id, track_id=track_id)
         linked = self.assign_exam_families(course_id, exam_id)

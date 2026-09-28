@@ -62,8 +62,9 @@ def test_course_setup(db_session: Session):
     db_session.add_all([unit1, unit2])
     db_session.flush()
 
-    t1 = Topic(id=101, unit_id=unit1.id, name="Nernst Equation and Batteries")
-    t2 = Topic(id=102, unit_id=unit2.id, name="Corrosion Mechanisms")
+    # Topics corresponding to chemistry rules (topic IDs 65, 31)
+    t1 = Topic(id=65, unit_id=unit1.id, name="Nernst Equation and Batteries")
+    t2 = Topic(id=31, unit_id=unit2.id, name="Corrosion Mechanisms")
     db_session.add_all([t1, t2])
     db_session.commit()
 
