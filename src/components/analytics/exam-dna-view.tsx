@@ -39,6 +39,8 @@ interface ExamDNAViewProps {
   language?: string;
   assessmentCycle?: string;
   cutoffYear?: number;
+  onCycleSelect?: (cycle: string) => void;
+  onDnaLoaded?: (dna: ExamDNA) => void;
 }
 
 export function ExamDNAView({
@@ -47,13 +49,20 @@ export function ExamDNAView({
   canonicalCode,
   language,
   assessmentCycle,
-  cutoffYear
+  cutoffYear,
+  onCycleSelect,
+  onDnaLoaded
 }: ExamDNAViewProps) {
   const [dna, setDna] = useState<ExamDNA | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedUnit, setSelectedUnit] = useState<string | null>(null);
   const [temporalMetricMode, setTemporalMetricMode] = useState<"questions" | "marks">("questions");
+
+  const onDnaLoadedRef = React.useRef(onDnaLoaded);
+  useEffect(() => {
+    onDnaLoadedRef.current = onDnaLoaded;
+  }, [onDnaLoaded]);
 
   // Sync loading state upon prop changes without direct setState in effect body
   const [queryKey, setQueryKey] = useState(() => `${courseId}-${language || ""}-${assessmentCycle || ""}-${cutoffYear || ""}`);
@@ -77,6 +86,7 @@ export function ExamDNAView({
         if (!active) return;
         setDna(res);
         setIsLoading(false);
+        onDnaLoadedRef.current?.(res);
       })
       .catch((err) => {
         if (!active) return;
@@ -254,10 +264,126 @@ export function ExamDNAView({
   const historicalExamCount = sample_size.papers;
   const historicalQuestionCount = sample_size.questions;
 
+  if (historicalExamCount === 0) {
+    const cycleLabel =
+      assessmentCycle === "ENDSEM"
+        ? "End Semester (ENDSEM)"
+        : assessmentCycle === "CT1"
+        ? "Class Test 1 (CT1)"
+        : assessmentCycle === "CT2"
+        ? "Class Test 2 (CT2)"
+        : assessmentCycle && assessmentCycle !== "ALL"
+        ? assessmentCycle
+        : "All Assessments";
+
+    const availableCyclesWithPapers = Object.entries(sample_size.cycle_paper_counts || {})
+      .filter(([_, count]) => count > 0)
+      .map(([c, count]) => ({
+        cycle: c,
+        count,
+        label:
+          c === "ALL"
+            ? "All Assessments"
+            : c === "ENDSEM"
+            ? "End Semester"
+            : c === "CT1"
+            ? "Class Test 1"
+            : c === "CT2"
+            ? "Class Test 2"
+            : c,
+      }));
+
+    return (
+      <div className="bg-card border border-border rounded-2xl p-8 md:p-12 text-center max-w-2xl mx-auto space-y-6 shadow-sm my-8">
+        <div className="w-14 h-14 rounded-2xl bg-muted/50 border border-border flex items-center justify-center mx-auto text-muted-foreground">
+          <FileText className="w-7 h-7 text-accent" />
+        </div>
+        <div className="space-y-2">
+          <h3 className="text-xl font-bold tracking-tight text-foreground">
+            No Archived Examination Papers
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            No historical examination papers have been archived for{" "}
+            <span className="font-semibold text-foreground">{cycleLabel}</span> in{" "}
+            <span className="font-semibold text-foreground">
+              {canonicalCode ? `${courseName} (${canonicalCode})` : courseName}
+            </span>.
+          </p>
+        </div>
+
+        {availableCyclesWithPapers.length > 0 && (
+          <div className="pt-2 space-y-3">
+            <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+              Available historical assessment cycles for this course:
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {availableCyclesWithPapers.map(({ cycle, count, label }) => (
+                <button
+                  key={cycle}
+                  onClick={() => onCycleSelect?.(cycle)}
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-border bg-background hover:bg-accent/10 hover:border-accent text-xs font-semibold text-foreground transition-all cursor-pointer shadow-xs"
+                >
+                  <span>{label}</span>
+                  <span className="px-1.5 py-0.5 rounded-full bg-accent/10 text-[11px] font-bold text-accent">
+                    {count} {count === 1 ? "paper" : "papers"}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 text-xs text-muted-foreground flex items-center justify-center gap-2">
+          <Info className="w-4 h-4 text-accent shrink-0" />
+          <span>
+            To inspect historical patterns, switch to an available assessment cycle above or select one of the buttons above.
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  const JUMP_SECTIONS = [
+    { id: "overview", label: "Overview" },
+    { id: "blueprints", label: "Blueprints" },
+    { id: "cognitive-demand", label: "Cognitive Demand" },
+    { id: "question-formats", label: "Question Formats" },
+    { id: "syllabus-focus", label: "Syllabus Focus" },
+    { id: "temporal-trends", label: "Temporal Trends" },
+    { id: "marks-distribution", label: "Marks Distribution" },
+    { id: "patterns", label: "Question Patterns" },
+  ];
+
   return (
     <div className="space-y-8">
-      {/* 1. Dataset Header & Metadata Section */}
-      <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+      {/* Sticky Section Jump Bar */}
+      <nav
+        aria-label="Exam DNA section navigation"
+        className="sticky top-16 z-20 px-3 py-2 bg-background/85 backdrop-blur-md border border-border/60 rounded-xl shadow-xs"
+      >
+        <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+          <span className="text-xs font-semibold text-muted-foreground mr-1.5 whitespace-nowrap hidden sm:inline">
+            Jump to:
+          </span>
+          {JUMP_SECTIONS.map((sec) => (
+            <button
+              key={sec.id}
+              onClick={() => {
+                const el = document.getElementById(sec.id);
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted/40 hover:bg-accent/15 hover:text-accent border border-border/50 text-muted-foreground whitespace-nowrap transition-colors cursor-pointer"
+            >
+              {sec.label}
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      {/* 1. Corpus & Scope Header */}
+      <section id="overview" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border/50 pb-5">
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
@@ -356,8 +482,27 @@ export function ExamDNAView({
         )}
       </section>
 
-      {/* 2. Unit Distribution & 3. Question-Type Distribution (2-Column Grid) */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* 2. Historical Assessment Structure & Blueprints */}
+      <div id="blueprints" className="scroll-mt-24">
+        <HistoricalAssessmentBlueprints
+          assessmentBlueprints={dna.assessment_blueprints}
+          selectedCycle={assessmentCycle}
+        />
+      </div>
+
+      {/* 3. Historical Cognitive Demand */}
+      <div id="cognitive-demand" className="scroll-mt-24">
+        <HistoricalCognitiveDemand
+          cognitiveDemandDistribution={dna.cognitive_demand_distribution}
+          temporalCognitiveDemand={dna.temporal_cognitive_demand}
+          sectionCognitiveProfiles={dna.section_cognitive_profiles}
+          demandQuestionTypeCrossTabulation={dna.demand_question_type_cross_tabulation}
+          assessmentCycle={assessmentCycle}
+        />
+      </div>
+
+      {/* 4. Unit & Question-Type Distribution (2-Column Grid) */}
+      <div id="question-formats" className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* 2. Unit Distribution */}
         <ChartCard
           title="Unit Distribution"
@@ -460,8 +605,18 @@ export function ExamDNAView({
         </ChartCard>
       </div>
 
-      {/* 3b. Temporal Evolution: Unit × Question Type Over Time */}
-      <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+      {/* 5. Historical Exam Focus Evolution: Syllabus & Topics */}
+      <div id="syllabus-focus" className="scroll-mt-24">
+        <HistoricalFocusEvolution
+          temporalUnitFocus={dna.temporal_unit_focus}
+          topicHistoricalFootprints={dna.topic_historical_footprints}
+          temporalTopicFocus={dna.temporal_topic_focus}
+          syllabusUnits={dna.units}
+        />
+      </div>
+
+      {/* 6. Temporal Evolution: Unit × Question Type Over Time */}
+      <section id="temporal-trends" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/50 pb-4">
           <div>
             <div className="flex items-center gap-2">
@@ -665,31 +820,8 @@ export function ExamDNAView({
         )}
       </section>
 
-      {/* 3c. Historical Exam Focus Evolution: Syllabus & Topics */}
-      <HistoricalFocusEvolution
-        temporalUnitFocus={dna.temporal_unit_focus}
-        topicHistoricalFootprints={dna.topic_historical_footprints}
-        temporalTopicFocus={dna.temporal_topic_focus}
-        syllabusUnits={dna.units}
-      />
-
-      {/* 3d. Historical Assessment Structure & Blueprints */}
-      <HistoricalAssessmentBlueprints
-        assessmentBlueprints={dna.assessment_blueprints}
-        selectedCycle={assessmentCycle}
-      />
-
-      {/* 3e. Historical Cognitive Demand */}
-      <HistoricalCognitiveDemand
-        cognitiveDemandDistribution={dna.cognitive_demand_distribution}
-        temporalCognitiveDemand={dna.temporal_cognitive_demand}
-        sectionCognitiveProfiles={dna.section_cognitive_profiles}
-        demandQuestionTypeCrossTabulation={dna.demand_question_type_cross_tabulation}
-        assessmentCycle={assessmentCycle}
-      />
-
-      {/* 4. Marks Distribution */}
-      <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+      {/* 7. Marks Distribution */}
+      <section id="marks-distribution" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
           <div>
             <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
@@ -767,8 +899,8 @@ export function ExamDNAView({
         )}
       </section>
 
-      {/* 5. Question Patterns */}
-      <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+      {/* 8. Question Patterns & Formulation Lineage */}
+      <section id="patterns" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
           <div>
             <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">

@@ -216,6 +216,7 @@ class DNASampleSize(BaseModel):
     unscored_question_count: int = 0
     total_marks: float = 0.0
     years: list[int] = []
+    cycle_paper_counts: dict[str, int] = Field(default_factory=dict)
 
 class MetricWithEvidence(BaseModel):
     value: float | str | int

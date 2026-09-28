@@ -202,6 +202,7 @@ export interface DNASampleSize {
   unmapped_question_count?: number;
   unscored_question_count?: number;
   total_marks?: number;
+  cycle_paper_counts?: Record<string, number>;
 }
 
 export interface UnitDNA {

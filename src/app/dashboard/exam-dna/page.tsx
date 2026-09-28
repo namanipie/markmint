@@ -20,6 +20,7 @@ export default function ExamDNAPage() {
 
   const [selectedCycle, setSelectedCycle] = useState<string>("ALL");
   const [selectedTrack, setSelectedTrack] = useState<string>("");
+  const [cycleCounts, setCycleCounts] = useState<Record<string, number>>({});
 
   const currentCourse: CourseCatalogItem | undefined = useMemo(() => {
     return coursesCatalog.find((c) => c.id === selectedCourseId);
@@ -82,6 +83,7 @@ export default function ExamDNAPage() {
                   const newId = Number(e.target.value);
                   setSelectedCourseId(newId);
                   setSelectedTrack("");
+                  setCycleCounts({});
                 }}
                 className="bg-background border border-border rounded-lg px-3 py-1.5 text-xs font-medium focus:ring-2 focus:ring-accent focus:outline-none min-w-[240px]"
               >
@@ -102,7 +104,10 @@ export default function ExamDNAPage() {
                 <select
                   id="track-select"
                   value={selectedTrack}
-                  onChange={(e) => setSelectedTrack(e.target.value)}
+                  onChange={(e) => {
+                    setSelectedTrack(e.target.value);
+                    setCycleCounts({});
+                  }}
                   className="bg-background border border-border rounded-lg px-3 py-1.5 text-xs font-medium focus:ring-2 focus:ring-accent focus:outline-none"
                 >
                   <option value="">All Tracks</option>
@@ -116,24 +121,41 @@ export default function ExamDNAPage() {
             )}
           </div>
 
-          {/* Assessment Cycle Filter */}
+          {/* Assessment Cycle Filter with Dynamic Paper Counts */}
           <div className="flex items-center gap-2">
             <Filter className="w-3.5 h-3.5 text-muted-foreground" />
-            <span className="text-xs font-medium text-muted-foreground">Cycle:</span>
-            <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/30 text-xs">
-              {(["ALL", "ENDSEM", "CT1", "CT2"] as const).map((cycle) => (
-                <button
-                  key={cycle}
-                  onClick={() => setSelectedCycle(cycle)}
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
-                    selectedCycle === cycle
-                      ? "bg-accent text-accent-foreground font-semibold shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {cycle}
-                </button>
-              ))}
+            <span className="text-xs font-semibold text-foreground">Cycle:</span>
+            <div className="flex flex-wrap items-center gap-1 rounded-lg border border-border p-1 bg-muted/20 text-xs">
+              {[
+                { id: "ALL", label: "All Assessments" },
+                { id: "ENDSEM", label: "End Semester" },
+                { id: "CT1", label: "Class Test 1" },
+                { id: "CT2", label: "Class Test 2" },
+              ].map(({ id, label }) => {
+                const count = cycleCounts[id];
+                const isZero = count === 0;
+                const isSelected = selectedCycle === id;
+                return (
+                  <button
+                    key={id}
+                    onClick={() => setSelectedCycle(id)}
+                    className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
+                      isSelected
+                        ? "bg-accent text-accent-foreground font-semibold shadow-sm"
+                        : isZero
+                        ? "opacity-50 hover:opacity-80 text-muted-foreground border border-dashed border-border/80"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span>{label}</span>
+                    {count !== undefined && (
+                      <span className={`ml-1.5 text-[11px] font-semibold ${isSelected ? "text-accent-foreground/90" : isZero ? "text-muted-foreground" : "text-accent"}`}>
+                        ({count})
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -146,6 +168,12 @@ export default function ExamDNAPage() {
             canonicalCode={currentCourse.canonicalCode}
             language={selectedTrack || undefined}
             assessmentCycle={selectedCycle}
+            onCycleSelect={(cycle) => setSelectedCycle(cycle)}
+            onDnaLoaded={(loadedDna) => {
+              if (loadedDna?.sample_size?.cycle_paper_counts) {
+                setCycleCounts(loadedDna.sample_size.cycle_paper_counts);
+              }
+            }}
           />
         ) : (
           <div className="p-8 text-center bg-card border border-border rounded-xl">

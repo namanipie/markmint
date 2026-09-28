@@ -248,6 +248,31 @@ def get_course_dna(
         target_course_id=course.id,
         syllabus_units=syllabus_units
     )
+
+    def _count_cycle(cycle_name: str) -> int:
+        if cutoff_year is not None:
+            ctx = HistoricalContext(
+                course_id=course.id,
+                cutoff_year=cutoff_year,
+                assessment_cycle=cycle_name if cycle_name != "ALL" else None,
+                track_id=resolved_track_id
+            )
+            repo = HistoricalRepository(db, ctx)
+            return len(repo.get_historical_exams())
+        else:
+            q = db.query(func.count(Exam.id)).filter(Exam.course_id == course.id)
+            if resolved_track_id is not None:
+                q = q.filter(Exam.track_id == resolved_track_id)
+            if cycle_name != "ALL":
+                q = filter_exams_by_cycle(q, Exam.assessment_type, cycle_name, course_id=course.id)
+            return q.scalar() or 0
+
+    dna_report.sample_size.cycle_paper_counts = {
+        "ALL": _count_cycle("ALL"),
+        "ENDSEM": _count_cycle("ENDSEM"),
+        "CT1": _count_cycle("CT1"),
+        "CT2": _count_cycle("CT2"),
+    }
     
     _ANALYSIS_CACHE.set(cache_key, dna_report)
     return dna_report

@@ -24,21 +24,11 @@ interface Props {
 export function HistoricalAssessmentBlueprints({
   assessmentBlueprints = [],
   selectedCycle = "ALL",
-  onCycleChange
 }: Props) {
-  const [internalCycle, setInternalCycle] = useState<string>("ALL");
   const [viewMode, setViewMode] = useState<"cards" | "comparison" | "timeline">("cards");
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
 
-  // Sync with prop if provided
-  const activeCycle = selectedCycle !== "ALL" ? selectedCycle : internalCycle;
-
-  const handleCycleSelect = (cycle: string) => {
-    setInternalCycle(cycle);
-    if (onCycleChange) {
-      onCycleChange(cycle);
-    }
-  };
+  const activeCycle = selectedCycle || "ALL";
 
   const toggleSectionExpand = (clusterSig: string, secIdx: number) => {
     const key = `${clusterSig}_${secIdx}`;
@@ -47,23 +37,6 @@ export function HistoricalAssessmentBlueprints({
       [key]: !prev[key]
     }));
   };
-
-  // Distinct cycles present across the extracted blueprint clusters
-  const availableCycles = useMemo(() => {
-    const cycleSet = new Set<string>();
-    for (const b of assessmentBlueprints) {
-      const c = b.representative_blueprint.assessment_cycle;
-      if (c && c !== "ALL") {
-        cycleSet.add(c);
-      }
-      if (b.assessment_cycles_observed) {
-        for (const ac of b.assessment_cycles_observed) {
-          if (ac && ac !== "ALL") cycleSet.add(ac);
-        }
-      }
-    }
-    return ["ALL", ...Array.from(cycleSet).sort()];
-  }, [assessmentBlueprints]);
 
   // Filter clusters by the active cycle
   const filteredClusters = useMemo(() => {
@@ -173,10 +146,23 @@ export function HistoricalAssessmentBlueprints({
       {/* 1. Header & Quick Metrics */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/50 pb-4">
         <div>
-          <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-            <Layers className="w-5 h-5 text-accent" />
-            Historical Assessment Structure & Blueprints
-          </h3>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
+              <Layers className="w-5 h-5 text-accent" />
+              Historical Assessment Structure & Blueprints
+            </h3>
+            <span className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-muted text-muted-foreground border border-border/60">
+              {activeCycle === "ALL"
+                ? "All Assessment Cycles"
+                : activeCycle === "ENDSEM"
+                ? "End Semester"
+                : activeCycle === "CT1"
+                ? "Class Test 1"
+                : activeCycle === "CT2"
+                ? "Class Test 2"
+                : activeCycle}
+            </span>
+          </div>
           <p className="text-xs text-muted-foreground mt-0.5">
             Observed examination architectures, section patterns, and marks allocation across archived exam papers
           </p>
@@ -185,7 +171,7 @@ export function HistoricalAssessmentBlueprints({
         {/* Aggregate Paper & Structure Count */}
         <div className="flex items-center gap-2">
           <div className="px-3 py-1.5 rounded-lg bg-accent/10 text-accent border border-accent/20 text-xs font-semibold">
-            {filteredClusters.length} Observed Structure{filteredClusters.length > 1 ? "s" : ""} ({totalAnalyzedPapers} Paper{totalAnalyzedPapers !== 1 ? "s" : ""})
+            {filteredClusters.length} Observed Structure{filteredClusters.length !== 1 ? "s" : ""} ({totalAnalyzedPapers} Paper{totalAnalyzedPapers !== 1 ? "s" : ""})
           </div>
         </div>
       </div>
@@ -203,51 +189,24 @@ export function HistoricalAssessmentBlueprints({
         </div>
       </div>
 
-      {/* 3. Controls: Assessment Cycle Filter & View Mode */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-muted/20 p-3 rounded-xl border border-border/60">
-        {/* Cycle Filter */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs font-semibold text-foreground whitespace-nowrap">
-            Assessment Cycle:
+      {/* 3. Controls: Active Cycle Indicator & View Mode */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-muted/20 p-3 rounded-xl border border-border/60">
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">Active Filter:</span>
+          <span className="text-xs font-semibold text-foreground">
+            {activeCycle === "ALL"
+              ? "All Cycles"
+              : activeCycle === "ENDSEM"
+              ? "End Semester"
+              : activeCycle === "CT1"
+              ? "Class Test 1"
+              : activeCycle === "CT2"
+              ? "Class Test 2"
+              : activeCycle}
           </span>
-          <div className="inline-flex rounded-lg border border-border p-0.5 bg-background text-xs">
-            {availableCycles.map((c) => {
-              const label =
-                c === "ALL"
-                  ? "All Cycles"
-                  : c === "ENDSEM"
-                  ? "End-Semester"
-                  : c === "CT1"
-                  ? "Class Test 1"
-                  : c === "CT2"
-                  ? "Class Test 2"
-                  : c;
-              const count =
-                c === "ALL"
-                  ? assessmentBlueprints.reduce((sum, b) => sum + b.matching_paper_count, 0)
-                  : assessmentBlueprints
-                      .filter(
-                        (b) =>
-                          b.representative_blueprint.assessment_cycle === c ||
-                          b.assessment_cycles_observed?.includes(c)
-                      )
-                      .reduce((sum, b) => sum + b.matching_paper_count, 0);
-
-              return (
-                <button
-                  key={c}
-                  onClick={() => handleCycleSelect(c)}
-                  className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
-                    activeCycle === c
-                      ? "bg-accent text-accent-foreground font-semibold shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {label} <span className="opacity-75 text-[10px]">({count})</span>
-                </button>
-              );
-            })}
-          </div>
+          <span className="text-xs text-muted-foreground">
+            &bull; {filteredClusters.length} structure{filteredClusters.length !== 1 ? "s" : ""}, {totalAnalyzedPapers} paper{totalAnalyzedPapers !== 1 ? "s" : ""}
+          </span>
         </div>
 
         {/* View Mode Toggle */}
@@ -300,11 +259,21 @@ export function HistoricalAssessmentBlueprints({
       </div>
 
       {/* 4. Main Content Based on View Mode */}
-
-      {/* VIEW A: Blueprint Cards */}
-      {viewMode === "cards" && (
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {filteredClusters.length === 0 ? (
+        <div className="p-8 text-center bg-muted/20 border border-border/50 rounded-xl space-y-2">
+          <p className="text-xs font-medium text-foreground">
+            No blueprints recorded for {activeCycle === "ALL" ? "any cycle" : activeCycle}.
+          </p>
+          <p className="text-[11px] text-muted-foreground max-w-md mx-auto">
+            Archived examinations for this assessment cycle do not contain structured section blueprints.
+          </p>
+        </div>
+      ) : (
+        <>
+          {/* VIEW A: Blueprint Cards */}
+          {viewMode === "cards" && (
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {filteredClusters.map((cluster, cIdx) => {
               const rep = cluster.representative_blueprint;
               const letterIndex = String.fromCharCode(65 + cIdx); // A, B, C...
@@ -755,6 +724,8 @@ export function HistoricalAssessmentBlueprints({
             </div>
           </div>
         </div>
+      )}
+        </>
       )}
     </section>
   );
