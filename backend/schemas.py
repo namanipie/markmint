@@ -1,10 +1,15 @@
-from typing import Generic, TypeVar, Optional, List
-from typing import Optional
-from pydantic import BaseModel
-from pydantic import BaseModel, Field
-from typing import Optional, Any
+from typing import Generic, TypeVar, Optional, List, Any
 from datetime import datetime
 from enum import Enum
+from pydantic import BaseModel, Field
+
+from backend.services.dna.blueprint import (
+    SectionChoiceType,
+    BlueprintStatus,
+    SectionBlueprint,
+    ExamBlueprint,
+    BlueprintCluster,
+)
 
 class ClassificationResult(BaseModel):
     question_type: Optional[str] = None
@@ -397,6 +402,7 @@ class ExamDNA(BaseModel):
     temporal_unit_focus: Optional[list[TemporalUnitFocusBreakdown]] = None
     topic_historical_footprints: Optional[list[TopicHistoricalFootprint]] = None
     temporal_topic_focus: Optional[list[TemporalTopicFocusBreakdown]] = None
+    assessment_blueprints: Optional[list[BlueprintCluster]] = None
 
 class ProvenanceNode(BaseModel):
     record_type: str # 'question', 'exam', 'document', 'study_evidence'

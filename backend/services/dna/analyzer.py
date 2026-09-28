@@ -21,8 +21,9 @@ from backend.schemas import (
     FamilyDNA,
     TemporalUnitQuestionTypeBreakdown, TemporalTrend,
     TemporalUnitFocusBreakdown, TopicHistoricalFootprint,
-    TemporalTopicFocusBreakdown,
+    TemporalTopicFocusBreakdown, BlueprintCluster,
 )
+from backend.services.dna.blueprint import BlueprintExtractor
 
 class DNAAnalyzerService:
     @classmethod
@@ -91,8 +92,16 @@ class DNAAnalyzerService:
 
         for e in sorted_exams:
             exam_copy = dict(e)
+            raw_qs = e.get("questions")
+            if (raw_qs is None or len(raw_qs) == 0) and e.get("sections"):
+                raw_qs = []
+                for s in e["sections"]:
+                    raw_qs.extend(s.get("questions", []))
+            elif raw_qs is None:
+                raw_qs = []
+
             deduped_questions = []
-            for q in e.get("questions", []):
+            for q in raw_qs:
                 qid = q.get("id")
                 if qid is not None:
                     if qid in seen_q_ids:
@@ -899,6 +908,51 @@ class DNAAnalyzerService:
             r.topic
         ))
 
+        # Blueprint Extraction & Clustering
+        blueprint_clusters = []
+        if sanitized_exams:
+            exam_blueprints = []
+            for e in sanitized_exams:
+                eid = e.get("id") or 0
+                cid = e.get("course_id") or target_course_id or 0
+                yr = e.get("year")
+                raw_type = e.get("exam_type")
+                raw_secs = e.get("sections")
+                if raw_secs:
+                    valid_q_ids = {q.get("id") for q in e.get("questions", []) if q.get("id") is not None}
+                    secs = []
+                    for s in raw_secs:
+                        s_copy = dict(s)
+                        if valid_q_ids:
+                            s_copy["questions"] = [
+                                q for q in s.get("questions", [])
+                                if q.get("id") is None or q.get("id") in valid_q_ids
+                            ]
+                        else:
+                            s_copy["questions"] = s.get("questions", [])
+                        secs.append(s_copy)
+                elif e.get("questions"):
+                    secs = [{
+                        "id": None,
+                        "name": "DEFAULT",
+                        "instructions": None,
+                        "questions": e.get("questions", [])
+                    }]
+                else:
+                    secs = []
+
+                if secs:
+                    bp = BlueprintExtractor.extract_exam_blueprint(
+                        exam_id=eid,
+                        course_id=cid,
+                        year=yr,
+                        raw_assessment_type=raw_type,
+                        sections_data=secs
+                    )
+                    exam_blueprints.append(bp)
+
+            blueprint_clusters = BlueprintExtractor.cluster_blueprints(exam_blueprints)
+
         return ExamDNA(
             sample_size=sample_size,
             topics=topics_dna,
@@ -918,7 +972,8 @@ class DNAAnalyzerService:
             temporal_unit_question_type_breakdown=temporal_breakdowns,
             temporal_unit_focus=temporal_unit_focus,
             topic_historical_footprints=topic_historical_footprints,
-            temporal_topic_focus=temporal_topic_focus
+            temporal_topic_focus=temporal_topic_focus,
+            assessment_blueprints=blueprint_clusters
         )
 
     @classmethod
@@ -977,6 +1032,7 @@ class DNAAnalyzerService:
             temporal_unit_question_type_breakdown=[],
             temporal_unit_focus=[],
             topic_historical_footprints=[],
-            temporal_topic_focus=[]
+            temporal_topic_focus=[],
+            assessment_blueprints=[]
         )
 

@@ -98,10 +98,14 @@ def _get_exams_as_dicts(
             "year": ex.year,
             "course_id": ex.course_id,
             "exam_type": ex.assessment_type,
-            "questions": []
+            "questions": [],
+            "sections": []
         }
-        for sec in ex.sections:
-            for q in sec.questions:
+        sorted_sections = sorted(ex.sections, key=lambda s: s.id) if getattr(ex, "sections", None) else []
+        for idx, sec in enumerate(sorted_sections, start=1):
+            sec_questions = []
+            sorted_qs = sorted(sec.questions, key=lambda q: q.id) if getattr(sec, "questions", None) else []
+            for q in sorted_qs:
                 q_topics = [t.name for t in q.topics] if getattr(q, "topics", None) else []
                 q_units = (
                     list(dict.fromkeys(
@@ -139,8 +143,9 @@ def _get_exams_as_dicts(
                 elif q.family and q.family.repetition_type:
                     rep_type = q.family.repetition_type
 
-                ex_dict["questions"].append({
+                q_dict = {
                     "id": q.id,
+                    "question_number": q.question_number,
                     "marks": q.marks,
                     "is_alternative": q.is_alternative,
                     "topic": q_topics[0] if q_topics else None,
@@ -155,7 +160,17 @@ def _get_exams_as_dicts(
                     "family_name": q.family.canonical_name if q.family else None,
                     "family_id": q.family.id if q.family else None,
                     "difficulty": q.difficulty
-                })
+                }
+                sec_questions.append(q_dict)
+                ex_dict["questions"].append(q_dict)
+
+            ex_dict["sections"].append({
+                "id": sec.id,
+                "name": sec.name,
+                "instructions": sec.instructions,
+                "sequence": idx,
+                "questions": sec_questions
+            })
         out.append(ex_dict)
     return out
 

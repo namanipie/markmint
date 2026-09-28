@@ -352,6 +352,62 @@ export interface TemporalTopicFocusBreakdown {
   question_types: Record<string, number>;
 }
 
+export interface SectionBlueprint {
+  section_id?: number | string | null;
+  raw_name: string;
+  name: string;
+  sequence: number;
+  instructions?: string | null;
+  choice_type: 'COMPULSORY' | 'UNITARY_CHOICE' | 'SELECTIVE_CHOICE' | 'UNSPECIFIED' | string;
+  choice_detail?: string | null;
+  total_questions: number;
+  primary_questions_count: number;
+  alternative_questions_count: number;
+  has_internal_choice: boolean;
+  internal_choice_pairs: number;
+  question_number_range?: string | null;
+  marks_per_question: number[];
+  scored_marks_sum: number;
+  total_offered_marks: number;
+  has_unscored_questions: boolean;
+  unscored_questions_count: number;
+  question_types: Record<string, number>;
+  unit_distribution: Record<string, number>;
+}
+
+export interface ExamBlueprint {
+  exam_id: number | string;
+  course_id: number | string;
+  year?: number | null;
+  assessment_cycle: string;
+  raw_assessment_type?: string | null;
+  section_count: number;
+  total_questions: number;
+  primary_questions: number;
+  alternative_questions: number;
+  total_scored_marks: number;
+  total_offered_marks: number;
+  has_unscored_questions: boolean;
+  sections: SectionBlueprint[];
+  structural_signature: string;
+}
+
+export interface BlueprintCluster {
+  signature: string;
+  label: string;
+  matching_paper_count: number;
+  percentage_of_cycle: number;
+  years_observed: number[];
+  assessment_cycles_observed?: string[];
+  first_observed_year?: number | null;
+  latest_observed_year?: number | null;
+  exam_ids: (number | string)[];
+  status: 'DOMINANT_STRUCTURE' | 'RECURRING_STRUCTURE' | 'SINGLE_OBSERVED_STRUCTURE' | 'STRUCTURAL_VARIANT' | string;
+  is_dominant: boolean;
+  is_sparse: boolean;
+  representative_blueprint: ExamBlueprint;
+}
+
 export interface ExamDNA {
   sample_size: DNASampleSize;
   topics: any[];
@@ -367,6 +423,7 @@ export interface ExamDNA {
   temporal_unit_focus?: TemporalUnitFocusBreakdown[];
   topic_historical_footprints?: TopicHistoricalFootprint[];
   temporal_topic_focus?: TemporalTopicFocusBreakdown[];
+  assessment_blueprints?: BlueprintCluster[];
 }
 
 export interface ExamDNAAnalysis {
