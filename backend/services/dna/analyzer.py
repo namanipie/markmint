@@ -22,8 +22,13 @@ from backend.schemas import (
     TemporalUnitQuestionTypeBreakdown, TemporalTrend,
     TemporalUnitFocusBreakdown, TopicHistoricalFootprint,
     TemporalTopicFocusBreakdown, BlueprintCluster,
+    CognitiveDemandItemDNA, UnitCognitiveProfileDNA,
+    SectionCognitiveProfileDNA, TemporalCognitiveDemandBreakdown,
+    CognitiveDemandDistributionDNA,
 )
 from backend.services.dna.blueprint import BlueprintExtractor
+from backend.services.cognitive_demand_classifier import DeterministicCognitiveDemandClassifier
+from backend.services.assessment_cycle import normalize_assessment_cycle
 
 class DNAAnalyzerService:
     @classmethod
@@ -953,6 +958,261 @@ class DNAAnalyzerService:
 
             blueprint_clusters = BlueprintExtractor.cluster_blueprints(exam_blueprints)
 
+        # -------------------------------------------------------------
+        # Cognitive Demand Signals (Deterministic Layer)
+        # -------------------------------------------------------------
+        ARCHETYPES = [
+            "RECALL_AND_CONCEPT",
+            "PROCEDURAL_COMPUTATION",
+            "ANALYTICAL_PROOF_AND_DESIGN",
+            "UNCLASSIFIED",
+        ]
+
+        # Tag all questions deterministically across sanitized exams
+        for e in sanitized_exams:
+            for q in e.get("questions", []):
+                if "_cognitive_demand" not in q:
+                    q_txt = q.get("original_text") or q.get("text") or q.get("normalized_text") or ""
+                    res = DeterministicCognitiveDemandClassifier.classify(
+                        text=q_txt,
+                        question_type=q.get("question_type"),
+                        structured_content=q.get("structured_content"),
+                        marks=q.get("marks")
+                    )
+                    q["_cognitive_demand"] = res.demand.value
+            if e.get("sections"):
+                for s in e["sections"]:
+                    for q in s.get("questions", []):
+                        if "_cognitive_demand" not in q:
+                            q_txt = q.get("original_text") or q.get("text") or q.get("normalized_text") or ""
+                            res = DeterministicCognitiveDemandClassifier.classify(
+                                text=q_txt,
+                                question_type=q.get("question_type"),
+                                structured_content=q.get("structured_content"),
+                                marks=q.get("marks")
+                            )
+                            q["_cognitive_demand"] = res.demand.value
+
+        for q in all_questions:
+            if "_cognitive_demand" not in q:
+                q_txt = q.get("original_text") or q.get("text") or q.get("normalized_text") or ""
+                res = DeterministicCognitiveDemandClassifier.classify(
+                    text=q_txt,
+                    question_type=q.get("question_type"),
+                    structured_content=q.get("structured_content"),
+                    marks=q.get("marks")
+                )
+                q["_cognitive_demand"] = res.demand.value
+
+        # Marks reliability guard
+        unscored_ratio = unscored_questions / total_questions if total_questions > 0 else 1.0
+        is_marks_reliable = (unscored_ratio <= 0.15) and (total_marks > 0)
+        marks_completeness_pct = round((1.0 - unscored_ratio) * 100.0, 2) if total_questions > 0 else 0.0
+
+        # Overall demand distribution
+        demand_counts = {arch: 0 for arch in ARCHETYPES}
+        demand_marks = {arch: 0.0 for arch in ARCHETYPES}
+
+        for q in all_questions:
+            d = q.get("_cognitive_demand", "UNCLASSIFIED")
+            if d not in demand_counts:
+                demand_counts[d] = 0
+                demand_marks[d] = 0.0
+            demand_counts[d] += 1
+            if not q.get("is_alternative") and q.get("marks") is not None:
+                try:
+                    demand_marks[d] += float(q.get("marks"))
+                except (ValueError, TypeError):
+                    pass
+
+        demand_items = []
+        for arch in ARCHETYPES:
+            cnt = demand_counts.get(arch, 0)
+            pct = round(cnt / total_questions, 4) if total_questions > 0 else 0.0
+            scored_m = round(demand_marks.get(arch, 0.0), 2)
+            m_pct = (round(scored_m / total_marks, 4) if (is_marks_reliable and total_marks > 0) else None)
+            demand_items.append(
+                CognitiveDemandItemDNA(
+                    demand=arch,
+                    question_count=cnt,
+                    percentage=pct,
+                    scored_marks=scored_m,
+                    marks_percentage=m_pct
+                )
+            )
+
+        unclassified_cnt = demand_counts.get("UNCLASSIFIED", 0)
+        unclassified_pct = round(unclassified_cnt / total_questions, 4) if total_questions > 0 else 0.0
+
+        # Demand distribution by assessment cycle
+        by_assessment_cycle = defaultdict(lambda: {arch: 0 for arch in ARCHETYPES})
+        for e in sanitized_exams:
+            raw_type = e.get("exam_type")
+            c_label = normalize_assessment_cycle(raw_type) or (str(raw_type) if raw_type else "UNKNOWN")
+            for q in e.get("questions", []):
+                d = q.get("_cognitive_demand", "UNCLASSIFIED")
+                by_assessment_cycle[c_label][d] += 1
+
+        # Demand distribution by unit
+        global_unit_q_map = defaultdict(list)
+        for q in all_questions:
+            q_units = q.get("units") if q.get("units") is not None else ([q.get("unit")] if q.get("unit") else [])
+            clean_units = list(dict.fromkeys(u for u in q_units if u and u != "Unmapped / Unknown"))
+            if not clean_units:
+                global_unit_q_map["Unmapped / Unknown"].append(q)
+            else:
+                for u in clean_units:
+                    global_unit_q_map[u].append(q)
+
+        by_unit_profiles: list[UnitCognitiveProfileDNA] = []
+        for u_name, u_num in all_unit_slots:
+            u_qs = global_unit_q_map.get(u_name, [])
+            u_tot = len(u_qs)
+            if u_tot == 0:
+                continue
+            u_demands = {arch: 0 for arch in ARCHETYPES}
+            for q in u_qs:
+                d = q.get("_cognitive_demand", "UNCLASSIFIED")
+                u_demands[d] += 1
+            u_pcts = {
+                arch: round(u_demands[arch] / u_tot, 4) if u_tot > 0 else 0.0
+                for arch in ARCHETYPES
+            }
+            by_unit_profiles.append(
+                UnitCognitiveProfileDNA(
+                    unit=u_name,
+                    unit_number=u_num,
+                    total_questions=u_tot,
+                    demand_counts=u_demands,
+                    demand_percentages=u_pcts,
+                    unclassified_percentage=u_pcts.get("UNCLASSIFIED", 0.0)
+                )
+            )
+
+        # Demand distribution by section (and blueprint section)
+        sec_q_map = defaultdict(list)
+        for e in sanitized_exams:
+            raw_secs = e.get("sections")
+            if raw_secs:
+                for s in raw_secs:
+                    s_name = BlueprintExtractor.normalize_section_name(s.get("name"))
+                    for q in s.get("questions", []):
+                        sec_q_map[s_name].append(q)
+            else:
+                for q in e.get("questions", []):
+                    s_raw = q.get("section_name")
+                    s_name = BlueprintExtractor.normalize_section_name(s_raw) if s_raw else "DEFAULT"
+                    sec_q_map[s_name].append(q)
+
+        section_profiles: list[SectionCognitiveProfileDNA] = []
+        for s_name, s_qs in sorted(sec_q_map.items(), key=lambda x: x[0]):
+            s_tot = len(s_qs)
+            if s_tot == 0:
+                continue
+            s_demands = {arch: 0 for arch in ARCHETYPES}
+            for q in s_qs:
+                d = q.get("_cognitive_demand", "UNCLASSIFIED")
+                s_demands[d] += 1
+            s_pcts = {
+                arch: round(s_demands[arch] / s_tot, 4) if s_tot > 0 else 0.0
+                for arch in ARCHETYPES
+            }
+            section_profiles.append(
+                SectionCognitiveProfileDNA(
+                    section_name=s_name,
+                    total_questions=s_tot,
+                    demand_counts=s_demands,
+                    demand_percentages=s_pcts,
+                    unclassified_percentage=s_pcts.get("UNCLASSIFIED", 0.0)
+                )
+            )
+
+        # Demand x QuestionType cross-tabulation
+        demand_qtype_cross: dict[str, dict[str, int]] = {arch: defaultdict(int) for arch in ARCHETYPES}
+        for q in all_questions:
+            d = q.get("_cognitive_demand", "UNCLASSIFIED")
+            raw_qt = q.get("question_type")
+            qt_key = raw_qt.strip() if (raw_qt and isinstance(raw_qt, str) and raw_qt.strip()) else "Other / Unclassified"
+            demand_qtype_cross[d][qt_key] += 1
+
+        demand_qtype_cross_dict = {
+            arch: dict(sorted(qt_dict.items(), key=lambda x: -x[1]))
+            for arch, qt_dict in demand_qtype_cross.items()
+        }
+
+        # Temporal demand evolution
+        temporal_cognitive_demand: list[TemporalCognitiveDemandBreakdown] = []
+        for y in dated_years:
+            year_exams = [e for e in sanitized_exams if e.get("year") == y]
+            exam_count_in_year = len(set(e.get("id") for e in year_exams if e.get("id") is not None)) or len(year_exams)
+            questions_in_year = [q for e in year_exams for q in e.get("questions", [])]
+            total_y_q = len(questions_in_year)
+            if total_y_q == 0:
+                continue
+
+            is_sparse_year = (exam_count_in_year <= 1) or (total_y_q < 5)
+
+            y_demands = {arch: 0 for arch in ARCHETYPES}
+            y_marks = {arch: 0.0 for arch in ARCHETYPES}
+            y_unscored = 0
+            y_total_scored_marks = 0.0
+
+            for q in questions_in_year:
+                d = q.get("_cognitive_demand", "UNCLASSIFIED")
+                y_demands[d] += 1
+                raw_m = q.get("marks")
+                if raw_m is None:
+                    y_unscored += 1
+                elif not q.get("is_alternative"):
+                    try:
+                        m_val = float(raw_m)
+                        y_marks[d] += m_val
+                        y_total_scored_marks += m_val
+                    except (ValueError, TypeError):
+                        pass
+
+            y_pcts = {
+                arch: round(y_demands[arch] / total_y_q, 4) if total_y_q > 0 else 0.0
+                for arch in ARCHETYPES
+            }
+
+            y_unscored_ratio = y_unscored / total_y_q if total_y_q > 0 else 1.0
+            y_marks_reliable = (y_unscored_ratio <= 0.15) and (y_total_scored_marks > 0)
+            y_m_pcts = None
+            if y_marks_reliable:
+                y_m_pcts = {
+                    arch: round(y_marks[arch] / y_total_scored_marks, 4) if y_total_scored_marks > 0 else 0.0
+                    for arch in ARCHETYPES
+                }
+
+            temporal_cognitive_demand.append(
+                TemporalCognitiveDemandBreakdown(
+                    year=y,
+                    exam_count=exam_count_in_year,
+                    total_questions=total_y_q,
+                    demand_counts=y_demands,
+                    demand_percentages=y_pcts,
+                    is_sparse=is_sparse_year,
+                    scored_marks=round(y_total_scored_marks, 2),
+                    marks_percentages=y_m_pcts
+                )
+            )
+
+        temporal_cognitive_demand.sort(key=lambda r: r.year)
+
+        cognitive_demand_dist = CognitiveDemandDistributionDNA(
+            items=demand_items,
+            total_questions=total_questions,
+            unclassified_count=unclassified_cnt,
+            unclassified_percentage=unclassified_pct,
+            is_marks_reliable=is_marks_reliable,
+            marks_completeness_pct=marks_completeness_pct,
+            total_scored_marks=round(total_marks, 2),
+            by_assessment_cycle={k: dict(v) for k, v in by_assessment_cycle.items()},
+            by_unit=by_unit_profiles,
+            by_section=section_profiles
+        )
+
         return ExamDNA(
             sample_size=sample_size,
             topics=topics_dna,
@@ -973,7 +1233,11 @@ class DNAAnalyzerService:
             temporal_unit_focus=temporal_unit_focus,
             topic_historical_footprints=topic_historical_footprints,
             temporal_topic_focus=temporal_topic_focus,
-            assessment_blueprints=blueprint_clusters
+            assessment_blueprints=blueprint_clusters,
+            cognitive_demand_distribution=cognitive_demand_dist,
+            temporal_cognitive_demand=temporal_cognitive_demand,
+            section_cognitive_profiles=section_profiles,
+            demand_question_type_cross_tabulation=demand_qtype_cross_dict
         )
 
     @classmethod
@@ -1033,6 +1297,14 @@ class DNAAnalyzerService:
             temporal_unit_focus=[],
             topic_historical_footprints=[],
             temporal_topic_focus=[],
-            assessment_blueprints=[]
+            assessment_blueprints=[],
+            cognitive_demand_distribution=CognitiveDemandDistributionDNA(
+                items=[], total_questions=0, unclassified_count=0, unclassified_percentage=0.0,
+                is_marks_reliable=False, marks_completeness_pct=0.0, total_scored_marks=0.0,
+                by_assessment_cycle={}, by_unit=[], by_section=[]
+            ),
+            temporal_cognitive_demand=[],
+            section_cognitive_profiles=[],
+            demand_question_type_cross_tabulation={}
         )
 

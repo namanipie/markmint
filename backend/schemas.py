@@ -383,6 +383,50 @@ class TemporalTopicFocusBreakdown(BaseModel):
     is_sparse: bool
     question_types: dict[str, int] = {}
 
+class CognitiveDemandItemDNA(BaseModel):
+    demand: str
+    question_count: int
+    percentage: float
+    scored_marks: float = 0.0
+    marks_percentage: Optional[float] = None
+
+class UnitCognitiveProfileDNA(BaseModel):
+    unit: str
+    unit_number: Optional[int] = None
+    total_questions: int
+    demand_counts: dict[str, int] = Field(default_factory=dict)
+    demand_percentages: dict[str, float] = Field(default_factory=dict)
+    unclassified_percentage: float = 0.0
+
+class SectionCognitiveProfileDNA(BaseModel):
+    section_name: str
+    total_questions: int
+    demand_counts: dict[str, int] = Field(default_factory=dict)
+    demand_percentages: dict[str, float] = Field(default_factory=dict)
+    unclassified_percentage: float = 0.0
+
+class TemporalCognitiveDemandBreakdown(BaseModel):
+    year: int
+    exam_count: int
+    total_questions: int
+    demand_counts: dict[str, int] = Field(default_factory=dict)
+    demand_percentages: dict[str, float] = Field(default_factory=dict)
+    is_sparse: bool
+    scored_marks: float = 0.0
+    marks_percentages: Optional[dict[str, float]] = None
+
+class CognitiveDemandDistributionDNA(BaseModel):
+    items: list[CognitiveDemandItemDNA] = Field(default_factory=list)
+    total_questions: int = 0
+    unclassified_count: int = 0
+    unclassified_percentage: float = 0.0
+    is_marks_reliable: bool = False
+    marks_completeness_pct: float = 0.0
+    total_scored_marks: float = 0.0
+    by_assessment_cycle: dict[str, dict[str, int]] = Field(default_factory=dict)
+    by_unit: list[UnitCognitiveProfileDNA] = Field(default_factory=list)
+    by_section: list[SectionCognitiveProfileDNA] = Field(default_factory=list)
+
 class ExamDNA(BaseModel):
     sample_size: DNASampleSize
 
@@ -403,6 +447,10 @@ class ExamDNA(BaseModel):
     topic_historical_footprints: Optional[list[TopicHistoricalFootprint]] = None
     temporal_topic_focus: Optional[list[TemporalTopicFocusBreakdown]] = None
     assessment_blueprints: Optional[list[BlueprintCluster]] = None
+    cognitive_demand_distribution: Optional[CognitiveDemandDistributionDNA] = None
+    temporal_cognitive_demand: Optional[list[TemporalCognitiveDemandBreakdown]] = None
+    section_cognitive_profiles: Optional[list[SectionCognitiveProfileDNA]] = None
+    demand_question_type_cross_tabulation: Optional[dict[str, dict[str, int]]] = None
 
 class ProvenanceNode(BaseModel):
     record_type: str # 'question', 'exam', 'document', 'study_evidence'

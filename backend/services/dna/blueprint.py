@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 from pydantic import BaseModel, Field, ConfigDict
 
 from backend.services.assessment_cycle import normalize_assessment_cycle
+from backend.services.cognitive_demand_classifier import DeterministicCognitiveDemandClassifier
 
 
 class SectionChoiceType(str, Enum):
@@ -54,6 +55,7 @@ class SectionBlueprint(BaseModel):
     unscored_questions_count: int
     question_types: Dict[str, int] = Field(default_factory=dict)
     unit_distribution: Dict[str, int] = Field(default_factory=dict)
+    cognitive_demand_distribution: Dict[str, int] = Field(default_factory=dict)
 
 
 class ExamBlueprint(BaseModel):
@@ -287,6 +289,18 @@ class BlueprintExtractor:
             label = u_name if u_name else "Unmapped / Unknown"
             units_dist[label] += 1
 
+        # Cognitive Demand Distribution
+        demand_dist: Dict[str, int] = defaultdict(int)
+        for q in questions:
+            q_txt = q.get("original_text") or q.get("text") or q.get("normalized_text") or ""
+            res = DeterministicCognitiveDemandClassifier.classify(
+                text=q_txt,
+                question_type=q.get("question_type"),
+                structured_content=q.get("structured_content"),
+                marks=q.get("marks")
+            )
+            demand_dist[res.demand.value] += 1
+
         return SectionBlueprint(
             section_id=section_id,
             raw_name=raw_name,
@@ -307,7 +321,8 @@ class BlueprintExtractor:
             has_unscored_questions=has_unscored,
             unscored_questions_count=unscored_count,
             question_types=dict(qtypes),
-            unit_distribution=dict(units_dist)
+            unit_distribution=dict(units_dist),
+            cognitive_demand_distribution=dict(demand_dist)
         )
 
     @classmethod

@@ -156,6 +156,8 @@ def _get_exams_as_dicts(
                     "unit_objects": q_unit_objects,
                     "question_type": q.question_type,
                     "original_text": q.original_text or q.normalized_text,
+                    "structured_content": getattr(q, "structured_content", None),
+                    "section_name": sec.name,
                     "repetition_type": rep_type,
                     "family_name": q.family.canonical_name if q.family else None,
                     "family_id": q.family.id if q.family else None,
