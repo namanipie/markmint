@@ -132,11 +132,18 @@ def get_study_priorities(
             )
             for index, item in enumerate(topic_predictions, start=1)
         ]
-        plan = StudyIntelligenceService(db).generate_study_plan(
-            model_predictions, course.id, user_id
+        track_id = active_track.id if active_track else None
+        study_svc = StudyIntelligenceService(db)
+        study_svc.preload_course_resources(course.id, track_id=track_id, cutoff_year=target_year)
+        study_svc.preload_student_progress(course.id, user_id, track_id=track_id)
+        plan = study_svc.generate_study_plan(
+            model_predictions, course.id, user_id, track_id=track_id, cutoff_year=target_year
         )
     elif family_predictions:
+        track_id = active_track.id if active_track else None
         study_svc = StudyIntelligenceService(db)
+        study_svc.preload_course_resources(course.id, track_id=track_id, cutoff_year=target_year)
+        study_svc.preload_student_progress(course.id, user_id, track_id=track_id)
         clean_user_id = user_id.strip() if user_id and isinstance(user_id, str) else "anonymous"
         for index, item in enumerate(family_predictions, start=1):
             fam_id = item.get("family_id")
@@ -153,7 +160,7 @@ def get_study_priorities(
             practice_accuracy = None
             resolved_topic = None
             if fam_id and course:
-                resolved_topic = study_svc.resolve_family_to_topic(fam_id, course.id)
+                resolved_topic = study_svc.resolve_family_to_topic(fam_id, course.id, track_id=track_id)
             if resolved_topic and clean_user_id != "anonymous":
                 from backend.models.core import StudentTopicProgress
                 prog = db.query(StudentTopicProgress).filter_by(
@@ -255,10 +262,24 @@ def get_topic_resources(
     course_name: str,
     topic_name: str,
     limit: int = 20,
+    language: Optional[str] = None,
     db: Session = Depends(get_db),
 ):
     course = _course(db, course_name)
-    resources = StudyIntelligenceService(db).get_topic_resources(topic_name, course.id)
+    track_id = None
+    if course and course.tracks and language:
+        lang_clean = language.strip().lower()
+        for t in course.tracks:
+            if (
+                t.track_key.lower() == lang_clean
+                or t.track_name.lower() == lang_clean
+                or (t.track_code and t.track_code.lower() == lang_clean)
+            ):
+                track_id = t.id
+                break
+    resources = StudyIntelligenceService(db).get_topic_resources(
+        topic_name, course.id, track_id=track_id
+    )
     return {"course": course.name, "topic": topic_name, "resources": resources[:limit]}
 
 

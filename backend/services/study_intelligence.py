@@ -81,23 +81,33 @@ class StudyIntelligenceService:
         self._evidence_by_concept_id: Dict[int, List[StudyEvidence]] = {}
         self._question_counts_by_topic_id: Dict[int, int] = {}
         self._student_progress_by_topic_id: Optional[Dict[int, StudentTopicProgress]] = None
+        self._preloaded_track_id: Optional[int] = None
+        self._preloaded_cutoff_year: Optional[int] = None
 
-    def preload_course_resources(self, course_id: int) -> None:
+    def preload_course_resources(
+        self,
+        course_id: int,
+        track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
+    ) -> None:
         """Bulk load all topics, course, concepts, study evidence, and question counts in 4-5 queries."""
         if self.db is None:
             return
         self._preloaded = True
         self._preloaded_course_id = course_id
+        self._preloaded_track_id = track_id
+        self._preloaded_cutoff_year = cutoff_year
 
         # 1. Course topics
-        self._course_topics = (
+        topic_q = (
             self.db.query(Topic)
             .join(Unit, Topic.unit_id == Unit.id)
             .join(Syllabus, Unit.syllabus_id == Syllabus.id)
             .filter(Syllabus.course_id == course_id)
-            .order_by(Topic.id.asc())
-            .all()
         )
+        if track_id is not None:
+            topic_q = topic_q.filter(Syllabus.track_id == track_id)
+        self._course_topics = topic_q.order_by(Topic.id.asc()).all()
         self._topics_by_name = {}
         self._topics_by_id = {}
         for t in self._course_topics:
@@ -138,35 +148,47 @@ class StudyIntelligenceService:
                 self._evidence_by_concept_id.setdefault(ev.concept_id, []).append(ev)
 
         # 5. Question counts per topic
-        q_counts = (
+        q_q = (
             self.db.query(Topic.id, func.count(Question.id))
             .join(Question.topics)
             .join(Section, Question.section_id == Section.id)
             .join(Exam, Section.exam_id == Exam.id)
             .filter(Exam.course_id == course_id)
-            .group_by(Topic.id)
-            .all()
         )
+        if track_id is not None:
+            q_q = q_q.filter(Exam.track_id == track_id)
+        if cutoff_year is not None:
+            q_q = q_q.filter(
+                Exam.year.isnot(None),
+                Exam.year < cutoff_year
+            )
+        q_counts = q_q.group_by(Topic.id).all()
         self._question_counts_by_topic_id = dict(q_counts)
 
-    def preload_student_progress(self, course_id: int, student_id: str = "anonymous") -> None:
+    def preload_student_progress(
+        self,
+        course_id: int,
+        student_id: str = "anonymous",
+        track_id: Optional[int] = None,
+    ) -> None:
         """Preload student topic progress in 1 query (0 queries for anonymous)."""
         clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
         if not clean_student or clean_student == "anonymous" or self.db is None:
             self._student_progress_by_topic_id = {}
             return
-        if self._topics_by_id:
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
+        if self._topics_by_id and (effective_track is None or self._preloaded_track_id == effective_track):
             topic_ids = list(self._topics_by_id.keys())
         else:
-            topic_ids = [
-                r[0] for r in (
-                    self.db.query(Topic.id)
-                    .join(Unit, Topic.unit_id == Unit.id)
-                    .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-                    .filter(Syllabus.course_id == course_id)
-                    .all()
-                )
-            ]
+            topic_q = (
+                self.db.query(Topic.id)
+                .join(Unit, Topic.unit_id == Unit.id)
+                .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+                .filter(Syllabus.course_id == course_id)
+            )
+            if effective_track is not None:
+                topic_q = topic_q.filter(Syllabus.track_id == effective_track)
+            topic_ids = [r[0] for r in topic_q.all()]
         if not topic_ids:
             self._student_progress_by_topic_id = {}
             return
@@ -180,37 +202,71 @@ class StudyIntelligenceService:
         )
         self._student_progress_by_topic_id = {r.topic_id: r for r in rows}
 
-    def get_topic_by_name(self, topic_name: str, course_id: Optional[int] = None) -> Optional[Topic]:
+    def get_topic_by_name(
+        self,
+        topic_name: str,
+        course_id: Optional[int] = None,
+        track_id: Optional[int] = None,
+    ) -> Optional[Topic]:
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
         if self._preloaded and (course_id is None or course_id == self._preloaded_course_id):
-            return self._topics_by_name.get(topic_name)
+            if effective_track is None or self._preloaded_track_id == effective_track:
+                return self._topics_by_name.get(topic_name)
         if course_id is not None:
-            return self._course_topic(topic_name, course_id)
+            return self._course_topic(topic_name, course_id, track_id=effective_track)
         return None
 
-    def _course_topic(self, topic_name: str, course_id: int) -> Optional[Topic]:
+    def _course_topic(
+        self,
+        topic_name: str,
+        course_id: int,
+        track_id: Optional[int] = None,
+    ) -> Optional[Topic]:
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
         if self._preloaded and course_id == self._preloaded_course_id:
-            return self._topics_by_name.get(topic_name)
+            if effective_track is None or self._preloaded_track_id == effective_track:
+                return self._topics_by_name.get(topic_name)
         if self.db is None:
             return None
-        return self.db.query(Topic).join(Unit).join(Syllabus).filter(
+        q = self.db.query(Topic).join(Unit).join(Syllabus).filter(
             Topic.name == topic_name, Syllabus.course_id == course_id
-        ).first()
+        )
+        if effective_track is not None:
+            q = q.filter(Syllabus.track_id == effective_track)
+        return q.first()
 
-    def _course_topic_by_id(self, topic_id: int, course_id: int) -> Optional[Topic]:
+    def _course_topic_by_id(
+        self,
+        topic_id: int,
+        course_id: int,
+        track_id: Optional[int] = None,
+    ) -> Optional[Topic]:
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
         if self._preloaded and course_id == self._preloaded_course_id:
-            return self._topics_by_id.get(topic_id)
+            if effective_track is None or self._preloaded_track_id == effective_track:
+                return self._topics_by_id.get(topic_id)
         if self.db is None:
             return None
-        return self.db.query(Topic).join(Unit).join(Syllabus).filter(
+        q = self.db.query(Topic).join(Unit).join(Syllabus).filter(
             Topic.id == topic_id, Syllabus.course_id == course_id
-        ).first()
+        )
+        if effective_track is not None:
+            q = q.filter(Syllabus.track_id == effective_track)
+        return q.first()
 
-    def resolve_family_to_topic(self, family_id: int, course_id: int) -> Optional[Topic]:
+    def resolve_family_to_topic(
+        self,
+        family_id: int,
+        course_id: int,
+        track_id: Optional[int] = None,
+    ) -> Optional[Topic]:
         if not family_id or not course_id or not self.db:
             return None
 
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
+
         # 1. Query topics mapped to questions belonging to this family for this course
-        mapped_topics = (
+        mapped_topics_q = (
             self.db.query(Topic.id, Topic.name)
             .join(question_topic, Topic.id == question_topic.c.topic_id)
             .join(Question, Question.id == question_topic.c.question_id)
@@ -224,8 +280,13 @@ class StudyIntelligenceService:
                 Exam.course_id == course_id,
                 Syllabus.course_id == course_id,
             )
-            .all()
         )
+        if effective_track is not None:
+            mapped_topics_q = mapped_topics_q.filter(
+                Exam.track_id == effective_track,
+                Syllabus.track_id == effective_track,
+            )
+        mapped_topics = mapped_topics_q.all()
 
         if mapped_topics:
             counts: Dict[int, int] = {}
@@ -244,7 +305,7 @@ class StudyIntelligenceService:
         # 2. Fallback: match by canonical name of QuestionFamily to Topic.name in syllabus of this course
         family = self.db.query(QuestionFamily).filter(QuestionFamily.id == family_id).first()
         if family and family.canonical_name:
-            match = (
+            match_q = (
                 self.db.query(Topic)
                 .join(Unit, Topic.unit_id == Unit.id)
                 .join(Syllabus, Unit.syllabus_id == Syllabus.id)
@@ -252,21 +313,37 @@ class StudyIntelligenceService:
                     Syllabus.course_id == course_id,
                     func.lower(Topic.name) == func.lower(family.canonical_name)
                 )
-                .first()
             )
+            if effective_track is not None:
+                match_q = match_q.filter(Syllabus.track_id == effective_track)
+            match = match_q.first()
             if match:
                 return match
 
         return None
 
-    def get_topic_resources(self, topic_name: str, course_id: int) -> List[Dict[str, Any]]:
+    def get_topic_resources(
+        self,
+        topic_name: str,
+        course_id: int,
+        track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
+    ) -> List[Dict[str, Any]]:
         if self.db is None:
             return []
-        topic = self._course_topic(topic_name, course_id)
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
+        effective_cutoff = cutoff_year if cutoff_year is not None else (self._preloaded_cutoff_year if self._preloaded else None)
+
+        topic = self._course_topic(topic_name, course_id, track_id=effective_track)
         if not topic:
             return []
 
-        if self._preloaded and course_id == self._preloaded_course_id:
+        if (
+            self._preloaded
+            and course_id == self._preloaded_course_id
+            and self._preloaded_track_id == effective_track
+            and self._preloaded_cutoff_year == effective_cutoff
+        ):
             course = self._course
             concept = self._concepts_by_key.get((topic.name, topic.unit_id))
             evidence_rows = self._evidence_by_concept_id.get(concept.id, []) if concept else []
@@ -289,14 +366,21 @@ class StudyIntelligenceService:
                     )
                     .all()
                 )
-            question_count = (
+            q_q = (
                 self.db.query(Question)
                 .join(Section, Question.section_id == Section.id)
                 .join(Exam, Section.exam_id == Exam.id)
                 .join(Question.topics)
                 .filter(Exam.course_id == course_id, Topic.id == topic.id)
-                .count()
             )
+            if effective_track is not None:
+                q_q = q_q.filter(Exam.track_id == effective_track)
+            if effective_cutoff is not None:
+                q_q = q_q.filter(
+                    Exam.year.isnot(None),
+                    Exam.year < effective_cutoff
+                )
+            question_count = q_q.count()
 
         resources: List[Dict[str, Any]] = []
         if concept and course:
@@ -329,7 +413,12 @@ class StudyIntelligenceService:
         return resources
 
     def calculate_study_priority(
-        self, prediction: PredictionResult, course_id: int | None = None, student_id: str = "anonymous"
+        self,
+        prediction: PredictionResult,
+        course_id: int | None = None,
+        student_id: str = "anonymous",
+        track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
     ) -> PriorityResult:
         score = float(prediction.score)
         evidence = prediction.evidence or {}
@@ -358,7 +447,24 @@ class StudyIntelligenceService:
         if evidence.get("marks_weight", 0) > 0.15:
             reasons.append("Carries significant historical marks weight.")
 
-        resources = self.get_topic_resources(prediction.name, course_id) if course_id is not None else []
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
+        effective_cutoff = cutoff_year if cutoff_year is not None else (self._preloaded_cutoff_year if self._preloaded else None)
+
+        if course_id is not None:
+            if effective_track is not None or effective_cutoff is not None:
+                try:
+                    resources = self.get_topic_resources(
+                        prediction.name,
+                        course_id,
+                        track_id=effective_track,
+                        cutoff_year=effective_cutoff,
+                    )
+                except TypeError:
+                    resources = self.get_topic_resources(prediction.name, course_id)
+            else:
+                resources = self.get_topic_resources(prediction.name, course_id)
+        else:
+            resources = []
         reasons.append(
             "Study material or related past questions are available."
             if resources else "No trusted topic-mapped study material is available."
@@ -367,7 +473,7 @@ class StudyIntelligenceService:
         clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
         is_authenticated = bool(clean_student and clean_student != "anonymous")
 
-        topic = self._course_topic(prediction.name, course_id) if course_id is not None else None
+        topic = self._course_topic(prediction.name, course_id, track_id=effective_track) if course_id is not None else None
         if is_authenticated:
             if self._student_progress_by_topic_id is not None and topic:
                 progress = self._student_progress_by_topic_id.get(topic.id)
@@ -451,10 +557,14 @@ class StudyIntelligenceService:
         student_id: str = "anonymous",
         target_exam_date: Optional[str] = None,
         priorities: Optional[List[PriorityResult]] = None,
+        track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
     ) -> List[Dict[str, Any]]:
         if priorities is None:
             priorities_list = [
-                self.calculate_study_priority(prediction, course_id, student_id)
+                self.calculate_study_priority(
+                    prediction, course_id, student_id, track_id=track_id, cutoff_year=cutoff_year
+                )
                 for prediction in predictions if getattr(prediction, "target", "topic") == "topic"
             ]
         else:
@@ -470,10 +580,14 @@ class StudyIntelligenceService:
         course_id: int,
         student_id: str = "anonymous",
         priorities: Optional[List[PriorityResult]] = None,
+        track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
     ) -> Dict[str, Any]:
         if priorities is None:
             priorities_list = [
-                self.calculate_study_priority(p, course_id, student_id)
+                self.calculate_study_priority(
+                    p, course_id, student_id, track_id=track_id, cutoff_year=cutoff_year
+                )
                 for p in predictions if getattr(p, "target", "topic") == "topic"
             ]
         else:

@@ -824,16 +824,23 @@ def get_intelligence_snapshot(
         ],
     }
 
+    active_track_id = active_track.id if active_track else None
+
     # 6. Generate Study Priorities & Coverage
     study_service = StudyIntelligenceService(db)
-    study_service.preload_course_resources(course.id)
-    study_service.preload_student_progress(course.id, clean_student_id)
+    study_service.preload_course_resources(course.id, track_id=active_track_id, cutoff_year=target_year)
+    study_service.preload_student_progress(course.id, clean_student_id, track_id=active_track_id)
 
     priorities_objs = [
-        study_service.calculate_study_priority(p, course.id, clean_student_id)
+        study_service.calculate_study_priority(
+            p, course.id, clean_student_id, track_id=active_track_id, cutoff_year=target_year
+        )
         for p in topic_preds if getattr(p, "target", "topic") == "topic"
     ]
-    study_plan = study_service.generate_study_plan(topic_preds, course.id, clean_student_id, priorities=priorities_objs)
+    study_plan = study_service.generate_study_plan(
+        topic_preds, course.id, clean_student_id, priorities=priorities_objs,
+        track_id=active_track_id, cutoff_year=target_year
+    )
     family_plan = []
     if not study_plan and family_preds:
         for index, item in enumerate(family_preds[:5], start=1):
@@ -853,7 +860,7 @@ def get_intelligence_snapshot(
             practice_accuracy = None
             resolved_topic = None
             if fam_id and course:
-                resolved_topic = study_service.resolve_family_to_topic(fam_id, course.id)
+                resolved_topic = study_service.resolve_family_to_topic(fam_id, course.id, track_id=active_track_id)
 
             if resolved_topic and clean_student_id != "anonymous":
                 prog = None
@@ -915,7 +922,10 @@ def get_intelligence_snapshot(
         study_plan = family_plan
 
     if topic_preds:
-        coverage_summary = study_service.calculate_coverage_gap(topic_preds, course.id, clean_student_id, priorities=priorities_objs)
+        coverage_summary = study_service.calculate_coverage_gap(
+            topic_preds, course.id, clean_student_id, priorities=priorities_objs,
+            track_id=active_track_id, cutoff_year=target_year
+        )
     elif family_plan:
         total_predicted = len(family_plan)
         mastered = sum(1 for f in family_plan if f.get("student_status") == "COMPLETED")
@@ -952,7 +962,7 @@ def get_intelligence_snapshot(
     topic_predictions_payload = []
     for p in topic_preds[:10]:
         p_dict = p.to_dict()
-        t_obj = study_service.get_topic_by_name(p.name, course.id)
+        t_obj = study_service.get_topic_by_name(p.name, course.id, track_id=active_track_id)
         if t_obj:
             p_dict["topic_id"] = t_obj.id
         topic_years = {
@@ -1001,8 +1011,27 @@ def get_intelligence_snapshot(
     missing_fam_names = [p.name for p in family_preds[:5] if not p.family_id]
     fam_recs_map = {}
     if missing_fam_names:
-        fam_recs = db.query(QuestionFamily.canonical_name, QuestionFamily.id, QuestionFamily.repetition_type).filter(QuestionFamily.canonical_name.in_(missing_fam_names)).all()
-        fam_recs_map = {r[0]: (r[1], r[2]) for r in fam_recs}
+        course_names = [course.name]
+        if course.code:
+            course_names.append(course.code)
+        if course.canonical_code:
+            course_names.append(course.canonical_code)
+        fam_query = db.query(
+            QuestionFamily.canonical_name,
+            QuestionFamily.id,
+            QuestionFamily.repetition_type
+        ).filter(
+            QuestionFamily.subject.in_(course_names),
+            QuestionFamily.canonical_name.in_(missing_fam_names),
+        )
+        if active_track:
+            fam_query = fam_query.filter(QuestionFamily.track_id == active_track.id)
+        else:
+            fam_query = fam_query.filter(QuestionFamily.track_id.is_(None))
+        fam_recs = fam_query.order_by(QuestionFamily.id.asc()).all()
+        for r in fam_recs:
+            if r[0] not in fam_recs_map:
+                fam_recs_map[r[0]] = (r[1], r[2])
 
     for p in family_preds[:5]:
         p_dict = p.to_dict()
@@ -1036,7 +1065,7 @@ def get_intelligence_snapshot(
             fam_years = {
                 e.year for e in hist_exams_orm
                 if e.year is not None and any(
-                    q.family and q.family.canonical_name == p.name
+                    (q.family_id == fam_id if fam_id else (q.family and q.family.canonical_name == p.name))
                     for s in e.sections for q in s.questions
                 )
             }
