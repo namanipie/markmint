@@ -279,7 +279,7 @@ export default function NotFound() {
         <div className="flex flex-col h-full opacity-80 pointer-events-none">
           {/* Fake Navbar */}
           <div className={`w-full h-16 border-b border-border/50 flex items-center px-6 gap-6 transition-all duration-1000 ease-out ${stage === "DESTRUCTION" ? "-translate-y-[300px] rotate-[-15deg] opacity-0" : ""}`}>
-            <div className="font-bold text-xl tracking-tight text-emerald-500">MarkMint</div>
+            <div className="font-bold text-xl tracking-tight text-emerald-500">MintAI</div>
             <div className="h-4 w-24 bg-muted rounded"></div>
             <div className="h-4 w-16 bg-muted rounded"></div>
           </div>

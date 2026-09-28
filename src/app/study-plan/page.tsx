@@ -262,7 +262,7 @@ export default function StudyIntelligencePage() {
               <Sparkles className="w-3.5 h-3.5 text-accent" />
               <span>Calibrated to MintAI exam forecasts.</span>
               <Link
-                href={`/mintai?course_id=${selectedCourseObj.id}`}
+                href={`/dashboard?course_id=${selectedCourseObj.id}#forecast`}
                 className="font-semibold text-accent hover:underline inline-flex items-center gap-1 ml-1"
               >
                 Inspect Forecast &rarr;
@@ -421,13 +421,13 @@ export default function StudyIntelligencePage() {
                           
                           <div className="mt-4 pt-4 flex justify-end">
                             {isFamilyPlan ? (
-                              <a
-                                href="/mintai"
+                              <Link
+                                href={selectedCourseObj ? `/dashboard?course_id=${selectedCourseObj.id}#forecast` : "/dashboard#forecast"}
                                 className="text-xs font-medium px-4 py-2 bg-background border border-border rounded-md hover:bg-accent/10 hover:text-accent hover:border-accent/30 transition-colors flex items-center gap-2 cursor-pointer"
                               >
                                 <BookOpen className="w-4 h-4" />
                                 Inspect in MintAI
-                              </a>
+                              </Link>
                             ) : (
                               <button 
                                 onClick={() => handleTopicComplete(topic.name)}

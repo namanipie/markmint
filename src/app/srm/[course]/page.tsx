@@ -35,18 +35,18 @@ export async function generateMetadata({ params }: { params: { course: string } 
     
     if (!course) {
       return {
-        title: "Course Not Found | MarkMint",
+        title: "Course Not Found | MintAI",
       };
     }
     
     return {
-      title: `${course.name} PYQs & Exam Intelligence | MarkMint`,
+      title: `${course.name} PYQs & Exam Intelligence | MintAI`,
       description: `${course.name} previous-year questions, recurring exam patterns, study priorities and practice for SRM students.`,
       alternates: {
         canonical: `https://markmint.vercel.app/srm/${generateSlug(course.name)}`,
       },
       openGraph: {
-        title: `${course.name} PYQs & Exam Intelligence | MarkMint`,
+        title: `${course.name} PYQs & Exam Intelligence | MintAI`,
         description: `Analyze ${course.name} past papers, find recurring patterns, and prioritize your study schedule.`,
         type: "website",
         url: `https://markmint.vercel.app/srm/${generateSlug(course.name)}`,
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: { course: string } 
     };
   } catch {
     return {
-      title: "SRM Course Intelligence | MarkMint",
+      title: "SRM Course Intelligence | MintAI",
     };
   }
 }
@@ -120,11 +120,11 @@ export default async function CourseLandingPage({ params }: { params: { course: 
             </div>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">
-              Stop guessing what to study. MarkMint analyzes past {course.name} exam papers to reveal exactly which topics and questions are most likely to appear next.
+              Stop guessing what to study. MintAI analyzes past {course.name} exam papers to reveal exactly which topics and questions carry the highest historical signal.
             </p>
             
             <Link 
-              href="/mintai"
+              href={`/dashboard?course_id=${course.id}#forecast`}
               className="px-8 py-4 bg-accent text-accent-foreground font-bold text-lg rounded-xl hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-3"
             >
               <Brain className="w-5 h-5" />
@@ -192,7 +192,7 @@ export default async function CourseLandingPage({ params }: { params: { course: 
         {/* Feature Overview */}
         <div className="max-w-5xl mx-auto px-6 py-10">
           <div className="bg-card border border-border rounded-2xl p-8 md:p-12 shadow-sm">
-            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">What MarkMint Provides for {course.name}</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">What MintAI Provides for {course.name}</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex gap-4">

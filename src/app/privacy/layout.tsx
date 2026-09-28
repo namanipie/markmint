@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | MarkMint",
+  title: "Privacy Policy | MintAI",
   description:
-    "Review MarkMint's privacy practices, data handling, and telemetry transparency for SRMIST students.",
+    "Review MintAI's privacy practices, data handling, and telemetry transparency for SRMIST students.",
   alternates: {
     canonical: "https://markmint.vercel.app/privacy",
   },

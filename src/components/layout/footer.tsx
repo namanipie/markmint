@@ -11,7 +11,7 @@ export function Footer() {
     { href: "/", label: "Home" },
     { href: "/dashboard", label: "Dashboard" },
     { href: "/courses", label: "Courses" },
-    { href: "/mintai", label: "MintAI" },
+    { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },

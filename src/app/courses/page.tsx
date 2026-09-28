@@ -7,18 +7,18 @@ import { CourseDirectoryView } from "@/components/courses/course-directory-view"
 import { ChevronRight, Leaf, BookOpen, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
+  title: "Engineering Courses & Exam Intelligence Directory | MintAI SRMIST",
   description:
     "Explore all 31 SRMIST B.Tech Semester 1, 2, 3 & 4 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, high-yield exam predictions, and assessment blueprints.",
   alternates: {
     canonical: "https://markmint.vercel.app/courses",
   },
   openGraph: {
-    title: "Engineering Courses & Exam Intelligence Directory | MarkMint SRMIST",
+    title: "Engineering Courses & Exam Intelligence Directory | MintAI SRMIST",
     description:
       "Explore all 31 SRMIST B.Tech Semester 1, 2, 3 & 4 engineering courses. Access verified historical past question papers, syllabus topic breakdowns, and exam predictions.",
     url: "https://markmint.vercel.app/courses",
-    siteName: "MarkMint",
+    siteName: "MintAI",
     type: "website",
   },
 };
@@ -57,7 +57,7 @@ export default function CoursesPage() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/mintai"
+              href="/dashboard#forecast"
               className="px-5 py-3 bg-foreground text-background text-sm font-medium rounded-xl hover:bg-foreground/90 transition-all active:scale-[0.98] flex items-center gap-2 shadow-sm"
             >
               <Leaf className="w-4 h-4 text-accent" />

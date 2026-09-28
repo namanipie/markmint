@@ -57,6 +57,11 @@ const nextConfig: NextConfig = {
         destination: "/mintai/exam-dna",
         permanent: true,
       },
+      {
+        source: "/mintai",
+        destination: "/dashboard",
+        permanent: false,
+      },
     ];
   },
 

@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'MarkMint | SRM Study Hub',
-    short_name: 'MarkMint',
+    name: 'MintAI | SRM Study Hub',
+    short_name: 'MintAI',
     description: 'Exam Intelligence & GPA Analytics for SRMIST',
     start_url: '/',
     display: 'standalone',

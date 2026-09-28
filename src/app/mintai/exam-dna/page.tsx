@@ -105,7 +105,7 @@ function ExamDNAContent() {
           {/* Quick Switcher: Back to Forecast */}
           <div className="flex items-center gap-3">
             <Link
-              href={`/mintai?course_id=${selectedCourseId}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+              href={`/dashboard?course_id=${selectedCourseId}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}#forecast`}
               className="px-4 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center gap-2 shadow-xs group"
             >
               <Sparkles className="w-3.5 h-3.5 text-accent group-hover:rotate-12 transition-transform" />

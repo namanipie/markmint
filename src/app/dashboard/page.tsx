@@ -27,6 +27,8 @@ import {
   Layers,
   ShieldCheck,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   HelpCircle,
   BarChart3,
   Repeat,
@@ -57,6 +59,7 @@ export default function DashboardPage() {
 
   // Forecast view filter: "ALL" | "TOPIC" | "FAMILY"
   const [forecastFilter, setForecastFilter] = useState<"ALL" | "TOPIC" | "FAMILY">("ALL");
+  const [showAllSignals, setShowAllSignals] = useState<boolean>(false);
 
   // Real backend intelligence states
   const [predictionsData, setPredictionsData] = useState<any>(null);
@@ -276,6 +279,7 @@ export default function DashboardPage() {
   }, [selectedCourseId, selectedCycle, fetchIntelligence]);
 
   const handleCourseChange = (courseId: number) => {
+    setShowAllSignals(false);
     setSelectedCourseId(courseId);
     const target = eligibleCourses.find((c) => c.id === courseId);
     if (target) {
@@ -284,6 +288,7 @@ export default function DashboardPage() {
   };
 
   const handleCycleChange = (cycle: string) => {
+    setShowAllSignals(false);
     setSelectedCycle(cycle);
     if (currentCourse) {
       updateStudyContext({
@@ -297,6 +302,7 @@ export default function DashboardPage() {
 
   // Quick switcher that also auto-resolves branch and semester if necessary
   const handleQuickCourseSwitch = (courseId: number) => {
+    setShowAllSignals(false);
     setSelectedCourseId(courseId);
     const found = findCurriculumSubjectByCourseId(courseId);
     if (found) {
@@ -369,15 +375,22 @@ export default function DashboardPage() {
   }, [predictionsData, dnaData, currentCourse]);
 
   // Filtered forecast items based on tab selector
-  const displayedForecastItems = useMemo(() => {
+  const filteredForecastItems = useMemo(() => {
     if (forecastFilter === "TOPIC") {
-      return allForecastItems.filter((item: any) => !item.isFamily).slice(0, 4);
+      return allForecastItems.filter((item: any) => !item.isFamily);
     }
     if (forecastFilter === "FAMILY") {
-      return allForecastItems.filter((item: any) => item.isFamily).slice(0, 4);
+      return allForecastItems.filter((item: any) => item.isFamily);
     }
-    return allForecastItems.slice(0, 4);
+    return allForecastItems;
   }, [allForecastItems, forecastFilter]);
+
+  const displayedForecastItems = useMemo(() => {
+    if (showAllSignals) {
+      return filteredForecastItems;
+    }
+    return filteredForecastItems.slice(0, 4);
+  }, [filteredForecastItems, showAllSignals]);
 
   // Compact historical evidence counters with clear scope separation
   const scopePapersCount = dnaData?.sample_size?.papers || currentCourse.paperCount;
@@ -582,7 +595,7 @@ export default function DashboardPage() {
         </div>
 
         {/* 2. PRIMARY OUTPUT: YOUR MINTAI FORECAST */}
-        <section className="bg-card border-2 border-accent/25 rounded-2xl p-5 md:p-7 shadow-sm space-y-5">
+        <section id="forecast" className="bg-card border-2 border-accent/25 rounded-2xl p-5 md:p-7 shadow-sm space-y-5 scroll-mt-20">
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-border/50">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider">
@@ -713,7 +726,7 @@ export default function DashboardPage() {
                 })}
               </div>
 
-              {/* Single Clean Call to Action for Full Forecast */}
+              {/* Signal Controls & Empirical Links */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-xs text-muted-foreground flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
@@ -722,13 +735,28 @@ export default function DashboardPage() {
                   </span>
                 </div>
 
-                <Link
-                  href={`/mintai?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs"
-                >
-                  <span>Open Full Forecast</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-end">
+                  {filteredForecastItems.length > 4 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowAllSignals((prev) => !prev)}
+                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                    >
+                      <span>
+                        {showAllSignals ? "Show Top 4 Signals" : `Show All ${filteredForecastItems.length} Signals`}
+                      </span>
+                      {showAllSignals ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                    </button>
+                  )}
+
+                  <Link
+                    href={`/mintai/exam-dna?course=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border text-xs font-semibold transition-all flex items-center justify-center gap-2 shadow-2xs"
+                  >
+                    <Dna className="w-3.5 h-3.5 text-accent" />
+                    <span>Explore Exam DNA</span>
+                  </Link>
+                </div>
               </div>
             </div>
           )}

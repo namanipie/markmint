@@ -203,7 +203,7 @@ function IDCard({ dev, index }: { dev: Developer; index: number }) {
           <div className="flex items-center gap-2.5">
             <Leaf className="w-5 h-5 text-accent" />
             <div>
-              <p className="text-[15px] font-bold text-foreground leading-none">MarkMint</p>
+              <p className="text-[15px] font-bold text-foreground leading-none">MintAI</p>
               <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-muted-foreground mt-0.5">Access Badge</p>
             </div>
           </div>

@@ -61,7 +61,7 @@ export function HomeView() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-600 rounded-lg blur-lg opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 
                 <Link 
-                  href="/mintai"
+                  href="/dashboard"
                   className="relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.15)]"
                 >
                   <Leaf className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform duration-500" strokeWidth={2.5} />
@@ -168,7 +168,7 @@ export function HomeView() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <Link
-                  href={`/mintai?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
+                  href={`/dashboard?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}#forecast`}
                   className="px-3.5 py-2 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/80 transition-all text-xs border border-border/60"
                 >
                   Forecast
@@ -195,7 +195,7 @@ export function HomeView() {
             </p>
             <div className="flex items-center gap-3 pt-1">
               <Link
-                href="/mintai"
+                href="/dashboard#forecast"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
               >
                 Open MintAI Intelligence <ChevronRight className="w-3.5 h-3.5" />

@@ -29,19 +29,19 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://markmint.vercel.app"),
-  title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
+  title: "MintAI | Exam Intelligence & GPA Analytics for SRMIST",
   description: "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
   openGraph: {
-    title: "MarkMint | SRMIST Academic Intelligence",
+    title: "MintAI | SRMIST Academic Intelligence",
     description: "Forecast high-yield topics using verified historical exam evidence. Generate structured study plans and explore past questions.",
     url: "https://markmint.vercel.app",
-    siteName: "MarkMint",
+    siteName: "MintAI",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MarkMint | SRMIST Academic Intelligence",
+    title: "MintAI | SRMIST Academic Intelligence",
     description: "Forecast high-yield topics using verified historical exam evidence.",
   },
   verification: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "MarkMint",
+    title: "MintAI",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {

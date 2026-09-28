@@ -358,7 +358,7 @@ export default function SubmitPaperPage() {
               Contribute Exam Papers
             </h1>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Submit missing recent examination papers (Cycle Tests, Model, End Semester). Uploads undergo automated validation, duplicate checks, and consistency verification before being approved into the MarkMint intelligence corpus.
+              Submit missing recent examination papers (Cycle Tests, Model, End Semester). Uploads undergo automated validation, duplicate checks, and consistency verification before being approved into the MintAI intelligence corpus.
             </p>
           </div>
 
@@ -454,7 +454,7 @@ export default function SubmitPaperPage() {
                 <div className="p-3 rounded-lg bg-muted/40 border border-border/40 text-xs text-muted-foreground text-left flex gap-2">
                   <Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                   <span>
-                    Submissions are kept isolated from the production corpus. Once verified by academic moderation, questions are extracted, classified to syllabus topics, and added to MarkMint intelligence.
+                    Submissions are kept isolated from the production corpus. Once verified by academic moderation, questions are extracted, classified to syllabus topics, and added to MintAI intelligence.
                   </span>
                 </div>
 
@@ -870,7 +870,7 @@ export default function SubmitPaperPage() {
                 {trackingResult.is_contributed_to_corpus && (
                   <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2 font-medium">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <span>Your contributed paper is active in the production corpus and contributes to MarkMint predictions!</span>
+                    <span>Your contributed paper is active in the production corpus and contributes to MintAI predictions!</span>
                   </div>
                 )}
               </div>

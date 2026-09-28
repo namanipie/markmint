@@ -17,7 +17,7 @@ interface CommandItem {
 }
 
 const DEFAULT_COMMANDS: CommandItem[] = [
-  { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/mintai", category: "App" },
+  { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/dashboard#forecast", category: "App" },
   { id: "calc", title: "Mint+ GPA Calculator", icon: Calculator, href: "/calculator", category: "App" },
   { id: "study", title: "Study Intelligence & Personalization", icon: BookOpen, href: "/study-plan", category: "App" },
   { id: "dev", title: "The Duo (Developers)", icon: Code, href: "/developers", category: "App" },
@@ -60,19 +60,19 @@ export function CommandPalette() {
           if (results && results.length > 0) {
             const mapped: CommandItem[] = results.map((r) => {
               let icon = BookOpen;
-              let href = "/mintai";
+              let href = "/dashboard#forecast";
               let cat = "Result";
               if (r.result_type === "course") {
                 icon = BookOpen;
-                href = `/mintai?course_id=${r.id}`;
+                href = `/dashboard?course_id=${r.id}#forecast`;
                 cat = "Course";
               } else if (r.result_type === "topic") {
                 icon = Leaf;
-                href = `/mintai?topic=${encodeURIComponent(r.title)}`;
+                href = `/dashboard?topic=${encodeURIComponent(r.title)}#forecast`;
                 cat = "Topic";
               } else if (r.result_type === "exam_question") {
                 icon = FileText;
-                href = `/mintai`;
+                href = `/dashboard#forecast`;
                 cat = "Exam Question";
               } else if (r.result_type === "study_material") {
                 icon = BookOpen;
@@ -80,7 +80,7 @@ export function CommandPalette() {
                 cat = "Study Material";
               } else if (r.result_type === "question_family") {
                 icon = Activity;
-                href = `/mintai`;
+                href = `/dashboard#forecast`;
                 cat = "Question Family";
               }
               return {

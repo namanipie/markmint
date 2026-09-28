@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Study Plan & Exam Preparation Roadmap | MarkMint",
+  title: "Study Plan & Exam Preparation Roadmap | MintAI",
   description:
     "Generate structured study priorities and track revision progress based on verified historical exam evidence.",
   alternates: {
