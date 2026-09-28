@@ -278,33 +278,71 @@ def test_5_track_id_propagation_to_post_processor(post_ingest_db):
     assert fam_de.subject == "Foreign Language"
 
 
-def test_6_exam_service_import_atomic_rollback_on_failure(post_ingest_db):
-    """6. Downstream failure in ExamService.import_extraction rolls back exam & questions, preserving cache."""
+def test_6_failure_rollback_preserves_valid_cache(post_ingest_db):
+    """6. Realistic post-processing rollback:
+    1. Seed valid intelligence/cache state.
+    2. Realistic exam extraction payload.
+    3. Downstream post-processing crash in assign_exam_families.
+    4. Invoke ExamService.import_extraction().
+    5. Exception propagates.
+    6. Newly-created Exam does not persist.
+    7. Sections/Questions do not persist.
+    8. Existing valid cache remains available.
+    9. No cache invalidation occurs for failed ingestion.
+    10. Perform successful ingestion.
+    11. Exam/Sections/Questions persist.
+    12. Cache invalidation occurs only after successful commit.
+    """
     from unittest.mock import patch
 
-    IntelligenceCacheService.clear_memory_cache()
-    valid_payload = {"data_availability_status": "AVAILABLE", "course": {"id": 2}, "metadata": {}}
-    IntelligenceCacheService.store_snapshot(post_ingest_db, 2, "ALL", None, valid_payload)
-    assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) is not None
+    from backend.services.intelligence_cache import build_cache_key, _memory_cache
 
+    # 1. Seed an existing valid intelligence/cache state
+    IntelligenceCacheService.clear_memory_cache()
+    valid_payload = {
+        "data_availability_status": "AVAILABLE",
+        "course": {"id": 2, "name": "Engineering Chemistry"},
+        "metadata": {"seeded_baseline": True, "version": "1.0"},
+    }
+    IntelligenceCacheService.store_snapshot(post_ingest_db, 2, "ALL", None, valid_payload)
+    cache_key = build_cache_key(2, "ALL", None)
+    assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) == valid_payload
+    assert _memory_cache.get(cache_key) == valid_payload
+
+    # 2. Create a realistic exam extraction payload
     service = ExamService(post_ingest_db)
     extraction_data = {
+        "year": 2023,
+        "assessment_type": "CT1",
         "sections": [
             {
-                "name": "Part A",
+                "name": "Part A - Electrochemistry",
                 "questions": [
-                    {"question_number": "1", "original_text": "Sample failure rollback test question.", "marks": 5.0}
+                    {
+                        "question_number": "1",
+                        "original_text": "Derive the Nernst equation for single electrode potential with standard notation.",
+                        "marks": 5.0,
+                        "confidence": 0.95,
+                    },
+                    {
+                        "question_number": "2",
+                        "original_text": "Differentiate between galvanic and electrolytic cells with industrial examples.",
+                        "marks": 5.0,
+                        "confidence": 0.92,
+                    },
                 ],
             }
-        ]
+        ],
     }
 
-    # Force downstream family linking to raise an unhandled exception
+    # 3. Force a real downstream post-processing failure
     with patch(
         "backend.services.scraper.post_processor.PostIngestionPipeline.assign_exam_families",
-        side_effect=RuntimeError("Simulated family assignment crash"),
+        side_effect=RuntimeError("Simulated downstream post-processing failure in family linking"),
     ):
-        with pytest.raises(RuntimeError, match="Simulated family assignment crash"):
+        # 4. Invoke ExamService.import_extraction()
+        # 5. Assert the exception propagates
+        with pytest.raises(RuntimeError, match="Simulated downstream post-processing failure in family linking"):
             service.import_extraction(
                 course_id=2,
                 year=2023,
@@ -312,33 +350,67 @@ def test_6_exam_service_import_atomic_rollback_on_failure(post_ingest_db):
                 extraction_data=extraction_data,
             )
 
-    # Asserts zero newly-created Exam and Question rows remain in DB
+    # 6. Assert the newly-created Exam does not persist
     assert post_ingest_db.query(Exam).filter(Exam.course_id == 2).count() == 0
-    assert post_ingest_db.query(Question).count() == 0
 
-    # Asserts existing valid cache state remains completely intact
+    # 7. Assert its Sections/Questions do not persist
+    assert post_ingest_db.query(Section).count() == 0
+    assert post_ingest_db.query(Question).count() == 0
+    assert post_ingest_db.query(QuestionFamilyMembership).count() == 0
+
+    # 8. Assert existing valid cache remains available
     cached = IntelligenceCacheService.get_snapshot(post_ingest_db, 2)
     assert cached is not None
-    assert cached["course"]["id"] == 2
+    assert cached["metadata"]["seeded_baseline"] is True
 
-    # Asserts successful ingestion still commits everything atomically
+    # 9. Assert no cache invalidation occurs for the failed ingestion
+    assert cached == valid_payload
+    assert _memory_cache.get(cache_key) == valid_payload
+
+    # 10. Then perform a successful ingestion
     successful_exam = service.import_extraction(
         course_id=2,
         year=2023,
         term="CT1",
         extraction_data=extraction_data,
     )
+
+    # 11. Assert the exam/questions persist
+    assert successful_exam is not None
     assert successful_exam.id is not None
     assert post_ingest_db.query(Exam).filter(Exam.course_id == 2).count() == 1
-    assert post_ingest_db.query(Question).count() == 1
-    assert post_ingest_db.query(QuestionFamilyMembership).count() == 1
-    # Cache was invalidated upon successful atomic commit
+    assert post_ingest_db.query(Section).filter(Section.exam_id == successful_exam.id).count() == 1
+    assert post_ingest_db.query(Question).count() == 2
+    assert post_ingest_db.query(QuestionFamilyMembership).count() == 2
+
+    # 12. Assert cache invalidation occurs only after successful commit
     assert IntelligenceCacheService.get_snapshot(post_ingest_db, 2) is None
+    assert _memory_cache.get(cache_key) is None
 
 
 def test_7_stored_exam_omitted_track_id_inherits_track(post_ingest_db):
-    """7. Stored track-specific exam with omitted track_id inherits exam.track_id and avoids cross-track rules."""
+    """7. Stored track-specific exam with omitted track_id inherits exam.track_id and avoids cross-track rules and families."""
     from unittest.mock import patch
+
+    # Ensure Korean track exists for Course 8 alongside German (track 1)
+    track_ko = post_ingest_db.query(CourseTrack).filter_by(course_id=8, id=5).first()
+    if not track_ko:
+        track_ko = CourseTrack(id=5, course_id=8, track_key="korean", track_name="Korean")
+        post_ingest_db.add(track_ko)
+        post_ingest_db.flush()
+
+    # Pre-seed a Korean family in Track 5 with matching text (potential cross-track leakage trap)
+    fam_korean = QuestionFamily(
+        id=850,
+        subject="Foreign Language",
+        track_id=5,
+        canonical_name="Guten Tag wie geht es Ihnen?",
+        first_seen_year=2022,
+        latest_seen_year=2022,
+        repetition_type="singleton",
+    )
+    post_ingest_db.add(fam_korean)
+    post_ingest_db.commit()
 
     # Stored German exam (track_id=1) for Course 8
     exam_de = Exam(id=801, course_id=8, track_id=1, year=2023, term="CT1")
@@ -363,13 +435,19 @@ def test_7_stored_exam_omitted_track_id_inherits_track(post_ingest_db):
         assert mock_map.call_args[1].get("track_id") == 1
         assert res["track_id"] == 1
 
-    # Verify family created/linked carries track_id == 1
+    # Verify question is linked strictly to German Track 1 family, NEVER to Track 5 Korean
     post_ingest_db.refresh(q)
     assert q.family_id is not None
+    assert q.family_id != fam_korean.id, "Question must not leak into Track 5 Korean family"
+
     fam = post_ingest_db.query(QuestionFamily).filter_by(id=q.family_id).first()
     assert fam is not None
     assert fam.track_id == 1
     assert fam.subject == "Foreign Language"
+
+    # Korean family membership count must remain 0
+    korean_memberships = post_ingest_db.query(QuestionFamilyMembership).filter_by(family_id=fam_korean.id).count()
+    assert korean_memberships == 0
 
 
 def test_8_explicit_track_id_respected_and_trackless_course_remains_trackless(post_ingest_db):
