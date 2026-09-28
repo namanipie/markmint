@@ -229,6 +229,8 @@ class PostIngestionPipeline:
             if matched_fam:
                 q.family_id = matched_fam.id
                 if exam.year:
+                    if matched_fam.first_seen_year is None or exam.year < matched_fam.first_seen_year:
+                        matched_fam.first_seen_year = exam.year
                     if matched_fam.latest_seen_year is None or exam.year > matched_fam.latest_seen_year:
                         matched_fam.latest_seen_year = exam.year
                 if matched_fam.repetition_type in ("singleton", None):

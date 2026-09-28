@@ -549,3 +549,190 @@ def test_11_corpus_ingester_failure_prevents_checkpoint_and_allows_retry(post_in
         data = json.load(f)
     assert data[record.sha256]["status"] == "INGESTED"
 
+
+def test_12_question_family_first_seen_year_backfill_and_boundary_invariants(post_ingest_db):
+    """12. QuestionFamily year backfill: older year updates first_seen_year, newer updates latest_seen_year,
+    middle and unknown years leave boundaries intact, and repeated runs are strictly idempotent.
+    """
+    pipeline = PostIngestionPipeline(post_ingest_db)
+
+    # 1. Base exam from 2024 creates family with first_seen_year=2024, latest_seen_year=2024
+    exam_2024 = Exam(id=1201, course_id=2, year=2024, term="ENDSEM")
+    post_ingest_db.add(exam_2024)
+    post_ingest_db.flush()
+    sec_2024 = Section(exam_id=exam_2024.id, name="Section A")
+    post_ingest_db.add(sec_2024)
+    post_ingest_db.flush()
+    q_2024 = Question(section_id=sec_2024.id, question_number="1", original_text="State and explain the Third Law of Thermodynamics in detail.")
+    post_ingest_db.add(q_2024)
+    post_ingest_db.commit()
+
+    pipeline.process_exam(exam_2024.id, course_id=2, auto_commit=True)
+    post_ingest_db.refresh(q_2024)
+    fam = post_ingest_db.query(QuestionFamily).filter(QuestionFamily.id == q_2024.family_id).first()
+    assert fam is not None
+    assert fam.first_seen_year == 2024
+    assert fam.latest_seen_year == 2024
+    assert fam.repetition_type == "singleton"
+
+    # 2. Ingest matching exam from older year (2022): first_seen_year becomes 2022, latest_seen_year remains 2024
+    exam_2022 = Exam(id=1202, course_id=2, year=2022, term="ENDSEM")
+    post_ingest_db.add(exam_2022)
+    post_ingest_db.flush()
+    sec_2022 = Section(exam_id=exam_2022.id, name="Section A")
+    post_ingest_db.add(sec_2022)
+    post_ingest_db.flush()
+    q_2022 = Question(section_id=sec_2022.id, question_number="1", original_text="State and explain the Third Law of Thermodynamics in detail.")
+    post_ingest_db.add(q_2022)
+    post_ingest_db.commit()
+
+    pipeline.process_exam(exam_2022.id, course_id=2, auto_commit=True)
+    post_ingest_db.refresh(fam)
+    assert fam.first_seen_year == 2022
+    assert fam.latest_seen_year == 2024
+    assert fam.repetition_type == "exact_repeat"
+
+    # 3. Ingest matching exam from newer year (2025): latest_seen_year becomes 2025, first_seen_year remains 2022
+    exam_2025 = Exam(id=1203, course_id=2, year=2025, term="ENDSEM")
+    post_ingest_db.add(exam_2025)
+    post_ingest_db.flush()
+    sec_2025 = Section(exam_id=exam_2025.id, name="Section A")
+    post_ingest_db.add(sec_2025)
+    post_ingest_db.flush()
+    q_2025 = Question(section_id=sec_2025.id, question_number="1", original_text="State and explain the Third Law of Thermodynamics in detail.")
+    post_ingest_db.add(q_2025)
+    post_ingest_db.commit()
+
+    pipeline.process_exam(exam_2025.id, course_id=2, auto_commit=True)
+    post_ingest_db.refresh(fam)
+    assert fam.first_seen_year == 2022
+    assert fam.latest_seen_year == 2025
+
+    # 4. Ingest matching exam from middle year (2023): neither boundary changes
+    exam_2023 = Exam(id=1204, course_id=2, year=2023, term="ENDSEM")
+    post_ingest_db.add(exam_2023)
+    post_ingest_db.flush()
+    sec_2023 = Section(exam_id=exam_2023.id, name="Section A")
+    post_ingest_db.add(sec_2023)
+    post_ingest_db.flush()
+    q_2023 = Question(section_id=sec_2023.id, question_number="1", original_text="State and explain the Third Law of Thermodynamics in detail.")
+    post_ingest_db.add(q_2023)
+    post_ingest_db.commit()
+
+    pipeline.process_exam(exam_2023.id, course_id=2, auto_commit=True)
+    post_ingest_db.refresh(fam)
+    assert fam.first_seen_year == 2022
+    assert fam.latest_seen_year == 2025
+
+    # 5. Ingest matching exam with unknown year (None): neither boundary changes
+    exam_unknown = Exam(id=1205, course_id=2, year=None, term="ENDSEM")
+    post_ingest_db.add(exam_unknown)
+    post_ingest_db.flush()
+    sec_unknown = Section(exam_id=exam_unknown.id, name="Section A")
+    post_ingest_db.add(sec_unknown)
+    post_ingest_db.flush()
+    q_unknown = Question(section_id=sec_unknown.id, question_number="1", original_text="State and explain the Third Law of Thermodynamics in detail.")
+    post_ingest_db.add(q_unknown)
+    post_ingest_db.commit()
+
+    pipeline.process_exam(exam_unknown.id, course_id=2, auto_commit=True)
+    post_ingest_db.refresh(fam)
+    assert fam.first_seen_year == 2022
+    assert fam.latest_seen_year == 2025
+
+    # 6. Repeated processing of any exam remains idempotent
+    memberships_before = post_ingest_db.query(QuestionFamilyMembership).filter(QuestionFamilyMembership.family_id == fam.id).count()
+    pipeline.process_exam(exam_2022.id, course_id=2, auto_commit=True)
+    pipeline.process_exam(exam_2025.id, course_id=2, auto_commit=True)
+    memberships_after = post_ingest_db.query(QuestionFamilyMembership).filter(QuestionFamilyMembership.family_id == fam.id).count()
+    assert memberships_before == memberships_after == 5
+    assert fam.first_seen_year == 2022
+    assert fam.latest_seen_year == 2025
+
+
+def test_13_study_evidence_re_extraction_idempotency(post_ingest_db):
+    """13. StudyEvidence re-extraction idempotency:
+    - first extraction creates expected count
+    - identical second extraction does not increase count
+    - changed extraction replaces old evidence correctly
+    - unrelated document evidence remains untouched
+    - transaction rollback leaves prior evidence intact
+    """
+    from backend.services.document import DocumentService
+
+    doc_service = DocumentService(post_ingest_db, auto_commit=True)
+
+    # Setup 2 documents
+    doc_a = Document(id=1301, document_hash="hash_doc_a", source="STUDIQUE", title="Doc A Notes", subject="Engineering Chemistry")
+    doc_b = Document(id=1302, document_hash="hash_doc_b", source="STUDIQUE", title="Doc B Notes", subject="Engineering Chemistry")
+    post_ingest_db.add_all([doc_a, doc_b])
+    post_ingest_db.commit()
+
+    extraction_1 = {
+        "concepts": [
+            {"concept_name": "Galvanic Cells", "knowledge_type": "definition", "content": "An electrochemical cell that derives electrical energy from spontaneous redox reactions.", "original_text": "Galvanic cell text", "page_number": 1, "confidence": 0.9},
+            {"concept_name": "Nernst Equation", "knowledge_type": "formula", "content": "E = E0 - (RT/nF) ln Q", "original_text": "Nernst formula text", "page_number": 2, "confidence": 0.95},
+        ]
+    }
+
+    # 1. First extraction creates expected count (2)
+    doc_service.import_knowledge_extraction(doc_a.id, extraction_1, course_id=2)
+    ev_a = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_a.id).all()
+    assert len(ev_a) == 2
+    assert {e.knowledge_type for e in ev_a} == {"definition", "formula"}
+
+    # 2. Identical second extraction does not increase count (idempotent)
+    doc_service.import_knowledge_extraction(doc_a.id, extraction_1, course_id=2)
+    ev_a_repeat = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_a.id).all()
+    assert len(ev_a_repeat) == 2
+
+    # 3. Create evidence on unrelated Doc B
+    extraction_b = {
+        "concepts": [
+            {"concept_name": "Corrosion", "knowledge_type": "definition", "content": "Deterioration of materials by chemical interaction.", "original_text": "Corrosion text", "page_number": 1, "confidence": 0.85},
+        ]
+    }
+    doc_service.import_knowledge_extraction(doc_b.id, extraction_b, course_id=2)
+    ev_b = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_b.id).all()
+    assert len(ev_b) == 1
+
+    # 4. Changed extraction replaces old evidence correctly on Doc A
+    extraction_2 = {
+        "concepts": [
+            {"concept_name": "Electrolysis", "knowledge_type": "algorithm", "content": "Process of driving non-spontaneous reactions using electricity.", "original_text": "Electrolysis algorithm", "page_number": 3, "confidence": 0.9},
+            {"concept_name": "Faraday Law", "knowledge_type": "formula", "content": "m = Z * I * t", "original_text": "Faraday formula text", "page_number": 4, "confidence": 0.92},
+            {"concept_name": "Batteries", "knowledge_type": "context", "content": "Primary and secondary energy storage.", "original_text": "Battery context", "page_number": 5, "confidence": 0.88},
+        ]
+    }
+    doc_service.import_knowledge_extraction(doc_a.id, extraction_2, course_id=2)
+    ev_a_updated = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_a.id).all()
+    assert len(ev_a_updated) == 3
+    assert {e.knowledge_type for e in ev_a_updated} == {"algorithm", "formula", "context"}
+    # Old contents from extraction 1 are gone
+    assert not any("spontaneous redox" in e.content for e in ev_a_updated)
+
+    # 5. Unrelated document B evidence remains completely untouched
+    ev_b_after = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_b.id).all()
+    assert len(ev_b_after) == 1
+    assert ev_b_after[0].id == ev_b[0].id
+    assert "Deterioration of materials" in ev_b_after[0].content
+
+    # 6. Transaction rollback leaves prior evidence intact
+    doc_service_manual = DocumentService(post_ingest_db, auto_commit=False)
+    try:
+        post_ingest_db.begin_nested()
+        corrupt_extraction = {
+            "concepts": [
+                {"concept_name": "Corrupt", "knowledge_type": "bad", "content": None, "original_text": None},  # NOT NULL violation on content
+            ]
+        }
+        doc_service_manual.import_knowledge_extraction(doc_a.id, corrupt_extraction, course_id=2)
+    except Exception:
+        post_ingest_db.rollback()
+
+    # Prior valid evidence for Doc A remains intact after rollback
+    ev_a_survived = post_ingest_db.query(StudyEvidence).filter(StudyEvidence.document_id == doc_a.id).all()
+    assert len(ev_a_survived) == 3
+    assert {e.knowledge_type for e in ev_a_survived} == {"algorithm", "formula", "context"}
+
+

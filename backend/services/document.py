@@ -171,30 +171,39 @@ class DocumentService:
                 for concept, topic in taxonomy_rows
             }
 
-        for concept_data in extraction_data.get('concepts', []):
-            name = concept_data.get('concept_name', 'Unknown Concept')
-            match = taxonomy_lookup.get(name.casefold()) if name != "Unknown Concept" else None
-            concept_id = match[0].id if match else None
-            confidence = (
-                MappingConfidence.HIGH
-                if match and float(concept_data.get("confidence", 0.0)) >= 0.8
-                else MappingConfidence.UNRESOLVED
-            )
-            
-            evidence = StudyEvidence(
-                document_id=document_id,
-                concept_id=concept_id,
-                knowledge_type=concept_data.get('knowledge_type', 'context'),
-                content=concept_data.get('content', ''),
-                original_text=concept_data.get('original_text', ''),
-                page_number=concept_data.get('page_number'),
-                confidence=confidence,
-            )
-            self.db.add(evidence)
-            
-        doc = self.db.query(Document).get(document_id)
-        if doc:
-            doc.extraction_status = "completed"
-            doc.extraction_confidence = 0.8
-            
-        self._commit()
+        try:
+            # Remove/reconcile existing StudyEvidence belonging to the document
+            self.db.query(StudyEvidence).filter(StudyEvidence.document_id == document_id).delete(synchronize_session=False)
+            self.db.flush()
+
+            for concept_data in extraction_data.get('concepts', []):
+                name = concept_data.get('concept_name', 'Unknown Concept')
+                match = taxonomy_lookup.get(name.casefold()) if name != "Unknown Concept" else None
+                concept_id = match[0].id if match else None
+                confidence = (
+                    MappingConfidence.HIGH
+                    if match and float(concept_data.get("confidence", 0.0)) >= 0.8
+                    else MappingConfidence.UNRESOLVED
+                )
+                
+                evidence = StudyEvidence(
+                    document_id=document_id,
+                    concept_id=concept_id,
+                    knowledge_type=concept_data.get('knowledge_type', 'context'),
+                    content=concept_data.get('content', ''),
+                    original_text=concept_data.get('original_text', ''),
+                    page_number=concept_data.get('page_number'),
+                    confidence=confidence,
+                )
+                self.db.add(evidence)
+                
+            doc = self.db.query(Document).get(document_id)
+            if doc:
+                doc.extraction_status = "completed"
+                doc.extraction_confidence = 0.8
+                
+            self._commit()
+        except Exception:
+            if self.auto_commit:
+                self.db.rollback()
+            raise
