@@ -17,7 +17,7 @@ from backend.models.core import (
     Document, StudyEvidence, CurriculumMapping, Concept
 )
 from backend.api.endpoints.predictions import _find_course, _build_historical_exam_payloads
-from backend.services.prediction.context import HistoricalContext, PredictionTarget
+from backend.services.prediction.context import HistoricalContext, PredictionTarget, resolve_target_year
 from backend.services.prediction.repository import HistoricalRepository
 from backend.services.dna.analyzer import DNAAnalyzerService, DataSufficiency
 from backend.services.prediction.engine import (
@@ -404,8 +404,7 @@ def get_intelligence_snapshot(
     explainable predictions, study priorities, coverage, and exam schedules.
     """
     t_start = time.time()
-    if not isinstance(target_year, int):
-        target_year = None
+    raw_target_year = target_year if (isinstance(target_year, int) and target_year > 0) else None
     if not isinstance(target_exam_date, str):
         target_exam_date = None
     if not isinstance(student_id, str) or hasattr(student_id, "default"):
@@ -421,7 +420,7 @@ def get_intelligence_snapshot(
         language = track.strip() or None
 
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
-    is_cache_eligible = (clean_student_id == "anonymous" and target_year is None and target_exam_date is None)
+    is_cache_eligible = (clean_student_id == "anonymous" and raw_target_year is None and target_exam_date is None)
     if is_cache_eligible:
         try:
             cached_snapshot = IntelligenceCacheService.get_snapshot(
@@ -576,6 +575,13 @@ def get_intelligence_snapshot(
     exam_rows = exam_query.order_by(Exam.year.asc().nullslast()).all()
     total_papers = len(exam_rows)
 
+    target_year = resolve_target_year(
+        db,
+        course.id,
+        target_year=raw_target_year,
+        track_id=active_track.id if active_track else None,
+    )
+
     if total_papers == 0:
         logger.info(
             "Intelligence snapshot resolved: course_id=%s, status=CATALOG_ONLY, latency_ms=%.2f",
@@ -605,8 +611,10 @@ def get_intelligence_snapshot(
                 "total_questions": 0,
                 "years": [],
                 "available_assessment_types": [],
+                "target_year": target_year,
             },
             "available_assessment_types": [],
+            "target_year": target_year,
             "message": f"'{course.name}' is verified in academic registry, but 0 historical exam papers exist.",
             "predictions": [],
             "study_priorities": [],
@@ -642,10 +650,6 @@ def get_intelligence_snapshot(
     for c in ["CT1", "CT2", "ENDSEM"]:
         if c in cycles_found:
             available_cycles.append(c)
-
-    if target_year is None:
-        max_year = max([e.year for e in exam_rows if e.year is not None], default=None)
-        target_year = (max_year + 1) if max_year else 2024
 
     context = HistoricalContext(
         course_id=course.id,
@@ -726,10 +730,12 @@ def get_intelligence_snapshot(
                 "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
                 "available_assessment_cycles": available_cycles,
                 "assessment_cycle": norm_cycle or "ALL",
+                "target_year": target_year,
             },
             "available_assessment_types": sorted(list({e.assessment_type for e in exam_rows if e.assessment_type})),
             "available_assessment_cycles": available_cycles,
             "assessment_cycle": norm_cycle or "ALL",
+            "target_year": target_year,
             "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
             "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
             "evidence_status": scope.evidence_status,
@@ -981,7 +987,7 @@ def get_intelligence_snapshot(
                 "present": y in topic_years,
                 "status": "TOPIC_PRESENT" if (y in topic_years) else "TOPIC_ABSENT",
             }
-            for y in (cycle_years if cycle_years else all_years)
+            for y in cycle_years
         ]
         p_dict["historical_years"] = sorted(list(topic_years))
         matching_topic_exams = [
@@ -1088,7 +1094,7 @@ def get_intelligence_snapshot(
                 "present": y in fam_years,
                 "status": "FAMILY_PRESENT" if (y in fam_years) else "FAMILY_ABSENT",
             }
-            for y in (cycle_years if cycle_years else all_years)
+            for y in cycle_years
         ]
         matching_fam_exams = [
             {
@@ -1234,6 +1240,7 @@ def get_intelligence_snapshot(
         "available_assessment_types": available_assessment_types,
         "available_assessment_cycles": available_cycles,
         "assessment_cycle": norm_cycle or "ALL",
+        "target_year": target_year,
         "assessment_component": scope.component_code or ("ALL" if scope.is_all else norm_cycle),
         "assessment_label": scope.component_label or ("All Assessments" if scope.is_all else (norm_cycle or "ALL")),
         "evidence_status": scope.evidence_status,

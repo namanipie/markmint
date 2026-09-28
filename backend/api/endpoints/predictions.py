@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import func
 from backend.services.prediction.engine import ExamScopeCombinedModel
 from backend.services.dna.analyzer import DNAAnalyzerService
-from backend.services.prediction.context import HistoricalContext, PredictionTarget
+from backend.services.prediction.context import HistoricalContext, PredictionTarget, resolve_target_year
 from backend.services.prediction.repository import HistoricalRepository
 from backend.core.database import get_db
 from backend.models.core import Course, Exam, Topic, Unit, Syllabus
@@ -153,20 +153,12 @@ def get_prediction(
 
         norm_cycle = normalize_assessment_cycle(assessment_cycle)
 
-        if hasattr(target_year, "default"):
-            target_year = None
-
-        # Determine target year dynamically if not provided.
-        # Rule: Target the next unseen exam year (most_recent_year + 1)
-        if target_year is None:
-            max_year_q = db.query(func.max(Exam.year)).filter(Exam.course_id == course.id)
-            if active_track:
-                max_year_q = max_year_q.filter(Exam.track_id == active_track.id)
-            max_year = max_year_q.scalar()
-            if max_year:
-                target_year = max_year + 1
-            else:
-                target_year = 2024
+        target_year = resolve_target_year(
+            db,
+            course.id,
+            target_year=target_year,
+            track_id=active_track.id if active_track else None,
+        )
 
         # Temporal isolation constraint with assessment cycle scoping
         context = HistoricalContext(
