@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { HomeView } from "@/components/home/home-view";
 
 export const metadata: Metadata = {
-  title: "MarkMint | Exam Intelligence & GPA Analytics for SRMIST",
+  title: "MintAI | Exam Intelligence for SRMIST",
   description:
-    "Forecast high-yield topics using verified historical exam evidence. Calculate your GPA instantly for 40+ engineering branches.",
+    "MintAI helps SRMIST students study from historical exam evidence, course intelligence, and focused study workflows.",
   alternates: {
     canonical: "https://markmint.vercel.app/",
   },
