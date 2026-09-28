@@ -86,7 +86,7 @@ class DeterministicCognitiveDemandClassifier:
     RE_PROOF_DERIVATION = re.compile(
         r'\b(?:derive\s+(?:the|an)\s+(?:expression|equation|relation|formula|model|schrodinger|time\s+independent|hall\s+coefficient|density\s+of\s+states|wave\s+equation)|'
         r'(?:^|\n|;\s*|\.\s*|\bhence\s+)\s*derive\b|'
-        r'state\s+and\s+prove|prove\s+that|show\s+that|demonstrate\s+that|'
+        r'state\s+and\s+(?:prove|derive)\b|prove\s+that|show\s+that|demonstrate\s+that|'
         r'deduce\s+(?:the|an)\s+expression|deduce\s+(?:the|an)\s+relation|'
         r'obtain\s+(?:the|an)\s+expression\s+for|establish\s+the\s+relation|'
         r'verify\s+cayley\s*-?\s*hamilton|verify\s+(?:green\'?s?|stoke\'?s?|divergence|gauss\'?s?)\s+theorem|'
@@ -169,13 +169,14 @@ class DeterministicCognitiveDemandClassifier:
 
     # 3. Regex patterns for Recall & Concept
     RE_DEFINITION = re.compile(
-        r'\b(?:define\b|give\s+the\s+definition\s+of|state\s+the\s+(?:principle|law|theorem|definition|rule|postulate|assumptions?)|'
+        r'\b(?:define\b|give\s+the\s+definition\s+of|'
+        r'state\s+(?:the\s+)?(?!and\s+(?:prove|derive)\b)(?:[a-z0-9\'-]+\s+){0,3}(?:law|theorem|principle|rule|postulate|assumptions?|effect|properties|equation)|'
         r'what\s+is\s+meant\s+by|what\s+do\s+you\s+understand\s+by|state\s+true\s+or\s+false|fill\s+in\s+the\s+blank)\b|_{3,}',
         re.IGNORECASE
     )
 
     RE_LISTING = re.compile(
-        r'\b(?:list\s+(?:the\s+)?(?:two|three|four|\d+)?\s*(?:advantages|disadvantages|applications|limitations|properties|features|types|methods|assumptions|characteristics)|'
+        r'\b(?:list\s+(?:the\s+|any\s+)?(?:two|three|four|\d+)?\s*(?:advantages|disadvantages|applications|limitations|properties|features|types|methods|assumptions|characteristics)|'
         r'name\s+any\s+(?:two|three|\d+)?|mention\s+any\s+(?:two|three|\d+)?|give\s+(?:two|three|\d+)\s+examples?|write\s+short\s+notes?\s+on)\b',
         re.IGNORECASE
     )
@@ -216,15 +217,20 @@ class DeterministicCognitiveDemandClassifier:
         clean = text.strip()
         if len(clean) < 6:
             return True
-        alpha_count = sum(1 for c in clean if c.isalpha())
-        # If low alpha count and not containing valid mathematical expression symbols or fill-in underscores
-        if alpha_count / len(clean) < 0.25 and not any(sym in clean for sym in ("\\", "$", "=", "+", "-", "*", "/", "_")):
+        # Strip out standard exam paper page footers and headers like '****** Page 3 of 3' or '*** ALL THE BEST ***'
+        stripped = re.sub(r'[\*]{3,}\s*(?:Page|\d+|ALL\s+THE\s+BEST).*', '', clean, flags=re.IGNORECASE).strip()
+        if len(stripped) < 6:
+            stripped = clean
+
+        alnum_count = sum(1 for c in stripped if c.isalnum())
+        # If low alphanumeric count and not containing valid mathematical expression symbols or fill-in underscores
+        if alnum_count / max(len(stripped), 1) < 0.20 and not any(sym in stripped for sym in ("\\", "$", "=", "+", "-", "*", "/", "_")):
             return True
-        # Repetitive non-alpha noise (e.g. ^^^^^^, %%%%%) - excludes fill-in blank underscores
-        if re.search(r'[\^\%\!\@\#\$\*]{5,}', clean):
+        # Repetitive non-alpha noise (e.g. ^^^^^^, %%%%%) - excludes fill-in blank underscores and exam separator asterisks
+        if re.search(r'[\^\%\!\@\#\$]{5,}', stripped):
             return True
-        # Long consonant cluster noise without vowels
-        if re.search(r'\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{10,}\b', clean):
+        # Long consonant cluster noise without vowels or spaces
+        if re.search(r'\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{10,}\b', stripped):
             return True
         return False
 
@@ -538,11 +544,26 @@ class DeterministicCognitiveDemandClassifier:
                     signals=["conflict_qtype_short_answer_vs_text_computation"] + all_text_signals,
                     evidence_layer="layer1_layer2_conflict"
                 )
+            if CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN in matched_demands and CognitiveDemand.RECALL_AND_CONCEPT not in matched_demands:
+                return DemandClassificationProposal(
+                    demand=CognitiveDemand.UNCLASSIFIED,
+                    confidence=DemandConfidence.HIGH,
+                    signals=["conflict_qtype_short_answer_vs_text_analysis"] + all_text_signals,
+                    evidence_layer="layer1_layer2_conflict"
+                )
+            if CognitiveDemand.RECALL_AND_CONCEPT in matched_demands:
+                return DemandClassificationProposal(
+                    demand=CognitiveDemand.RECALL_AND_CONCEPT,
+                    confidence=DemandConfidence.HIGH,
+                    signals=["layer1_short_answer"] + all_text_signals,
+                    evidence_layer="layer1_question_type"
+                )
+            # When Short Answer prompt has no discriminatory signals, preserve ambiguity
             return DemandClassificationProposal(
-                demand=CognitiveDemand.RECALL_AND_CONCEPT,
-                confidence=DemandConfidence.HIGH if CognitiveDemand.RECALL_AND_CONCEPT in matched_demands else DemandConfidence.MEDIUM,
-                signals=["layer1_short_answer"] + all_text_signals,
-                evidence_layer="layer1_question_type"
+                demand=CognitiveDemand.UNCLASSIFIED,
+                confidence=DemandConfidence.LOW,
+                signals=["short_answer_indeterminate_evidence"] + all_text_signals,
+                evidence_layer="indeterminate_fallback"
             )
 
         if qtype_str == "Explanation / Descriptive":
@@ -560,11 +581,19 @@ class DeterministicCognitiveDemandClassifier:
                     signals=["text_override_computation"] + all_text_signals,
                     evidence_layer="layer2_syntactic"
                 )
+            if CognitiveDemand.RECALL_AND_CONCEPT in matched_demands:
+                return DemandClassificationProposal(
+                    demand=CognitiveDemand.RECALL_AND_CONCEPT,
+                    confidence=DemandConfidence.HIGH,
+                    signals=["layer1_explanation"] + all_text_signals,
+                    evidence_layer="layer1_question_type"
+                )
+            # If no discriminatory signals exist, preserve ambiguity
             return DemandClassificationProposal(
-                demand=CognitiveDemand.RECALL_AND_CONCEPT,
-                confidence=DemandConfidence.HIGH if CognitiveDemand.RECALL_AND_CONCEPT in matched_demands else DemandConfidence.MEDIUM,
-                signals=["layer1_explanation"] + all_text_signals,
-                evidence_layer="layer1_question_type"
+                demand=CognitiveDemand.UNCLASSIFIED,
+                confidence=DemandConfidence.LOW,
+                signals=["explanation_descriptive_indeterminate_evidence"] + all_text_signals,
+                evidence_layer="indeterminate_fallback"
             )
 
         if qtype_str == "Programming & Implementation":

@@ -385,3 +385,77 @@ class TestCognitiveDemandClassifier:
         text = "Write an algorithm that takes in a two-dimensional array and computes all the row sums."
         res = DeterministicCognitiveDemandClassifier.classify(text, question_type="Programming & Implementation")
         assert res.demand == CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
+
+    # ------------------------------------------------------------------
+    # Q. Explicit Boundary Rule Hardening Regressions
+    # ------------------------------------------------------------------
+    def test_boundary_rule_1_state_law_variations(self):
+        """Rule 1: State <law/effect/theorem> without 'the' maps to RECALL_AND_CONCEPT."""
+        t1 = "State Hall Effect with diagram."
+        r1 = DeterministicCognitiveDemandClassifier.classify(t1, question_type="Short Answer / Definition")
+        assert r1.demand == CognitiveDemand.RECALL_AND_CONCEPT
+        assert any("state" in s for s in r1.signals)
+
+        t2 = "State Bragg's law."
+        r2 = DeterministicCognitiveDemandClassifier.classify(t2, question_type="Short Answer / Definition")
+        assert r2.demand == CognitiveDemand.RECALL_AND_CONCEPT
+
+        t3 = "State combined Beer Lambert Law."
+        r3 = DeterministicCognitiveDemandClassifier.classify(t3, question_type="Short Answer / Definition")
+        assert r3.demand == CognitiveDemand.RECALL_AND_CONCEPT
+
+    def test_boundary_rule_4_generic_wording_preserves_unclassified(self):
+        """Rule 4: Generic conceptual prompts with insufficient evidence must remain UNCLASSIFIED."""
+        # Generic prompt in Explanation / Descriptive with no discriminatory verbs
+        t1 = "15 samples of 200 items each were drawn from the output of a process. Prepare a control chart."
+        r1 = DeterministicCognitiveDemandClassifier.classify(t1, question_type="Explanation / Descriptive")
+        assert r1.demand == CognitiveDemand.UNCLASSIFIED
+        assert "explanation_descriptive_indeterminate_evidence" in r1.signals
+
+        t2 = "Write a letter to the local municipal authority regarding the poor condition of roads."
+        r2 = DeterministicCognitiveDemandClassifier.classify(t2, question_type="Explanation / Descriptive")
+        assert r2.demand == CognitiveDemand.UNCLASSIFIED
+
+        t3 = "Read the following passage and make notes."
+        r3 = DeterministicCognitiveDemandClassifier.classify(t3, question_type="Short Answer / Definition")
+        assert r3.demand == CognitiveDemand.UNCLASSIFIED
+        assert "short_answer_indeterminate_evidence" in r3.signals
+
+    def test_boundary_rule_5_ocr_noise_guardrails(self):
+        """Rule 5: Page footer asterisks, pattern printings, and binary numbers must NOT be false OCR garbage."""
+        # Exam page footer delimiter
+        t1 = "What do you mean by ADDIE model? Explain in detail. 15 2 4 3 ****** Page 3 of 3 18DF121GNH101J"
+        r1 = DeterministicCognitiveDemandClassifier.classify(t1, question_type="Explanation / Descriptive")
+        assert r1.demand == CognitiveDemand.RECALL_AND_CONCEPT
+        assert "ocr_corrupted_or_gibberish" not in r1.signals
+
+        # C programming ASCII asterisk pattern
+        t2 = "Write a C program to generate the following pattern:\n*\n* *\n* * *"
+        r2 = DeterministicCognitiveDemandClassifier.classify(t2, question_type="Programming & Implementation")
+        assert r2.demand == CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
+        assert "ocr_corrupted_or_gibberish" not in r2.signals
+
+        # Binary math question with digits and option labels
+        t3 = "The sum of binary 10011 and 01011 is\n(A) 11110\n(B) 11101\n(C) 11100\n(D) 11110"
+        r3 = DeterministicCognitiveDemandClassifier.classify(t3, question_type="Objective / MCQ")
+        assert r3.demand != CognitiveDemand.UNCLASSIFIED
+        assert "ocr_corrupted_or_gibberish" not in r3.signals
+
+    def test_boundary_rule_6_multipart_and_intra_prompt_conflict(self):
+        """Rule 6: Multi-part or compound prompts with conflicting demands remain UNCLASSIFIED."""
+        t = (
+            "24. Answer the subquestions:\n"
+            "    (i) State and derive Brewster's law.\n"
+            "    (ii) Explain principle, construction and working of Nicol Prism."
+        )
+        r = DeterministicCognitiveDemandClassifier.classify(t, question_type="Explanation / Descriptive")
+        assert r.demand == CognitiveDemand.UNCLASSIFIED
+        assert any("conflicting_subparts" in s for s in r.signals)
+
+    def test_boundary_rule_7_qtype_vs_syntax_conflict(self):
+        """Rule 7: Mismatch between question_type and syntactic directive triggers UNCLASSIFIED."""
+        # Short answer question type but text asks to derive a law
+        t = "State and derive Brewster's law for polarization of light."
+        r = DeterministicCognitiveDemandClassifier.classify(t, question_type="Short Answer / Definition")
+        assert r.demand == CognitiveDemand.UNCLASSIFIED
+        assert "conflict_qtype_short_answer_vs_text_analysis" in r.signals
