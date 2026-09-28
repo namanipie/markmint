@@ -84,9 +84,7 @@ function ExamDNAContent() {
             Dashboard
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-muted-foreground">Historical Analysis</span>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-medium">Exam DNA</span>
+          <span className="text-foreground font-medium">Historical Evidence</span>
         </nav>
 
         {/* Header Banner */}
@@ -94,24 +92,24 @@ function ExamDNAContent() {
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-semibold text-accent uppercase tracking-wider">
               <Dna className="w-3.5 h-3.5" />
-              MintAI Historical Analytics
+              Historical Exam DNA
             </div>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-              Exam DNA Analysis
+              Historical Exam Evidence
             </h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              What has actually happened across past exams? Explore empirical assessment blueprints, cognitive demand signals, syllabus unit weightings, and formulation lineage across verified historical papers.
+              This is the empirical past-paper evidence behind MintAI&apos;s exam forecasts. Explore verified assessment blueprints, cognitive demand signals, syllabus unit weightings, and formulation lineage across verified historical papers.
             </p>
           </div>
 
-          {/* Quick Context & Switcher Link */}
+          {/* Quick Switcher: Back to Forecast */}
           <div className="flex items-center gap-3">
             <Link
               href={`/mintai?course_id=${selectedCourseId}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-              className="px-3.5 py-2 rounded-xl bg-card border border-border hover:border-accent/40 text-xs font-medium text-foreground transition-all flex items-center gap-2 shadow-xs group"
+              className="px-4 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center gap-2 shadow-xs group"
             >
               <Sparkles className="w-3.5 h-3.5 text-accent group-hover:rotate-12 transition-transform" />
-              <span>Switch to Predictive Forecast &rarr;</span>
+              <span>View MintAI Forecast for this Course &rarr;</span>
             </Link>
           </div>
         </div>
@@ -175,10 +173,10 @@ function ExamDNAContent() {
             <span className="text-xs font-semibold text-foreground">Cycle:</span>
             <div className="flex flex-wrap items-center gap-1 rounded-lg border border-border p-1 bg-muted/20 text-xs">
               {[
-                { id: "ALL", label: "All Assessments" },
+                { id: "ALL", label: "All" },
                 { id: "ENDSEM", label: "End Semester" },
-                { id: "CT1", label: "Class Test 1" },
-                { id: "CT2", label: "Class Test 2" },
+                { id: "CT1", label: "CT1" },
+                { id: "CT2", label: "CT2" },
               ].map(({ id, label }) => {
                 const count = cycleCounts[id];
                 const isZero = count === 0;

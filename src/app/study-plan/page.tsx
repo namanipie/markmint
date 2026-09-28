@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
 import { BackendCourse } from "@/lib/types";
-import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight } from "lucide-react";
+import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
@@ -242,6 +242,26 @@ export default function StudyIntelligencePage() {
               </button>
             </div>
           </div>
+
+          {selectedCourseObj && (
+            <div className="flex items-center gap-2 pt-2 border-t border-border/40 text-xs text-muted-foreground flex-wrap">
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <span>Calibrated to MintAI exam forecasts.</span>
+              <Link
+                href={`/mintai?course_id=${selectedCourseObj.id}`}
+                className="font-semibold text-accent hover:underline inline-flex items-center gap-1 ml-1"
+              >
+                Inspect Forecast &rarr;
+              </Link>
+              <span className="mx-1">&bull;</span>
+              <Link
+                href={`/mintai/exam-dna?course=${selectedCourseObj.id}`}
+                className="font-semibold text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+              >
+                Historical Evidence &rarr;
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Plan Output */}

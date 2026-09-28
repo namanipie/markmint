@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
 import { getStudyContext, updateStudyContext, StudyContext } from "@/lib/study-context";
-import { useStreak } from "@/hooks/use-streak";
+import { getPredictions, getExamDNA } from "@/lib/api";
+import { ExamDNA } from "@/lib/types";
 import {
   Sparkles,
   Dna,
@@ -18,17 +19,17 @@ import {
   Clock,
   Layers,
   ShieldCheck,
-  Flame,
   ChevronRight,
-  FileText,
   HelpCircle,
   TrendingUp,
   BrainCircuit,
-  RotateCcw
+  Loader2,
+  FileText,
+  BarChart3,
+  Repeat
 } from "lucide-react";
 
 export default function DashboardPage() {
-  const streak = useStreak();
   const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
   const [isClient, setIsClient] = useState(false);
 
@@ -44,6 +45,13 @@ export default function DashboardPage() {
 
   const [selectedCycle, setSelectedCycle] = useState<string>("ENDSEM");
 
+  // Real backend intelligence states
+  const [predictionsData, setPredictionsData] = useState<any>(null);
+  const [dnaData, setDnaData] = useState<ExamDNA | null>(null);
+  const [isLoadingIntelligence, setIsLoadingIntelligence] = useState<boolean>(true);
+  const [intelligenceError, setIntelligenceError] = useState<string | null>(null);
+
+  // Load study context on client mount
   useEffect(() => {
     setIsClient(true);
     const ctx = getStudyContext();
@@ -80,6 +88,40 @@ export default function DashboardPage() {
     return eligibleCourses.find((c) => c.id === selectedCourseId) || eligibleCourses[0];
   }, [eligibleCourses, selectedCourseId]);
 
+  // Fetch real predictions and DNA for the selected course + cycle
+  const fetchIntelligence = useCallback(async (courseId: number, cycle: string) => {
+    setIsLoadingIntelligence(true);
+    setIntelligenceError(null);
+    try {
+      const [predsResult, dnaResult] = await Promise.allSettled([
+        getPredictions(courseId, cycle),
+        getExamDNA(courseId, cycle)
+      ]);
+
+      if (predsResult.status === "fulfilled") {
+        setPredictionsData(predsResult.value);
+      } else {
+        setPredictionsData(null);
+      }
+
+      if (dnaResult.status === "fulfilled") {
+        setDnaData(dnaResult.value);
+      } else {
+        setDnaData(null);
+      }
+    } catch (err: any) {
+      setIntelligenceError(err?.message || "Failed to load exam intelligence.");
+    } finally {
+      setIsLoadingIntelligence(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedCourseId) {
+      fetchIntelligence(selectedCourseId, selectedCycle);
+    }
+  }, [selectedCourseId, selectedCycle, fetchIntelligence]);
+
   const handleCourseChange = (courseId: number) => {
     setSelectedCourseId(courseId);
     const target = eligibleCourses.find((c) => c.id === courseId);
@@ -111,25 +153,72 @@ export default function DashboardPage() {
     return Object.values(studyContext.task_statuses).filter((s) => s === "COMPLETED").length;
   }, [studyContext]);
 
+  // Normalized assessment cycle display naming: All, CT1, CT2, End Semester
   const cycleDisplayLabel = useMemo(() => {
     switch (selectedCycle) {
       case "ENDSEM":
         return "End Semester";
       case "CT1":
-        return "Class Test 1";
+        return "CT1";
       case "CT2":
-        return "Class Test 2";
+        return "CT2";
       default:
-        return "All Assessment Cycles";
+        return "All";
     }
   }, [selectedCycle]);
 
+  // Top high-yield topics from real predictions or catalog fallback
+  const topForecastTopics = useMemo(() => {
+    if (predictionsData?.predictions && Array.isArray(predictionsData.predictions) && predictionsData.predictions.length > 0) {
+      return predictionsData.predictions.slice(0, 4);
+    }
+    return (currentCourse?.highYieldTopics || []).slice(0, 4).map((hyt, idx) => ({
+      rank: idx + 1,
+      name: hyt.topic,
+      confidence: "MEDIUM",
+      papers_with_topic: hyt.paperCount,
+      papers_analyzed: currentCourse.paperCount,
+      paper_coverage: currentCourse.paperCount > 0 ? (hyt.paperCount / currentCourse.paperCount) : 0.6,
+      historical_occurrences: hyt.questionCount,
+      total_marks_observed: null,
+      explanation: `Documented across ${hyt.paperCount} historical examination papers.`
+    }));
+  }, [predictionsData, currentCourse]);
+
+  // Compact historical evidence counters
+  const totalArchivedPapers = dnaData?.sample_size?.papers || currentCourse.paperCount;
+  const totalAnalyzedQuestions = dnaData?.sample_size?.questions || currentCourse.questionCount;
+  const verifiedYears = dnaData?.sample_size?.years || [];
+  const yearsSummary = verifiedYears.length > 0
+    ? `${verifiedYears.length} Verified Years (${verifiedYears[0]}–${verifiedYears[verifiedYears.length - 1]})`
+    : `${currentCourse.paperCount} Papers Archived`;
+
+  // Cognitive demand distribution summary
+  const cognitiveDemandSummary = useMemo(() => {
+    if (!dnaData?.cognitive_demand_distribution?.items) return null;
+    const items = dnaData.cognitive_demand_distribution.items;
+    const recall = items.find((i: any) => i.demand === "RECALL_AND_CONCEPT");
+    const procedural = items.find((i: any) => i.demand === "PROCEDURAL_COMPUTATION");
+    const analytical = items.find((i: any) => i.demand === "ANALYTICAL_PROOF_AND_DESIGN");
+    return {
+      recallPct: recall ? Math.round(recall.percentage * 100) : 0,
+      proceduralPct: procedural ? Math.round(procedural.percentage * 100) : 0,
+      analyticalPct: analytical ? Math.round(analytical.percentage * 100) : 0,
+    };
+  }, [dnaData]);
+
+  // Recurrence summary
+  const exactRepetitionCount = dnaData?.repetition?.exact_count || 0;
+
+  // Next topic to continue
+  const continueTopicName = studyContext?.last_topic_name || topForecastTopics[0]?.name || "First High-Yield Topic";
+
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans">
+    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-accent/20">
       <Navbar />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-8 space-y-8">
-        {/* Breadcrumb Navigation */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-6 md:py-8 space-y-6 md:space-y-8">
+        {/* Authentic Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">
             Home
@@ -138,49 +227,47 @@ export default function DashboardPage() {
           <span className="text-foreground font-medium">Dashboard</span>
         </nav>
 
-        {/* 1. MintAI Command Header & Context Switcher */}
-        <div className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-          <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-border/50">
-            <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-semibold text-accent uppercase tracking-wider">
+        {/* 1. MintAI Header & Active Study Context Selector */}
+        <div className="bg-card border border-border/80 rounded-2xl p-5 md:p-6 shadow-xs space-y-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-semibold text-accent uppercase tracking-wider">
                 <BrainCircuit className="w-3.5 h-3.5" />
-                MintAI Workspace Command Center
+                MintAI Workspace
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-                Study Dashboard
+              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                Your Exam Intelligence
               </h1>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Your personal hub for university exam intelligence. Monitor active course evidence, inspect predictive forecasts, review historical exam footprints, and execute targeted study plans.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Evidence-based historical analysis and predictive exam forecasting for SRMIST courses.
               </p>
             </div>
 
-            {/* Streak & Active Status */}
-            <div className="flex items-center gap-3 self-start md:self-auto">
-              <div className="px-4 py-2.5 rounded-xl bg-muted/30 border border-border text-right shadow-xs space-y-0.5">
-                <div className="text-[11px] text-muted-foreground flex items-center justify-end gap-1.5 font-medium">
-                  <Flame className="w-3.5 h-3.5 text-orange-500" />
-                  Study Streak
-                </div>
-                <div className="text-lg font-bold text-foreground">
-                  {streak} {streak === 1 ? "Day" : "Days"} Active
-                </div>
-              </div>
+            {/* Evidence Volume Badge */}
+            <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/20 border border-border/60 rounded-xl px-3.5 py-2 self-start md:self-auto">
+              <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+              <span>
+                <strong className="text-foreground font-semibold">{totalArchivedPapers}</strong> historical exams &bull;{" "}
+                <strong className="text-foreground font-semibold">{totalAnalyzedQuestions}</strong> questions &bull;{" "}
+                <strong className="text-foreground font-semibold">{currentCourse.units.length}</strong> syllabus units
+              </span>
             </div>
           </div>
 
-          {/* Active Study Scope Selector Bar */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1">
+          {/* Context Selector Bar: Course + Assessment Target */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-border/50">
             <div className="flex flex-wrap items-center gap-3">
+              {/* Course Selector */}
               <div className="flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-accent shrink-0" />
                 <label htmlFor="dashboard-course-select" className="text-xs font-semibold text-foreground whitespace-nowrap">
-                  Current Course:
+                  Course:
                 </label>
                 <select
                   id="dashboard-course-select"
                   value={selectedCourseId}
                   onChange={(e) => handleCourseChange(Number(e.target.value))}
-                  className="bg-background border border-border rounded-lg px-3 py-1.5 text-xs font-semibold text-foreground focus:ring-2 focus:ring-accent focus:outline-none min-w-[260px] shadow-xs"
+                  className="bg-background border border-border rounded-lg px-3 py-1.5 text-xs font-semibold text-foreground focus:ring-2 focus:ring-accent focus:outline-none min-w-[240px] sm:min-w-[280px] shadow-xs"
                 >
                   {eligibleCourses.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -190,238 +277,370 @@ export default function DashboardPage() {
                 </select>
               </div>
 
-              {/* Assessment Cycle Target Pill Selector */}
+              {/* Assessment Cycle Selector: Normalized Naming (All, CT1, CT2, End Semester) */}
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground whitespace-nowrap font-medium">Target:</span>
                 <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/20 text-xs">
-                  {(["ENDSEM", "CT1", "CT2", "ALL"] as const).map((cycle) => (
+                  {[
+                    { key: "ENDSEM", label: "End Semester" },
+                    { key: "CT1", label: "CT1" },
+                    { key: "CT2", label: "CT2" },
+                    { key: "ALL", label: "All" }
+                  ].map((cycle) => (
                     <button
-                      key={cycle}
-                      onClick={() => handleCycleChange(cycle)}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                        selectedCycle === cycle
+                      key={cycle.key}
+                      onClick={() => handleCycleChange(cycle.key)}
+                      className={`px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                        selectedCycle === cycle.key
                           ? "bg-accent text-accent-foreground font-semibold shadow-xs"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
                     >
-                      {cycle === "ENDSEM" ? "End Sem" : cycle}
+                      {cycle.label}
                     </button>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Current Course Quick Summary */}
-            <div className="text-xs text-muted-foreground flex items-center gap-3">
-              <span>{currentCourse.paperCount} Archived Exams</span>
-              <span>&bull;</span>
-              <span>{currentCourse.questionCount} Questions</span>
-              <span>&bull;</span>
-              <span>{currentCourse.units.length} Syllabus Units</span>
-            </div>
+            {/* Quick Link to Forecast */}
+            <Link
+              href={`/mintai?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline shrink-0"
+            >
+              <span>Full Forecast View</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
 
-        {/* 2. Core Capabilities: The 3 Clear Jobs Inside MintAI */}
-        <div className="space-y-4">
+        {/* 2. PRIMARY OUTPUT: YOUR MINTAI FORECAST */}
+        <section className="bg-card border-2 border-accent/20 rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-border/50">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
+                <span>Primary Intelligence Forecast</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                Your MintAI Forecast
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                High-yield topics calibrated from verified historical exam papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 self-start sm:self-auto">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-accent/15 text-accent border border-accent/20">
+                Target: {cycleDisplayLabel}
+              </span>
+              <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-secondary text-secondary-foreground border border-border">
+                {topForecastTopics.length} High-Yield Topics
+              </span>
+            </div>
+          </div>
+
+          {/* Forecast Items Grid */}
+          {isLoadingIntelligence ? (
+            <div className="py-12 flex flex-col items-center justify-center gap-3 text-muted-foreground">
+              <Loader2 className="w-6 h-6 animate-spin text-accent" />
+              <span className="text-xs font-medium">Calibrating historical exam predictions...</span>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                {topForecastTopics.map((topic: any, idx: number) => {
+                  const isHighSignal = topic.confidence === "HIGH" || (topic.paper_coverage && topic.paper_coverage >= 0.7);
+                  return (
+                    <div
+                      key={topic.name || idx}
+                      className="p-4 rounded-xl bg-background border border-border/80 hover:border-accent/40 transition-all flex flex-col justify-between gap-3 shadow-2xs group"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-accent/15 text-accent font-mono text-xs font-bold">
+                            #{topic.rank || idx + 1}
+                          </span>
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
+                            isHighSignal
+                              ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+                              : "bg-accent/10 text-accent border-accent/20"
+                          }`}>
+                            {isHighSignal ? "High Historical Signal" : "Moderate Historical Signal"}
+                          </span>
+                        </div>
+
+                        <div>
+                          <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors line-clamp-1">
+                            {topic.name}
+                          </h3>
+                          <p className="text-xs text-muted-foreground pt-0.5 line-clamp-1">
+                            {topic.explanation || `Appeared across ${topic.papers_with_topic || topic.historyCount || 0} archived exams.`}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Evidence Proof Line */}
+                      <div className="pt-2 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
+                        <span>
+                          {topic.papers_with_topic && topic.papers_analyzed
+                            ? `Appeared in ${topic.papers_with_topic} of ${topic.papers_analyzed} papers (${Math.round((topic.paper_coverage || 0) * 100)}%)`
+                            : `${topic.historical_occurrences || topic.historyCount || 1} historical questions`}
+                        </span>
+                        {topic.total_marks_observed && (
+                          <span className="font-semibold text-foreground">
+                            {Math.round(topic.total_marks_observed)} Marks
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Primary Call to Action */}
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                  <span>
+                    Forecast derived strictly from verified paper frequency and syllabus weightings without speculation.
+                  </span>
+                </div>
+
+                <Link
+                  href={`/mintai?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs"
+                >
+                  <span>Open Full Intelligence Forecast</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* 3. SUPPORTING EVIDENCE: WHY MINTAI IS SHOWING THIS */}
+        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4">
           <div className="space-y-1">
-            <h2 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-              <Layers className="w-4 h-4 text-accent" />
-              Core MintAI Capabilities
+            <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <HelpCircle className="w-4 h-4 text-accent" />
+              <span>Evidence Foundations</span>
+            </div>
+            <h2 className="text-xl font-bold tracking-tight text-foreground">
+              Why MintAI Shows This Forecast
             </h2>
             <p className="text-xs text-muted-foreground">
-              Select an action based on what you need to accomplish right now
+              Documented institutional signals backing the high-yield topic ranking.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Capability 1: Predictive Forecast */}
-            <div className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 hover:border-accent/40 transition-all group">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
-                  <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                </div>
-                <div className="space-y-1">
-                  <div className="text-[11px] font-semibold text-accent uppercase tracking-wider">
-                    Core Intelligence
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground">
-                    Predictive Exam Forecast
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed pt-1">
-                    <em>&ldquo;What does historical evidence suggest I should focus on for my exam?&rdquo;</em>
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-center justify-between">
-                    <span>Ranked High-Yield Topics:</span>
-                    <span className="font-semibold text-foreground">{currentCourse.highYieldTopics.length} Identified</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Target Exam Cycle:</span>
-                    <span className="font-semibold text-accent">{cycleDisplayLabel}</span>
-                  </div>
-                  {currentCourse.highYieldTopics[0] && (
-                    <div className="p-2.5 rounded-lg bg-muted/30 border border-border/50 text-[11px] space-y-0.5">
-                      <span className="text-muted-foreground block text-[10px] uppercase font-bold tracking-wider">Top Historical Yield</span>
-                      <span className="font-semibold text-foreground line-clamp-1">{currentCourse.highYieldTopics[0].topic}</span>
-                    </div>
-                  )}
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-1">
+            {/* Tile 1: Historical Recurrence */}
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <Repeat className="w-3.5 h-3.5 text-accent" />
+                <span>Historical Recurrence</span>
               </div>
-
-              <Link
-                href={`/mintai?course_id=${currentCourse.id}&cycle=${selectedCycle}`}
-                className="w-full py-2.5 px-4 bg-foreground text-background text-xs font-semibold rounded-xl hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs group-hover:shadow-sm"
-              >
-                <span>Open Intelligence Forecast</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              <div className="text-lg font-bold text-foreground">
+                {exactRepetitionCount > 0 ? `${exactRepetitionCount} Repeat Questions` : "Factual Repetition"}
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Recurring question families identified across verified examination sessions.
+              </p>
             </div>
 
-            {/* Capability 2: Historical Analysis & Exam DNA */}
-            <div className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 hover:border-accent/40 transition-all group">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
-                  <Dna className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="space-y-1">
-                  <div className="text-[11px] font-semibold text-accent uppercase tracking-wider">
-                    Historical Analytics
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground">
-                    Exam DNA Analysis
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed pt-1">
-                    <em>&ldquo;What has actually happened across past exams?&rdquo;</em>
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-center justify-between">
-                    <span>Verified Exam Papers:</span>
-                    <span className="font-semibold text-foreground">{currentCourse.paperCount} Papers</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Analyzed Questions:</span>
-                    <span className="font-semibold text-foreground">{currentCourse.questionCount} Questions</span>
-                  </div>
-                  <div className="p-2.5 rounded-lg bg-muted/30 border border-border/50 text-[11px] space-y-1">
-                    <span className="text-muted-foreground block text-[10px] uppercase font-bold tracking-wider">Historical Signals</span>
-                    <span className="text-foreground block font-medium">Assessment Blueprints &bull; Cognitive Demand &bull; Unit Weights &bull; Mark Tiers</span>
-                  </div>
-                </div>
+            {/* Tile 2: Blueprint Architecture */}
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <Layers className="w-3.5 h-3.5 text-accent" />
+                <span>Assessment Blueprint</span>
               </div>
-
-              <Link
-                href={`/mintai/exam-dna?course=${currentCourse.id}&cycle=${selectedCycle}`}
-                className="w-full py-2.5 px-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/60 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs"
-              >
-                <span>Inspect Exam DNA</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+              <div className="text-lg font-bold text-foreground">
+                {dnaData?.assessment_blueprints?.[0]?.representative_blueprint?.sections?.length
+                  ? `${dnaData.assessment_blueprints[0].representative_blueprint.sections.length}-Part Structure`
+                  : "Verified Blueprint"}
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Conforms to documented institutional sectioning, marks distribution, and choice rules.
+              </p>
             </div>
 
-            {/* Capability 3: Study Plan Execution */}
-            <div className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col justify-between space-y-6 hover:border-accent/40 transition-all group">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
-                  <Target className="w-5 h-5 group-hover:rotate-45 transition-transform" />
-                </div>
-                <div className="space-y-1">
-                  <div className="text-[11px] font-semibold text-accent uppercase tracking-wider">
-                    Study Execution
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground">
-                    Interactive Study Plan
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed pt-1">
-                    <em>&ldquo;What am I going to study and what have I completed?&rdquo;</em>
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-border/50 space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-center justify-between">
-                    <span>Completed Topics:</span>
-                    <span className="font-semibold text-emerald-500 flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      {completedTaskCount} Completed
-                    </span>
-                  </div>
-                  {studyContext?.last_topic_name ? (
-                    <div className="p-2.5 rounded-lg bg-muted/30 border border-border/50 text-[11px] space-y-0.5">
-                      <span className="text-muted-foreground block text-[10px] uppercase font-bold tracking-wider">Last Targeted Topic</span>
-                      <span className="font-semibold text-foreground line-clamp-1">{studyContext.last_topic_name}</span>
-                    </div>
-                  ) : (
-                    <div className="p-2.5 rounded-lg bg-muted/30 border border-border/50 text-[11px] space-y-0.5">
-                      <span className="text-muted-foreground block text-[10px] uppercase font-bold tracking-wider">Active Workflow</span>
-                      <span className="text-foreground block font-medium">Daily schedules &bull; Topic checkoffs &bull; Study notes</span>
-                    </div>
-                  )}
-                </div>
+            {/* Tile 3: Cognitive Demand Profile */}
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <BarChart3 className="w-3.5 h-3.5 text-accent" />
+                <span>Cognitive Modality</span>
               </div>
+              <div className="text-lg font-bold text-foreground">
+                {cognitiveDemandSummary
+                  ? `${cognitiveDemandSummary.recallPct}% Recall &bull; ${cognitiveDemandSummary.proceduralPct}% Calc`
+                  : "Empirical Demand"}
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Observable question demands derived from wording, calculation, and proof modalities.
+              </p>
+            </div>
 
-              <Link
-                href={`/study-plan?course_id=${currentCourse.id}`}
-                className="w-full py-2.5 px-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/60 text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-xs"
-              >
-                <span>Continue Study Plan</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+            {/* Tile 4: Syllabus Scope */}
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
+              <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                <span>Syllabus Calibration</span>
+              </div>
+              <div className="text-lg font-bold text-foreground">
+                {currentCourse.units.length} Units Covered
+              </div>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Calibrated to the official SRMIST syllabus curriculum without unmapped topics.
+              </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* 3. Quick-Launch Common Engineering Courses */}
-        <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
-            <div>
-              <h2 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-accent" />
-                Quick-Switch Engineering Courses
+        {/* 4. HISTORICAL EXAM EVIDENCE (EXAM DNA PREVIEW) */}
+        <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-wider">
+                <Dna className="w-4 h-4" />
+                <span>Historical Exam DNA</span>
+              </div>
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">
+                Historical Exam Evidence
               </h2>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                Switch study context to another archived SRMIST engineering course
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                The factual past-paper record backing MintAI&apos;s forecasts for <strong className="text-foreground">{currentCourse.name}</strong>.
+              </p>
+            </div>
+
+            <Link
+              href={`/mintai/exam-dna?course=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/60 text-xs font-semibold transition-all shadow-2xs self-start sm:self-auto"
+            >
+              <span>Explore Historical Evidence</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
+              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Exam Corpus Volume</span>
+              <div className="text-xl font-bold text-foreground">
+                {totalArchivedPapers} Papers &bull; {totalAnalyzedQuestions} Questions
+              </div>
+              <p className="text-[11px] text-muted-foreground">
+                Zero synthetic questions. All evidence verified from institutional papers.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
+              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Chronology Verification</span>
+              <div className="text-xl font-bold text-foreground">
+                {yearsSummary}
+              </div>
+              <p className="text-[11px] text-muted-foreground">
+                Temporal trends tracked across verified examination years with strict cutoff semantics.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
+              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Question Format Archetypes</span>
+              <div className="text-xl font-bold text-foreground">
+                {dnaData?.question_types?.length ? `${dnaData.question_types.length} Question Types` : "MCQ & Descriptive"}
+              </div>
+              <p className="text-[11px] text-muted-foreground">
+                Categorized by short answer, numerical, algorithmic, and analytical proof questions.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. EXECUTION LAYER: YOUR STUDY PROGRESS */}
+        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-xl">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-wider">
+              <Target className="w-4 h-4" />
+              <span>Study Execution</span>
+            </div>
+            <h2 className="text-xl font-bold tracking-tight text-foreground">
+              Your Study Progress
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Move from exam analysis into an actual plan. Track topic checkoffs, practice historical question families, and review verified notes.
+            </p>
+
+            <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1 flex-wrap">
+              <span className="flex items-center gap-1.5 text-foreground font-medium">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                {completedTaskCount} topics completed
+              </span>
+              <span>&bull;</span>
+              <span className="flex items-center gap-1.5 text-muted-foreground">
+                <Clock className="w-4 h-4 text-accent" />
+                Next: <strong className="text-foreground">{continueTopicName}</strong>
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href={`/study-plan?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+              className="px-6 py-3 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center gap-2 shadow-xs"
+            >
+              <span>Continue Study Plan</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </section>
+
+        {/* 6. Quick Course Switcher: Canonical Engineering Courses */}
+        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-3">
+            <div>
+              <h2 className="text-sm font-bold text-foreground flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-accent" />
+                Quick Course Switcher
+              </h2>
+              <p className="text-[11px] text-muted-foreground">
+                Switch active course intelligence across common engineering subjects
               </p>
             </div>
             <Link
               href="/courses"
-              className="text-xs font-medium text-accent hover:underline flex items-center gap-1"
+              className="text-xs font-semibold text-accent hover:underline flex items-center gap-1"
             >
-              <span>View All 31 Cataloged Courses</span>
+              <span>Browse All Courses</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-1">
-            {eligibleCourses.slice(0, 8).map((course) => {
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {eligibleCourses.slice(0, 6).map((course) => {
               const isSelected = course.id === selectedCourseId;
               return (
                 <button
                   key={course.id}
                   onClick={() => handleCourseChange(course.id)}
-                  className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
+                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
                     isSelected
                       ? "bg-accent/10 border-accent/40 shadow-xs"
                       : "bg-muted/20 border-border/60 hover:border-accent/30 hover:bg-muted/40"
                   }`}
                 >
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-mono font-bold text-muted-foreground">
+                  <div className="space-y-0.5">
+                    <span className="text-[9px] font-mono font-bold text-muted-foreground">
                       {course.code}
                     </span>
                     <h3 className="text-xs font-bold text-foreground line-clamp-2 leading-snug">
                       {course.name}
                     </h3>
                   </div>
-                  <div className="flex items-center justify-between text-[11px] text-muted-foreground pt-1 border-t border-border/40">
+                  <div className="flex items-center justify-between text-[10px] text-muted-foreground pt-1 border-t border-border/40">
                     <span>{course.paperCount} exams</span>
                     {isSelected ? (
-                      <span className="text-[10px] font-bold text-accent px-1.5 py-0.5 rounded bg-accent/15">Active</span>
+                      <span className="font-bold text-accent">Active</span>
                     ) : (
-                      <span className="text-[10px] text-muted-foreground hover:text-foreground">Switch &rarr;</span>
+                      <span>Switch &rarr;</span>
                     )}
                   </div>
                 </button>
@@ -430,15 +649,15 @@ export default function DashboardPage() {
           </div>
         </section>
 
-        {/* 4. Non-Predictive Institutional Scope Notice */}
+        {/* 7. Institutional Scope Notice */}
         <div className="p-4 rounded-xl bg-muted/20 border border-border/40 text-xs text-muted-foreground flex items-start gap-2.5">
           <ShieldCheck className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <p className="font-semibold text-foreground">
+          <div className="space-y-0.5">
+            <p className="font-semibold text-foreground text-[11px]">
               MintAI Evidence-Based Analytics Notice
             </p>
             <p className="text-[11px] leading-relaxed">
-              MintAI derives intelligence signals strictly from verified past examination papers and official SRMIST syllabus documents. MintAI does not claim or guarantee future examination outcomes, and examination formats remain subject to institutional discretion.
+              MintAI derives intelligence signals strictly from verified past examination papers and official SRMIST syllabus documents. MintAI distinguishes documented historical facts from predictive signals and does not claim future certainty.
             </p>
           </div>
         </div>

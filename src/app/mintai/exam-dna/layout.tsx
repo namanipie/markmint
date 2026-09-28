@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Exam DNA &bull; Historical Examination Analytics | MintAI",
+  title: "Historical Exam Evidence | MintAI",
   description:
-    "Explore empirical assessment blueprints, cognitive demand signals, syllabus unit weightings, and formulation lineage across verified historical papers in MintAI.",
+    "Empirical past-paper evidence, assessment blueprints, cognitive demand signals, and question repetition backing MintAI exam forecasts for SRMIST.",
 };
 
 export default function ExamDNALayout({

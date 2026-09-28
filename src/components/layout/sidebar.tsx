@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   LayoutDashboard,
-  FileQuestion,
+  Sparkles,
   Dna,
-  GitBranch,
+  Target,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
@@ -19,10 +19,10 @@ export function Sidebar() {
   const pathname = usePathname();
 
   const items = [
-    { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
-    { href: "/dashboard/questions", label: "Questions", icon: FileQuestion },
-    { href: "/mintai/exam-dna", label: "Exam DNA", icon: Dna },
-    { href: "/dashboard/question-family", label: "Question Family", icon: GitBranch },
+    { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/mintai", label: "Forecast", icon: Sparkles },
+    { href: "/mintai/exam-dna", label: "Historical Evidence", icon: Dna },
+    { href: "/study-plan", label: "Study Plan", icon: Target },
   ];
 
   return (

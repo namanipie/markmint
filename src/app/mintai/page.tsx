@@ -9,7 +9,7 @@ import { Combobox } from "@/components/ui/combobox";
 import {
   Leaf, Search, AlertCircle, BarChart3, Database, FileText, Activity, Clock,
   CheckCircle2, ChevronDown, ChevronUp, ChevronRight, BookOpen, Target, Calendar, HelpCircle,
-  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers, Loader2, RefreshCw
+  X, ShieldCheck, Sparkles, ExternalLink, ArrowRight, Repeat, Layers, Loader2, RefreshCw, Dna
 } from "lucide-react";
 import {
   getCurriculumInitialScope,
@@ -984,34 +984,53 @@ export default function MintAIPage() {
             </div>
           )}
 
-          {/* Top Switcher: Forecast vs What Repeated */}
+          {/* Top Switcher: Forecast vs Repetition vs Historical Evidence */}
           {selectedSubject?.has_exams && selectedSubject.course_id && (
-            <div className="flex items-center gap-2 border-b border-border pb-3">
-              <button
-                onClick={() => setMainView("forecast")}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                  mainView === "forecast"
-                    ? "bg-accent text-accent-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground bg-muted/40"
-                }`}
-              >
-                <Target className="w-3.5 h-3.5" />
-                <span>What to Study &amp; Study Plan</span>
-              </button>
-              <button
-                onClick={() => setMainView("analytics")}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
-                  mainView === "analytics"
-                    ? "bg-accent text-accent-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground bg-muted/40"
-                }`}
-              >
-                <Repeat className="w-3.5 h-3.5" />
-                <span>What Repeated (&ldquo;What Repeated?&rdquo;)</span>
-                <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-500/10 text-emerald-500 font-mono font-bold">
-                  Factual
-                </span>
-              </button>
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-3">
+              <div className="flex items-center gap-2 flex-wrap">
+                <button
+                  onClick={() => setMainView("forecast")}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                    mainView === "forecast"
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground bg-muted/40"
+                  }`}
+                >
+                  <Target className="w-3.5 h-3.5" />
+                  <span>Forecast &amp; High-Yield Topics</span>
+                </button>
+                <button
+                  onClick={() => setMainView("analytics")}
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                    mainView === "analytics"
+                      ? "bg-accent text-accent-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground bg-muted/40"
+                  }`}
+                >
+                  <Repeat className="w-3.5 h-3.5" />
+                  <span>Question Repetition &amp; Families</span>
+                  <span className="px-1.5 py-0.2 rounded text-[10px] bg-emerald-500/10 text-emerald-500 font-mono font-bold">
+                    Factual
+                  </span>
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`/mintai/exam-dna?course=${selectedSubject.course_id}${selectedExam && selectedExam !== "ALL" ? `&cycle=${selectedExam}` : ""}`}
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all flex items-center gap-1.5 border border-border/50"
+                >
+                  <Dna className="w-3.5 h-3.5 text-accent" />
+                  <span>Historical Evidence</span>
+                </Link>
+                <Link
+                  href={`/study-plan?course_id=${selectedSubject.course_id}${selectedExam && selectedExam !== "ALL" ? `&cycle=${selectedExam}` : ""}`}
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all flex items-center gap-1.5 border border-border/50"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Study Plan</span>
+                </Link>
+              </div>
             </div>
           )}
 
