@@ -706,7 +706,7 @@ export default function SubmitPaperPage() {
                           <div className="flex justify-between">
                             <span className="text-muted-foreground">Size / Pages:</span>
                             <span className="text-foreground">
-                              {(previewData.file_size / (1024 * 1024)).toFixed(2)} MB &bull; {previewData.page_count} pages
+                              {(previewData.file_size / (1024 * 1024)).toFixed(2)} MB • {previewData.page_count} pages
                             </span>
                           </div>
                           <div className="flex justify-between">
@@ -893,7 +893,7 @@ export default function SubmitPaperPage() {
                     {qualityMetrics.submissions}
                   </div>
                   <div className="text-[10px] text-muted-foreground">
-                    {qualityMetrics.pending} pending &bull; {qualityMetrics.rejected} rejected
+                    {qualityMetrics.pending} pending • {qualityMetrics.rejected} rejected
                   </div>
                 </div>
 
@@ -1058,7 +1058,7 @@ export default function SubmitPaperPage() {
                           </div>
                           <h3 className="text-sm font-semibold text-foreground">{sub.original_filename}</h3>
                           <p className="text-xs text-muted-foreground">
-                            {sub.subject_name} &bull; {sub.branch_name || "Any Branch"} (Sem {sub.semester || "?"})
+                            {sub.subject_name} • {sub.branch_name || "Any Branch"} (Sem {sub.semester || "?"})
                           </p>
                         </div>
 
@@ -1119,7 +1119,7 @@ export default function SubmitPaperPage() {
                         </div>
                         <div>
                           <span className="text-muted-foreground block text-[10px]">Pages / Size</span>
-                          <span>{sub.page_count} pages &bull; {(sub.file_size / (1024 * 1024)).toFixed(2)} MB</span>
+                          <span>{sub.page_count} pages • {(sub.file_size / (1024 * 1024)).toFixed(2)} MB</span>
                         </div>
                       </div>
 
@@ -1184,7 +1184,7 @@ export default function SubmitPaperPage() {
                                         <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">
                                           <span className="text-[10px] text-muted-foreground block">Assessment / Year</span>
                                           <span className="font-semibold text-foreground">
-                                            {r.assessment} &bull; {r.year || "Unknown Year"}
+                                            {r.assessment} • {r.year || "Unknown Year"}
                                           </span>
                                         </div>
                                         <div className="p-2.5 rounded-lg bg-background/60 border border-border/40">

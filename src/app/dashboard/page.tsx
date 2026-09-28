@@ -4,46 +4,59 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { MathText } from "@/components/ui/math-text";
 import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
 import { getStudyContext, updateStudyContext, StudyContext } from "@/lib/study-context";
-import { getPredictions, getExamDNA } from "@/lib/api";
-import { ExamDNA } from "@/lib/types";
+import {
+  getCurriculumBranches,
+  getCurriculumSemesters,
+  getCurriculumSubjects,
+  findCurriculumSubjectByCourseId,
+  getPredictions,
+  getExamDNA
+} from "@/lib/api";
+import { CurriculumSubject, ExamDNA } from "@/lib/types";
 import {
   Sparkles,
   Dna,
   Target,
   ArrowRight,
   BookOpen,
-  Calendar,
   CheckCircle2,
   Clock,
   Layers,
   ShieldCheck,
   ChevronRight,
   HelpCircle,
-  TrendingUp,
-  BrainCircuit,
-  Loader2,
-  FileText,
   BarChart3,
-  Repeat
+  Repeat,
+  Loader2,
+  BrainCircuit,
+  GraduationCap,
+  Calendar
 } from "lucide-react";
 
 export default function DashboardPage() {
   const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
-  const [isClient, setIsClient] = useState(false);
 
-  // Eligible courses with PYQ papers in archive
+  // Eligible courses with archived past papers
   const eligibleCourses = useMemo(() => {
     return coursesCatalog.filter((c) => c.paperCount > 0);
   }, []);
 
-  // Initialize active course from study context or fallback to primary course
-  const [selectedCourseId, setSelectedCourseId] = useState<number>(() => {
-    return eligibleCourses[0]?.id || 1;
-  });
+  // Academic Context Cascade: Branch -> Semester -> Course -> Target
+  const [branches, setBranches] = useState<string[]>([]);
+  const [selectedBranch, setSelectedBranch] = useState<string>("Computer Science and Engineering");
+  const [semesters, setSemesters] = useState<number[]>([1, 2, 3, 4, 5, 6, 7, 8]);
+  const [selectedSemester, setSelectedSemester] = useState<number>(1);
+  const [semesterSubjects, setSemesterSubjects] = useState<CurriculumSubject[]>([]);
 
+  // Active Course & Assessment Cycle
+  const [selectedCourseId, setSelectedCourseId] = useState<number>(1);
   const [selectedCycle, setSelectedCycle] = useState<string>("ENDSEM");
+
+  // Forecast view filter: "ALL" | "TOPIC" | "FAMILY"
+  const [forecastFilter, setForecastFilter] = useState<"ALL" | "TOPIC" | "FAMILY">("ALL");
 
   // Real backend intelligence states
   const [predictionsData, setPredictionsData] = useState<any>(null);
@@ -51,21 +64,87 @@ export default function DashboardPage() {
   const [isLoadingIntelligence, setIsLoadingIntelligence] = useState<boolean>(true);
   const [intelligenceError, setIntelligenceError] = useState<string | null>(null);
 
-  // Load study context on client mount
+  // 1. Initial Load: Load branches & initialize from StudyContext / URL params
   useEffect(() => {
-    setIsClient(true);
-    const ctx = getStudyContext();
-    if (ctx) {
-      setStudyContext(ctx);
-      if (ctx.course_id && eligibleCourses.some((c) => c.id === ctx.course_id)) {
-        setSelectedCourseId(ctx.course_id);
-      }
-      if (ctx.assessment_cycle) {
-        setSelectedCycle(ctx.assessment_cycle);
+    let isMounted = true;
+
+    async function initAcademicContext() {
+      try {
+        const branchList = await getCurriculumBranches();
+        if (!isMounted) return;
+        setBranches(branchList);
+
+        const ctx = getStudyContext();
+        setStudyContext(ctx);
+
+        // Check URL search params for deep linking
+        const urlParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+        const targetCourseId = urlParams?.get("course_id") || urlParams?.get("course");
+        const targetCycle = urlParams?.get("cycle") || urlParams?.get("assessment_cycle");
+
+        let initialBranch = "Computer Science and Engineering";
+        let initialSemester = 1;
+        let initialCourseId = eligibleCourses[0]?.id || 1;
+        let initialCycle = "ENDSEM";
+
+        if (ctx?.branch && branchList.includes(ctx.branch)) {
+          initialBranch = ctx.branch;
+        }
+        if (ctx?.semester) {
+          initialSemester = ctx.semester;
+        }
+        if (ctx?.course_id && eligibleCourses.some((c) => c.id === ctx.course_id)) {
+          initialCourseId = ctx.course_id;
+        }
+        if (ctx?.assessment_cycle) {
+          initialCycle = ctx.assessment_cycle;
+        }
+
+        // Deep link override if URL params present
+        if (targetCourseId) {
+          const numId = Number(targetCourseId);
+          const found = !isNaN(numId) ? findCurriculumSubjectByCourseId(numId) : null;
+          if (found) {
+            initialBranch = found.branch;
+            initialSemester = found.semester;
+            initialCourseId = found.subject.course_id || numId;
+          } else {
+            const matchedCatalog = eligibleCourses.find(
+              (c) =>
+                String(c.id) === targetCourseId ||
+                c.code.toLowerCase() === targetCourseId.toLowerCase() ||
+                c.canonicalCode.toLowerCase() === targetCourseId.toLowerCase()
+            );
+            if (matchedCatalog) {
+              initialCourseId = matchedCatalog.id;
+            }
+          }
+        }
+
+        if (targetCycle && ["ALL", "ENDSEM", "CT1", "CT2"].includes(targetCycle.toUpperCase())) {
+          initialCycle = targetCycle.toUpperCase();
+        }
+
+        setSelectedBranch(initialBranch);
+        const semList = await getCurriculumSemesters(initialBranch);
+        if (!isMounted) return;
+        setSemesters(semList);
+        setSelectedSemester(initialSemester);
+
+        const subList = await getCurriculumSubjects(initialBranch, initialSemester);
+        if (!isMounted) return;
+        setSemesterSubjects(subList);
+
+        setSelectedCourseId(initialCourseId);
+        setSelectedCycle(initialCycle);
+      } catch (err) {
+        console.error("Failed to initialize academic context:", err);
       }
     }
 
-    const handleUpdate = () => {
+    initAcademicContext();
+
+    const handleContextUpdate = () => {
       const updated = getStudyContext();
       setStudyContext(updated);
       if (updated?.course_id && eligibleCourses.some((c) => c.id === updated.course_id)) {
@@ -76,14 +155,88 @@ export default function DashboardPage() {
       }
     };
 
-    window.addEventListener("markmint:study_context_updated", handleUpdate);
-    window.addEventListener("markmint:study_context_cleared", handleUpdate);
+    window.addEventListener("markmint:study_context_updated", handleContextUpdate);
+    window.addEventListener("markmint:study_context_cleared", handleContextUpdate);
     return () => {
-      window.removeEventListener("markmint:study_context_updated", handleUpdate);
-      window.removeEventListener("markmint:study_context_cleared", handleUpdate);
+      isMounted = false;
+      window.removeEventListener("markmint:study_context_updated", handleContextUpdate);
+      window.removeEventListener("markmint:study_context_cleared", handleContextUpdate);
     };
   }, [eligibleCourses]);
 
+  // Handle Branch change
+  const handleBranchChange = async (newBranch: string) => {
+    setSelectedBranch(newBranch);
+    try {
+      const semList = await getCurriculumSemesters(newBranch);
+      setSemesters(semList);
+      const nextSem = semList.includes(selectedSemester) ? selectedSemester : semList[0] || 1;
+      setSelectedSemester(nextSem);
+
+      const subList = await getCurriculumSubjects(newBranch, nextSem);
+      setSemesterSubjects(subList);
+
+      // Check if current course exists in new semester
+      const existingMatch = subList.find((s) => s.course_id === selectedCourseId);
+      if (existingMatch && existingMatch.course_id) {
+        syncContext(newBranch, nextSem, existingMatch.course_id, existingMatch.subject_name, existingMatch.canonical_code);
+      } else {
+        const firstWithExams = subList.find((s) => s.has_exams && s.course_id);
+        const fallback = firstWithExams || subList.find((s) => s.course_id) || null;
+        if (fallback && fallback.course_id) {
+          setSelectedCourseId(fallback.course_id);
+          syncContext(newBranch, nextSem, fallback.course_id, fallback.subject_name, fallback.canonical_code);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to update branch:", err);
+    }
+  };
+
+  // Handle Semester change
+  const handleSemesterChange = async (newSem: number) => {
+    setSelectedSemester(newSem);
+    try {
+      const subList = await getCurriculumSubjects(selectedBranch, newSem);
+      setSemesterSubjects(subList);
+
+      // Check if current course is offered in this semester
+      const existingMatch = subList.find((s) => s.course_id === selectedCourseId);
+      if (existingMatch && existingMatch.course_id) {
+        syncContext(selectedBranch, newSem, existingMatch.course_id, existingMatch.subject_name, existingMatch.canonical_code);
+      } else {
+        const firstWithExams = subList.find((s) => s.has_exams && s.course_id);
+        const fallback = firstWithExams || subList.find((s) => s.course_id) || null;
+        if (fallback && fallback.course_id) {
+          setSelectedCourseId(fallback.course_id);
+          syncContext(selectedBranch, newSem, fallback.course_id, fallback.subject_name, fallback.canonical_code);
+        }
+      }
+    } catch (err) {
+      console.error("Failed to update semester:", err);
+    }
+  };
+
+  // Helper to sync changes to persistent StudyContext
+  const syncContext = (
+    branch: string,
+    semester: number,
+    courseId: number,
+    courseName?: string,
+    courseCode?: string | null
+  ) => {
+    const courseObj = eligibleCourses.find((c) => c.id === courseId);
+    updateStudyContext({
+      branch,
+      semester,
+      course_id: courseId,
+      course_name: courseName || courseObj?.name || "",
+      course_code: courseCode || courseObj?.canonicalCode || courseObj?.code || "",
+      assessment_cycle: selectedCycle,
+    });
+  };
+
+  // Active course object from catalog
   const currentCourse: CourseCatalogItem = useMemo(() => {
     return eligibleCourses.find((c) => c.id === selectedCourseId) || eligibleCourses[0];
   }, [eligibleCourses, selectedCourseId]);
@@ -126,12 +279,7 @@ export default function DashboardPage() {
     setSelectedCourseId(courseId);
     const target = eligibleCourses.find((c) => c.id === courseId);
     if (target) {
-      updateStudyContext({
-        course_id: target.id,
-        course_name: target.name,
-        course_code: target.code,
-        assessment_cycle: selectedCycle,
-      });
+      syncContext(selectedBranch, selectedSemester, target.id, target.name, target.canonicalCode || target.code);
     }
   };
 
@@ -141,19 +289,29 @@ export default function DashboardPage() {
       updateStudyContext({
         course_id: currentCourse.id,
         course_name: currentCourse.name,
-        course_code: currentCourse.code,
+        course_code: currentCourse.canonicalCode || currentCourse.code,
         assessment_cycle: cycle,
       });
     }
   };
 
-  // Study progress metrics from context
-  const completedTaskCount = useMemo(() => {
-    if (!studyContext?.task_statuses) return 0;
-    return Object.values(studyContext.task_statuses).filter((s) => s === "COMPLETED").length;
-  }, [studyContext]);
+  // Quick switcher that also auto-resolves branch and semester if necessary
+  const handleQuickCourseSwitch = (courseId: number) => {
+    setSelectedCourseId(courseId);
+    const found = findCurriculumSubjectByCourseId(courseId);
+    if (found) {
+      setSelectedBranch(found.branch);
+      setSelectedSemester(found.semester);
+      syncContext(found.branch, found.semester, courseId, found.subject.subject_name, found.subject.canonical_code);
+    } else {
+      const target = eligibleCourses.find((c) => c.id === courseId);
+      if (target) {
+        syncContext(selectedBranch, selectedSemester, target.id, target.name, target.canonicalCode || target.code);
+      }
+    }
+  };
 
-  // Normalized assessment cycle display naming: All, CT1, CT2, End Semester
+  // Normalized assessment cycle display naming
   const cycleDisplayLabel = useMemo(() => {
     switch (selectedCycle) {
       case "ENDSEM":
@@ -163,35 +321,80 @@ export default function DashboardPage() {
       case "CT2":
         return "CT2";
       default:
-        return "All";
+        return "All Assessments";
     }
   }, [selectedCycle]);
 
-  // Top high-yield topics from real predictions or catalog fallback
-  const topForecastTopics = useMemo(() => {
+  // Structured Forecast Output: topics and question families
+  const allForecastItems = useMemo(() => {
     if (predictionsData?.predictions && Array.isArray(predictionsData.predictions) && predictionsData.predictions.length > 0) {
-      return predictionsData.predictions.slice(0, 4);
+      return predictionsData.predictions.map((p: any, idx: number) => {
+        const isFamily = p.family_id != null || (p.repetition_type && p.repetition_type !== "NONE");
+        const papersWithItem = p.papers_with_family || p.papers_with_topic || p.papers_with_item || p.distinct_paper_count || p.historyCount || 1;
+        const totalPapers = p.papers_analyzed || dnaData?.sample_size?.papers || currentCourse.paperCount || 1;
+        const coverageRatio = p.paper_coverage != null ? p.paper_coverage : totalPapers > 0 ? papersWithItem / totalPapers : 0.5;
+
+        return {
+          rank: p.rank || idx + 1,
+          name: p.name,
+          isFamily,
+          repetition_type: p.repetition_type || (isFamily ? "EXACT" : null),
+          confidence: p.confidence || (coverageRatio >= 0.7 ? "HIGH" : "MEDIUM"),
+          papersWithItem,
+          totalPapers,
+          paperCoverage: coverageRatio,
+          historicalOccurrences: p.historical_occurrences || p.historyCount || 1,
+          totalMarksObserved: p.total_marks_observed != null ? Math.round(p.total_marks_observed) : null,
+          explanation: p.explanation || (isFamily
+            ? `Exact verbatim repeat family observed across historical examination papers.`
+            : `Consistently tested syllabus area with documented examination frequency.`)
+        };
+      });
     }
-    return (currentCourse?.highYieldTopics || []).slice(0, 4).map((hyt, idx) => ({
+
+    // Fallback from catalog
+    return (currentCourse?.highYieldTopics || []).map((hyt, idx) => ({
       rank: idx + 1,
       name: hyt.topic,
+      isFamily: false,
+      repetition_type: null,
       confidence: "MEDIUM",
-      papers_with_topic: hyt.paperCount,
-      papers_analyzed: currentCourse.paperCount,
-      paper_coverage: currentCourse.paperCount > 0 ? (hyt.paperCount / currentCourse.paperCount) : 0.6,
-      historical_occurrences: hyt.questionCount,
-      total_marks_observed: null,
+      papersWithItem: hyt.paperCount,
+      totalPapers: currentCourse.paperCount,
+      paperCoverage: currentCourse.paperCount > 0 ? hyt.paperCount / currentCourse.paperCount : 0.6,
+      historicalOccurrences: hyt.questionCount,
+      totalMarksObserved: null,
       explanation: `Documented across ${hyt.paperCount} historical examination papers.`
     }));
-  }, [predictionsData, currentCourse]);
+  }, [predictionsData, dnaData, currentCourse]);
 
-  // Compact historical evidence counters
-  const totalArchivedPapers = dnaData?.sample_size?.papers || currentCourse.paperCount;
-  const totalAnalyzedQuestions = dnaData?.sample_size?.questions || currentCourse.questionCount;
+  // Filtered forecast items based on tab selector
+  const displayedForecastItems = useMemo(() => {
+    if (forecastFilter === "TOPIC") {
+      return allForecastItems.filter((item: any) => !item.isFamily).slice(0, 4);
+    }
+    if (forecastFilter === "FAMILY") {
+      return allForecastItems.filter((item: any) => item.isFamily).slice(0, 4);
+    }
+    return allForecastItems.slice(0, 4);
+  }, [allForecastItems, forecastFilter]);
+
+  // Compact historical evidence counters with clear scope separation
+  const scopePapersCount = dnaData?.sample_size?.papers || currentCourse.paperCount;
+  const scopeQuestionsCount = dnaData?.sample_size?.questions || currentCourse.questionCount;
+  const totalCourseExamsCount = currentCourse.paperCount;
   const verifiedYears = dnaData?.sample_size?.years || [];
   const yearsSummary = verifiedYears.length > 0
-    ? `${verifiedYears.length} Verified Years (${verifiedYears[0]}–${verifiedYears[verifiedYears.length - 1]})`
-    : `${currentCourse.paperCount} Papers Archived`;
+    ? `${verifiedYears.length} verified years (${verifiedYears[0]}–${verifiedYears[verifiedYears.length - 1]})`
+    : `${currentCourse.paperCount} papers archived`;
+
+  // Question formats counter (proper grammar & semantic clarity)
+  const questionTypesCount = dnaData?.question_types?.length || 0;
+  const questionFormatsLabel = questionTypesCount === 1
+    ? "1 format represented"
+    : questionTypesCount > 1
+    ? `${questionTypesCount} formats represented`
+    : "Observed question formats";
 
   // Cognitive demand distribution summary
   const cognitiveDemandSummary = useMemo(() => {
@@ -210,14 +413,20 @@ export default function DashboardPage() {
   // Recurrence summary
   const exactRepetitionCount = dnaData?.repetition?.exact_count || 0;
 
+  // Study progress metrics from context
+  const completedTaskCount = useMemo(() => {
+    if (!studyContext?.task_statuses) return 0;
+    return Object.values(studyContext.task_statuses).filter((s) => s === "COMPLETED").length;
+  }, [studyContext]);
+
   // Next topic to continue
-  const continueTopicName = studyContext?.last_topic_name || topForecastTopics[0]?.name || "First High-Yield Topic";
+  const continueTopicName = studyContext?.last_topic_name || allForecastItems[0]?.name || "First High-Yield Topic";
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-accent/20">
       <Navbar />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-6 md:py-8 space-y-6 md:space-y-8">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-6 md:py-8 space-y-6">
         {/* Authentic Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-muted-foreground">
           <Link href="/" className="hover:text-foreground transition-colors">
@@ -227,9 +436,9 @@ export default function DashboardPage() {
           <span className="text-foreground font-medium">Dashboard</span>
         </nav>
 
-        {/* 1. MintAI Header & Active Study Context Selector */}
+        {/* 1. ACADEMIC CONTEXT SELECTOR & EVIDENCE BANNER */}
         <div className="bg-card border border-border/80 rounded-2xl p-5 md:p-6 shadow-xs space-y-4">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-semibold text-accent uppercase tracking-wider">
                 <BrainCircuit className="w-3.5 h-3.5" />
@@ -238,104 +447,196 @@ export default function DashboardPage() {
               <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
                 Your Exam Intelligence
               </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                Evidence-based historical analysis and predictive exam forecasting for SRMIST courses.
-              </p>
             </div>
 
-            {/* Evidence Volume Badge */}
+            {/* Scope Evidence Transparency Banner */}
             <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/20 border border-border/60 rounded-xl px-3.5 py-2 self-start md:self-auto">
               <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
               <span>
-                <strong className="text-foreground font-semibold">{totalArchivedPapers}</strong> historical exams &bull;{" "}
-                <strong className="text-foreground font-semibold">{totalAnalyzedQuestions}</strong> questions &bull;{" "}
-                <strong className="text-foreground font-semibold">{currentCourse.units.length}</strong> syllabus units
+                Evidence: <strong className="text-foreground font-semibold">{scopePapersCount}</strong> historical papers •{" "}
+                <strong className="text-foreground font-semibold">{scopeQuestionsCount}</strong> questions •{" "}
+                <strong className="text-foreground font-semibold">{currentCourse.units?.length || 5}</strong> syllabus units
               </span>
             </div>
           </div>
 
-          {/* Context Selector Bar: Course + Assessment Target */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-border/50">
-            <div className="flex flex-wrap items-center gap-3">
-              {/* Course Selector */}
-              <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-accent shrink-0" />
-                <label htmlFor="dashboard-course-select" className="text-xs font-semibold text-foreground whitespace-nowrap">
-                  Course:
-                </label>
-                <select
-                  id="dashboard-course-select"
-                  value={selectedCourseId}
-                  onChange={(e) => handleCourseChange(Number(e.target.value))}
-                  className="bg-background border border-border rounded-lg px-3 py-1.5 text-xs font-semibold text-foreground focus:ring-2 focus:ring-accent focus:outline-none min-w-[240px] sm:min-w-[280px] shadow-xs"
-                >
+          {/* Academic Context Selector Bar: Branch -> Semester -> Course -> Assessment */}
+          <div className="pt-3 border-t border-border/50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* 1. Branch / Programme */}
+            <div className="space-y-1">
+              <label htmlFor="academic-branch-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                Branch / Programme
+              </label>
+              <select
+                id="academic-branch-select"
+                value={selectedBranch}
+                onChange={(e) => handleBranchChange(e.target.value)}
+                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
+              >
+                {branches.map((b) => (
+                  <option key={b} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 2. Semester */}
+            <div className="space-y-1">
+              <label htmlFor="academic-semester-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                Semester
+              </label>
+              <select
+                id="academic-semester-select"
+                value={selectedSemester}
+                onChange={(e) => handleSemesterChange(Number(e.target.value))}
+                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
+              >
+                {semesters.map((s) => (
+                  <option key={s} value={s}>
+                    Semester {s}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* 3. Course */}
+            <div className="space-y-1">
+              <label htmlFor="academic-course-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                Course
+              </label>
+              <select
+                id="academic-course-select"
+                value={selectedCourseId}
+                onChange={(e) => handleCourseChange(Number(e.target.value))}
+                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs font-mono"
+              >
+                {/* Prioritize subjects in the selected semester */}
+                {semesterSubjects.length > 0 && (
+                  <optgroup label={`Semester ${selectedSemester} Curriculum`}>
+                    {semesterSubjects.map((sub) => {
+                      const matchedCatalog = eligibleCourses.find((c) => c.id === sub.course_id);
+                      const targetId = sub.course_id || (matchedCatalog ? matchedCatalog.id : null);
+                      if (!targetId) return null;
+                      return (
+                        <option key={`sem-${sub.curriculum_id}`} value={targetId}>
+                          {sub.canonical_code ? `[${sub.canonical_code}] ` : ""}{sub.subject_name}{sub.has_exams ? "" : " (Awaiting Papers)"}
+                        </option>
+                      );
+                    })}
+                  </optgroup>
+                )}
+                <optgroup label="All Verified Engineering Courses">
                   {eligibleCourses.map((c) => (
-                    <option key={c.id} value={c.id}>
+                    <option key={`all-${c.id}`} value={c.id}>
                       {c.canonicalCode ? `[${c.canonicalCode}] ` : ""}{c.name}
                     </option>
                   ))}
-                </select>
-              </div>
-
-              {/* Assessment Cycle Selector: Normalized Naming (All, CT1, CT2, End Semester) */}
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-muted-foreground whitespace-nowrap font-medium">Target:</span>
-                <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/20 text-xs">
-                  {[
-                    { key: "ENDSEM", label: "End Semester" },
-                    { key: "CT1", label: "CT1" },
-                    { key: "CT2", label: "CT2" },
-                    { key: "ALL", label: "All" }
-                  ].map((cycle) => (
-                    <button
-                      key={cycle.key}
-                      onClick={() => handleCycleChange(cycle.key)}
-                      className={`px-3 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                        selectedCycle === cycle.key
-                          ? "bg-accent text-accent-foreground font-semibold shadow-xs"
-                          : "text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      {cycle.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                </optgroup>
+              </select>
             </div>
 
-            {/* Quick Link to Forecast */}
-            <Link
-              href={`/mintai?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline shrink-0"
-            >
-              <span>Full Forecast View</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            {/* 4. Assessment Target */}
+            <div className="space-y-1">
+              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                Target Assessment
+              </span>
+              <div className="grid grid-cols-4 rounded-lg border border-border p-0.5 bg-muted/20 text-xs text-center">
+                {[
+                  { key: "ENDSEM", label: "EndSem" },
+                  { key: "CT1", label: "CT1" },
+                  { key: "CT2", label: "CT2" },
+                  { key: "ALL", label: "All" }
+                ].map((cycle) => (
+                  <button
+                    key={cycle.key}
+                    type="button"
+                    onClick={() => handleCycleChange(cycle.key)}
+                    className={`py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                      selectedCycle === cycle.key
+                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {cycle.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Scope Resolution Context Line */}
+          <div className="text-[11px] text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t border-border/40">
+            <span>
+              Selected target: <strong className="text-foreground font-semibold">{cycleDisplayLabel}</strong> ({scopePapersCount} papers, {scopeQuestionsCount} questions)
+            </span>
+            <span className="text-border">•</span>
+            <span>
+              Course archive: <strong className="text-foreground font-semibold">{totalCourseExamsCount}</strong> total assessments across all cycles
+            </span>
+            <span className="text-border">•</span>
+            <span>
+              Syllabus scope: <strong className="text-foreground font-semibold">{currentCourse.units?.length || 5}</strong> verified units
+            </span>
           </div>
         </div>
 
         {/* 2. PRIMARY OUTPUT: YOUR MINTAI FORECAST */}
-        <section className="bg-card border-2 border-accent/20 rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+        <section className="bg-card border-2 border-accent/25 rounded-2xl p-5 md:p-7 shadow-sm space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-border/50">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider">
                 <Sparkles className="w-4 h-4" />
                 <span>Primary Intelligence Forecast</span>
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">
                 Your MintAI Forecast
               </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                High-yield topics calibrated from verified historical exam papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
+              <p className="text-xs text-muted-foreground">
+                High-yield topics and recurring question signals calibrated from verified past papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
               </p>
             </div>
 
-            <div className="flex items-center gap-2 self-start sm:self-auto">
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+              {/* Filter pills: All | High-Yield Topics | Recurring Questions */}
+              <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/20 text-xs">
+                <button
+                  type="button"
+                  onClick={() => setForecastFilter("ALL")}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                    forecastFilter === "ALL"
+                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  All Signals
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setForecastFilter("TOPIC")}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                    forecastFilter === "TOPIC"
+                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Topics
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setForecastFilter("FAMILY")}
+                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                    forecastFilter === "FAMILY"
+                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Questions
+                </button>
+              </div>
+
               <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-accent/15 text-accent border border-accent/20">
                 Target: {cycleDisplayLabel}
-              </span>
-              <span className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-secondary text-secondary-foreground border border-border">
-                {topForecastTopics.length} High-Yield Topics
               </span>
             </div>
           </div>
@@ -346,50 +647,64 @@ export default function DashboardPage() {
               <Loader2 className="w-6 h-6 animate-spin text-accent" />
               <span className="text-xs font-medium">Calibrating historical exam predictions...</span>
             </div>
+          ) : displayedForecastItems.length === 0 ? (
+            <div className="p-8 text-center rounded-xl bg-muted/10 border border-border/60 space-y-2">
+              <p className="text-sm font-semibold text-foreground">No specific forecast signals found for this filter.</p>
+              <p className="text-xs text-muted-foreground">Try selecting &ldquo;All Signals&rdquo; or changing the assessment cycle.</p>
+            </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                {topForecastTopics.map((topic: any, idx: number) => {
-                  const isHighSignal = topic.confidence === "HIGH" || (topic.paper_coverage && topic.paper_coverage >= 0.7);
+                {displayedForecastItems.map((item: any, idx: number) => {
+                  const isHighSignal = item.confidence === "HIGH" || item.paperCoverage >= 0.7;
                   return (
                     <div
-                      key={topic.name || idx}
+                      key={item.name || idx}
                       className="p-4 rounded-xl bg-background border border-border/80 hover:border-accent/40 transition-all flex flex-col justify-between gap-3 shadow-2xs group"
                     >
                       <div className="space-y-2">
+                        {/* Header: Rank + Signal Badges */}
                         <div className="flex items-center justify-between gap-2">
                           <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-accent/15 text-accent font-mono text-xs font-bold">
-                            #{topic.rank || idx + 1}
+                            #{item.rank || idx + 1}
                           </span>
-                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
-                            isHighSignal
-                              ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
-                              : "bg-accent/10 text-accent border-accent/20"
-                          }`}>
-                            {isHighSignal ? "High Historical Signal" : "Moderate Historical Signal"}
-                          </span>
+                          <div className="flex items-center gap-1.5">
+                            {item.isFamily && (
+                              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground border border-border">
+                                {item.repetition_type === "EXACT" ? "Exact Repeat Family" : "Recurring Question"}
+                              </span>
+                            )}
+                            <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
+                              isHighSignal
+                                ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
+                                : "bg-accent/10 text-accent border-accent/20"
+                            }`}>
+                              {isHighSignal ? "Strong Historical Signal" : "Moderate Historical Signal"}
+                            </span>
+                          </div>
                         </div>
 
+                        {/* Title / Question text with LaTeX MathText Rendering */}
                         <div>
-                          <h3 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors line-clamp-1">
-                            {topic.name}
-                          </h3>
-                          <p className="text-xs text-muted-foreground pt-0.5 line-clamp-1">
-                            {topic.explanation || `Appeared across ${topic.papers_with_topic || topic.historyCount || 0} archived exams.`}
+                          <div className="text-sm font-bold text-foreground group-hover:text-accent transition-colors line-clamp-2">
+                            <MathText content={item.name} inlineOnly />
+                          </div>
+                          <p className="text-xs text-muted-foreground pt-1 line-clamp-2">
+                            {item.explanation}
                           </p>
                         </div>
                       </div>
 
-                      {/* Evidence Proof Line */}
+                      {/* Evidence Proof Line: Historical Evidence & Marks Observed */}
                       <div className="pt-2 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
                         <span>
-                          {topic.papers_with_topic && topic.papers_analyzed
-                            ? `Appeared in ${topic.papers_with_topic} of ${topic.papers_analyzed} papers (${Math.round((topic.paper_coverage || 0) * 100)}%)`
-                            : `${topic.historical_occurrences || topic.historyCount || 1} historical questions`}
+                          {item.papersWithItem && item.totalPapers
+                            ? `Historical evidence: ${item.papersWithItem} of ${item.totalPapers} ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
+                            : `${item.historicalOccurrences} historical occurrences`}
                         </span>
-                        {topic.total_marks_observed && (
+                        {item.totalMarksObserved != null && (
                           <span className="font-semibold text-foreground">
-                            {Math.round(topic.total_marks_observed)} Marks
+                            {item.totalMarksObserved} marks observed historically
                           </span>
                         )}
                       </div>
@@ -398,8 +713,8 @@ export default function DashboardPage() {
                 })}
               </div>
 
-              {/* Primary Call to Action */}
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-4">
+              {/* Single Clean Call to Action for Full Forecast */}
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-xs text-muted-foreground flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
                   <span>
@@ -409,28 +724,28 @@ export default function DashboardPage() {
 
                 <Link
                   href={`/mintai?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-                  className="w-full sm:w-auto px-6 py-3 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs"
                 >
-                  <span>Open Full Intelligence Forecast</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Open Full Forecast</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
           )}
         </section>
 
-        {/* 3. SUPPORTING EVIDENCE: WHY MINTAI IS SHOWING THIS */}
-        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4">
+        {/* 3. SUPPORTING EVIDENCE: WHY MINTAI SHOWS THIS FORECAST */}
+        <section className="bg-card border border-border rounded-2xl p-5 md:p-6 shadow-sm space-y-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
               <HelpCircle className="w-4 h-4 text-accent" />
               <span>Evidence Foundations</span>
             </div>
-            <h2 className="text-xl font-bold tracking-tight text-foreground">
+            <h2 className="text-lg md:text-xl font-bold tracking-tight text-foreground">
               Why MintAI Shows This Forecast
             </h2>
             <p className="text-xs text-muted-foreground">
-              Documented institutional signals backing the high-yield topic ranking.
+              Empirical patterns across previous examination papers backing this forecast.
             </p>
           </div>
 
@@ -445,7 +760,7 @@ export default function DashboardPage() {
                 {exactRepetitionCount > 0 ? `${exactRepetitionCount} Repeat Questions` : "Factual Repetition"}
               </div>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Recurring question families identified across verified examination sessions.
+                Repeated across previous papers in verified examination sessions.
               </p>
             </div>
 
@@ -453,31 +768,31 @@ export default function DashboardPage() {
             <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
               <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 text-accent" />
-                <span>Assessment Blueprint</span>
+                <span>Assessment Structure</span>
               </div>
               <div className="text-lg font-bold text-foreground">
                 {dnaData?.assessment_blueprints?.[0]?.representative_blueprint?.sections?.length
                   ? `${dnaData.assessment_blueprints[0].representative_blueprint.sections.length}-Part Structure`
-                  : "Verified Blueprint"}
+                  : "Verified Structure"}
               </div>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Conforms to documented institutional sectioning, marks distribution, and choice rules.
+                Matches patterns in how this assessment has historically been structured.
               </p>
             </div>
 
-            {/* Tile 3: Cognitive Demand Profile */}
+            {/* Tile 3: Question Format & Modality */}
             <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
               <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
                 <BarChart3 className="w-3.5 h-3.5 text-accent" />
-                <span>Cognitive Modality</span>
+                <span>Question Format</span>
               </div>
               <div className="text-lg font-bold text-foreground">
                 {cognitiveDemandSummary
-                  ? `${cognitiveDemandSummary.recallPct}% Recall &bull; ${cognitiveDemandSummary.proceduralPct}% Calc`
-                  : "Empirical Demand"}
+                  ? `${cognitiveDemandSummary.recallPct}% Recall • ${cognitiveDemandSummary.proceduralPct}% Calc`
+                  : "Empirical Demands"}
               </div>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Observable question demands derived from wording, calculation, and proof modalities.
+                Shows how this topic has typically been asked (Calculation vs Recall).
               </p>
             </div>
 
@@ -485,125 +800,125 @@ export default function DashboardPage() {
             <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
               <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                <span>Syllabus Calibration</span>
+                <span>Syllabus Coverage</span>
               </div>
               <div className="text-lg font-bold text-foreground">
-                {currentCourse.units.length} Units Covered
+                {currentCourse.units?.length || 5} Units In Scope
               </div>
               <p className="text-[11px] text-muted-foreground leading-relaxed">
-                Calibrated to the official SRMIST syllabus curriculum without unmapped topics.
+                Appears within the selected syllabus scope without unmapped topics.
               </p>
             </div>
           </div>
         </section>
 
-        {/* 4. HISTORICAL EXAM EVIDENCE (EXAM DNA PREVIEW) */}
-        <section className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+        {/* 4. HISTORICAL EXAM EVIDENCE (COMPACT PREVIEW) */}
+        <section className="bg-card border border-border rounded-2xl p-5 md:p-6 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <div className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-wider">
-                <Dna className="w-4 h-4" />
-                <span>Historical Exam DNA</span>
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent uppercase tracking-wider">
+                <Dna className="w-3.5 h-3.5" />
+                <span>Historical Exam Evidence</span>
               </div>
-              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">
-                Historical Exam Evidence
+              <h2 className="text-lg md:text-xl font-bold tracking-tight text-foreground">
+                Empirical Evidence Archive
               </h2>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                The factual past-paper record backing MintAI&apos;s forecasts for <strong className="text-foreground">{currentCourse.name}</strong>.
+              <p className="text-xs text-muted-foreground">
+                Verified past-paper records backing MintAI forecasts for {currentCourse.name}.
               </p>
             </div>
 
             <Link
               href={`/mintai/exam-dna?course=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/60 text-xs font-semibold transition-all shadow-2xs self-start sm:self-auto"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border/60 text-xs font-semibold transition-all shadow-2xs self-start sm:self-auto shrink-0"
             >
               <span>Explore Historical Evidence</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
-              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Exam Corpus Volume</span>
-              <div className="text-xl font-bold text-foreground">
-                {totalArchivedPapers} Papers &bull; {totalAnalyzedQuestions} Questions
-              </div>
-              <p className="text-[11px] text-muted-foreground">
-                Zero synthetic questions. All evidence verified from institutional papers.
-              </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1">
+            <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 space-y-1">
+              <span className="text-[10px] font-mono uppercase text-muted-foreground block font-bold">Target Scope</span>
+              <span className="text-sm sm:text-base font-bold text-foreground block">
+                {scopePapersCount} Papers • {scopeQuestionsCount} Questions
+              </span>
+              <span className="text-[10px] text-muted-foreground block">
+                {totalCourseExamsCount} assessments in course archive
+              </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
-              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Chronology Verification</span>
-              <div className="text-xl font-bold text-foreground">
+            <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 space-y-1">
+              <span className="text-[10px] font-mono uppercase text-muted-foreground block font-bold">Verified Chronology</span>
+              <span className="text-sm sm:text-base font-bold text-foreground block">
                 {yearsSummary}
-              </div>
-              <p className="text-[11px] text-muted-foreground">
-                Temporal trends tracked across verified examination years with strict cutoff semantics.
-              </p>
+              </span>
+              <span className="text-[10px] text-muted-foreground block">
+                Historical cutoff semantics preserved
+              </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1">
-              <span className="text-[10px] font-mono uppercase font-bold text-muted-foreground">Question Format Archetypes</span>
-              <div className="text-xl font-bold text-foreground">
-                {dnaData?.question_types?.length ? `${dnaData.question_types.length} Question Types` : "MCQ & Descriptive"}
-              </div>
-              <p className="text-[11px] text-muted-foreground">
-                Categorized by short answer, numerical, algorithmic, and analytical proof questions.
-              </p>
+            <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 space-y-1">
+              <span className="text-[10px] font-mono uppercase text-muted-foreground block font-bold">Question Formats</span>
+              <span className="text-sm sm:text-base font-bold text-foreground block">
+                {questionFormatsLabel}
+              </span>
+              <span className="text-[10px] text-muted-foreground block">
+                Short answer, numerical, & analytical proof
+              </span>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 space-y-1">
+              <span className="text-[10px] font-mono uppercase text-muted-foreground block font-bold">Question Families</span>
+              <span className="text-sm sm:text-base font-bold text-foreground block">
+                {exactRepetitionCount > 0 ? `${exactRepetitionCount} Repeat Occurrences` : "Tracked Families"}
+              </span>
+              <span className="text-[10px] text-muted-foreground block">
+                Verbatim and semantic question recurrence
+              </span>
             </div>
           </div>
         </section>
 
-        {/* 5. EXECUTION LAYER: YOUR STUDY PROGRESS */}
-        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-xl">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-accent uppercase tracking-wider">
-              <Target className="w-4 h-4" />
-              <span>Study Execution</span>
+        {/* 5. EXECUTION LAYER: YOUR STUDY PLAN */}
+        <section className="bg-card border border-border rounded-2xl p-5 md:p-6 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-xl">
+            <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent uppercase tracking-wider">
+              <Target className="w-3.5 h-3.5" />
+              <span>Your Study Plan</span>
             </div>
-            <h2 className="text-xl font-bold tracking-tight text-foreground">
-              Your Study Progress
+            <h2 className="text-lg md:text-xl font-bold tracking-tight text-foreground">
+              Study Execution
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Move from exam analysis into an actual plan. Track topic checkoffs, practice historical question families, and review verified notes.
-            </p>
-
-            <div className="flex items-center gap-4 text-xs text-muted-foreground pt-1 flex-wrap">
+            <div className="flex items-center gap-3 text-xs text-muted-foreground pt-1 flex-wrap">
               <span className="flex items-center gap-1.5 text-foreground font-medium">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 {completedTaskCount} topics completed
               </span>
-              <span>&bull;</span>
+              <span>•</span>
               <span className="flex items-center gap-1.5 text-muted-foreground">
                 <Clock className="w-4 h-4 text-accent" />
-                Next: <strong className="text-foreground">{continueTopicName}</strong>
+                Next: <strong className="text-foreground"><MathText content={continueTopicName} inlineOnly /></strong>
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <Link
-              href={`/study-plan?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-              className="px-6 py-3 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center gap-2 shadow-xs"
-            >
-              <span>Continue Study Plan</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          <Link
+            href={`/study-plan?course_id=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+            className="px-5 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center justify-center gap-2 shadow-xs shrink-0 self-start sm:self-auto"
+          >
+            <span>Continue Study Plan</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </section>
 
-        {/* 6. Quick Course Switcher: Canonical Engineering Courses */}
-        <section className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-3">
-            <div>
-              <h2 className="text-sm font-bold text-foreground flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-accent" />
-                Quick Course Switcher
-              </h2>
-              <p className="text-[11px] text-muted-foreground">
-                Switch active course intelligence across common engineering subjects
-              </p>
+        {/* 6. QUICK COURSE SWITCHER (COMPACT PILLS) */}
+        <section className="bg-card/60 border border-border/80 rounded-2xl p-4 md:p-5 shadow-xs space-y-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <BookOpen className="w-4 h-4 text-accent" />
+              <span className="text-xs font-bold text-foreground">Quick Course Switcher:</span>
+              <span className="text-[11px] text-muted-foreground hidden sm:inline">Canonical engineering subjects</span>
             </div>
             <Link
               href="/courses"
@@ -614,35 +929,27 @@ export default function DashboardPage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="flex flex-wrap gap-2">
             {eligibleCourses.slice(0, 6).map((course) => {
               const isSelected = course.id === selectedCourseId;
               return (
                 <button
                   key={course.id}
-                  onClick={() => handleCourseChange(course.id)}
-                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
+                  type="button"
+                  onClick={() => handleQuickCourseSwitch(course.id)}
+                  className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all cursor-pointer flex items-center gap-2 ${
                     isSelected
-                      ? "bg-accent/10 border-accent/40 shadow-xs"
-                      : "bg-muted/20 border-border/60 hover:border-accent/30 hover:bg-muted/40"
+                      ? "bg-accent/15 border-accent text-foreground font-semibold shadow-2xs"
+                      : "bg-muted/20 border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/40 hover:border-accent/30"
                   }`}
                 >
-                  <div className="space-y-0.5">
-                    <span className="text-[9px] font-mono font-bold text-muted-foreground">
-                      {course.code}
-                    </span>
-                    <h3 className="text-xs font-bold text-foreground line-clamp-2 leading-snug">
-                      {course.name}
-                    </h3>
-                  </div>
-                  <div className="flex items-center justify-between text-[10px] text-muted-foreground pt-1 border-t border-border/40">
-                    <span>{course.paperCount} exams</span>
-                    {isSelected ? (
-                      <span className="font-bold text-accent">Active</span>
-                    ) : (
-                      <span>Switch &rarr;</span>
-                    )}
-                  </div>
+                  <span className="font-mono text-[10px] text-accent font-bold">
+                    {course.canonicalCode || course.code}
+                  </span>
+                  <span className="line-clamp-1">{course.name}</span>
+                  <span className="text-[10px] text-muted-foreground/80 font-mono">
+                    ({course.paperCount} exams)
+                  </span>
                 </button>
               );
             })}
@@ -650,7 +957,7 @@ export default function DashboardPage() {
         </section>
 
         {/* 7. Institutional Scope Notice */}
-        <div className="p-4 rounded-xl bg-muted/20 border border-border/40 text-xs text-muted-foreground flex items-start gap-2.5">
+        <div className="p-3.5 rounded-xl bg-muted/20 border border-border/40 text-xs text-muted-foreground flex items-start gap-2.5">
           <ShieldCheck className="w-4 h-4 text-accent shrink-0 mt-0.5" />
           <div className="space-y-0.5">
             <p className="font-semibold text-foreground text-[11px]">

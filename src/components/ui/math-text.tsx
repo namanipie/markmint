@@ -13,9 +13,12 @@ export function MathText({ content, className = "", inlineOnly = false }: MathTe
   const parts = useMemo(() => {
     if (!content) return [];
 
-    // Regex to match $$...$$, $...$, \[...\], and \(...\)
-    // Matches block math ($$...$$ or \[...\]) and inline math ($...$ or \(...\))
-    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\$[^\$\n]+?\$|\\\([\s\S]*?\\\))/g;
+    // Robust regex matching:
+    // 1. Block math: $$...$$ or \[...\]
+    // 2. Explicit LaTeX environments: \begin{...}...\end{...}
+    // 3. Inline math: \(...\) or $...$
+    // 4. Standalone LaTeX math commands: \frac{...}{...}, \sqrt{...}
+    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\begin\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\}[\s\S]*?\\end\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\}|\\\([\s\S]*?\\\)|(?<!\\)\$((?:\\\\|\\\$|[^\$])+?)(?<!\\)\$|\\(?:frac|sqrt)(?:\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})+(?:[\^_]\{?[a-zA-Z0-9+-]+\}?)?)/g;
 
     const tokens: { type: "text" | "inline-math" | "block-math"; value: string }[] = [];
     let lastIndex = 0;
@@ -40,15 +43,25 @@ export function MathText({ content, className = "", inlineOnly = false }: MathTe
           type: inlineOnly ? "inline-math" : "block-math",
           value: raw.slice(2, -2).trim(),
         });
-      } else if (raw.startsWith("$") && raw.endsWith("$")) {
+      } else if (raw.startsWith("\\begin{") && raw.includes("\\end{")) {
         tokens.push({
-          type: "inline-math",
-          value: raw.slice(1, -1).trim(),
+          type: inlineOnly ? "inline-math" : "block-math",
+          value: raw.trim(),
         });
       } else if (raw.startsWith("\\(") && raw.endsWith("\\)")) {
         tokens.push({
           type: "inline-math",
           value: raw.slice(2, -2).trim(),
+        });
+      } else if (raw.startsWith("$") && raw.endsWith("$")) {
+        tokens.push({
+          type: "inline-math",
+          value: raw.slice(1, -1).trim(),
+        });
+      } else {
+        tokens.push({
+          type: "inline-math",
+          value: raw.trim(),
         });
       }
 

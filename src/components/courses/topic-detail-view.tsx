@@ -269,7 +269,7 @@ export function TopicDetailView({ topic, siblingTopics = [] }: TopicDetailViewPr
                   </p>
                   <div className="flex items-center gap-2 text-[11px] text-muted-foreground font-mono">
                     <span>Year: {sq.year}</span>
-                    <span>&bull;</span>
+                    <span>•</span>
                     <span>Assessment: {sq.assessmentType}</span>
                   </div>
                 </div>

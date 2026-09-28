@@ -205,7 +205,7 @@ export function HistoricalAssessmentBlueprints({
               : activeCycle}
           </span>
           <span className="text-xs text-muted-foreground">
-            &bull; {filteredClusters.length} structure{filteredClusters.length !== 1 ? "s" : ""}, {totalAnalyzedPapers} paper{totalAnalyzedPapers !== 1 ? "s" : ""}
+            • {filteredClusters.length} structure{filteredClusters.length !== 1 ? "s" : ""}, {totalAnalyzedPapers} paper{totalAnalyzedPapers !== 1 ? "s" : ""}
           </span>
         </div>
 

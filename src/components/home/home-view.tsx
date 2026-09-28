@@ -43,7 +43,7 @@ export function HomeView() {
           <div className="w-full md:w-3/5 flex flex-col items-start">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MintAI v1.0 &bull; SRMIST First-Year Intelligence
+              MintAI v1.0 • SRMIST First-Year Intelligence
             </p>
             
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
@@ -200,7 +200,7 @@ export function HomeView() {
               >
                 Open MintAI Intelligence <ChevronRight className="w-3.5 h-3.5" />
               </Link>
-              <span className="text-muted-foreground text-xs">&bull;</span>
+              <span className="text-muted-foreground text-xs">•</span>
               <Link
                 href="/courses"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
@@ -296,7 +296,7 @@ export function HomeView() {
                   </h3>
                 </div>
                 <div className="pt-4 mt-4 border-t border-border/30 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>{c.papers} Papers &bull; {c.questions} Questions</span>
+                  <span>{c.papers} Papers • {c.questions} Questions</span>
                   <span className="text-accent font-medium group-hover:translate-x-0.5 transition-transform flex items-center">
                     Explore <ChevronRight className="w-3.5 h-3.5" />
                   </span>

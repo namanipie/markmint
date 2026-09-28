@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
+import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import { BackendCourse } from "@/lib/types";
 import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -34,10 +35,16 @@ export default function StudyIntelligencePage() {
       const courseList = Array.isArray(data) ? data : (data.items || data.courses || []);
       setCourses(courseList);
 
-      // Auto-select course if course_id or course query parameter is provided
+      // Auto-select course if course_id or course query parameter is provided or from StudyContext
       if (typeof window !== "undefined") {
         const params = new URLSearchParams(window.location.search);
-        const courseParam = params.get("course_id") || params.get("course");
+        let courseParam = params.get("course_id") || params.get("course");
+        if (!courseParam) {
+          const ctx = getStudyContext();
+          if (ctx?.course_id) {
+            courseParam = String(ctx.course_id);
+          }
+        }
         if (courseParam) {
           const matched = courseList.find((c: BackendCourse) => String(c.id) === courseParam || String(c.code).toLowerCase() === courseParam.toLowerCase());
           if (matched) {
@@ -74,6 +81,13 @@ export default function StudyIntelligencePage() {
     try {
       const courseObj = courses.find(c => String(c.id) === selectedCourse);
       setSelectedCourseObj(courseObj || null);
+      if (courseObj) {
+        updateStudyContext({
+          course_id: courseObj.id,
+          course_name: courseObj.name,
+          course_code: courseObj.code,
+        });
+      }
       const subject = courseObj ? courseObj.name : selectedCourse;
       
       const data = await getStudyPlan(subject);
@@ -253,7 +267,7 @@ export default function StudyIntelligencePage() {
               >
                 Inspect Forecast &rarr;
               </Link>
-              <span className="mx-1">&bull;</span>
+              <span className="mx-1">•</span>
               <Link
                 href={`/mintai/exam-dna?course=${selectedCourseObj.id}`}
                 className="font-semibold text-muted-foreground hover:text-foreground inline-flex items-center gap-1"

@@ -1440,7 +1440,7 @@ export default function MintAIPage() {
                     const priorityBand = priorityInfo?.priority || "MEDIUM";
                     const distinctPapers = p.distinct_paper_count ?? p.papers_with_topic ?? 0;
                     const totalPapers = p.papers_analyzed ?? snapshot.exam_history?.total_papers ?? 0;
-                    const marksStr = p.average_marks ? `~${p.average_marks} marks` : (p.total_marks_observed ? `~${Math.round(p.total_marks_observed)} marks` : p.marks_seen ? `~${Math.round(p.marks_seen)} marks` : "");
+                    const marksStr = p.average_marks ? `~${p.average_marks} marks typical` : (p.total_marks_observed ? `${Math.round(p.total_marks_observed)} marks observed historically` : p.marks_seen ? `${Math.round(p.marks_seen)} marks observed historically` : "");
 
                     let explanation = "";
                     if (distinctPapers >= 4) {
