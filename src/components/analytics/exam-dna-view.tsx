@@ -29,6 +29,7 @@ import { QuestionTypeChart } from "@/components/charts/question-type-chart";
 import { MarksDistributionChart } from "@/components/charts/marks-distribution-chart";
 import { TemporalUnitChart, TemporalChartRow, formatQuestionTypeName } from "@/components/charts/temporal-unit-chart";
 import { HistoricalFocusEvolution } from "@/components/analytics/historical-focus-evolution";
+import { HistoricalAssessmentBlueprints } from "@/components/analytics/historical-assessment-blueprints";
 
 interface ExamDNAViewProps {
   courseId: number | string;
@@ -669,6 +670,12 @@ export function ExamDNAView({
         topicHistoricalFootprints={dna.topic_historical_footprints}
         temporalTopicFocus={dna.temporal_topic_focus}
         syllabusUnits={dna.units}
+      />
+
+      {/* 3d. Historical Assessment Structure & Blueprints */}
+      <HistoricalAssessmentBlueprints
+        assessmentBlueprints={dna.assessment_blueprints}
+        selectedCycle={assessmentCycle}
       />
 
       {/* 4. Marks Distribution */}
