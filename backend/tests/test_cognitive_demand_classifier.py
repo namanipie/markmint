@@ -335,3 +335,53 @@ class TestCognitiveDemandClassifier:
         res = DeterministicCognitiveDemandClassifier.classify(text, question_type="Comparison / Distinction")
         assert res.demand == CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
         assert res.confidence == DemandConfidence.HIGH
+
+    # ------------------------------------------------------------------
+    # P. Hardened Edge-Case Regressions
+    # ------------------------------------------------------------------
+    def test_fill_in_the_blank_underscores(self):
+        mcq_text = (
+            "The Fermi level is _______\n"
+            "(A) An average value of all available energy levels\n"
+            "(B) An energy level at the top of the valence band\n"
+            "(C) The highest occupied level at 0K\n"
+            "(D) None of the above"
+        )
+        res = DeterministicCognitiveDemandClassifier.classify(mcq_text, question_type="Objective / MCQ")
+        assert res.demand == CognitiveDemand.RECALL_AND_CONCEPT
+        assert res.demand != CognitiveDemand.UNCLASSIFIED
+
+    def test_physical_difference_not_comparative(self):
+        mcq_text = (
+            "What should be the phase difference between two plane-polarized waves vibrating at right angles?\n"
+            "(A) 0\n"
+            "(B) pi/2\n"
+            "(C) pi\n"
+            "(D) 2pi"
+        )
+        res = DeterministicCognitiveDemandClassifier.classify(mcq_text, question_type="Objective / MCQ")
+        assert res.demand == CognitiveDemand.RECALL_AND_CONCEPT
+        assert res.demand != CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
+
+    def test_infinitive_derive_not_proof_task(self):
+        mcq_text = (
+            "In engineering design, what concept is used to derive final rigor from unsystematic methods?\n"
+            "(A) Epistemology\n"
+            "(B) Heuristics\n"
+            "(C) Verification\n"
+            "(D) Validation"
+        )
+        res = DeterministicCognitiveDemandClassifier.classify(mcq_text, question_type="Objective / MCQ")
+        assert res.demand == CognitiveDemand.RECALL_AND_CONCEPT
+        assert res.demand != CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
+
+    def test_programming_with_subordinate_calculation(self):
+        text = "Write a C program to find the roots of a quadratic equation."
+        res = DeterministicCognitiveDemandClassifier.classify(text, question_type="Programming & Implementation")
+        assert res.demand == CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN
+        assert any("programming" in s for s in res.signals)
+
+    def test_write_an_algorithm(self):
+        text = "Write an algorithm that takes in a two-dimensional array and computes all the row sums."
+        res = DeterministicCognitiveDemandClassifier.classify(text, question_type="Programming & Implementation")
+        assert res.demand == CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN

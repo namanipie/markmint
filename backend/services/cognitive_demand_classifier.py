@@ -84,11 +84,11 @@ class DeterministicCognitiveDemandClassifier:
 
     # 1. Regex patterns for Analytical Proof & Design
     RE_PROOF_DERIVATION = re.compile(
-        r'\b(?:derive\s+(?:the|an)\s+expression|derive\s+the\s+equation|derive\s+the\s+relation|derive\s+the\s+formula|'
-        r'derive\s+time\s+independent|derive\s+schrodinger|derive\s+hall\s+coefficient|derive\b|'
+        r'\b(?:derive\s+(?:the|an)\s+(?:expression|equation|relation|formula|model|schrodinger|time\s+independent|hall\s+coefficient|density\s+of\s+states|wave\s+equation)|'
+        r'(?:^|\n|;\s*|\.\s*|\bhence\s+)\s*derive\b|'
         r'state\s+and\s+prove|prove\s+that|show\s+that|demonstrate\s+that|'
         r'deduce\s+(?:the|an)\s+expression|deduce\s+(?:the|an)\s+relation|'
-        r'obtain\s+an\s+expression\s+for|establish\s+the\s+relation|'
+        r'obtain\s+(?:the|an)\s+expression\s+for|establish\s+the\s+relation|'
         r'verify\s+cayley\s*-?\s*hamilton|verify\s+(?:green\'?s?|stoke\'?s?|divergence|gauss\'?s?)\s+theorem|'
         r'verify\s+whether\s+the\s+function.*?is\s+harmonic|prove\s+or\s+disprove)\b',
         re.IGNORECASE
@@ -107,18 +107,25 @@ class DeterministicCognitiveDemandClassifier:
     RE_PROGRAMMING_IMPL = re.compile(
         r'\b(?:write\s+a\s+(?:c|python|java|cpp|c\+\+|shell|bash|sql)?\s*(?:program|code|query|queries|script|function|procedure|trigger)|'
         r'develop\s+a\s+(?:c|python|java|cpp)?\s*program|'
+        r'write\s+an\s+algorithm|write\s+(?:a\s+)?pseudocode|'
         r'implement\s+(?:an?\s+)?(?:algorithm|function|data\s+structure|stack|queue|linked\s+list|tree|graph))\b',
         re.IGNORECASE
     )
 
     RE_COMPARISON = re.compile(
         r'\b(?:distinguish\s+between|differentiate\s+between|difference\s+between|differences\s+between|'
-        r'compare\s+and\s+contrast|contrast\s+between|tabulate\s+the\s+differences?|comparison\s+between)\b',
+        r'compare\s+and\s+contrast|contrast\s+between|tabulate\s+the\s+differences?|comparison\s+between|'
+        r'(?:differentiate|distinguish)\s+[a-zA-Z0-9\s\-]+(?:\band\b|\bfrom\b))\b',
         re.IGNORECASE
     )
 
     RE_CALCULUS_DIFF = re.compile(
         r'\b(?:differentiate\s+.*?\s+with\s+respect\s+to|differentiate\s+w\.?r\.?t|differentiate\s+the\s+(?:following|function)|differential\s+calculus)\b',
+        re.IGNORECASE
+    )
+
+    RE_PHYSICAL_DIFF = re.compile(
+        r'\b(?:phase|potential|path|pressure|height|temperature|level)\s+difference\s+between\b',
         re.IGNORECASE
     )
 
@@ -133,7 +140,7 @@ class DeterministicCognitiveDemandClassifier:
     # 2. Regex patterns for Procedural Computation
     RE_NUMERICAL_DIRECTIVE = re.compile(
         r'\b(?:calculate|compute|find\s+the\s+value\s+of|determine\s+the\s+value\s+of|'
-        r'solve\s+(?:the\s+differential\s+equation|the\s+equation|the\s+system|the\s+initial\s+value|the\s+recurrence|for\s+[a-zA-Z])|'
+        r'solve\s+(?:the\s+(?:differential\s+)?equation|the\s+system|the\s+initial\s+value|the\s+recurrence|for\s+[a-zA-Z]|\(?\s*[a-zA-Z0-9\^D\(\)\'\"]+\s*[=\+\-\*]|y\'\'|y\')|'
         r'find\s+the\s+(?:eigen\s*values?|eigen\s*vectors?|rank|inverse|determinant|trace|roots?|general\s+solution|particular\s+integral|complementary\s+function|harmonic\s+conjugate|radius\s+of\s+convergence|maximum\s+and\s+minimum|dimensions)|'
         r'find\s+(?:the\s+)?(?:taylor|laurent|fourier|laplace|bilinear|envelope|series|expansion|map|transformation|analytic|harmonic)\b|find\s+f\(z\)|'
         r'find\s+the\s+(?:area|volume|perimeter|length|angle|slope|gradient|divergence|curl|laplacian|work|energy|force|velocity|acceleration|current|voltage|power|concentration|efficiency|impedance|resistance)|'
@@ -163,7 +170,7 @@ class DeterministicCognitiveDemandClassifier:
     # 3. Regex patterns for Recall & Concept
     RE_DEFINITION = re.compile(
         r'\b(?:define\b|give\s+the\s+definition\s+of|state\s+the\s+(?:principle|law|theorem|definition|rule|postulate|assumptions?)|'
-        r'what\s+is\s+meant\s+by|what\s+do\s+you\s+understand\s+by|state\s+true\s+or\s+false|fill\s+in\s+the\s+blank)\b',
+        r'what\s+is\s+meant\s+by|what\s+do\s+you\s+understand\s+by|state\s+true\s+or\s+false|fill\s+in\s+the\s+blank)\b|_{3,}',
         re.IGNORECASE
     )
 
@@ -210,11 +217,11 @@ class DeterministicCognitiveDemandClassifier:
         if len(clean) < 6:
             return True
         alpha_count = sum(1 for c in clean if c.isalpha())
-        # If low alpha count and not containing valid mathematical expression symbols
-        if alpha_count / len(clean) < 0.25 and not any(sym in clean for sym in ("\\", "$", "=", "+", "-", "*", "/")):
+        # If low alpha count and not containing valid mathematical expression symbols or fill-in underscores
+        if alpha_count / len(clean) < 0.25 and not any(sym in clean for sym in ("\\", "$", "=", "+", "-", "*", "/", "_")):
             return True
-        # Repetitive non-alpha noise (e.g. ^^^^^^, %%%%%)
-        if re.search(r'[\^\%\!\@\#\$\*\_]{5,}', clean):
+        # Repetitive non-alpha noise (e.g. ^^^^^^, %%%%%) - excludes fill-in blank underscores
+        if re.search(r'[\^\%\!\@\#\$\*]{5,}', clean):
             return True
         # Long consonant cluster noise without vowels
         if re.search(r'\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]{10,}\b', clean):
@@ -293,7 +300,8 @@ class DeterministicCognitiveDemandClassifier:
             matched[CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN].append(f"programming_implementation:{m.group(0)}")
         comp_match = cls.RE_COMPARISON.search(clean_text)
         calc_diff_match = cls.RE_CALCULUS_DIFF.search(clean_text)
-        if comp_match and not calc_diff_match:
+        phys_diff_match = cls.RE_PHYSICAL_DIFF.search(clean_text)
+        if comp_match and not calc_diff_match and not phys_diff_match:
             matched[CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN].append(f"comparison:{comp_match.group(0)}")
         if cls.RE_ANALYTICAL_EVAL.search(clean_text):
             m = cls.RE_ANALYTICAL_EVAL.search(clean_text)
@@ -443,9 +451,20 @@ class DeterministicCognitiveDemandClassifier:
 
         # Check for intra-prompt signal conflicts
         if len(matched_demands) > 1:
+            # Special case: If programming implementation is present (e.g. "Write a C program to calculate...", "Write an algorithm to compute..."),
+            # the arithmetic verb ("calculate", "compute", "find") specifies the software requirements, NOT a manual computation task.
+            if CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN in matched_demands and CognitiveDemand.PROCEDURAL_COMPUTATION in matched_demands:
+                has_prog = any(s.startswith("programming_implementation") for s in matched[CognitiveDemand.ANALYTICAL_PROOF_AND_DESIGN])
+                has_tracing = any(s.startswith("code_tracing") for s in matched[CognitiveDemand.PROCEDURAL_COMPUTATION])
+                if has_prog and not has_tracing:
+                    matched[CognitiveDemand.PROCEDURAL_COMPUTATION] = []
+                    matched_demands = [d for d in matched_demands if d != CognitiveDemand.PROCEDURAL_COMPUTATION]
+
             # Filter subordinate generic explanation opener if dominant proof or computation is present
             non_trivial_demands = set()
             for d, sigs in matched.items():
+                if not sigs:
+                    continue
                 if d == CognitiveDemand.RECALL_AND_CONCEPT and len(sigs) == 1 and any(s.startswith("explanation:explain") or s.startswith("explanation:discuss") for s in sigs):
                     continue
                 non_trivial_demands.add(d)
