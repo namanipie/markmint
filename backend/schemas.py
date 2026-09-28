@@ -1,4 +1,4 @@
-from typing import Generic, TypeVar, Optional, List, Any
+from typing import Generic, TypeVar, Optional, List, Any, Union
 from datetime import datetime
 from enum import Enum
 from pydantic import BaseModel, Field
@@ -643,3 +643,16 @@ class ParsedIntent(BaseModel):
     extracted_subject: Optional[str] = None
     extracted_trend: Optional[str] = None
     clean_search_term: str
+
+
+class ProgressRequest(BaseModel):
+    user_id: str = "anonymous"
+    track_id: Optional[int] = None
+    topic_id: Optional[int] = None
+    topic: Optional[str] = None
+    family_id: Optional[int] = None
+    action: Optional[str] = None
+    status: Optional[str] = None
+    viewed_resource: bool = False
+    practice_attempted: Union[bool, int] = False
+    practice_accuracy: Optional[float] = None

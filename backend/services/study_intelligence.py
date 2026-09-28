@@ -7,7 +7,7 @@ from sqlalchemy import func
 from sqlalchemy.orm import Session
 
 from backend.models.core import (
-    Concept, Course, Document, Exam, MappingConfidence, Question, QuestionFamily,
+    Concept, Course, CourseTrack, Document, Exam, MappingConfidence, Question, QuestionFamily,
     QuestionFamilyMembership, Section, StudentTopicProgress, StudyEvidence, Syllabus,
     Topic, Unit, question_topic,
 )
@@ -304,23 +304,61 @@ class StudyIntelligenceService:
 
         # 2. Fallback: match by canonical name of QuestionFamily to Topic.name in syllabus of this course
         family = self.db.query(QuestionFamily).filter(QuestionFamily.id == family_id).first()
-        if family and family.canonical_name:
-            match_q = (
-                self.db.query(Topic)
-                .join(Unit, Topic.unit_id == Unit.id)
-                .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-                .filter(
-                    Syllabus.course_id == course_id,
-                    func.lower(Topic.name) == func.lower(family.canonical_name)
-                )
-            )
-            if effective_track is not None:
-                match_q = match_q.filter(Syllabus.track_id == effective_track)
-            match = match_q.first()
-            if match:
-                return match
+        if not family or not family.canonical_name:
+            return None
 
-        return None
+        # Scope validation:
+        # A. If family.track_id is not None AND effective_track is not None: require family.track_id == effective_track
+        # B. If family belongs to a track and target context is trackless: do not silently reinterpret it as trackless
+        # D. Preserve trackless behavior for genuinely trackless families/courses
+        if family.track_id != effective_track:
+            return None
+
+        # Verify course existence
+        course = self.db.query(Course).filter(Course.id == course_id).first()
+        if not course:
+            return None
+
+        # If effective_track is specified, verify it belongs to this course
+        if effective_track is not None:
+            course_track = (
+                self.db.query(CourseTrack)
+                .filter(CourseTrack.id == effective_track, CourseTrack.course_id == course_id)
+                .first()
+            )
+            if not course_track:
+                return None
+
+        # C. Verify family course ownership
+        valid_course_identifiers = {
+            ident.strip().lower()
+            for ident in (course.name, course.code, course.canonical_code)
+            if ident and ident.strip()
+        }
+        if course.curriculum_mappings:
+            for cm in course.curriculum_mappings:
+                if cm.subject_name and cm.subject_name.strip():
+                    valid_course_identifiers.add(cm.subject_name.strip().lower())
+
+        family_subject = (family.subject or "").strip().lower()
+        if not family_subject or family_subject not in valid_course_identifiers:
+            return None
+
+        match_q = (
+            self.db.query(Topic)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+            .filter(
+                Syllabus.course_id == course_id,
+                func.lower(Topic.name) == func.lower(family.canonical_name),
+            )
+        )
+        if effective_track is not None:
+            match_q = match_q.filter(Syllabus.track_id == effective_track)
+        else:
+            match_q = match_q.filter(Syllabus.track_id.is_(None))
+
+        return match_q.order_by(Topic.id.asc()).first()
 
     def get_topic_resources(
         self,
@@ -745,15 +783,17 @@ class StudyIntelligenceService:
         viewed_resource: bool = False, practice_attempted: Union[bool, int] = False,
         practice_accuracy: float = None, student_id: str = None,
         family_id: int = None,
+        track_id: Optional[int] = None,
     ) -> StudentTopicProgress:
         effective_user_id = student_id or user_id or "anonymous"
+        effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
         if topic_id is None and family_id is not None and course_id is not None:
-            resolved_topic = self.resolve_family_to_topic(family_id, course_id)
+            resolved_topic = self.resolve_family_to_topic(family_id, course_id, track_id=effective_track)
             if not resolved_topic:
                 raise ValueError(f"No syllabus topic found for question family #{family_id} in course {course_id}")
             topic_id = resolved_topic.id
 
-        if not self._course_topic_by_id(topic_id, course_id):
+        if not self._course_topic_by_id(topic_id, course_id, track_id=effective_track):
             raise ValueError("Topic does not belong to the selected course")
         progress = self.db.query(StudentTopicProgress).filter_by(
             student_id=effective_user_id, topic_id=topic_id

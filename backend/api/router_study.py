@@ -8,23 +8,12 @@ from sqlalchemy.orm import Session
 
 from backend.api.endpoints.predictions import get_prediction, resolve_course
 from backend.core.database import SessionLocal, get_db
-from backend.models.core import Course, QuestionFamily, Question, Section, Exam
+from backend.models.core import Course, CourseTrack, QuestionFamily, Question, Section, Exam
+from backend.schemas import ProgressRequest
 from backend.services.student_uploads import StudentUploadService
 from backend.services.study_intelligence import StudyIntelligenceService
 
 router = APIRouter(prefix="/study", tags=["study"])
-
-
-class ProgressRequest(BaseModel):
-    user_id: str = "anonymous"
-    topic_id: Optional[int] = None
-    topic: Optional[str] = None
-    family_id: Optional[int] = None
-    action: Optional[str] = None
-    status: Optional[str] = None
-    viewed_resource: bool = False
-    practice_attempted: Union[bool, int] = False
-    practice_accuracy: Optional[float] = None
 
 
 def _course(db: Session, course_name: str) -> Course:
@@ -335,14 +324,34 @@ def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
 
+    effective_track = req.track_id
+    if effective_track is not None:
+        track = (
+            db.query(CourseTrack)
+            .filter(CourseTrack.id == effective_track, CourseTrack.course_id == course_id)
+            .first()
+        )
+        if not track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Track #{effective_track} does not belong to course {course_id}",
+            )
+
     service = StudyIntelligenceService(db)
     topic_id = req.topic_id
 
-    # If family_id is provided, validate it exists and belongs to this course
+    # If family_id is provided, validate it exists and belongs to this course & track
     if req.family_id is not None:
         family = db.query(QuestionFamily).filter(QuestionFamily.id == req.family_id).first()
         if not family:
             raise HTTPException(status_code=404, detail="Question family not found")
+
+        if effective_track is not None and family.track_id is not None and family.track_id != effective_track:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Question family #{req.family_id} belongs to track #{family.track_id}, not requested track #{effective_track}",
+            )
+
         course_name_clean = course.name.strip().lower()
         family_subject_clean = (family.subject or "").strip().lower()
         subject_matches = (
@@ -365,13 +374,13 @@ def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(
             )
 
     if topic_id is None and req.topic:
-        topic_obj = service._course_topic(req.topic, course_id)
+        topic_obj = service._course_topic(req.topic, course_id, track_id=effective_track)
         if topic_obj:
             topic_id = topic_obj.id
         else:
             raise HTTPException(status_code=404, detail=f"Topic '{req.topic}' not found in course {course_id}")
     elif topic_id is None and req.family_id is not None:
-        resolved_topic = service.resolve_family_to_topic(req.family_id, course_id)
+        resolved_topic = service.resolve_family_to_topic(req.family_id, course_id, track_id=effective_track)
         if resolved_topic:
             topic_id = resolved_topic.id
         else:
@@ -382,9 +391,9 @@ def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(
     elif topic_id is None:
         raise HTTPException(status_code=400, detail="Either 'topic_id', 'topic', or 'family_id' must be provided")
 
-    # If topic_id was explicitly provided, verify it belongs to this course
+    # If topic_id was explicitly provided, verify it belongs to this course and track
     if req.topic_id is not None:
-        if not service._course_topic_by_id(topic_id, course_id):
+        if not service._course_topic_by_id(topic_id, course_id, track_id=effective_track):
             raise HTTPException(status_code=400, detail=f"Topic #{topic_id} does not belong to course {course_id}")
 
     status = req.status
@@ -404,6 +413,7 @@ def update_progress(course_id: int, req: ProgressRequest, db: Session = Depends(
             viewed_resource=viewed_resource,
             practice_attempted=req.practice_attempted,
             practice_accuracy=req.practice_accuracy,
+            track_id=effective_track,
         )
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
