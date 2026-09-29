@@ -26,7 +26,7 @@ from backend.models.core import Question, Section, Exam, Topic, question_topic
 from backend.services.taxonomy_registry.registry import get_taxonomy_registry
 from backend.services.taxonomy_classifier import TaxonomyClassifierService
 
-COURSE_IDS = [24, 25, 26, 27, 28]
+COURSE_IDS = [22, 24, 25, 26, 27, 28, 29]
 
 def map_s3_s4_questions(apply_changes: bool = True):
     db = SessionLocal()
@@ -65,6 +65,7 @@ def map_s3_s4_questions(apply_changes: bool = True):
                 .all()
             )
 
+            to_delete = []
             to_insert = []
 
             for q in questions:
@@ -79,6 +80,9 @@ def map_s3_s4_questions(apply_changes: bool = True):
                         medium_count += 1
 
                     if (q.id, proposal.topic_id) not in existing_mappings:
+                        old_tids = [t for (qid, t) in existing_mappings if qid == q.id]
+                        if old_tids and q.id not in to_delete:
+                            to_delete.append(q.id)
                         to_insert.append((q.id, proposal.topic_id))
 
                     if apply_changes:
@@ -104,6 +108,12 @@ def map_s3_s4_questions(apply_changes: bool = True):
                             "evidence": proposal.evidence,
                             "candidate_topics": proposal.candidate_topics
                         }
+
+            if apply_changes and to_delete:
+                db.execute(
+                    question_topic.delete().where(question_topic.c.question_id.in_(to_delete))
+                )
+                db.flush()
 
             if apply_changes and to_insert:
                 for qid, tid in to_insert:

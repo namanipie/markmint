@@ -37,13 +37,20 @@
             "tossed twice then the probability",
             "subset of the sample space",
             "sample space s is defined as",
-            "company has two plants to manufacture"
+            "company has two plants to manufacture",
+            "probability of getting at least one",
+            "if p(a) = p(b) = 1 then p(a cap b)",
+            "travel by train is 1/5 and by plane",
+            "independent events and p(a) = p(b)",
+            "independent events"
           ],
           "specific_keywords": [
             "bayes' theorem",
             "bayes theorem",
             "conditional probability",
-            "sample space"
+            "sample space",
+            "subset of the sample space",
+            "independent events"
           ],
           "negative_guards": [
             "binomial distribution",
@@ -153,12 +160,16 @@
             "central moments",
             "mathematical expectation",
             "mean and variance of x",
-            "mgf of random variable"
+            "mgf of random variable",
+            "second moment about",
+            "calculate v(2x+3)",
+            "if x is an random variable and v(x)"
           ],
           "specific_keywords": [
             "moment generating function",
             "moments about the origin",
-            "mathematical expectation"
+            "mathematical expectation",
+            "variance of random variable"
           ],
           "negative_guards": [
             "uniformly distributed random variable",
@@ -189,15 +200,19 @@
             "mean of a binomial distribution",
             "parameters of binomial distribution",
             "assumptions of the binomial distribution",
-            "fitted binomial distribution"
+            "fitted binomial distribution",
+            "mean of a binomial distribution is",
+            "parameters of binomial",
+            "coin is tossed 50 times",
+            "average number of times head appears"
           ],
           "specific_keywords": [
             "binomial distribution"
           ],
           "negative_guards": [
-            "poisson",
-            "normal distribution",
-            "chi square"
+            "poisson distribution",
+            "hypergeometric distribution",
+            "normal distribution"
           ],
           "context_hints": [
             "bernoulli trials",
@@ -217,16 +232,17 @@
             "mean of poisson distribution",
             "poisson variate",
             "fit a poisson distribution",
-            "typist types 2 letters erroneously"
+            "typist types 2 letters erroneously",
+            "variance of the poisson distribution is"
           ],
           "specific_keywords": [
             "poisson distribution",
             "poisson variate"
           ],
           "negative_guards": [
-            "binomial",
-            "normal distribution",
-            "chi square"
+            "binomial distribution",
+            "geometric distribution",
+            "exponential distribution"
           ],
           "context_hints": [
             "rare events",
@@ -244,7 +260,8 @@
             "geometric distribution",
             "memoryless property of geometric distribution",
             "hypergeometric distribution",
-            "mean and variance of geometric distribution"
+            "mean and variance of geometric distribution",
+            "first letter with error"
           ],
           "specific_keywords": [
             "geometric distribution",
@@ -272,7 +289,8 @@
             "uniform distribution over",
             "exponential distribution",
             "memoryless property of exponential distribution",
-            "mean of exponential distribution"
+            "mean of exponential distribution",
+            "uniformly distributed random variable over"
           ],
           "specific_keywords": [
             "uniformly distributed",
@@ -302,11 +320,14 @@
             "area under normal curve",
             "normally distributed with mean",
             "properties of normal distribution",
-            "engineering examination if a student gets 30 or more marks"
+            "engineering examination if a student gets 30 or more marks",
+            "normally distributed and the mean of x is",
+            "standard normal curve areas"
           ],
           "specific_keywords": [
             "normal distribution",
-            "standard normal"
+            "standard normal",
+            "normally distributed"
           ],
           "negative_guards": [
             "binomial",
@@ -340,12 +361,21 @@
             "critical region in hypothesis",
             "level of rejection",
             "level of acceptance",
-            "consider a hypothesis where h_0"
+            "consider a hypothesis where h_0",
+            "value set for alpha is known as",
+            "h_0:phi_0",
+            "left tailed",
+            "right tailed",
+            "two tailed test",
+            "failing student is passed by an examiner",
+            "critical region is located equally in both sides"
           ],
           "specific_keywords": [
             "null hypothesis",
             "alternative hypothesis",
-            "level of significance"
+            "level of significance",
+            "type i error",
+            "type ii error"
           ],
           "negative_guards": [
             "chi-square",
@@ -369,11 +399,18 @@
             "test for difference of means for large samples",
             "z-test for single mean",
             "test for equality of two proportions",
-            "standard error of difference of means"
+            "standard error of difference of means",
+            "sample is a subset of population",
+            "sample population",
+            "standard deviation of a sampling distribution is called",
+            "standard error of sampling distribution",
+            "fatality rate of typhoid patients"
           ],
           "specific_keywords": [
             "large sample test",
-            "difference of proportions"
+            "difference of proportions",
+            "sample population",
+            "standard error"
           ],
           "negative_guards": [
             "student's t-test",
@@ -428,11 +465,14 @@
             "variance ratio test",
             "f-test",
             "f-statistic for variances",
-            "test for equality of two population variances"
+            "test for equality of two population variances",
+            "test statistic for f is",
+            "estimated population variances are"
           ],
           "specific_keywords": [
             "f-test",
-            "variance ratio test"
+            "variance ratio test",
+            "test statistic for f"
           ],
           "negative_guards": [
             "chi-square",
@@ -458,13 +498,16 @@
             "contingency table",
             "m x n contingency table",
             "test of independence of attributes",
-            "degrees of freedom in contingency table"
+            "degrees of freedom in contingency table",
+            "proportion of beans in four groups",
+            "beans in four groups a, b, c, d should be 9:3:3:1"
           ],
           "specific_keywords": [
             "chi-square",
             "chi square",
             "contingency table",
-            "goodness of fit"
+            "goodness of fit",
+            "chi-square test"
           ],
           "negative_guards": [
             "control charts",
@@ -497,11 +540,15 @@
             "correlation coefficient r",
             "if r=0 the two variables",
             "problems in correlation",
-            "uncorrelated variables"
+            "uncorrelated variables",
+            "two variables deviate in the same direction",
+            "value of correlation co-efficient lies between",
+            "correlation co-efficient lies between"
           ],
           "specific_keywords": [
             "rank correlation",
-            "correlation coefficient"
+            "correlation coefficient",
+            "correlation co-efficient"
           ],
           "negative_guards": [
             "control charts",
@@ -525,12 +572,17 @@
             "regression equation of x on y",
             "regression coefficients b_yx and b_xy",
             "angle between two lines of regression",
-            "two lines of regression are"
+            "two lines of regression are",
+            "regression coefficients bxy and byx",
+            "lines of regression equations",
+            "if b_{xy} = 1.6 and b_{yx} = 0.4",
+            "b_{xy} and b_{yx}"
           ],
           "specific_keywords": [
             "lines of regression",
             "regression equation",
-            "regression coefficients"
+            "regression coefficients",
+            "regression equations"
           ],
           "negative_guards": [
             "anova",
@@ -676,11 +728,17 @@
             "x bar chart",
             "control chart for mean",
             "sample means and sample range",
-            "mean chart control limits"
+            "mean chart control limits",
+            "values of sample means and sample range",
+            "upper control limit for the sample mean chart",
+            "sample mean chart if a_2",
+            "draw control chart for mean"
           ],
           "specific_keywords": [
             "x-bar chart",
-            "x bar chart"
+            "x bar chart",
+            "sample means",
+            "sample mean chart"
           ],
           "negative_guards": [
             "p chart",
@@ -705,11 +763,15 @@
             "s chart",
             "standard deviation chart",
             "range chart control limits",
-            "values of sample means and sample range for ten samples"
+            "values of sample means and sample range for ten samples",
+            "ucl in r-chart",
+            "ucl in r-chart is",
+            "r-chart is"
           ],
           "specific_keywords": [
             "r chart",
-            "control chart for range"
+            "control chart for range",
+            "r-chart"
           ],
           "negative_guards": [
             "p chart",
@@ -734,13 +796,16 @@
             "np-chart",
             "np chart",
             "control chart for fraction defective",
-            "control chart for number of defectives"
+            "control chart for number of defectives",
+            "sample proportion of defective is",
+            "sample proportion of defective"
           ],
           "specific_keywords": [
             "p-chart",
             "p chart",
             "np-chart",
-            "fraction defective"
+            "fraction defective",
+            "proportion of defective"
           ],
           "negative_guards": [
             "x-bar chart",

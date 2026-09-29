@@ -25,7 +25,11 @@
           "id": 866,
           "name": "Foundations and State of Artificial Intelligence",
           "canonical_name": "Foundations and State of Artificial Intelligence",
-          "aliases": ["AI Techniques", "AI Models", "Applications of AI"],
+          "aliases": [
+            "AI Techniques",
+            "AI Models",
+            "Applications of AI"
+          ],
           "strong_phrases": [
             "artificial intelligence definition",
             "ai techniques",
@@ -53,14 +57,28 @@
             "learning models",
             "regression tasks"
           ],
-          "negative_guards": ["b-tree", "sql injection", "self-driving car", "architecture of an expert system", "expert system architecture", "robot navigation"],
-          "context_hints": ["ai definition", "foundations of ai"]
+          "negative_guards": [
+            "b-tree",
+            "sql injection",
+            "self-driving car",
+            "architecture of an expert system",
+            "expert system architecture",
+            "robot navigation"
+          ],
+          "context_hints": [
+            "ai definition",
+            "foundations of ai"
+          ]
         },
         {
           "id": 867,
           "name": "Intelligent Agents and Environment Types",
           "canonical_name": "Intelligent Agents and Environment Types",
-          "aliases": ["Intelligent Agent", "PEAS Description", "Environment Properties"],
+          "aliases": [
+            "Intelligent Agent",
+            "PEAS Description",
+            "Environment Properties"
+          ],
           "strong_phrases": [
             "intelligent agents",
             "peas description",
@@ -75,7 +93,8 @@
             "agent architecture reflex goal based utility based",
             "dynamic discovery and registration",
             "agents behavior",
-            "perception sequence"
+            "perception sequence",
+            "treatment chosen by doctor for a patient for a disease is based on"
           ],
           "specific_keywords": [
             "peas",
@@ -88,16 +107,27 @@
             "goal-based agent",
             "utility-based agent",
             "low observability",
-            "perception sequence"
+            "perception sequence",
+            "agent environment"
           ],
-          "negative_guards": ["paging", "semaphore"],
-          "context_hints": ["peas description", "agent environment"]
+          "negative_guards": [
+            "paging",
+            "semaphore"
+          ],
+          "context_hints": [
+            "peas description",
+            "agent environment"
+          ]
         },
         {
           "id": 868,
           "name": "Problem Formulation and State Space Representation",
           "canonical_name": "Problem Formulation and State Space Representation",
-          "aliases": ["Problem Solving Agents", "Formulating Problems", "State Space Search"],
+          "aliases": [
+            "Problem Solving Agents",
+            "Formulating Problems",
+            "State Space Search"
+          ],
           "strong_phrases": [
             "problem formulation",
             "state space representation",
@@ -123,14 +153,31 @@
             "successor function",
             "goal test"
           ],
-          "negative_guards": ["a*", "a *", "alpha-beta", "alpha beta", "csp", "expert system", "missionaries", "water jug"],
-          "context_hints": ["state space", "problem formulation"]
+          "negative_guards": [
+            "a*",
+            "a *",
+            "alpha-beta",
+            "alpha beta",
+            "csp",
+            "expert system",
+            "missionaries",
+            "water jug"
+          ],
+          "context_hints": [
+            "state space",
+            "problem formulation"
+          ]
         },
         {
           "id": 869,
           "name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
           "canonical_name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
-          "aliases": ["Toy Problems in AI", "Missionaries and Cannibals", "Water Jug Problem", "8-Puzzle Problem"],
+          "aliases": [
+            "Toy Problems in AI",
+            "Missionaries and Cannibals",
+            "Water Jug Problem",
+            "8-Puzzle Problem"
+          ],
           "strong_phrases": [
             "toy problems",
             "missionaries and cannibals",
@@ -157,14 +204,24 @@
             "toy problem",
             "tower of hanoi"
           ],
-          "negative_guards": ["tcp ip", "quick sort"],
-          "context_hints": ["toy problems", "puzzle formulation"]
+          "negative_guards": [
+            "tcp ip",
+            "quick sort"
+          ],
+          "context_hints": [
+            "toy problems",
+            "puzzle formulation"
+          ]
         },
         {
           "id": 870,
           "name": "Real World Problems: Travelling Salesperson Problem and Route Finding",
           "canonical_name": "Real World Problems: Travelling Salesperson Problem and Route Finding",
-          "aliases": ["Real World Problems in AI", "TSP in AI", "Route Finding Problem"],
+          "aliases": [
+            "Real World Problems in AI",
+            "TSP in AI",
+            "Route Finding Problem"
+          ],
           "strong_phrases": [
             "real world problem in ai",
             "travelling salesman problem",
@@ -185,8 +242,13 @@
             "warehouse management",
             "delivery robot"
           ],
-          "negative_guards": ["divide and conquer recurrence"],
-          "context_hints": ["route finding", "real world problem"]
+          "negative_guards": [
+            "divide and conquer recurrence"
+          ],
+          "context_hints": [
+            "route finding",
+            "real world problem"
+          ]
         }
       ]
     },
@@ -199,7 +261,12 @@
           "id": 871,
           "name": "Uninformed Search: BFS, DFS and Depth-Limited Search",
           "canonical_name": "Uninformed Search: BFS, DFS and Depth-Limited Search",
-          "aliases": ["Breadth First Search", "Depth First Search", "DLS", "Iterative Deepening Search"],
+          "aliases": [
+            "Breadth First Search",
+            "Depth First Search",
+            "DLS",
+            "Iterative Deepening Search"
+          ],
           "strong_phrases": [
             "uninformed search",
             "blind search strategies",
@@ -213,7 +280,9 @@
             "complexity of dfs",
             "completeness and optimality of dfs",
             "post order traversal of a binary tree",
-            "inorder traversal of a binary tree"
+            "inorder traversal of a binary tree",
+            "uninformed search methods is most likely to find",
+            "number of edges from the root to the node is called of the tree"
           ],
           "specific_keywords": [
             "uninformed search",
@@ -227,14 +296,29 @@
             "traversal of a binary tree",
             "complexity of bfs"
           ],
-          "negative_guards": ["prim's algorithm", "kruskal", "a*", "a *", "heuristic function", "uniform cost", "generate and test"],
-          "context_hints": ["uninformed search", "bfs dfs"]
+          "negative_guards": [
+            "prim's algorithm",
+            "kruskal",
+            "a*",
+            "a *",
+            "heuristic function",
+            "uniform cost",
+            "generate and test"
+          ],
+          "context_hints": [
+            "uninformed search",
+            "bfs dfs"
+          ]
         },
         {
           "id": 872,
           "name": "Uniform Cost Search and Cheapest Path",
           "canonical_name": "Uniform Cost Search and Cheapest Path",
-          "aliases": ["Uniform Cost Search", "UCS", "Cheapest Path Search"],
+          "aliases": [
+            "Uniform Cost Search",
+            "UCS",
+            "Cheapest Path Search"
+          ],
           "strong_phrases": [
             "uniform cost search",
             "ucs algorithm",
@@ -249,14 +333,23 @@
             "ucs",
             "dijkstra s algorithm"
           ],
-          "negative_guards": ["bellman ford"],
-          "context_hints": ["uniform cost search", "path cost"]
+          "negative_guards": [
+            "bellman ford"
+          ],
+          "context_hints": [
+            "uniform cost search",
+            "path cost"
+          ]
         },
         {
           "id": 873,
           "name": "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
           "canonical_name": "Heuristic Search: Greedy Best-First Search and Heuristic Functions",
-          "aliases": ["Informed Search", "Greedy Best First Search", "Heuristic Functions"],
+          "aliases": [
+            "Informed Search",
+            "Greedy Best First Search",
+            "Heuristic Functions"
+          ],
           "strong_phrases": [
             "informed search methods",
             "heuristic search",
@@ -278,14 +371,28 @@
             "manhattan distance",
             "straight line distance"
           ],
-          "negative_guards": ["a* algorithm", "a * algorithm", "a* search", "a * search", "evaluation function in a*", "f n g n + h n"],
-          "context_hints": ["heuristic search", "greedy search"]
+          "negative_guards": [
+            "a* algorithm",
+            "a * algorithm",
+            "a* search",
+            "a * search",
+            "evaluation function in a*",
+            "f n g n + h n"
+          ],
+          "context_hints": [
+            "heuristic search",
+            "greedy search"
+          ]
         },
         {
           "id": 874,
           "name": "A* Search Algorithm and Optimality",
           "canonical_name": "A* Search Algorithm and Optimality",
-          "aliases": ["A* Algorithm", "A Star Search", "Admissibility and Consistency"],
+          "aliases": [
+            "A* Algorithm",
+            "A Star Search",
+            "Admissibility and Consistency"
+          ],
           "strong_phrases": [
             "a* search algorithm",
             "a* algorithm",
@@ -298,7 +405,8 @@
             "consistent heuristic monotonicity",
             "optimality of a* search",
             "tree search vs graph search a*",
-            "heuristic dominance"
+            "heuristic dominance",
+            "informed search methods combines breadth-first search"
           ],
           "specific_keywords": [
             "a* algorithm",
@@ -309,16 +417,31 @@
             "a star",
             "admissible heuristic",
             "consistent heuristic",
-            "monotonic heuristic"
+            "monotonic heuristic",
+            "informed search"
           ],
-          "negative_guards": ["avl tree", "red black tree", "zero-sum", "two-player", "map coloring", "warehouse management"],
-          "context_hints": ["a* search", "admissibility"]
+          "negative_guards": [
+            "avl tree",
+            "red black tree",
+            "zero-sum",
+            "two-player",
+            "map coloring",
+            "warehouse management"
+          ],
+          "context_hints": [
+            "a* search",
+            "admissibility"
+          ]
         },
         {
           "id": 875,
           "name": "Local Search and Optimization: Hill Climbing and Simulated Annealing",
           "canonical_name": "Local Search and Optimization: Hill Climbing and Simulated Annealing",
-          "aliases": ["Hill Climbing", "Simulated Annealing", "Local Search Optimization"],
+          "aliases": [
+            "Hill Climbing",
+            "Simulated Annealing",
+            "Local Search Optimization"
+          ],
           "strong_phrases": [
             "local search algorithms",
             "hill climbing search",
@@ -336,8 +459,15 @@
             "cooling schedule",
             "local search"
           ],
-          "negative_guards": ["gradient descent backpropagation", "zero-sum", "two-player"],
-          "context_hints": ["hill climbing", "simulated annealing"]
+          "negative_guards": [
+            "gradient descent backpropagation",
+            "zero-sum",
+            "two-player"
+          ],
+          "context_hints": [
+            "hill climbing",
+            "simulated annealing"
+          ]
         }
       ]
     },
@@ -350,7 +480,11 @@
           "id": 876,
           "name": "Game Theory and Minimax Search Algorithm",
           "canonical_name": "Game Theory and Minimax Search Algorithm",
-          "aliases": ["Minimax Algorithm", "Adversarial Search", "Two Player Games"],
+          "aliases": [
+            "Minimax Algorithm",
+            "Adversarial Search",
+            "Two Player Games"
+          ],
           "strong_phrases": [
             "adversarial search",
             "game theory in ai",
@@ -374,14 +508,24 @@
             "zero-sum",
             "utility function"
           ],
-          "negative_guards": ["alpha-beta", "alpha beta", "pruning"],
-          "context_hints": ["minimax", "game playing"]
+          "negative_guards": [
+            "alpha-beta",
+            "alpha beta",
+            "pruning"
+          ],
+          "context_hints": [
+            "minimax",
+            "game playing"
+          ]
         },
         {
           "id": 877,
           "name": "Alpha-Beta Pruning Optimization",
           "canonical_name": "Alpha-Beta Pruning Optimization",
-          "aliases": ["Alpha Beta Pruning", "Alpha Beta Cutoff"],
+          "aliases": [
+            "Alpha Beta Pruning",
+            "Alpha Beta Cutoff"
+          ],
           "strong_phrases": [
             "alpha-beta pruning",
             "alpha beta pruning",
@@ -400,14 +544,23 @@
             "beta cutoff",
             "beta value"
           ],
-          "negative_guards": ["compiler optimization"],
-          "context_hints": ["alpha-beta", "pruning"]
+          "negative_guards": [
+            "compiler optimization"
+          ],
+          "context_hints": [
+            "alpha-beta",
+            "pruning"
+          ]
         },
         {
           "id": 878,
           "name": "Constraint Satisfaction Problems Formulation and Propagation",
           "canonical_name": "Constraint Satisfaction Problems Formulation and Propagation",
-          "aliases": ["CSP Formulation", "Constraint Propagation", "Variables Domains Constraints"],
+          "aliases": [
+            "CSP Formulation",
+            "Constraint Propagation",
+            "Variables Domains Constraints"
+          ],
           "strong_phrases": [
             "constraint satisfaction problem",
             "constraint satisfaction problems",
@@ -428,14 +581,28 @@
             "binary constraint",
             "variable assignments"
           ],
-          "negative_guards": ["sql check constraint", "8-queens", "map coloring", "cryptarithmetic", "arc consistency", "which of the following mentioned problems are not constraint satisfaction"],
-          "context_hints": ["csp", "constraint satisfaction"]
+          "negative_guards": [
+            "sql check constraint",
+            "8-queens",
+            "map coloring",
+            "cryptarithmetic",
+            "arc consistency",
+            "which of the following mentioned problems are not constraint satisfaction"
+          ],
+          "context_hints": [
+            "csp",
+            "constraint satisfaction"
+          ]
         },
         {
           "id": 879,
           "name": "Cryptarithmetic Puzzles and Map Coloring",
           "canonical_name": "Cryptarithmetic Puzzles and Map Coloring",
-          "aliases": ["Cryptarithmetic Problem", "Map Coloring Problem", "Room Coloring"],
+          "aliases": [
+            "Cryptarithmetic Problem",
+            "Map Coloring Problem",
+            "Room Coloring"
+          ],
           "strong_phrases": [
             "cryptarithmetic puzzle",
             "send more money puzzle",
@@ -455,14 +622,23 @@
             "8 queens",
             "n-queens"
           ],
-          "negative_guards": ["rsa cryptography"],
-          "context_hints": ["cryptarithmetic", "map coloring"]
+          "negative_guards": [
+            "rsa cryptography"
+          ],
+          "context_hints": [
+            "cryptarithmetic",
+            "map coloring"
+          ]
         },
         {
           "id": 880,
           "name": "Backtracking Search and Arc Consistency for CSP",
           "canonical_name": "Backtracking Search and Arc Consistency for CSP",
-          "aliases": ["Backtracking Search CSP", "Forward Checking", "Arc Consistency AC-3"],
+          "aliases": [
+            "Backtracking Search CSP",
+            "Forward Checking",
+            "Arc Consistency AC-3"
+          ],
           "strong_phrases": [
             "backtracking search for csp",
             "forward checking",
@@ -480,8 +656,14 @@
             "mrv heuristic",
             "degree heuristic"
           ],
-          "negative_guards": ["nfa to dfa"],
-          "context_hints": ["arc consistency", "ac-3", "forward checking"]
+          "negative_guards": [
+            "nfa to dfa"
+          ],
+          "context_hints": [
+            "arc consistency",
+            "ac-3",
+            "forward checking"
+          ]
         }
       ]
     },
@@ -494,7 +676,11 @@
           "id": 881,
           "name": "Knowledge Representation Principles and Ontological Engineering",
           "canonical_name": "Knowledge Representation Principles and Ontological Engineering",
-          "aliases": ["Knowledge Engineering", "Ontology in AI", "Semantic Networks"],
+          "aliases": [
+            "Knowledge Engineering",
+            "Ontology in AI",
+            "Semantic Networks"
+          ],
           "strong_phrases": [
             "knowledge representation",
             "ontological engineering",
@@ -517,14 +703,26 @@
             "wumpus world",
             "wumpus"
           ],
-          "negative_guards": ["expert system", "expert systems", "inference engine", "relational schema"],
-          "context_hints": ["knowledge representation", "ontology"]
+          "negative_guards": [
+            "expert system",
+            "expert systems",
+            "inference engine",
+            "relational schema"
+          ],
+          "context_hints": [
+            "knowledge representation",
+            "ontology"
+          ]
         },
         {
           "id": 882,
           "name": "Propositional Logic: Syntax, Semantics and Truth Tables",
           "canonical_name": "Propositional Logic: Syntax, Semantics and Truth Tables",
-          "aliases": ["Propositional Logic", "Boolean Satisfiability", "Truth Tables in AI"],
+          "aliases": [
+            "Propositional Logic",
+            "Boolean Satisfiability",
+            "Truth Tables in AI"
+          ],
           "strong_phrases": [
             "propositional logic",
             "propositional syntax and semantics",
@@ -532,7 +730,9 @@
             "tautology contradiction contingency",
             "entailment in propositional logic",
             "models alpha is",
-            "disjunction implication biconditional"
+            "disjunction implication biconditional",
+            "knowledge base (kb) is consists of set of",
+            "inference algorithm is complete only if"
           ],
           "specific_keywords": [
             "propositional logic",
@@ -541,16 +741,33 @@
             "truth value",
             "entailment",
             "tautology",
-            "biconditional"
+            "biconditional",
+            "knowledge base"
           ],
-          "negative_guards": ["k-map", "boolean circuit", "first order logic", "first-order logic", "fol", "quantifier", "quantifiers", "wumpus world"],
-          "context_hints": ["propositional logic", "entailment"]
+          "negative_guards": [
+            "k-map",
+            "boolean circuit",
+            "first order logic",
+            "first-order logic",
+            "fol",
+            "quantifier",
+            "quantifiers",
+            "wumpus world"
+          ],
+          "context_hints": [
+            "propositional logic",
+            "entailment"
+          ]
         },
         {
           "id": 883,
           "name": "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
           "canonical_name": "First-Order Predicate Logic: Syntax, Semantics and Quantifiers",
-          "aliases": ["First-Order Logic", "FOL", "Predicate Calculus"],
+          "aliases": [
+            "First-Order Logic",
+            "FOL",
+            "Predicate Calculus"
+          ],
           "strong_phrases": [
             "first order logic",
             "first-order logic",
@@ -559,7 +776,9 @@
             "universal quantifier existential quantifier",
             "variables predicates and quantifiers",
             "representing knowledge in first order logic",
-            "english sentences into first order logic"
+            "english sentences into first order logic",
+            "formula for the sentence, \"not all rainy days are cold\"",
+            "not all rainy days are cold"
           ],
           "specific_keywords": [
             "first-order logic",
@@ -570,14 +789,28 @@
             "existential quantifier",
             "quantifiers"
           ],
-          "negative_guards": ["sql select where", "unification", "resolution", "forward chaining", "backward chaining"],
-          "context_hints": ["first-order logic", "quantifiers"]
+          "negative_guards": [
+            "sql select where",
+            "unification",
+            "resolution",
+            "forward chaining",
+            "backward chaining"
+          ],
+          "context_hints": [
+            "first-order logic",
+            "quantifiers"
+          ]
         },
         {
           "id": 884,
           "name": "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
           "canonical_name": "Inference in Logic: Forward Chaining, Backward Chaining and Horn Clauses",
-          "aliases": ["Forward Chaining", "Backward Chaining", "Horn Clauses", "Modus Ponens"],
+          "aliases": [
+            "Forward Chaining",
+            "Backward Chaining",
+            "Horn Clauses",
+            "Modus Ponens"
+          ],
           "strong_phrases": [
             "forward chaining",
             "backward chaining",
@@ -594,14 +827,25 @@
             "definite clause",
             "modus ponens"
           ],
-          "negative_guards": ["blockchain"],
-          "context_hints": ["forward chaining", "backward chaining", "modus ponens"]
+          "negative_guards": [
+            "blockchain"
+          ],
+          "context_hints": [
+            "forward chaining",
+            "backward chaining",
+            "modus ponens"
+          ]
         },
         {
           "id": 885,
           "name": "Resolution Refutation and Unification Algorithm",
           "canonical_name": "Resolution Refutation and Unification Algorithm",
-          "aliases": ["Resolution Principle", "Resolution Refutation", "Unification Algorithm", "MGU"],
+          "aliases": [
+            "Resolution Principle",
+            "Resolution Refutation",
+            "Unification Algorithm",
+            "MGU"
+          ],
           "strong_phrases": [
             "resolution principle",
             "resolution refutation",
@@ -620,8 +864,15 @@
             "skolemization",
             "clausal form"
           ],
-          "negative_guards": ["dns resolution", "screen resolution"],
-          "context_hints": ["resolution refutation", "unification", "mgu"]
+          "negative_guards": [
+            "dns resolution",
+            "screen resolution"
+          ],
+          "context_hints": [
+            "resolution refutation",
+            "unification",
+            "mgu"
+          ]
         }
       ]
     },
@@ -634,7 +885,12 @@
           "id": 886,
           "name": "Classical Planning and State-Space Planning",
           "canonical_name": "Classical Planning and State-Space Planning",
-          "aliases": ["Classical Planning", "STRIPS", "PDDL", "State Space Planning"],
+          "aliases": [
+            "Classical Planning",
+            "STRIPS",
+            "PDDL",
+            "State Space Planning"
+          ],
           "strong_phrases": [
             "classical planning in ai",
             "planning problem formulation",
@@ -659,14 +915,25 @@
             "pddl",
             "blocks world"
           ],
-          "negative_guards": ["cpu scheduling round robin"],
-          "context_hints": ["classical planning", "strips", "pddl"]
+          "negative_guards": [
+            "cpu scheduling round robin"
+          ],
+          "context_hints": [
+            "classical planning",
+            "strips",
+            "pddl"
+          ]
         },
         {
           "id": 887,
           "name": "Partial Order Planning and Planning Graphs",
           "canonical_name": "Partial Order Planning and Planning Graphs",
-          "aliases": ["Partial Order Planning", "POP", "Planning Graph", "Graphplan"],
+          "aliases": [
+            "Partial Order Planning",
+            "POP",
+            "Planning Graph",
+            "Graphplan"
+          ],
           "strong_phrases": [
             "partial order planning",
             "pop algorithm",
@@ -683,14 +950,23 @@
             "graphplan",
             "causal link"
           ],
-          "negative_guards": ["critical path method cpm"],
-          "context_hints": ["partial order planning", "graphplan"]
+          "negative_guards": [
+            "critical path method cpm"
+          ],
+          "context_hints": [
+            "partial order planning",
+            "graphplan"
+          ]
         },
         {
           "id": 888,
           "name": "Reasoning under Uncertainty and Bayesian Networks",
           "canonical_name": "Reasoning under Uncertainty and Bayesian Networks",
-          "aliases": ["Bayesian Networks", "Belief Networks", "Conditional Probability in AI"],
+          "aliases": [
+            "Bayesian Networks",
+            "Belief Networks",
+            "Conditional Probability in AI"
+          ],
           "strong_phrases": [
             "reasoning under uncertainty",
             "probabilistic reasoning in ai",
@@ -710,14 +986,25 @@
             "conditional probability table",
             "cpt"
           ],
-          "negative_guards": ["tcp flow control", "means-ends analysis", "means ends analysis"],
-          "context_hints": ["bayesian network", "probabilistic reasoning"]
+          "negative_guards": [
+            "tcp flow control",
+            "means-ends analysis",
+            "means ends analysis"
+          ],
+          "context_hints": [
+            "bayesian network",
+            "probabilistic reasoning"
+          ]
         },
         {
           "id": 889,
           "name": "Architecture of Expert Systems and Inference Engine",
           "canonical_name": "Architecture of Expert Systems and Inference Engine",
-          "aliases": ["Expert Systems", "Expert System Architecture", "Inference Engine"],
+          "aliases": [
+            "Expert Systems",
+            "Expert System Architecture",
+            "Inference Engine"
+          ],
           "strong_phrases": [
             "expert systems in ai",
             "architecture of expert system",
@@ -735,14 +1022,29 @@
             "inference engine",
             "rule-based expert"
           ],
-          "negative_guards": ["operating system kernel", "mycin", "dendral", "knowledge acquisition", "explanation facility", "means-ends analysis", "means ends analysis"],
-          "context_hints": ["expert system", "inference engine"]
+          "negative_guards": [
+            "operating system kernel",
+            "mycin",
+            "dendral",
+            "knowledge acquisition",
+            "explanation facility",
+            "means-ends analysis",
+            "means ends analysis"
+          ],
+          "context_hints": [
+            "expert system",
+            "inference engine"
+          ]
         },
         {
           "id": 890,
           "name": "Knowledge Acquisition, Explanation Facilities and Shells",
           "canonical_name": "Knowledge Acquisition, Explanation Facilities and Shells",
-          "aliases": ["Knowledge Acquisition", "Explanation Facility", "Expert System Shells"],
+          "aliases": [
+            "Knowledge Acquisition",
+            "Explanation Facility",
+            "Expert System Shells"
+          ],
           "strong_phrases": [
             "knowledge acquisition in expert systems",
             "knowledge engineer and domain expert",
@@ -758,8 +1060,14 @@
             "mycin",
             "dendral"
           ],
-          "negative_guards": ["bash shell scripting"],
-          "context_hints": ["expert systems", "knowledge acquisition", "explanation facility"]
+          "negative_guards": [
+            "bash shell scripting"
+          ],
+          "context_hints": [
+            "expert systems",
+            "knowledge acquisition",
+            "explanation facility"
+          ]
         }
       ]
     }

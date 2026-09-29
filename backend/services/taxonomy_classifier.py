@@ -51,8 +51,9 @@ class ClassificationProposal:
 class TaxonomyClassifierService:
     """Generic deterministic taxonomy classifier consuming structured topic rules."""
 
-    def __init__(self, rules: List[TaxonomyTopicRule]):
+    def __init__(self, rules: List[TaxonomyTopicRule], isolate_mcq_distractors: bool = False):
         self.rules = rules
+        self.isolate_mcq_distractors = isolate_mcq_distractors
         self._rule_map = {r.topic_id: r for r in rules}
 
     @staticmethod
@@ -81,6 +82,24 @@ class TaxonomyClassifierService:
         cleaned = re.sub(r'[^\w+*-]+', ' ', cleaned, flags=re.UNICODE)
         return " ".join(cleaned.split())
 
+    @staticmethod
+    def split_stem_and_options(text: str) -> tuple[str, str]:
+        """
+        Split question text into stem and options (if MCQ options are detected).
+        Returns (stem, options). If no options detected, options is empty string.
+        """
+        if not text:
+            return "", ""
+        cleaned = re.sub(r'^\s*(?:Q\s*\.?\s*\d+|\d+)\s*[\.\):\-]\s*', '', text)
+        opt_pattern = re.compile(r'(?:[\s\n]+)(?:\([A-Da-d1-4]\)|\[[A-Da-d]\]|\b[A-Da-d]\)|\b[A-Da-d]\.)\s+')
+        m = opt_pattern.search(cleaned)
+        if m and m.start() >= 5:
+            stem = cleaned[:m.start()].strip()
+            opts = cleaned[m.start():].strip()
+            if len(stem) >= 5:
+                return stem, opts
+        return text, ""
+
     def classify(self, question_id: int, original_text: str) -> ClassificationProposal:
         """
         Classify a single question against registered topic rules.
@@ -91,6 +110,7 @@ class TaxonomyClassifierService:
         - Marks as AMBIGUOUS if multiple distinct topics are plausible candidates.
         - Marks as UNMAPPED if no strong/specific evidence found.
         """
+        stem, opts = self.split_stem_and_options(original_text)
         norm_text = self.normalize_text(original_text)
         padded_norm = f" {norm_text} "
 
@@ -106,6 +126,9 @@ class TaxonomyClassifierService:
                 evidence=["Empty or truncated question text"],
             )
 
+        norm_stem = self.normalize_text(stem) if opts else norm_text
+        padded_stem = f" {norm_stem} "
+
         candidates: List[Dict[str, Any]] = []
         guardrail_rejections: List[str] = []
 
@@ -115,9 +138,24 @@ class TaxonomyClassifierService:
             for neg in rule.negative_guards:
                 neg_norm = self.normalize_text(neg)
                 if neg_norm and f" {neg_norm} " in padded_norm:
-                    guardrail_rejections.append(f"Topic '{rule.topic_name}' rejected by guardrail: '{neg}'")
-                    guard_matched = True
-                    break
+                    if not self.isolate_mcq_distractors or not opts or f" {neg_norm} " in padded_stem:
+                        guardrail_rejections.append(f"Topic '{rule.topic_name}' rejected by guardrail: '{neg}'")
+                        guard_matched = True
+                        break
+                    else:
+                        # Negative guard matches ONLY in MCQ options (potential distractor).
+                        # Only reject if rule lacks positive evidence in the question stem.
+                        has_pos_in_stem = any(
+                            self.normalize_text(p) and f" {self.normalize_text(p)} " in padded_stem
+                            for p in rule.strong_phrases
+                        ) or any(
+                            self.normalize_text(k) and f" {self.normalize_text(k)} " in padded_stem
+                            for k in rule.specific_keywords
+                        )
+                        if not has_pos_in_stem:
+                            guardrail_rejections.append(f"Topic '{rule.topic_name}' rejected by guardrail: '{neg}'")
+                            guard_matched = True
+                            break
 
             if guard_matched:
                 continue
