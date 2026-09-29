@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import time
 import random
@@ -78,7 +79,7 @@ class VisionExtractor:
             # We must use client.files.upload
             gemini_file = client.files.upload(
                 file=file_path,
-                config={"display_name": os.path.basename(file_path)}
+                config={"display_name": os.path.basename(file_path), "mime_type": "application/pdf"}
             )
             
             # Wait for processing if needed
@@ -119,7 +120,7 @@ class VisionExtractor:
         base_delay = 2.0
         last_error = None
 
-        models_to_try = ["gemini-3-flash-preview", "gemini-3.5-flash", "gemini-3.6-flash"]
+        models_to_try = ["gemini-3-flash-preview", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.7-flash", "gemini-flash-latest"]
         try:
             for attempt in range(max_retries):
                 model_name = models_to_try[attempt % len(models_to_try)]
@@ -136,12 +137,16 @@ class VisionExtractor:
                     )
                     if not response.text:
                         raise ValueError(f"Empty response from Gemini: finish_reason={response.candidates[0].finish_reason if response.candidates else 'None'}")
-                    data = json.loads(response.text)
+                    raw_text = response.text.strip()
+                    if raw_text.startswith("```"):
+                        raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+                        raw_text = re.sub(r"\s*```$", "", raw_text)
+                    data = json.loads(raw_text)
                     return cls._transform_to_domain(data)
                 except Exception as e:
                     err_str = str(e)
                     last_error = err_str
-                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out", "Empty response", "NoneType"])
+                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out", "Empty response", "NoneType", "Expecting property", "JSONDecodeError", "Unterminated", "Extra data"])
                     if is_transient and attempt < max_retries - 1:
                         sleep_time = min(60.0, (base_delay * (2 ** attempt)) + random.uniform(0.1, 1.0))
                         print(f"[VisionExtractor] Transient error ({err_str[:60]}). Retrying in {sleep_time:.2f}s...")

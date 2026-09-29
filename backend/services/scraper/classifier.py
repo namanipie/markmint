@@ -96,7 +96,9 @@ class ResourceClassifier:
         (r"\bct\s*1\b|\bct-1\b|\bcycle\s*test\s*1\b|\bclass\s*test\s*1\b", "CT1"),
         (r"\bct\s*2\b|\bct-2\b|\bcycle\s*test\s*2\b|\bclass\s*test\s*2\b", "CT2"),
         (r"\bct\s*3\b|\bct-3\b|\bcycle\s*test\s*3\b|\bclass\s*test\s*3\b", "CT3"),
-        (r"\bend\s*sem(?:ester)?\b|\bendsem(?:ester)?\b|\bsemester\s*exam\b|\bfinal\s*exam\b", "END_SEM"),
+        (r"\bend\s*sem(?:ester)?\b|\bendsem(?:ester)?\b|\bsemester\s*exam\b|\bfinal\s*exam\b|\bdegree\s+examination\b|\bexamination\s+paper\b", "END_SEM"),
+        (r"\bpyq\s+(?:20[1-3][0-9]\s+)?(?:jan|january|feb|february|mar|march|apr|april|may|june?|july?|aug|august|sep|september|oct|october|nov|november|dec|december)\b", "END_SEM"),
+        (r"\b(?:jan|january|feb|february|mar|march|apr|april|may|june?|july?|aug|august|sep|september|oct|october|nov|november|dec|december)\s+(?:20[1-3][0-9]\s+)?pyq\b", "END_SEM"),
         (r"\bmid\s*sem(?:ester)?\b|\bmidsem(?:ester)?\b|\bmidterm\b|\bmid[- ]term\b", "MID_SEM"),
         (r"\bmodel\s*(?:exam|paper|test)\b", "MODEL"),
     ]

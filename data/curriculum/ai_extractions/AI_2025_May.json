@@ -1,0 +1,558 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "(20 x 1 = 20 Marks) Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. ____ is the common language for AI (A) Lisp (B) Python (C) PHP (D) Java [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "____ is the common language for AI (A) Lisp (B) Python (C) PHP (D) Java",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. In the context of AI problem formulation, what does the term \"State Space\" refer to? (A) The physical space where AI algorithms operate (B) The set of all possible states the problem can be in (C) The memory space allocated for AI programs (D) The space complexity of the AI solution [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "In the context of AI problem formulation, what does the term \"State Space\" refer to? (A) The physical space where AI algorithms operate (B) The set of all possible states the problem can be in (C) The memory space allocated for AI programs (D) The space complexity of the AI solution",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. In a game of tic-tac-toe, the player who goes first (X) makes optimal moves, and the player who goes second (O) also makes optimal moves. Assuming both players play perfectly, what is the outcome of a standard 3 \\times 3 tic-tac-toe game? (A) X wins (B) O wins (C) It's a draw (D) Depends on the specific moves made [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "In a game of tic-tac-toe, the player who goes first (X) makes optimal moves, and the player who goes second (O) also makes optimal moves. Assuming both players play perfectly, what is the outcome of a standard 3 \\times 3 tic-tac-toe game? (A) X wins (B) O wins (C) It's a draw (D) Depends on the specific moves made",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. A self-driving car needs to navigate through a city while avoiding obstacles and following traffic rules. Which AI approach is most suitable for training the car to make decisions in real-time based on its environment. (A) Supervised learning (B) Unsupervised learning (C) Reinforcement learning (D) Ensemble learning [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "A self-driving car needs to navigate through a city while avoiding obstacles and following traffic rules. Which AI approach is most suitable for training the car to make decisions in real-time based on its environment. (A) Supervised learning (B) Unsupervised learning (C) Reinforcement learning (D) Ensemble learning",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. If any search algorithm is able to generate a solution, then the search is (A) Efficient (B) Informed (C) Uninformed (D) Complete [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "If any search algorithm is able to generate a solution, then the search is (A) Efficient (B) Informed (C) Uninformed (D) Complete",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. In a search technique a node/ state is marked to be visited when ________. (A) It is pruned (B) It is explained (C) It is successors are traversed (D) The successors are traversed and explained [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "In a search technique a node/ state is marked to be visited when ________. (A) It is pruned (B) It is explained (C) It is successors are traversed (D) The successors are traversed and explained",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Your friend is in a building that has 15 floors. And you want to locate him. Which search technique would you use? (A) Depth limited search (B) Iterative deepening search (C) Depth first search (D) Breadth first search [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Your friend is in a building that has 15 floors. And you want to locate him. Which search technique would you use? (A) Depth limited search (B) Iterative deepening search (C) Depth first search (D) Breadth first search",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following search technique uses a priority queue? (A) Breadth first search (B) Depth first search (C) Iterative deepening search (D) Depth limited search [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following search technique uses a priority queue? (A) Breadth first search (B) Depth first search (C) Iterative deepening search (D) Depth limited search",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Which of the following mentioned problems are not constraint satisfaction problems? (A) N-queens problem (B) Map-colouring problem (C) Crypt-arithmetic problem (D) Missionary and cannibals problem [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Which of the following mentioned problems are not constraint satisfaction problems? (A) N-queens problem (B) Map-colouring problem (C) Crypt-arithmetic problem (D) Missionary and cannibals problem",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. What is the significance of the beta value in alpha-beta pruning? (A) The highest score found so far for the maximizing player (B) The maximum depth of the search (C) The current node being evaluated in the game tree (D) The lowest score found so far for the minimizing player [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "What is the significance of the beta value in alpha-beta pruning? (A) The highest score found so far for the maximizing player (B) The maximum depth of the search (C) The current node being evaluated in the game tree (D) The lowest score found so far for the minimizing player",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. In a distributed intelligent agent system, what does dynamic discovery and registration facilitate? (A) Lack of communication between agents (B) Static interactions (C) Dynamic interactions and collaborations (D) Independence from other agents [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "In a distributed intelligent agent system, what does dynamic discovery and registration facilitate? (A) Lack of communication between agents (B) Static interactions (C) Dynamic interactions and collaborations (D) Independence from other agents",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. In a scenario with low observability, what technology could be particularly useful for enhancing an agent's understanding of the environment? (A) Sensor fusion (B) Machine learning algorithms (C) Communication networks (D) Predictive modelling [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "In a scenario with low observability, what technology could be particularly useful for enhancing an agent's understanding of the environment? (A) Sensor fusion (B) Machine learning algorithms (C) Communication networks (D) Predictive modelling",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. A knowledge representation system should have which of the following properties. (i) Representation adequacy (ii) Inferential adequacy (iii) Inferential efficiency. (A) (i) and (ii) only (B) (in) and (iii) only (C) (i) and (iii) only (D) All (i), (ii) and (iii) [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "A knowledge representation system should have which of the following properties. (i) Representation adequacy (ii) Inferential adequacy (iii) Inferential efficiency. (A) (i) and (ii) only (B) (in) and (iii) only (C) (i) and (iii) only (D) All (i), (ii) and (iii)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. The statement \"P \\wedge Q \\rightarrow R\" is equivalent to (A) P \\wedge (Q \\rightarrow R) (B) (P \\wedge Q) \\rightarrow R (C) P \\rightarrow (Q \\wedge R) (D) (P \\rightarrow Q) \\wedge R [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "The statement \"P \\wedge Q \\rightarrow R\" is equivalent to (A) P \\wedge (Q \\rightarrow R) (B) (P \\wedge Q) \\rightarrow R (C) P \\rightarrow (Q \\wedge R) (D) (P \\rightarrow Q) \\wedge R",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Which of the following best describes a Knowledge Base (KB) in Artificial Intelligence? (A) A type of database that stores only structured data (B) A collection of facts, rules, and heuristics used by AI systems for reasoning (C) A neural network model for deep learning (D) A high-speed memory component in a computer [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Which of the following best describes a Knowledge Base (KB) in Artificial Intelligence? (A) A type of database that stores only structured data (B) A collection of facts, rules, and heuristics used by AI systems for reasoning (C) A neural network model for deep learning (D) A high-speed memory component in a computer",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Choose the correct option A) Knowledge base (KB) is consists of set of statements . B) Inference is deriving an a new statement from existing ones (A) A is true, B is true (B) A is false, B is false (C) A is true, B is false (D) A is false, B is true [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Choose the correct option A) Knowledge base (KB) is consists of set of statements . B) Inference is deriving an a new statement from existing ones (A) A is true, B is true (B) A is false, B is false (C) A is true, B is false (D) A is false, B is true",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning problem, then the best data structure to use is the (A) Stacks (B) Planning Graphs (C) BST (Binary Search Tree) (D) Queue [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning problem, then the best data structure to use is the (A) Stacks (B) Planning Graphs (C) BST (Binary Search Tree) (D) Queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. What is the architecture of o fan expert system primarily concerned with? (A) Identifying planning problems (B) Designing machine learning models (C) Replicating human expertise in a problem specific domain (D) Create virtual words for solving [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "What is the architecture of o fan expert system primarily concerned with? (A) Identifying planning problems (B) Designing machine learning models (C) Replicating human expertise in a problem specific domain (D) Create virtual words for solving",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The first expert system was ________. (A) DENDRAL (B) MYCIN (C) XCON (D) CON [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The first expert system was ________. (A) DENDRAL (B) MYCIN (C) XCON (D) CON",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Machine learning is a subset of which of the following? (A) Deep Learning (B) Data Learning (C) Artificial Intelligence (D) Big data [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Machine learning is a subset of which of the following? (A) Deep Learning (B) Data Learning (C) Artificial Intelligence (D) Big data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "(5 x 8 = 40 Marks) Answer all Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. (a) Explain the various AI models with an example. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "(a) Explain the various AI models with an example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "(b) Explain how you will solve the travelling salesman problem with AI.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. (b) Explain how you will solve the travelling salesman problem with AI. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "(b) Explain how you will solve the travelling salesman problem with AI.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. (a) Explain A* search. Write down its time and space complexity. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "(a) Explain A* search. Write down its time and space complexity.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "(b) The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm. [Graph Description: Nodes with heuristics: A(10), B(8), C(5), D(7), E(3), F(6), G(5), H(3), J(0). Edges with distances: (A,B):6, (A,F):3, (B,D):2, (B,C):3, (C,E):5, (D,C):1, (D,E):8, (D,G):5, (E,J):5, (F,G):1, (F,H):7, (G,H):3, (G,J):5, (H,J):2]",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. (b) The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm. [Graph Description: Nodes with heuristics: A(10), B(8), C(5), D(7), E(3), F(6), G(5), H(3), J(0). Edges with distances: (A,B):6, (A,F):3, (B,D):2, (B,C):3, (C,E):5, (D,C):1, (D,E):8, (D,G):5, (E,J):5, (F,G):1, (F,H):7, (G,H):3, (G,J):5, (H,J):2] [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "(b) The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm. [Graph Description: Nodes with heuristics: A(10), B(8), C(5), D(7), E(3), F(6), G(5), H(3), J(0). Edges with distances: (A,B):6, (A,F):3, (B,D):2, (B,C):3, (C,E):5, (D,C):1, (D,E):8, (D,G):5, (E,J):5, (F,G):1, (F,H):7, (G,H):3, (G,J):5, (H,J):2]",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. (a) Imagine you are playing a two-player game with a relatively large game tree. Explain how alpha-beta pruning helps in reducing the number of nodes explored during the minimax search and why it is more efficient than the basic minimax algorithm. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "(a) Imagine you are playing a two-player game with a relatively large game tree. Explain how alpha-beta pruning helps in reducing the number of nodes explored during the minimax search and why it is more efficient than the basic minimax algorithm.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "(b) Examine the multi-agent system with a real time example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. (b) Examine the multi-agent system with a real time example. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "(b) Examine the multi-agent system with a real time example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. (a) Consider the following axioms. Represent these axioms in predicate calculus. [8]\n  i. Every child love Ice-cream.\n  ii. Everyone who loves Ice-cream loves any chocolate\n  iii. Apple is a fruit, and Apple is red color\n  iv. Anything which has a red nose is weird or is a clown\n  v. No dog is a clown\n  vi. John does not love anything which is weird",
+          "structured_content": {
+            "number": "24",
+            "text": "(a) Consider the following axioms. Represent these axioms in predicate calculus.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Every child love Ice-cream."
+              },
+              {
+                "number": "ii",
+                "text": "Everyone who loves Ice-cream loves any chocolate"
+              },
+              {
+                "number": "iii",
+                "text": "Apple is a fruit, and Apple is red color"
+              },
+              {
+                "number": "iv",
+                "text": "Anything which has a red nose is weird or is a clown"
+              },
+              {
+                "number": "v",
+                "text": "No dog is a clown"
+              },
+              {
+                "number": "vi",
+                "text": "John does not love anything which is weird"
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "(b) Discuss the challenges associated with applying uncertain knowledge and reasoning methods to simple decision-making in AI. How can these challenges be mitigated?",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. (b) Discuss the challenges associated with applying uncertain knowledge and reasoning methods to simple decision-making in AI. How can these challenges be mitigated? [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "(b) Discuss the challenges associated with applying uncertain knowledge and reasoning methods to simple decision-making in AI. How can these challenges be mitigated?",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. (a) Explain in detail about expert system architecture. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "(a) Explain in detail about expert system architecture.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "(b) Elaborate the types of learning models used in machine learning and their relevance in AI applications.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. (b) Elaborate the types of learning models used in machine learning and their relevance in AI applications. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "(b) Elaborate the types of learning models used in machine learning and their relevance in AI applications.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "(1 x 15 = 15 Marks) Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Given two water jugs with capacities X and Y litres. Initially, both the jugs are empty. Also, given that there is an infinite amount of water available. The jugs do not have markings to measure smaller quantities. One can perform the following operations on the jug:\ni. Fill any of the jugs completely with water.\nii. Pour water from one jug to the other until one of the jugs is either empty or full, (X, Y) -> (X - d, Y + d)\niii Empty any of the jugs\nThe task is to determine whether it is possible to measure Z litres of water using both jugs. And if true, print any of the possible ways. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Given two water jugs with capacities X and Y litres. Initially, both the jugs are empty. Also, given that there is an infinite amount of water available. The jugs do not have markings to measure smaller quantities. One can perform the following operations on the jug:\ni. Fill any of the jugs completely with water.\nii. Pour water from one jug to the other until one of the jugs is either empty or full, (X, Y) -> (X - d, Y + d)\niii Empty any of the jugs\nThe task is to determine whether it is possible to measure Z litres of water using both jugs. And if true, print any of the possible ways.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Given an initial state of 8 puzzle problem and final state to be reached as,\nInitial State:\n2 8 3\n1 6 4\n7   5\nFinal State:\n1 2 3\n8   4\n7 6 5\nFind the most cost-effective path to reach the final state from initial state using A* Algorithm. Explain each stapes. Consider g(n) = Depth of node and h(n) = Number of misplaced tiles. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Given an initial state of 8 puzzle problem and final state to be reached as,\nInitial State:\n2 8 3\n1 6 4\n7   5\nFinal State:\n1 2 3\n8   4\n7 6 5\nFind the most cost-effective path to reach the final state from initial state using A* Algorithm. Explain each stapes. Consider g(n) = Depth of node and h(n) = Number of misplaced tiles.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2025
+}

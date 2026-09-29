@@ -41,7 +41,7 @@ class AcademicResourceCrawler:
     """Orchestrates multi-source academic discovery, verification, and ingestion."""
 
     STUDIQUE_API_URL = "https://studique.in/api/resource/list"
-    HELPERS_CHUNK_URL = "https://thehelpers.tech/_next/static/chunks/325-65fb825d127b8f94.js"
+    HELPERS_CHUNK_URL = "https://thehelpers.tech/_next/static/chunks/6325-12891335b742b037.js"
     HELPERS_BASE_URL = "https://thehelpers.tech"
 
     def __init__(
@@ -264,8 +264,26 @@ class AcademicResourceCrawler:
             r.raise_for_status()
             text = r.text
         except Exception as e:
-            logger.error("Failed to fetch The Helpers asset chunk: %s", e)
-            return []
+            logger.warning("Primary Helpers chunk failed (%s). Attempting dynamic chunk resolution...", e)
+            text = None
+            try:
+                sub_page = requests.get(f"{self.HELPERS_BASE_URL}/semesters/3/subjects/Data%20Structures%20And%20Algorithm", headers=headers, timeout=15)
+                candidate_chunks = re.findall(r'/_next/static/chunks/([a-zA-Z0-9_\-\.]+?\.js)', sub_page.text)
+                for chunk_name in candidate_chunks:
+                    if any(ignored in chunk_name for ignored in ["webpack", "framework", "main", "layout", "polyfills", "page"]):
+                        continue
+                    cand_url = f"{self.HELPERS_BASE_URL}/_next/static/chunks/{chunk_name}"
+                    cr = requests.get(cand_url, headers=headers, timeout=10)
+                    if cr.status_code == 200 and "drive.google.com" in cr.text:
+                        text = cr.text
+                        self.HELPERS_CHUNK_URL = cand_url
+                        logger.info("Dynamically resolved new Helpers chunk: %s", cand_url)
+                        break
+            except Exception as dyn_err:
+                logger.error("Dynamic chunk resolution failed: %s", dyn_err)
+            if not text:
+                logger.error("Failed to fetch The Helpers asset chunk: %s", e)
+                return []
 
         # Extract semester-to-subjects mapping: r={1:[...], 2:[...], ... 8:[...]}
         sem_match = re.search(r'([a-zA-Z0-9_$]+)\s*=\s*(\{1:\[.*?8:\[.*?\}\])', text)

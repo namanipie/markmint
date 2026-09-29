@@ -1,0 +1,532 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. Reflected binary code is also known as [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "Reflected binary code is also known as",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which of the following is the correct hexadecimal representation for the decimal number 255 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which of the following is the correct hexadecimal representation for the decimal number 255",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. What is the 2's complement of the binary number 00001101 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "What is the 2's complement of the binary number 00001101",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. What is the gray code equivalent of the binary number 11011 [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "What is the gray code equivalent of the binary number 11011",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Which of the register/s of the processor is/are connected to Memory Bus? [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Which of the register/s of the processor is/are connected to Memory Bus?",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Data is transferred to and from memory in groups of bits called [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Data is transferred to and from memory in groups of bits called",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. 1 GB is equivalent to how to many bytes [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "1 GB is equivalent to how to many bytes",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. A computer has 32 MB (megabytes) of memory. How many bits are needed to address any single byte in memory [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "A computer has 32 MB (megabytes) of memory. How many bits are needed to address any single byte in memory",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. Mention the adder circuit which can add two binary numbers and also take into account an input carry? [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "Mention the adder circuit which can add two binary numbers and also take into account an input carry?",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which algorithm is commonly used for binary multiplication in digital circuits? [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which algorithm is commonly used for binary multiplication in digital circuits?",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. What is the primary disadvantage of using a straight forward shift-and-add multiplier [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "What is the primary disadvantage of using a straight forward shift-and-add multiplier",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. How many bits are used for the exponent in IEEE 754 standard for single-precision floating-point number representation [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "How many bits are used for the exponent in IEEE 754 standard for single-precision floating-point number representation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. The stages of 3 stage pipelining are [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "The stages of 3 stage pipelining are",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. Control Hazard is otherwise called as [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "Control Hazard is otherwise called as",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. A set of microinstructions for a single machine instruction is called [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "A set of microinstructions for a single machine instruction is called",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. The disadvantage/s of the hardwired approach is [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "The disadvantage/s of the hardwired approach is",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Which of the following is a primary reason for using parallelism in computing [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Which of the following is a primary reason for using parallelism in computing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. In Flynn's classification, MIMD refers to [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "In Flynn's classification, MIMD refers to",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Instruction level Parallelism achieves more than one instruction at a time through [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Instruction level Parallelism achieves more than one instruction at a time through",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Which instruction set architecture is typically used in ARM processors [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Which instruction set architecture is typically used in ARM processors",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. a. Describe briefly about Universal Gates? Show how to implement the basic gates using Universal Gates. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "a. Describe briefly about Universal Gates? Show how to implement the basic gates using Universal Gates.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "b. Given the binary numbers 101101 and 110110, perform the following tasks: 1. Add the binary numbers and provide the result. 2. Convert the binary result to its decimal equivalent. 3. Convert the decimal result to Octal and Hexadecimal",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. b. Given the binary numbers 101101 and 110110, perform the following tasks: 1. Add the binary numbers and provide the result. 2. Convert the binary result to its decimal equivalent. 3. Convert the decimal result to Octal and Hexadecimal [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "b. Given the binary numbers 101101 and 110110, perform the following tasks: 1. Add the binary numbers and provide the result. 2. Convert the binary result to its decimal equivalent. 3. Convert the decimal result to Octal and Hexadecimal",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. a. List and discuss about different addressing modes with suitable examples [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "a. List and discuss about different addressing modes with suitable examples",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "b. Describe the basic functional blocks of computer system and discuss about the functions of the Arithmetic and Logic Unit (ALU) and the Memory Unit (MU) in the basic structure of a computer.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. b. Describe the basic functional blocks of computer system and discuss about the functions of the Arithmetic and Logic Unit (ALU) and the Memory Unit (MU) in the basic structure of a computer. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "b. Describe the basic functional blocks of computer system and discuss about the functions of the Arithmetic and Logic Unit (ALU) and the Memory Unit (MU) in the basic structure of a computer.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. a. Draw the circuit diagram of 4 bit Full adder circuit and explain its Operations. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "a. Draw the circuit diagram of 4 bit Full adder circuit and explain its Operations.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "b. Describe the significance of Booth algorithm for performing signed multiplication with in.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. b. Describe the significance of Booth algorithm for performing signed multiplication with in. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "b. Describe the significance of Booth algorithm for performing signed multiplication with in.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. a. Illustrate the micro-programmed control unit(MCU) with a neat diagram and how instructions will be processed in MCU. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "a. Illustrate the micro-programmed control unit(MCU) with a neat diagram and how instructions will be processed in MCU.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24",
+              "text": "b. Describe the process of pipelining in computer architecture. Explain different stages of pipeline and its role in execution of instructions.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. b. Describe the process of pipelining in computer architecture. Explain different stages of pipeline and its role in execution of instructions. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "b. Describe the process of pipelining in computer architecture. Explain different stages of pipeline and its role in execution of instructions.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. a. Briefly write about architecture of parallel systems and its types. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "a. Briefly write about architecture of parallel systems and its types.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "b. Describe various memory load and store instructions available in ARM architecture.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. b. Describe various memory load and store instructions available in ARM architecture. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "b. Describe various memory load and store instructions available in ARM architecture.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Explain the architecture of 8086 microprocessor and briefly describe its operations. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Explain the architecture of 8086 microprocessor and briefly describe its operations.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Describe the architecture of ARM processors, focusing on how pipeline stages contribute to instruction execution. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Describe the architecture of ARM processors, focusing on how pipeline stages contribute to instruction execution.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}

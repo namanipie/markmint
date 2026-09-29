@@ -192,11 +192,13 @@ class CorpusIngester:
             )
 
         # 2. Curriculum Resolution if not already resolved
-        if not record.course_id:
+        if not record.course_id or not record.curriculum_status:
             res = self.resolver.resolve(record.subject, record.semester)
             if res.status in (CurriculumMatchState.MATCHED, CurriculumMatchState.CATALOG_ONLY) and res.course_id:
                 record.course_id = res.course_id
                 record.curriculum_status = res.status
+            elif record.course_id:
+                record.curriculum_status = CurriculumMatchState.MATCHED
             else:
                 record.curriculum_status = res.status
 
@@ -254,12 +256,17 @@ class CorpusIngester:
                             logger.warning("VisionExtractor error: %s", e)
 
                 if result and result.successful and result.sections and sum(len(s.questions) for s in result.sections) > 0:
+                    resolved_assessment = getattr(result, "assessment_type", None) or record.assessment_type or "END_SEM"
                     new_exam = self.doc_service.import_exam_extraction(
                         document_id=doc.id,
                         course_id=record.course_id,
-                        year=record.extracted_year,  # None if unknown, preserving temporal causality!
+                        year=record.extracted_year or getattr(result, "year", None),  # None if unknown, preserving temporal causality!
                         term="Fall",
-                        extraction_data={**result.model_dump(), "year": record.extracted_year},
+                        extraction_data={
+                            **result.model_dump(),
+                            "year": record.extracted_year or getattr(result, "year", None),
+                            "assessment_type": resolved_assessment,
+                        },
                     )
 
                     # Authoritative post-ingestion: topic mapping, family assignment, commit, and cache invalidation
