@@ -204,7 +204,7 @@ def test_korean_questions_never_enter_german_families(db: Session):
 def test_every_question_has_exactly_one_family(db: Session):
     """Every question in the corpus must belong to exactly one family with unique membership."""
     total_q = db.query(Question).count()
-    assert total_q == 9077
+    assert total_q == 9205
 
     # Zero questions without family_id
     unassigned = db.query(Question).filter(Question.family_id.is_(None)).count()
@@ -344,10 +344,10 @@ def test_courses_24_to_31_retain_family_invariants(db: Session):
     exact family counts, questions, and trackless (track_id is None) invariants.
     """
     expected_counts = {
-        24: (185, 220),  # (families, questions)
-        25: (178, 198),
+        24: (206, 252),  # (families, questions)
+        25: (198, 230),
         26: (150, 160),
-        27: (225, 255),
+        27: (256, 287),
         28: (140, 143),
         29: (171, 188),
         30: (203, 337),

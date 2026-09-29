@@ -57,6 +57,66 @@ PAPERS_TO_INGEST = [
         "assessment_type": "END_SEM",
         "extraction_file": "data/curriculum/ai_extractions/AI_2025_May.json",
     },
+    {
+        "course_id": 24,
+        "course_code": "SEM3-DSA",
+        "subject_name": "Data Structures and Algorithms",
+        "title": "Data Structures and Algorithms - NOV 2024 Examination Paper",
+        "source": "TheHelpers",
+        "source_url": "https://thehelpers.tech/semesters/3/subjects/Data%20Structures%20And%20Algorithm",
+        "resolved_url": "https://drive.google.com/uc?export=download&id=15tLL8TPKLzANOT0A5dvfR4VPSIGZ7dcs",
+        "document_hash": "203b4aa1de915b24731dd7206fb75350721f41e5af781cda232d5ab550a044b4",
+        "semester": "3",
+        "year": 2024,
+        "term": "NOV",
+        "assessment_type": "END_SEM",
+        "extraction_file": "data/s3_s4/extractions/DSA_2024_Nov.json",
+    },
+    {
+        "course_id": 25,
+        "course_code": "SEM3-OS",
+        "subject_name": "Operating Systems",
+        "title": "Operating Systems - NOV 2024 Examination Paper",
+        "source": "TheHelpers",
+        "source_url": "https://thehelpers.tech/semesters/3/subjects/Operating%20Systems",
+        "resolved_url": "https://drive.google.com/uc?export=download&id=1IvpFfDutXhVFu_JmvnB13qK7E0F1eQQU",
+        "document_hash": "e4896aaffcf5f34b4fa3d1f08e5b74db7f8c58819c3d543292e6ed81d30b6e04",
+        "semester": "3",
+        "year": 2024,
+        "term": "NOV",
+        "assessment_type": "END_SEM",
+        "extraction_file": "data/s3_s4/extractions/OS_2024_Nov.json",
+    },
+    {
+        "course_id": 27,
+        "course_code": "SEM4-DAA",
+        "subject_name": "Design and Analysis of Algorithms",
+        "title": "Design and Analysis of Algorithms - MAY 2025 Examination Paper",
+        "source": "TheHelpers",
+        "source_url": "https://thehelpers.tech/semesters/4/subjects/Design%20And%20Analysis%20Of%20Algorithms",
+        "resolved_url": "https://drive.google.com/uc?export=download&id=1bjjVF4ZY8KT0FwOb7Z-yU5isqnupo_Xx",
+        "document_hash": "2f8d329ae3dacfed15444feab69925a6b254eeea0f2944484b99595841ffb437",
+        "semester": "4",
+        "year": 2025,
+        "term": "MAY",
+        "assessment_type": "END_SEM",
+        "extraction_file": "data/s3_s4/extractions/DAA_2025_May.json",
+    },
+    {
+        "course_id": 22,
+        "course_code": "SEM4-PROB",
+        "subject_name": "Probability and Statistics",
+        "title": "Probability and Statistics - MAY 2024 Examination Paper",
+        "source": "TheHelpers",
+        "source_url": "https://thehelpers.tech/semesters/4/subjects/Probability%20%26%20Applied%20Statistics",
+        "resolved_url": "https://drive.google.com/uc?export=download&id=1Pz6a_Pdpg1QUqQ8dbaRtpW5fB6V2XF6Q",
+        "document_hash": "6ba2687c7f0f3145ea049a1f432c3f141bf4898cfa2694c223a3912c0d8d4a5c",
+        "semester": "4",
+        "year": 2024,
+        "term": "MAY",
+        "assessment_type": "END_SEM",
+        "extraction_file": "data/s3_s4/extractions/PROB_2024_May.json",
+    },
 ]
 
 def ingest_papers():
@@ -103,23 +163,29 @@ def ingest_papers():
                 source_priority="PRIMARY_SOURCE"
             )
             
-            # 2. Load extraction data
-            with open(p["extraction_file"], "r", encoding="utf-8") as f:
-                ext_data = json.load(f)
-                
-            # 3. Import exam extraction
-            exam = doc_service.import_exam_extraction(
-                document_id=doc.id,
-                course_id=p["course_id"],
-                year=p["year"],
-                term=p["term"],
-                extraction_data={
-                    **ext_data,
-                    "year": p["year"],
-                    "assessment_type": p["assessment_type"]
-                }
-            )
-            print(f"    Imported Exam #{exam.id} with {len(exam.sections)} sections")
+            # 2. Check if Exam already imported
+            existing_exam = db.query(Exam).filter(Exam.document_id == doc.id).first()
+            if existing_exam:
+                exam = existing_exam
+                print(f"    Exam already exists (ID: {exam.id})")
+            else:
+                # Load extraction data
+                with open(p["extraction_file"], "r", encoding="utf-8") as f:
+                    ext_data = json.load(f)
+                    
+                # Import exam extraction
+                exam = doc_service.import_exam_extraction(
+                    document_id=doc.id,
+                    course_id=p["course_id"],
+                    year=p["year"],
+                    term=p["term"],
+                    extraction_data={
+                        **ext_data,
+                        "year": p["year"],
+                        "assessment_type": p["assessment_type"]
+                    }
+                )
+                print(f"    Imported Exam #{exam.id} with {len(exam.sections)} sections")
             
             # Count questions
             q_count = db.query(Question).join(Section).filter(Section.exam_id == exam.id).count()

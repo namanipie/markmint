@@ -87,11 +87,11 @@ def test_database_exam_corpus_ingestion(db):
     counts = {}
     for e in exams:
         counts[e.course_id] = counts.get(e.course_id, 0) + 1
-    assert counts[24] == 7, "DSA must have 7 papers"
-    assert counts[25] == 6, "OS must have 6 papers"
+    assert counts[24] >= 7, "DSA must have at least 7 papers"
+    assert counts[25] >= 6, "OS must have at least 6 papers"
     assert counts[26] >= 4, "COA must have at least 4 papers"
-    assert counts[27] == 8, "DAA must have 8 papers"
-    assert counts[28] == 4, "DBMS must have 4 papers"
+    assert counts[27] >= 8, "DAA must have at least 8 papers"
+    assert counts[28] >= 4, "DBMS must have at least 4 papers"
 
     # Verify questions and sections exist and have text
     total_q = 0

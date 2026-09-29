@@ -1,0 +1,574 @@
+{
+  "sections": [
+    {
+      "name": "PART - A (20 x 1 = 20Marks)",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. The probability of throwing 4 in a die is ________ (A) 1 (B) 4/6 (C) 1/6 (D) 0 [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "The probability of throwing 4 in a die is ________ (A) 1 (B) 4/6 (C) 1/6 (D) 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. If Var(X)=4, then Var(4X+5) is ________ (A) 64 (B) 16 (C) 21 (D) 69 [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "If Var(X)=4, then Var(4X+5) is ________ (A) 64 (B) 16 (C) 21 (D) 69",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. The value of 'K' in $f(x) = Kx^2 e^{-x} dx$ is ________ in $0 < x < \\infty$. (A) 1 (B) -1/2 (C) 1/2 (D) 0 [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "The value of 'K' in $f(x) = Kx^2 e^{-x} dx$ is ________ in $0 < x < \\infty$. (A) 1 (B) -1/2 (C) 1/2 (D) 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. If X and Y are random variable then E(X+Y) is ________ (A) E(X)+E(Y) (B) E(XY) (C) E(X) (D) E(Y) [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "If X and Y are random variable then E(X+Y) is ________ (A) E(X)+E(Y) (B) E(XY) (C) E(X) (D) E(Y)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. The mean and variance of a binomial distribution is ________ (A) $\\mu = npq, \\sigma^2 = np$ (B) $\\mu = nq, \\sigma^2 = npq$ (C) $\\mu = np, \\sigma^2 = pq$ (D) $\\mu = np, \\sigma^2 = npq$ [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "The mean and variance of a binomial distribution is ________ (A) $\\mu = npq, \\sigma^2 = np$ (B) $\\mu = nq, \\sigma^2 = npq$ (C) $\\mu = np, \\sigma^2 = pq$ (D) $\\mu = np, \\sigma^2 = npq$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Mean of the Poisson distribution is ________ (A) $\\lambda - 1$ (B) $\\lambda$ (C) $\\lambda + 1$ (D) $\\lambda^2$ [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Mean of the Poisson distribution is ________ (A) $\\lambda - 1$ (B) $\\lambda$ (C) $\\lambda + 1$ (D) $\\lambda^2$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Normal distribution is the limiting form of ________ distribution under suitable statistical conditions. (A) Poisson (B) Geometric (C) Binomial (D) Uniform [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Normal distribution is the limiting form of ________ distribution under suitable statistical conditions. (A) Poisson (B) Geometric (C) Binomial (D) Uniform",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. The mean of uniform distribution is ________ (A) $\\frac{a+b}{4}$ (B) $\\frac{a+b}{2}$ (C) $\\frac{a-b}{2}$ (D) $\\frac{a-b}{4}$ [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "The mean of uniform distribution is ________ (A) $\\frac{a+b}{4}$ (B) $\\frac{a+b}{2}$ (C) $\\frac{a-b}{2}$ (D) $\\frac{a-b}{4}$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. An efficient estimator should satisfy ________ (A) Chernoff bound (B) Markov inequality (C) Cramer-Rao lower bound (D) Chebyshev's inequality [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "An efficient estimator should satisfy ________ (A) Chernoff bound (B) Markov inequality (C) Cramer-Rao lower bound (D) Chebyshev's inequality",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Estimation is of two types ________ (A) Biased and unbiased (B) One sided and two sided (C) Type I and type II (D) Point estimation and interval estimation [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Estimation is of two types ________ (A) Biased and unbiased (B) One sided and two sided (C) Type I and type II (D) Point estimation and interval estimation",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. The level of confidence is denoted by ________ (A) Beta (B) $\\alpha$ (C) 1-beta (D) $1-\\alpha$ [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "The level of confidence is denoted by ________ (A) Beta (B) $\\alpha$ (C) 1-beta (D) $1-\\alpha$",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Bias of an estimator can be ________ (A) Positive (B) Negative (C) Zero (D) Both negative and positive [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Bias of an estimator can be ________ (A) Positive (B) Negative (C) Zero (D) Both negative and positive",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. The form of the alternative hypothesis can be ________ (A) One tailed (B) Two tailed (C) Neither one nor two tailed (D) One or two tailed [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "The form of the alternative hypothesis can be ________ (A) One tailed (B) Two tailed (C) Neither one nor two tailed (D) One or two tailed",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. A ________ is a subset of a ________ (A) Sample, population (B) Population, sample (C) Statistic, parameter (D) Parameter, statistic [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "A ________ is a subset of a ________ (A) Sample, population (B) Population, sample (C) Statistic, parameter (D) Parameter, statistic",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. 't' test is a ________ distribution. (A) Normal (B) Bimodal (C) Unimodal (D) Exponential [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "'t' test is a ________ distribution. (A) Normal (B) Bimodal (C) Unimodal (D) Exponential",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. t-test and F-test are used only for ________ samples. (A) Large (B) 90 (C) 80 (D) Small [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "t-test and F-test are used only for ________ samples. (A) Large (B) 90 (C) 80 (D) Small",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Regression coefficient is independent of the change of ________ (A) Scale (B) Origin (C) Both origin and scale (D) Neither origin and scale [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Regression coefficient is independent of the change of ________ (A) Scale (B) Origin (C) Both origin and scale (D) Neither origin and scale",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. If $b_{yx} < 1$, then $b_{xy}$ is ________ (A) Less than 1 (B) Greater than 1 (C) Equal to 1 (D) Equal to 0 [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "If $b_{yx} < 1$, then $b_{xy}$ is ________ (A) Less than 1 (B) Greater than 1 (C) Equal to 1 (D) Equal to 0",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. When the correlation coefficient $r = \\pm 1$ then the two regression lines are ________ (A) Perpendicular to each other (B) Coincide (C) Do not exist (D) Parallel to each other [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "When the correlation coefficient $r = \\pm 1$ then the two regression lines are ________ (A) Perpendicular to each other (B) Coincide (C) Do not exist (D) Parallel to each other",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. In two way classification the data are classified according to ________ different factor. (A) Two (B) One (C) Five (D) Six [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "In two way classification the data are classified according to ________ different factor. (A) Two (B) One (C) Five (D) Six",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B (5 x 8 = 40 Marks)",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21. a.",
+          "original_text": "21. a.. A random variable X has the following distribution. | x | -2 | -1 | 0 | 1 | 2 | 3 | | P(X=x) | 0.1 | k | 0.2 | 2k | 0.3 | 3k | Find : [8]\n  (i). the value of 'k'\n  (ii). the cumulative distribution function (CDF)\n  (iii). the value of P(0<x<2)",
+          "structured_content": {
+            "number": "21. a.",
+            "text": "A random variable X has the following distribution. | x | -2 | -1 | 0 | 1 | 2 | 3 | | P(X=x) | 0.1 | k | 0.2 | 2k | 0.3 | 3k | Find :",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "(i)",
+                "text": "the value of 'k'"
+              },
+              {
+                "number": "(ii)",
+                "text": "the cumulative distribution function (CDF)"
+              },
+              {
+                "number": "(iii)",
+                "text": "the value of P(0<x<2)"
+              }
+            ],
+            "or_alternative": {
+              "number": "21. b.",
+              "text": "Find the moment generating function of the distribution whose probability density function is $f(x) = Ke^{-x/3}, x > 0$, and hence find its mean and variance.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21. b.",
+          "original_text": "21. b.. Find the moment generating function of the distribution whose probability density function is $f(x) = Ke^{-x/3}, x > 0$, and hence find its mean and variance. [8]",
+          "structured_content": {
+            "number": "21. b.",
+            "text": "Find the moment generating function of the distribution whose probability density function is $f(x) = Ke^{-x/3}, x > 0$, and hence find its mean and variance.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22. a.",
+          "original_text": "22. a.. If 3% of the electric bulbs manufactured by a company are defective, find the probability that in a sample of 100 bulbs exactly 5 bulbs are defective using Poisson distribution. ($e^{-3} = 0.0498$). [8]",
+          "structured_content": {
+            "number": "22. a.",
+            "text": "If 3% of the electric bulbs manufactured by a company are defective, find the probability that in a sample of 100 bulbs exactly 5 bulbs are defective using Poisson distribution. ($e^{-3} = 0.0498$).",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22. b.",
+              "text": "In a distribution exactly normal 7% of the items are under 35 and 89% are under 63. What are the mean and standard deviation of the distribution.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22. b.",
+          "original_text": "22. b.. In a distribution exactly normal 7% of the items are under 35 and 89% are under 63. What are the mean and standard deviation of the distribution. [8]",
+          "structured_content": {
+            "number": "22. b.",
+            "text": "In a distribution exactly normal 7% of the items are under 35 and 89% are under 63. What are the mean and standard deviation of the distribution.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23. a.",
+          "original_text": "23. a.. Find the maximum likelihood estimator of binomial with parameter p. [8]",
+          "structured_content": {
+            "number": "23. a.",
+            "text": "Find the maximum likelihood estimator of binomial with parameter p.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23. b.",
+              "text": "Topographer measures the square of a rectangular area. The measurement tool is set as the length X and width Y of area are independent. The real value for the length X is 10 and for the width Y is 5. The distribution of X and Y. The estimation of the square A=XY is a random variable",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "(i)",
+                  "text": "Is X unbiased estimator of length? Prove"
+                },
+                {
+                  "number": "(ii)",
+                  "text": "Is Y unbiased estimator of width? Prove"
+                },
+                {
+                  "number": "(iii)",
+                  "text": "Is A=XY unbiased estimator of square? Prove"
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23. b.",
+          "original_text": "23. b.. Topographer measures the square of a rectangular area. The measurement tool is set as the length X and width Y of area are independent. The real value for the length X is 10 and for the width Y is 5. The distribution of X and Y. The estimation of the square A=XY is a random variable [8]\n  (i). Is X unbiased estimator of length? Prove\n  (ii). Is Y unbiased estimator of width? Prove\n  (iii). Is A=XY unbiased estimator of square? Prove",
+          "structured_content": {
+            "number": "23. b.",
+            "text": "Topographer measures the square of a rectangular area. The measurement tool is set as the length X and width Y of area are independent. The real value for the length X is 10 and for the width Y is 5. The distribution of X and Y. The estimation of the square A=XY is a random variable",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "(i)",
+                "text": "Is X unbiased estimator of length? Prove"
+              },
+              {
+                "number": "(ii)",
+                "text": "Is Y unbiased estimator of width? Prove"
+              },
+              {
+                "number": "(iii)",
+                "text": "Is A=XY unbiased estimator of square? Prove"
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24. a.",
+          "original_text": "24. a.. A sample of 100 students is taken from a large population. The mean height of the students in this sample is 160 cm. Can it be reasonably regarded that in the population the mean height is 165 cm and the standard deviation is 10 cm? [8]",
+          "structured_content": {
+            "number": "24. a.",
+            "text": "A sample of 100 students is taken from a large population. The mean height of the students in this sample is 160 cm. Can it be reasonably regarded that in the population the mean height is 165 cm and the standard deviation is 10 cm?",
+            "marks": 8,
+            "or_alternative": {
+              "number": "24. b.",
+              "text": "In a random sample of size 500, the mean is found to be 20. In another independent sample of size 400, the mean is 15. Could the sample have been drawn from the same population with S.D 4.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24. b.",
+          "original_text": "24. b.. In a random sample of size 500, the mean is found to be 20. In another independent sample of size 400, the mean is 15. Could the sample have been drawn from the same population with S.D 4. [8]",
+          "structured_content": {
+            "number": "24. b.",
+            "text": "In a random sample of size 500, the mean is found to be 20. In another independent sample of size 400, the mean is 15. Could the sample have been drawn from the same population with S.D 4.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25. a.",
+          "original_text": "25. a.. Obtain the Spearman's rank correlation coefficient for the following data: | X | 68 | 64 | 75 | 50 | 64 | 80 | 75 | 40 | 55 | 64 | | Y | 62 | 58 | 68 | 45 | 81 | 60 | 68 | 48 | 50 | 70 | [8]",
+          "structured_content": {
+            "number": "25. a.",
+            "text": "Obtain the Spearman's rank correlation coefficient for the following data: | X | 68 | 64 | 75 | 50 | 64 | 80 | 75 | 40 | 55 | 64 | | Y | 62 | 58 | 68 | 45 | 81 | 60 | 68 | 48 | 50 | 70 |",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25. b.",
+              "text": "The two regression lines are $4x - 5y + 33 = 0$ and $20x - 9y = 107$ and variance of x is 25. Find the mean values of X and Y and find the correlation coefficient r.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25. b.",
+          "original_text": "25. b.. The two regression lines are $4x - 5y + 33 = 0$ and $20x - 9y = 107$ and variance of x is 25. Find the mean values of X and Y and find the correlation coefficient r. [8]",
+          "structured_content": {
+            "number": "25. b.",
+            "text": "The two regression lines are $4x - 5y + 33 = 0$ and $20x - 9y = 107$ and variance of x is 25. Find the mean values of X and Y and find the correlation coefficient r.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C (1 x 15 = 15 Marks)",
+      "instructions": "Answer ANY ONE Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Fit a binomial distribution for the following data and also test the goodness of fit. | x: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | Total | | f: | 5 | 18 | 28 | 12 | 7 | 6 | 4 | 80 | [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Fit a binomial distribution for the following data and also test the goodness of fit. | x: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | Total | | f: | 5 | 18 | 28 | 12 | 7 | 6 | 4 | 80 |",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. The following data represent the number of units of production per day turned out by different workers using 4 different types of machines. | Workers | Machine types A | Machine types B | Machine types C | Machine types D | | 1 | 44 | 38 | 47 | 36 | | 2 | 46 | 40 | 52 | 43 | | 3 | 34 | 36 | 44 | 32 | | 4 | 43 | 38 | 46 | 33 | | 5 | 38 | 42 | 49 | 39 | Test whether the five men differ with respect to mean productivity and test whether the mean productivity is the same for the four different machine types. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "The following data represent the number of units of production per day turned out by different workers using 4 different types of machines. | Workers | Machine types A | Machine types B | Machine types C | Machine types D | | 1 | 44 | 38 | 47 | 36 | | 2 | 46 | 40 | 52 | 43 | | 3 | 34 | 36 | 44 | 32 | | 4 | 43 | 38 | 46 | 33 | | 5 | 38 | 42 | 49 | 39 | Test whether the five men differ with respect to mean productivity and test whether the mean productivity is the same for the four different machine types.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2024
+}
