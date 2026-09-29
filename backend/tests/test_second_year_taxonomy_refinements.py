@@ -215,9 +215,9 @@ def test_second_year_mapping_coverage_threshold():
             .count()
         )
         assert total_sy_q == 1911
-        assert mapped_sy_q >= 1420
+        assert mapped_sy_q >= 1620
         coverage_pct = mapped_sy_q / total_sy_q * 100
-        assert coverage_pct >= 74.0, f"Expected >= 74% coverage, got {coverage_pct:.2f}%"
+        assert coverage_pct >= 85.0, f"Expected >= 85% coverage, got {coverage_pct:.2f}%"
     finally:
         db.close()
 
@@ -258,3 +258,187 @@ def test_question_family_membership_invariants():
         assert mismatched_qf == 0
     finally:
         db.close()
+
+
+# ==============================================================================
+# 4. PHASE 6.2 CATEGORY C DISAMBIGUATION REGRESSION TESTS
+# ==============================================================================
+
+def test_phase6_2_course_28_dbms_category_c():
+    """Verify Phase 6.2 Category C disambiguations for DBMS."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(28)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Topic 845 Extended ER vs Topic 844 Basic ER
+    q_eer = "Draw an extended ER diagram where entity set person is classified as student and employee"
+    p_eer = classifier.classify(701, q_eer)
+    assert p_eer.topic_name == "Extended ER (EER) Features: Specialization and Generalization"
+
+    # Topic 848 Relational Algebra vs Topic 852 SQL
+    q_ra = "Relational algebra is a procedural language whereas relational algebra is extended version of SQL"
+    p_ra = classifier.classify(702, q_ra)
+    assert p_ra.topic_name == "Relational Algebra: Selection, Projection and Set Operations"
+
+    # Topic 856 Closure of FD vs Topic 861 3NF/BCNF
+    q_fd = "Refers to the set of all functional dependencies that can be inferred from the given set of dependencies"
+    p_fd = classifier.classify(703, q_fd)
+    assert p_fd.topic_name == "Functional Dependencies and Armstrong's Axioms"
+
+
+def test_phase6_2_course_27_daa_category_c():
+    """Verify Phase 6.2 Category C disambiguations for DAA."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(27)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Topic 820 Recursion tree
+    q_rt = "Draw the recursion tree for T(n) = 4T(n/2) + cn and determine the overall asymptotic running time"
+    p_rt = classifier.classify(801, q_rt)
+    assert p_rt.topic_name == "Recursion Tree Method and Mathematical Induction"
+
+    # Topic 825 Convex Hull vs Generic Divide and Conquer
+    q_ch = "Give an O(n log n) divide and conquer algorithm that solves the convex hull problem"
+    p_ch = classifier.classify(802, q_ch)
+    assert p_ch.topic_name == "Geometric Algorithms: Closest Pair and Convex Hull"
+
+    # Topic 830 Optimal BST vs Generic DP
+    q_obst = "Illustrate the concept of optimal binary search tree using dynamic programming"
+    p_obst = classifier.classify(803, q_obst)
+    assert p_obst.topic_name == "Longest Common Subsequence and Optimal Binary Search Trees"
+
+    # Topic 832 N-Queens / Subset Sum vs Generic Backtracking
+    q_ss = "Apply backtracking method to solve the following instance of the subset sum problem"
+    p_ss = classifier.classify(804, q_ss)
+    assert p_ss.topic_name == "N-Queens and Sum of Subsets Problems"
+
+    # Topic 836 Randomized Quicksort
+    q_rq = "Which of the following is not true about randomized quicksort? (A) Pivot chosen uniformly at random"
+    p_rq = classifier.classify(805, q_rq)
+    assert p_rq.topic_name == "Randomized Algorithms: Quicksort and String Matching"
+
+
+def test_phase6_2_course_25_os_category_c():
+    """Verify Phase 6.2 Category C disambiguations for OS."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(25)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Wait system call
+    q_wait = "Which system call is used by the parent process to wait for the child process to complete? (A) wait (B) fork"
+    p_wait = classifier.classify(901, q_wait)
+    assert p_wait.topic_name == "System Calls and OS Interface"
+
+    # Ready queue
+    q_rq = "Where are placed the list of processes that are prepared to be executed and waiting: ready queue"
+    p_rq = classifier.classify(902, q_rq)
+    assert p_rq.topic_name == "Process Concept and Process Control Block"
+
+    # Deadlock necessary conditions vs sync
+    q_dl = "Which of the following is not a necessary condition for a deadlock to occur? (A) Mutual exclusion (B) Hold and wait"
+    p_dl = classifier.classify(903, q_dl)
+    assert p_dl.topic_name == "Deadlock Characterization and Resource Allocation Graph"
+
+    # Thrashing vs general paging
+    q_thr = "What is thrashing in the context of virtual memory management?"
+    p_thr = classifier.classify(904, q_thr)
+    assert p_thr.topic_name == "Thrashing and Frame Allocation"
+
+
+def test_phase6_2_course_26_coa_category_c():
+    """Verify Phase 6.2 Category C disambiguations for COA."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(26)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Booth's algorithm with distractors
+    q_booth = "Booth's algorithm is applied on _____________ (A) Decimal numbers (B) Binary numbers (C) Octal"
+    p_booth = classifier.classify(1001, q_booth)
+    assert p_booth.topic_name == "Multiplication Algorithms and Booth's Multiplier"
+
+    # RTN abbreviation
+    q_rtn = "RTN stands for (A) Register Transmission Notation (B) Register Transfer Notation"
+    p_rtn = classifier.classify(1002, q_rtn)
+    assert p_rtn.topic_name == "Instructions and Instruction Sequencing"
+
+    # Microprogrammed control unit
+    q_mcu = "Illustrate the micro-programmed control unit(MCU) with a neat diagram and how instructions are fetched"
+    p_mcu = classifier.classify(1003, q_mcu)
+    assert p_mcu.topic_name == "Micro-programmed Control Unit Design"
+
+    # ARM ISA
+    q_arm = "Which instruction set architecture is typically used in ARM processors [1]"
+    p_arm = classifier.classify(1004, q_arm)
+    assert p_arm.topic_name == "ARM Processor Architecture and CPU Cores"
+
+
+def test_phase6_2_course_22_prob_category_c():
+    """Verify Phase 6.2 Category C disambiguations for Probability."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(22)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Uniform distribution
+    q_unif = "Let X be a uniformly distributed random variable over (0, 1) then the moment generating function"
+    p_unif = classifier.classify(1101, q_unif)
+    assert p_unif.topic_name == "Uniform and Exponential Distributions"
+
+    # Type error examiner question
+    q_err = "A failing student is passed by an examiner it is an example of (A) Type I error (B) Type II error"
+    p_err = classifier.classify(1102, q_err)
+    assert p_err.topic_name == "Null Hypothesis, Alternative Hypothesis, and Errors in Testing"
+
+    # Control chart for variables vs attributes
+    q_cc = "Control chart for variable is (A) s-chart (B) p-chart (C) np-chart (D) c-chart"
+    p_cc = classifier.classify(1103, q_cc)
+    assert p_cc.topic_name == "Control Charts for Variables: Range (R) and Standard Deviation (s) Charts"
+
+
+def test_phase6_2_course_24_dsa_category_c():
+    """Verify Phase 6.2 Category C disambiguations for DSA."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(24)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Josephus circular list
+    q_jos = "Explain the Josephus Problem. Describe how a Circular Linked List can be used to solve it"
+    p_jos = classifier.classify(1201, q_jos)
+    assert p_jos.topic_name == "Sparse Matrix and Josephus Problem"
+
+    # Stack peek with distractor
+    q_peek = "The ___________ operation displays the topmost value but will not delete it from the stack. (A) Peek (B) Enqueue"
+    p_peek = classifier.classify(1202, q_peek)
+    assert p_peek.topic_name == "Stack ADT and Operations"
+
+    # Deque
+    q_deq = "A data structure in which elements can be inserted or deleted at / from both ends but not in the middle"
+    p_deq = classifier.classify(1203, q_deq)
+    assert p_deq.topic_name == "Circular Queue and Deque"
+
+    # Hash collision separate chaining
+    q_sc = "Compute the contents of a hash table of 5 entries using separate chaining method"
+    p_sc = classifier.classify(1204, q_sc)
+    assert p_sc.topic_name == "Collision Resolution Techniques"
+
+
+def test_phase6_2_course_29_ai_category_c():
+    """Verify Phase 6.2 Category C disambiguations for AI."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(29)
+    classifier = TaxonomyClassifierService(rules, isolate_mcq_distractors=True)
+
+    # Water jug toy problem
+    q_wj = "Given two water jugs with capacities X and Y litres. Initially, both the jugs are empty"
+    p_wj = classifier.classify(1301, q_wj)
+    assert p_wj.topic_name == "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals"
+
+    # CSP classification
+    q_csp = "Which of the following mentioned problems are not constraint satisfaction problems? (A) N-queens (B) Cryptarithmetic"
+    p_csp = classifier.classify(1302, q_csp)
+    assert p_csp.topic_name == "Constraint Satisfaction Problems Formulation and Propagation"
+
+    # Expert system architecture
+    q_es = "18. What is the architecture of o fan expert system primarily concerned with? (A) Identifying planning problems (B) Designing machine learning models"
+    p_es = classifier.classify(1303, q_es)
+    assert p_es.topic_name == "Architecture of Expert Systems and Inference Engine"
+

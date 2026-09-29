@@ -99,7 +99,11 @@
             "strassen",
             "convex hull",
             "closest pair",
-            "rabin karp"
+            "rabin karp",
+            "prim",
+            "prims",
+            "prim's algorithm",
+            "kruskal"
           ],
           "context_hints": [
             "complexity analysis",
@@ -127,7 +131,8 @@
             "formal way to express the upper bound",
             "express the upper bound of an algorithm",
             "formal way to express the lower bound",
-            "rate of growth"
+            "rate of growth",
+            "best-case time complexity of insertion sort is typically represented by which asymptotic notation"
           ],
           "specific_keywords": [
             "big o",
@@ -140,7 +145,8 @@
           ],
           "negative_guards": [
             "sql queries",
-            "relational calculus"
+            "relational calculus",
+            "recursion tree"
           ],
           "context_hints": [
             "asymptotic notations",
@@ -164,7 +170,8 @@
             "guess and verify recurrence",
             "recurrence relation represents the worst-case",
             "substitution method to solve recurrence",
-            "solve the recurrence relation using substitution"
+            "solve the recurrence relation using substitution",
+            "method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction"
           ],
           "specific_keywords": [
             "recurrence relation",
@@ -174,7 +181,9 @@
           "negative_guards": [
             "disk scheduling",
             "c-scan",
-            "strassen"
+            "strassen",
+            "convex hull",
+            "recursion tree"
           ],
           "context_hints": [
             "recurrence relations",
@@ -198,7 +207,9 @@
             "summation of levels in tree",
             "recurrence relation using recursion tree",
             "determine the time complexity using recursion tree",
-            "using recursion tree method"
+            "using recursion tree method",
+            "draw the recursion tree for t(n)",
+            "recursion tree for t(n) = 4t(n/2) + cn"
           ],
           "specific_keywords": [
             "recursion tree",
@@ -238,7 +249,9 @@
             "binary search recurrence",
             "maximum sub-array sum",
             "find the maximum sub-array sum",
-            "maximum subarray sum of the array"
+            "maximum subarray sum of the array",
+            "find the maximum subarray sum of the array",
+            "maximum subarray sum of the array: array ="
           ],
           "specific_keywords": [
             "maximum subarray",
@@ -290,7 +303,9 @@
             "quicksort"
           ],
           "negative_guards": [
-            "binary search"
+            "binary search",
+            "randomized quicksort",
+            "randomized quick sort"
           ],
           "context_hints": [
             "sorting algorithms",
@@ -312,8 +327,8 @@
             "strassen recurrence relation",
             "submatrix additions in strassen",
             "t(n) = 7t(n/2)",
-            "merge sort, quick sort and binary search are based on",
-            "strassen matrix multiplication"
+            "strassen matrix multiplication",
+            "explain strassen's matrix multiplication and find its time complexity using the master theorem"
           ],
           "specific_keywords": [
             "strassen",
@@ -353,7 +368,10 @@
           ],
           "negative_guards": [
             "arm 7",
-            "8086"
+            "8086",
+            "strassen",
+            "strassen's",
+            "maximum subarray sum"
           ],
           "context_hints": [
             "master theorem",
@@ -378,6 +396,8 @@
             "divide and conquer closest pair",
             "cross-strip closest pair",
             "divide and conquer algorithm that solves the convex hull",
+            "give an o(n log n) divide and conquer algorithm that solves the convex hull problem",
+            "give an o (n log n) divide and conquer algorithm that solves the convex hull problem",
             "quickhull algorithm"
           ],
           "specific_keywords": [
@@ -546,7 +566,9 @@
           ],
           "negative_guards": [
             "fractional knapsack",
-            "strassen"
+            "strassen",
+            "optimal binary search tree",
+            "obst"
           ],
           "context_hints": [
             "dynamic programming",
@@ -572,7 +594,9 @@
             "w(i,j) and c(i,j) in obst",
             "number of keys in optimal binary search tree",
             "optimal binary search tree is 3",
-            "consider two strings x = and y ="
+            "consider two strings x = and y =",
+            "illustrate the concept of optimal binary search tree using dynamic programming",
+            "determine the cost and structure of an optimal binary search tree"
           ],
           "specific_keywords": [
             "longest common subsequence",
@@ -625,7 +649,11 @@
           ],
           "negative_guards": [
             "branch and bound fifo",
-            "lcbb"
+            "lcbb",
+            "n-queens",
+            "n-queen",
+            "subset sum",
+            "branch and bound"
           ],
           "context_hints": [
             "backtracking",
@@ -648,7 +676,9 @@
             "subset sum problem backtracking",
             "promising function in n-queens",
             "n-queen problem",
-            "n-queen"
+            "n-queen",
+            "significance of the place(k",
+            "apply backtracking method to solve the following instance of the subset sum problem"
           ],
           "specific_keywords": [
             "n-queens",
@@ -718,7 +748,8 @@
             "cost function c^(x)",
             "priority queue in branch and bound",
             "choose the correct statement from the following. branch and bound",
-            "branch and bound search"
+            "branch and bound search",
+            "branch and bound is more efficient than backtracking"
           ],
           "specific_keywords": [
             "branch and bound",
@@ -792,7 +823,9 @@
             "pre-processing time of rabin and karp algorithm",
             "rabin and karp algorithm",
             "hiring problem",
-            "randomized hiring problem"
+            "randomized hiring problem",
+            "which of the following is not true about randomized quicksort",
+            "which of the following is incorrect about randomized quicksort"
           ],
           "specific_keywords": [
             "randomized algorithm",
@@ -938,7 +971,9 @@
             "2-approximation vertex cover",
             "travelling salesperson approximation",
             "metric tsp approximation",
-            "set cover approximation"
+            "set cover approximation",
+            "for the vertex cover problem, an approximation algorithm",
+            "vertex cover problem, an approximation algorithm aims to find"
           ],
           "specific_keywords": [
             "approximation algorithm",

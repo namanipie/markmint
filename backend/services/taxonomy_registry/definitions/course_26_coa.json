@@ -47,7 +47,10 @@
           "negative_guards": [
             "paging",
             "deadlock",
-            "sql"
+            "sql",
+            "booth",
+            "booth's algorithm",
+            "booth multiplication"
           ],
           "context_hints": [
             "number systems",
@@ -244,7 +247,12 @@
           ],
           "negative_guards": [
             "demand paging",
-            "page fault"
+            "page fault",
+            "hardwired control",
+            "micro-programmed control",
+            "microprogrammed control",
+            "mcu",
+            "arm processor"
           ],
           "context_hints": [
             "computer structure",
@@ -308,6 +316,7 @@
             "instruction sequencing",
             "instruction cycle fetch decode execute",
             "register transfer notation",
+            "rtn stands for",
             "holds the instructions that is currently being executed",
             "holds the instructions that is currently"
           ],
@@ -322,7 +331,8 @@
           "negative_guards": [
             "avl tree",
             "min heap",
-            "max heap"
+            "max heap",
+            "multiplier operand"
           ],
           "context_hints": [
             "instruction formats",
@@ -501,6 +511,7 @@
             "signed multiplication",
             "booth's algorithm",
             "booth multiplication algorithm",
+            "booth's algorithm is applied on",
             "bit pair recoding",
             "fast multiplication",
             "carry save addition of summands",
@@ -646,7 +657,8 @@
           ],
           "negative_guards": [
             "bcnf",
-            "normalization"
+            "normalization",
+            "rtn stands for"
           ],
           "context_hints": [
             "datapath",
@@ -707,6 +719,9 @@
             "microprogram sequencing",
             "micro-routine",
             "address sequencing in control memory",
+            "illustrate the micro-programmed control unit",
+            "micro-programmed control unit(mcu)",
+            "micro-programmed control unit (mcu)",
             "set of microinstructions for a single machine instruction is called",
             "set of microinstructions for a single machine instruction"
           ],
@@ -882,7 +897,9 @@
             "when the processor is executing in arm stage",
             "arm stage",
             "arm state",
-            "how many instruction sets does arm have"
+            "how many instruction sets does arm have",
+            "which instruction set architecture is typically used in arm processors",
+            "instruction set architecture is typically used in arm processors"
           ],
           "specific_keywords": [
             "arm processor",

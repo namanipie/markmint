@@ -137,7 +137,11 @@
           ],
           "negative_guards": [
             "master theorem",
-            "recurrence relation"
+            "recurrence relation",
+            "push operation",
+            "circular linked list",
+            "performs insertion, deletion with an average",
+            "unweighted, undirected connected graph"
           ],
           "context_hints": [
             "algorithm analysis",
@@ -164,7 +168,9 @@
           ],
           "negative_guards": [
             "strassen",
-            "sparse matrix"
+            "sparse matrix",
+            "dynamically allocate memory",
+            "dynamic memory allocation in c"
           ],
           "context_hints": [
             "matrix",
@@ -262,14 +268,17 @@
             "any node can be a starting point",
             "node structure prev data next",
             "prev* data next*",
-            "struct node *prev"
+            "struct node *prev",
+            "which of the following is false about a circular linked list"
           ],
           "specific_keywords": [
             "doubly linked",
             "circular linked"
           ],
           "negative_guards": [
-            "singly linked list adt"
+            "singly linked list adt",
+            "josephus",
+            "josephus problem"
           ],
           "context_hints": [
             "doubly linked list",
@@ -338,7 +347,9 @@
             "sparse matrix representation",
             "sparse matrix using linked list",
             "josephus problem",
-            "joseph problem using circular linked list"
+            "joseph problem using circular linked list",
+            "how is the next person to be eliminated chosen in a circular linked list",
+            "explain the josephus problem"
           ],
           "specific_keywords": [
             "sparse matrix",
@@ -382,7 +393,7 @@
             "pushed in a stack",
             "typedef struct stack",
             "not available space stack overflow",
-            "simulation using stack for evaluation"
+            "what is the time complexity of the push operation"
           ],
           "specific_keywords": [
             "stack adt",
@@ -396,7 +407,9 @@
           "negative_guards": [
             "queue adt",
             "circular queue",
-            "priority queue"
+            "priority queue",
+            "evaluation of the following expression",
+            "simulation using stack for evaluation"
           ],
           "context_hints": [
             "stack"
@@ -424,7 +437,8 @@
             "result evaluating the postfix expression",
             "operator comes after",
             "operator comes before",
-            "develop and show the simulation using stack for evaluation"
+            "develop and show the simulation using stack for evaluation",
+            "simulation using stack for evaluation of the following expression"
           ],
           "specific_keywords": [
             "infix to postfix",
@@ -501,7 +515,10 @@
           ],
           "negative_guards": [
             "stack adt",
-            "avl tree"
+            "avl tree",
+            "topmost value but will not delete",
+            "displays the topmost value",
+            "inserted or deleted at / from both ends"
           ],
           "context_hints": [
             "queue"
@@ -519,7 +536,9 @@
             "circular queue",
             "double ended queue",
             "deque implementation",
-            "circular queue modulo arithmetic"
+            "circular queue modulo arithmetic",
+            "inserted or deleted at / from both ends but not in the middle",
+            "inserted or deleted from both ends"
           ],
           "specific_keywords": [
             "circular queue",
@@ -548,7 +567,12 @@
           "specific_keywords": [
             "priority queue"
           ],
-          "negative_guards": [],
+          "negative_guards": [
+            "inserted or deleted at / from both ends",
+            "kruskal's algorithm",
+            "dijkstra's algorithm",
+            "polynomial addition"
+          ],
           "context_hints": [
             "priority queue"
           ]
@@ -575,6 +599,7 @@
             "complete binary tree",
             "height of binary tree",
             "level order traversal",
+            "level order traversal of a rooted tree",
             "in-order traversal for the given tree",
             "find the pre-order traversal sequence",
             "pre-order traversal sequence",
@@ -729,6 +754,7 @@
             "collision avoidance",
             "employee id as a primary key",
             "performs insertion deletion with an average",
+            "identify the data structure that performs insertion, deletion with an average time complexity",
             "what is direct addressing",
             "distinct array position for every possible key",
             "data organization method is used in hash tables"
@@ -743,7 +769,13 @@
           "negative_guards": [
             "binary tree",
             "avl tree",
-            "b-tree"
+            "b-tree",
+            "separate chaining",
+            "linear probing",
+            "quadratic probing",
+            "double hashing",
+            "dijkstra's algorithm",
+            "dijkstra"
           ],
           "context_hints": [
             "hashing"
@@ -764,7 +796,10 @@
             "linear probing",
             "quadratic probing",
             "double hashing",
-            "rehash"
+            "rehash",
+            "compute the contents of a hash table of 5 entries using separate chaining",
+            "consider a hash table with 9 slots. the hash function is h(k) = k mod 9",
+            "given input {4371, 1323, 6173, 4199, 4344, 9679, 1989} and a hash function"
           ],
           "specific_keywords": [
             "separate chaining",
@@ -829,7 +864,9 @@
           "negative_guards": [
             "binary tree",
             "minimum spanning tree",
-            "mst"
+            "mst",
+            "level order traversal",
+            "places where he wants to visit before some other places"
           ],
           "context_hints": [
             "graph algorithms"
@@ -846,7 +883,8 @@
             "topological sorting",
             "topological sort",
             "directed acyclic graph",
-            "in-degree topological sort"
+            "in-degree topological sort",
+            "places where he wants to visit before some other places"
           ],
           "specific_keywords": [
             "topological sort",
@@ -883,7 +921,8 @@
           ],
           "negative_guards": [
             "dijkstra shortest path",
-            "single source shortest path dijkstra"
+            "single source shortest path dijkstra",
+            "starts from a vertex and then wants to visit every vertex"
           ],
           "context_hints": [
             "mst"
@@ -910,7 +949,8 @@
           ],
           "negative_guards": [
             "prim",
-            "kruskal"
+            "kruskal",
+            "places where he wants to visit before some other places"
           ],
           "context_hints": [
             "shortest path"

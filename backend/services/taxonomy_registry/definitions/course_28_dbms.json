@@ -163,7 +163,12 @@
           ],
           "negative_guards": [
             "divide and conquer",
-            "master theorem"
+            "master theorem",
+            "extended er",
+            "extended er diagram",
+            "eer",
+            "specialization",
+            "generalization"
           ],
           "context_hints": [
             "er model",
@@ -184,7 +189,10 @@
             "specialization and generalization",
             "attribute inheritance",
             "aggregation in er",
-            "disjoint and overlapping constraints"
+            "disjoint and overlapping constraints",
+            "draw an extended er diagram",
+            "entity set person is classified as student and employee",
+            "person is classified as student and employee"
           ],
           "specific_keywords": [
             "specialization",
@@ -238,7 +246,9 @@
           ],
           "negative_guards": [
             "round robin",
-            "gantt chart"
+            "gantt chart",
+            "sql provides a rich language",
+            "define tables, integrity constraints, assertions"
           ],
           "context_hints": [
             "relational model",
@@ -290,13 +300,17 @@
             "union operation",
             "set difference operation",
             "cartesian product cross product",
-            "rename operation rho"
+            "rename operation rho",
+            "relational algebra is a procedural language",
+            "relational algebra is extended version of sql",
+            "procedural query language"
           ],
           "specific_keywords": [
             "relational algebra",
             "select operation",
             "project operation",
-            "cartesian product"
+            "cartesian product",
+            "procedural language"
           ],
           "negative_guards": [
             "relational calculus",
@@ -457,6 +471,9 @@
             "data manipulation language"
           ],
           "negative_guards": [
+            "8086 microprocessor",
+            "is a procedural language",
+            "relational algebra is a procedural language",
             "pl/sql triggers",
             "cursor"
           ],
@@ -590,14 +607,17 @@
             "canonical cover of fds",
             "minimal cover",
             "normalization is the process of eliminating",
-            "normalization is the process of"
+            "normalization is the process of",
+            "refers to the set of all functional dependencies that can be inferred",
+            "functional dependencies that can be inferred from the given set of dependencies"
           ],
           "specific_keywords": [
             "functional dependency",
             "armstrong's axioms",
             "attribute closure",
             "canonical cover",
-            "normalization is the process"
+            "normalization is the process",
+            "functional dependencies that can be inferred"
           ],
           "negative_guards": [
             "concurrency control",
@@ -783,7 +803,9 @@
           ],
           "negative_guards": [
             "ieee 754",
-            "arm processor"
+            "arm processor",
+            "set of all functional dependencies",
+            "functional dependencies that can be inferred"
           ],
           "context_hints": [
             "transactions",
@@ -865,7 +887,9 @@
             "two phase locking"
           ],
           "negative_guards": [
-            "paging segmentation"
+            "paging segmentation",
+            "execution sequence in concurrency control are termed",
+            "execution sequence in concurrency control"
           ],
           "context_hints": [
             "concurrency control",

@@ -68,7 +68,9 @@
             "self-driving car",
             "architecture of an expert system",
             "expert system architecture",
-            "robot navigation"
+            "robot navigation",
+            "what is the architecture of o fan expert system",
+            "o fan expert system"
           ],
           "context_hints": [
             "ai definition",
@@ -198,7 +200,10 @@
             "tic tac toe problem",
             "tic-tac-toe",
             "vacuum cleaner world",
-            "tower of hanoi"
+            "tower of hanoi",
+            "given two water jugs with capacities",
+            "two water jugs with capacities",
+            "water jugs with capacities"
           ],
           "specific_keywords": [
             "missionaries and cannibals",
@@ -215,7 +220,8 @@
           ],
           "negative_guards": [
             "tcp ip",
-            "quick sort"
+            "quick sort",
+            "which of the following mentioned problems are not constraint satisfaction"
           ],
           "context_hints": [
             "toy problems",
@@ -579,7 +585,8 @@
             "constraint graph",
             "constraint propagation",
             "preparing a schedule for class",
-            "schedule for a class of students"
+            "schedule for a class of students",
+            "which of the following mentioned problems are not constraint satisfaction"
           ],
           "specific_keywords": [
             "constraint satisfaction",
@@ -595,8 +602,7 @@
             "8-queens",
             "map coloring",
             "cryptarithmetic",
-            "arc consistency",
-            "which of the following mentioned problems are not constraint satisfaction"
+            "arc consistency"
           ],
           "context_hints": [
             "csp",
@@ -632,7 +638,8 @@
             "n-queens"
           ],
           "negative_guards": [
-            "rsa cryptography"
+            "rsa cryptography",
+            "which of the following mentioned problems are not constraint satisfaction"
           ],
           "context_hints": [
             "cryptarithmetic",
@@ -1023,7 +1030,10 @@
             "knowledge base and inference engine",
             "rule based expert systems if-then rules",
             "inference engine in an expert system",
-            "inference engine in expert system"
+            "inference engine in expert system",
+            "what is the architecture of o fan expert system primarily concerned with",
+            "what is the architecture of o fan expert system",
+            "architecture of o fan expert system"
           ],
           "specific_keywords": [
             "expert system",

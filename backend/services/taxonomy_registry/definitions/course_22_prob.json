@@ -91,7 +91,9 @@
             "binomial distribution",
             "poisson distribution",
             "normal distribution",
-            "control charts"
+            "control charts",
+            "uniformly distributed",
+            "exponentially distributed"
           ],
           "context_hints": [
             "random variables",
@@ -122,7 +124,8 @@
             "binomial",
             "poisson",
             "uniform distribution",
-            "exponential distribution"
+            "exponential distribution",
+            "moment generating function"
           ],
           "context_hints": [
             "density function",
@@ -391,7 +394,9 @@
           "negative_guards": [
             "chi-square",
             "anova",
-            "control chart"
+            "control chart",
+            "machinist is expected to make engine parts",
+            "machinist is expected"
           ],
           "context_hints": [
             "hypothesis testing",
@@ -426,7 +431,8 @@
           "negative_guards": [
             "student's t-test",
             "f-test",
-            "anova"
+            "anova",
+            "failing student is passed by an examiner"
           ],
           "context_hints": [
             "z test",
@@ -799,14 +805,17 @@
             "sample standard deviations",
             "ucl in r-chart",
             "ucl in r-chart is",
-            "r-chart is"
+            "r-chart is",
+            "control chart for variable is",
+            "control chart for variable"
           ],
           "specific_keywords": [
             "r chart",
             "control chart for range",
             "r-chart",
             "s-chart",
-            "sample standard deviations"
+            "sample standard deviations",
+            "control chart for variable"
           ],
           "negative_guards": [
             "p chart",
@@ -835,7 +844,9 @@
             "number of defectives in the inspection",
             "number of defectives",
             "sample proportion of defective is",
-            "sample proportion of defective"
+            "sample proportion of defective",
+            "proportion of defectives",
+            "monitor the quality of product if the proportion of defectives"
           ],
           "specific_keywords": [
             "p-chart",
@@ -843,11 +854,14 @@
             "np-chart",
             "fraction defective",
             "proportion of defective",
-            "number of defectives"
+            "number of defectives",
+            "proportion of defectives"
           ],
           "negative_guards": [
             "x-bar chart",
-            "r chart"
+            "r chart",
+            "control chart for variable is",
+            "control chart for variable"
           ],
           "context_hints": [
             "attribute inspection",
@@ -881,7 +895,11 @@
           ],
           "negative_guards": [
             "x-bar chart",
-            "r chart"
+            "r chart",
+            "control chart for variable is",
+            "control chart for variable",
+            "proportion of defectives",
+            "proportion of defective"
           ],
           "context_hints": [
             "defect count",

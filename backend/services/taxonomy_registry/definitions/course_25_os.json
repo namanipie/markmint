@@ -53,14 +53,14 @@
             "monolithic",
             "dual mode",
             "system services",
-            "booting",
             "real time operating system",
             "batch operating system"
           ],
           "negative_guards": [
             "scheduling algorithm",
             "page replacement",
-            "deadlock"
+            "deadlock",
+            "meaning booting"
           ],
           "context_hints": [
             "os architecture",
@@ -88,7 +88,9 @@
             "hardware interrupt is made by",
             "irq line",
             "shell script is a file",
-            "shell script"
+            "shell script",
+            "which system call is used by the parent process to wait for the child process to complete",
+            "system call is used by the parent process to wait"
           ],
           "specific_keywords": [
             "system call",
@@ -167,13 +169,18 @@
             "operations on processes",
             "process creation and termination",
             "address of the next instruction to be executed",
-            "address of the next instruction"
+            "address of the next instruction",
+            "list of processes that are prepared to be executed and waiting",
+            "processes that are prepared to be executed and waiting are in",
+            "where are placed the list of processes that are prepared to be executed and waiting"
           ],
           "specific_keywords": [
             "process control block",
             "pcb",
             "context switch",
-            "address of the next instruction"
+            "address of the next instruction",
+            "ready queue",
+            "job queue"
           ],
           "negative_guards": [
             "page table",
@@ -290,7 +297,11 @@
           ],
           "negative_guards": [
             "virtual memory",
-            "demand paging"
+            "demand paging",
+            "condition for deadlock",
+            "necessary condition for a deadlock to occur",
+            "not a condition for deadlock",
+            "necessary condition for a deadlock"
           ],
           "context_hints": [
             "synchronization",
@@ -331,7 +342,12 @@
           ],
           "negative_guards": [
             "b-tree",
-            "avl tree"
+            "avl tree",
+            "which system call",
+            "condition for deadlock",
+            "necessary condition for a deadlock to occur",
+            "not a condition for deadlock",
+            "necessary condition for a deadlock"
           ],
           "context_hints": [
             "synchronization tools",
@@ -420,7 +436,9 @@
             "priority scheduling",
             "srtf scheduling",
             "burst time",
-            "gantt chart"
+            "gantt chart",
+            "deadlock",
+            "resource allocation graph"
           ],
           "context_hints": [
             "cpu scheduling",
@@ -525,14 +543,20 @@
             "resource allocation graph",
             "rag deadlock",
             "circular wait condition can be prevented by",
-            "condition for deadlock"
+            "condition for deadlock",
+            "which of the following is not a condition for deadlock",
+            "which of the following is not a necessary condition for a deadlock to occur",
+            "in the context of deadlocks, what is a resource allocation graph used for",
+            "what is a resource allocation graph used for"
           ],
           "specific_keywords": [
             "deadlock conditions",
             "hold and wait",
             "circular wait",
             "resource allocation graph",
-            "deadlock condition"
+            "deadlock condition",
+            "not a condition for deadlock",
+            "what is a resource allocation graph used for"
           ],
           "negative_guards": [
             "page replacement",
@@ -561,7 +585,9 @@
             "resource request algorithm",
             "safety algorithm",
             "deadlock free",
-            "system to be deadlock free"
+            "system to be deadlock free",
+            "the circular wait condition can be prevented by",
+            "circular wait condition can be prevented by"
           ],
           "specific_keywords": [
             "banker's algorithm",
@@ -746,7 +772,10 @@
           ],
           "negative_guards": [
             "cpu scheduling algorithm",
-            "gantt chart"
+            "gantt chart",
+            "what is thrashing",
+            "thrashing in the context of virtual memory",
+            "thrashing"
           ],
           "context_hints": [
             "virtual memory",
@@ -808,7 +837,10 @@
             "working set strategy",
             "page fault frequency",
             "allocation of frames",
-            "local vs global allocation"
+            "local vs global allocation",
+            "what is thrashing in the context of virtual memory management",
+            "what is thrashing in the context of virtual memory",
+            "situation where the processor spends most of its time in swapping process pieces rather than execution"
           ],
           "specific_keywords": [
             "thrashing",

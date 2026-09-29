@@ -1,0 +1,2328 @@
+[
+  {
+    "question_id": 2310,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 79,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 5954,
+    "family_name": "22. A random variable X has the following probability function. Value of x: 0, 1, 2, 3, 4, 5, 6, 7. P(X=x): 0, k, 2k, 2k, 3k, K^2, 2k^2, 7k^2+k. Then find (i) the value of k, (ii) P(X<6) and (iii) find the cdf of X.",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "22. A random variable X has the following probability function. Value of x: 0, 1, 2, 3, 4, 5, 6, 7. P(X=x): 0, k, 2k, 2k, 3k, K^2, 2k^2, 7k^2+k. Then find (i) the value of k, (ii) P(X<6) and (iii) find the cdf of X.",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 415,
+        "topic_name": "Discrete and Continuous Random Variables",
+        "evidence": [
+          "random variable x has the following probability function"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 417,
+        "topic_name": "Cumulative Distribution Functions",
+        "evidence": [
+          "cdf of x"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Discrete and Continuous Random Variables, Cumulative Distribution Functions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 2341,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 80,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 5984,
+    "family_name": "23. The fatality rate of typhoid patients is believed to be 17.26 percent. In a certain year 640 patients suffering from typhoid were treated in a metropolitan hospital and only 63 patients died. Can you consider the hospital efficient?\n    --- OR ---\n    23. Theory predicts that the proportion of beans in four groups A, B, C, D should be 9:3:3:1. In an experiment among 1600 beans, the numbers in the four groups were 882, 313, 287 and 118. Does the experiment support the theory?",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "23. The fatality rate of typhoid patients is believed to be 17.26 percent. In a certain year 640 patients suffering from typhoid were treated in a metropolitan hospital and only 63 patients died. Can you consider the hospital efficient?\n    --- OR ---\n    23. Theory predicts that the proportion of beans in four groups A, B, C, D should be 9:3:3:1. In an experiment among 1600 beans, the numbers in the four groups were 882, 313, 287 and 118. Does the experiment support the theory?",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 425,
+        "topic_name": "Large Sample Tests: Z-Test for Means and Proportions",
+        "evidence": [
+          "fatality rate of typhoid patients"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 428,
+        "topic_name": "Chi-Square Test for Goodness of Fit and Contingency Tables",
+        "evidence": [
+          "proportion of beans in four groups",
+          "beans in four groups a, b, c, d should be 9:3:3:1"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Large Sample Tests: Z-Test for Means and Proportions, Chi-Square Test for Goodness of Fit and Contingency Tables"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 2343,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 80,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 5986,
+    "family_name": "24. The two line of regression are:\n8x - 10y + 66 = 0 and 40x - 18y - 214 = 0\nThe variance of X is 9.\nFind, (i) the mean values of X and Y (ii) correlation coefficient between X and Y (iii) standard deviation of Y.\n    --- OR ---\n    24. Three different machines were used for a production, on the basis of outputs, set up one-way ANOVA table and test whether the machines are equally effective.\nOutputs:\nMachine I: 10, 15, 11, 20\nMachine II: 9, 7, 5, 6\nMachine III: 20, 16, 10, 14\nGiven that the value of F at 5% LOS for (2,9) degree of freedom is 4.26.",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "24. The two line of regression are:\n8x - 10y + 66 = 0 and 40x - 18y - 214 = 0\nThe variance of X is 9.\nFind, (i) the mean values of X and Y (ii) correlation coefficient between X and Y (iii) standard deviation of Y.\n    --- OR ---\n    24. Three different machines were used for a production, on the basis of outputs, set up one-way ANOVA table and test whether the machines are equally effective.\nOutputs:\nMachine I: 10, 15, 11, 20\nMachine II: 9, 7, 5, 6\nMachine III: 20, 16, 10, 14\nGiven that the value of F at 5% LOS for (2,9) degree of freedom is 4.26.",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 429,
+        "topic_name": "Karl Pearson's and Spearman's Rank Correlation",
+        "evidence": [
+          "correlation coefficient"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 431,
+        "topic_name": "One-Way Analysis of Variance (ANOVA)",
+        "evidence": [
+          "one-way anova"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Karl Pearson's and Spearman's Rank Correlation, One-Way Analysis of Variance (ANOVA)",
+      "Topic 'Null Hypothesis, Alternative Hypothesis, and Errors in Testing' rejected by guardrail: 'anova'",
+      "Topic 'Large Sample Tests: Z-Test for Means and Proportions' rejected by guardrail: 'anova'",
+      "Topic 'Small Sample Tests: Student's t-Test' rejected by guardrail: 'anova'",
+      "Topic 'F-Test for Equality of Variances' rejected by guardrail: 'anova'",
+      "Topic 'Chi-Square Test for Goodness of Fit and Contingency Tables' rejected by guardrail: 'regression'",
+      "Topic 'Lines of Regression and Regression Equations' rejected by guardrail: 'anova'",
+      "Topic 'Two-Way Analysis of Variance (ANOVA)' rejected by guardrail: 'one-way'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Karl Pearson's and Spearman's Rank Correlation, One-Way Analysis of Variance (ANOVA)",
+      "Topic 'Null Hypothesis, Alternative Hypothesis, and Errors in Testing' rejected by guardrail: 'anova'",
+      "Topic 'Large Sample Tests: Z-Test for Means and Proportions' rejected by guardrail: 'anova'",
+      "Topic 'Small Sample Tests: Student's t-Test' rejected by guardrail: 'anova'",
+      "Topic 'F-Test for Equality of Variances' rejected by guardrail: 'anova'",
+      "Topic 'Chi-Square Test for Goodness of Fit and Contingency Tables' rejected by guardrail: 'regression'",
+      "Topic 'Lines of Regression and Regression Equations' rejected by guardrail: 'anova'",
+      "Topic 'Two-Way Analysis of Variance (ANOVA)' rejected by guardrail: 'one-way'"
+    ]
+  },
+  {
+    "question_id": 10105,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 320,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 7594,
+    "family_name": "16. t-test and F-test are used only for ________ samples. (A) Large (B) 90 (C) 80 (D) Small [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "16. t-test and F-test are used only for ________ samples. (A) Large (B) 90 (C) 80 (D) Small [1]",
+    "stem": "t-test and F-test are used only for ________ samples.",
+    "options": "(A) Large (B) 90 (C) 80 (D) Small [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 426,
+        "topic_name": "Small Sample Tests: Student's t-Test",
+        "evidence": [
+          "t-test"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 427,
+        "topic_name": "F-Test for Equality of Variances",
+        "evidence": [
+          "f-test"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Small Sample Tests: Student's t-Test, F-Test for Equality of Variances",
+      "Topic 'Large Sample Tests: Z-Test for Means and Proportions' rejected by guardrail: 'f-test'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Small Sample Tests: Student's t-Test, F-Test for Equality of Variances",
+      "Topic 'Large Sample Tests: Z-Test for Means and Proportions' rejected by guardrail: 'f-test'"
+    ]
+  },
+  {
+    "question_id": 10110,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 320,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 7599,
+    "family_name": "21. a.. A random variable X has the following distribution. | x | -2 | -1 | 0 | 1 | 2 | 3 | | P(X=x) | 0.1 | k | 0.2 | 2k | 0.3 | 3k | Find : [8]\n  (i). the value of 'k'\n  (ii). the cumulative distribution function (CDF)\n  (iii). the value of P(0<x<2)",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "21. a.. A random variable X has the following distribution. | x | -2 | -1 | 0 | 1 | 2 | 3 | | P(X=x) | 0.1 | k | 0.2 | 2k | 0.3 | 3k | Find : [8]\n  (i). the value of 'k'\n  (ii). the cumulative distribution function (CDF)\n  (iii). the value of P(0<x<2)",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 415,
+        "topic_name": "Discrete and Continuous Random Variables",
+        "evidence": [
+          "random variable"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 417,
+        "topic_name": "Cumulative Distribution Functions",
+        "evidence": [
+          "cumulative distribution function"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Discrete and Continuous Random Variables, Cumulative Distribution Functions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 10120,
+    "course_id": 22,
+    "course_name": "Probability and Statistics",
+    "course_code": "21MAB202T",
+    "semester": 4,
+    "exam_id": 320,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 7609,
+    "family_name": "26. Fit a binomial distribution for the following data and also test the goodness of fit. | x: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | Total | | f: | 5 | 18 | 28 | 12 | 7 | 6 | 4 | 80 | [15]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "26. Fit a binomial distribution for the following data and also test the goodness of fit. | x: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | Total | | f: | 5 | 18 | 28 | 12 | 7 | 6 | 4 | 80 | [15]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 419,
+        "topic_name": "Binomial Distribution",
+        "evidence": [
+          "binomial distribution"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 428,
+        "topic_name": "Chi-Square Test for Goodness of Fit and Contingency Tables",
+        "evidence": [
+          "goodness of fit"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Binomial Distribution, Chi-Square Test for Goodness of Fit and Contingency Tables",
+      "Topic 'Axioms of Probability, Conditional Probability, and Bayes' Theorem' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Discrete and Continuous Random Variables' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Probability Mass Function and Probability Density Function' rejected by guardrail: 'binomial'",
+      "Topic 'Poisson Distribution' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Geometric and Hypergeometric Distributions' rejected by guardrail: 'binomial'",
+      "Topic 'Uniform and Exponential Distributions' rejected by guardrail: 'binomial'",
+      "Topic 'Normal Distribution and Standard Normal Curves' rejected by guardrail: 'binomial'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Binomial Distribution, Chi-Square Test for Goodness of Fit and Contingency Tables",
+      "Topic 'Axioms of Probability, Conditional Probability, and Bayes' Theorem' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Discrete and Continuous Random Variables' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Probability Mass Function and Probability Density Function' rejected by guardrail: 'binomial'",
+      "Topic 'Poisson Distribution' rejected by guardrail: 'binomial distribution'",
+      "Topic 'Geometric and Hypergeometric Distributions' rejected by guardrail: 'binomial'",
+      "Topic 'Uniform and Exponential Distributions' rejected by guardrail: 'binomial'",
+      "Topic 'Normal Distribution and Standard Normal Curves' rejected by guardrail: 'binomial'"
+    ]
+  },
+  {
+    "question_id": 9056,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 288,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6444,
+    "family_name": "9. What is compaction?\n(A) Technique for overcoming internal fragmentation\n(B) Technique for overcoming external fragmentation\n(C) Technique for overcoming fatal error\n(D) Technique for overcoming page fault [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "9. What is compaction?\n(A) Technique for overcoming internal fragmentation\n(B) Technique for overcoming external fragmentation\n(C) Technique for overcoming fatal error\n(D) Technique for overcoming page fault [1]",
+    "stem": "What is compaction?",
+    "options": "(A) Technique for overcoming internal fragmentation\n(B) Technique for overcoming external fragmentation\n(C) Technique for overcoming fatal error\n(D) Technique for overcoming page fault [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 779,
+        "topic_name": "Main Memory and Contiguous Memory Allocation",
+        "evidence": [
+          "internal fragmentation",
+          "external fragmentation",
+          "compaction",
+          "what is compaction"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 781,
+        "topic_name": "Virtual Memory and Demand Paging",
+        "evidence": [
+          "page fault"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Main Memory and Contiguous Memory Allocation, Virtual Memory and Demand Paging"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9060,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 288,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6448,
+    "family_name": "13. abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory\n(A) Virtual memory\n(B) Main memory\n(C) Paging\n(D) Page table [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "13. abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory\n(A) Virtual memory\n(B) Main memory\n(C) Paging\n(D) Page table [1]",
+    "stem": "abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory",
+    "options": "(A) Virtual memory\n(B) Main memory\n(C) Paging\n(D) Page table [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 780,
+        "topic_name": "Paging, Segmentation and TLB",
+        "evidence": [
+          "page table"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 781,
+        "topic_name": "Virtual Memory and Demand Paging",
+        "evidence": [
+          "virtual memory",
+          "abstracts main memory into an extremely large, uniform array of storage",
+          "extremely large, uniform array of storage"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Paging, Segmentation and TLB, Virtual Memory and Demand Paging",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'",
+      "Topic 'Process Concept and Process Control Block' rejected by guardrail: 'page table'",
+      "Topic 'Critical-Section Problem and Peterson's Solution' rejected by guardrail: 'virtual memory'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Paging, Segmentation and TLB, Virtual Memory and Demand Paging",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'",
+      "Topic 'Process Concept and Process Control Block' rejected by guardrail: 'page table'",
+      "Topic 'Critical-Section Problem and Peterson's Solution' rejected by guardrail: 'virtual memory'"
+    ]
+  },
+  {
+    "question_id": 9084,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 288,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6471,
+    "family_name": "32. Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management [12]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "32. Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management [12]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 784,
+        "topic_name": "Disk Scheduling Algorithms and RAID",
+        "evidence": [
+          "swap space management"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 785,
+        "topic_name": "File System Interface and Implementation",
+        "evidence": [
+          "free space management",
+          "swap space management"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Disk Scheduling Algorithms and RAID, File System Interface and Implementation"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9093,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 289,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6480,
+    "family_name": "9. The hardware implementation which provides mutual exclusion is _____ [1]\n  A. Counting semaphore\n  B. Binary semaphore\n  C. Test and set lock\n  D. Scheduling algorithm",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "9. The hardware implementation which provides mutual exclusion is _____ [1]\n  A. Counting semaphore\n  B. Binary semaphore\n  C. Test and set lock\n  D. Scheduling algorithm",
+    "stem": "The hardware implementation which provides mutual exclusion is _____ [1]",
+    "options": "A. Counting semaphore\n  B. Binary semaphore\n  C. Test and set lock\n  D. Scheduling algorithm",
+    "candidate_topics": [
+      {
+        "topic_id": 770,
+        "topic_name": "Critical-Section Problem and Peterson's Solution",
+        "evidence": [
+          "mutual exclusion",
+          "hardware implementation which provides mutual exclusion"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 771,
+        "topic_name": "Semaphores, Mutex Locks and Monitors",
+        "evidence": [
+          "counting semaphore",
+          "binary semaphore"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Critical-Section Problem and Peterson's Solution, Semaphores, Mutex Locks and Monitors",
+      "Topic 'Operating System Services and Architecture' rejected by guardrail: 'scheduling algorithm'",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'counting semaphore'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Critical-Section Problem and Peterson's Solution, Semaphores, Mutex Locks and Monitors",
+      "Topic 'Operating System Services and Architecture' rejected by guardrail: 'scheduling algorithm'",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'counting semaphore'"
+    ]
+  },
+  {
+    "question_id": 9095,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 289,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6482,
+    "family_name": "11. The circular wait condition can be prevented by _____ [1]\n  A. Defining a linear ordering of (B) Using thread resources type\n  B. Using pipes\n  C. Thread and pipes",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "11. The circular wait condition can be prevented by _____ [1]\n  A. Defining a linear ordering of (B) Using thread resources type\n  B. Using pipes\n  C. Thread and pipes",
+    "stem": "The circular wait condition can be prevented by _____ [1]",
+    "options": "A. Defining a linear ordering of (B) Using thread resources type\n  B. Using pipes\n  C. Thread and pipes",
+    "candidate_topics": [
+      {
+        "topic_id": 768,
+        "topic_name": "Interprocess Communication and Client-Server",
+        "evidence": [
+          "pipes"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 771,
+        "topic_name": "Semaphores, Mutex Locks and Monitors",
+        "evidence": [
+          "wait()"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 776,
+        "topic_name": "Deadlock Characterization and Resource Allocation Graph",
+        "evidence": [
+          "circular wait",
+          "circular wait condition can be prevented by"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 777,
+        "topic_name": "Deadlock Prevention and Avoidance",
+        "evidence": [
+          "the circular wait condition can be prevented by",
+          "circular wait condition can be prevented by"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Interprocess Communication and Client-Server, Semaphores, Mutex Locks and Monitors, Deadlock Characterization and Resource Allocation Graph, Deadlock Prevention and Avoidance"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9116,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 289,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6503,
+    "family_name": "30. Describe a solution to the dining philosopher problem so that no race condition arises. [12]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "30. Describe a solution to the dining philosopher problem so that no race condition arises. [12]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 770,
+        "topic_name": "Critical-Section Problem and Peterson's Solution",
+        "evidence": [
+          "race condition"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 772,
+        "topic_name": "Classical Synchronization Problems",
+        "evidence": [
+          "dining philosopher problem"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Critical-Section Problem and Peterson's Solution, Classical Synchronization Problems"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9164,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 291,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6546,
+    "family_name": "15. The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________. \n(A) Paging \n(B) The principle of locality \n(C) Thrashing \n(D) Swapping [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "15. The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________. \n(A) Paging \n(B) The principle of locality \n(C) Thrashing \n(D) Swapping [1]",
+    "stem": "The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________.",
+    "options": "(A) Paging \n(B) The principle of locality \n(C) Thrashing \n(D) Swapping [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 780,
+        "topic_name": "Paging, Segmentation and TLB",
+        "evidence": [
+          "paging"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 783,
+        "topic_name": "Thrashing and Frame Allocation",
+        "evidence": [
+          "thrashing",
+          "situation where the processor spends most of its time in swapping process pieces rather than execution"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Paging, Segmentation and TLB, Thrashing and Frame Allocation",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'",
+      "Topic 'Virtual Memory and Demand Paging' rejected by guardrail: 'thrashing'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Paging, Segmentation and TLB, Thrashing and Frame Allocation",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'",
+      "Topic 'Virtual Memory and Demand Paging' rejected by guardrail: 'thrashing'"
+    ]
+  },
+  {
+    "question_id": 9192,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 292,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6569,
+    "family_name": "11. __________ performs run time mapping from virtual to physical addresses. (A) CPU (B) PCI (C) PCB (D) Memory Management Unit [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "11. __________ performs run time mapping from virtual to physical addresses. (A) CPU (B) PCI (C) PCB (D) Memory Management Unit [1]",
+    "stem": "__________ performs run time mapping from virtual to physical addresses.",
+    "options": "(A) CPU (B) PCI (C) PCB (D) Memory Management Unit [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 767,
+        "topic_name": "Process Concept and Process Control Block",
+        "evidence": [
+          "pcb"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 779,
+        "topic_name": "Main Memory and Contiguous Memory Allocation",
+        "evidence": [
+          "memory management unit"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Process Concept and Process Control Block, Main Memory and Contiguous Memory Allocation"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9194,
+    "course_id": 25,
+    "course_name": "Operating Systems",
+    "course_code": "21CSC202J",
+    "semester": 3,
+    "exam_id": 292,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6571,
+    "family_name": "13. __________ is a memory management strategy that involves the system storing and retrieving data from secondary storage for usage in main memory. (A) Mapping (B) Fragmentation (C) Paging (D) Buffer [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "13. __________ is a memory management strategy that involves the system storing and retrieving data from secondary storage for usage in main memory. (A) Mapping (B) Fragmentation (C) Paging (D) Buffer [1]",
+    "stem": "__________ is a memory management strategy that involves the system storing and retrieving data from secondary storage for usage in main memory.",
+    "options": "(A) Mapping (B) Fragmentation (C) Paging (D) Buffer [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 779,
+        "topic_name": "Main Memory and Contiguous Memory Allocation",
+        "evidence": [
+          "fragmentation"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 780,
+        "topic_name": "Paging, Segmentation and TLB",
+        "evidence": [
+          "paging"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Main Memory and Contiguous Memory Allocation, Paging, Segmentation and TLB",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Main Memory and Contiguous Memory Allocation, Paging, Segmentation and TLB",
+      "Topic 'Operating System Design, Debugging and Booting' rejected by guardrail: 'paging'"
+    ]
+  },
+  {
+    "question_id": 8349,
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "course_code": "21CSS201T",
+    "semester": 3,
+    "exam_id": 265,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6633,
+    "family_name": "20. __________ method is used to design the control unit of ARM processor. (A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "20. __________ method is used to design the control unit of ARM processor. (A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit [1]",
+    "stem": "__________ method is used to design the control unit of ARM processor.",
+    "options": "(A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 808,
+        "topic_name": "Micro-programmed Control Unit Design",
+        "evidence": [
+          "microprogrammed"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 812,
+        "topic_name": "ARM Processor Architecture and CPU Cores",
+        "evidence": [
+          "arm processor"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Micro-programmed Control Unit Design, ARM Processor Architecture and CPU Cores",
+      "Topic 'Functional Units and Operational Concepts' rejected by guardrail: 'arm processor'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Micro-programmed Control Unit Design, ARM Processor Architecture and CPU Cores",
+      "Topic 'Functional Units and Operational Concepts' rejected by guardrail: 'arm processor'"
+    ]
+  },
+  {
+    "question_id": 8356,
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "course_code": "21CSS201T",
+    "semester": 3,
+    "exam_id": 265,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6640,
+    "family_name": "24. a. What are the control signals generated by control unit to execute [8]\n  i. Add (R_3), R_1\n  ii. Unconditional branching",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "24. a. What are the control signals generated by control unit to execute [8]\n  i. Add (R_3), R_1\n  ii. Unconditional branching",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 796,
+        "topic_name": "Functional Units and Operational Concepts",
+        "evidence": [
+          "control unit"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 807,
+        "topic_name": "Hardwired Control Unit Design",
+        "evidence": [
+          "control signals"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Functional Units and Operational Concepts, Hardwired Control Unit Design"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8362,
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "course_code": "21CSS201T",
+    "semester": 3,
+    "exam_id": 266,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6646,
+    "family_name": "1. Decimal 43 in Hexadecimal and BCD number system is respectively\n(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100\n(D) 2B, 0100 0011 [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "1. Decimal 43 in Hexadecimal and BCD number system is respectively\n(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100\n(D) 2B, 0100 0011 [1]",
+    "stem": "Decimal 43 in Hexadecimal and BCD number system is respectively",
+    "options": "(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100\n(D) 2B, 0100 0011 [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 791,
+        "topic_name": "Number Systems and Conversions",
+        "evidence": [
+          "hexadecimal"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 792,
+        "topic_name": "Binary Codes and Parity",
+        "evidence": [
+          "bcd"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Number Systems and Conversions, Binary Codes and Parity"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8382,
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "course_code": "21CSS201T",
+    "semester": 3,
+    "exam_id": 266,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6666,
+    "family_name": "21. Answer the following subquestions:\n  a. Perform BCD Addition for 984+599. [4]\n  ii. Perform (11100) - (1011) using 1's and 2's complement method. [4]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "21. Answer the following subquestions:\n  a. Perform BCD Addition for 984+599. [4]\n  ii. Perform (11100) - (1011) using 1's and 2's complement method. [4]",
+    "stem": "Answer the following subquestions:",
+    "options": "a. Perform BCD Addition for 984+599. [4]\n  ii. Perform (11100) - (1011) using 1's and 2's complement method. [4]",
+    "candidate_topics": [
+      {
+        "topic_id": 792,
+        "topic_name": "Binary Codes and Parity",
+        "evidence": [
+          "bcd"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 793,
+        "topic_name": "Binary Arithmetic and Complements",
+        "evidence": [
+          "2's complement"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Binary Codes and Parity, Binary Arithmetic and Complements"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8414,
+    "course_id": 26,
+    "course_name": "Computer Organization and Architecture",
+    "course_code": "21CSS201T",
+    "semester": 3,
+    "exam_id": 267,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6695,
+    "family_name": "21. Convert decimal 234_{10} to [8]\n  i. Binary\n  ii. BCD\n  iii. Octal\n  iv. Hexadecimal",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "21. Convert decimal 234_{10} to [8]\n  i. Binary\n  ii. BCD\n  iii. Octal\n  iv. Hexadecimal",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 791,
+        "topic_name": "Number Systems and Conversions",
+        "evidence": [
+          "hexadecimal",
+          "octal"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 792,
+        "topic_name": "Binary Codes and Parity",
+        "evidence": [
+          "bcd"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Number Systems and Conversions, Binary Codes and Parity"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8474,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 269,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6747,
+    "family_name": "17. Which of the following is known to be not an NP-Hard Problem?\n(A) Vertex Cover Problem\n(B) 0/1 Knapsack Problem\n(C) Maximal Independent Set Problem\n(D) Travelling Salesman Problem [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "17. Which of the following is known to be not an NP-Hard Problem?\n(A) Vertex Cover Problem\n(B) 0/1 Knapsack Problem\n(C) Maximal Independent Set Problem\n(D) Travelling Salesman Problem [1]",
+    "stem": "Which of the following is known to be not an NP-Hard Problem?",
+    "options": "(A) Vertex Cover Problem\n(B) 0/1 Knapsack Problem\n(C) Maximal Independent Set Problem\n(D) Travelling Salesman Problem [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 827,
+        "topic_name": "Fractional Knapsack and Activity Selection",
+        "evidence": [
+          "knapsack problem",
+          "knapsack problem?"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 829,
+        "topic_name": "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+        "evidence": [
+          "0/1 knapsack problem"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "np-hard"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 839,
+        "topic_name": "Polynomial-Time Reductions",
+        "evidence": [
+          "vertex cover"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, NP-Completeness and NP-Hardness, Polynomial-Time Reductions",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, NP-Completeness and NP-Hardness, Polynomial-Time Reductions",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'"
+    ]
+  },
+  {
+    "question_id": 8479,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 269,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6752,
+    "family_name": "21. b. Examine the following pseudocode and calculate the time complexity using operation count method.\nBegin\n sum=0;\n for (i=4; i\n for (j=0; j<=i; j++)\n sum++;\n end for\n end for\nend [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "21. b. Examine the following pseudocode and calculate the time complexity using operation count method.\nBegin\n sum=0;\n for (i=4; i\n for (j=0; j<=i; j++)\n sum++;\n end for\n end for\nend [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 816,
+        "topic_name": "Algorithm Fundamentals and Correctness",
+        "evidence": [
+          "operation count"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Algorithm Fundamentals and Correctness, Time and Space Complexity Analysis"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8487,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 269,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6760,
+    "family_name": "25. b. Write short note on the following:\n(i) Non-deterministic Polynomial class problems with NP-hard and NP-complete\n(ii) Satisfiability problems with example [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "25. b. Write short note on the following:\n(i) Non-deterministic Polynomial class problems with NP-hard and NP-complete\n(ii) Satisfiability problems with example [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 837,
+        "topic_name": "Complexity Classes P and NP",
+        "evidence": [
+          "non-deterministic polynomial"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "np-complete",
+          "np-hard",
+          "satisfiability"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Complexity Classes P and NP, NP-Completeness and NP-Hardness"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8507,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 270,
+    "assessment_type": "END_SEM",
+    "year": 2023,
+    "family_id": 6779,
+    "family_name": "18. Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "18. Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]",
+    "stem": "Which of the following is incorrect about randomized quicksort?",
+    "options": "(A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 824,
+        "topic_name": "Master Theorem and Recurrence Proofs",
+        "evidence": [
+          "case 1"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 836,
+        "topic_name": "Randomized Algorithms: Quicksort and String Matching",
+        "evidence": [
+          "randomized quicksort",
+          "which of the following is incorrect about randomized quicksort"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Master Theorem and Recurrence Proofs, Randomized Algorithms: Quicksort and String Matching",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'quick sort'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'randomized quicksort'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Master Theorem and Recurrence Proofs, Randomized Algorithms: Quicksort and String Matching",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'quick sort'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'randomized quicksort'"
+    ]
+  },
+  {
+    "question_id": 8526,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 271,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6798,
+    "family_name": "6. RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction from 3-sat problem to \\pi, and SHYAM shows a polynomial time reduction from \\pi to 3-SAT. which of the following can be inferred from these reductions? [1]\n  A. \\pi is NP-hard but not NP-complete\n  B. \\pi is NP, but is not NP-complete\n  C. \\pi is NP-complete\n  D. \\pi is neither NP-hard, NOR in NP",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "6. RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction from 3-sat problem to \\pi, and SHYAM shows a polynomial time reduction from \\pi to 3-SAT. which of the following can be inferred from these reductions? [1]\n  A. \\pi is NP-hard but not NP-complete\n  B. \\pi is NP, but is not NP-complete\n  C. \\pi is NP-complete\n  D. \\pi is neither NP-hard, NOR in NP",
+    "stem": "RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction from 3-sat problem to \\pi, and SHYAM shows a polynomial time reduction from \\pi to 3-SAT. which of the following can be inferred from these reductions? [1]",
+    "options": "A. \\pi is NP-hard but not NP-complete\n  B. \\pi is NP, but is not NP-complete\n  C. \\pi is NP-complete\n  D. \\pi is neither NP-hard, NOR in NP",
+    "candidate_topics": [
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "ram and shyam have been asked to show that a certain problem"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 839,
+        "topic_name": "Polynomial-Time Reductions",
+        "evidence": [
+          "polynomial time reduction",
+          "3-sat problem"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: NP-Completeness and NP-Hardness, Polynomial-Time Reductions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8537,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 271,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6808,
+    "family_name": "17. Which search is used in back tracking to traverse the state space tree? [1]\n  A. Breadth first search\n  B. Depth first search\n  C. Nearest neighbour first\n  D. Binary search tree",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "17. Which search is used in back tracking to traverse the state space tree? [1]\n  A. Breadth first search\n  B. Depth first search\n  C. Nearest neighbour first\n  D. Binary search tree",
+    "stem": "Which search is used in back tracking to traverse the state space tree? [1]",
+    "options": "A. Breadth first search\n  B. Depth first search\n  C. Nearest neighbour first\n  D. Binary search tree",
+    "candidate_topics": [
+      {
+        "topic_id": 821,
+        "topic_name": "Binary Search and Maximum Subarray Problem",
+        "evidence": [
+          "binary search"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 831,
+        "topic_name": "State Space Trees and Backtracking Principles",
+        "evidence": [
+          "state space tree"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Binary Search and Maximum Subarray Problem, State Space Trees and Backtracking Principles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Binary Search and Maximum Subarray Problem, State Space Trees and Backtracking Principles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'"
+    ]
+  },
+  {
+    "question_id": 8550,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 271,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6760,
+    "family_name": "25. b. Write short note on the following:\n(i) Non-deterministic Polynomial class problems with NP-hard and NP-complete\n(ii) Satisfiability problems with example [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "25. Explain the following\n(i) Satisfiability problems with an example\n(ii) Non-deterministic polynomial class problem [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 837,
+        "topic_name": "Complexity Classes P and NP",
+        "evidence": [
+          "non-deterministic polynomial"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "satisfiability"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Complexity Classes P and NP, NP-Completeness and NP-Hardness"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8563,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 272,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6831,
+    "family_name": "11. Which of the following can be solved using dynamic programming?\n(A) Merge sort\n(B) Binary search\n(C) Longest common subsequence\n(D) Quick sort [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "11. Which of the following can be solved using dynamic programming?\n(A) Merge sort\n(B) Binary search\n(C) Longest common subsequence\n(D) Quick sort [1]",
+    "stem": "Which of the following can be solved using dynamic programming?",
+    "options": "(A) Merge sort\n(B) Binary search\n(C) Longest common subsequence\n(D) Quick sort [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 829,
+        "topic_name": "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+        "evidence": [
+          "dynamic programming"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 830,
+        "topic_name": "Longest Common Subsequence and Optimal Binary Search Trees",
+        "evidence": [
+          "longest common subsequence"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, Longest Common Subsequence and Optimal Binary Search Trees",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'merge sort'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, Longest Common Subsequence and Optimal Binary Search Trees",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'merge sort'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'"
+    ]
+  },
+  {
+    "question_id": 8607,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 273,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6870,
+    "family_name": "22. Answer both subquestions.\n  a.i. Solve using substitution method. T(n)=T(n-1)+3; t(1)=4. [8]\n  ii. Compare and contrast Merge sort and Quick sort. [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "22. Answer both subquestions.\n  a.i. Solve using substitution method. T(n)=T(n-1)+3; t(1)=4. [8]\n  ii. Compare and contrast Merge sort and Quick sort. [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 819,
+        "topic_name": "Recurrence Relations and Substitution Method",
+        "evidence": [
+          "substitution method"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 822,
+        "topic_name": "Merge Sort, Quick Sort and Order Statistics",
+        "evidence": [
+          "merge sort",
+          "quick sort"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Merge Sort, Quick Sort and Order Statistics",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'merge sort'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Merge Sort, Quick Sort and Order Statistics",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'merge sort'"
+    ]
+  },
+  {
+    "question_id": 8611,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 273,
+    "assessment_type": "END_SEM",
+    "year": 2024,
+    "family_id": 6874,
+    "family_name": "24. In the kingdom of Chessland, the royal gardener is tasked with designing a new garden for the princess's palace. The garden is in the shape of a M x M square, where each square represents a potential location for a flower bed. However, due to the royal decree, no two flowers should be planted in the same row, column, or diagonal. Your task as the royal gardener's assistant is to determine how many different ways there are to plant M flowers in the garden such that no two flowers are in the same row, column, or diagonal. Write an algorithm to calculate the number of valid arrangements for M = 8, and provide the solution with its algorithm using backtracking designing strategy and analysis its time complexity. [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "24. In the kingdom of Chessland, the royal gardener is tasked with designing a new garden for the princess's palace. The garden is in the shape of a M x M square, where each square represents a potential location for a flower bed. However, due to the royal decree, no two flowers should be planted in the same row, column, or diagonal. Your task as the royal gardener's assistant is to determine how many different ways there are to plant M flowers in the garden such that no two flowers are in the same row, column, or diagonal. Write an algorithm to calculate the number of valid arrangements for M = 8, and provide the solution with its algorithm using backtracking designing strategy and analysis its time complexity. [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 831,
+        "topic_name": "State Space Trees and Backtracking Principles",
+        "evidence": [
+          "backtracking"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Time and Space Complexity Analysis, State Space Trees and Backtracking Principles"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8617,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6879,
+    "family_name": "1. The best-case time complexity of Insertion Sort is typically represented by which asymptotic notation?\n(A) O(n^2)\n(B) O(n \\log n)\n(C) O(n)\n(D) O(1) [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "1. The best-case time complexity of Insertion Sort is typically represented by which asymptotic notation?\n(A) O(n^2)\n(B) O(n \\log n)\n(C) O(n)\n(D) O(1) [1]",
+    "stem": "The best-case time complexity of Insertion Sort is typically represented by which asymptotic notation?",
+    "options": "(A) O(n^2)\n(B) O(n \\log n)\n(C) O(n)\n(D) O(1) [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 818,
+        "topic_name": "Asymptotic Notations and Growth Functions",
+        "evidence": [
+          "best-case time complexity of insertion sort is typically represented by which asymptotic notation"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Time and Space Complexity Analysis, Asymptotic Notations and Growth Functions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8618,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6880,
+    "family_name": "2. When analyzing the time complexity of an algorithm, the \"operation count\" refers to:\n(A) The number of lines of code in the algorithm.\n(B) The total number of instructions executed by the CPU.\n(C) The number of variables declared in the algorithm.\n(D) The number of times the algorithm is run. [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "2. When analyzing the time complexity of an algorithm, the \"operation count\" refers to:\n(A) The number of lines of code in the algorithm.\n(B) The total number of instructions executed by the CPU.\n(C) The number of variables declared in the algorithm.\n(D) The number of times the algorithm is run. [1]",
+    "stem": "When analyzing the time complexity of an algorithm, the \"operation count\" refers to:",
+    "options": "(A) The number of lines of code in the algorithm.\n(B) The total number of instructions executed by the CPU.\n(C) The number of variables declared in the algorithm.\n(D) The number of times the algorithm is run. [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 816,
+        "topic_name": "Algorithm Fundamentals and Correctness",
+        "evidence": [
+          "operation count"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Algorithm Fundamentals and Correctness, Time and Space Complexity Analysis"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8619,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6881,
+    "family_name": "3. Which method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction to prove its correctness?\n(A) Recursion Tree Method\n(B) Master Theorem\n(C) Substitution Method\n(D) Iteration Method [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "3. Which method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction to prove its correctness?\n(A) Recursion Tree Method\n(B) Master Theorem\n(C) Substitution Method\n(D) Iteration Method [1]",
+    "stem": "Which method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction to prove its correctness?",
+    "options": "(A) Recursion Tree Method\n(B) Master Theorem\n(C) Substitution Method\n(D) Iteration Method [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 820,
+        "topic_name": "Recursion Tree Method and Mathematical Induction",
+        "evidence": [
+          "recursion tree method"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 824,
+        "topic_name": "Master Theorem and Recurrence Proofs",
+        "evidence": [
+          "master theorem"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Recursion Tree Method and Mathematical Induction, Master Theorem and Recurrence Proofs",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'recurrence'",
+      "Topic 'Asymptotic Notations and Growth Functions' rejected by guardrail: 'recursion tree'",
+      "Topic 'Recurrence Relations and Substitution Method' rejected by guardrail: 'recursion tree'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Recursion Tree Method and Mathematical Induction, Master Theorem and Recurrence Proofs",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'recurrence'",
+      "Topic 'Asymptotic Notations and Growth Functions' rejected by guardrail: 'recursion tree'",
+      "Topic 'Recurrence Relations and Substitution Method' rejected by guardrail: 'recursion tree'"
+    ]
+  },
+  {
+    "question_id": 8622,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6883,
+    "family_name": "6. An algorithm for finding the largest sub-array sum using a divide-and-conquer approach has a recurrence relation of T(N) = 2T(N/2) + O(N). According to the Master Theorem, what is the time complexity of this algorithm?\n(A) O(N \\log N)\n(B) O(N)\n(C) O(N^2)\n(D) O(\\log N) [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "6. An algorithm for finding the largest sub-array sum using a divide-and-conquer approach has a recurrence relation of T(N) = 2T(N/2) + O(N). According to the Master Theorem, what is the time complexity of this algorithm?\n(A) O(N \\log N)\n(B) O(N)\n(C) O(N^2)\n(D) O(\\log N) [1]",
+    "stem": "An algorithm for finding the largest sub-array sum using a divide-and-conquer approach has a recurrence relation of T(N) = 2T(N/2) + O(N). According to the Master Theorem, what is the time complexity of this algorithm?",
+    "options": "(A) O(N \\log N)\n(B) O(N)\n(C) O(N^2)\n(D) O(\\log N) [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 819,
+        "topic_name": "Recurrence Relations and Substitution Method",
+        "evidence": [
+          "recurrence relation"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 821,
+        "topic_name": "Binary Search and Maximum Subarray Problem",
+        "evidence": [
+          "largest sub-array sum"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 824,
+        "topic_name": "Master Theorem and Recurrence Proofs",
+        "evidence": [
+          "master theorem"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Binary Search and Maximum Subarray Problem, Master Theorem and Recurrence Proofs",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'recurrence'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Binary Search and Maximum Subarray Problem, Master Theorem and Recurrence Proofs",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'recurrence'"
+    ]
+  },
+  {
+    "question_id": 8629,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6890,
+    "family_name": "13. Which of the following statements most accurately describes the relationship between Branch and Bound algorithms and Backtracking algorithms when solving the 0/1 Knapsack problem?\n(A) Branch and Bound is primarily used for maximization problems, while Backtracking is exclusively for decision problems.\n(B) Backtracking is a specific type of Branch and Bound, where the bounding function is implicitly defined by the feasibility check of the current state.\n(C) Both Branch and Bound and Backtracking are identical in their approach to solving optimization problems like the 0/1 Knapsack problem.\n(D) Branch and Bound is a specific type of Backtracking that uses bounding functions to prune the search space, while Backtracking explores all possible solutions. [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "13. Which of the following statements most accurately describes the relationship between Branch and Bound algorithms and Backtracking algorithms when solving the 0/1 Knapsack problem?\n(A) Branch and Bound is primarily used for maximization problems, while Backtracking is exclusively for decision problems.\n(B) Backtracking is a specific type of Branch and Bound, where the bounding function is implicitly defined by the feasibility check of the current state.\n(C) Both Branch and Bound and Backtracking are identical in their approach to solving optimization problems like the 0/1 Knapsack problem.\n(D) Branch and Bound is a specific type of Backtracking that uses bounding functions to prune the search space, while Backtracking explores all possible solutions. [1]",
+    "stem": "Which of the following statements most accurately describes the relationship between Branch and Bound algorithms and Backtracking algorithms when solving the 0/1 Knapsack problem?",
+    "options": "(A) Branch and Bound is primarily used for maximization problems, while Backtracking is exclusively for decision problems.\n(B) Backtracking is a specific type of Branch and Bound, where the bounding function is implicitly defined by the feasibility check of the current state.\n(C) Both Branch and Bound and Backtracking are identical in their approach to solving optimization problems like the 0/1 Knapsack problem.\n(D) Branch and Bound is a specific type of Backtracking that uses bounding functions to prune the search space, while Backtracking explores all possible solutions. [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 827,
+        "topic_name": "Fractional Knapsack and Activity Selection",
+        "evidence": [
+          "knapsack problem",
+          "knapsack problem?"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 829,
+        "topic_name": "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+        "evidence": [
+          "0/1 knapsack problem"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 834,
+        "topic_name": "Branch and Bound Search Strategies",
+        "evidence": [
+          "branch and bound"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, Branch and Bound Search Strategies",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'branch and bound'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication, Branch and Bound Search Strategies",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'branch and bound'"
+    ]
+  },
+  {
+    "question_id": 8631,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6892,
+    "family_name": "15. When applying Branch and Bound algorithms to the Traveling Salesman Problem (TSP), what is the primary role of the bounding function?\n(A) To determine the exact cost of the optimal tour at each node of the state-space tree.\n(B) To provide an upper bound on the cost of any tour that can be formed from the current partial solution.\n(C) To provide a lower bound on the cost of any tour that can be formed from the current partial solution, allowing for pruning of subtrees.\n(D) To identify if a Hamiltonian circuit exists from the current partial path. [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "15. When applying Branch and Bound algorithms to the Traveling Salesman Problem (TSP), what is the primary role of the bounding function?\n(A) To determine the exact cost of the optimal tour at each node of the state-space tree.\n(B) To provide an upper bound on the cost of any tour that can be formed from the current partial solution.\n(C) To provide a lower bound on the cost of any tour that can be formed from the current partial solution, allowing for pruning of subtrees.\n(D) To identify if a Hamiltonian circuit exists from the current partial path. [1]",
+    "stem": "When applying Branch and Bound algorithms to the Traveling Salesman Problem (TSP), what is the primary role of the bounding function?",
+    "options": "(A) To determine the exact cost of the optimal tour at each node of the state-space tree.\n(B) To provide an upper bound on the cost of any tour that can be formed from the current partial solution.\n(C) To provide a lower bound on the cost of any tour that can be formed from the current partial solution, allowing for pruning of subtrees.\n(D) To identify if a Hamiltonian circuit exists from the current partial path. [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 833,
+        "topic_name": "Graph Coloring and Hamiltonian Cycles",
+        "evidence": [
+          "hamiltonian circuit"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 834,
+        "topic_name": "Branch and Bound Search Strategies",
+        "evidence": [
+          "branch and bound",
+          "lower bound"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Graph Coloring and Hamiltonian Cycles, Branch and Bound Search Strategies",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'hamiltonian'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'branch and bound'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Graph Coloring and Hamiltonian Cycles, Branch and Bound Search Strategies",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'hamiltonian'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'branch and bound'"
+    ]
+  },
+  {
+    "question_id": 8635,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6896,
+    "family_name": "19. For the Vertex Cover problem, an approximation algorithm aims to find a vertex cover whose size is:\n(A) Exactly equal to the optimal vertex cover size.\n(B) At most twice the size of the optimal vertex cover.\n(C) Always half the size of the optimal vertex cover.\n(D) Independent of the optimal vertex cover size. [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "19. For the Vertex Cover problem, an approximation algorithm aims to find a vertex cover whose size is:\n(A) Exactly equal to the optimal vertex cover size.\n(B) At most twice the size of the optimal vertex cover.\n(C) Always half the size of the optimal vertex cover.\n(D) Independent of the optimal vertex cover size. [1]",
+    "stem": "For the Vertex Cover problem, an approximation algorithm aims to find a vertex cover whose size is:",
+    "options": "(A) Exactly equal to the optimal vertex cover size.\n(B) At most twice the size of the optimal vertex cover.\n(C) Always half the size of the optimal vertex cover.\n(D) Independent of the optimal vertex cover size. [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 839,
+        "topic_name": "Polynomial-Time Reductions",
+        "evidence": [
+          "vertex cover"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 840,
+        "topic_name": "Approximation Algorithms",
+        "evidence": [
+          "for the vertex cover problem, an approximation algorithm",
+          "vertex cover problem, an approximation algorithm aims to find"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Polynomial-Time Reductions, Approximation Algorithms",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'vertex cover'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Polynomial-Time Reductions, Approximation Algorithms",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'vertex cover'"
+    ]
+  },
+  {
+    "question_id": 8637,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6898,
+    "family_name": "21. Answer all Questions\n  a. Illustrate the concept of time complexity analysis, elaborating on best, worst, and average-case scenarios using Insertion Sort as an example. How do asymptotic notations like O, \\Omega, and \\Theta relate to these analyses? [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "21. Answer all Questions\n  a. Illustrate the concept of time complexity analysis, elaborating on best, worst, and average-case scenarios using Insertion Sort as an example. How do asymptotic notations like O, \\Omega, and \\Theta relate to these analyses? [8]",
+    "stem": "Answer all Questions",
+    "options": "a. Illustrate the concept of time complexity analysis, elaborating on best, worst, and average-case scenarios using Insertion Sort as an example. How do asymptotic notations like O, \\Omega, and \\Theta relate to these analyses? [8]",
+    "candidate_topics": [
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity analysis"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 818,
+        "topic_name": "Asymptotic Notations and Growth Functions",
+        "evidence": [
+          "asymptotic notations"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Time and Space Complexity Analysis, Asymptotic Notations and Growth Functions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8646,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6907,
+    "family_name": "25. Given a Boolean formula in conjunctive normal form (CNF), where each clause contains exactly three literals, determine whether the formula is satisfiable. Explain the structure of a 3-SAT instance, and discuss why 3-SAT is considered NP-complete. How does the complexity of solving 3-SAT compare to that of 2-SAT and general SAT problems? [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "25. Given a Boolean formula in conjunctive normal form (CNF), where each clause contains exactly three literals, determine whether the formula is satisfiable. Explain the structure of a 3-SAT instance, and discuss why 3-SAT is considered NP-complete. How does the complexity of solving 3-SAT compare to that of 2-SAT and general SAT problems? [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "np-complete"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 839,
+        "topic_name": "Polynomial-Time Reductions",
+        "evidence": [
+          "3-sat"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: NP-Completeness and NP-Hardness, Polynomial-Time Reductions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8648,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 274,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6909,
+    "family_name": "27. Determine the cost and structure of an optimal binary search tree for a set of keys with the following probabilities:\ni 0 1 2 3 4 5 6 7\np_i 0.04 0.06 0.08 0.02 0.10 0.12 0.14\nq_i 0.06 0.06 0.06 0.06 0.05 0.05 0.05 0.05\nGive the recurrence relations used to fill the e-table (Expected Cost Table), w-table (Weight Table) and root-table (Root Index Table); also analyse the algorithm and determine it's running time. [15]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "27. Determine the cost and structure of an optimal binary search tree for a set of keys with the following probabilities:\ni 0 1 2 3 4 5 6 7\np_i 0.04 0.06 0.08 0.02 0.10 0.12 0.14\nq_i 0.06 0.06 0.06 0.06 0.05 0.05 0.05 0.05\nGive the recurrence relations used to fill the e-table (Expected Cost Table), w-table (Weight Table) and root-table (Root Index Table); also analyse the algorithm and determine it's running time. [15]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 819,
+        "topic_name": "Recurrence Relations and Substitution Method",
+        "evidence": [
+          "recurrence relations"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 830,
+        "topic_name": "Longest Common Subsequence and Optimal Binary Search Trees",
+        "evidence": [
+          "optimal binary search tree",
+          "determine the cost and structure of an optimal binary search tree"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Longest Common Subsequence and Optimal Binary Search Trees",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'optimal binary search tree'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'",
+      "Topic 'Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication' rejected by guardrail: 'optimal binary search tree'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Longest Common Subsequence and Optimal Binary Search Trees",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'binary search'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'optimal binary search tree'",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'binary search'",
+      "Topic 'Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication' rejected by guardrail: 'optimal binary search tree'"
+    ]
+  },
+  {
+    "question_id": 8655,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6779,
+    "family_name": "18. Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort as standard quick sort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "7. Which of the following is NOT true about randomized quicksort? (A) Its time complexity matches that of standard quicksort (B) It is an in-place sorting algorithm (C) Its space complexity is greater than standard quicksort (D) Its worst-case time complexity could still be $O(n^2)$ [1]",
+    "stem": "Which of the following is NOT true about randomized quicksort?",
+    "options": "(A) Its time complexity matches that of standard quicksort (B) It is an in-place sorting algorithm (C) Its space complexity is greater than standard quicksort (D) Its worst-case time complexity could still be $O(n^2)$ [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 817,
+        "topic_name": "Time and Space Complexity Analysis",
+        "evidence": [
+          "time complexity",
+          "space complexity",
+          "worst-case"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 836,
+        "topic_name": "Randomized Algorithms: Quicksort and String Matching",
+        "evidence": [
+          "randomized quicksort",
+          "which of the following is not true about randomized quicksort"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Time and Space Complexity Analysis, Randomized Algorithms: Quicksort and String Matching",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'randomized quicksort'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Time and Space Complexity Analysis, Randomized Algorithms: Quicksort and String Matching",
+      "Topic 'Merge Sort, Quick Sort and Order Statistics' rejected by guardrail: 'randomized quicksort'"
+    ]
+  },
+  {
+    "question_id": 8659,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6913,
+    "family_name": "11. Which of the following recurrence relations represents the worst-case time complexity of Quick Sort? (A) $T(n) = 2T(n/2) + \\Theta(n)$ (B) $T(n) = T(n-1) + \\Theta(n)$ (C) $T(n) = 2T(n/3) + \\Theta(n)$ (D) $T(n) = 2T(n/2) + \\Theta(\\log n)$ [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "11. Which of the following recurrence relations represents the worst-case time complexity of Quick Sort? (A) $T(n) = 2T(n/2) + \\Theta(n)$ (B) $T(n) = T(n-1) + \\Theta(n)$ (C) $T(n) = 2T(n/3) + \\Theta(n)$ (D) $T(n) = 2T(n/2) + \\Theta(\\log n)$ [1]",
+    "stem": "Which of the following recurrence relations represents the worst-case time complexity of Quick Sort?",
+    "options": "(A) $T(n) = 2T(n/2) + \\Theta(n)$ (B) $T(n) = T(n-1) + \\Theta(n)$ (C) $T(n) = 2T(n/3) + \\Theta(n)$ (D) $T(n) = 2T(n/2) + \\Theta(\\log n)$ [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 819,
+        "topic_name": "Recurrence Relations and Substitution Method",
+        "evidence": [
+          "recurrence relations"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 822,
+        "topic_name": "Merge Sort, Quick Sort and Order Statistics",
+        "evidence": [
+          "quick sort"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Merge Sort, Quick Sort and Order Statistics",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'quick sort'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Recurrence Relations and Substitution Method, Merge Sort, Quick Sort and Order Statistics",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'quick sort'",
+      "Topic 'Binary Search and Maximum Subarray Problem' rejected by guardrail: 'quick sort'"
+    ]
+  },
+  {
+    "question_id": 8660,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6914,
+    "family_name": "12. Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "12. Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]",
+    "stem": "Which of the following problems cannot be solved using backtracking?",
+    "options": "(A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 827,
+        "topic_name": "Fractional Knapsack and Activity Selection",
+        "evidence": [
+          "knapsack problem",
+          "knapsack problem?"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 830,
+        "topic_name": "Longest Common Subsequence and Optimal Binary Search Trees",
+        "evidence": [
+          "longest common subsequence"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 832,
+        "topic_name": "N-Queens and Sum of Subsets Problems",
+        "evidence": [
+          "n-queens"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 833,
+        "topic_name": "Graph Coloring and Hamiltonian Cycles",
+        "evidence": [
+          "hamiltonian circuit"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Longest Common Subsequence and Optimal Binary Search Trees, N-Queens and Sum of Subsets Problems, Graph Coloring and Hamiltonian Cycles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'n-queens'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Fractional Knapsack and Activity Selection, Longest Common Subsequence and Optimal Binary Search Trees, N-Queens and Sum of Subsets Problems, Graph Coloring and Hamiltonian Cycles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'knapsack'",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'knapsack'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'n-queens'"
+    ]
+  },
+  {
+    "question_id": 8666,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6919,
+    "family_name": "18. Which of the following problems is classified as NP-hard? (A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "18. Which of the following problems is classified as NP-hard? (A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree [1]",
+    "stem": "Which of the following problems is classified as NP-hard?",
+    "options": "(A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 828,
+        "topic_name": "Minimum Spanning Trees: Kruskal and Prim",
+        "evidence": [
+          "minimum spanning tree"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "problems is classified as np-hard"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Minimum Spanning Trees: Kruskal and Prim, NP-Completeness and NP-Hardness",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'minimum spanning tree'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Minimum Spanning Trees: Kruskal and Prim, NP-Completeness and NP-Hardness",
+      "Topic 'Greedy Paradigm and Huffman Coding' rejected by guardrail: 'minimum spanning tree'"
+    ]
+  },
+  {
+    "question_id": 8671,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6923,
+    "family_name": "22. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity [8]\n  a. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity\n  b. Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "22. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity [8]\n  a. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity\n  b. Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+    "stem": "Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity [8]",
+    "options": "a. Find the maximum subarray sum of the array:\nArray = [25, 45, 92, 39, 4, 34, 12, 67, 72, 89, 96] and analyze the time complexity\n  b. Explain Strassen's Matrix Multiplication and find its time complexity using the Master Theorem. Compare it with normal matrix multiplication.",
+    "candidate_topics": [
+      {
+        "topic_id": 821,
+        "topic_name": "Binary Search and Maximum Subarray Problem",
+        "evidence": [
+          "maximum subarray sum of the array",
+          "find the maximum subarray sum of the array",
+          "maximum subarray sum of the array: array ="
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 823,
+        "topic_name": "Strassen's Matrix Multiplication",
+        "evidence": [
+          "strassen's matrix multiplication",
+          "explain strassen's matrix multiplication and find its time complexity using the master theorem"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Binary Search and Maximum Subarray Problem, Strassen's Matrix Multiplication",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'master theorem'",
+      "Topic 'Recurrence Relations and Substitution Method' rejected by guardrail: 'strassen'",
+      "Topic 'Master Theorem and Recurrence Proofs' rejected by guardrail: 'strassen'",
+      "Topic 'Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication' rejected by guardrail: 'strassen'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Binary Search and Maximum Subarray Problem, Strassen's Matrix Multiplication",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'master theorem'",
+      "Topic 'Recurrence Relations and Substitution Method' rejected by guardrail: 'strassen'",
+      "Topic 'Master Theorem and Recurrence Proofs' rejected by guardrail: 'strassen'",
+      "Topic 'Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication' rejected by guardrail: 'strassen'"
+    ]
+  },
+  {
+    "question_id": 8677,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 275,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6929,
+    "family_name": "25. Discuss about NP, NP- Hard and NP-Complete in detailed with examples [8]\n  a. Discuss about NP, NP- Hard and NP-Complete in detailed with examples\n  b. Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "25. Discuss about NP, NP- Hard and NP-Complete in detailed with examples [8]\n  a. Discuss about NP, NP- Hard and NP-Complete in detailed with examples\n  b. Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+    "stem": "Discuss about NP, NP- Hard and NP-Complete in detailed with examples [8]",
+    "options": "a. Discuss about NP, NP- Hard and NP-Complete in detailed with examples\n  b. Write Rabin Karp algorithm and perform pattern matching for the following \"The rain in Spain falls mainly on the plain.\" And pattern to search is \"ain\".",
+    "candidate_topics": [
+      {
+        "topic_id": 836,
+        "topic_name": "Randomized Algorithms: Quicksort and String Matching",
+        "evidence": [
+          "rabin karp algorithm"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "np-complete",
+          "np-hard"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Randomized Algorithms: Quicksort and String Matching, NP-Completeness and NP-Hardness",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'rabin karp'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Randomized Algorithms: Quicksort and String Matching, NP-Completeness and NP-Hardness",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'rabin karp'"
+    ]
+  },
+  {
+    "question_id": 8694,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 276,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6914,
+    "family_name": "12. Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "14. Which of the problems cannot be solved by backtracking method?\n(A) n-queen problem\n(B) Subset sum problem\n(C) Hamiltonian circuit problem\n(D) Traveling salesman problem [1]",
+    "stem": "Which of the problems cannot be solved by backtracking method?",
+    "options": "(A) n-queen problem\n(B) Subset sum problem\n(C) Hamiltonian circuit problem\n(D) Traveling salesman problem [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 832,
+        "topic_name": "N-Queens and Sum of Subsets Problems",
+        "evidence": [
+          "n-queen problem",
+          "n-queen"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 833,
+        "topic_name": "Graph Coloring and Hamiltonian Cycles",
+        "evidence": [
+          "hamiltonian circuit"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: N-Queens and Sum of Subsets Problems, Graph Coloring and Hamiltonian Cycles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'hamiltonian'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'n-queen'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: N-Queens and Sum of Subsets Problems, Graph Coloring and Hamiltonian Cycles",
+      "Topic 'Time and Space Complexity Analysis' rejected by guardrail: 'hamiltonian'",
+      "Topic 'State Space Trees and Backtracking Principles' rejected by guardrail: 'n-queen'"
+    ]
+  },
+  {
+    "question_id": 8700,
+    "course_id": 27,
+    "course_name": "Design and Analysis of Algorithms",
+    "course_code": "21CSC204J",
+    "semester": 4,
+    "exam_id": 276,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 6947,
+    "family_name": "20. We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this.\n(A) There is a polynomial time reduction from B to SAT\n(B) There is a polynomial time reduction from SAT to B\n(C) There is a polynomial time reduction from B to SAT, and B has a checking algorithm.\n(D) There is a polynomial time reduction from SAT to B, and B has a checking algorithm. [1]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "20. We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this.\n(A) There is a polynomial time reduction from B to SAT\n(B) There is a polynomial time reduction from SAT to B\n(C) There is a polynomial time reduction from B to SAT, and B has a checking algorithm.\n(D) There is a polynomial time reduction from SAT to B, and B has a checking algorithm. [1]",
+    "stem": "We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this.",
+    "options": "(A) There is a polynomial time reduction from B to SAT\n(B) There is a polynomial time reduction from SAT to B\n(C) There is a polynomial time reduction from B to SAT, and B has a checking algorithm.\n(D) There is a polynomial time reduction from SAT to B, and B has a checking algorithm. [1]",
+    "candidate_topics": [
+      {
+        "topic_id": 838,
+        "topic_name": "NP-Completeness and NP-Hardness",
+        "evidence": [
+          "np-complete"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 839,
+        "topic_name": "Polynomial-Time Reductions",
+        "evidence": [
+          "polynomial time reduction"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: NP-Completeness and NP-Hardness, Polynomial-Time Reductions"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8743,
+    "course_id": 28,
+    "course_name": "Database Management Systems",
+    "course_code": "21CSC205P",
+    "semester": 4,
+    "exam_id": 277,
+    "assessment_type": "END_SEM",
+    "year": 2022,
+    "family_id": 6986,
+    "family_name": "29. Define functional dependency with respect to normal forms. How 2NF and 3NF can be resolved? Give an example scenario for the above situation, using 'STUDENT' relation.\nNote: column names can be generated with respect to student relation. [10]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "29. Define functional dependency with respect to normal forms. How 2NF and 3NF can be resolved? Give an example scenario for the above situation, using 'STUDENT' relation.\nNote: column names can be generated with respect to student relation. [10]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 856,
+        "topic_name": "Functional Dependencies and Armstrong's Axioms",
+        "evidence": [
+          "functional dependency"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 858,
+        "topic_name": "Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+        "evidence": [
+          "3nf"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Functional Dependencies and Armstrong's Axioms, Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+      "Topic 'First Normal Form (1NF) and Second Normal Form (2NF)' rejected by guardrail: '3nf'",
+      "Topic 'Multivalued Dependencies and Fourth Normal Form (4NF)' rejected by guardrail: '2nf'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Functional Dependencies and Armstrong's Axioms, Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)",
+      "Topic 'First Normal Form (1NF) and Second Normal Form (2NF)' rejected by guardrail: '3nf'",
+      "Topic 'Multivalued Dependencies and Fourth Normal Form (4NF)' rejected by guardrail: '2nf'"
+    ]
+  },
+  {
+    "question_id": 8776,
+    "course_id": 28,
+    "course_name": "Database Management Systems",
+    "course_code": "21CSC205P",
+    "semester": 4,
+    "exam_id": 278,
+    "assessment_type": "END_SEM",
+    "year": 2022,
+    "family_id": 7019,
+    "family_name": "28. What is the use of join operation? How is the simple and outer join operation implemented in SQL? Give examples. [8]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "28. What is the use of join operation? How is the simple and outer join operation implemented in SQL? Give examples. [8]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 849,
+        "topic_name": "Relational Algebra: Joins, Division and Aggregate Operations",
+        "evidence": [
+          "outer join"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 852,
+        "topic_name": "SQL Queries (DML), Joins and Nested Subqueries",
+        "evidence": [
+          "outer join"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Relational Algebra: Joins, Division and Aggregate Operations, SQL Queries (DML), Joins and Nested Subqueries"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 8778,
+    "course_id": 28,
+    "course_name": "Database Management Systems",
+    "course_code": "21CSC205P",
+    "semester": 4,
+    "exam_id": 278,
+    "assessment_type": "END_SEM",
+    "year": 2022,
+    "family_id": 7020,
+    "family_name": "29. Give the notation and example code in relation algebra for the following operations [10]\n  i. Outer join\n  ii. Assignment\n  iii. Select operation",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "29. Give the notation and example code in relation algebra for the following operations [10]\n  i. Outer join\n  ii. Assignment\n  iii. Select operation",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 848,
+        "topic_name": "Relational Algebra: Selection, Projection and Set Operations",
+        "evidence": [
+          "select operation"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 849,
+        "topic_name": "Relational Algebra: Joins, Division and Aggregate Operations",
+        "evidence": [
+          "outer join"
+        ],
+        "level": "MEDIUM"
+      },
+      {
+        "topic_id": 852,
+        "topic_name": "SQL Queries (DML), Joins and Nested Subqueries",
+        "evidence": [
+          "outer join"
+        ],
+        "level": "MEDIUM"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Relational Algebra: Selection, Projection and Set Operations, Relational Algebra: Joins, Division and Aggregate Operations, SQL Queries (DML), Joins and Nested Subqueries"
+    ],
+    "guardrail_rejections": []
+  },
+  {
+    "question_id": 9993,
+    "course_id": 29,
+    "course_name": "Artificial Intelligence",
+    "course_code": "21CSC207J",
+    "semester": 4,
+    "exam_id": 316,
+    "assessment_type": "END_SEM",
+    "year": 2025,
+    "family_id": 7506,
+    "family_name": "27. Given an initial state of 8 puzzle problem and final state to be reached as,\nInitial State:\n2 8 3\n1 6 4\n7   5\nFinal State:\n1 2 3\n8   4\n7 6 5\nFind the most cost-effective path to reach the final state from initial state using A* Algorithm. Explain each stapes. Consider g(n) = Depth of node and h(n) = Number of misplaced tiles. [15]",
+    "family_size": 1,
+    "mapped_siblings": [],
+    "text": "27. Given an initial state of 8 puzzle problem and final state to be reached as,\nInitial State:\n2 8 3\n1 6 4\n7   5\nFinal State:\n1 2 3\n8   4\n7 6 5\nFind the most cost-effective path to reach the final state from initial state using A* Algorithm. Explain each stapes. Consider g(n) = Depth of node and h(n) = Number of misplaced tiles. [15]",
+    "stem": null,
+    "options": null,
+    "candidate_topics": [
+      {
+        "topic_id": 869,
+        "topic_name": "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+        "evidence": [
+          "8 puzzle problem"
+        ],
+        "level": "HIGH"
+      },
+      {
+        "topic_id": 874,
+        "topic_name": "A* Search Algorithm and Optimality",
+        "evidence": [
+          "a* algorithm"
+        ],
+        "level": "HIGH"
+      }
+    ],
+    "evidence": [
+      "Conflicting candidates: Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals, A* Search Algorithm and Optimality",
+      "Topic 'Problem Formulation and State Space Representation' rejected by guardrail: 'a*'",
+      "Topic 'Uninformed Search: BFS, DFS and Depth-Limited Search' rejected by guardrail: 'a*'",
+      "Topic 'Heuristic Search: Greedy Best-First Search and Heuristic Functions' rejected by guardrail: 'a* algorithm'"
+    ],
+    "guardrail_rejections": [
+      "Conflicting candidates: Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals, A* Search Algorithm and Optimality",
+      "Topic 'Problem Formulation and State Space Representation' rejected by guardrail: 'a*'",
+      "Topic 'Uninformed Search: BFS, DFS and Depth-Limited Search' rejected by guardrail: 'a*'",
+      "Topic 'Heuristic Search: Greedy Best-First Search and Heuristic Functions' rejected by guardrail: 'a* algorithm'"
+    ]
+  }
+]
