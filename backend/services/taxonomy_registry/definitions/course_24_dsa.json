@@ -46,7 +46,9 @@
             "access a member of a structure using a pointer in c",
             "pointer in c",
             "how arrays can be created dynamically",
-            "int *p = &x"
+            "int *p = &x",
+            "struct student",
+            "student structure contains the following fields"
           ],
           "specific_keywords": [
             "self-referential",
@@ -85,7 +87,13 @@
             "operations on data structure",
             "definitions that allow us to use the functions while hiding the implementation",
             "hiding the implementation",
-            "primitive data types and structures"
+            "primitive data types and structures",
+            "linear ds",
+            "maximum of all the row sums",
+            "suggest a suitable abstract data type",
+            "lowest worst-case complexity",
+            "which loop is guaranteed to execute at least one time",
+            "prints the string \"hello\""
           ],
           "specific_keywords": [
             "abstract data type",
@@ -160,7 +168,10 @@
             "matrix multiplication",
             "m x n matrices",
             "elements in an array are accessed",
-            "multiplication of two matrices"
+            "multiplication of two matrices",
+            "add two n x n matrices",
+            "multiply two m \\times n matrices",
+            "multiply two m x n matrices"
           ],
           "specific_keywords": [
             "matrix multiplication",
@@ -203,7 +214,10 @@
             "stored in adjacent memory locations",
             "initialize an array in c",
             "insert an element in an array",
-            "write an algorithm to insert an element in"
+            "write an algorithm to insert an element in",
+            "inserting a node at the end of the list",
+            "cur.setnext (node)",
+            "cur.setnext(node)"
           ],
           "specific_keywords": [
             "list adt",
@@ -438,7 +452,9 @@
             "operator comes after",
             "operator comes before",
             "develop and show the simulation using stack for evaluation",
-            "simulation using stack for evaluation of the following expression"
+            "simulation using stack for evaluation of the following expression",
+            "convert the expression given as follows",
+            "a+(b*c-(d/e^f)*g)*h"
           ],
           "specific_keywords": [
             "infix to postfix",
@@ -503,7 +519,8 @@
             "insert an element at rear end",
             "placed in a queue and are deleted",
             "pseudocode to insert an element in the linked queue",
-            "linear list of elements in which deletion can be done from one end"
+            "linear list of elements in which deletion can be done from one end",
+            "normal queue, if implemented using an array of size max-size gets full"
           ],
           "specific_keywords": [
             "queue adt",
@@ -538,7 +555,9 @@
             "deque implementation",
             "circular queue modulo arithmetic",
             "inserted or deleted at / from both ends but not in the middle",
-            "inserted or deleted from both ends"
+            "inserted or deleted from both ends",
+            "call logs in the mobile",
+            "least recent number is deleted"
           ],
           "specific_keywords": [
             "circular queue",
@@ -812,6 +831,34 @@
             "collision resolution",
             "hashing"
           ]
+        },
+        {
+          "id": 934,
+          "name": "Red-Black Trees: Properties and Balance",
+          "canonical_name": "Red-Black Trees: Properties and Balance",
+          "aliases": [],
+          "strong_phrases": [
+            "red-black tree",
+            "red black tree",
+            "maximum height of a red-black tree",
+            "maximum height of a red black tree",
+            "properties of a red-black tree",
+            "properties of a red black tree",
+            "red-black tree with n nodes",
+            "red black tree with n nodes",
+            "black height"
+          ],
+          "specific_keywords": [
+            "red-black tree",
+            "red black tree",
+            "black height"
+          ],
+          "negative_guards": [
+            "avl",
+            "b-tree",
+            "b+ tree"
+          ],
+          "context_hints": []
         }
       ]
     },

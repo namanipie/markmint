@@ -41,7 +41,14 @@
             "collection of interrelated data",
             "arrange in the correct order view level, physical level, logical level",
             "view level, physical level, logical level",
-            "logical level of abstraction deals"
+            "logical level of abstraction deals",
+            "what is dbms",
+            "feature of the database",
+            "limitations/disadvantages of dbms",
+            "disadvantages of dbms",
+            "responsibilities of a database management system",
+            "naive user",
+            "levels of abstraction"
           ],
           "specific_keywords": [
             "file processing system",
@@ -75,7 +82,9 @@
             "dbms components",
             "query processor",
             "storage manager",
-            "database administrator dba"
+            "database administrator dba",
+            "components of data base system environment",
+            "manages the allocation of space on disk storage and the data structures used to represent information"
           ],
           "specific_keywords": [
             "logical data independence",
@@ -106,7 +115,10 @@
             "network model",
             "relational model overview",
             "object oriented data model",
-            "database schema and instance"
+            "database schema and instance",
+            "evolution models",
+            "top-to-bottom relationship",
+            "hierarchical"
           ],
           "specific_keywords": [
             "data models",
@@ -148,7 +160,10 @@
             "which is not single value attribute",
             "single value attribute",
             "programmer is associated with many project",
-            "one-to-many cardinality"
+            "one-to-many cardinality",
+            "develop e-r model",
+            "derived attribute",
+            "maximum number of entities that can be involved in a relationship"
           ],
           "specific_keywords": [
             "er diagram",
@@ -234,7 +249,11 @@
             "foreign key constraint",
             "pitfalls in relational database systems",
             "how many primary keys are possible in a table",
-            "primary keys are possible in a table"
+            "primary keys are possible in a table",
+            "relational model is based on the concept that data is organized and stored in two-dimensional tables",
+            "permitted values called the",
+            "super key",
+            "pit fall in relational"
           ],
           "specific_keywords": [
             "referential integrity",
@@ -303,7 +322,8 @@
             "rename operation rho",
             "relational algebra is a procedural language",
             "relational algebra is extended version of sql",
-            "procedural query language"
+            "procedural query language",
+            "\\sigma_{salary > 1000}"
           ],
           "specific_keywords": [
             "relational algebra",
@@ -413,7 +433,9 @@
             "sql data types",
             "check constraints",
             "check constraint",
-            "define check constraints"
+            "define check constraints",
+            "drop table",
+            "a ________ constraint is a constraint that ensures that a column or set of columns satisfies a specified condition"
           ],
           "specific_keywords": [
             "ddl",
@@ -457,7 +479,12 @@
             "select * from employee where",
             "select salary from employees where salary >",
             "what is the output of the command select * from emp",
-            "data manipulation language is used for"
+            "data manipulation language is used for",
+            "insert employee",
+            "write an sql query",
+            "subqueries and correlated queries",
+            "what is a join",
+            "all aggregate functions except"
           ],
           "specific_keywords": [
             "group by",
@@ -498,7 +525,8 @@
             "assertions in sql",
             "database security and authorization grant revoke",
             "to apply set operations in 'table a' and 'table b'",
-            "apply set operations in"
+            "apply set operations in",
+            "a window into a portion of a database is"
           ],
           "specific_keywords": [
             "create view",
@@ -530,7 +558,8 @@
             "stored procedures in pl/sql",
             "stored functions in pl/sql",
             "in out in out parameters",
-            "packages in pl/sql"
+            "packages in pl/sql",
+            "developers can write their own functions and procedures"
           ],
           "specific_keywords": [
             "pl/sql",
@@ -581,6 +610,32 @@
             "cursors",
             "pl/sql"
           ]
+        },
+        {
+          "id": 936,
+          "name": "Query Processing and Optimization: Parsing, Evaluation and Relational Plans",
+          "canonical_name": "Query Processing and Optimization: Parsing, Evaluation and Relational Plans",
+          "aliases": [],
+          "strong_phrases": [
+            "query processing",
+            "query processing engine",
+            "steps involved in processing a query",
+            "valid step in query processing",
+            "parsing in query processing",
+            "parsing and translation",
+            "how user query is executed in the query processing engine",
+            "demonstrate the steps involved in processing a query"
+          ],
+          "specific_keywords": [
+            "query processing",
+            "query optimization"
+          ],
+          "negative_guards": [
+            "transaction",
+            "concurrency",
+            "normalization"
+          ],
+          "context_hints": []
         }
       ]
     },
@@ -644,7 +699,14 @@
             "second normal form 2nf",
             "partial dependency",
             "prime attribute non prime attribute",
-            "elimination of partial dependency"
+            "elimination of partial dependency",
+            "which is not a type of normalization",
+            "primary goal of normalization",
+            "condition for 2^{nd} norm form",
+            "condition for $2^{\\text{nd}}$ norm form",
+            "define first normal form",
+            "1^{st} normal form",
+            "1^{st} norm form"
           ],
           "specific_keywords": [
             "1nf",
@@ -680,7 +742,8 @@
             "bcnf",
             "super key condition in bcnf",
             "comparison between 3nf and bcnf",
-            "dependency preservation in 3nf"
+            "dependency preservation in 3nf",
+            "boyce-codd normal form is found to be stricter than third normal form"
           ],
           "specific_keywords": [
             "3nf",
@@ -748,7 +811,8 @@
             "lossless join decomposition",
             "lossy decomposition",
             "dependency preserving decomposition",
-            "testing for lossless join"
+            "testing for lossless join",
+            "lossless decomposition"
           ],
           "specific_keywords": [
             "5nf",
@@ -790,7 +854,9 @@
             "commit and rollback",
             "collections of operations that form a single logical unit of work",
             "single logical unit of work are called",
-            "transaction that has not been completed successfully is called"
+            "transaction that has not been completed successfully is called",
+            "properties of a transaction",
+            "transaction control language commands"
           ],
           "specific_keywords": [
             "acid properties",
@@ -830,7 +896,9 @@
             "recoverable schedules",
             "cascadeless schedules",
             "execution sequence in concurrency control are termed",
-            "execution sequence in concurrency control"
+            "execution sequence in concurrency control",
+            "what is serialization",
+            "testing of seriability"
           ],
           "specific_keywords": [
             "serializability",
@@ -872,7 +940,15 @@
             "explain concurrency control",
             "conflicts in concurrent transaction",
             "concurrent transaction",
-            "two phase locking"
+            "two phase locking",
+            "duty read",
+            "dirty read",
+            "problems with concurrent execution",
+            "several operation simultaneously",
+            "locks are used",
+            "locking",
+            "dead lock",
+            "deadlock"
           ],
           "specific_keywords": [
             "two-phase locking",
@@ -889,7 +965,9 @@
           "negative_guards": [
             "paging segmentation",
             "execution sequence in concurrency control are termed",
-            "execution sequence in concurrency control"
+            "execution sequence in concurrency control",
+            "serializability",
+            "equivalent to same serial execution"
           ],
           "context_hints": [
             "concurrency control",
@@ -916,7 +994,10 @@
             "deferred database modification",
             "immediate database modification",
             "checkpoints in database recovery",
-            "shadow paging"
+            "shadow paging",
+            "fuzzy check prints",
+            "check points",
+            "deferred-modification"
           ],
           "specific_keywords": [
             "timestamp ordering",

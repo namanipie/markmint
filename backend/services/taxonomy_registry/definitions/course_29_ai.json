@@ -48,7 +48,8 @@
             "machine learning is a subset of which of the following",
             "machine learning is a subset of",
             "application of artificial intelligence",
-            "is not an application of artificial intelligence"
+            "is not an application of artificial intelligence",
+            "cognitive science"
           ],
           "specific_keywords": [
             "turing test",
@@ -101,7 +102,10 @@
             "dynamic discovery and registration",
             "agents behavior",
             "perception sequence",
-            "treatment chosen by doctor for a patient for a disease is based on"
+            "treatment chosen by doctor for a patient for a disease is based on",
+            "multi-agent system",
+            "crossword puzzle",
+            "different types of agents"
           ],
           "specific_keywords": [
             "peas",
@@ -151,7 +155,8 @@
             "control strategies in problem-solving",
             "efficiency of a search algorithm",
             "factors that affect the efficiency of a search algorithm",
-            "efficiency of search algorithm"
+            "efficiency of search algorithm",
+            "ill-structured problem"
           ],
           "specific_keywords": [
             "problem formulation",
@@ -297,7 +302,11 @@
             "post order traversal of a binary tree",
             "inorder traversal of a binary tree",
             "uninformed search methods is most likely to find",
-            "number of edges from the root to the node is called of the tree"
+            "number of edges from the root to the node is called of the tree",
+            "search is called",
+            "node/ state is marked to be visited",
+            "node/state is marked to be visited",
+            "if any search algorithm is able to generate a solution, then the search is"
           ],
           "specific_keywords": [
             "uninformed search",
@@ -586,7 +595,8 @@
             "constraint propagation",
             "preparing a schedule for class",
             "schedule for a class of students",
-            "which of the following mentioned problems are not constraint satisfaction"
+            "which of the following mentioned problems are not constraint satisfaction",
+            "constraints are the one that restrict"
           ],
           "specific_keywords": [
             "constraint satisfaction",
@@ -626,7 +636,9 @@
             "room coloring problem",
             "8-queens problem",
             "8 queens problem",
-            "n queens problem as csp"
+            "n queens problem as csp",
+            "to + go = out",
+            "\\text{to} + \\text{go} = \\text{out}"
           ],
           "specific_keywords": [
             "cryptarithmetic",
@@ -707,7 +719,9 @@
             "semantic nets",
             "frames and scripts",
             "wumpus world environment",
-            "wumpus world"
+            "wumpus world",
+            "process of reasoning that operate on",
+            "internal representation"
           ],
           "specific_keywords": [
             "knowledge representation",
@@ -748,7 +762,9 @@
             "models alpha is",
             "disjunction implication biconditional",
             "knowledge base (kb) is consists of set of",
-            "inference algorithm is complete only if"
+            "inference algorithm is complete only if",
+            "p\\land q \\rightarrow r",
+            "p \\wedge q \\rightarrow r"
           ],
           "specific_keywords": [
             "propositional logic",
@@ -919,7 +935,8 @@
             "means-ends analysis",
             "mean-ends analysis",
             "means ends analysis",
-            "blocks world"
+            "blocks world",
+            "mean ends analysis"
           ],
           "specific_keywords": [
             "classical planning",

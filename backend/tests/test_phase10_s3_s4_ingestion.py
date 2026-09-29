@@ -31,11 +31,11 @@ def test_taxonomy_registry_s3_s4_integrity():
     registry = get_taxonomy_registry()
 
     expected_courses = {
-        24: ("21CSC201J", "Data Structures and Algorithms", 27, 737, 763),
+        24: ("21CSC201J", "Data Structures and Algorithms", 28, 737, 934),
         25: ("21CSC202J", "Operating Systems", 27, 764, 790),
         26: ("21CSS201T", "Computer Organization and Architecture", 25, 791, 815),
-        27: ("21CSC204J", "Design and Analysis of Algorithms", 25, 816, 840),
-        28: ("21CSC205P", "Database Management Systems", 25, 841, 865),
+        27: ("21CSC204J", "Design and Analysis of Algorithms", 26, 816, 935),
+        28: ("21CSC205P", "Database Management Systems", 26, 841, 936),
     }
 
     all_topic_ids = set()

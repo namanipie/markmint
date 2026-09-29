@@ -36,11 +36,11 @@ from backend.services.observed_assessment_coverage import (
 S3_S4_COURSE_IDS = [24, 25, 26, 27, 28]
 
 EXPECTED_COURSES = {
-    24: {"canonical_code": "21CSC201J", "name": "Data Structures and Algorithms", "sem": 3, "min_tid": 737, "max_tid": 763, "topic_count": 27, "paper_count": 7},
+    24: {"canonical_code": "21CSC201J", "name": "Data Structures and Algorithms", "sem": 3, "min_tid": 737, "max_tid": 934, "topic_count": 28, "paper_count": 7},
     25: {"canonical_code": "21CSC202J", "name": "Operating Systems", "sem": 3, "min_tid": 764, "max_tid": 790, "topic_count": 27, "paper_count": 6},
     26: {"canonical_code": "21CSS201T", "name": "Computer Organization and Architecture", "sem": 3, "min_tid": 791, "max_tid": 815, "topic_count": 25, "paper_count": 5},
-    27: {"canonical_code": "21CSC204J", "name": "Design and Analysis of Algorithms", "sem": 4, "min_tid": 816, "max_tid": 840, "topic_count": 25, "paper_count": 8},
-    28: {"canonical_code": "21CSC205P", "name": "Database Management Systems", "sem": 4, "min_tid": 841, "max_tid": 865, "topic_count": 25, "paper_count": 4},
+    27: {"canonical_code": "21CSC204J", "name": "Design and Analysis of Algorithms", "sem": 4, "min_tid": 816, "max_tid": 935, "topic_count": 26, "paper_count": 8},
+    28: {"canonical_code": "21CSC205P", "name": "Database Management Systems", "sem": 4, "min_tid": 841, "max_tid": 936, "topic_count": 26, "paper_count": 4},
 }
 
 

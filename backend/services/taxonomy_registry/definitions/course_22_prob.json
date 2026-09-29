@@ -336,7 +336,10 @@
             "properties of normal distribution",
             "engineering examination if a student gets 30 or more marks",
             "normally distributed and the mean of x is",
-            "standard normal curve areas"
+            "standard normal curve areas",
+            "distribution exactly normal",
+            "in a distribution exactly normal",
+            "7% of the items are under 35 and 89% are under 63"
           ],
           "specific_keywords": [
             "normal distribution",
@@ -382,7 +385,9 @@
             "right tailed",
             "two tailed test",
             "failing student is passed by an examiner",
-            "critical region is located equally in both sides"
+            "critical region is located equally in both sides",
+            "level of confidence is denoted by",
+            "the level of confidence is denoted by"
           ],
           "specific_keywords": [
             "null hypothesis",
@@ -420,7 +425,11 @@
             "sample population",
             "standard deviation of a sampling distribution is called",
             "standard error of sampling distribution",
-            "fatality rate of typhoid patients"
+            "fatality rate of typhoid patients",
+            "sample of heights of 6400 english men",
+            "sample of 100 students is taken from a large population",
+            "random sample of size 500, the mean is found to be 20. in another independent sample of size 400",
+            "sample of heights of 1600 american"
           ],
           "specific_keywords": [
             "large sample test",
@@ -432,7 +441,9 @@
             "student's t-test",
             "f-test",
             "anova",
-            "failing student is passed by an examiner"
+            "failing student is passed by an examiner",
+            "machinist is expected to make engine parts",
+            "machinist"
           ],
           "context_hints": [
             "z test",
@@ -453,7 +464,9 @@
             "t-test for difference of means",
             "t-test for single mean",
             "machinist is expected to make engine parts",
-            "two random samples gave the following data"
+            "two random samples gave the following data",
+            "'t' test is a",
+            "t test is a ________ distribution"
           ],
           "specific_keywords": [
             "student's t-test",
@@ -596,7 +609,10 @@
             "regression lines",
             "regression coefficient is independent",
             "if b_{xy} = 1.6 and b_{yx} = 0.4",
-            "b_{xy} and b_{yx}"
+            "b_{xy} and b_{yx}",
+            "b_{yx} < 1",
+            "b_{xy}",
+            "if b_{yx} < 1, then b_{xy} is"
           ],
           "specific_keywords": [
             "lines of regression",
@@ -664,7 +680,9 @@
             "error derivatives with sse",
             "in anova table ssc",
             "ssc=73.2",
-            "then f_r is"
+            "then f_r is",
+            "different workers using four different machine types",
+            "workers using four different machine types"
           ],
           "specific_keywords": [
             "two-way anova",

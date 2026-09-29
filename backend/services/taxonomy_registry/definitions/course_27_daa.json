@@ -36,7 +36,17 @@
             "initialization maintenance termination",
             "algorithm design paradigms",
             "insertion sort line count",
-            "operation count in algorithm"
+            "operation count in algorithm",
+            "iteratively inserting each element of the unsorted portion",
+            "ram has six different sets of pencils",
+            "he arranges pencils by comparing its length with the next immediate pencil",
+            "top-down design",
+            "bottom-up",
+            "design paradigms for the problem",
+            "well defined and ordered procedure",
+            "algorithms can be represented",
+            "depth first search is",
+            "breadth first search is started on a binary tree"
           ],
           "specific_keywords": [
             "loop invariant",
@@ -68,7 +78,12 @@
             "best case worst case average case",
             "worst case time complexity",
             "average case analysis",
-            "growth of functions"
+            "growth of functions",
+            "count variable method and table method",
+            "the following algorithm using count variable method and table method",
+            "linear search",
+            "prescribe a suitable sequential search algorithm and simulate",
+            "two phases. the first phase, initialization, takes time o(n^3)"
           ],
           "specific_keywords": [
             "time complexity",
@@ -135,7 +150,14 @@
             "express the upper bound of an algorithm",
             "formal way to express the lower bound",
             "rate of growth",
-            "best-case time complexity of insertion sort is typically represented by which asymptotic notation"
+            "best-case time complexity of insertion sort is typically represented by which asymptotic notation",
+            "the measure of the longest amount of time possibly taken to complete an algorithm",
+            "longest amount of time possibly taken to complete an algorithm",
+            "correct order of increasing growth",
+            "\\omega(n^2)",
+            "4n^2 + 5 \\in \\omega",
+            "f(n)=o(g(n))",
+            "maximum asymptotic complexity"
           ],
           "specific_keywords": [
             "big o",
@@ -149,7 +171,9 @@
           "negative_guards": [
             "sql queries",
             "relational calculus",
-            "recursion tree"
+            "recursion tree",
+            "recurrence relation",
+            "masters theorem"
           ],
           "context_hints": [
             "asymptotic notations",
@@ -174,7 +198,9 @@
             "recurrence relation represents the worst-case",
             "substitution method to solve recurrence",
             "solve the recurrence relation using substitution",
-            "method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction"
+            "method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction",
+            "tower of hanoi",
+            "advantage of recursive approach"
           ],
           "specific_keywords": [
             "recurrence relation",
@@ -259,7 +285,10 @@
             "find the maximum sub-array sum",
             "maximum subarray sum of the array",
             "find the maximum subarray sum of the array",
-            "maximum subarray sum of the array: array ="
+            "maximum subarray sum of the array: array =",
+            "largest sub array sum",
+            "largest sub-array sum",
+            "application of maximum sum sub-array problem"
           ],
           "specific_keywords": [
             "maximum subarray",
@@ -304,7 +333,8 @@
             "time complexity of o(n log n) for best, worst, and average cases",
             "best, worst, and average cases is",
             "provide the best time complexity in the worst case scenario",
-            "provide the best time complexity in the worst - case scenario"
+            "provide the best time complexity in the worst - case scenario",
+            "maximum and minimum in an array"
           ],
           "specific_keywords": [
             "merge sort",
@@ -368,7 +398,8 @@
             "master theorem case 1 case 2 case 3",
             "master method for divide and conquer",
             "regularity condition in master theorem",
-            "extended master theorem"
+            "extended master theorem",
+            "what does the variable a denote in masters theorem"
           ],
           "specific_keywords": [
             "master theorem",
@@ -413,7 +444,9 @@
             "divide and conquer algorithm that solves the convex hull",
             "give an o(n log n) divide and conquer algorithm that solves the convex hull problem",
             "give an o (n log n) divide and conquer algorithm that solves the convex hull problem",
-            "quickhull algorithm"
+            "quickhull algorithm",
+            "closest-pair problem",
+            "vertical strip of width 2d"
           ],
           "specific_keywords": [
             "closest pair",
@@ -500,7 +533,8 @@
             "knapsack problem",
             "objective of the knapsack problem",
             "knapsack problem?",
-            "construct an algorithm for fractional knapsack"
+            "construct an algorithm for fractional knapsack",
+            "greedy based technique to determine a subset of items"
           ],
           "specific_keywords": [
             "fractional knapsack",
@@ -535,7 +569,9 @@
             "prim's algorithm",
             "disjoint set union find in kruskal",
             "cut property in mst",
-            "complexity of prim and kruskal"
+            "complexity of prim and kruskal",
+            "minimum cost spanning tree with n vertices",
+            "spanning tree of a graph g"
           ],
           "specific_keywords": [
             "kruskal",
@@ -573,7 +609,9 @@
             "matrices p, q, and r which are",
             "matrices p, q and r which are",
             "equivalent to the 0-1 knapsack problem",
-            "characteristic of dynamic programming"
+            "characteristic of dynamic programming",
+            "chain of matrices",
+            "minimum number of scalar multiplications"
           ],
           "specific_keywords": [
             "0/1 knapsack",
@@ -634,6 +672,34 @@
             "obst",
             "dynamic programming"
           ]
+        },
+        {
+          "id": 935,
+          "name": "All-Pairs Shortest Paths: Floyd-Warshall Algorithm",
+          "canonical_name": "All-Pairs Shortest Paths: Floyd-Warshall Algorithm",
+          "aliases": [],
+          "strong_phrases": [
+            "floyd-warshall",
+            "floyd warshall",
+            "floyd-warshall algorithm",
+            "floyd warshall algorithm",
+            "all-pairs shortest paths",
+            "all pairs shortest paths",
+            "transitive closure for the following digraph using floyd",
+            "running time of the floyd warshall algorithm",
+            "trace the working of floyd-warshall algorithm"
+          ],
+          "specific_keywords": [
+            "floyd-warshall",
+            "floyd warshall"
+          ],
+          "negative_guards": [
+            "dijkstra",
+            "bellman-ford",
+            "what approach is being followed in floyd warshall",
+            "approach is being followed in floyd warshall"
+          ],
+          "context_hints": []
         }
       ]
     },
@@ -658,7 +724,9 @@
             "depth first search with pruning",
             "live node dead node",
             "problems cannot be solved by backtracking",
-            "problems cannot be solved using backtracking"
+            "problems cannot be solved using backtracking",
+            "state-space tree",
+            "tree of choices called as"
           ],
           "specific_keywords": [
             "backtracking",
@@ -699,7 +767,11 @@
             "n-queen problem",
             "n-queen",
             "significance of the place(k",
-            "apply backtracking method to solve the following instance of the subset sum problem"
+            "apply backtracking method to solve the following instance of the subset sum problem",
+            "queens attack each other",
+            "placing 4 queens on a 4x4 chessboard",
+            "set of all subsets of n elements",
+            "under what condition any set a will be a subset of b"
           ],
           "specific_keywords": [
             "n-queens",
@@ -775,7 +847,8 @@
             "branch and bound is more efficient than backtracking",
             "when applying branch and bound algorithms to the traveling salesman problem",
             "what is the primary role of the bounding function",
-            "role of the bounding function"
+            "role of the bounding function",
+            "travelling salesman problem is an example of"
           ],
           "specific_keywords": [
             "branch and bound",
@@ -851,7 +924,8 @@
             "hiring problem",
             "randomized hiring problem",
             "which of the following is not true about randomized quicksort",
-            "which of the following is incorrect about randomized quicksort"
+            "which of the following is incorrect about randomized quicksort",
+            "rabin-karp string matching"
           ],
           "specific_keywords": [
             "randomized algorithm",
@@ -933,7 +1007,9 @@
             "which of the following is known to be not an np-hard problem",
             "known to be not an np-hard problem",
             "np, np- hard and np-complete in detail",
-            "ram and shyam have been asked to show that a certain problem"
+            "ram and shyam have been asked to show that a certain problem",
+            "state np hard and np complete and differentiate both",
+            "solved in polynomial time are known as"
           ],
           "specific_keywords": [
             "np-complete",

@@ -46,7 +46,17 @@
             "real time operating system",
             "which of the following is not a real time operating system",
             "batch operating system",
-            "differentiate among the following types of os"
+            "differentiate among the following types of os",
+            "role of operating system",
+            "operating system is not a",
+            "not an operating system",
+            "services provided by the operating system",
+            "services provided by operating system",
+            "services provided by operating systems",
+            "bios is used by",
+            "connects high-speed high-bandwidth device to memory subsystem",
+            "properties of the following operating systems",
+            "computing cluster consisting of two nodes"
           ],
           "specific_keywords": [
             "microkernel",
@@ -172,7 +182,10 @@
             "address of the next instruction",
             "list of processes that are prepared to be executed and waiting",
             "processes that are prepared to be executed and waiting are in",
-            "where are placed the list of processes that are prepared to be executed and waiting"
+            "where are placed the list of processes that are prepared to be executed and waiting",
+            "active entity whereas",
+            "active entity whereas program is a passive entity",
+            "operating processes"
           ],
           "specific_keywords": [
             "process control block",
@@ -207,7 +220,9 @@
             "message passing",
             "pipes and fifos",
             "sockets and rpc",
-            "remote procedure call"
+            "remote procedure call",
+            "cooperating process",
+            "process that can be affected by other process"
           ],
           "specific_keywords": [
             "shared memory",
@@ -243,7 +258,11 @@
             "posix pthread",
             "thread pools",
             "thread models",
-            "three types of thread models"
+            "three types of thread models",
+            "not shared by the threads of the same process",
+            "multiple threads of control implies",
+            "application that is performed 80% in parallel",
+            "speedup according to amdahl"
           ],
           "specific_keywords": [
             "multithreading",
@@ -284,7 +303,9 @@
             "race condition",
             "race conditions",
             "access the same data concurrently",
-            "outcome of the execution depends on the particular order"
+            "outcome of the execution depends on the particular order",
+            "process p1 tries changing data",
+            "process p2 tries reading"
           ],
           "specific_keywords": [
             "critical section",
@@ -370,7 +391,8 @@
             "reader writer locks",
             "dining philosophers problem",
             "dining philosopher problem",
-            "sleeping barber problem"
+            "sleeping barber problem",
+            "dining-philosophers problem will occur in case of"
           ],
           "specific_keywords": [
             "producer consumer",
@@ -418,7 +440,10 @@
             "difference between job scheduling and cpu scheduling",
             "long-term scheduling",
             "short-term scheduling",
-            "medium-term scheduling"
+            "medium-term scheduling",
+            "which scheduler is used to load the processes from secondary memory to main memory",
+            "removal of the running process from the cpu and the selects another process",
+            "interrupt a running process"
           ],
           "specific_keywords": [
             "turnaround time",
@@ -511,7 +536,9 @@
             "load balancing",
             "rate monotonic scheduling",
             "earliest deadline first",
-            "edf scheduling"
+            "edf scheduling",
+            "for real-time operating systems, interrupt latency should be",
+            "processes data instructions without any delay"
           ],
           "specific_keywords": [
             "rate monotonic",
@@ -672,7 +699,9 @@
             "external fragmentation",
             "compaction",
             "what is compaction",
-            "internal fragmentation and external fragmentation"
+            "internal fragmentation and external fragmentation",
+            "how would the first-fit, best-fit and worst-fit algorithms place processes",
+            "primary purpose of memory management"
           ],
           "specific_keywords": [
             "mmu",
@@ -715,7 +744,8 @@
             "smaller page tables are implemented as a set of",
             "smaller page tables",
             "if there are 32 segments, each of size",
-            "segments, each of size"
+            "segments, each of size",
+            "associative memory"
           ],
           "specific_keywords": [
             "paging",
@@ -766,7 +796,10 @@
             "abstracts main memory into an extremely large, uniform array of storage",
             "extremely large, uniform array of storage",
             "pages are not swapped in all at once",
-            "swapped in only when"
+            "swapped in only when",
+            "the swap space in the disk is used for",
+            "purpose of the disks swap space is to",
+            "swap space in the disk"
           ],
           "specific_keywords": [
             "virtual memory",
@@ -941,7 +974,10 @@
             "common file permission",
             "file permissions",
             "disk space allocation methods",
-            "disk space allocation"
+            "disk space allocation",
+            "a file is a/an",
+            "file organization methods",
+            "directory and disk structures"
           ],
           "specific_keywords": [
             "file system",
@@ -984,7 +1020,10 @@
             "principle of least privilege",
             "domain of protection",
             "domain structure",
-            "dual mode protection"
+            "dual mode protection",
+            "primary goal of protection",
+            "restrict system access to authorized users",
+            "capability-based system"
           ],
           "specific_keywords": [
             "least privilege",
@@ -1051,7 +1090,8 @@
             "system and network threats",
             "worms and viruses",
             "denial of service dos",
-            "port scanning"
+            "port scanning",
+            "programs cause security breaches"
           ],
           "specific_keywords": [
             "trojan horse",

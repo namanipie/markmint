@@ -601,3 +601,155 @@ def test_phase6_3_ambiguous_correct_retention():
     assert p_cross_bt2.confidence == "AMBIGUOUS"
 
 
+# ==============================================================================
+# 3. PHASE 6.4 TRUE TAXONOMY GAPS & EXPANSION TESTS
+# ==============================================================================
+
+def test_phase6_4_new_topics():
+    """Verify classification into newly added A1 topics: 934, 935, 936."""
+    registry = get_taxonomy_registry()
+
+    # Course 24: Topic 934 (Red-Black Trees: Properties and Balance)
+    rules_24 = registry.get_topic_rules(24)
+    clf_24 = TaxonomyClassifierService(rules_24)
+    q_rb1 = "16. What is the maximum height of a Red-Black tree with n nodes? A) 2*log(n+1) B) 2*log(n) C) log(n+1)"
+    p_rb1 = clf_24.classify(9031, q_rb1)
+    assert p_rb1.confidence == "HIGH"
+    assert p_rb1.topic_id == 934
+    assert p_rb1.topic_name == "Red-Black Trees: Properties and Balance"
+
+    q_rb2 = "24. Explain the properties of a Red-Black Tree. How do these properties ensure that the tree remains balanced?"
+    p_rb2 = clf_24.classify(9043, q_rb2)
+    assert p_rb2.confidence == "HIGH"
+    assert p_rb2.topic_id == 934
+
+    # Course 27: Topic 935 (All-Pairs Shortest Paths: Floyd-Warshall Algorithm)
+    rules_27 = registry.get_topic_rules(27)
+    clf_27 = TaxonomyClassifierService(rules_27)
+    q_fw1 = "24. Obtain the transitive closure for the following digraph using Floyd-Warshall algorithm. [8]"
+    p_fw1 = clf_27.classify(8580, q_fw1)
+    assert p_fw1.confidence == "HIGH"
+    assert p_fw1.topic_id == 935
+    assert p_fw1.topic_name == "All-Pairs Shortest Paths: Floyd-Warshall Algorithm"
+
+    q_fw2 = "16. What is the running time of the Floyd Warshall Algorithm? (A) Big Oh(V) (B) Theta(V^2) (C) Big Oh(V^3)"
+    p_fw2 = clf_27.classify(8696, q_fw2)
+    assert p_fw2.confidence == "HIGH"
+    assert p_fw2.topic_id == 935
+
+    # Course 28: Topic 936 (Query Processing and Optimization: Parsing, Evaluation and Relational Plans)
+    rules_28 = registry.get_topic_rules(28)
+    clf_28 = TaxonomyClassifierService(rules_28)
+    q_qp1 = "30. Demonstrate the steps involved in processing a query with examples. [12]"
+    p_qp1 = clf_28.classify(8851, q_qp1)
+    assert p_qp1.confidence == "HIGH"
+    assert p_qp1.topic_id == 936
+    assert p_qp1.topic_name == "Query Processing and Optimization: Parsing, Evaluation and Relational Plans"
+
+    q_qp2 = "15. Which is not a valid step in query processing? (A) Parsing and translation (B) Optimization (C) Evaluation"
+    p_qp2 = clf_28.classify(8761, q_qp2)
+    assert p_qp2.confidence == "HIGH"
+    assert p_qp2.topic_id == 936
+
+
+def test_phase6_4_disambiguations_and_guards():
+    """Verify precision guards protecting against collisions across second-year courses."""
+    registry = get_taxonomy_registry()
+
+    # Course 22: Machinist question stays Topic 426 (t-test) even with large sample additions to Topic 425
+    rules_22 = registry.get_topic_rules(22)
+    clf_22 = TaxonomyClassifierService(rules_22)
+    q_machinist = "24. A machinist is expected to make engine parts with an axle diameter of 1.75 cm. A random sample of 10 parts shows a mean diameter of 1.85 cm"
+    p_machinist = clf_22.classify(2312, q_machinist)
+    assert p_machinist.topic_id == 426
+    assert p_machinist.confidence == "HIGH"
+
+    q_ztest = "24. a.. A sample of 100 students is taken from a large population. The mean height of the students in this sample is 160 cm"
+    p_ztest = clf_22.classify(10116, q_ztest)
+    assert p_ztest.topic_id == 425
+    assert p_ztest.confidence == "HIGH"
+
+    # Course 25: Swap space in disk maps to Topic 781, while low-level formatting with distractor stays Topic 779
+    rules_25 = registry.get_topic_rules(25)
+    clf_25 = TaxonomyClassifierService(rules_25)
+    q_swap = "15. The swap space in the disk is used for (A) Saving temporary html pages (B) Saving process data"
+    p_swap = clf_25.classify(9136, q_swap)
+    assert p_swap.topic_id == 781
+    assert p_swap.confidence == "HIGH"
+
+    q_format = "20. The process of dividing a disk into sectors that the disk controller can read and write, before a disk can store data is known as _____ [1] A. Partitioning B. Swap space creation C. Low level formatting D. Fragmentation"
+    p_format = clf_25.classify(9104, q_format)
+    assert p_format.topic_id == 779
+
+    # Course 26: Multiplier operand stored question stays Topic 803 (not collided by shift register in 796)
+    rules_26 = registry.get_topic_rules(26)
+    clf_26 = TaxonomyClassifierService(rules_26)
+    q_mult = "11. Where does the multiplier operand is stored? (A) Cache (B) Instruction register (C) Program counter (D) Shift register [1]"
+    p_mult = clf_26.classify(8340, q_mult)
+    assert p_mult.topic_id == 803
+
+    # Course 27: What approach followed in Floyd-Warshall stays Topic 829
+    rules_27 = registry.get_topic_rules(27)
+    clf_27 = TaxonomyClassifierService(rules_27)
+    q_fw_approach = "9. What approach is being followed in Floyd Warshall algorithm? (A) Dynamic programming (B) Greedy technique (C) Linear programming (D) Back tracking [1]"
+    p_fw_approach = clf_27.classify(8498, q_fw_approach)
+    assert p_fw_approach.topic_id == 829
+
+    # Course 27: Recurrence relation proof stays Topic 819 (guarded against bare Omega in 818)
+    q_rec = "21. i. Write the recurrence relation for the given pseudocode and determine the time complexity using masters theorem. ii. Prove that if T(n) = Theta(n^3), then T(n) = Omega(n^2)."
+    p_rec = clf_27.classify(8541, q_rec)
+    assert p_rec.topic_id == 819
+
+    # Course 28: Schedule property serializability stays Topic 862 (guarded against deadlock in 863)
+    rules_28 = registry.get_topic_rules(28)
+    clf_28 = TaxonomyClassifierService(rules_28)
+    q_ser = "19. ________ is a property of schedule in database that ensures that the schedule is equivalent to same serial execution of transactions in the schedule. (A) Ordering (B) Conflict (C) Serializability (D) Deadlock [1]"
+    p_ser = clf_28.classify(8837, q_ser)
+    assert p_ser.topic_id == 862
+
+
+def test_phase6_4_unmapped_retention():
+    """Verify that genuinely out-of-syllabus and truncated questions strictly remain UNMAPPED."""
+    registry = get_taxonomy_registry()
+
+    # Course 22: Estimation Theory questions (out-of-syllabus)
+    rules_22 = registry.get_topic_rules(22)
+    clf_22 = TaxonomyClassifierService(rules_22)
+
+    q_est1 = "9. An efficient estimator should satisfy ________ (A) Chernoff bound (B) Markov inequality (C) Cramer-Rao lower bound (D) Chebyshev's inequality"
+    p_est1 = clf_22.classify(10098, q_est1)
+    assert p_est1.confidence == "UNMAPPED"
+
+    q_est2 = "10. Estimation is of two types ________ (A) Biased and unbiased (B) One sided and two sided (C) Type I and type II (D) Point estimation and interval estimation"
+    p_est2 = clf_22.classify(10099, q_est2)
+    assert p_est2.confidence == "UNMAPPED"
+
+    # Course 27: Truncated MCQ missing stem and context
+    rules_27 = registry.get_topic_rules(27)
+    clf_27 = TaxonomyClassifierService(rules_27)
+    q_trunc = "15. Choose the correct statement from the following. [1]"
+    p_trunc = clf_27.classify(10072, q_trunc)
+    assert p_trunc.confidence == "UNMAPPED"
+
+
+def test_phase6_4_database_and_family_invariants():
+    """Verify that all second-year courses match database taxonomy and QuestionFamily invariants hold."""
+    db = SessionLocal()
+    registry = get_taxonomy_registry()
+
+    # Verify database alignment for all 7 second-year courses
+    for cid in [22, 24, 25, 26, 27, 28, 29]:
+        val = registry.validate_against_database(cid, db)
+        assert val["valid"] is True, f"Course {cid} registry-DB mismatch: {val['mismatches']}"
+
+    # Verify QuestionFamily coverage invariants
+    total_q = db.query(Question).count()
+    total_memberships = db.query(QuestionFamilyMembership).count()
+    orphans = db.query(Question.id).filter(~Question.id.in_(db.query(QuestionFamilyMembership.question_id))).count()
+
+    assert total_q == 9205
+    assert total_memberships == 9205
+    assert orphans == 0
+
+
+

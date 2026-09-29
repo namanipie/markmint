@@ -75,7 +75,9 @@
             "ascii code",
             "parity bit",
             "even parity odd parity",
-            "error detection codes"
+            "error detection codes",
+            "reflected binary code",
+            "gray code is also known as reflected binary code"
           ],
           "specific_keywords": [
             "gray code",
@@ -236,7 +238,10 @@
             "memory access operations",
             "alu makes use of",
             "store the intermediate results",
-            "define instructions and data"
+            "define instructions and data",
+            "register capable of shifting",
+            "accumulator",
+            "temporary storage location to hold an intermediate result"
           ],
           "specific_keywords": [
             "functional units",
@@ -252,7 +257,9 @@
             "micro-programmed control",
             "microprogrammed control",
             "mcu",
-            "arm processor"
+            "arm processor",
+            "where does the multiplier operand is stored",
+            "multiplier operand is stored"
           ],
           "context_hints": [
             "computer structure",
@@ -279,7 +286,11 @@
             "branch instruction jump if zero is an example of",
             "branch instruction jump if zero",
             "directly specify the operand value",
-            "addressing mode, where you directly specify the operand value"
+            "addressing mode, where you directly specify the operand value",
+            "pci bus",
+            "bus used to connect the monitor",
+            "connected to memory bus",
+            "which interrupt services save all the register and flags"
           ],
           "specific_keywords": [
             "address bus",
@@ -318,7 +329,17 @@
             "register transfer notation",
             "rtn stands for",
             "holds the instructions that is currently being executed",
-            "holds the instructions that is currently"
+            "holds the instructions that is currently",
+            "how many bits are needed to address any single byte",
+            "address space of",
+            "1 gb is equivalent to how to many bytes",
+            "data is transferred to and from memory in groups of bits called",
+            "virtual memory consists of",
+            "number successful accesses to memory stated as a fraction",
+            "write miss",
+            "present in the cache",
+            "data transfer instructions",
+            "rotated right by two"
           ],
           "specific_keywords": [
             "zero address",
@@ -359,7 +380,8 @@
             "auto increment auto decrement",
             "instruction is stores at location",
             "instruction is stored at location",
-            "address field has the value"
+            "address field has the value",
+            "describe addressing mode with example"
           ],
           "specific_keywords": [
             "addressing modes",
@@ -476,7 +498,8 @@
             "binary parallel adder",
             "4-bit binary parallel adder",
             "carry look-ahead adder",
-            "fast adder, carry look-ahead adder"
+            "fast adder, carry look-ahead adder",
+            "adder circuit which can add two binary numbers and also take into account an input carry"
           ],
           "specific_keywords": [
             "half adder",
@@ -521,7 +544,8 @@
             "shift-and-add multiplier",
             "shift and add multiplier",
             "bits 1 & 1 are recorded as in bit-pair recording",
-            "bit-pair recording"
+            "bit-pair recording",
+            "commonly used for binary multiplication in digital circuits"
           ],
           "specific_keywords": [
             "booth's algorithm",
@@ -596,7 +620,9 @@
             "floating point addition subtraction",
             "floating point multiplication",
             "floating point arithmetic addition",
-            "floating point arithmetic addition / subtraction"
+            "floating point arithmetic addition / subtraction",
+            "normalized representation of",
+            "in 32 bit representation the scale factor as a range of"
           ],
           "specific_keywords": [
             "ieee 754",
@@ -800,7 +826,8 @@
             "branch prediction",
             "classes of hazards that degrades the performance of pipe lining",
             "classes of hazards",
-            "pipe lining"
+            "pipe lining",
+            "explain the types of hazards"
           ],
           "specific_keywords": [
             "pipeline hazard",
@@ -853,7 +880,10 @@
             "cache coherence problem",
             "super scalar processing",
             "superscalar processing",
-            "super scalar"
+            "super scalar",
+            "mesi protocol",
+            "architecture of parallel systems and its types",
+            "memory in multiprocessor system"
           ],
           "specific_keywords": [
             "flynn's classification",
@@ -904,7 +934,8 @@
             "instruction set architecture is typically used in arm processors",
             "method is used to design the control unit of arm processor",
             "design the control unit of arm processor",
-            "control unit of arm processor"
+            "control unit of arm processor",
+            "complex and expensive to produce is"
           ],
           "specific_keywords": [
             "arm processor",
