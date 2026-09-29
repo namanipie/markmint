@@ -416,17 +416,21 @@
             "evaluate postfix expression",
             "convert infix to postfix",
             "prefix expression",
+            "prefix form of",
+            "into prefix form",
             "polish notation",
             "operator precedence stack",
             "evaluating the postfix expression",
             "result evaluating the postfix expression",
             "operator comes after",
+            "operator comes before",
             "develop and show the simulation using stack for evaluation"
           ],
           "specific_keywords": [
             "infix to postfix",
             "postfix evaluation",
             "postfix expression",
+            "prefix form",
             "postfix",
             "infix"
           ],
@@ -478,6 +482,8 @@
             "front and rear pointer",
             "array implementation of queue",
             "linked list implementation of queue",
+            "in queues we can insert",
+            "in queues, we can insert an element",
             "can insert an element at rear",
             "delete an element at front",
             "insert an element at rear end",
@@ -804,12 +810,16 @@
             "starts from a vertex and then wants to visit every vertex",
             "statements is/are true for an undirected graph",
             "breadth-first traversal of g be done",
-            "how dfs be performed on an undirected graph"
+            "how dfs be performed on an undirected graph",
+            "representation of graph",
+            "representations of graph",
+            "graph representation"
           ],
           "specific_keywords": [
             "breadth first search",
             "depth first search",
             "graph traversal",
+            "graph representation",
             "indegree",
             "outdegree",
             "completed graph",
@@ -817,7 +827,9 @@
             "undirected graph"
           ],
           "negative_guards": [
-            "binary tree"
+            "binary tree",
+            "minimum spanning tree",
+            "mst"
           ],
           "context_hints": [
             "graph algorithms"
@@ -870,7 +882,8 @@
             "kruskals"
           ],
           "negative_guards": [
-            "dijkstra"
+            "dijkstra shortest path",
+            "single source shortest path dijkstra"
           ],
           "context_hints": [
             "mst"

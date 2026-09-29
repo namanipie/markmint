@@ -173,7 +173,8 @@
           ],
           "negative_guards": [
             "disk scheduling",
-            "c-scan"
+            "c-scan",
+            "strassen"
           ],
           "context_hints": [
             "recurrence relations",
@@ -275,7 +276,11 @@
             "min max divide and conquer",
             "if quicksort is applied to an array size of 10",
             "pivot is always chosen",
-            "quicksort is applied to an array"
+            "quicksort is applied to an array",
+            "time complexity of o(n log n) for best, worst, and average cases",
+            "best, worst, and average cases is",
+            "provide the best time complexity in the worst case scenario",
+            "provide the best time complexity in the worst - case scenario"
           ],
           "specific_keywords": [
             "merge sort",
@@ -415,17 +420,27 @@
             "variable length code",
             "comparison of brute force and huffman",
             "formulate an encoding scheme with the minimum number of bits",
-            "encoding scheme with the minimum number of bits"
+            "encoding scheme with the minimum number of bits",
+            "variable length encoding",
+            "variable length encoding method"
           ],
           "specific_keywords": [
             "huffman coding",
             "prefix code",
             "greedy choice",
-            "encoding scheme"
+            "encoding scheme",
+            "variable length encoding"
           ],
           "negative_guards": [
             "lcs",
-            "matrix chain multiplication"
+            "matrix chain multiplication",
+            "knapsack",
+            "fractional knapsack",
+            "activity selection",
+            "minimum spanning tree",
+            "mst",
+            "prim",
+            "kruskal"
           ],
           "context_hints": [
             "huffman",
@@ -446,12 +461,17 @@
             "complexity derivation of knapsack using greedy",
             "value per unit weight",
             "activity selection problem",
-            "interval scheduling"
+            "interval scheduling",
+            "knapsack problem",
+            "objective of the knapsack problem",
+            "knapsack problem?",
+            "construct an algorithm for fractional knapsack"
           ],
           "specific_keywords": [
             "fractional knapsack",
             "activity selection",
-            "greedy knapsack"
+            "greedy knapsack",
+            "knapsack problem"
           ],
           "negative_guards": [
             "0/1 knapsack dynamic programming"
@@ -626,13 +646,16 @@
             "n-queens backtracking",
             "sum of subsets problem",
             "subset sum problem backtracking",
-            "promising function in n-queens"
+            "promising function in n-queens",
+            "n-queen problem",
+            "n-queen"
           ],
           "specific_keywords": [
             "n-queens",
             "8-queens",
             "sum of subsets",
-            "subset sum"
+            "subset sum",
+            "n-queen"
           ],
           "negative_guards": [
             "knapsack dynamic programming"
@@ -655,13 +678,19 @@
             "m coloring problem",
             "chromatic number of graph",
             "hamiltonian cycle problem",
-            "hamiltonian circuit backtracking"
+            "hamiltonian circuit backtracking",
+            "hamiltonian circuit",
+            "hamiltonian circuit in a connected graph",
+            "hamiltonian path problem",
+            "hamiltonian path"
           ],
           "specific_keywords": [
             "graph coloring",
             "m-coloring",
             "chromatic number",
-            "hamiltonian cycle"
+            "hamiltonian cycle",
+            "hamiltonian circuit",
+            "hamiltonian path"
           ],
           "negative_guards": [
             "eulerian path",
@@ -761,14 +790,17 @@
             "randomized string matching",
             "rabin karp algorithm",
             "pre-processing time of rabin and karp algorithm",
-            "rabin and karp algorithm"
+            "rabin and karp algorithm",
+            "hiring problem",
+            "randomized hiring problem"
           ],
           "specific_keywords": [
             "randomized algorithm",
             "las vegas",
             "monte carlo",
             "randomized quicksort",
-            "rabin and karp"
+            "rabin and karp",
+            "hiring problem"
           ],
           "negative_guards": [
             "deterministic finite automata"
@@ -794,14 +826,18 @@
             "non deterministic algorithm",
             "polynomial time verification",
             "certificate verification",
-            "class of decision problems that can be solved by non-deterministic"
+            "class of decision problems that can be solved by non-deterministic",
+            "classification of decision problems that can be solved by non-deterministic",
+            "classification of decision problems",
+            "class of decision problems that can be solved by non-deterministic polynomial"
           ],
           "specific_keywords": [
             "class p",
             "class np",
             "non-deterministic polynomial",
             "polynomial time verification",
-            "complexity classes p and np"
+            "complexity classes p and np",
+            "class of decision problems"
           ],
           "negative_guards": [
             "pipelining",
@@ -847,7 +883,9 @@
           ],
           "negative_guards": [
             "deadlock detection",
-            "rag"
+            "rag",
+            "class of decision problems",
+            "classification of decision problems"
           ],
           "context_hints": [
             "np-completeness",

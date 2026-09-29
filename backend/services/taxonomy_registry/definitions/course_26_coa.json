@@ -105,6 +105,8 @@
             "2's complement",
             "ones complement",
             "twos complement",
+            "2's compliment",
+            "1's compliment",
             "sign magnitude representation",
             "binary addition subtraction",
             "bcd arithmetic",
@@ -113,6 +115,8 @@
           "specific_keywords": [
             "2's complement",
             "1's complement",
+            "2's compliment",
+            "1's compliment",
             "sign magnitude",
             "bcd addition"
           ],
@@ -141,14 +145,19 @@
             "nand gate",
             "nor gate",
             "universal gates nand nor",
-            "truth table of logic gates"
+            "truth table of logic gates",
+            "gate which is used to reverse the output",
+            "reverse the output obtained",
+            "give a 0 when both of its inputs are 1",
+            "give a 0 when both of its inputs"
           ],
           "specific_keywords": [
             "logic gates",
             "universal gates",
             "nand gate",
             "nor gate",
-            "truth table"
+            "truth table",
+            "reverse the output obtained"
           ],
           "negative_guards": [
             "shortest path",
@@ -175,13 +184,17 @@
             "boolean simplification",
             "boolean postulates",
             "karnaugh map",
-            "k-map simplification"
+            "k-map simplification",
+            "arithmetic gates",
+            "x-or & x-nor",
+            "x-or and x-nor"
           ],
           "specific_keywords": [
             "xor",
             "xnor",
             "k-map",
-            "boolean algebra"
+            "boolean algebra",
+            "arithmetic gates"
           ],
           "negative_guards": [
             "relational algebra",
@@ -217,13 +230,17 @@
             "von neumann architecture",
             "harvard architecture",
             "operations are required in memory access",
-            "memory access operations"
+            "memory access operations",
+            "alu makes use of",
+            "store the intermediate results",
+            "define instructions and data"
           ],
           "specific_keywords": [
             "functional units",
             "von neumann",
             "harvard architecture",
-            "memory access"
+            "memory access",
+            "store the intermediate results"
           ],
           "negative_guards": [
             "demand paging",
@@ -304,7 +321,8 @@
           ],
           "negative_guards": [
             "avl tree",
-            "heap"
+            "min heap",
+            "max heap"
           ],
           "context_hints": [
             "instruction formats",
@@ -328,7 +346,10 @@
             "displacement addressing mode",
             "relative addressing mode",
             "indexed addressing mode",
-            "auto increment auto decrement"
+            "auto increment auto decrement",
+            "instruction is stores at location",
+            "instruction is stored at location",
+            "address field has the value"
           ],
           "specific_keywords": [
             "addressing modes",
@@ -485,14 +506,20 @@
             "carry save addition of summands",
             "array multiplier",
             "where does the multiplier operand is stored",
-            "multiplier operand is stored"
+            "multiplier operand is stored",
+            "shift-and-add multiplier",
+            "shift and add multiplier",
+            "bits 1 & 1 are recorded as in bit-pair recording",
+            "bit-pair recording"
           ],
           "specific_keywords": [
             "booth's algorithm",
             "booth multiplier",
             "bit-pair recoding",
+            "bit-pair recording",
             "array multiplier",
             "multiplier operand",
+            "shift-and-add multiplier",
             "booth"
           ],
           "negative_guards": [
@@ -517,12 +544,17 @@
             "restoring division algorithm",
             "non-restoring division",
             "restoring and non restoring division",
+            "non-restoring method",
+            "restoring method",
+            "divide using non-restoring",
             "integer division hardware",
             "quotient and remainder registers"
           ],
           "specific_keywords": [
             "restoring division",
             "non-restoring division",
+            "non-restoring method",
+            "restoring method",
             "restoring algorithm"
           ],
           "negative_guards": [
@@ -598,14 +630,19 @@
             "three bus organization",
             "branch instruction execution",
             "register in the processor is single-directional",
-            "single-directional register"
+            "single-directional register",
+            "control sequence for execution of",
+            "control sequence for execution of instruction",
+            "control sequence for execution",
+            "complete control sequence for execution of the instruction"
           ],
           "specific_keywords": [
             "processing unit",
             "datapath",
             "multiple bus",
             "register transfer",
-            "single-directional"
+            "single-directional",
+            "control sequence for execution"
           ],
           "negative_guards": [
             "bcnf",
@@ -631,12 +668,16 @@
             "control step counter",
             "decoder and encoder in control unit",
             "state table method",
-            "delay element method"
+            "delay element method",
+            "hardwired approach",
+            "disadvantage of the hardwired approach",
+            "disadvantages of the hardwired approach"
           ],
           "specific_keywords": [
             "hardwired control",
             "control signals",
-            "step counter"
+            "step counter",
+            "hardwired approach"
           ],
           "negative_guards": [
             "micro-programmed control",
@@ -739,14 +780,19 @@
             "structural hazard",
             "operand forwarding",
             "pipeline stall nop bubble",
-            "branch prediction"
+            "branch prediction",
+            "classes of hazards that degrades the performance of pipe lining",
+            "classes of hazards",
+            "pipe lining"
           ],
           "specific_keywords": [
             "pipeline hazard",
             "data hazard",
             "control hazard",
             "operand forwarding",
-            "branch prediction"
+            "branch prediction",
+            "classes of hazards",
+            "pipe lining"
           ],
           "negative_guards": [
             "disk scheduling",
@@ -787,7 +833,10 @@
             "single instruction would operate or execute on multiple data",
             "single instruction would operate or execute on multiple data values",
             "cache coherence problem and give solutions",
-            "cache coherence problem"
+            "cache coherence problem",
+            "super scalar processing",
+            "superscalar processing",
+            "super scalar"
           ],
           "specific_keywords": [
             "flynn's classification",
@@ -799,7 +848,9 @@
             "parallelism",
             "multiple nodes",
             "single instruction would operate",
-            "cache coherence"
+            "cache coherence",
+            "super scalar",
+            "superscalar"
           ],
           "negative_guards": [
             "8086 microprocessor",
@@ -827,14 +878,20 @@
             "arm operating modes",
             "risc principles in arm",
             "arm processors are basically designed for",
-            "arm processors are basically"
+            "arm processors are basically",
+            "when the processor is executing in arm stage",
+            "arm stage",
+            "arm state",
+            "how many instruction sets does arm have"
           ],
           "specific_keywords": [
             "arm processor",
             "cpsr",
             "spsr",
             "arm cores",
-            "arm processors are basically designed"
+            "arm processors are basically designed",
+            "arm stage",
+            "arm state"
           ],
           "negative_guards": [
             "8086 flag register",
@@ -889,13 +946,17 @@
             "addressing modes in arm",
             "barrel shifter in arm",
             "basics of i/o operations in arm",
-            "memory mapped i/o in arm"
+            "memory mapped i/o in arm",
+            "frequency of load / store instruction",
+            "frequency of load store",
+            "frequency of load / store"
           ],
           "specific_keywords": [
             "ldr",
             "str",
             "barrel shifter",
-            "load-store architecture"
+            "load-store architecture",
+            "frequency of load / store"
           ],
           "negative_guards": [
             "virtual memory paging"

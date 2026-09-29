@@ -44,7 +44,11 @@
             "language for ai",
             "goal of ai",
             "goals of ai",
-            "machine learning model"
+            "machine learning model",
+            "machine learning is a subset of which of the following",
+            "machine learning is a subset of",
+            "application of artificial intelligence",
+            "is not an application of artificial intelligence"
           ],
           "specific_keywords": [
             "turing test",
@@ -55,7 +59,8 @@
             "unsupervised learning",
             "supervised learning",
             "learning models",
-            "regression tasks"
+            "regression tasks",
+            "machine learning is a subset of"
           ],
           "negative_guards": [
             "b-tree",
@@ -141,7 +146,10 @@
             "well defined problem",
             "7 problem characteristics",
             "problem characteristics",
-            "control strategies in problem-solving"
+            "control strategies in problem-solving",
+            "efficiency of a search algorithm",
+            "factors that affect the efficiency of a search algorithm",
+            "efficiency of search algorithm"
           ],
           "specific_keywords": [
             "problem formulation",
@@ -151,7 +159,8 @@
             "problem characteristics",
             "control strategies",
             "successor function",
-            "goal test"
+            "goal test",
+            "efficiency of a search algorithm"
           ],
           "negative_guards": [
             "a*",

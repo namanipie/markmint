@@ -86,14 +86,17 @@
             "switch between user and kernel",
             "time taken to switch between user and kernel",
             "hardware interrupt is made by",
-            "irq line"
+            "irq line",
+            "shell script is a file",
+            "shell script"
           ],
           "specific_keywords": [
             "system call",
             "fork()",
             "exec()",
             "user and kernel",
-            "hardware interrupt"
+            "hardware interrupt",
+            "shell script"
           ],
           "negative_guards": [
             "sql",
@@ -131,7 +134,8 @@
           "negative_guards": [
             "banker",
             "paging",
-            "semaphore"
+            "counting semaphore",
+            "binary semaphore"
           ],
           "context_hints": [
             "system boot",
@@ -161,12 +165,15 @@
             "process states",
             "context switch",
             "operations on processes",
-            "process creation and termination"
+            "process creation and termination",
+            "address of the next instruction to be executed",
+            "address of the next instruction"
           ],
           "specific_keywords": [
             "process control block",
             "pcb",
-            "context switch"
+            "context switch",
+            "address of the next instruction"
           ],
           "negative_guards": [
             "page table",
@@ -227,13 +234,16 @@
             "kernel level threads",
             "thread libraries",
             "posix pthread",
-            "thread pools"
+            "thread pools",
+            "thread models",
+            "three types of thread models"
           ],
           "specific_keywords": [
             "multithreading",
             "kernel threads",
             "user threads",
-            "pthreads"
+            "pthreads",
+            "thread models"
           ],
           "negative_guards": [
             "binary search",
@@ -263,14 +273,20 @@
             "test and set instruction",
             "compare and swap",
             "hardware implementation which provides mutual exclusion",
-            "process synchronization can be done on"
+            "process synchronization can be done on",
+            "race condition",
+            "race conditions",
+            "access the same data concurrently",
+            "outcome of the execution depends on the particular order"
           ],
           "specific_keywords": [
             "critical section",
             "peterson",
             "mutual exclusion",
             "bounded waiting",
-            "process synchronization"
+            "process synchronization",
+            "race condition",
+            "race conditions"
           ],
           "negative_guards": [
             "virtual memory",
@@ -298,14 +314,20 @@
             "mutex lock",
             "spinlocks",
             "monitors synchronization",
-            "condition variables"
+            "condition variables",
+            "a semaphore is a shared integer variable",
+            "shared integer variable",
+            "a monitor is a type of"
           ],
           "specific_keywords": [
             "semaphores",
+            "semaphore",
             "wait()",
             "signal()",
             "mutex",
-            "monitors"
+            "monitors",
+            "monitor",
+            "synchronization construct"
           ],
           "negative_guards": [
             "b-tree",
@@ -327,13 +349,18 @@
             "producer consumer problem",
             "bounded buffer problem",
             "readers writers problem",
+            "reader-writer problem",
+            "reader writer locks",
             "dining philosophers problem",
+            "dining philosopher problem",
             "sleeping barber problem"
           ],
           "specific_keywords": [
             "producer consumer",
             "readers writers",
-            "dining philosophers"
+            "reader-writer",
+            "dining philosophers",
+            "dining philosopher"
           ],
           "negative_guards": [
             "shortest path",
@@ -369,13 +396,20 @@
             "dispatcher latency",
             "preemptive scheduling",
             "non-preemptive scheduling",
-            "turnaround time and waiting time"
+            "turnaround time and waiting time",
+            "job scheduling",
+            "difference between job scheduling and cpu scheduling",
+            "long-term scheduling",
+            "short-term scheduling",
+            "medium-term scheduling"
           ],
           "specific_keywords": [
             "turnaround time",
             "waiting time",
             "dispatcher latency",
-            "preemptive"
+            "preemptive",
+            "job scheduling",
+            "long-term scheduling"
           ],
           "negative_guards": [
             "deadlock prevention",
@@ -525,13 +559,16 @@
             "banker algorithm",
             "banker's algorithm",
             "resource request algorithm",
-            "safety algorithm"
+            "safety algorithm",
+            "deadlock free",
+            "system to be deadlock free"
           ],
           "specific_keywords": [
             "banker's algorithm",
             "safe state",
             "deadlock avoidance",
-            "deadlock prevention"
+            "deadlock prevention",
+            "deadlock free"
           ],
           "negative_guards": [
             "arm architecture",
@@ -557,12 +594,19 @@
             "recovery from deadlock",
             "process termination",
             "resource preemption",
-            "deadlock rollback"
+            "deadlock rollback",
+            "preempt a resource from a process",
+            "preempt a resource",
+            "three resource types a, b and c",
+            "column alloc denotes the number of units",
+            "alloc request"
           ],
           "specific_keywords": [
             "wait-for graph",
             "deadlock detection",
-            "deadlock recovery"
+            "deadlock recovery",
+            "alloc request",
+            "preempt a resource"
           ],
           "negative_guards": [
             "huffman coding",
@@ -651,13 +695,19 @@
             "page table",
             "tlb",
             "segmentation",
-            "frames",
+            "page frames",
             "smaller page tables",
             "segments"
           ],
           "negative_guards": [
             "disk scheduling",
-            "raid"
+            "raid",
+            "page replacement",
+            "reference string",
+            "page-reference string",
+            "fifo",
+            "lru",
+            "optimal page replacement"
           ],
           "context_hints": [
             "paging",
@@ -695,7 +745,7 @@
             "pages are not swapped in all at once"
           ],
           "negative_guards": [
-            "cpu scheduling",
+            "cpu scheduling algorithm",
             "gantt chart"
           ],
           "context_hints": [
@@ -848,7 +898,11 @@
             "swap space management",
             "open file table",
             "operating system keeps a small table containing information about all open files",
-            "free space list cannot be implemented as"
+            "free space list cannot be implemented as",
+            "common file permission",
+            "file permissions",
+            "disk space allocation methods",
+            "disk space allocation"
           ],
           "specific_keywords": [
             "file system",
@@ -857,7 +911,9 @@
             "free space management",
             "swap space management",
             "open file table",
-            "free space list"
+            "free space list",
+            "file permission",
+            "disk space allocation"
           ],
           "negative_guards": [
             "sql joins",

@@ -322,7 +322,10 @@
             "natural join relational algebra",
             "outer join left right full outer join",
             "division operator relational algebra",
-            "aggregate functions in relational algebra"
+            "aggregate functions in relational algebra",
+            "combining of two relations by merging pairs of tuples",
+            "merging pairs of tuples, one from each relation",
+            "merging pairs of tuples"
           ],
           "specific_keywords": [
             "natural join",
@@ -393,13 +396,17 @@
             "primary key unique not null check default",
             "foreign key on delete cascade",
             "truncate table",
-            "sql data types"
+            "sql data types",
+            "check constraints",
+            "check constraint",
+            "define check constraints"
           ],
           "specific_keywords": [
             "ddl",
             "create table",
             "alter table",
             "check constraint",
+            "check constraints",
             "on delete cascade"
           ],
           "negative_guards": [
@@ -799,13 +806,16 @@
             "precedence graph conflict serializability",
             "view serializability",
             "recoverable schedules",
-            "cascadeless schedules"
+            "cascadeless schedules",
+            "execution sequence in concurrency control are termed",
+            "execution sequence in concurrency control"
           ],
           "specific_keywords": [
             "serializability",
             "conflict serializable",
             "precedence graph",
-            "recoverable schedule"
+            "recoverable schedule",
+            "execution sequence in concurrency control"
           ],
           "negative_guards": [
             "bubble sort",
@@ -836,7 +846,11 @@
             "deadlock prevention wait die wound wait",
             "starvation in locking",
             "example scenario for dead lock. (using transaction states",
-            "dead lock. (using transaction states"
+            "dead lock. (using transaction states",
+            "explain concurrency control",
+            "conflicts in concurrent transaction",
+            "concurrent transaction",
+            "two phase locking"
           ],
           "specific_keywords": [
             "two-phase locking",
@@ -846,7 +860,9 @@
             "wound-wait",
             "exclusive lock",
             "dead lock in dbms",
-            "deadlock transaction"
+            "deadlock transaction",
+            "concurrency control",
+            "two phase locking"
           ],
           "negative_guards": [
             "paging segmentation"

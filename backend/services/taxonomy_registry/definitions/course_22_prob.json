@@ -42,7 +42,9 @@
             "if p(a) = p(b) = 1 then p(a cap b)",
             "travel by train is 1/5 and by plane",
             "independent events and p(a) = p(b)",
-            "independent events"
+            "independent events",
+            "probability of throwing",
+            "throwing a die"
           ],
           "specific_keywords": [
             "bayes' theorem",
@@ -50,7 +52,8 @@
             "conditional probability",
             "sample space",
             "subset of the sample space",
-            "independent events"
+            "independent events",
+            "probability of throwing"
           ],
           "negative_guards": [
             "binomial distribution",
@@ -75,11 +78,14 @@
             "random variable x has the following probability function",
             "calculate v(2x+3)",
             "variance of random variable",
-            "if x is an random variable and v(x)"
+            "if x is an random variable and v(x)",
+            "if var(x)=",
+            "var(4x+5)"
           ],
           "specific_keywords": [
             "random variable",
-            "random variables"
+            "random variables",
+            "var(4x+5)"
           ],
           "negative_guards": [
             "binomial distribution",
@@ -103,6 +109,8 @@
             "probability mass function",
             "probability density function",
             "find the value of k in probability density function",
+            "value of 'k' in",
+            "value of k in f(x)",
             "pdf of random variable",
             "pmf of random variable"
           ],
@@ -287,6 +295,8 @@
           "strong_phrases": [
             "uniformly distributed random variable",
             "uniform distribution over",
+            "uniform distribution",
+            "mean of uniform distribution",
             "exponential distribution",
             "memoryless property of exponential distribution",
             "mean of exponential distribution",
@@ -294,6 +304,7 @@
           ],
           "specific_keywords": [
             "uniformly distributed",
+            "uniform distribution",
             "exponential distribution"
           ],
           "negative_guards": [
@@ -575,6 +586,9 @@
             "two lines of regression are",
             "regression coefficients bxy and byx",
             "lines of regression equations",
+            "equations of the regression lines",
+            "regression lines",
+            "regression coefficient is independent",
             "if b_{xy} = 1.6 and b_{yx} = 0.4",
             "b_{xy} and b_{yx}"
           ],
@@ -582,7 +596,9 @@
             "lines of regression",
             "regression equation",
             "regression coefficients",
-            "regression equations"
+            "regression coefficient",
+            "regression equations",
+            "regression lines"
           ],
           "negative_guards": [
             "anova",
@@ -605,16 +621,21 @@
             "one way classification",
             "completely randomized design crd",
             "analysis of variance for one-way",
-            "between columns sum of squares"
+            "between columns sum of squares",
+            "basic purpose of anova",
+            "purpose of anova is to test",
+            "purpose of anova"
           ],
           "specific_keywords": [
             "one-way anova",
-            "one-way classification"
+            "one-way classification",
+            "purpose of anova"
           ],
           "negative_guards": [
             "two-way classification",
             "latin square",
-            "control charts"
+            "control charts",
+            "in anova table ssc"
           ],
           "context_hints": [
             "single factor",
@@ -634,11 +655,15 @@
             "two way classification the data are classified according to",
             "analysis of variance for two-way",
             "sum of squares for error sse",
-            "error derivatives with sse"
+            "error derivatives with sse",
+            "in anova table ssc",
+            "ssc=73.2",
+            "then f_r is"
           ],
           "specific_keywords": [
             "two-way anova",
-            "two-way classification"
+            "two-way classification",
+            "in anova table ssc"
           ],
           "negative_guards": [
             "one-way",
@@ -661,12 +686,15 @@
             "randomized block design",
             "latin square design",
             "rbd and lsd",
-            "difference in the durability of 3 makes"
+            "difference in the durability of 3 makes",
+            "completely randomized design experiment",
+            "plots and 3 treatments"
           ],
           "specific_keywords": [
             "randomized block design",
             "latin square design",
-            "design of experiments"
+            "design of experiments",
+            "completely randomized design"
           ],
           "negative_guards": [
             "control charts",
@@ -732,7 +760,10 @@
             "values of sample means and sample range",
             "upper control limit for the sample mean chart",
             "sample mean chart if a_2",
-            "draw control chart for mean"
+            "draw control chart for mean",
+            "values of sample mean \\bar{x} and sample range r",
+            "values of sample mean and sample range",
+            "sample mean and sample range"
           ],
           "specific_keywords": [
             "x-bar chart",
@@ -761,9 +792,11 @@
             "r chart",
             "control chart for range",
             "s chart",
+            "s-chart",
             "standard deviation chart",
             "range chart control limits",
             "values of sample means and sample range for ten samples",
+            "sample standard deviations",
             "ucl in r-chart",
             "ucl in r-chart is",
             "r-chart is"
@@ -771,7 +804,9 @@
           "specific_keywords": [
             "r chart",
             "control chart for range",
-            "r-chart"
+            "r-chart",
+            "s-chart",
+            "sample standard deviations"
           ],
           "negative_guards": [
             "p chart",
@@ -797,6 +832,8 @@
             "np chart",
             "control chart for fraction defective",
             "control chart for number of defectives",
+            "number of defectives in the inspection",
+            "number of defectives",
             "sample proportion of defective is",
             "sample proportion of defective"
           ],
@@ -805,7 +842,8 @@
             "p chart",
             "np-chart",
             "fraction defective",
-            "proportion of defective"
+            "proportion of defective",
+            "number of defectives"
           ],
           "negative_guards": [
             "x-bar chart",
@@ -830,13 +868,16 @@
             "u chart",
             "control chart for number of defects",
             "control chart for defects per unit",
+            "number of defects in each",
+            "defects in each tape-recorder",
             "c chart is used when c is small"
           ],
           "specific_keywords": [
             "c-chart",
             "c chart",
             "u-chart",
-            "defects per unit"
+            "defects per unit",
+            "defects in each"
           ],
           "negative_guards": [
             "x-bar chart",
