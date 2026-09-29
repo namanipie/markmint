@@ -60,7 +60,7 @@ class ExamEvolutionService:
     @classmethod
     def analyze_evolution(cls, course_id: int, exams: list[dict[str, Any]]) -> EvolutionReport:
         # Filter valid chronological exams
-        valid_exams = [e for e in exams if e.get("year") is not None]
+        valid_exams = [e for e in exams if e.get("year") is not None and e.get("year") > 0]
         excluded_count = len(exams) - len(valid_exams)
         
         sorted_exams = sorted(valid_exams, key=lambda x: x["year"])

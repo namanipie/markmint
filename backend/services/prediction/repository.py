@@ -30,6 +30,7 @@ class HistoricalRepository:
         ).filter(
             Exam.course_id == self.context.course_id,
             Exam.year.isnot(None),
+            Exam.year > 0,
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:
@@ -42,6 +43,7 @@ class HistoricalRepository:
         q = self.db.query(Question).join(Section).join(Exam).filter(
             Exam.course_id == self.context.course_id,
             Exam.year.isnot(None),
+            Exam.year > 0,
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:
@@ -54,6 +56,7 @@ class HistoricalRepository:
         q = self.db.query(QuestionFamilyMembership).join(Question).join(Section).join(Exam).filter(
             Exam.course_id == self.context.course_id,
             Exam.year.isnot(None),
+            Exam.year > 0,
             Exam.year < self.context.cutoff_year
         )
         if self.context.track_id is not None:

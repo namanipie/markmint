@@ -71,6 +71,8 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
         {
             "id": exam.id,
             "year": exam.year,
+            "course_id": getattr(exam, "course_id", None),
+            "track_id": getattr(exam, "track_id", None),
             "exam_type": exam.assessment_type,
             "questions": [
                 {

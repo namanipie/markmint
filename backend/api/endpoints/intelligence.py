@@ -64,6 +64,7 @@ def get_course_historical_questions(
         .filter(Exam.course_id == course.id)
     )
 
+    active_track = None
     if course and course.tracks:
         if not language:
             raise HTTPException(
@@ -145,7 +146,14 @@ def get_course_historical_questions(
             family_history = sorted(list({
                 q_m.section.exam.year
                 for q_m in family.questions
-                if q_m.section and q_m.section.exam and q_m.section.exam.year
+                if (
+                    q_m.section
+                    and q_m.section.exam
+                    and q_m.section.exam.course_id == course.id
+                    and (active_track is None or q_m.section.exam.track_id == active_track.id)
+                    and q_m.section.exam.year
+                    and q_m.section.exam.year > 0
+                )
             }))
 
         source_doc_title = exam.document.title if (exam and exam.document) else None
@@ -866,7 +874,9 @@ def get_intelligence_snapshot(
             practice_accuracy = None
             resolved_topic = None
             if fam_id and course:
-                resolved_topic = study_service.resolve_family_to_topic(fam_id, course.id, track_id=active_track_id)
+                resolved_topic = study_service.resolve_family_to_topic(
+                    fam_id, course.id, track_id=active_track_id, cutoff_year=target_year
+                )
 
             if resolved_topic and clean_student_id != "anonymous":
                 prog = None
@@ -973,7 +983,7 @@ def get_intelligence_snapshot(
             p_dict["topic_id"] = t_obj.id
         topic_years = {
             e.year for e in hist_exams_orm
-            if e.year is not None and any(
+            if e.year is not None and e.year > 0 and any(
                 any(t.name == p.name for t in q.topics)
                 for s in e.sections for q in s.questions
             )
@@ -998,7 +1008,7 @@ def get_intelligence_snapshot(
                 "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
             }
             for e in hist_exams_orm
-            if e.year is not None and any(
+            if e.year is not None and e.year > 0 and any(
                 any(t.name == p.name for t in q.topics)
                 for s in e.sections for q in s.questions
             )
@@ -1065,12 +1075,12 @@ def get_intelligence_snapshot(
         # Observed years
         fam_years = {
             e.year for e in hist_exams_orm
-            if e.year is not None and e.id in fam_exams
+            if e.year is not None and e.year > 0 and e.id in fam_exams
         }
         if not fam_years:
             fam_years = {
                 e.year for e in hist_exams_orm
-                if e.year is not None and any(
+                if e.year is not None and e.year > 0 and any(
                     (q.family_id == fam_id if fam_id else (q.family and q.family.canonical_name == p.name))
                     for s in e.sections for q in s.questions
                 )
@@ -1104,7 +1114,7 @@ def get_intelligence_snapshot(
                 "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
             }
             for e in hist_exams_orm
-            if e.year is not None and (
+            if e.year is not None and e.year > 0 and (
                 e.id in fam_exams or any(
                     (q.family_id == fam_id if fam_id else (q.family and q.family.canonical_name == p.name))
                     for s in e.sections for q in s.questions

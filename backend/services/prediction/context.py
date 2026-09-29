@@ -52,12 +52,13 @@ def resolve_target_year(
     max_year_q = db.query(func.max(Exam.year)).filter(
         Exam.course_id == course_id,
         Exam.year.isnot(None),
+        Exam.year > 0,
     )
     if track_id is not None:
         max_year_q = max_year_q.filter(Exam.track_id == track_id)
 
     max_year = max_year_q.scalar()
-    if max_year is not None:
+    if max_year is not None and max_year > 0:
         return max_year + 1
     return default_year
 

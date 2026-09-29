@@ -83,7 +83,7 @@ def _get_exams_as_dicts(
                 .selectinload(Section.questions)
                 .selectinload(Question.memberships),
             )
-            .filter(Exam.course_id == course_id)
+            .filter(Exam.course_id == course_id, Exam.year.isnot(None), Exam.year > 0)
         )
         if track_id is not None:
             query = query.filter(Exam.track_id == track_id)
@@ -281,16 +281,33 @@ def get_course_dna(
 def get_course_evolution(
     course_id: str = Query(..., description="The ID, code, or name of the course to track"),
     assessment_cycle: Optional[str] = Query(None, description="Assessment cycle filter: ALL, CT1, CT2, ENDSEM"),
+    cutoff_year: Optional[int] = Query(None, description="Optional temporal cutoff year (strictly excludes exams on or after this year)"),
+    language: Optional[str] = Query(None, description="Language track for multi-track courses (e.g. German, French)"),
+    track_id: Optional[int] = Query(None, description="Optional explicit CourseTrack ID"),
     db: Session = Depends(get_db)
 ):
     course = _resolve_course(db, course_id)
+    active_track = None
+    if course and course.tracks:
+        if track_id:
+            active_track = next((t for t in course.tracks if t.id == track_id), None)
+        elif language:
+            active_track = _resolve_track(course, language)
+
+    resolved_track_id = active_track.id if active_track else track_id
     norm_cycle = normalize_assessment_cycle(assessment_cycle)
-    cache_key = (course.id, norm_cycle or "ALL", "evolution")
+    cache_key = (course.id, norm_cycle or "ALL", cutoff_year, resolved_track_id, "evolution")
     cached_evolution = _ANALYSIS_CACHE.get(cache_key)
     if cached_evolution is not None:
         return cached_evolution
 
-    exams_dict = _get_exams_as_dicts(course.id, db, norm_cycle)
+    exams_dict = _get_exams_as_dicts(
+        course.id,
+        db,
+        norm_cycle,
+        cutoff_year=cutoff_year,
+        track_id=resolved_track_id
+    )
     evolution_report = ExamEvolutionService.analyze_evolution(course.id, exams_dict)
     
     _ANALYSIS_CACHE.set(cache_key, evolution_report)

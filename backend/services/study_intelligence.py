@@ -259,11 +259,13 @@ class StudyIntelligenceService:
         family_id: int,
         course_id: int,
         track_id: Optional[int] = None,
+        cutoff_year: Optional[int] = None,
     ) -> Optional[Topic]:
         if not family_id or not course_id or not self.db:
             return None
 
         effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
+        effective_cutoff = cutoff_year if cutoff_year is not None else (self._preloaded_cutoff_year if self._preloaded else None)
 
         # 1. Query topics mapped to questions belonging to this family for this course
         mapped_topics_q = (
@@ -285,6 +287,12 @@ class StudyIntelligenceService:
             mapped_topics_q = mapped_topics_q.filter(
                 Exam.track_id == effective_track,
                 Syllabus.track_id == effective_track,
+            )
+        if effective_cutoff is not None:
+            mapped_topics_q = mapped_topics_q.filter(
+                Exam.year.isnot(None),
+                Exam.year > 0,
+                Exam.year < effective_cutoff,
             )
         mapped_topics = mapped_topics_q.all()
 
@@ -366,6 +374,7 @@ class StudyIntelligenceService:
         course_id: int,
         track_id: Optional[int] = None,
         cutoff_year: Optional[int] = None,
+        student_id: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         if self.db is None:
             return []
@@ -416,11 +425,16 @@ class StudyIntelligenceService:
             if effective_cutoff is not None:
                 q_q = q_q.filter(
                     Exam.year.isnot(None),
+                    Exam.year > 0,
                     Exam.year < effective_cutoff
                 )
             question_count = q_q.count()
 
         resources: List[Dict[str, Any]] = []
+        clean_student = (student_id or "").strip() if isinstance(student_id, str) else ""
+        if not clean_student or clean_student.lower() in ("anonymous", "none", "null"):
+            clean_student = "anonymous"
+
         if concept and course:
             seen = set()
             for evidence in evidence_rows:
@@ -428,6 +442,8 @@ class StudyIntelligenceService:
                     continue
                 seen.add(evidence.document_id)
                 document = evidence.document
+                if not document:
+                    continue
                 resources.append({
                     "id": document.id,
                     "title": document.title or "Untitled Document",
@@ -488,18 +504,19 @@ class StudyIntelligenceService:
         effective_track = track_id if track_id is not None else (self._preloaded_track_id if self._preloaded else None)
         effective_cutoff = cutoff_year if cutoff_year is not None else (self._preloaded_cutoff_year if self._preloaded else None)
 
+        clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
+        is_authenticated = bool(clean_student and clean_student != "anonymous")
+
         if course_id is not None:
-            if effective_track is not None or effective_cutoff is not None:
-                try:
-                    resources = self.get_topic_resources(
-                        prediction.name,
-                        course_id,
-                        track_id=effective_track,
-                        cutoff_year=effective_cutoff,
-                    )
-                except TypeError:
-                    resources = self.get_topic_resources(prediction.name, course_id)
-            else:
+            try:
+                resources = self.get_topic_resources(
+                    prediction.name,
+                    course_id,
+                    track_id=effective_track,
+                    cutoff_year=effective_cutoff,
+                    student_id=clean_student,
+                )
+            except TypeError:
                 resources = self.get_topic_resources(prediction.name, course_id)
         else:
             resources = []
@@ -507,9 +524,6 @@ class StudyIntelligenceService:
             "Study material or related past questions are available."
             if resources else "No trusted topic-mapped study material is available."
         )
-
-        clean_student = student_id.strip() if student_id and isinstance(student_id, str) else "anonymous"
-        is_authenticated = bool(clean_student and clean_student != "anonymous")
 
         topic = self._course_topic(prediction.name, course_id, track_id=effective_track) if course_id is not None else None
         if is_authenticated:

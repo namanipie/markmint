@@ -149,7 +149,7 @@ def get_study_priorities(
             practice_accuracy = None
             resolved_topic = None
             if fam_id and course:
-                resolved_topic = study_svc.resolve_family_to_topic(fam_id, course.id, track_id=track_id)
+                resolved_topic = study_svc.resolve_family_to_topic(fam_id, course.id, track_id=track_id, cutoff_year=target_year)
             if resolved_topic and clean_user_id != "anonymous":
                 from backend.models.core import StudentTopicProgress
                 prog = db.query(StudentTopicProgress).filter_by(
@@ -252,11 +252,17 @@ def get_topic_resources(
     topic_name: str,
     limit: int = 20,
     language: Optional[str] = None,
+    user_id: str = "anonymous",
     db: Session = Depends(get_db),
 ):
     course = _course(db, course_name)
     track_id = None
-    if course and course.tracks and language:
+    if course and course.tracks:
+        if not (isinstance(language, str) and language.strip()):
+            raise HTTPException(
+                status_code=400,
+                detail="TRACK_SELECTION_REQUIRED: This course has multiple tracks (e.g. languages). A specific track must be selected.",
+            )
         lang_clean = language.strip().lower()
         for t in course.tracks:
             if (
@@ -266,8 +272,14 @@ def get_topic_resources(
             ):
                 track_id = t.id
                 break
+        if not track_id:
+            available = [f"{t.track_name} ({t.track_key})" for t in course.tracks]
+            raise HTTPException(
+                status_code=400,
+                detail=f"Invalid track '{language}'. Available tracks: {', '.join(available)}",
+            )
     resources = StudyIntelligenceService(db).get_topic_resources(
-        topic_name, course.id, track_id=track_id
+        topic_name, course.id, track_id=track_id, student_id=user_id
     )
     return {"course": course.name, "topic": topic_name, "resources": resources[:limit]}
 

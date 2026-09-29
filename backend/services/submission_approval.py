@@ -96,6 +96,7 @@ class SubmissionApprovalService:
                 source_priority="DUPLICATE_SOURCE",
             )
             existing_exam = self.db.query(Exam).filter(Exam.document_id == existing_doc.id).first()
+            track_updated = bool(existing_exam and target_track_id and not existing_exam.track_id)
             if existing_exam and target_track_id and not existing_exam.track_id:
                 existing_exam.track_id = target_track_id
 
@@ -112,6 +113,8 @@ class SubmissionApprovalService:
 
             self.db.commit()
             self.db.refresh(submission)
+            if track_updated:
+                IntelligenceCacheService.invalidate_course(self.db, course.id)
 
             summary = self.get_admin_review_summary(submission.id)
             total_q = summary.get("question_count", {}).get("total", 0)

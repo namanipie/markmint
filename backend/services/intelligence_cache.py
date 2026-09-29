@@ -154,8 +154,15 @@ def _validate_snapshot_payload(payload: Any) -> bool:
     required_keys = ("data_availability_status", "course", "metadata")
     if not all(k in payload for k in required_keys):
         return False
-    if not isinstance(payload.get("course"), dict):
-        return False
+    status = payload.get("data_availability_status")
+    if status in ("AMBIGUOUS", "UNMATCHED"):
+        if payload.get("course") is not None and not isinstance(payload.get("course"), dict):
+            return False
+        if not isinstance(payload.get("curriculum"), dict):
+            return False
+    else:
+        if not isinstance(payload.get("course"), dict):
+            return False
     if not isinstance(payload.get("metadata"), dict):
         return False
     return True
@@ -304,7 +311,7 @@ class IntelligenceCacheService:
         with _lock:
             keys_to_delete = [
                 k for k, v in _memory_cache.items()
-                if k.startswith(prefix) or (isinstance(v, dict) and v.get("course", {}).get("id") == course_id)
+                if k.startswith(prefix) or (isinstance(v, dict) and isinstance(v.get("course"), dict) and v["course"].get("id") == course_id)
             ]
             for k in keys_to_delete:
                 _memory_cache.pop(k, None)

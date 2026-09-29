@@ -124,7 +124,7 @@ class DNAAnalyzerService:
         if total_questions == 0 or total_exams == 0:
             return cls._empty_dna()
 
-        years = sorted(list({int(e.get("year")) for e in sanitized_exams if e.get("year") is not None}))
+        years = sorted(list({int(e.get("year")) for e in sanitized_exams if e.get("year") is not None and int(e.get("year")) > 0}))
         min_year = min(years) if years else 0
         max_year = max(years) if years else 0
 
