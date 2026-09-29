@@ -733,7 +733,9 @@
             "microinstructions"
           ],
           "negative_guards": [
-            "hardwired control"
+            "hardwired control",
+            "control unit of arm processor",
+            "arm processor"
           ],
           "context_hints": [
             "microprogrammed control",
@@ -899,7 +901,10 @@
             "arm state",
             "how many instruction sets does arm have",
             "which instruction set architecture is typically used in arm processors",
-            "instruction set architecture is typically used in arm processors"
+            "instruction set architecture is typically used in arm processors",
+            "method is used to design the control unit of arm processor",
+            "design the control unit of arm processor",
+            "control unit of arm processor"
           ],
           "specific_keywords": [
             "arm processor",

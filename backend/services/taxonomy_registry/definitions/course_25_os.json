@@ -347,7 +347,8 @@
             "condition for deadlock",
             "necessary condition for a deadlock to occur",
             "not a condition for deadlock",
-            "necessary condition for a deadlock"
+            "necessary condition for a deadlock",
+            "hardware implementation which provides mutual exclusion"
           ],
           "context_hints": [
             "synchronization tools",
@@ -733,7 +734,11 @@
             "page-reference string",
             "fifo",
             "lru",
-            "optimal page replacement"
+            "optimal page replacement",
+            "abstracts main memory into an extremely large, uniform array of storage",
+            "abstracts main memory into an extremely large",
+            "processor spends most of its time in swapping",
+            "situation where the processor spends most of its time in swapping process pieces rather than execution"
           ],
           "context_hints": [
             "paging",
@@ -775,7 +780,9 @@
             "gantt chart",
             "what is thrashing",
             "thrashing in the context of virtual memory",
-            "thrashing"
+            "thrashing",
+            "what is compaction",
+            "compaction"
           ],
           "context_hints": [
             "virtual memory",

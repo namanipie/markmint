@@ -442,3 +442,162 @@ def test_phase6_2_course_29_ai_category_c():
     p_es = classifier.classify(1303, q_es)
     assert p_es.topic_name == "Architecture of Expert Systems and Inference Engine"
 
+
+def test_phase6_3_os_disambiguations():
+    """Verify Phase 6.3 Operating Systems false ambiguity resolutions."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(25)
+    classifier = TaxonomyClassifierService(rules)
+
+    # Q9056: Compaction definition
+    q_comp = "9. What is compaction? (A) Technique for overcoming internal fragmentation (B) Technique for overcoming external fragmentation (C) Technique for overcoming fatal error (D) Technique for overcoming page fault [1]"
+    p_comp = classifier.classify(9056, q_comp)
+    assert p_comp.confidence == "HIGH"
+    assert p_comp.topic_id == 779
+    assert p_comp.topic_name == "Main Memory and Contiguous Memory Allocation"
+
+    # Q9060: Virtual memory definition
+    q_vm = "13. abstracts main memory into an extremely large, uniform array of storage, separating logical memory as viewed by the user from physical memory (A) Virtual memory (B) Main memory (C) Paging (D) Page table [1]"
+    p_vm = classifier.classify(9060, q_vm)
+    assert p_vm.confidence == "HIGH"
+    assert p_vm.topic_id == 781
+    assert p_vm.topic_name == "Virtual Memory and Demand Paging"
+
+    # Q9093: Hardware implementation of mutual exclusion (Test and Set)
+    q_hw = "9. The hardware implementation which provides mutual exclusion is _____ [1] A. Counting semaphore B. Binary semaphore C. Test and set lock D. Scheduling algorithm"
+    p_hw = classifier.classify(9093, q_hw)
+    assert p_hw.confidence == "HIGH"
+    assert p_hw.topic_id == 770
+    assert p_hw.topic_name == "Critical-Section Problem and Peterson's Solution"
+
+    # Q9164: Thrashing definition
+    q_thr = "15. The situation where the processor spends most of its time in swapping process pieces rather than execution instruction is called ________. (A) Paging (B) The principle of locality (C) Thrashing (D) Swapping [1]"
+    p_thr = classifier.classify(9164, q_thr)
+    assert p_thr.confidence == "HIGH"
+    assert p_thr.topic_id == 783
+    assert p_thr.topic_name == "Thrashing and Frame Allocation"
+
+
+def test_phase6_3_coa_disambiguations():
+    """Verify Phase 6.3 COA false ambiguity resolutions."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(26)
+    classifier = TaxonomyClassifierService(rules)
+
+    # Q8349: ARM processor control unit design
+    q_arm = "20. __________ method is used to design the control unit of ARM processor. (A) Hardwired (B) Microprogrammed (C) State machine (D) Combinational circuit [1]"
+    p_arm = classifier.classify(8349, q_arm)
+    assert p_arm.confidence == "HIGH"
+    assert p_arm.topic_id == 812
+    assert p_arm.topic_name == "ARM Processor Architecture and CPU Cores"
+
+
+def test_phase6_3_daa_disambiguations():
+    """Verify Phase 6.3 DAA false ambiguity resolutions."""
+    registry = get_taxonomy_registry()
+    rules = registry.get_topic_rules(27)
+    classifier = TaxonomyClassifierService(rules)
+
+    # Q8619: Substitution method definition
+    q_sub = "3. Which method for solving recurrence relations involves making an educated guess for the solution and then using mathematical induction to prove its correctness? (A) Recursion Tree Method (B) Master Theorem (C) Substitution Method (D) Iteration Method [1]"
+    p_sub = classifier.classify(8619, q_sub)
+    assert p_sub.confidence == "HIGH"
+    assert p_sub.topic_id == 819
+    assert p_sub.topic_name == "Recurrence Relations and Substitution Method"
+
+    # Q8537: State space tree search
+    q_sst = "17. Which search is used in back tracking to traverse the state space tree? [1] A. Breadth first search B. Depth first search C. Nearest neighbour first D. Binary search tree"
+    p_sst = classifier.classify(8537, q_sst)
+    assert p_sst.confidence == "HIGH"
+    assert p_sst.topic_id == 831
+    assert p_sst.topic_name == "State Space Trees and Backtracking Principles"
+
+    # Q8631: Branch and bound bounding function for TSP
+    q_bb = "15. When applying Branch and Bound algorithms to the Traveling Salesman Problem (TSP), what is the primary role of the bounding function? (A) To determine the exact cost (B) Upper bound (C) Lower bound (D) Hamiltonian circuit"
+    p_bb = classifier.classify(8631, q_bb)
+    assert p_bb.confidence == "HIGH"
+    assert p_bb.topic_id == 834
+    assert p_bb.topic_name == "Branch and Bound Search Strategies"
+
+    # Q8507: Randomized quicksort
+    q_rq1 = "18. Which of the following is incorrect about randomized quicksort? (A) It has the same time complexity (B) It has the same space complexity as standard quicksort (C) It is an in-place sorting (D) It cannot have a time complexity algorithm of O(n^2) in any case [1]"
+    p_rq1 = classifier.classify(8507, q_rq1)
+    assert p_rq1.confidence == "HIGH"
+    assert p_rq1.topic_id == 836
+    assert p_rq1.topic_name == "Randomized Algorithms: Quicksort and String Matching"
+
+    # Q8655: Randomized quicksort
+    q_rq2 = "7. Which of the following is NOT true about randomized quicksort? (A) Its time complexity matches that of standard quicksort (B) It is an in-place sorting algorithm (C) Its space complexity is greater than standard quicksort (D) Its worst-case time complexity could still be $O(n^2)$ [1]"
+    p_rq2 = classifier.classify(8655, q_rq2)
+    assert p_rq2.confidence == "HIGH"
+    assert p_rq2.topic_id == 836
+    assert p_rq2.topic_name == "Randomized Algorithms: Quicksort and String Matching"
+
+    # Q8666: NP-hard problem classification
+    q_nph = "18. Which of the following problems is classified as NP-hard? (A) Sorting an array (B) Solving a system of linear equations (C) Traveling Salesman Problem (TSP) (D) Finding the minimum spanning tree [1]"
+    p_nph = classifier.classify(8666, q_nph)
+    assert p_nph.confidence == "HIGH"
+    assert p_nph.topic_id == 838
+    assert p_nph.topic_name == "NP-Completeness and NP-Hardness"
+
+    # Q8474: Not an NP-hard problem
+    q_not_nph = "17. Which of the following is known to be not an NP-Hard Problem? (A) Vertex Cover Problem (B) 0/1 Knapsack Problem (C) Maximal Independent Set Problem (D) Travelling Salesman Problem [1]"
+    p_not_nph = classifier.classify(8474, q_not_nph)
+    assert p_not_nph.confidence == "HIGH"
+    assert p_not_nph.topic_id == 838
+    assert p_not_nph.topic_name == "NP-Completeness and NP-Hardness"
+
+    # Q8700: Polynomial time reduction
+    q_ptr = "20. We wish to show that a problem B is NP-complete. Which of the following facts is sufficient to establish this. (A) There is a polynomial time reduction from B to SAT (B) There is a polynomial time reduction from SAT to B [1]"
+    p_ptr = classifier.classify(8700, q_ptr)
+    assert p_ptr.confidence == "HIGH"
+    assert p_ptr.topic_id == 839
+    assert p_ptr.topic_name == "Polynomial-Time Reductions"
+
+
+def test_phase6_3_ambiguous_correct_retention():
+    """Verify that true multi-topic comparison and composite questions correctly remain AMBIGUOUS."""
+    registry = get_taxonomy_registry()
+
+    # Course 22: Q10110 (discrete distribution + CDF composite)
+    rules_22 = registry.get_topic_rules(22)
+    clf_22 = TaxonomyClassifierService(rules_22)
+    q_cdf_comp = "21. a.. A random variable X has the following distribution. Find: (i) the value of 'k' (ii) the cumulative distribution function (CDF)"
+    p_cdf_comp = clf_22.classify(10110, q_cdf_comp)
+    assert p_cdf_comp.confidence == "AMBIGUOUS"
+
+    # Course 22: Q10120 (binomial fit + chi-square goodness of fit)
+    q_fit_comp = "26. Fit a binomial distribution for the following data and also test the goodness of fit."
+    p_fit_comp = clf_22.classify(10120, q_fit_comp)
+    assert p_fit_comp.confidence == "AMBIGUOUS"
+
+    # Course 26: Q8382 (BCD addition + 2's complement)
+    rules_26 = registry.get_topic_rules(26)
+    clf_26 = TaxonomyClassifierService(rules_26)
+    q_subq = "21. Answer the following subquestions: a. Perform BCD Addition for 984+599. ii. Perform using 1's and 2's complement method."
+    p_subq = clf_26.classify(8382, q_subq)
+    assert p_subq.confidence == "AMBIGUOUS"
+
+    # Course 27: Q8563 (cross-paradigm dynamic programming selection)
+    rules_27 = registry.get_topic_rules(27)
+    clf_27 = TaxonomyClassifierService(rules_27)
+    q_cross_dp = "11. Which of the following can be solved using dynamic programming? (A) Merge sort (B) Binary search (C) Longest common subsequence (D) Quick sort [1]"
+    p_cross_dp = clf_27.classify(8563, q_cross_dp)
+    assert p_cross_dp.confidence == "AMBIGUOUS"
+
+    # Course 27: Q8660 (cross-paradigm problems cannot be solved using backtracking)
+    q_cross_bt = "12. Which of the following problems cannot be solved using backtracking? (A) N-Queens Problem (B) Knapsack Problem (C) Longest Common Subsequence (D) Hamiltonian Circuit [1]"
+    p_cross_bt = clf_27.classify(8660, q_cross_bt)
+    assert p_cross_bt.confidence == "AMBIGUOUS"
+
+    # Course 27: Q8677 (composite NP-complete + Rabin-Karp)
+    q_comp_np_rk = "25. Discuss about NP, NP- Hard and NP-Complete in detailed with examples. a. Discuss NP. b. Write Rabin Karp algorithm."
+    p_comp_np_rk = clf_27.classify(8677, q_comp_np_rk)
+    assert p_comp_np_rk.confidence == "AMBIGUOUS"
+
+    # Course 27: Q8694 (cross-paradigm problems cannot be solved by backtracking)
+    q_cross_bt2 = "14. Which of the problems cannot be solved by backtracking method? (A) n-queen problem (B) Subset sum problem (C) Hamiltonian circuit problem (D) Traveling salesman problem [1]"
+    p_cross_bt2 = clf_27.classify(8694, q_cross_bt2)
+    assert p_cross_bt2.confidence == "AMBIGUOUS"
+
+

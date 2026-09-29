@@ -79,6 +79,9 @@
           "negative_guards": [
             "binary search",
             "quick sort",
+            "quicksort",
+            "randomized quicksort",
+            "which of the following is not true about randomized quicksort",
             "merge sort",
             "knapsack",
             "huffman",
@@ -183,7 +186,10 @@
             "c-scan",
             "strassen",
             "convex hull",
-            "recursion tree"
+            "draw the recursion tree",
+            "recurrence relation using recursion tree",
+            "solve using recursion tree",
+            "cost at each level of tree"
           ],
           "context_hints": [
             "recurrence relations",
@@ -218,7 +224,9 @@
           ],
           "negative_guards": [
             "avl tree rotations",
-            "b-tree"
+            "b-tree",
+            "method for solving recurrence relations involves making an educated guess",
+            "making an educated guess for the solution"
           ],
           "context_hints": [
             "recursion tree",
@@ -263,7 +271,10 @@
             "optimal binary search tree",
             "obst",
             "merge sort",
-            "quick sort"
+            "quick sort",
+            "which search is used in back tracking",
+            "traverse the state space tree",
+            "state space tree"
           ],
           "context_hints": [
             "maximum subarray",
@@ -371,7 +382,11 @@
             "8086",
             "strassen",
             "strassen's",
-            "maximum subarray sum"
+            "maximum subarray sum",
+            "randomized quicksort",
+            "which of the following is incorrect about randomized quicksort",
+            "method for solving recurrence relations involves making an educated guess",
+            "making an educated guess for the solution"
           ],
           "context_hints": [
             "master theorem",
@@ -494,7 +509,9 @@
             "knapsack problem"
           ],
           "negative_guards": [
-            "0/1 knapsack dynamic programming"
+            "0/1 knapsack dynamic programming",
+            "not an np-hard problem",
+            "which of the following is known to be not an np-hard problem"
           ],
           "context_hints": [
             "fractional knapsack",
@@ -528,7 +545,9 @@
           ],
           "negative_guards": [
             "dijkstra shortest path",
-            "bellman ford"
+            "bellman ford",
+            "problems is classified as np-hard",
+            "which of the following problems is classified as np-hard"
           ],
           "context_hints": [
             "minimum spanning tree",
@@ -568,7 +587,9 @@
             "fractional knapsack",
             "strassen",
             "optimal binary search tree",
-            "obst"
+            "obst",
+            "not an np-hard problem",
+            "which of the following is known to be not an np-hard problem"
           ],
           "context_hints": [
             "dynamic programming",
@@ -724,7 +745,9 @@
           ],
           "negative_guards": [
             "eulerian path",
-            "topological sort"
+            "topological sort",
+            "when applying branch and bound algorithms to the traveling salesman problem",
+            "role of the bounding function"
           ],
           "context_hints": [
             "graph coloring",
@@ -749,7 +772,10 @@
             "priority queue in branch and bound",
             "choose the correct statement from the following. branch and bound",
             "branch and bound search",
-            "branch and bound is more efficient than backtracking"
+            "branch and bound is more efficient than backtracking",
+            "when applying branch and bound algorithms to the traveling salesman problem",
+            "what is the primary role of the bounding function",
+            "role of the bounding function"
           ],
           "specific_keywords": [
             "branch and bound",
@@ -903,6 +929,9 @@
             "show that the hamiltonian-cycle decision problem",
             "vertex covering can be a good approach",
             "problems is classified as np-hard",
+            "which of the following problems is classified as np-hard",
+            "which of the following is known to be not an np-hard problem",
+            "known to be not an np-hard problem",
             "np, np- hard and np-complete in detail",
             "ram and shyam have been asked to show that a certain problem"
           ],
@@ -918,7 +947,9 @@
             "deadlock detection",
             "rag",
             "class of decision problems",
-            "classification of decision problems"
+            "classification of decision problems",
+            "we wish to show that a problem b is np-complete",
+            "is sufficient to establish this"
           ],
           "context_hints": [
             "np-completeness",
@@ -940,7 +971,8 @@
             "3 cnf satisfiability",
             "vertex cover problem np complete",
             "clique problem reduction",
-            "hamiltonian cycle reduction"
+            "hamiltonian cycle reduction",
+            "we wish to show that a problem b is np-complete"
           ],
           "specific_keywords": [
             "polynomial reduction",
@@ -949,7 +981,9 @@
             "clique problem"
           ],
           "negative_guards": [
-            "minimum spanning tree prim"
+            "minimum spanning tree prim",
+            "not an np-hard problem",
+            "which of the following is known to be not an np-hard problem"
           ],
           "context_hints": [
             "polynomial reductions",
