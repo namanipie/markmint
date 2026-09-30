@@ -19,6 +19,8 @@ export default function StudyIntelligencePage() {
   const [courses, setCourses] = useState<BackendCourse[]>([]);
   const [selectedCourse, setSelectedCourse] = useState("");
   const [selectedCourseObj, setSelectedCourseObj] = useState<BackendCourse | null>(null);
+  const [selectedCycle, setSelectedCycle] = useState<string>("ALL");
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
   
   const [loading, setLoading] = useState(false);
   const [studyData, setStudyData] = useState<any>(null);
@@ -39,19 +41,30 @@ export default function StudyIntelligencePage() {
       if (typeof window !== "undefined") {
         const params = new URLSearchParams(window.location.search);
         let courseParam = params.get("course_id") || params.get("course");
+        let cycleParam = params.get("cycle") || params.get("assessment_cycle");
+        let langParam = params.get("language") || params.get("track");
         if (!courseParam) {
           const ctx = getStudyContext();
           if (ctx?.course_id) {
             courseParam = String(ctx.course_id);
           }
+          if (!cycleParam && ctx?.assessment_cycle) {
+            cycleParam = ctx.assessment_cycle;
+          }
+          if (!langParam && ctx?.language) {
+            langParam = ctx.language;
+          }
         }
+        if (cycleParam) setSelectedCycle(cycleParam);
+        if (langParam) setSelectedLanguage(langParam);
+
         if (courseParam) {
           const matched = courseList.find((c: BackendCourse) => String(c.id) === courseParam || String(c.code).toLowerCase() === courseParam.toLowerCase());
           if (matched) {
             setSelectedCourse(String(matched.id));
             setSelectedCourseObj(matched);
             setLoading(true);
-            getStudyPlan(matched.name).then(plan => {
+            getStudyPlan(matched.name, cycleParam || undefined, langParam || undefined).then(plan => {
               setStudyData(plan);
             }).catch(err => {
               if (err.status === 404 || err.status === 400) {
@@ -90,7 +103,11 @@ export default function StudyIntelligencePage() {
       }
       const subject = courseObj ? courseObj.name : selectedCourse;
       
-      const data = await getStudyPlan(subject);
+      const data = await getStudyPlan(
+        subject,
+        selectedCycle !== "ALL" ? selectedCycle : undefined,
+        selectedLanguage || undefined
+      );
       setStudyData(data);
     } catch (err: any) {
       if (err.status === 404 || err.status === 400) {
@@ -126,7 +143,11 @@ export default function StudyIntelligencePage() {
       });
       // Optionally refresh plan to update progress %
       const subject = selectedCourseObj.name;
-      const data = await getStudyPlan(subject);
+      const data = await getStudyPlan(
+        subject,
+        selectedCycle !== "ALL" ? selectedCycle : undefined,
+        selectedLanguage || undefined
+      );
       setStudyData(data);
       
       confetti({
@@ -177,7 +198,11 @@ export default function StudyIntelligencePage() {
       
       // Refresh study plan to show the new uploaded resources
       const subject = selectedCourseObj.name;
-      const data = await getStudyPlan(subject);
+      const data = await getStudyPlan(
+        subject,
+        selectedCycle !== "ALL" ? selectedCycle : undefined,
+        selectedLanguage || undefined
+      );
       setStudyData(data);
     } catch (err: any) {
       setUploadError(err.message || "Upload failed. Please try again.");

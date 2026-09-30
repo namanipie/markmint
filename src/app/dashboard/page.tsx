@@ -249,9 +249,10 @@ export default function DashboardPage() {
     setIsLoadingIntelligence(true);
     setIntelligenceError(null);
     try {
+      const activeLanguage = studyContext?.course_id === courseId ? (studyContext.language || undefined) : undefined;
       const [predsResult, dnaResult] = await Promise.allSettled([
-        getPredictions(courseId, cycle),
-        getExamDNA(courseId, cycle)
+        getPredictions(courseId, cycle, activeLanguage),
+        getExamDNA(courseId, { assessmentCycle: cycle, language: activeLanguage })
       ]);
 
       if (predsResult.status === "fulfilled") {
@@ -270,7 +271,7 @@ export default function DashboardPage() {
     } finally {
       setIsLoadingIntelligence(false);
     }
-  }, []);
+  }, [studyContext]);
 
   useEffect(() => {
     if (selectedCourseId) {

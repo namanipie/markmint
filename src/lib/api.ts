@@ -239,7 +239,8 @@ export async function getIntelligenceSnapshot(
   targetExamDate?: string,
   studentId: string = "anonymous",
   assessmentCycle?: string,
-  language?: string
+  language?: string,
+  track?: string
 ): Promise<IntelligenceSnapshot> {
   let url = `/intelligence/${encodeURIComponent(String(courseId))}?student_id=${encodeURIComponent(studentId)}`;
   if (targetYear) url += `&target_year=${encodeURIComponent(targetYear)}`;
@@ -247,8 +248,9 @@ export async function getIntelligenceSnapshot(
   if (assessmentCycle && assessmentCycle !== "ALL") {
     url += `&assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
   }
-  if (language) {
-    url += `&language=${encodeURIComponent(language)}`;
+  const effectiveLang = language || track;
+  if (effectiveLang) {
+    url += `&language=${encodeURIComponent(effectiveLang)}`;
   }
   return fetchAPI(url);
 }
@@ -393,10 +395,17 @@ export async function getStudyPriorities(course_name: string, assessmentCycle?: 
   return fetchAPI(url);
 }
 
-export async function getStudyPlan(course_name: string, assessmentCycle?: string) {
+export async function getStudyPlan(course_name: string, assessmentCycle?: string, language?: string) {
   let url = `/study/plan/${encodeURIComponent(course_name)}`;
+  const params: string[] = [];
   if (assessmentCycle && assessmentCycle !== "ALL") {
-    url += `?assessment_cycle=${encodeURIComponent(assessmentCycle)}`;
+    params.push(`assessment_cycle=${encodeURIComponent(assessmentCycle)}`);
+  }
+  if (language) {
+    params.push(`language=${encodeURIComponent(language)}`);
+  }
+  if (params.length > 0) {
+    url += `?${params.join("&")}`;
   }
   return fetchAPI(url);
 }
