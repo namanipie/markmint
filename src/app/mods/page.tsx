@@ -351,47 +351,80 @@ export default function ModsPage() {
 
   // --- LOGIN SCREEN BELOW ---
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+    <div className="min-h-screen bg-[#050505] flex flex-col items-center justify-center p-6 relative overflow-hidden group">
       
-      <div className={`w-full max-w-md bg-card/50 backdrop-blur-xl border border-border/50 rounded-2xl p-8 shadow-2xl relative z-10 transition-all duration-500 ${isAnimating ? "scale-95 opacity-0" : "scale-100 opacity-100"}`}>
-        <div className="flex flex-col items-center text-center mb-8">
-          <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 border border-accent/20">
-            <ShieldCheck className="w-6 h-6 text-accent" />
-          </div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Restricted Area</h1>
-          <p className="text-sm text-muted-foreground mt-2">
-            MarkMint Moderator Access Only.
-          </p>
-        </div>
-
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Lock className="h-4 w-4 text-muted-foreground" />
-            </div>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="block w-full pl-10 pr-3 py-3 border border-border/50 rounded-xl bg-background/50 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all sm:text-sm"
-              placeholder="Enter mod passphrase..."
-              required
-            />
-          </div>
-          
-          <button
-            type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-foreground text-background font-semibold py-3 px-4 rounded-xl hover:bg-foreground/90 hover:scale-[0.98] transition-all active:scale-95"
-          >
-            Authenticate <ArrowRight className="w-4 h-4" />
-          </button>
-        </form>
+      {/* Animated Sci-Fi Background Elements */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-accent opacity-20 blur-[100px] animate-pulse"></div>
       </div>
 
-      <div className="mt-8 flex items-center gap-2 text-muted-foreground opacity-50 text-xs font-mono">
+      <div className={`w-full max-w-md relative z-10 transition-all duration-700 ${isAnimating ? "scale-110 opacity-0 blur-md translate-y-10" : "scale-100 opacity-100"}`}>
+        
+        {/* Holographic scanning line */}
+        <div className="absolute -inset-0.5 bg-gradient-to-b from-accent to-transparent rounded-2xl opacity-20 blur animate-[pulse_3s_ease-in-out_infinite]" />
+        
+        <div className="bg-black/80 backdrop-blur-2xl border border-accent/20 rounded-2xl p-8 shadow-[0_0_50px_-12px_rgba(16,185,129,0.2)] relative overflow-hidden">
+          
+          {/* Top accent bar */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50" />
+
+          <div className="flex flex-col items-center text-center mb-10">
+            <div className="relative mb-6">
+              <div className="absolute inset-0 bg-accent rounded-full blur-lg opacity-40 animate-pulse" />
+              <div className="w-16 h-16 bg-black border border-accent/40 rounded-full flex items-center justify-center relative z-10">
+                <ShieldCheck className={`w-8 h-8 ${password.length > 3 ? "text-accent animate-pulse" : "text-muted-foreground"} transition-colors duration-500`} />
+              </div>
+            </div>
+            
+            <h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter uppercase font-mono">
+              System Locked
+            </h1>
+            <p className="text-xs text-accent mt-3 font-mono uppercase tracking-[0.2em] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
+              Awaiting Authorization
+            </p>
+          </div>
+  
+          <form onSubmit={handleLogin} className="space-y-6 relative z-10">
+            <div className="relative group/input">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-transform group-focus-within/input:scale-110">
+                <Lock className={`h-4 w-4 ${password.length > 0 ? "text-accent" : "text-muted-foreground"} transition-colors`} />
+              </div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="block w-full pl-12 pr-4 py-4 border-b-2 border-transparent bg-white/5 text-white placeholder-white/30 focus:outline-none focus:bg-white/10 focus:border-accent transition-all font-mono tracking-widest text-lg rounded-t-xl"
+                placeholder="[ ENTER PASSPHRASE ]"
+                required
+              />
+              
+              {/* Fake Decryption Progress Bar based on password length */}
+              <div className="h-1 w-full bg-white/5 mt-1 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-accent transition-all duration-300 ease-out shadow-[0_0_10px_rgba(16,185,129,0.8)]" 
+                  style={{ width: `${Math.min((password.length / 7) * 100, 100)}%` }}
+                />
+              </div>
+            </div>
+            
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-3 bg-accent text-accent-foreground font-bold uppercase tracking-widest py-4 px-4 hover:bg-accent/90 transition-all hover:shadow-[0_0_30px_-5px_rgba(16,185,129,0.4)] active:scale-95 group/btn"
+              style={{
+                clipPath: "polygon(4% 0, 100% 0, 96% 100%, 0 100%)"
+              }}
+            >
+              Initialize <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
+            </button>
+          </form>
+        </div>
+      </div>
+  
+      <div className="mt-12 flex items-center gap-3 text-accent/50 text-[10px] font-mono tracking-[0.3em] uppercase">
         <Leaf className="w-3 h-3" />
-        <span>MARK_MINT_SECURE_AUTH</span>
+        <span>MarkMint_Protocol_v2</span>
       </div>
     </div>
   );
