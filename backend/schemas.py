@@ -656,3 +656,20 @@ class ProgressRequest(BaseModel):
     viewed_resource: bool = False
     practice_attempted: Union[bool, int] = False
     practice_accuracy: Optional[float] = None
+
+class BroadcastTypeEnum(str, Enum):
+    INFO = "info"
+    WARNING = "warning"
+    SUCCESS = "success"
+
+class SystemBroadcastCreate(BaseModel):
+    message: str
+    type: BroadcastTypeEnum = BroadcastTypeEnum.INFO
+    is_active: bool = True
+
+class SystemBroadcastResponse(SystemBroadcastCreate):
+    id: int
+    created_at: datetime
+    
+    class Config:
+        from_attributes = True

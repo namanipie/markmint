@@ -7,7 +7,7 @@ import {
   Settings, Wand2, AlertTriangle, ChevronRight
 } from "lucide-react";
 import { toast } from "sonner";
-import { listPaperSubmissions, approvePaperSubmission, rejectPaperSubmission } from "@/lib/api";
+import { listPaperSubmissions, approvePaperSubmission, rejectPaperSubmission, createBroadcast } from "@/lib/api";
 import { PaperSubmissionRecord } from "@/lib/types";
 
 export default function ModsPage() {
@@ -70,6 +70,26 @@ export default function ModsPage() {
     } else {
       toast.error("Access Denied. Incorrect passphrase.");
       setPassword("");
+    }
+  };
+
+  // Broadcast State
+  const [broadcastMessage, setBroadcastMessage] = useState("");
+  const [broadcastType, setBroadcastType] = useState<"info" | "warning">("info");
+  const [isBroadcasting, setIsBroadcasting] = useState(false);
+
+  const handleBroadcast = async () => {
+    if (!broadcastMessage.trim()) return toast.error("Message cannot be empty");
+    setIsBroadcasting(true);
+    try {
+      // @ts-ignore
+      await createBroadcast(broadcastMessage, broadcastType);
+      toast.success("Broadcast is live on the site!");
+      setBroadcastMessage("");
+    } catch (err) {
+      toast.error("Failed to go live.");
+    } finally {
+      setIsBroadcasting(false);
     }
   };
 
@@ -269,21 +289,39 @@ export default function ModsPage() {
                 <div>
                   <label className="text-xs font-semibold uppercase text-muted-foreground">Announcement Message</label>
                   <textarea 
+                    value={broadcastMessage}
+                    onChange={(e) => setBroadcastMessage(e.target.value)}
                     className="w-full mt-2 bg-background border border-border/50 rounded-lg p-3 text-sm focus:outline-none focus:border-accent"
                     rows={3}
                     placeholder="e.g., Servers are down for maintenance tonight at 12 AM."
                   />
                 </div>
                 <div className="flex gap-4">
-                  <label className="flex items-center gap-2 text-sm text-foreground">
-                    <input type="radio" name="type" className="text-accent" defaultChecked /> Info Banner
+                  <label className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
+                    <input 
+                      type="radio" 
+                      name="type" 
+                      className="text-accent" 
+                      checked={broadcastType === "info"}
+                      onChange={() => setBroadcastType("info")}
+                    /> Info Banner
                   </label>
-                  <label className="flex items-center gap-2 text-sm text-foreground">
-                    <input type="radio" name="type" className="text-amber-500" /> Warning Banner
+                  <label className="flex items-center gap-2 text-sm text-foreground cursor-pointer">
+                    <input 
+                      type="radio" 
+                      name="type" 
+                      className="text-amber-500" 
+                      checked={broadcastType === "warning"}
+                      onChange={() => setBroadcastType("warning")}
+                    /> Warning Banner
                   </label>
                 </div>
-                <button className="px-6 py-2 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2">
-                  <Radio className="w-4 h-4" /> Go Live
+                <button 
+                  onClick={handleBroadcast}
+                  disabled={isBroadcasting}
+                  className="px-6 py-2 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-colors flex items-center gap-2 disabled:opacity-50"
+                >
+                  <Radio className="w-4 h-4" /> {isBroadcasting ? "Sending..." : "Go Live"}
                 </button>
               </div>
             </div>

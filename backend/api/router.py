@@ -13,6 +13,7 @@ from backend.api.endpoints import (
     study_connection,
     analytics,
     submissions,
+    admin,
 )
 
 api_router = APIRouter()
@@ -36,6 +37,7 @@ api_router.include_router(predictions.router, tags=["predictions"])
 api_router.include_router(study_connection.router, tags=["study"])
 api_router.include_router(practice.router, tags=["practice"])
 api_router.include_router(submissions.router, prefix="/submissions", tags=["submissions"])
+api_router.include_router(admin.router, prefix="/admin", tags=["admin"])
 
 from backend.api.router_study import router as study_router
 api_router.include_router(study_router)

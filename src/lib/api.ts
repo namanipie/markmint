@@ -643,5 +643,16 @@ export async function getSubmissionQualityMetrics(): Promise<SubmissionQualityMe
   return fetchAPI(`/submissions/quality-metrics`);
 }
 
+export async function createBroadcast(message: string, type: 'info' | 'warning' | 'success' = 'info'): Promise<any> {
+  return fetchAPI("/admin/broadcast", {
+    method: "POST",
+    body: JSON.stringify({ message, type, is_active: true }),
+  });
+}
+
+export async function getActiveBroadcast(): Promise<any> {
+  return fetchAPI("/admin/broadcast/active");
+}
+
 
 

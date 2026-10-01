@@ -1,13 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageSquare, X, ArrowUp, CheckCircle, AlertCircle } from "lucide-react";
+import { MessageSquare, X, ArrowUp, CheckCircle, AlertCircle, Info, AlertTriangle } from "lucide-react";
+import { getActiveBroadcast } from "@/lib/api";
 
 export function GlobalFeatures() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [showCookie, setShowCookie] = useState(false);
   
+  // Broadcast State
+  const [broadcast, setBroadcast] = useState<{message: string, type: string} | null>(null);
+
   // Contact Modal
   const [showContact, setShowContact] = useState(false);
   const [formState, setFormState] = useState<"idle" | "error" | "success">("idle");
@@ -18,6 +22,13 @@ export function GlobalFeatures() {
     const params = new URLSearchParams(window.location.search);
     const utmSource = params.get("utm_source");
     if (utmSource) localStorage.setItem("utm_source", utmSource);
+
+    // Fetch active broadcast
+    getActiveBroadcast().then(data => {
+      if (data && data.is_active && !sessionStorage.getItem(`dismissed_broadcast_${data.id}`)) {
+        setBroadcast({ message: data.message, type: data.type, id: data.id } as any);
+      }
+    }).catch(err => console.log(err));
 
     // Cookie Banner Check (#2)
     if (!localStorage.getItem("cookie_consent")) {
@@ -48,13 +59,11 @@ export function GlobalFeatures() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form Error State (#16)
     if (!formData.email.includes("@") || formData.message.length < 5) {
       setFormState("error");
       return;
     }
     
-    // Form Success State (#15)
     setFormState("success");
     setTimeout(() => {
       setShowContact(false);
@@ -63,8 +72,28 @@ export function GlobalFeatures() {
     }, 2000);
   };
 
+  const dismissBroadcast = () => {
+    if (broadcast && (broadcast as any).id) {
+      sessionStorage.setItem(`dismissed_broadcast_${(broadcast as any).id}`, "true");
+    }
+    setBroadcast(null);
+  };
+
   return (
     <>
+      {/* Broadcast Banner */}
+      {broadcast && (
+        <div className={`fixed top-0 left-0 w-full z-[1000] px-4 py-2 flex items-center justify-between no-print shadow-md ${broadcast.type === 'warning' ? 'bg-amber-500 text-amber-950' : 'bg-accent text-accent-foreground'}`}>
+          <div className="flex items-center gap-2 text-sm font-medium w-full justify-center">
+            {broadcast.type === 'warning' ? <AlertTriangle className="w-4 h-4" /> : <Info className="w-4 h-4" />}
+            <span>{broadcast.message}</span>
+          </div>
+          <button onClick={dismissBroadcast} className="hover:opacity-70 transition-opacity absolute right-4">
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
       {/* Scroll Progress Bar (#8) */}
       <div 
         className="fixed top-0 left-0 h-1 bg-accent z-[100] transition-all duration-150 no-print"

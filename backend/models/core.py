@@ -512,3 +512,16 @@ from backend.models.assessment import CourseAssessmentPlan, AssessmentComponent,
 # Verified student paper submission models
 from backend.models.submission import PaperSubmission, SubmissionStatus, ConsistencyStatus
 
+class BroadcastType(str, enum.Enum):
+    INFO = "info"
+    WARNING = "warning"
+    SUCCESS = "success"
+
+class SystemBroadcast(Base):
+    __tablename__ = "system_broadcasts"
+    id = Column(Integer, primary_key=True, index=True)
+    message = Column(Text, nullable=False)
+    type = Column(SQLEnum(BroadcastType), default=BroadcastType.INFO)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
