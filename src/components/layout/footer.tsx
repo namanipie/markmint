@@ -30,7 +30,7 @@ export function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <span>Built by Naman Kumar & Aditya Kajala</span>
+            <span>Built by Aditya Kajala & Naman Kumar</span>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span>MarkMint v1.0</span>
           </div>
