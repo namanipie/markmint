@@ -654,5 +654,16 @@ export async function getActiveBroadcast(): Promise<any> {
   return fetchAPI("/admin/broadcast/active");
 }
 
+export async function logFailedSearch(query: string, assessment?: string): Promise<any> {
+  return fetchAPI("/admin/radar/fail", {
+    method: "POST",
+    body: JSON.stringify({ query, assessment }),
+  });
+}
+
+export async function getRadarStats(): Promise<{ total_fails: number, priorities: any[] }> {
+  return fetchAPI("/admin/radar/stats");
+}
+
 
 

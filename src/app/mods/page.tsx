@@ -7,7 +7,13 @@ import {
   Settings, Wand2, AlertTriangle, ChevronRight
 } from "lucide-react";
 import { toast } from "sonner";
-import { listPaperSubmissions, approvePaperSubmission, rejectPaperSubmission, createBroadcast } from "@/lib/api";
+import { 
+  listPaperSubmissions, 
+  approvePaperSubmission, 
+  rejectPaperSubmission, 
+  createBroadcast,
+  getRadarStats 
+} from "@/lib/api";
 import { PaperSubmissionRecord } from "@/lib/types";
 
 export default function ModsPage() {
@@ -20,9 +26,15 @@ export default function ModsPage() {
   const [queue, setQueue] = useState<PaperSubmissionRecord[]>([]);
   const [isLoadingQueue, setIsLoadingQueue] = useState(false);
 
+  // Radar State
+  const [radarStats, setRadarStats] = useState<{ total_fails: number, priorities: any[] } | null>(null);
+
   useEffect(() => {
     if (isAuthenticated && activeTab === "queue") {
       fetchQueue();
+    }
+    if (isAuthenticated && activeTab === "radar") {
+      getRadarStats().then(data => setRadarStats(data)).catch(console.error);
     }
   }, [isAuthenticated, activeTab]);
 
@@ -222,17 +234,17 @@ export default function ModsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 <div className="p-5 rounded-xl border border-border/40 bg-card">
                   <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Active Users (24h)</p>
-                  <p className="text-3xl font-bold text-foreground">1,402</p>
-                  <p className="text-[10px] text-emerald-400 mt-2">+12% from yesterday</p>
+                  <p className="text-3xl font-bold text-foreground">Live</p>
+                  <p className="text-[10px] text-emerald-400 mt-2">Checking Vercel Analytics</p>
                 </div>
                 <div className="p-5 rounded-xl border border-border/40 bg-card">
-                  <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">MintAI Queries</p>
-                  <p className="text-3xl font-bold text-foreground">8,933</p>
+                  <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">MintAI Engine</p>
+                  <p className="text-3xl font-bold text-foreground">Online</p>
                   <p className="text-[10px] text-emerald-400 mt-2">Engine is healthy</p>
                 </div>
                 <div className="p-5 rounded-xl border border-red-500/20 bg-red-500/5">
                   <p className="text-xs text-red-400 mb-1 uppercase tracking-wider">Failed Queries</p>
-                  <p className="text-3xl font-bold text-red-400">124</p>
+                  <p className="text-3xl font-bold text-red-400">{radarStats?.total_fails || 0}</p>
                   <p className="text-[10px] text-muted-foreground mt-2">Due to insufficient data</p>
                 </div>
               </div>
@@ -248,16 +260,21 @@ export default function ModsPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-border/40">
-                    <tr className="hover:bg-secondary/20">
-                      <td className="px-6 py-4 text-foreground font-medium">Machine Learning (18CSC305J)</td>
-                      <td className="px-6 py-4 text-muted-foreground">CT2</td>
-                      <td className="px-6 py-4 text-right font-bold text-amber-500">89</td>
-                    </tr>
-                    <tr className="hover:bg-secondary/20">
-                      <td className="px-6 py-4 text-foreground font-medium">Compiler Design</td>
-                      <td className="px-6 py-4 text-muted-foreground">EndSem</td>
-                      <td className="px-6 py-4 text-right font-bold text-amber-500">34</td>
-                    </tr>
+                    {radarStats?.priorities && radarStats.priorities.length > 0 ? (
+                      radarStats.priorities.map((p, i) => (
+                        <tr key={i} className="hover:bg-secondary/20">
+                          <td className="px-6 py-4 text-foreground font-medium">{p.query}</td>
+                          <td className="px-6 py-4 text-muted-foreground">{p.assessment}</td>
+                          <td className="px-6 py-4 text-right font-bold text-amber-500">{p.count}</td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan={3} className="px-6 py-8 text-center text-muted-foreground">
+                          No failed searches tracked yet.
+                        </td>
+                      </tr>
+                    )}
                   </tbody>
                 </table>
               </div>

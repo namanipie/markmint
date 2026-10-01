@@ -525,3 +525,10 @@ class SystemBroadcast(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
+class FailedSearchLog(Base):
+    __tablename__ = "failed_search_logs"
+    id = Column(Integer, primary_key=True, index=True)
+    query = Column(String, nullable=False, index=True)
+    assessment = Column(String, nullable=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
