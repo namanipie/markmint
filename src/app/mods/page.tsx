@@ -1,18 +1,63 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   ShieldCheck, Lock, ArrowRight, Leaf, Users, Search, 
   FileText, CheckCircle2, XCircle, BarChart3, Radio, 
   Settings, Wand2, AlertTriangle, ChevronRight
 } from "lucide-react";
 import { toast } from "sonner";
+import { listPaperSubmissions, approvePaperSubmission, rejectPaperSubmission } from "@/lib/api";
+import { PaperSubmissionRecord } from "@/lib/types";
 
 export default function ModsPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
   const [activeTab, setActiveTab] = useState("queue");
+
+  // Moderation Queue State
+  const [queue, setQueue] = useState<PaperSubmissionRecord[]>([]);
+  const [isLoadingQueue, setIsLoadingQueue] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated && activeTab === "queue") {
+      fetchQueue();
+    }
+  }, [isAuthenticated, activeTab]);
+
+  const fetchQueue = async () => {
+    setIsLoadingQueue(true);
+    try {
+      const data = await listPaperSubmissions("PENDING");
+      setQueue(data || []);
+    } catch (err) {
+      toast.error("Failed to fetch moderation queue from server.");
+    } finally {
+      setIsLoadingQueue(false);
+    }
+  };
+
+  const handleApprove = async (id: number) => {
+    toast.loading("Approving and injecting into MintAI...", { id: `approve-${id}` });
+    try {
+      await approvePaperSubmission(id);
+      toast.success("Successfully injected paper into MintAI Engine!", { id: `approve-${id}` });
+      setQueue(queue.filter(p => p.id !== id));
+    } catch (err) {
+      toast.error("Failed to approve paper.", { id: `approve-${id}` });
+    }
+  };
+
+  const handleReject = async (id: number) => {
+    try {
+      await rejectPaperSubmission(id, "Rejected by moderator.");
+      toast.success("Paper rejected and deleted.");
+      setQueue(queue.filter(p => p.id !== id));
+    } catch (err) {
+      toast.error("Failed to reject paper.");
+    }
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,54 +136,58 @@ export default function ModsPage() {
               </div>
               
               <div className="grid gap-4">
-                {/* Mock Paper Item */}
-                <div className="p-4 rounded-xl border border-border/40 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400">
-                      <FileText className="w-6 h-6" />
+                {isLoadingQueue ? (
+                  <div className="p-12 border border-dashed border-border/40 rounded-xl flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="w-6 h-6 border-2 border-accent/30 border-t-accent rounded-full animate-spin" />
+                      <p className="text-sm text-muted-foreground">Fetching live submissions...</p>
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Data Structures & Algorithms - CT1</h3>
-                      <p className="text-xs text-muted-foreground mt-0.5">Uploaded by ananya_s@srmist.edu.in • 2 hours ago</p>
-                      <div className="flex gap-2 mt-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] bg-secondary text-secondary-foreground">PDF Scan</span>
-                        <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400">High Resolution</span>
+                  </div>
+                ) : queue.length === 0 ? (
+                  <div className="p-12 border border-dashed border-border/40 rounded-xl flex flex-col items-center justify-center text-center bg-card/10">
+                    <CheckCircle2 className="w-10 h-10 text-emerald-500/50 mb-3" />
+                    <p className="text-foreground font-semibold">Inbox Zero!</p>
+                    <p className="text-sm text-muted-foreground">There are no pending paper submissions.</p>
+                  </div>
+                ) : (
+                  queue.map((paper) => (
+                    <div key={paper.id} className="p-4 rounded-xl border border-border/40 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all hover:border-accent/30">
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400">
+                          <FileText className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground">
+                            {paper.subject_name} {paper.declared_assessment ? `- ${paper.declared_assessment}` : ""}
+                          </h3>
+                          <p className="text-xs text-muted-foreground mt-0.5">
+                            File: {paper.original_filename} • {paper.page_count} Pages
+                          </p>
+                          <div className="flex gap-2 mt-2">
+                            <span className="px-2 py-0.5 rounded text-[10px] bg-secondary text-secondary-foreground font-mono">ID: {paper.id}</span>
+                            <span className={`px-2 py-0.5 rounded text-[10px] ${paper.consistency_score > 0.8 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-500'}`}>
+                              Match Confidence: {Math.round(paper.consistency_score * 100)}%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <button 
+                          onClick={() => handleReject(paper.id)}
+                          className="px-3 py-1.5 rounded-md bg-secondary hover:bg-red-500/20 hover:text-red-400 text-xs transition-colors flex items-center gap-1"
+                        >
+                          <XCircle className="w-3.5 h-3.5" /> Reject
+                        </button>
+                        <button 
+                          onClick={() => handleApprove(paper.id)}
+                          className="px-3 py-1.5 rounded-md bg-accent text-accent-foreground text-xs font-semibold transition-colors flex items-center gap-1 hover:brightness-110"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5" /> Approve & Inject
+                        </button>
                       </div>
                     </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="px-3 py-1.5 rounded-md bg-secondary hover:bg-red-500/20 hover:text-red-400 text-xs transition-colors flex items-center gap-1">
-                      <XCircle className="w-3.5 h-3.5" /> Reject
-                    </button>
-                    <button className="px-3 py-1.5 rounded-md bg-accent text-accent-foreground text-xs font-semibold transition-colors flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Approve & Inject
-                    </button>
-                  </div>
-                </div>
-
-                {/* Mock Paper Item 2 */}
-                <div className="p-4 rounded-xl border border-border/40 bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-500/10 rounded-lg text-blue-400">
-                      <FileText className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Engineering Physics - EndSem 2024</h3>
-                      <p className="text-xs text-muted-foreground mt-0.5">Uploaded by rahul21@srmist.edu.in • 5 hours ago</p>
-                      <div className="flex gap-2 mt-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] bg-secondary text-secondary-foreground">Image Scans (3)</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="px-3 py-1.5 rounded-md bg-secondary hover:bg-red-500/20 hover:text-red-400 text-xs transition-colors flex items-center gap-1">
-                      <XCircle className="w-3.5 h-3.5" /> Reject
-                    </button>
-                    <button className="px-3 py-1.5 rounded-md bg-accent text-accent-foreground text-xs font-semibold transition-colors flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Approve & Inject
-                    </button>
-                  </div>
-                </div>
+                  ))
+                )}
               </div>
             </div>
           )}
