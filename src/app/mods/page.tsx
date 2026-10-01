@@ -27,7 +27,7 @@ export default function ModsPage() {
   const [isLoadingQueue, setIsLoadingQueue] = useState(false);
 
   // Radar State
-  const [radarStats, setRadarStats] = useState<{ total_fails: number, priorities: any[] } | null>(null);
+  const [radarStats, setRadarStats] = useState<{ total_fails: number, priorities: any[], active_users_24h: number } | null>(null);
 
   useEffect(() => {
     if (isAuthenticated && activeTab === "queue") {

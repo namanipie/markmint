@@ -661,7 +661,7 @@ export async function logFailedSearch(query: string, assessment?: string): Promi
   });
 }
 
-export async function getRadarStats(): Promise<{ total_fails: number, priorities: any[] }> {
+export async function getRadarStats(): Promise<{ total_fails: number, priorities: any[], active_users_24h: number }> {
   return fetchAPI("/admin/radar/stats");
 }
 
