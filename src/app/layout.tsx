@@ -73,11 +73,55 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MarkMint",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "description": "Academic intelligence and exam analytics platform for SRMIST students.",
+    "url": "https://markmint.vercel.app",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Aditya Kajala",
+        "jobTitle": "Founder & Lead Frontend Engineer",
+        "url": "https://github.com/adityakajala1"
+      },
+      {
+        "@type": "Person",
+        "name": "Naman Kumar",
+        "jobTitle": "Founder & Lead Backend Engineer",
+        "url": "https://github.com/namanipie"
+      }
+    ],
+    "creator": {
+      "@type": "Organization",
+      "name": "MarkMint",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Aditya Kajala"
+        },
+        {
+          "@type": "Person",
+          "name": "Naman Kumar"
+        }
+      ]
+    }
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${dancingScript.variable} h-full antialiased`} suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground relative">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         <Toaster
