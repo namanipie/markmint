@@ -35,7 +35,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           <Link href="/" className="flex items-center gap-2 group">
             <Leaf className="h-6 w-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
             <span className="text-xl md:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-              MintAI
+              MarkMint
               <span className="px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-medium tracking-wide translate-y-[1px]">v1.0</span>
             </span>
           </Link>

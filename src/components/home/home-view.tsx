@@ -43,7 +43,7 @@ export function HomeView() {
           <div className="w-full md:w-3/5 flex flex-col items-start">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MintAI v1.0 • SRMIST First-Year Intelligence
+              MarkMint v1.0 • SRMIST First-Year Intelligence
             </p>
             
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
