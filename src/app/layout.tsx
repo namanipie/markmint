@@ -122,7 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground relative">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <body className="min-h-full flex flex-col bg-background text-foreground relative overflow-x-hidden w-full max-w-[100vw]">        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         <Toaster
           theme="dark"
