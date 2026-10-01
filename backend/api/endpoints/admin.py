@@ -45,6 +45,9 @@ def log_failed_search(req: FailedSearchRequest, db: Session = Depends(get_db)):
     db.commit()
     return {"status": "logged"}
 
+from backend.models.beta_telemetry import BetaEvent
+from datetime import datetime, timedelta
+
 @router.get("/radar/stats")
 def get_radar_stats(db: Session = Depends(get_db)):
     # Group by query and count
@@ -64,7 +67,12 @@ def get_radar_stats(db: Session = Depends(get_db)):
     
     total_fails = db.query(func.count(FailedSearchLog.id)).scalar()
     
+    # Active Users (24h)
+    yesterday = datetime.utcnow() - timedelta(days=1)
+    active_users_24h = db.query(func.count(func.distinct(BetaEvent.session_id))).filter(BetaEvent.created_at >= yesterday).scalar()
+    
     return {
         "total_fails": total_fails,
-        "priorities": formatted
+        "priorities": formatted,
+        "active_users_24h": active_users_24h or 0
     }

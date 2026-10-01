@@ -73,7 +73,7 @@ export default function ModsPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "markmint_godmode") {
+    if (password === "ethanol") {
       setIsAnimating(true);
       setTimeout(() => {
         setIsAuthenticated(true);
@@ -234,8 +234,8 @@ export default function ModsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 <div className="p-5 rounded-xl border border-border/40 bg-card">
                   <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Active Users (24h)</p>
-                  <p className="text-3xl font-bold text-foreground">Live</p>
-                  <p className="text-[10px] text-emerald-400 mt-2">Checking Vercel Analytics</p>
+                  <p className="text-3xl font-bold text-foreground">{radarStats?.active_users_24h || 0}</p>
+                  <p className="text-[10px] text-emerald-400 mt-2">Unique sessions (24h)</p>
                 </div>
                 <div className="p-5 rounded-xl border border-border/40 bg-card">
                   <p className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">MintAI Engine</p>
