@@ -555,12 +555,11 @@ export default function DashboardPage() {
               <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
                 Target Assessment
               </span>
-              <div className="grid grid-cols-4 rounded-lg border border-border p-0.5 bg-muted/20 text-xs text-center">
+              <div className="grid grid-cols-3 rounded-lg border border-border p-0.5 bg-muted/20 text-xs text-center">
                 {[
                   { key: "ENDSEM", label: "EndSem" },
                   { key: "CT1", label: "CT1" },
-                  { key: "CT2", label: "CT2" },
-                  { key: "ALL", label: "All" }
+                  { key: "CT2", label: "CT2" }
                 ].map((cycle) => (
                   <button
                     key={cycle.key}
