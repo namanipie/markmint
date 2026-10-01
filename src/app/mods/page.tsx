@@ -149,7 +149,11 @@ export default function ModsPage() {
 
           <div className="p-4 border-t border-border/40">
             <button 
-              onClick={() => setIsAuthenticated(false)}
+              onClick={() => {
+                setIsAuthenticated(false);
+                setPassword("");
+                window.location.href = "/";
+              }}
               className="w-full flex items-center justify-center gap-2 py-2 text-xs text-muted-foreground hover:text-red-400 transition-colors"
             >
               <Lock className="w-3 h-3" /> Lock Console
