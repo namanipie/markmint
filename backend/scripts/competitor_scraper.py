@@ -88,10 +88,10 @@ class CompetitorScraper:
         target_urls = [u for u in all_urls if '/srm/' in u and len(u.split('/')) >= 6]
         print(f"[*] Found {len(target_urls)} potential syllabus targets after filtering out category pages.")
         
-        print("\n[*] Initiating extraction (Showing first 5 for test)...\n")
+        print("\n[*] Initiating FULL extraction (This might take a minute)...\n")
         
-        for url in target_urls[:5]:
-            time.sleep(1) # Be nice to their servers
+        for url in target_urls:
+            time.sleep(0.1) # Be nice to their servers, but run fast
             data = self.scrape_course(url)
             if data:
                 self.courses_data.append(data)
