@@ -3,9 +3,9 @@ import re
 import json
 import time
 
-class PaperinoScraper:
+class CompetitorScraper:
     def __init__(self):
-        self.base_url = "https://paperino-eta.vercel.app"
+        self.base_url = "https://The competitor-eta.vercel.app"
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -31,7 +31,7 @@ class PaperinoScraper:
 
     def extract_react_server_components(self, html):
         """
-        Paperino uses Next.js App Router which hides data in React Server Component (RSC) chunks
+        The competitor uses Next.js App Router which hides data in React Server Component (RSC) chunks
         instead of standard API endpoints. We have to parse the raw chunk streams.
         """
         chunks = re.findall(r'self\.__next_f\.push\(\[1,"(.*?)"]\)', html)
@@ -79,7 +79,7 @@ class PaperinoScraper:
 
     def run(self):
         print("="*50)
-        print("PAPERINO DATA EXTRACTION PROTOCOL INITIALIZED")
+        print("COMPETITOR DATA EXTRACTION PROTOCOL INITIALIZED")
         print("="*50)
         
         all_urls = self.get_sitemap_urls()
@@ -101,11 +101,11 @@ class PaperinoScraper:
                 
         # Save output to be ingested by MarkMint backend
         if self.courses_data:
-            with open("backend/scripts/paperino_dump.json", "w") as f:
+            with open("backend/scripts/competitor_dump.json", "w") as f:
                 json.dump(self.courses_data, f, indent=2)
-            print(f"\n[+] Successfully dumped {len(self.courses_data)} courses to paperino_dump.json")
+            print(f"\n[+] Successfully dumped {len(self.courses_data)} courses to competitor_dump.json")
             print("[*] Ready for MarkMint ingestion.")
 
 if __name__ == "__main__":
-    scraper = PaperinoScraper()
+    scraper = CompetitorScraper()
     scraper.run()
