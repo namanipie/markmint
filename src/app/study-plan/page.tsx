@@ -401,6 +401,11 @@ export default function StudyIntelligencePage() {
                                 }`}>
                                   {topic.priority?.toLowerCase() === 'high' ? 'Study First' : topic.priority?.toLowerCase() === 'medium' ? 'Study Next' : 'Study Later'}
                                 </span>
+                                {(topic.historyCount && topic.historyCount >= 2 || topic.probability > 0.8) && (
+                                  <span className="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-red-500/10 text-red-500 border border-red-500/20 flex items-center gap-1 animate-pulse">
+                                    HIGHLY REPEATED 🔥
+                                  </span>
+                                )}
                               </div>
                               <h4 className="text-base font-bold text-foreground leading-snug">
                                 <MathText content={topic.name || topic.topic || 'Unknown Target'} />
