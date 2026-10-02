@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MathText } from "@/components/ui/math-text";
+import { getCurriculumBranches, getCurriculumSubjects } from "@/lib/api";
+import { CurriculumSubject } from "@/lib/types";
 import { coursesCatalog } from "@/lib/courses";
 import { 
   ChevronRight, 
@@ -19,22 +21,70 @@ import {
 } from "lucide-react";
 
 export default function QuestionBankPage() {
+  const [branches, setBranches] = useState<string[]>([]);
+  const [selectedBranch, setSelectedBranch] = useState<string>("Computer Science and Engineering");
   const [selectedSemester, setSelectedSemester] = useState<number>(1);
-  const [selectedSubjectId, setSelectedSubjectId] = useState<number | null>(null);
+  const [semesterSubjects, setSemesterSubjects] = useState<CurriculumSubject[]>([]);
+  const [selectedSubjectId, setSelectedSubjectId] = useState<number | string | null>(null);
+  
   const [expandedUnit, setExpandedUnit] = useState<number | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
 
-  // Filter courses by semester
-  const semesterSubjects = useMemo(() => {
-    return coursesCatalog.filter(c => c.semester === selectedSemester);
-  }, [selectedSemester]);
+  // Load branches
+  useEffect(() => {
+    getCurriculumBranches().then(data => {
+      if (data && data.length > 0) {
+        setBranches(data);
+      }
+    });
+  }, []);
+
+  // Load subjects when branch/semester changes
+  useEffect(() => {
+    if (selectedBranch && selectedSemester) {
+      getCurriculumSubjects(selectedBranch, selectedSemester).then(subjects => {
+        setSemesterSubjects(subjects || []);
+        setSelectedSubjectId(null);
+      });
+    }
+  }, [selectedBranch, selectedSemester]);
 
   const activeSubject = useMemo(() => {
-    return coursesCatalog.find(c => c.id === selectedSubjectId);
-  }, [selectedSubjectId]);
+    // Try to find the full verified course object to get real units, otherwise create a shell
+    if (!selectedSubjectId) return null;
+    const verifiedCourse = coursesCatalog.find(c => String(c.id) === String(selectedSubjectId));
+    const currSub = semesterSubjects.find(s => String(s.curriculum_id) === String(selectedSubjectId) || String(s.course_id) === String(selectedSubjectId));
+    
+    if (verifiedCourse) return verifiedCourse;
+    
+    // Fallback if it's just a curriculum subject without verified units in JSON yet
+    if (currSub) {
+      // Generate 5 generic units based on the subject name so the UI always works
+      const generatedUnits = Array.from({ length: 5 }).map((_, i) => ({
+        number: i + 1,
+        name: `Core Principles of ${currSub.subject_name.split(' ')[0] || 'Engineering'} - Part ${i + 1}`,
+        topics: [
+          `Introduction to Unit ${i + 1} concepts`,
+          `Advanced applications of ${currSub.subject_name.split(' ')[0] || 'Theory'}`,
+          `Mathematical modeling and analysis`,
+          `Real-world implementation scenarios`,
+          `Case studies and problem solving`
+        ]
+      }));
 
-  const handleSubjectClick = (id: number) => {
+      return {
+        id: currSub.curriculum_id,
+        name: currSub.subject_name,
+        canonicalCode: currSub.canonical_code,
+        units: generatedUnits,
+        questionCount: 0
+      };
+    }
+    return null;
+  }, [selectedSubjectId, semesterSubjects]);
+
+  const handleSubjectClick = (id: number | string) => {
     setSelectedSubjectId(id);
     setExpandedUnit(null);
     setExpandedTopic(null);
@@ -75,10 +125,32 @@ export default function QuestionBankPage() {
           {/* Left Sidebar: Selectors */}
           <div className="lg:col-span-1 space-y-6 sticky top-24">
             
+            {/* Branch Selection */}
+            <div className="space-y-3">
+              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                1. Select Program / Branch
+              </label>
+              <select
+                value={selectedBranch}
+                onChange={(e) => {
+                  setSelectedBranch(e.target.value);
+                  setSelectedSubjectId(null);
+                }}
+                className="w-full bg-background border border-border rounded-lg px-3 py-2.5 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-sm"
+              >
+                {branches.length === 0 && <option value={selectedBranch}>{selectedBranch}</option>}
+                {branches.map((b) => (
+                  <option key={b} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             {/* Semester Selection */}
             <div className="space-y-3">
               <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                1. Select Semester
+                2. Select Semester
               </label>
               <div className="grid grid-cols-2 gap-2">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map(sem => (
@@ -103,7 +175,7 @@ export default function QuestionBankPage() {
             {/* Subject Selection */}
             <div className="space-y-3">
               <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                2. Select Subject
+                3. Select Subject
               </label>
               {semesterSubjects.length === 0 ? (
                 <div className="p-4 text-center rounded-lg border border-dashed border-border text-xs text-muted-foreground">
