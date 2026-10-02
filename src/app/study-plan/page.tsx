@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
 import { MathText } from "@/components/ui/math-text";
+import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
 import { useAnalytics } from "@/hooks/use-analytics";
 
 export default function StudyIntelligencePage() {
@@ -471,6 +472,8 @@ export default function StudyIntelligencePage() {
                               </ul>
                             </div>
                           )}
+                          
+                          <MintAIQuestionGenerator topicName={topic.name || topic.topic || 'Unknown Target'} />
                           
                           <div className="mt-4 pt-4 flex justify-end">
                             {isFamilyPlan ? (
