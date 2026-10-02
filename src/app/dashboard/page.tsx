@@ -251,11 +251,11 @@ export default function DashboardPage() {
     const apiSubject = semesterSubjects.find(s => s.course_id === selectedCourseId);
     if (apiSubject) {
       return {
-        id: apiSubject.course_id,
+        id: apiSubject.course_id!,
         name: apiSubject.subject_name,
         code: `API-${apiSubject.course_id}`,
         canonicalCode: apiSubject.canonical_code,
-        semester: apiSubject.semester,
+        semester: (apiSubject as any).semester || selectedSemester,
         paperCount: 0,
         questionCount: 0,
         units: []
@@ -311,7 +311,7 @@ export default function DashboardPage() {
     } else {
       // Fallback: It's an unverified/scraped subject
       const subject = semesterSubjects.find(s => s.course_id === courseId);
-      if (subject) {
+      if (subject && subject.course_id) {
         syncContext(selectedBranch, selectedSemester, subject.course_id, subject.subject_name, subject.canonical_code);
       }
     }

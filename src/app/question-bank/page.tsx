@@ -183,20 +183,23 @@ export default function QuestionBankPage() {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  {semesterSubjects.map(sub => (
-                    <button
-                      key={sub.id}
-                      onClick={() => handleSubjectClick(sub.id)}
-                      className={`w-full text-left py-2.5 px-3 rounded-lg text-xs transition-all border flex items-center justify-between group ${
-                        selectedSubjectId === sub.id 
-                          ? "bg-primary/10 border-primary text-foreground shadow-sm font-semibold"
-                          : "bg-background border-border hover:bg-muted/30 text-muted-foreground hover:text-foreground"
-                      }`}
-                    >
-                      <span className="line-clamp-1 pr-2">{sub.name}</span>
-                      <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ${selectedSubjectId === sub.id ? 'text-primary' : 'opacity-0 group-hover:opacity-100'}`} />
-                    </button>
-                  ))}
+                  {semesterSubjects.map(sub => {
+                    const subId = sub.course_id || sub.curriculum_id;
+                    return (
+                      <button
+                        key={subId}
+                        onClick={() => handleSubjectClick(subId)}
+                        className={`w-full text-left py-2.5 px-3 rounded-lg text-xs transition-all border flex items-center justify-between group ${
+                          selectedSubjectId === subId 
+                            ? "bg-primary/10 border-primary text-foreground shadow-sm font-semibold"
+                            : "bg-background border-border hover:bg-muted/30 text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        <span className="line-clamp-1 pr-2">{sub.subject_name}</span>
+                        <ChevronRight className={`w-3.5 h-3.5 flex-shrink-0 ${selectedSubjectId === subId ? 'text-primary' : 'opacity-0 group-hover:opacity-100'}`} />
+                      </button>
+                    )
+                  })}
                 </div>
               )}
             </div>
