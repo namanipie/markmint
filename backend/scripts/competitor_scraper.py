@@ -1,15 +1,14 @@
-import httpx
 import re
 import json
 import time
+import urllib.request
+import urllib.error
 
 class CompetitorScraper:
     def __init__(self):
-        self.base_url = "https://The competitor-eta.vercel.app"
+        self.base_url = "https://paperino-eta.vercel.app"
         self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
         }
         self.courses_data = []
 
@@ -17,14 +16,12 @@ class CompetitorScraper:
         """Extract all internal URLs from the XML sitemap to bypass UI navigation."""
         print("[*] Bypassing React Router UI by hitting the XML Sitemap...")
         try:
-            r = httpx.get(f"{self.base_url}/sitemap.xml", headers=self.headers, timeout=10.0)
-            if r.status_code == 200:
-                urls = re.findall(r'<loc>([^<]+)</loc>', r.text)
+            req = urllib.request.Request(f"{self.base_url}/sitemap.xml", headers=self.headers)
+            with urllib.request.urlopen(req, timeout=10.0) as response:
+                html = response.read().decode('utf-8')
+                urls = re.findall(r'<loc>([^<]+)</loc>', html)
                 print(f"[+] Successfully extracted {len(urls)} hidden routes from sitemap.")
                 return urls
-            else:
-                print(f"[-] Failed to fetch sitemap. Status: {r.status_code}")
-                return []
         except Exception as e:
             print(f"[-] Error fetching sitemap: {e}")
             return []
@@ -49,19 +46,21 @@ class CompetitorScraper:
         """Scrape a specific course page and extract syllabus, CT1, and CT2 data."""
         print(f"[*] Scraping: {url.replace(self.base_url, '')}")
         try:
-            r = httpx.get(url, headers=self.headers, timeout=15.0)
-            if r.status_code != 200:
-                return None
+            req = urllib.request.Request(url, headers=self.headers)
+            with urllib.request.urlopen(req, timeout=15.0) as response:
+                if response.getcode() != 200:
+                    return None
+                html = response.read().decode('utf-8')
                 
-            payload = self.extract_react_server_components(r.text)
+            payload = self.extract_react_server_components(html)
             
             # Use regex to find course titles, syllabus units, and question references
             course_title_match = re.search(r'{"title":"([^"]+)","description"', payload)
             course_title = course_title_match.group(1) if course_title_match else url.split('/')[-1]
             
-            units = re.findall(r'(Unit \d+|Module \d+).*?(?=Unit \d+|Module \d+|$)', r.text, re.IGNORECASE)
+            units = re.findall(r'(Unit \d+|Module \d+).*?(?=Unit \d+|Module \d+|$)', html, re.IGNORECASE)
             
-            ct_refs = re.findall(r'(CT[- ]?[1234])', r.text, re.IGNORECASE)
+            ct_refs = re.findall(r'(CT[- ]?[1234])', html, re.IGNORECASE)
             
             if len(units) > 0 or len(ct_refs) > 0:
                 return {
