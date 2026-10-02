@@ -128,7 +128,7 @@ export default function QuestionBankPage() {
             {/* Branch Selection */}
             <div className="space-y-3">
               <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                1. Select Program / Branch
+                1. Select Program
               </label>
               <select
                 value={selectedBranch}
