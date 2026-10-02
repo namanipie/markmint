@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MathText } from "@/components/ui/math-text";
+import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
 import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
 import { getStudyContext, updateStudyContext, StudyContext } from "@/lib/study-context";
 import {
@@ -717,6 +718,8 @@ export default function DashboardPage() {
                           </p>
                         </div>
                       </div>
+
+                      <MintAIQuestionGenerator topicName={item.name || 'Unknown Topic'} />
 
                       {/* Evidence Proof Line: Historical Evidence & Marks Observed */}
                       <div className="pt-2 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
