@@ -60,6 +60,7 @@ export default function DashboardPage() {
   // Forecast view filter: "ALL" | "TOPIC" | "FAMILY"
   const [forecastFilter, setForecastFilter] = useState<"ALL" | "TOPIC" | "FAMILY">("ALL");
   const [showAllSignals, setShowAllSignals] = useState<boolean>(false);
+  const [isEditingContext, setIsEditingContext] = useState<boolean>(false);
 
   // Real backend intelligence states
   const [predictionsData, setPredictionsData] = useState<any>(null);
@@ -447,7 +448,7 @@ export default function DashboardPage() {
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-foreground font-medium">Dashboard</span>
+          <span className="text-foreground font-medium">Mint AI</span>
         </nav>
 
         {/* 1. ACADEMIC CONTEXT SELECTOR & EVIDENCE BANNER */}
@@ -474,123 +475,134 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Academic Context Selector Bar: Branch -> Semester -> Course -> Assessment */}
-          <div className="pt-3 border-t border-border/50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {/* 1. Branch / Programme */}
-            <div className="space-y-1">
-              <label htmlFor="academic-branch-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                Branch / Programme
-              </label>
-              <select
-                id="academic-branch-select"
-                value={selectedBranch}
-                onChange={(e) => handleBranchChange(e.target.value)}
-                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
-              >
-                {branches.map((b) => (
-                  <option key={b} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* 2. Semester */}
-            <div className="space-y-1">
-              <label htmlFor="academic-semester-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                Semester
-              </label>
-              <select
-                id="academic-semester-select"
-                value={selectedSemester}
-                onChange={(e) => handleSemesterChange(Number(e.target.value))}
-                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
-              >
-                {semesters.map((s) => (
-                  <option key={s} value={s}>
-                    Semester {s}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* 3. Course */}
-            <div className="space-y-1">
-              <label htmlFor="academic-course-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                Course
-              </label>
-              <select
-                id="academic-course-select"
-                value={selectedCourseId}
-                onChange={(e) => handleCourseChange(Number(e.target.value))}
-                className="w-full bg-background border border-border rounded-lg px-2.5 py-1.5 text-xs font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs font-mono"
-              >
-                {/* Prioritize subjects in the selected semester */}
-                {semesterSubjects.length > 0 && (
-                  <optgroup label={`Semester ${selectedSemester} Curriculum`}>
-                    {semesterSubjects.map((sub) => {
-                      const matchedCatalog = eligibleCourses.find((c) => c.id === sub.course_id);
-                      const targetId = sub.course_id || (matchedCatalog ? matchedCatalog.id : null);
-                      if (!targetId) return null;
-                      return (
-                        <option key={`sem-${sub.curriculum_id}`} value={targetId}>
-                          {sub.canonical_code ? `[${sub.canonical_code}] ` : ""}{sub.subject_name}{sub.has_exams ? "" : " (Awaiting Papers)"}
-                        </option>
-                      );
-                    })}
-                  </optgroup>
-                )}
-                <optgroup label="All Verified Engineering Courses">
-                  {eligibleCourses.map((c) => (
-                    <option key={`all-${c.id}`} value={c.id}>
-                      {c.canonicalCode ? `[${c.canonicalCode}] ` : ""}{c.name}
-                    </option>
+          {/* Academic Context Selector Bar: Simplified */}
+          <div className="pt-4 border-t border-border/50 flex flex-col gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-muted/10 p-4 rounded-xl border border-border/50">
+              <div className="space-y-1">
+                <h3 className="text-lg font-bold text-foreground">
+                  {currentCourse?.canonicalCode ? `[${currentCourse.canonicalCode}] ` : ""}
+                  {currentCourse?.name || "Select Course"}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {selectedBranch} • Semester {selectedSemester}
+                </p>
+                <div className="text-[11px] text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 pt-1">
+                  <span>Target: <strong className="text-foreground font-semibold">{cycleDisplayLabel}</strong></span>
+                  <span className="text-border">•</span>
+                  <span>{scopePapersCount} papers, {scopeQuestionsCount} questions</span>
+                  <span className="text-border">•</span>
+                  <span>{currentCourse?.units?.length || 5} verified units</span>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+                <div className="grid grid-cols-3 rounded-lg border border-border p-1 bg-muted/20 text-xs">
+                  {[
+                    { key: "ENDSEM", label: "EndSem" },
+                    { key: "CT1", label: "CT1" },
+                    { key: "CT2", label: "CT2" }
+                  ].map((cycle) => (
+                    <button
+                      key={cycle.key}
+                      type="button"
+                      onClick={() => handleCycleChange(cycle.key)}
+                      className={`py-1.5 px-3 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                        selectedCycle === cycle.key
+                          ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {cycle.label}
+                    </button>
                   ))}
-                </optgroup>
-              </select>
-            </div>
-
-            {/* 4. Assessment Target */}
-            <div className="space-y-1">
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                Target Assessment
-              </span>
-              <div className="grid grid-cols-3 rounded-lg border border-border p-0.5 bg-muted/20 text-xs text-center">
-                {[
-                  { key: "ENDSEM", label: "EndSem" },
-                  { key: "CT1", label: "CT1" },
-                  { key: "CT2", label: "CT2" }
-                ].map((cycle) => (
-                  <button
-                    key={cycle.key}
-                    type="button"
-                    onClick={() => handleCycleChange(cycle.key)}
-                    className={`py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                      selectedCycle === cycle.key
-                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {cycle.label}
-                  </button>
-                ))}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsEditingContext(!isEditingContext)}
+                  className="px-4 py-2 rounded-lg border border-border bg-background text-xs font-medium hover:bg-muted/50 transition-colors flex items-center justify-center gap-2"
+                >
+                  {isEditingContext ? "Close Settings" : "Change Course"}
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isEditingContext ? "rotate-180" : ""}`} />
+                </button>
               </div>
             </div>
-          </div>
 
-          {/* Scope Resolution Context Line */}
-          <div className="text-[11px] text-muted-foreground flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 border-t border-border/40">
-            <span>
-              Selected target: <strong className="text-foreground font-semibold">{cycleDisplayLabel}</strong> ({scopePapersCount} papers, {scopeQuestionsCount} questions)
-            </span>
-            <span className="text-border">•</span>
-            <span>
-              Course archive: <strong className="text-foreground font-semibold">{totalCourseExamsCount}</strong> total assessments across all cycles
-            </span>
-            <span className="text-border">•</span>
-            <span>
-              Syllabus scope: <strong className="text-foreground font-semibold">{currentCourse.units?.length || 5}</strong> verified units
-            </span>
+            {isEditingContext && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-xl bg-background border border-border/80 shadow-sm animate-in slide-in-from-top-2">
+                {/* 1. Branch / Programme */}
+                <div className="space-y-1.5">
+                  <label htmlFor="academic-branch-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                    Branch / Programme
+                  </label>
+                  <select
+                    id="academic-branch-select"
+                    value={selectedBranch}
+                    onChange={(e) => handleBranchChange(e.target.value)}
+                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
+                  >
+                    {branches.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* 2. Semester */}
+                <div className="space-y-1.5">
+                  <label htmlFor="academic-semester-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                    Semester
+                  </label>
+                  <select
+                    id="academic-semester-select"
+                    value={selectedSemester}
+                    onChange={(e) => handleSemesterChange(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
+                  >
+                    {semesters.map((s) => (
+                      <option key={s} value={s}>
+                        Semester {s}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* 3. Course */}
+                <div className="space-y-1.5">
+                  <label htmlFor="academic-course-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                    Course
+                  </label>
+                  <select
+                    id="academic-course-select"
+                    value={selectedCourseId}
+                    onChange={(e) => handleCourseChange(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs font-mono"
+                  >
+                    {semesterSubjects.length > 0 && (
+                      <optgroup label={`Semester ${selectedSemester} Curriculum`}>
+                        {semesterSubjects.map((sub) => {
+                          const matchedCatalog = eligibleCourses.find((c) => c.id === sub.course_id);
+                          const targetId = sub.course_id || (matchedCatalog ? matchedCatalog.id : null);
+                          if (!targetId) return null;
+                          return (
+                            <option key={`sem-${sub.curriculum_id}`} value={targetId}>
+                              {sub.canonical_code ? `[${sub.canonical_code}] ` : ""}{sub.subject_name}{sub.has_exams ? "" : " (Awaiting Papers)"}
+                            </option>
+                          );
+                        })}
+                      </optgroup>
+                    )}
+                    <optgroup label="All Verified Engineering Courses">
+                      {eligibleCourses.map((c) => (
+                        <option key={`all-${c.id}`} value={c.id}>
+                          {c.canonicalCode ? `[${c.canonicalCode}] ` : ""}{c.name}
+                        </option>
+                      ))}
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
