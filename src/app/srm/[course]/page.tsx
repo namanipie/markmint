@@ -6,7 +6,7 @@ import { MathText } from "@/components/ui/math-text";
 import { CourseLandingTracker } from "@/components/analytics/course-landing-tracker";
 import { 
   BookOpen, ArrowRight, CheckCircle2, ShieldCheck, 
-  BarChart3, Brain, Database, Target, Sparkles
+  BarChart3, Brain, Database, Target
 } from "lucide-react";
 import { getCourses, getIntelligenceSnapshot } from "@/lib/api";
 import { generateSlug, findCourseBySlug } from "@/lib/slugs";
@@ -164,7 +164,7 @@ export default async function CourseLandingPage({ params }: { params: { course: 
             
             <div className="bg-card border border-border rounded-2xl p-6 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 p-2 opacity-10">
-                <Sparkles className="w-24 h-24 text-accent" />
+                
               </div>
               <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-4 relative z-10">
                 <BarChart3 className="w-6 h-6" />

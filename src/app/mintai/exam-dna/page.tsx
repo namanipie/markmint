@@ -7,7 +7,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ExamDNAView } from "@/components/analytics/exam-dna-view";
 import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
-import { Dna, ChevronRight, BookOpen, Filter, ArrowLeft, Sparkles } from "lucide-react";
+import { Dna, ChevronRight, BookOpen, Filter, ArrowLeft } from "lucide-react";
 import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 
 function ExamDNAContent() {
@@ -108,7 +108,7 @@ function ExamDNAContent() {
               href={`/dashboard?course_id=${selectedCourseId}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}#forecast`}
               className="px-4 py-2.5 rounded-xl bg-foreground text-background text-xs font-semibold hover:bg-foreground/90 transition-all flex items-center gap-2 shadow-xs group"
             >
-              <Sparkles className="w-3.5 h-3.5 text-accent group-hover:rotate-12 transition-transform" />
+              
               <span>View MintAI Forecast for this Course &rarr;</span>
             </Link>
           </div>

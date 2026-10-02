@@ -8,7 +8,6 @@ import {
   Languages, 
   ExternalLink, 
   BookOpen, 
-  Sparkles, 
   CheckCircle2, 
   ChevronDown, 
   ChevronRight,
@@ -109,7 +108,7 @@ export function ForeignLanguageTracks({ tracks }: ForeignLanguageTracksProps) {
               href={activeTrack.mintAiUrl}
               className="flex items-center gap-2 px-5 py-2.5 bg-foreground text-background text-sm font-medium rounded-lg hover:bg-foreground/90 transition-all active:scale-[0.98]"
             >
-              <Sparkles className="w-4 h-4 text-accent" />
+              
               Analyze in MintAI
             </Link>
             <Link

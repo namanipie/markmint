@@ -14,7 +14,6 @@ import { SyllabusUnitExplorer } from "@/components/courses/syllabus-unit-explore
 import { CourseTracker } from "@/components/courses/course-tracker";
 import { 
   ChevronRight, 
-  Sparkles, 
   FileText, 
   HelpCircle, 
   Layers, 
@@ -205,7 +204,7 @@ export default async function CoursePage({ params }: PageProps) {
                 href={course.mintAiUrl}
                 className="flex items-center justify-center gap-2 px-6 py-3.5 bg-foreground text-background text-sm font-medium rounded-xl hover:bg-foreground/90 transition-all active:scale-[0.98] shadow-sm"
               >
-                <Sparkles className="w-4 h-4 text-accent" />
+                
                 Analyze in MintAI Forecast
               </Link>
               <Link
@@ -361,7 +360,7 @@ export default async function CoursePage({ params }: PageProps) {
 
             <div className="p-4 rounded-xl bg-muted/20 border border-border/50 space-y-1.5">
               <div className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-accent" />
+                
                 Question Patterns
               </div>
               <p className="text-xs text-muted-foreground">
@@ -486,7 +485,7 @@ export default async function CoursePage({ params }: PageProps) {
                     href={course.mintAiUrl}
                     className="w-full flex items-center justify-center gap-2 py-3 bg-foreground text-background text-xs font-medium rounded-xl hover:bg-foreground/90 transition-all active:scale-[0.98]"
                   >
-                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    
                     View Probability Matrix in MintAI
                   </Link>
                 </div>

@@ -11,7 +11,6 @@ import {
   Layers, 
   ChevronRight, 
   Languages, 
-  Sparkles,
   TrendingUp,
   Filter
 } from "lucide-react";

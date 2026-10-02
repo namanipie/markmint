@@ -17,7 +17,6 @@ import {
 } from "@/lib/api";
 import { CurriculumSubject, ExamDNA } from "@/lib/types";
 import {
-  Sparkles,
   Dna,
   Target,
   ArrowRight,
@@ -611,7 +610,7 @@ export default function DashboardPage() {
           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-border/50">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-2 text-xs font-bold text-accent uppercase tracking-wider">
-                <Sparkles className="w-4 h-4" />
+                
                 <span>Primary Intelligence Forecast</span>
               </div>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">

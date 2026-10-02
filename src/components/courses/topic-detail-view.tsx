@@ -2,7 +2,6 @@ import Link from "next/link";
 import { TopicCatalogItem } from "@/lib/topics";
 import { 
   ChevronRight, 
-  Sparkles, 
   BookOpen, 
   FileText, 
   HelpCircle, 
@@ -91,7 +90,7 @@ export function TopicDetailView({ topic, siblingTopics = [] }: TopicDetailViewPr
               href={topic.mintAiUrl}
               className="flex items-center justify-center gap-2 px-6 py-3.5 bg-secondary hover:bg-secondary/80 text-foreground text-sm font-medium rounded-xl border border-border/60 transition-all"
             >
-              <Sparkles className="w-4 h-4 text-accent" />
+              
               Open Course Intelligence
             </Link>
           </div>

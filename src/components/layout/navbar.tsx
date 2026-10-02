@@ -21,7 +21,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const links = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
-    { href: "/dashboard", label: "Dashboard" },
+    { href: "/dashboard", label: "Mint AI" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
   ];

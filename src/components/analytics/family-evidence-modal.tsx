@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import {
   X,
   Layers,
-  Sparkles,
   BookOpen,
   Calendar,
   Clock,
@@ -167,7 +166,7 @@ export function FamilyEvidenceModal({
 
                 <div className="rounded-xl bg-card border border-border/60 p-3">
                   <div className="flex items-center gap-1 text-[10px] font-mono uppercase text-muted-foreground mb-0.5">
-                    <Sparkles className="h-3 w-3 text-accent" />
+                    
                     <span>Repeat Pattern</span>
                   </div>
                   <div className="text-sm font-bold text-foreground truncate">
@@ -208,7 +207,7 @@ export function FamilyEvidenceModal({
               {/* Plain-English Evidence Rationale */}
               <div className="rounded-xl bg-card/80 border border-border/60 p-3.5 space-y-2 text-xs">
                 <div className="font-semibold text-foreground flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-accent" />
+                  
                   <span>Pattern Archetype &amp; Rationale</span>
                 </div>
                 <ul className="space-y-1.5 text-muted-foreground list-disc list-inside">

@@ -7,7 +7,6 @@ import {
   LayoutDashboard,
   Dna,
   Leaf,
-  Sparkles,
   Target,
   GraduationCap,
   X,
@@ -24,7 +23,7 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
   const items = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/dashboard#forecast", label: "Forecast", icon: Sparkles },
+    { href: "/dashboard#forecast", label: "Forecast", icon: Target },
     { href: "/mintai/exam-dna", label: "Historical Evidence", icon: Dna },
     { href: "/study-plan", label: "Study Plan", icon: Target },
     { href: "/courses", label: "Courses", icon: GraduationCap },

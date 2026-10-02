@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
 import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import { BackendCourse } from "@/lib/types";
-import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Sparkles, Share2 } from "lucide-react";
+import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
@@ -299,7 +299,7 @@ export default function StudyIntelligencePage() {
 
           {selectedCourseObj && (
             <div className="flex items-center gap-2 pt-2 border-t border-border/40 text-xs text-muted-foreground flex-wrap">
-              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              
               <span>Calibrated to MintAI exam forecasts.</span>
               <Link
                 href={`/dashboard?course_id=${selectedCourseObj.id}#forecast`}

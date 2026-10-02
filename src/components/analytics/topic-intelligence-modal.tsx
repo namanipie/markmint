@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import {
   X,
   Target,
-  Sparkles,
   BookOpen,
   Calendar,
   Layers,
@@ -190,7 +189,7 @@ export function TopicIntelligenceModal({
                 {/* Plain-English Evidence Rationale */}
                 <div className="rounded-xl bg-card/80 border border-border/60 p-3.5 space-y-2 text-xs">
                   <div className="font-semibold text-foreground flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-accent" />
+                    
                     <span>Evidence-Backed Explanation</span>
                   </div>
                   <ul className="space-y-1.5 text-muted-foreground list-disc list-inside">
@@ -227,7 +226,7 @@ export function TopicIntelligenceModal({
                 <div className="rounded-2xl border border-accent/20 bg-accent/5 p-5 space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="h-4 w-4 text-accent" />
+                      
                       <span className="text-sm font-semibold text-foreground">MintAI Objective Forecast</span>
                     </div>
                     <ConfidenceBadge confidence={data.forecast.confidence} />

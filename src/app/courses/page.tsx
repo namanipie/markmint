@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getAllCourses } from "@/lib/courses";
 import { CourseDirectoryView } from "@/components/courses/course-directory-view";
-import { ChevronRight, Leaf, BookOpen, Sparkles } from "lucide-react";
+import { ChevronRight, Leaf, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Engineering Courses & Exam Intelligence Directory | MintAI SRMIST",
@@ -44,7 +44,7 @@ export default function CoursesPage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-border/40">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-semibold text-accent uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
+              
               SRMIST Regulation 2021 Curriculum
             </div>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">

@@ -10,7 +10,6 @@ import {
   Filter,
   CheckCircle2,
   Clock,
-  Sparkles,
   BookOpen,
   AlertCircle,
   ChevronDown,
@@ -496,7 +495,7 @@ export function RepetitionAnalyticsView({
                             </span>
                             {t.recent_occurrence_count > 0 && (
                               <span className="text-[10px] text-emerald-500 font-semibold flex items-center gap-0.5">
-                                <Sparkles className="w-3 h-3" /> Recent exam presence
+                                 Recent exam presence
                               </span>
                             )}
                           </div>
@@ -505,7 +504,7 @@ export function RepetitionAnalyticsView({
                             className="text-sm font-bold text-foreground hover:text-accent hover:underline text-left mt-1 flex items-center gap-1.5 group cursor-pointer"
                           >
                             <span>{t.topic_name}</span>
-                            <Sparkles className="w-3 h-3 opacity-0 group-hover:opacity-100 text-accent transition-opacity" />
+                            
                           </button>
                           <div className="text-[11px] text-muted-foreground mt-0.5">
                             {t.unit_name}
@@ -528,7 +527,7 @@ export function RepetitionAnalyticsView({
                               onClick={() => handleOpenTopic(t.topic_id, t.topic_name)}
                               className="px-2.5 py-1 rounded bg-accent/10 hover:bg-accent/20 text-accent text-xs font-medium flex items-center gap-1 shrink-0 border border-accent/20 cursor-pointer"
                             >
-                              <Sparkles className="w-3 h-3" />
+                              
                               <span>Intelligence</span>
                             </button>
                             {onSelectTopic && (

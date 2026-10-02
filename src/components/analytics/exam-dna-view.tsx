@@ -8,7 +8,6 @@ import {
   AlertCircle,
   HelpCircle,
   Hash,
-  Sparkles,
   GitBranch,
   ShieldCheck,
   FileText,
@@ -904,7 +903,7 @@ export function ExamDNAView({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
           <div>
             <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-accent" />
+              
               Question Patterns & Formulation Lineage
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">
