@@ -22187,6 +22187,87 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9001,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Fundamental Of Economics (FOE)",
+          "canonical_code": "TH-9001",
+          "course_id": 9001,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9002,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Biomedical Sensors",
+          "canonical_code": "TH-9002",
+          "course_id": 9002,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9003,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Foreign Languages",
+          "canonical_code": "TH-9003",
+          "course_id": 9003,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9004,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Cell Biology",
+          "canonical_code": "TH-9004",
+          "course_id": 9004,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9005,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Microbiology",
+          "canonical_code": "TH-9005",
+          "course_id": 9005,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9006,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Physical And Analytical Chemistry",
+          "canonical_code": "TH-9006",
+          "course_id": 9006,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9007,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Biochemistry",
+          "canonical_code": "TH-9007",
+          "course_id": 9007,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9008,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Basic Civil & Mechanical Workshop",
+          "canonical_code": "TH-9008",
+          "course_id": 9008,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9009,
+          "branch": "Computer Science and Engineering",
+          "semester": 1,
+          "subject_name": "Biology",
+          "canonical_code": "TH-9009",
+          "course_id": 9009,
+          "credits": 3
         }
       ],
       "2": [
@@ -22259,6 +22340,60 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9010,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Physics-Mechanics",
+          "canonical_code": "TH-9010",
+          "course_id": 9010,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9011,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Communicative English",
+          "canonical_code": "TH-9011",
+          "course_id": 9011,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9012,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Electromagnetic Physics",
+          "canonical_code": "TH-9012",
+          "course_id": 9012,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9013,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Engineering Mechanics",
+          "canonical_code": "TH-9013",
+          "course_id": 9013,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9014,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Electronic System And PCB Design",
+          "canonical_code": "TH-9014",
+          "course_id": 9014,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9015,
+          "branch": "Computer Science and Engineering",
+          "semester": 2,
+          "subject_name": "Building Materials In The Built Environment",
+          "canonical_code": "TH-9015",
+          "course_id": 9015,
+          "credits": 3
         }
       ],
       "3": [
@@ -22345,6 +22480,15 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9016,
+          "branch": "Computer Science and Engineering",
+          "semester": 3,
+          "subject_name": "Data Structures And Algorithm",
+          "canonical_code": "TH-9016",
+          "course_id": 9016,
+          "credits": 3
         }
       ],
       "4": [
@@ -22431,6 +22575,96 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9017,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Bioprocess Engineering",
+          "canonical_code": "TH-9017",
+          "course_id": 9017,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9018,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Cell Communication And Signaling",
+          "canonical_code": "TH-9018",
+          "course_id": 9018,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9019,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Software Process",
+          "canonical_code": "TH-9019",
+          "course_id": 9019,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9020,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Chemical Engineering Principles",
+          "canonical_code": "TH-9020",
+          "course_id": 9020,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9021,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Molecular Biology",
+          "canonical_code": "TH-9021",
+          "course_id": 9021,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9022,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Internet Of Things (IOT)",
+          "canonical_code": "TH-9022",
+          "course_id": 9022,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9023,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Probability & Applied Statistics",
+          "canonical_code": "TH-9023",
+          "course_id": 9023,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9024,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Digital Image Processing",
+          "canonical_code": "TH-9024",
+          "course_id": 9024,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9025,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "Signal Processing",
+          "canonical_code": "TH-9025",
+          "course_id": 9025,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9026,
+          "branch": "Computer Science and Engineering",
+          "semester": 4,
+          "subject_name": "CGA",
+          "canonical_code": "TH-9026",
+          "course_id": 9026,
+          "credits": 3
         }
       ],
       "5": [
@@ -22517,6 +22751,42 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9027,
+          "branch": "Computer Science and Engineering",
+          "semester": 5,
+          "subject_name": "Full Stack Web Development",
+          "canonical_code": "TH-9027",
+          "course_id": 9027,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9028,
+          "branch": "Computer Science and Engineering",
+          "semester": 5,
+          "subject_name": "Machine Learning",
+          "canonical_code": "TH-9028",
+          "course_id": 9028,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9029,
+          "branch": "Computer Science and Engineering",
+          "semester": 5,
+          "subject_name": "Professional Elective 2",
+          "canonical_code": "TH-9029",
+          "course_id": 9029,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9030,
+          "branch": "Computer Science and Engineering",
+          "semester": 5,
+          "subject_name": "Open Elective 1",
+          "canonical_code": "TH-9030",
+          "course_id": 9030,
+          "credits": 3
         }
       ],
       "6": [
@@ -22617,6 +22887,33 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9031,
+          "branch": "Computer Science and Engineering",
+          "semester": 6,
+          "subject_name": "Software Engineering & Project Management (SEPM)",
+          "canonical_code": "TH-9031",
+          "course_id": 9031,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9032,
+          "branch": "Computer Science and Engineering",
+          "semester": 6,
+          "subject_name": "Professional Elective 3",
+          "canonical_code": "TH-9032",
+          "course_id": 9032,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9033,
+          "branch": "Computer Science and Engineering",
+          "semester": 6,
+          "subject_name": "Professional Elective 4",
+          "canonical_code": "TH-9033",
+          "course_id": 9033,
+          "credits": 3
         }
       ],
       "7": [
@@ -22703,6 +23000,51 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9034,
+          "branch": "Computer Science and Engineering",
+          "semester": 7,
+          "subject_name": "Professional Elective 5",
+          "canonical_code": "TH-9034",
+          "course_id": 9034,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9035,
+          "branch": "Computer Science and Engineering",
+          "semester": 7,
+          "subject_name": "Professional Elective 6",
+          "canonical_code": "TH-9035",
+          "course_id": 9035,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9036,
+          "branch": "Computer Science and Engineering",
+          "semester": 7,
+          "subject_name": "Professional Elective 7",
+          "canonical_code": "TH-9036",
+          "course_id": 9036,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9037,
+          "branch": "Computer Science and Engineering",
+          "semester": 7,
+          "subject_name": "Professional Elective 8",
+          "canonical_code": "TH-9037",
+          "course_id": 9037,
+          "credits": 3
+        },
+        {
+          "curriculum_id": 9038,
+          "branch": "Computer Science and Engineering",
+          "semester": 7,
+          "subject_name": "Open Elective 3",
+          "canonical_code": "TH-9038",
+          "course_id": 9038,
+          "credits": 3
         }
       ],
       "8": [
@@ -22719,6 +23061,15 @@
           "has_tracks": false,
           "tracks": [],
           "notes": null
+        },
+        {
+          "curriculum_id": 9039,
+          "branch": "Computer Science and Engineering",
+          "semester": 8,
+          "subject_name": "Internship",
+          "canonical_code": "TH-9039",
+          "course_id": 9039,
+          "credits": 3
         }
       ]
     },
