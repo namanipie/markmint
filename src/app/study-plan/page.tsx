@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { getCourses, getStudyPlan, uploadStudyNotes, updateStudyProgress } from "@/lib/api";
 import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import { BackendCourse } from "@/lib/types";
-import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Sparkles } from "lucide-react";
+import { BookOpen, Target, Zap, ShieldCheck, Database, Loader2, AlertCircle, FileText, Upload, CheckCircle2, FileUp, Archive, GraduationCap, Layers, ChevronRight, Sparkles, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
@@ -131,6 +131,21 @@ export default function StudyIntelligencePage() {
       // Optionally refresh plan or locally mark as viewed
     } catch (err) {
       console.error("Failed to update progress", err);
+    }
+  };
+
+  const handleShare = () => {
+    const topTopics = studyData?.topics?.slice(0, 3).map((t: any) => `- ${t.name || t.topic}`).join('\n') || '';
+    const courseName = selectedCourseObj?.name || 'my exam';
+    const text = `🔥 I just got my exact CT predictions for ${courseName} on MarkMint!\n\n🎯 Top high-yield topics:\n${topTopics}\n\nCheck your predictions here: https://markmint.vercel.app/study-plan`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: 'MarkMint Exam Predictions',
+        text: text,
+      }).catch(console.error);
+    } else {
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
     }
   };
 
@@ -379,10 +394,18 @@ export default function StudyIntelligencePage() {
                   {/* Topic Breakdown & Uploads */}
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2 space-y-6">
-                      <h3 className="font-bold text-lg flex items-center gap-2 text-foreground">
-                        <Target className="w-5 h-5 text-primary" />
-                        {"STUDY THESE FIRST"}
-                      </h3>
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-bold text-lg flex items-center gap-2 text-foreground">
+                          <Target className="w-5 h-5 text-primary" />
+                          {"STUDY THESE FIRST"}
+                        </h3>
+                        <button 
+                          onClick={handleShare}
+                          className="flex items-center gap-2 px-3 py-1.5 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 border border-[#25D366]/30 rounded-lg text-xs font-bold uppercase tracking-wider transition-all"
+                        >
+                          <Share2 className="w-3.5 h-3.5" /> Share
+                        </button>
+                      </div>
                       
                       {studyData.topics && studyData.topics.length > 0 ? studyData.topics.map((topic: any, idx: number) => (
                         <div key={idx} className="bg-card border border-border rounded-xl p-5">
