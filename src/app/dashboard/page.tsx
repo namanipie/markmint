@@ -455,7 +455,6 @@ export default function DashboardPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-semibold text-accent uppercase tracking-wider">
-                <BrainCircuit className="w-3.5 h-3.5" />
                 MintAI Workspace
               </div>
               <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
