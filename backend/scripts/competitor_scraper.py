@@ -84,9 +84,9 @@ class CompetitorScraper:
         all_urls = self.get_sitemap_urls()
         
         # Filter for deeply nested URLs that look like specific semesters/courses
-        # e.g., /srm/btech/computer-science/semester-1/physics
-        target_urls = [u for u in all_urls if '/srm/' in u and len(u.split('/')) >= 6]
-        print(f"[*] Found {len(target_urls)} potential syllabus targets after filtering out category pages.")
+        # e.g., /srm/btech/semester-1/chemistry
+        target_urls = [u for u in all_urls if '/srm/btech/' in u and len(u.split('/')) >= 7]
+        print(f"[*] Found {len(target_urls)} B.Tech syllabus targets after filtering out all categories.")
         
         print("\n[*] Initiating FULL extraction (This might take a minute)...\n")
         
