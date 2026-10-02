@@ -36,11 +36,46 @@ export function ScopeCalculator() {
   const [copied, setCopied] = useState(false);
   const [isLoadingCurriculum, setIsLoadingCurriculum] = useState(false);
   
-  const [courses, setCourses] = useState<CourseGrade[]>([
-    { id: "1", name: "", credits: 3, grade: "" },
-    { id: "2", name: "", credits: 4, grade: "" },
-    { id: "3", name: "", credits: 3, grade: "" }
-  ]);
+  const [courses, setCourses] = useState<CourseGrade[]>([]);
+
+  // Initialize from localStorage or default
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("mintai_gpa_memory");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.courses && parsed.courses.length > 0) {
+          setCourses(parsed.courses);
+          if (parsed.branch) setSelectedBranch(parsed.branch);
+          if (parsed.semester) setSelectedSemester(parsed.semester);
+          return;
+        }
+      }
+    } catch (e) {
+      console.error("Failed to parse GPA memory", e);
+    }
+    
+    // Default state if nothing saved
+    setCourses([
+      { id: "1", name: "", credits: 3, grade: "" },
+      { id: "2", name: "", credits: 4, grade: "" },
+      { id: "3", name: "", credits: 3, grade: "" }
+    ]);
+  }, []);
+
+  // Save to localStorage when state changes
+  useEffect(() => {
+    if (courses.length === 0) return; // don't save empty initial state before mount
+    try {
+      localStorage.setItem("mintai_gpa_memory", JSON.stringify({
+        courses,
+        branch: selectedBranch,
+        semester: selectedSemester
+      }));
+    } catch (e) {
+      // ignore quota exceeded or privacy block errors
+    }
+  }, [courses, selectedBranch, selectedSemester]);
 
   const hasShownGpaToast = useRef(false);
 
