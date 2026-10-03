@@ -29,31 +29,42 @@ export function MintAIQuestionGenerator({ topicName }: Props) {
       const lower = topicName.toLowerCase();
       let qs: GeneratedQuestion[] = [];
       
+      // 50% chance to be a 7+6 split vs a straight 13-mark question
+      const isSplit = topicName.length % 2 === 0;
+      
       // Highly realistic SRM question templates based on subject context
       if (lower.includes("calculus") || lower.includes("math") || lower.includes("matrix") || lower.includes("eigen")) {
         qs = [
           { type: "MCQ", marks: "1 Mark", text: `If A is an orthogonal matrix related to ${topicName}, then $A^{-1}$ is equal to:`, options: ["$A$", "$A^T$", "$-A$", "$I$"] },
           { type: "SHORT", marks: "4 Marks", text: `State the Cayley-Hamilton theorem and use it to find the inverse of the matrix associated with ${topicName}.` },
-          { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Find the eigenvalues and eigenvectors of the matrix representing ${topicName}. \n\n(b) [6 Marks] Reduce the given quadratic form of ${topicName} to canonical form using orthogonal transformation.` }
+          isSplit 
+            ? { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Find the eigenvalues and eigenvectors of the matrix representing ${topicName}. \n\n(b) [6 Marks] Reduce the given quadratic form of ${topicName} to canonical form using orthogonal transformation.` }
+            : { type: "LONG", marks: "13 Marks", text: `Verify the Cayley-Hamilton theorem for the matrix associated with ${topicName} and hence find its inverse and $A^4$.` }
         ];
       } else if (lower.includes("algorithm") || lower.includes("data structure") || lower.includes("tree") || lower.includes("sort")) {
         qs = [
           { type: "MCQ", marks: "1 Mark", text: `What is the worst-case time complexity of ${topicName}?`, options: ["$O(1)$", "$O(n)$", "$O(n \\log n)$", "$O(n^2)$"] },
           { type: "SHORT", marks: "4 Marks", text: `Write the pseudocode for the fundamental operation in ${topicName} and explain its space complexity.` },
           { type: "LONG", marks: "8 Marks", text: `Trace the execution of ${topicName} step-by-step on the following input array: [54, 26, 93, 17, 77, 31, 44, 55, 20]. Show the state of the data structure after each pass.` },
-          { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Compare and contrast ${topicName} with its primary alternative. When would you prefer one over the other? \n\n(b) [6 Marks] Implement a C/C++ function to delete a node in a ${topicName}.` }
+          isSplit
+            ? { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Compare and contrast ${topicName} with its primary alternative. When would you prefer one over the other? \n\n(b) [6 Marks] Implement a C/C++ function to delete a node in a ${topicName}.` }
+            : { type: "LONG", marks: "13 Marks", text: `Write a complete C/C++ program to implement ${topicName}. Your code must include functions for insertion, deletion, and display, along with comments explaining the time complexity of each.` }
         ];
       } else if (lower.includes("physics") || lower.includes("mechanics") || lower.includes("quantum") || lower.includes("optics")) {
         qs = [
           { type: "MCQ", marks: "1 Mark", text: `Which fundamental law strictly governs the behavior of ${topicName}?`, options: ["Newton's First Law", "Faraday's Law", "Planck's Radiation Law", "Heisenberg's Principle"] },
           { type: "SHORT", marks: "4 Marks", text: `Define ${topicName} and state its SI unit. Draw a neat schematic diagram to illustrate your definition.` },
-          { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Derive the expression for ${topicName} from fundamental physical principles. \n\n(b) [6 Marks] A system undergoing ${topicName} has an initial state $V_1 = 5m/s$. Calculate the final kinetic energy if a constant force of $10N$ is applied.` }
+          isSplit
+            ? { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Derive the expression for ${topicName} from fundamental physical principles. \n\n(b) [6 Marks] A system undergoing ${topicName} has an initial state $V_1 = 5m/s$. Calculate the final kinetic energy if a constant force of $10N$ is applied.` }
+            : { type: "LONG", marks: "13 Marks", text: `Derive the complete mathematical expression for ${topicName} starting from first principles. Discuss the physical significance of each parameter and outline two practical engineering applications.` }
         ];
       } else if (lower.includes("machine learning") || lower.includes("ai") || lower.includes("network") || lower.includes("cloud")) {
         qs = [
           { type: "MCQ", marks: "1 Mark", text: `Which of the following activation functions is most commonly used in the hidden layers of a ${topicName} architecture?`, options: ["Sigmoid", "Linear", "ReLU", "Softmax"] },
           { type: "SHORT", marks: "4 Marks", text: `Explain the concept of overfitting in the context of ${topicName} and list two regularization techniques to prevent it.` },
-          { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Explain the end-to-end architecture of ${topicName} with the help of a neat block diagram. \n\n(b) [6 Marks] Discuss the mathematical intuition behind the loss function optimization in ${topicName}.` }
+          isSplit
+            ? { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Explain the end-to-end architecture of ${topicName} with the help of a neat block diagram. \n\n(b) [6 Marks] Discuss the mathematical intuition behind the loss function optimization in ${topicName}.` }
+            : { type: "LONG", marks: "13 Marks", text: `Design a comprehensive ${topicName} system for a real-world enterprise application. Your answer must include the architectural diagram, data flow, algorithm choice, and evaluation metrics.` }
         ];
       } else {
         // Generic engineering fallback that still looks hyper-realistic for SRM
@@ -61,7 +72,9 @@ export function MintAIQuestionGenerator({ topicName }: Props) {
           { type: "MCQ", marks: "1 Mark", text: `The primary advantage of implementing ${topicName} in modern systems is:`, options: ["Reduced latency", "Lower cost", "High redundancy", "Maximized throughput"] },
           { type: "SHORT", marks: "4 Marks", text: `Briefly explain the working principle of ${topicName}. List any two major advantages and disadvantages.` },
           { type: "LONG", marks: "8 Marks", text: `Discuss the various classifications and types of ${topicName} in detail.` },
-          { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Explain the step-by-step workflow of ${topicName} with a neat, fully labeled block diagram. \n\n(b) [6 Marks] A real-world application requires ${topicName}. What are the design considerations you must take into account? Justify your answer.` }
+          isSplit
+            ? { type: "SPLIT", marks: "13 Marks (7+6)", text: `(a) [7 Marks] Explain the step-by-step workflow of ${topicName} with a neat, fully labeled block diagram. \n\n(b) [6 Marks] A real-world application requires ${topicName}. What are the design considerations you must take into account? Justify your answer.` }
+            : { type: "LONG", marks: "13 Marks", text: `Provide a detailed technical explanation of ${topicName}. Include a fully labeled architecture diagram, its mathematical or logical foundations, and a case study of its implementation in the industry.` }
         ];
       }
 
