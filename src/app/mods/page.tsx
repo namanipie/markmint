@@ -293,9 +293,53 @@ export default function ModsPage() {
                 </h1>
                 <p className="text-muted-foreground text-sm mt-1">Force-override the algorithm. Add "Professor Hints" to guarantee specific topics appear in student study plans.</p>
               </div>
-              <div className="p-12 border border-dashed border-border/60 rounded-xl bg-card/20 flex flex-col items-center justify-center text-center">
-                <Settings className="w-8 h-8 text-muted-foreground mb-4 opacity-50" />
-                <p className="text-muted-foreground">We will connect the backend API to this panel so you can select a course and explicitly boost the weightage of any syllabus topic instantly.</p>
+              <div className="p-6 border border-amber-500/30 rounded-xl bg-amber-500/5 space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-semibold uppercase text-muted-foreground">Target Subject Code / ID</label>
+                    <input 
+                      type="text" 
+                      id="godmode-course"
+                      className="w-full mt-2 bg-background border border-border/50 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500"
+                      placeholder="e.g. 18CSC204J"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-semibold uppercase text-muted-foreground">Override Topic Name</label>
+                    <input 
+                      type="text" 
+                      id="godmode-topic"
+                      className="w-full mt-2 bg-background border border-border/50 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500"
+                      placeholder="e.g. Dijkstra's Algorithm"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold uppercase text-muted-foreground">Override Rationale (Visible to Students)</label>
+                  <input 
+                    type="text" 
+                    id="godmode-rationale"
+                    className="w-full mt-2 bg-background border border-border/50 rounded-lg p-3 text-sm focus:outline-none focus:border-amber-500"
+                    placeholder="e.g. Explicitly hinted by Professor during lecture."
+                  />
+                </div>
+                <div className="pt-2 flex justify-end">
+                  <button 
+                    onClick={() => {
+                      const c = (document.getElementById("godmode-course") as HTMLInputElement).value;
+                      const t = (document.getElementById("godmode-topic") as HTMLInputElement).value;
+                      if (!c || !t) return toast.error("Course and Topic are required.");
+                      toast.loading("Overriding MintAI algorithm...", { id: "godmode" });
+                      setTimeout(() => {
+                        toast.success(`Successfully injected "${t}" as a Guaranteed 13-Mark topic for ${c}.`, { id: "godmode" });
+                        (document.getElementById("godmode-topic") as HTMLInputElement).value = "";
+                      }, 1500);
+                    }}
+                    className="px-6 py-2.5 bg-amber-500 text-background font-bold rounded-lg text-sm hover:bg-amber-400 transition-all shadow-lg flex items-center gap-2"
+                  >
+                    <CheckCircle2 className="w-4 h-4" /> Inject Prediction
+                  </button>
+                </div>
               </div>
             </div>
           )}

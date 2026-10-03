@@ -303,6 +303,14 @@ export async function searchIntelligence(query: { raw_query: string; limit?: num
   });
 }
 
+export async function logFailedSearch(query: string, assessment?: string): Promise<any> {
+  return fetchAPI("/admin/radar/fail", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query, assessment }),
+  });
+}
+
 export async function getCourses() {
   return fetchAPI("/courses/");
 }

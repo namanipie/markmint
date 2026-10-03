@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2, Leaf } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { searchIntelligence } from "@/lib/api";
+import { searchIntelligence, logFailedSearch } from "@/lib/api";
 import { SearchResult } from "@/lib/types";
 
 interface CommandItem {
@@ -99,6 +99,9 @@ export function CommandPalette() {
               cmd.title.toLowerCase().includes(query.toLowerCase())
             );
             setSearchResults(localFiltered);
+            if (localFiltered.length === 0 && query.length > 3) {
+              logFailedSearch(query).catch(console.error);
+            }
           }
         })
         .catch(() => {
@@ -107,6 +110,9 @@ export function CommandPalette() {
             cmd.title.toLowerCase().includes(query.toLowerCase())
           );
           setSearchResults(localFiltered);
+          if (localFiltered.length === 0 && query.length > 3) {
+            logFailedSearch(query).catch(console.error);
+          }
         })
         .finally(() => {
           if (active) setIsSearching(false);
