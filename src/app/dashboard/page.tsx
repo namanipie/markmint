@@ -700,44 +700,21 @@ export default function DashboardPage() {
               <span className="text-xs font-medium">Calibrating historical exam predictions...</span>
             </div>
           ) : displayedForecastItems.length === 0 ? (
-            <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-accent/10 border border-accent/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <p className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-accent" />
-                    Dynamic Forecast Active
-                  </p>
-                  <p className="text-xs text-muted-foreground">Historical paper data is unavailable. MintAI has automatically generated standard topics based on the syllabus.</p>
-                </div>
+            <div className="p-8 text-center rounded-xl bg-muted/10 border border-border/60 space-y-4">
+              <div className="space-y-1.5">
+                <p className="text-sm font-semibold text-foreground">
+                  {currentCourse.paperCount === 0 
+                    ? "Historical Exam Papers Ingestion Pending" 
+                    : "No specific forecast signals found for this filter."}
+                </p>
+                <p className="text-xs text-muted-foreground max-w-md mx-auto">
+                  {currentCourse.paperCount === 0
+                    ? `Historical PYQs for ${currentCourse.name} are currently awaiting moderation. You can practice syllabus questions below.`
+                    : "Try selecting \u201cAll Signals\u201d or changing the assessment cycle."}
+                </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="group flex flex-col p-4 rounded-xl bg-muted/10 border border-border/60 hover:bg-muted/20 hover:border-border transition-all shadow-xs gap-3">
-                    <div className="flex justify-between items-start">
-                      <div className="space-y-1 pr-4">
-                        <h4 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">
-                          Core Principles of {currentCourse.name} - Part {i}
-                        </h4>
-                        <p className="text-xs text-muted-foreground line-clamp-2">
-                          Standard syllabus module expected for {cycleDisplayLabel} assessment.
-                        </p>
-                      </div>
-                      <span className="shrink-0 inline-flex items-center gap-1 bg-accent/10 text-accent px-2 py-0.5 rounded-full text-[10px] font-bold">
-                        <Target className="w-3 h-3" /> HIGH
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-1">
-                      <span className="text-[10px] text-muted-foreground font-mono">
-                        EXPECTED: {15 - (i * 2)}%
-                      </span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-border" />
-                      <span className="text-[10px] text-muted-foreground">Generated via Syllabus</span>
-                    </div>
-                    <div className="pt-3 border-t border-border/50">
-                      <MintAIQuestionGenerator topicName={`Core Principles of ${currentCourse.name} - Part ${i}`} />
-                    </div>
-                  </div>
-                ))}
+              <div className="max-w-md mx-auto pt-2">
+                <MintAIQuestionGenerator topicName={currentCourse.name} courseId={currentCourse.id} cycle={selectedCycle} />
               </div>
             </div>
           ) : (

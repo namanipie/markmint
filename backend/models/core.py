@@ -530,5 +530,8 @@ class FailedSearchLog(Base):
     id = Column(Integer, primary_key=True, index=True)
     query = Column(String, nullable=False, index=True)
     assessment = Column(String, nullable=True)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    subject = Column(String, nullable=True)
+    course_id = Column(Integer, nullable=True)
+    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
+
 

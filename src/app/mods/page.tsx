@@ -73,15 +73,18 @@ export default function ModsPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "ethanol") {
+    const trimmed = password.trim();
+    if (trimmed) {
       setIsAnimating(true);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("mm_mod_token", trimmed);
+      }
       setTimeout(() => {
         setIsAuthenticated(true);
         toast.success("Welcome back, Mod.");
       }, 600);
     } else {
-      toast.error("Access Denied. Incorrect passphrase.");
-      setPassword("");
+      toast.error("Please enter passphrase.");
     }
   };
 

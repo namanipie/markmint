@@ -303,11 +303,11 @@ export async function searchIntelligence(query: { raw_query: string; limit?: num
   });
 }
 
-export async function logFailedSearch(query: string, assessment?: string): Promise<any> {
+export async function logFailedSearch(query: string, assessment?: string, subject?: string, course_id?: number): Promise<any> {
   return fetchAPI("/admin/radar/fail", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query, assessment }),
+    body: JSON.stringify({ query, assessment, subject, course_id }),
   });
 }
 
@@ -607,6 +607,15 @@ export async function getPaperSubmission(id: number): Promise<PaperSubmissionRec
   return fetchAPI(`/submissions/${encodeURIComponent(id)}`);
 }
 
+function getAdminHeaders(adminKey?: string): HeadersInit {
+  const token = adminKey || (typeof window !== "undefined" ? localStorage.getItem("mm_mod_token") || "" : "");
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  if (token) {
+    headers["X-Admin-Key"] = token;
+  }
+  return headers;
+}
+
 export async function approvePaperSubmission(
   id: number,
   payload?: {
@@ -614,11 +623,12 @@ export async function approvePaperSubmission(
     override_course_id?: number;
     override_assessment?: string;
     override_year?: number;
-  }
+  },
+  adminKey?: string
 ): Promise<{ status: string; result: any }> {
   return fetchAPI(`/submissions/${encodeURIComponent(id)}/approve`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: getAdminHeaders(adminKey),
     body: JSON.stringify(payload || { reviewer: "moderator" }),
   });
 }
@@ -626,17 +636,20 @@ export async function approvePaperSubmission(
 export async function rejectPaperSubmission(
   id: number,
   reason: string,
-  reviewer: string = "moderator"
+  reviewer: string = "moderator",
+  adminKey?: string
 ): Promise<{ status: string; result: any }> {
   return fetchAPI(`/submissions/${encodeURIComponent(id)}/reject`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: getAdminHeaders(adminKey),
     body: JSON.stringify({ reason, reviewer }),
   });
 }
 
-export async function getSubmissionReviewSummary(id: number): Promise<AdminReviewSummary> {
-  return fetchAPI(`/submissions/${encodeURIComponent(id)}/review-summary`);
+export async function getSubmissionReviewSummary(id: number, adminKey?: string): Promise<AdminReviewSummary> {
+  return fetchAPI(`/submissions/${encodeURIComponent(id)}/review-summary`, {
+    headers: getAdminHeaders(adminKey),
+  });
 }
 
 export async function getSubmissionFeedback(id: number): Promise<SubmitterFeedback> {
@@ -647,13 +660,20 @@ export async function getSubmissionByTracking(tracking: string): Promise<Submitt
   return fetchAPI(`/submissions/tracking/${encodeURIComponent(tracking)}`);
 }
 
-export async function getSubmissionQualityMetrics(): Promise<SubmissionQualityMetrics> {
-  return fetchAPI(`/submissions/quality-metrics`);
+export async function getSubmissionQualityMetrics(adminKey?: string): Promise<SubmissionQualityMetrics> {
+  return fetchAPI(`/submissions/quality-metrics`, {
+    headers: getAdminHeaders(adminKey),
+  });
 }
 
-export async function createBroadcast(message: string, type: 'info' | 'warning' | 'success' = 'info'): Promise<any> {
+export async function createBroadcast(
+  message: string,
+  type: 'info' | 'warning' | 'success' = 'info',
+  adminKey?: string
+): Promise<any> {
   return fetchAPI("/admin/broadcast", {
     method: "POST",
+    headers: getAdminHeaders(adminKey),
     body: JSON.stringify({ message, type, is_active: true }),
   });
 }
@@ -662,16 +682,48 @@ export async function getActiveBroadcast(): Promise<any> {
   return fetchAPI("/admin/broadcast/active");
 }
 
-export async function logFailedSearch(query: string, assessment?: string): Promise<any> {
-  return fetchAPI("/admin/radar/fail", {
-    method: "POST",
-    body: JSON.stringify({ query, assessment }),
+export async function getRadarStats(adminKey?: string, days: number = 30): Promise<{ total_fails: number; time_range_days?: number; priorities: any[]; active_users_24h: number }> {
+  return fetchAPI(`/admin/radar/stats?days=${days}`, {
+    headers: getAdminHeaders(adminKey),
   });
 }
 
-export async function getRadarStats(): Promise<{ total_fails: number, priorities: any[], active_users_24h: number }> {
-  return fetchAPI("/admin/radar/stats");
+export interface GeneratedQuestionItem {
+  type: "MCQ" | "SHORT" | "LONG" | "SPLIT";
+  marks: string;
+  text: string;
+  options?: string[];
+  provenance: "HISTORICAL_EVIDENCE" | "SYNTHETIC_SYLLABUS_FALLBACK";
+  is_synthetic: boolean;
+  exam_year?: number;
+  source_label: string;
 }
+
+export interface QuestionGenerationResponse {
+  topic: string;
+  course_id?: number;
+  track_id?: number;
+  provenance: "HISTORICAL_EVIDENCE" | "SYNTHETIC_SYLLABUS_FALLBACK";
+  is_synthetic: boolean;
+  evidence_count: number;
+  questions: GeneratedQuestionItem[];
+  disclaimer?: string;
+}
+
+export async function generateTopicQuestions(payload: {
+  topic: string;
+  course_id?: number;
+  track_id?: number;
+  cycle?: string;
+  cutoff_year?: number;
+}): Promise<QuestionGenerationResponse> {
+  return fetchAPI("/intelligence/generate-questions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
+
 
 
 

@@ -82,3 +82,8 @@ def on_startup():
         logging.getLogger("markmint").warning("Startup curriculum seeding deferred: %s", e)
 
 app.include_router(api_router, prefix="/api")
+
+# Also mount admin endpoints at /admin as alias for root paths
+from backend.api.endpoints import admin as admin_endpoint
+app.include_router(admin_endpoint.router, prefix="/admin", tags=["Admin (Root Alias)"])
+

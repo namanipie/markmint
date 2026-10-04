@@ -20,6 +20,8 @@ import {
   Database
 } from "lucide-react";
 
+import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
+
 export default function QuestionBankPage() {
   const [branches, setBranches] = useState<string[]>([]);
   const [selectedBranch, setSelectedBranch] = useState<string>("Computer Science and Engineering");
@@ -29,7 +31,6 @@ export default function QuestionBankPage() {
   
   const [expandedUnit, setExpandedUnit] = useState<number | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
-  const [isGenerating, setIsGenerating] = useState<boolean>(false);
 
   // Load branches
   useEffect(() => {
@@ -51,34 +52,21 @@ export default function QuestionBankPage() {
   }, [selectedBranch, selectedSemester]);
 
   const activeSubject = useMemo(() => {
-    // Try to find the full verified course object to get real units, otherwise create a shell
     if (!selectedSubjectId) return null;
     const verifiedCourse = coursesCatalog.find(c => String(c.id) === String(selectedSubjectId));
     const currSub = semesterSubjects.find(s => String(s.curriculum_id) === String(selectedSubjectId) || String(s.course_id) === String(selectedSubjectId));
     
-    if (verifiedCourse) return verifiedCourse;
+    if (verifiedCourse) return { ...verifiedCourse, courseId: verifiedCourse.id, isUnverified: false };
     
-    // Fallback if it's just a curriculum subject without verified units in JSON yet
     if (currSub) {
-      // Generate 5 generic units based on the subject name so the UI always works
-      const generatedUnits = Array.from({ length: 5 }).map((_, i) => ({
-        number: i + 1,
-        name: `Core Principles of ${currSub.subject_name.split(' ')[0] || 'Engineering'} - Part ${i + 1}`,
-        topics: [
-          `Introduction to Unit ${i + 1} concepts`,
-          `Advanced applications of ${currSub.subject_name.split(' ')[0] || 'Theory'}`,
-          `Mathematical modeling and analysis`,
-          `Real-world implementation scenarios`,
-          `Case studies and problem solving`
-        ]
-      }));
-
       return {
         id: currSub.curriculum_id,
+        courseId: currSub.course_id || undefined,
         name: currSub.subject_name,
         canonicalCode: currSub.canonical_code,
-        units: generatedUnits,
-        questionCount: 0
+        units: [],
+        questionCount: currSub.question_count || 0,
+        isUnverified: true
       };
     }
     return null;
@@ -96,10 +84,6 @@ export default function QuestionBankPage() {
       return;
     }
     setExpandedTopic(topic);
-    setIsGenerating(true);
-    setTimeout(() => {
-      setIsGenerating(false);
-    }, 1200); // Simulate fetching/generating questions
   };
 
   return (
@@ -233,8 +217,16 @@ export default function QuestionBankPage() {
                 {/* Units List */}
                 <div className="space-y-3">
                   {!activeSubject.units || activeSubject.units.length === 0 ? (
-                    <div className="p-6 text-center border border-dashed border-border rounded-xl text-sm text-muted-foreground">
-                      Unit data is currently being populated for this subject.
+                    <div className="p-8 text-center border border-dashed border-border rounded-xl bg-card space-y-4">
+                      <div className="space-y-1">
+                        <p className="text-sm font-semibold text-foreground">Syllabus Taxonomy Pending Formal Verification</p>
+                        <p className="text-xs text-muted-foreground max-w-md mx-auto">
+                          Detailed unit and topic breakdowns for {activeSubject.name} are currently undergoing syllabus verification against official SRM regulations.
+                        </p>
+                      </div>
+                      <div className="max-w-md mx-auto pt-2">
+                        <MintAIQuestionGenerator topicName={activeSubject.name} courseId={activeSubject.courseId} />
+                      </div>
                     </div>
                   ) : (
                     activeSubject.units.map(unit => (
@@ -290,65 +282,8 @@ export default function QuestionBankPage() {
 
                                   {/* Generated Questions (Expanded) */}
                                   {expandedTopic === topic && (
-                                    <div className="border-t border-border/50 p-4 space-y-6">
-                                      {isGenerating ? (
-                                        <div className="flex flex-col items-center justify-center py-6 gap-3">
-                                          <Loader2 className="w-5 h-5 text-accent animate-spin" />
-                                          <p className="text-xs text-muted-foreground animate-pulse">Pulling question bank data...</p>
-                                        </div>
-                                      ) : (
-                                        <>
-                                          {/* MCQs (1 Marker) */}
-                                          <div className="space-y-3">
-                                            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                              <ListChecks className="w-4 h-4 text-emerald-500" />
-                                              1 Mark (MCQs)
-                                            </h4>
-                                            <div className="grid gap-2 pl-6">
-                                              <div className="text-sm border-l-2 border-emerald-500/30 pl-3 py-0.5"><MathText content={`Which of the following is a primary characteristic of ${topic}?`} /></div>
-                                              <div className="text-sm border-l-2 border-emerald-500/30 pl-3 py-0.5"><MathText content={`Identify the incorrect statement regarding the application of ${topic}.`} /></div>
-                                            </div>
-                                          </div>
-
-                                          {/* Short Answers (4 Marker) */}
-                                          <div className="space-y-3">
-                                            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                              <FileQuestion className="w-4 h-4 text-blue-500" />
-                                              4 Marks (Short)
-                                            </h4>
-                                            <div className="grid gap-2 pl-6">
-                                              <div className="text-sm border-l-2 border-blue-500/30 pl-3 py-0.5"><MathText content={`Briefly explain the core mechanism of ${topic} with an example.`} /></div>
-                                              <div className="text-sm border-l-2 border-blue-500/30 pl-3 py-0.5"><MathText content={`Differentiate between the two major variants of ${topic}.`} /></div>
-                                            </div>
-                                          </div>
-
-                                          {/* Long Answers (8 Marker) */}
-                                          <div className="space-y-3">
-                                            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                              <FileQuestion className="w-4 h-4 text-orange-500" />
-                                              8 Marks (Detailed)
-                                            </h4>
-                                            <div className="grid gap-2 pl-6">
-                                              <div className="text-sm border-l-2 border-orange-500/30 pl-3 py-0.5"><MathText content={`Describe the architecture and working principle of ${topic} in detail.`} /></div>
-                                              <div className="text-sm border-l-2 border-orange-500/30 pl-3 py-0.5"><MathText content={`Derive the necessary mathematical equations for ${topic} and discuss its limitations.`} /></div>
-                                            </div>
-                                          </div>
-
-                                          {/* Major Questions (13/15 Marker) */}
-                                          <div className="space-y-3">
-                                            <h4 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                                              <FileQuestion className="w-4 h-4 text-red-500" />
-                                              13 Marks (7 + 6 Split)
-                                            </h4>
-                                            <div className="grid gap-2 pl-6">
-                                              <div className="text-sm border-l-2 border-red-500/30 pl-3 py-1 space-y-1">
-                                                <div><strong>(a) [7 Marks]</strong> <MathText content={`Explain the fundamental design criteria for ${topic}.`} /></div>
-                                                <div><strong>(b) [6 Marks]</strong> <MathText content={`Solve a real-world scenario applying the aforementioned design criteria.`} /></div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </>
-                                      )}
+                                    <div className="border-t border-border/50 p-4">
+                                      <MintAIQuestionGenerator topicName={topic} courseId={activeSubject.courseId} />
                                     </div>
                                   )}
                                 </div>

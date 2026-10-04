@@ -1288,3 +1288,39 @@ def get_intelligence_snapshot(
         )
 
     return snapshot_payload
+
+
+from pydantic import BaseModel
+from backend.services.question_generator import (
+    QuestionGeneratorService,
+    QuestionGenerationResponse,
+)
+
+
+class GenerateQuestionsRequest(BaseModel):
+    topic: str
+    course_id: Optional[int] = None
+    track_id: Optional[int] = None
+    cycle: Optional[str] = "ALL"
+    cutoff_year: Optional[int] = None
+
+
+@router.post("/generate-questions", response_model=QuestionGenerationResponse)
+def generate_questions_endpoint(
+    req: GenerateQuestionsRequest,
+    db: Session = Depends(get_db),
+):
+    """
+    Generate syllabus-grounded practice questions.
+    If historical exams exist for the course and topic, verified past questions are returned.
+    Otherwise, clearly marked synthetic questions based on syllabus taxonomy are returned.
+    """
+    return QuestionGeneratorService.generate_questions(
+        db=db,
+        topic=req.topic,
+        course_id=req.course_id,
+        track_id=req.track_id,
+        cycle=req.cycle,
+        cutoff_year=req.cutoff_year,
+    )
+
