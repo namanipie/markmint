@@ -10,18 +10,46 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "MarkMint",
-  "url": "https://markmint.vercel.app",
-  "description": "MintAi predicts your CT, FT, and End Sem question papers for SRMIST.",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://markmint.vercel.app/mintai?course={search_term_string}",
-    "query-input": "required name=search_term_string",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MarkMint",
+    "url": "https://markmint.vercel.app",
+    "description": "MintAi predicts your CT, FT, and End Sem question papers for SRMIST.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://markmint.vercel.app/mintai?course={search_term_string}",
+      "query-input": "required name=search_term_string",
+    }
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aditya Kajala",
+    "url": "https://markmint.vercel.app",
+    "jobTitle": "Founder & Frontend Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "MarkMint",
+      "url": "https://markmint.vercel.app"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/adityakajala",
+      "https://github.com/adityakajala1"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Naman Kumar",
+    "jobTitle": "Founder & Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "MarkMint"
+    }
+  }
+];
 
 export default function Home() {
   return (
