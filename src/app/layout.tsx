@@ -42,11 +42,20 @@ export const metadata: Metadata = {
     siteName: "MarkMint",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://markmint.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MarkMint - SRMIST Academic Intelligence",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MintAI | SRMIST Academic Intelligence",
+    title: "MarkMint | SRMIST Academic Intelligence",
     description: "Forecast high-yield topics using verified historical exam evidence.",
+    images: ["https://markmint.vercel.app/og-image.png"],
   },
   verification: {
     google: "xCV7uIaHTrTcL3-G9SqrLSMP3YJQJIi1oPaeNd49f3o",
