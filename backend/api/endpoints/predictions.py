@@ -111,7 +111,13 @@ def _build_historical_exam_payloads(hist_exams_orm: list[Any]) -> list[dict[str,
                         or (getattr(getattr(question, "family", None), "id", None))
                     ),
                     "family_name": (
-                        getattr(getattr(question, "family", None), "canonical_name", None)
+                        (
+                            getattr(question.family, "canonical_name", "").strip()
+                            if getattr(question, "family", None) and getattr(question.family, "canonical_name", "").strip()
+                            else f"Family {getattr(question, 'family_id', None) or getattr(getattr(question, 'family', None), 'id', '')}"
+                        )
+                        if (getattr(question, "family_id", None) or getattr(question, "family", None))
+                        else None
                     ),
                     "difficulty": getattr(question, "difficulty", None),
                 }

@@ -283,7 +283,10 @@ class DNAAnalyzerService:
                 # Question Families
                 fam = q.get("family_name")
                 fam_id = q.get("family_id")
-                if fam:
+                if (not fam or not str(fam).strip()) and fam_id:
+                    fam = f"Family {fam_id}"
+                if fam and str(fam).strip():
+                    fam = str(fam).strip()
                     fd = families_data[fam]
                     fd["occurrences"] += 1
                     if fam_id and fd["family_id"] is None:

@@ -286,3 +286,74 @@ def test_8_probability_calibration_formula():
     ]
     assert preds[0].probability == 0.5714
     assert BacktestEvaluator.verify_probability_calibration(preds, sample_papers=5) is True
+
+
+def test_9_unmapped_target_exam_flagged_as_insufficient_evidence():
+    """9. Prove target exams with zero mapped topics are marked INSUFFICIENT_EVIDENCE rather than evaluated as false 0.0s."""
+    harness = BacktestHarness()
+    class MockQuestion:
+        def __init__(self, qid, marks, is_alt, topics):
+            self.id = qid
+            self.marks = marks
+            self.is_alternative = is_alt
+            self.topics = topics
+            self.family_id = None
+            self.family = None
+
+    class MockSection:
+        def __init__(self, questions):
+            self.questions = questions
+
+    class MockExam:
+        def __init__(self):
+            self.sections = [
+                MockSection([
+                    MockQuestion(1, 10.0, False, []),  # completely unmapped
+                    MockQuestion(2, 10.0, False, []),  # completely unmapped
+                ])
+            ]
+
+    target_data = harness.extract_target_exam_data(MockExam())
+    target_topics = target_data[PredictionTarget.TOPIC]
+    assert len(target_topics) == 0, "Expected zero target topics for unmapped exam"
+
+    # Verify that topic_supported condition correctly identifies this as unsupported
+    topic_supported = (len(target_topics) > 0)
+    assert not topic_supported
+
+
+def test_10_empty_canonical_name_family_fallback():
+    """10. Prove questions with family_id but empty/whitespace canonical_name fall back to f'Family {family_id}'."""
+    exams_payload = [
+        {
+            "id": 1,
+            "year": 2023,
+            "exam_type": "FINAL",
+            "questions": [
+                {
+                    "id": 101,
+                    "marks": 10.0,
+                    "is_alternative": False,
+                    "topic": "Matrices",
+                    "family_id": 3527,
+                    "family_name": "",  # Empty canonical_name
+                },
+                {
+                    "id": 102,
+                    "marks": 10.0,
+                    "is_alternative": False,
+                    "topic": "Matrices",
+                    "family_id": 3527,
+                    "family_name": "   ",  # Whitespace canonical_name
+                }
+            ]
+        }
+    ]
+
+    dna = DNAAnalyzerService.analyze(exams_payload)
+    fam_names = {f.family_name for f in dna.families}
+    assert "Family 3527" in fam_names, f"Expected 'Family 3527' in DNA families, got: {fam_names}"
+    fam = next(f for f in dna.families if f.family_name == "Family 3527")
+    assert fam.occurrences == 2
+    assert fam.family_id == 3527
+

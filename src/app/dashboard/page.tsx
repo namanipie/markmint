@@ -36,7 +36,9 @@ import {
   Loader2,
   BrainCircuit,
   GraduationCap,
-  Calendar
+  Calendar,
+  Info,
+  AlertCircle
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -369,6 +371,8 @@ export default function DashboardPage() {
         const papersWithItem = p.papers_with_family || p.papers_with_topic || p.papers_with_item || p.distinct_paper_count || p.historyCount || 1;
         const totalPapers = p.papers_analyzed || dnaData?.sample_size?.papers || currentCourse.paperCount || 1;
         const coverageRatio = p.paper_coverage != null ? p.paper_coverage : totalPapers > 0 ? papersWithItem / totalPapers : 0.5;
+        const sufficiency = p.evidence_sufficiency || (totalPapers >= 3 ? "SUFFICIENT" : totalPapers >= 1 ? "LIMITED" : "INSUFFICIENT");
+        const calibratedProb = p.probability != null ? Math.round(p.probability * 100) : (p.score != null ? Math.round(p.score * 100) : null);
 
         return {
           rank: p.rank || idx + 1,
@@ -376,6 +380,8 @@ export default function DashboardPage() {
           isFamily,
           repetition_type: p.repetition_type || (isFamily ? "EXACT" : null),
           confidence: p.confidence || (coverageRatio >= 0.7 ? "HIGH" : "MEDIUM"),
+          evidenceSufficiency: sufficiency,
+          probability: calibratedProb,
           papersWithItem,
           totalPapers,
           paperCoverage: coverageRatio,
@@ -647,6 +653,14 @@ export default function DashboardPage() {
               <p className="text-xs text-muted-foreground">
                 High-yield topics and recurring question signals calibrated from verified past papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
               </p>
+              {selectedCycle !== "ALL" && predictionsData?.assessment_scope?.component_code === "ALL" && (
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-600 dark:text-amber-400 mt-2">
+                  <Info className="w-4 h-4 shrink-0" />
+                  <span>
+                    <strong>Assessment Scope Notice:</strong> Trained on comprehensive course history due to limited {cycleDisplayLabel} paper archive.
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
@@ -733,18 +747,29 @@ export default function DashboardPage() {
                           <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-accent/15 text-accent font-mono text-xs font-bold">
                             #{item.rank || idx + 1}
                           </span>
-                          <div className="flex items-center gap-1.5">
+                          <div className="flex items-center gap-1.5 flex-wrap justify-end">
                             {item.isFamily && (
                               <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground border border-border">
                                 {item.repetition_type === "EXACT" ? "Exact Repeat Family" : "Recurring Question"}
                               </span>
                             )}
+                            {item.evidenceSufficiency === "SUFFICIENT" ? (
+                              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 inline-flex items-center gap-1 font-mono">
+                                <CheckCircle2 className="w-2.5 h-2.5" />
+                                Sufficient Evidence
+                              </span>
+                            ) : item.evidenceSufficiency === "LIMITED" ? (
+                              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 inline-flex items-center gap-1 font-mono">
+                                <Info className="w-2.5 h-2.5" />
+                                Limited Evidence
+                              </span>
+                            ) : null}
                             <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full border ${
                               isHighSignal
                                 ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"
                                 : "bg-accent/10 text-accent border-accent/20"
                             }`}>
-                              {isHighSignal ? "Strong Historical Signal" : "Moderate Historical Signal"}
+                              {isHighSignal ? "Strong Signal" : "Moderate Signal"}
                             </span>
                           </div>
                         </div>
@@ -763,17 +788,24 @@ export default function DashboardPage() {
                       <MintAIQuestionGenerator topicName={item.name || 'Unknown Topic'} />
 
                       {/* Evidence Proof Line: Historical Evidence & Marks Observed */}
-                      <div className="pt-2 border-t border-border/40 flex items-center justify-between text-[11px] text-muted-foreground font-mono">
+                      <div className="pt-2 border-t border-border/40 flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground font-mono">
                         <span>
                           {item.papersWithItem && item.totalPapers
-                            ? `Historical evidence: ${item.papersWithItem} of ${item.totalPapers} ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
+                            ? `Evidence: ${item.papersWithItem} of ${item.totalPapers} ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
                             : `${item.historicalOccurrences} historical occurrences`}
                         </span>
-                        {item.totalMarksObserved != null && (
-                          <span className="font-semibold text-foreground">
-                            {item.totalMarksObserved} marks observed historically
-                          </span>
-                        )}
+                        <div className="flex items-center gap-2">
+                          {item.probability != null && (
+                            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                              {item.probability}% Calibrated P
+                            </span>
+                          )}
+                          {item.totalMarksObserved != null && (
+                            <span className="font-semibold text-foreground">
+                              • {item.totalMarksObserved} marks
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   );

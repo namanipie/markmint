@@ -179,7 +179,11 @@ class BacktestHarness:
                         unmapped_marks += m
 
                 if q.family_id:
-                    fam_name = q.family.canonical_name if q.family else str(q.family_id)
+                    fam_name = (
+                        q.family.canonical_name.strip()
+                        if getattr(q, "family", None) and getattr(q.family, "canonical_name", "").strip()
+                        else f"Family {q.family_id}"
+                    )
                     f = families_dict.setdefault(fam_name, {"name": fam_name, "count": 0, "marks": 0.0})
                     f["count"] += 1
                     if not q.is_alternative:
@@ -318,30 +322,54 @@ class BacktestHarness:
 
             # Topic evaluation
             target_topics = target_data[PredictionTarget.TOPIC]
+            topic_supported = (len(target_topics) > 0) and (len(dna.topics) > 0)
             for model_name, model in topic_models.items():
-                preds = model.predict(PredictionTarget.TOPIC)
-                calib_ok = BacktestEvaluator.verify_probability_calibration(preds, hist_exam_count)
-                eval_metrics = BacktestEvaluator.evaluate(preds, target_topics, k_values=k_values)
-                evaluations.append({
-                    "course": course.name,
-                    "canonical_code": course.canonical_code,
-                    "course_id": course.id,
-                    "target_exam_id": target_exam.id,
-                    "target_exam_title": doc_title,
-                    "target_year": target_year,
-                    "cutoff_year": target_year,
-                    "assessment_cycle": used_cycle,
-                    "raw_assessment_type": target_exam.assessment_type,
-                    "mode": "topic",
-                    "model": model_name,
-                    "status": "COMPLETED",
-                    "evidence_sufficiency": sufficiency,
-                    "historical_exam_count": hist_exam_count,
-                    "historical_question_count": hist_question_count,
-                    "probability_calibration_verified": calib_ok,
-                    "qc": qc_meta,
-                    "metrics": eval_metrics,
-                })
+                if not topic_supported:
+                    evaluations.append({
+                        "course": course.name,
+                        "canonical_code": course.canonical_code,
+                        "course_id": course.id,
+                        "target_exam_id": target_exam.id,
+                        "target_exam_title": doc_title,
+                        "target_year": target_year,
+                        "cutoff_year": target_year,
+                        "assessment_cycle": used_cycle,
+                        "raw_assessment_type": target_exam.assessment_type,
+                        "mode": "topic",
+                        "model": model_name,
+                        "status": "INSUFFICIENT_EVIDENCE",
+                        "reason": "Target exam lacks mapped topics in ground truth" if len(target_topics) == 0 else "Historical context lacks mapped topics",
+                        "evidence_sufficiency": sufficiency,
+                        "historical_exam_count": hist_exam_count,
+                        "historical_question_count": hist_question_count,
+                        "probability_calibration_verified": True,
+                        "qc": qc_meta,
+                        "metrics": None,
+                    })
+                else:
+                    preds = model.predict(PredictionTarget.TOPIC)
+                    calib_ok = BacktestEvaluator.verify_probability_calibration(preds, hist_exam_count)
+                    eval_metrics = BacktestEvaluator.evaluate(preds, target_topics, k_values=k_values)
+                    evaluations.append({
+                        "course": course.name,
+                        "canonical_code": course.canonical_code,
+                        "course_id": course.id,
+                        "target_exam_id": target_exam.id,
+                        "target_exam_title": doc_title,
+                        "target_year": target_year,
+                        "cutoff_year": target_year,
+                        "assessment_cycle": used_cycle,
+                        "raw_assessment_type": target_exam.assessment_type,
+                        "mode": "topic",
+                        "model": model_name,
+                        "status": "COMPLETED",
+                        "evidence_sufficiency": sufficiency,
+                        "historical_exam_count": hist_exam_count,
+                        "historical_question_count": hist_question_count,
+                        "probability_calibration_verified": calib_ok,
+                        "qc": qc_meta,
+                        "metrics": eval_metrics,
+                    })
 
             # Family evaluation
             target_families = target_data[PredictionTarget.FAMILY]
@@ -537,31 +565,54 @@ class BacktestHarness:
 
                 # 4. Evaluate Topic Predictions
                 target_topics = target_data[PredictionTarget.TOPIC]
+                topic_supported = (len(target_topics) > 0) and (len(dna.topics) > 0)
                 for model_name, model in topic_models.items():
-                    preds = model.predict(PredictionTarget.TOPIC)
-                    calib_ok = BacktestEvaluator.verify_probability_calibration(preds, hist_exam_count)
-                    eval_metrics = BacktestEvaluator.evaluate(preds, target_topics, k_values=[3, 5, 10])
-                    total_predictions_run += 1
+                    if not topic_supported:
+                        detailed_evaluations.append({
+                            "course": course.name,
+                            "canonical_code": course.canonical_code,
+                            "course_id": course.id,
+                            "target_exam_id": target_exam.id,
+                            "target_exam_title": doc_title,
+                            "target_year": target_year,
+                            "assessment_cycle": used_cycle,
+                            "raw_assessment_type": target_exam.assessment_type,
+                            "mode": "topic",
+                            "model": model_name,
+                            "status": "INSUFFICIENT_EVIDENCE",
+                            "reason": "Target exam lacks mapped topics in ground truth" if len(target_topics) == 0 else "Historical context lacks mapped topics",
+                            "evidence_sufficiency": sufficiency,
+                            "historical_exam_count": hist_exam_count,
+                            "historical_question_count": hist_question_count,
+                            "probability_calibration_verified": True,
+                            "qc": qc_meta,
+                            "metrics": None
+                        })
+                    else:
+                        preds = model.predict(PredictionTarget.TOPIC)
+                        calib_ok = BacktestEvaluator.verify_probability_calibration(preds, hist_exam_count)
+                        eval_metrics = BacktestEvaluator.evaluate(preds, target_topics, k_values=[3, 5, 10])
+                        total_predictions_run += 1
 
-                    detailed_evaluations.append({
-                        "course": course.name,
-                        "canonical_code": course.canonical_code,
-                        "course_id": course.id,
-                        "target_exam_id": target_exam.id,
-                        "target_exam_title": doc_title,
-                        "target_year": target_year,
-                        "assessment_cycle": used_cycle,
-                        "raw_assessment_type": target_exam.assessment_type,
-                        "mode": "topic",
-                        "model": model_name,
-                        "status": "COMPLETED",
-                        "evidence_sufficiency": sufficiency,
-                        "historical_exam_count": hist_exam_count,
-                        "historical_question_count": hist_question_count,
-                        "probability_calibration_verified": calib_ok,
-                        "qc": qc_meta,
-                        "metrics": eval_metrics
-                    })
+                        detailed_evaluations.append({
+                            "course": course.name,
+                            "canonical_code": course.canonical_code,
+                            "course_id": course.id,
+                            "target_exam_id": target_exam.id,
+                            "target_exam_title": doc_title,
+                            "target_year": target_year,
+                            "assessment_cycle": used_cycle,
+                            "raw_assessment_type": target_exam.assessment_type,
+                            "mode": "topic",
+                            "model": model_name,
+                            "status": "COMPLETED",
+                            "evidence_sufficiency": sufficiency,
+                            "historical_exam_count": hist_exam_count,
+                            "historical_question_count": hist_question_count,
+                            "probability_calibration_verified": calib_ok,
+                            "qc": qc_meta,
+                            "metrics": eval_metrics
+                        })
 
                 # 5. Evaluate Family Predictions
                 target_families = target_data[PredictionTarget.FAMILY]
@@ -670,6 +721,9 @@ class BacktestHarness:
                 "timestamp": datetime.utcnow().isoformat(),
                 "total_courses_evaluated": total_courses_count,
                 "eligible_target_exams_evaluated": evaluated_target_exams,
+                "mapped_topic_evaluations_count": len([e for e in completed_topic_evals if e["model"] == "ExamScopeCombinedModel"]),
+                "unmapped_target_exams_count": len([e for e in detailed_evaluations if e["mode"] == "topic" and e["status"] == "INSUFFICIENT_EVIDENCE" and e["model"] == "ExamScopeCombinedModel"]),
+                "completed_family_evaluations_count": len(completed_family_evals),
                 "total_evaluation_records": len(detailed_evaluations),
                 "total_sparse_cases": len(sparse_cases),
                 "k_values": [3, 5, 10],
