@@ -123,6 +123,29 @@ class CurriculumSubjectResponse(BaseModel):
         from_attributes = True
 
 
+class EnrollmentCourseItem(BaseModel):
+    curriculum_id: str
+    subject_name: str
+    canonical_code: Optional[str] = None
+    course_id: Optional[int] = None
+    credits: float
+    course_type: str = "THEORY"
+    is_elective: bool = False
+    has_exams: bool = False
+    exam_count: int = 0
+    question_count: int = 0
+    status: str = "UNMATCHED"
+    notes: Optional[str] = None
+
+
+class EnrollmentPlanResponse(BaseModel):
+    branch_name: str
+    semester: int
+    total_default_credits: float
+    grade_scale: dict[str, float]
+    courses: list[EnrollmentCourseItem]
+
+
 # Exam Schemas
 class ExamBase(BaseModel):
     year: int

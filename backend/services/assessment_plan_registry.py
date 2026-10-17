@@ -9,12 +9,25 @@ Separates:
 2. Student-Facing Assessment (CT1, CT2, End Semester)
 3. Assessment Syllabus Scope (Units and Topics in scope)
 """
+import copy
+import threading
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional, Set, Any
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, func
 
 from backend.models.core import Course, Syllabus, Unit, Topic
+
+_plan_cache: Dict[tuple[int, Optional[int]], "CoursePlanDefinition"] = {}
+_scope_cache: Dict[tuple[int, str, Optional[int]], "AssessmentScope"] = {}
+_cache_lock = threading.Lock()
+
+
+def clear_assessment_caches():
+    """Clear in-memory caches for course plans and assessment scopes."""
+    with _cache_lock:
+        _plan_cache.clear()
+        _scope_cache.clear()
 
 
 @dataclass(frozen=True)
@@ -627,11 +640,19 @@ def get_course_assessment_plan(
     """
     Retrieve the authoritative CoursePlanDefinition for a course (and optional track), or None.
     Resolution order:
-    1. If track_id and db are provided, resolve track-specific plan from CourseAssessmentPlan DB model.
-    2. Check declarative COURSE_ASSESSMENT_PLANS registry (if no specific track requested).
-    3. If db is provided and not in registry, query CourseAssessmentPlan DB model.
-    4. Fallback to COURSE_ASSESSMENT_PLANS.
+    1. Check in-memory _plan_cache.
+    2. If track_id and db are provided, resolve track-specific plan from CourseAssessmentPlan DB model.
+    3. Check declarative COURSE_ASSESSMENT_PLANS registry (if no specific track requested).
+    4. If db is provided and not in registry, query CourseAssessmentPlan DB model.
+    5. Fallback to COURSE_ASSESSMENT_PLANS.
     """
+    cache_key = (course_id, track_id)
+    with _cache_lock:
+        if cache_key in _plan_cache:
+            return _plan_cache[cache_key]
+
+    resolved_plan = None
+
     # 1. Track-specific resolution from database
     if track_id is not None and db is not None:
         from backend.models.assessment import CourseAssessmentPlan as DBPlan
@@ -641,14 +662,14 @@ def get_course_assessment_plan(
             .first()
         )
         if db_plan and db_plan.components:
-            return _build_plan_from_db_model(course_id, db_plan)
+            resolved_plan = _build_plan_from_db_model(course_id, db_plan)
 
     # 2. Check declarative registry
-    if track_id is None and course_id in COURSE_ASSESSMENT_PLANS:
-        return COURSE_ASSESSMENT_PLANS[course_id]
+    if resolved_plan is None and track_id is None and course_id in COURSE_ASSESSMENT_PLANS:
+        resolved_plan = COURSE_ASSESSMENT_PLANS[course_id]
 
     # 3. Dynamic database query if db is available
-    if db is not None:
+    if resolved_plan is None and db is not None:
         from backend.models.assessment import CourseAssessmentPlan as DBPlan
         plan_q = db.query(DBPlan).filter(DBPlan.course_id == course_id)
         if track_id is not None:
@@ -657,10 +678,17 @@ def get_course_assessment_plan(
             plan_q = plan_q.filter(DBPlan.track_id.is_(None))
         db_plan = plan_q.first()
         if db_plan and db_plan.components:
-            return _build_plan_from_db_model(course_id, db_plan)
+            resolved_plan = _build_plan_from_db_model(course_id, db_plan)
 
     # 4. Fallback to registry
-    return COURSE_ASSESSMENT_PLANS.get(course_id)
+    if resolved_plan is None:
+        resolved_plan = COURSE_ASSESSMENT_PLANS.get(course_id)
+
+    if resolved_plan is not None:
+        with _cache_lock:
+            _plan_cache[cache_key] = resolved_plan
+
+    return resolved_plan
 
 
 def normalize_course_assessment_type(
@@ -755,6 +783,14 @@ def get_course_assessment_scope(
     """
     is_all = not student_cycle or student_cycle.strip().upper() == "ALL"
     cycle_clean = "ALL" if is_all else student_cycle.strip().upper()
+
+    cache_key = (course_id, cycle_clean, track_id)
+    with _cache_lock:
+        if cache_key in _scope_cache:
+            cached_scope = _scope_cache[cache_key]
+            # Return cached if caller doesn't need DB or if cached scope already has DB-computed observed_scope
+            if db is None or (cached_scope.observed_scope and cached_scope.observed_scope.get("paper_count", 0) >= 0):
+                return copy.deepcopy(cached_scope)
 
     plan = get_course_assessment_plan(course_id, db=db, track_id=track_id)
     matched_comp = None
@@ -965,5 +1001,9 @@ def get_course_assessment_scope(
             "papers": [],
         }
         scope.evidence_status = "ALL_SCOPE" if is_all else ("INTENDED_ONLY_NO_PAPERS" if (scope.has_authoritative_plan and scope.has_authoritative_unit_scope) else "UNPLANNED_OBSERVED_ONLY")
+
+    if db is not None:
+        with _cache_lock:
+            _scope_cache[cache_key] = copy.deepcopy(scope)
 
     return scope

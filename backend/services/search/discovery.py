@@ -45,6 +45,11 @@ class DiscoverySearchEngine:
         marks_match = re.search(r'(\d+)\s*mark', q)
         if marks_match:
             intent.extracted_marks = float(marks_match.group(1))
+
+        # LaTeX / Math detection
+        has_latex = "\\" in raw_query or "$" in raw_query or any(sym in raw_query for sym in ["^", "\\int", "\\sum", "\\frac", "\\lambda", "\\theta", "\\partial", "\\nabla"])
+        if has_latex and not intent.target_type:
+            intent.target_type = SearchResultType.EXAM_QUESTION
             
         # 3. Clean search term (remove boilerplate words & sanitize)
         stopwords = {
@@ -54,10 +59,10 @@ class DiscoverySearchEngine:
             "family", "families", "give", "me", "show", "find", "all"
         }
         words = q.split()
-        clean_words = [w for w in words if w not in stopwords and not w.isdigit()]
+        clean_words = [w for w in words if (w.startswith("\\") or w not in stopwords) and not w.isdigit()]
         if clean_words:
             clean = " ".join(clean_words).strip()
-        elif intent.target_type:
+        elif intent.target_type and not has_latex:
             clean = ""
         else:
             clean = raw_query.strip()
@@ -147,23 +152,36 @@ class DiscoverySearchEngine:
         if intent.clean_search_term:
             tokens = [t.strip() for t in intent.clean_search_term.split() if t.strip()]
             if len(tokens) > 1:
-                token_filters = [
-                    or_(
-                        QuestionFamily.canonical_name.ilike(f"%{t}%"),
-                        QuestionFamily.description.ilike(f"%{t}%"),
-                        QuestionFamily.subject.ilike(f"%{t}%")
-                    )
-                    for t in tokens
-                ]
+                token_filters = []
+                for t in tokens:
+                    t_esc = t.replace("\\", "\\\\")
+                    alts = [
+                        QuestionFamily.canonical_name.ilike(f"%{t_esc}%"),
+                        QuestionFamily.description.ilike(f"%{t_esc}%"),
+                        QuestionFamily.subject.ilike(f"%{t_esc}%")
+                    ]
+                    if t.startswith("\\") and len(t) > 1:
+                        plain_t = t.lstrip("\\")
+                        alts.extend([
+                            QuestionFamily.canonical_name.ilike(f"%{plain_t}%"),
+                            QuestionFamily.description.ilike(f"%{plain_t}%")
+                        ])
+                    token_filters.append(or_(*alts))
                 query = query.filter(and_(*token_filters))
             else:
-                term = f"%{intent.clean_search_term}%"
-                query = query.filter(
-                    or_(
-                        QuestionFamily.canonical_name.ilike(term),
-                        QuestionFamily.description.ilike(term)
-                    )
-                )
+                clean = intent.clean_search_term.strip()
+                t_esc = clean.replace("\\", "\\\\")
+                alts = [
+                    QuestionFamily.canonical_name.ilike(f"%{t_esc}%"),
+                    QuestionFamily.description.ilike(f"%{t_esc}%")
+                ]
+                if clean.startswith("\\") and len(clean) > 1:
+                    plain = clean.lstrip("\\")
+                    alts.extend([
+                        QuestionFamily.canonical_name.ilike(f"%{plain}%"),
+                        QuestionFamily.description.ilike(f"%{plain}%")
+                    ])
+                query = query.filter(or_(*alts))
         results = query.limit(limit).all()
         return [
             SearchResult(
@@ -207,22 +225,34 @@ class DiscoverySearchEngine:
             clean = intent.clean_search_term.strip()
             tokens = [t.strip() for t in clean.split() if t.strip()]
             if len(tokens) > 1:
-                token_conditions = [
-                    or_(
-                        Question.original_text.ilike(f"%{t}%"),
-                        Question.normalized_text.ilike(f"%{t}%")
-                    )
-                    for t in tokens
-                ]
+                token_conditions = []
+                for t in tokens:
+                    t_esc = t.replace("\\", "\\\\")
+                    alts = [
+                        Question.original_text.ilike(f"%{t_esc}%"),
+                        Question.normalized_text.ilike(f"%{t_esc}%")
+                    ]
+                    if t.startswith("\\") and len(t) > 1:
+                        plain_t = t.lstrip("\\")
+                        alts.extend([
+                            Question.original_text.ilike(f"%{plain_t}%"),
+                            Question.normalized_text.ilike(f"%{plain_t}%")
+                        ])
+                    token_conditions.append(or_(*alts))
                 query = query.filter(and_(*token_conditions))
             else:
-                term = f"%{clean}%"
-                query = query.filter(
-                    or_(
-                        Question.original_text.ilike(term),
-                        Question.normalized_text.ilike(term)
-                    )
-                )
+                t_esc = clean.replace("\\", "\\\\")
+                alts = [
+                    Question.original_text.ilike(f"%{t_esc}%"),
+                    Question.normalized_text.ilike(f"%{t_esc}%")
+                ]
+                if clean.startswith("\\") and len(clean) > 1:
+                    plain = clean.lstrip("\\")
+                    alts.extend([
+                        Question.original_text.ilike(f"%{plain}%"),
+                        Question.normalized_text.ilike(f"%{plain}%")
+                    ])
+                query = query.filter(or_(*alts))
             
         results = query.order_by(Exam.year.desc().nullslast(), Question.marks.desc().nullslast(), Question.id.asc()).limit(limit).all()
         

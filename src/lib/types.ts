@@ -552,6 +552,29 @@ export interface CurriculumSubject {
   notes: string | null;
 }
 
+export interface EnrollmentCourseItem {
+  curriculum_id: string;
+  subject_name: string;
+  canonical_code?: string | null;
+  course_id?: number | null;
+  credits: number;
+  course_type: "THEORY" | "PRACTICAL" | "INTEGRATED" | "PROJECT" | string;
+  is_elective: boolean;
+  has_exams: boolean;
+  exam_count: number;
+  question_count: number;
+  status: string;
+  notes?: string | null;
+}
+
+export interface EnrollmentPlanResponse {
+  branch_name: string;
+  semester: number;
+  total_default_credits: number;
+  grade_scale: Record<string, number>;
+  courses: EnrollmentCourseItem[];
+}
+
 export interface InitialScopeResponse {
   branches: string[];
   default_branch: string;

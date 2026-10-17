@@ -26,7 +26,11 @@ const GRADE_POINTS: Record<string, number> = {
   "Ab": 0,
 };
 
-import { getCurriculumBranches, getCurriculumSubjects } from "@/lib/api";
+import {
+  getCurriculumBranches,
+  getCurriculumSubjects,
+  getCurriculumEnrollmentPlan,
+} from "@/lib/api";
 
 export function ScopeCalculator() {
   const [branches, setBranches] = useState<string[]>([]);
@@ -101,10 +105,25 @@ export function ScopeCalculator() {
     if (semester !== "custom") {
       setIsLoadingCurriculum(true);
       try {
-        const subjectList = await getCurriculumSubjects(branch, Number(semester));
-        if (subjectList && subjectList.length > 0) {
-          setCourses(
-            subjectList.map((s) => ({
+        let loadedCourses: CourseGrade[] = [];
+        try {
+          const plan = await getCurriculumEnrollmentPlan(branch, Number(semester));
+          if (plan && plan.courses && plan.courses.length > 0) {
+            loadedCourses = plan.courses.map((c) => ({
+              id: c.curriculum_id,
+              name: c.subject_name,
+              credits: c.credits,
+              grade: "",
+              course_id: c.course_id,
+              status: c.status,
+              notes: c.canonical_code ? `${c.course_type} • ${c.canonical_code}` : c.notes,
+            }));
+          }
+        } catch {
+          // Fallback to static catalog hierarchy
+          const subjectList = await getCurriculumSubjects(branch, Number(semester));
+          if (subjectList && subjectList.length > 0) {
+            loadedCourses = subjectList.map((s) => ({
               id: s.curriculum_id,
               name: s.subject_name,
               credits: s.credits || 3,
@@ -112,8 +131,12 @@ export function ScopeCalculator() {
               course_id: s.course_id,
               status: s.status,
               notes: s.notes,
-            }))
-          );
+            }));
+          }
+        }
+
+        if (loadedCourses.length > 0) {
+          setCourses(loadedCourses);
         } else {
           toast("Curriculum for this semester is not added yet.", { duration: 3000 });
           setSelectedSemester("custom");

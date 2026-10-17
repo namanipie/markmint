@@ -138,3 +138,19 @@ def test_corpus_invariants_conserved():
         assert db.query(QuestionFamily).count() >= 6103
     finally:
         db.close()
+
+
+def test_curriculum_enrollment_plan(client: TestClient):
+    resp = client.get("/api/curriculum/branches/Computer%20Science%20and%20Engineering/semesters/1/enrollment")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["branch_name"] == "Computer Science and Engineering"
+    assert data["semester"] == 1
+    assert data["total_default_credits"] > 0
+    assert "O" in data["grade_scale"]
+    assert len(data["courses"]) > 0
+    first_c = data["courses"][0]
+    assert "curriculum_id" in first_c
+    assert "subject_name" in first_c
+    assert "credits" in first_c
+    assert "course_type" in first_c

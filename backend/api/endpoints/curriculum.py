@@ -5,7 +5,12 @@ from sqlalchemy import func
 
 from backend.core.database import get_db
 from backend.models.core import CurriculumMapping, Course, Exam, Section, Question
-from backend.schemas import CurriculumSubjectResponse, CourseTrackResponse
+from backend.schemas import (
+    CurriculumSubjectResponse,
+    CourseTrackResponse,
+    EnrollmentPlanResponse,
+    EnrollmentCourseItem,
+)
 
 router = APIRouter()
 
@@ -190,6 +195,90 @@ def get_branch_semester_subjects(
         ))
 
     return results
+
+
+SRMIST_GRADE_SCALE = {
+    "O": 10.0,
+    "A+": 9.0,
+    "A": 8.0,
+    "B+": 7.0,
+    "B": 6.0,
+    "C": 5.0,
+    "W": 0.0,
+    "F": 0.0,
+    "Ab": 0.0,
+}
+
+
+@router.get("/branches/{branch}/semesters/{semester}/enrollment", response_model=EnrollmentPlanResponse)
+def get_branch_semester_enrollment(
+    branch: str,
+    semester: int,
+    db: Session = Depends(get_db)
+) -> EnrollmentPlanResponse:
+    """Return pre-populated course enrollment plan for GPA and CGPA calculations."""
+    branches = get_cached_branches(db)
+    target_branch = branch
+    matched = False
+    for b in branches:
+        if b.lower() == branch.lower() or b.lower().replace(" ", "-") == branch.lower():
+            target_branch = b
+            matched = True
+            break
+    if not matched:
+        for b in branches:
+            if branch.lower() in b.lower():
+                target_branch = b
+                matched = True
+                break
+
+    subjects = get_branch_semester_subjects(target_branch, semester, db)
+    
+    courses = []
+    for s in subjects:
+        name_lower = s.subject_name.lower()
+        if "lab" in name_lower or "laboratory" in name_lower or "practical" in name_lower:
+            course_type = "PRACTICAL"
+            credits = float(s.credits) if (s.credits and s.credits > 0) else 1.5
+        elif "project" in name_lower or "capstone" in name_lower or "internship" in name_lower:
+            course_type = "PROJECT"
+            credits = float(s.credits) if (s.credits and s.credits > 0) else 2.0
+        elif s.canonical_code and s.canonical_code.strip().endswith("J"):
+            course_type = "INTEGRATED"
+            credits = float(s.credits) if (s.credits and s.credits > 0) else 4.0
+        elif s.canonical_code and s.canonical_code.strip().endswith("L"):
+            course_type = "PRACTICAL"
+            credits = float(s.credits) if (s.credits and s.credits > 0) else 1.5
+        else:
+            course_type = "THEORY"
+            credits = float(s.credits) if (s.credits and s.credits > 0) else 3.0
+
+        is_elective = "elective" in name_lower or (s.notes is not None and "elective" in s.notes.lower())
+
+        courses.append(EnrollmentCourseItem(
+            curriculum_id=s.curriculum_id,
+            subject_name=s.subject_name,
+            canonical_code=s.canonical_code,
+            course_id=s.course_id,
+            credits=credits,
+            course_type=course_type,
+            is_elective=is_elective,
+            has_exams=s.has_exams,
+            exam_count=s.exam_count,
+            question_count=s.question_count,
+            status=s.status,
+            notes=s.notes,
+        ))
+
+    total_credits = sum(c.credits for c in courses)
+
+    return EnrollmentPlanResponse(
+        branch_name=target_branch,
+        semester=semester,
+        total_default_credits=total_credits,
+        grade_scale=SRMIST_GRADE_SCALE,
+        courses=courses,
+    )
 
 
 @router.get("/stats")

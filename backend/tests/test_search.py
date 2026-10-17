@@ -51,3 +51,24 @@ def test_search_routing():
         mock_c.assert_called_once()
         mock_q.assert_called_once()
         mock_s.assert_called_once()
+
+
+def test_latex_intent_parsing():
+    engine = DiscoverySearchEngine(db=None)
+    intent = engine._parse_intent(r"\int e^{2x} dx")
+    assert intent.target_type == SearchResultType.EXAM_QUESTION
+    assert r"\int" in intent.clean_search_term
+
+    intent2 = engine._parse_intent(r"\lambda eigenvalues")
+    assert intent2.target_type == SearchResultType.EXAM_QUESTION
+    assert r"\lambda" in intent2.clean_search_term
+
+
+def test_search_get_endpoint():
+    from fastapi.testclient import TestClient
+    from backend.main import app
+
+    client = TestClient(app)
+    response = client.get("/api/search/?q=eigenvalues&limit=3")
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)

@@ -15,48 +15,108 @@ from typing import Any, Optional
 router = APIRouter()
 
 
+import threading
+
+_course_resolution_cache: dict[str, int] = {}
+_course_cache_lock = threading.Lock()
+
+
+def clear_course_resolution_cache():
+    """Clear in-memory course resolution cache."""
+    with _course_cache_lock:
+        _course_resolution_cache.clear()
+
+
+def _remember_course(course: Optional[Course]):
+    if not course:
+        return
+    cid = course.id
+    with _course_cache_lock:
+        _course_resolution_cache[str(cid)] = cid
+        if course.canonical_code:
+            cc = course.canonical_code.strip().lower()
+            _course_resolution_cache[cc] = cid
+            _course_resolution_cache[re.sub(r'[^a-zA-Z0-9]', '', cc)] = cid
+        if course.code:
+            code = course.code.strip().lower()
+            _course_resolution_cache[code] = cid
+            _course_resolution_cache[re.sub(r'[^a-zA-Z0-9]', '', code)] = cid
+        if course.name:
+            name = course.name.strip().lower()
+            _course_resolution_cache[name] = cid
+            _course_resolution_cache[re.sub(r'[^a-zA-Z0-9]', '', name)] = cid
+
+
+def warm_course_resolution_cache(db: Session):
+    """Pre-warm course resolution cache with all courses, codes, and canonical aliases."""
+    courses = db.query(Course).all()
+    for c in courses:
+        _remember_course(c)
+
+
 def _find_course(db: Session, identifier: str) -> Optional[Course]:
     """Generically resolve a course by exact name, case-insensitive name, code, canonical code, ID, or alphanumeric string."""
     if not identifier:
         return None
 
+    norm_key = str(identifier).strip().lower()
+    clean_alpha = re.sub(r'[^a-zA-Z0-9]', '', norm_key)
+
+    with _course_cache_lock:
+        cached_id = _course_resolution_cache.get(norm_key) or _course_resolution_cache.get(clean_alpha)
+    if cached_id is not None:
+        course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == cached_id).first()
+        if course:
+            return course
+
     # 1. Numeric ID match (fastest if numeric ID passed)
     if str(identifier).isdigit():
         course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == int(identifier)).first()
         if course:
+            _remember_course(course)
             return course
 
     # 2. Canonical code match (e.g. 21MAB101T)
     course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.canonical_code) == identifier.lower()).first()
     if course:
+        _remember_course(course)
         return course
 
     # 3. Exact or case-insensitive name match
     course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.name) == identifier.lower()).first()
     if course:
+        _remember_course(course)
         return course
 
     # 4. Case-insensitive code match (e.g. SEM1-CALC)
     course = db.query(Course).options(joinedload(Course.tracks)).filter(func.lower(Course.code) == identifier.lower()).first()
     if course:
+        _remember_course(course)
         return course
 
     # 5. Normalized alphanumeric match (ignores spaces, punctuation, case)
-    norm_id = re.sub(r'[^a-zA-Z0-9]', '', str(identifier)).lower()
-    if norm_id:
+    if clean_alpha:
         all_courses = db.query(Course).all()
         for c in all_courses:
-            if c.canonical_code and re.sub(r'[^a-zA-Z0-9]', '', c.canonical_code).lower() == norm_id:
-                return c
-            if re.sub(r'[^a-zA-Z0-9]', '', c.name).lower() == norm_id:
-                return c
-            if re.sub(r'[^a-zA-Z0-9]', '', c.code).lower() == norm_id:
-                return c
+            if c.canonical_code and re.sub(r'[^a-zA-Z0-9]', '', c.canonical_code).lower() == clean_alpha:
+                course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == c.id).first()
+                _remember_course(course)
+                return course
+            if re.sub(r'[^a-zA-Z0-9]', '', c.name).lower() == clean_alpha:
+                course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == c.id).first()
+                _remember_course(course)
+                return course
+            if re.sub(r'[^a-zA-Z0-9]', '', c.code).lower() == clean_alpha:
+                course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == c.id).first()
+                _remember_course(course)
+                return course
 
         # 6. Prefix / substring match for course names (e.g. 'Calculus' -> 'Calculus And Linear Algebra')
         for c in all_courses:
-            if norm_id in re.sub(r'[^a-zA-Z0-9]', '', c.name).lower():
-                return c
+            if clean_alpha in re.sub(r'[^a-zA-Z0-9]', '', c.name).lower():
+                course = db.query(Course).options(joinedload(Course.tracks)).filter(Course.id == c.id).first()
+                _remember_course(course)
+                return course
 
     return None
 

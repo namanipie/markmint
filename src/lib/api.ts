@@ -57,6 +57,8 @@ import {
   CurriculumSubject,
   CurriculumStats,
   InitialScopeResponse,
+  EnrollmentPlanResponse,
+  EnrollmentCourseItem,
   IntelligenceSnapshot,
   HistoricalQuestion,
   SearchResult,
@@ -181,6 +183,13 @@ export async function getCurriculumSubjects(
     return [];
   }
   return catalogHierarchy[branchKey][String(semester)] || [];
+}
+
+export async function getCurriculumEnrollmentPlan(
+  branch: string,
+  semester: number | string
+): Promise<EnrollmentPlanResponse> {
+  return fetchAPI(`/curriculum/branches/${encodeURIComponent(branch)}/semesters/${semester}/enrollment`);
 }
 
 export function findCurriculumSubjectByCourseId(courseId: number): {

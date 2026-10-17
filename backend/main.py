@@ -72,14 +72,16 @@ def on_startup():
     try:
         from backend.core.database import SessionLocal
         from backend.services.curriculum_seeder import ensure_curriculum_seeded
+        from backend.api.endpoints.predictions import warm_course_resolution_cache
         db = SessionLocal()
         try:
             ensure_curriculum_seeded(db)
+            warm_course_resolution_cache(db)
         finally:
             db.close()
     except Exception as e:
         import logging
-        logging.getLogger("markmint").warning("Startup curriculum seeding deferred: %s", e)
+        logging.getLogger("markmint").warning("Startup seeding/warming deferred: %s", e)
 
 app.include_router(api_router, prefix="/api")
 
