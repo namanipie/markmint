@@ -59,6 +59,7 @@ backend/
 
 ### Completed
 - **Neon PostgreSQL Migration**: 31 tables migrated, sequence-synchronized, and verified in production.
+- **Curriculum Taxonomy Expansion (Semesters 5 & 6)**: 6 core courses added (IDs 32–37: Discrete Mathematics, Formal Languages & Automata, Computer Networks, Software Engineering & Project Management, Compiler Design, Data Science), 30 units, 150 topics, 36 past exam papers ingested (1,186 questions, 1,135 families), and 140 curriculum mappings promoted (reaching 917 MATCHED).
 - **Prediction Engine**: `ExamScopeCombinedModel` (40% recent freq + 30% marks + 30% historical freq) delivering 70.9% Precision@5 in EndSem evaluations.
 - **Historical Backtesting Suite**: Automated temporal cross-validation across 222 historical exams.
 - **Frontend Confidence & Evidence Badging**: Live dashboard displaying calibrated probabilities and evidence tier indicators (`Sufficient Evidence` vs `Limited Evidence`).
@@ -69,17 +70,17 @@ backend/
 - **Study Plan & Student Progress Loop**: Direct 1-click action from MintAI predictions into `study-plan` with `StudentTopicProgress` persistence.
 - **Mid-Term Paper Ingestion**: Ingesting CT1/CT2 cycle test papers to elevate mid-term prediction coverage.
 - **LaTeX & Formula Search**: Question bank formula matching and repetition family filter (`EXACT_REPEAT` vs `CONCEPTUAL`).
-- **Taxonomy Expansion**: Expanding syllabus taxonomy to 3rd and 4th year engineering (Semesters 5–8).
+- **Taxonomy Expansion (Semesters 7 & 8)**: Expanding final-year electives and core courses.
 
 ## 6. Important APIs / Routes
 
 | Method | Route | Purpose |
 |---|---|---|
 | GET | `/api/health` | Health & DB connection check |
-| GET | `/api/courses/` | List all 31 courses |
+| GET | `/api/courses/` | List all 37 courses |
 | GET | `/api/intelligence/{course_id}` | Full intelligence snapshot for course |
-| GET | `/api/predictions/exam/{course_id}` | Exam scope combined topic predictions |
-| GET | `/api/curriculum/stats` | Mapping status counts (777/40/1993) |
+| GET | `/api/predictions/{subject}` | Exam scope combined topic predictions |
+| GET | `/api/curriculum/stats` | Mapping status counts (917/40/1853) |
 | GET | `/api/study/priorities/{course_name}` | High-yield study plan priorities |
 | GET | `/api/analytics/course/{course_id}/topic/{topic_id}` | Topic exam recurrence & student progress |
 | POST | `/api/submissions/upload` | Paper submission upload & validation |
@@ -87,16 +88,17 @@ backend/
 ## 7. Database Memory
 
 Corpus Scale:
-- Courses: 31 (Semesters 1–4)
-- Exams: 320
-- Questions: 9,205
-- Question Families: 7,610
-- Topics: 926
-- Curriculum Mappings: 2,810 (777 MATCHED)
+- Courses: 37 (Semesters 1–6)
+- Exams: 356
+- Questions: 10,391
+- Question Families: 8,745
+- Topics: 1,076
+- Concepts: 886
+- Curriculum Mappings: 2,810 (917 MATCHED, 40 AMBIGUOUS, 1,853 UNMATCHED)
 
 Core Models (`backend/models/core.py`):
 - `Course`, `Syllabus`, `Unit`, `Topic`, `Concept`
-- `Exam`, `Section`, `Question`, `QuestionFamily`, `QuestionFamilyMember`
+- `Exam`, `Section`, `Question`, `QuestionFamily`, `QuestionFamilyMembership`
 - `CurriculumMapping`, `StudyEvidence`, `StudentTopicProgress`
 
 ## 8. Security Rules
