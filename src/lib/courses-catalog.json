@@ -6357,5 +6357,947 @@
     ],
     "mintAiUrl": "/mintai?course=SEM6-DS",
     "practiceUrl": "/mintai?course=SEM6-DS&tab=practice"
+  },
+  {
+    "id": 38,
+    "slug": "internet-of-things",
+    "aliases": [
+      "internet-of-things",
+      "21csc401t",
+      "sem7-iot",
+      "internet of things"
+    ],
+    "name": "Internet of Things",
+    "code": "SEM7-IOT",
+    "canonicalCode": "21CSC401T",
+    "semester": 7,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Architectures, sensing, microcontroller interfacing, low-power wireless networking, cloud telemetry, edge computing, and real-world industrial IoT deployments.",
+    "paperCount": 7,
+    "questionCount": 211,
+    "mappedQuestionCount": 190,
+    "mappingRate": 0.9,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to IoT Architecture and Design Principles",
+        "topicCount": 5,
+        "topics": [
+          "Definition and Characteristics of Internet of Things",
+          "Physical Design of IoT: Things and Protocols",
+          "Logical Design of IoT: Functional Blocks and Communication Models",
+          "IoT Enabling Technologies: Sensors, Actuators, Wireless Sensor Networks",
+          "IoT Levels and Deployment Templates"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "IoT Hardware, Microcontrollers, and Interfacing",
+        "topicCount": 5,
+        "topics": [
+          "Sensors: Temperature, Humidity, Pressure, Optical, and Motion Sensors",
+          "Actuators and Drive Circuits: Relays, Servos, Stepper Motors",
+          "Embedded Microcontrollers: Arduino, ESP8266, ESP32, and Raspberry Pi",
+          "Interfacing Interfaces: GPIO, I2C, SPI, UART, and ADC/DAC",
+          "Power Management and Energy Harvesting in IoT Nodes"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "IoT Networking and Communication Protocols",
+        "topicCount": 5,
+        "topics": [
+          "Link Layer Protocols: IEEE 802.15.4, ZigBee, Bluetooth Low Energy (BLE)",
+          "Long-Range Wireless: LoRaWAN, Sigfox, NB-IoT, and 5G IoT",
+          "Network and Transport: 6LoWPAN, RPL, UDP, and DTLS",
+          "Application Layer Protocols: MQTT Architecture, Publish/Subscribe, and QoS",
+          "CoAP (Constrained Application Protocol), HTTP/REST, and WebSockets in IoT"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Cloud Computing, Edge Intelligence, and IoT Data Analytics",
+        "topicCount": 5,
+        "topics": [
+          "IoT Cloud Platforms: AWS IoT Core, Microsoft Azure IoT Hub, Google Cloud IoT",
+          "Data Telemetry, Ingestion Pipelines, and Time-Series Databases",
+          "Edge Computing and Fog Computing Architectures in IoT",
+          "Real-Time Stream Processing and Anomaly Detection in IoT Streams",
+          "Integration of Machine Learning Models on Edge Microcontrollers (TinyML)"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "IoT Security, Privacy, and Domain Applications",
+        "topicCount": 5,
+        "topics": [
+          "IoT Security Vulnerabilities, Threat Modeling, and Attack Vectors",
+          "Cryptographic Solutions for Constrained Devices (AES-CCM, Lightweight Ciphers)",
+          "Smart Cities, Smart Transportation, and Traffic Management Systems",
+          "Industrial IoT (IIoT), Predictive Maintenance, and SCADA Integration",
+          "Healthcare IoT (IoMT), Smart Agriculture, and Environmental Monitoring"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Definition and Characteristics of Internet of Things",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Physical Design of IoT: Things and Protocols",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Sensors: Temperature, Humidity, Pressure, Optical, and Motion Sensors",
+        "unitNumber": 2,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Actuators and Drive Circuits: Relays, Servos, Stepper Motors",
+        "unitNumber": 2,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Link Layer Protocols: IEEE 802.15.4, ZigBee, Bluetooth Low Energy (BLE)",
+        "unitNumber": 3,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Long-Range Wireless: LoRaWAN, Sigfox, NB-IoT, and 5G IoT",
+        "unitNumber": 3,
+        "questionCount": 16,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM7-IOT",
+    "practiceUrl": "/mintai?course=SEM7-IOT&tab=practice"
+  },
+  {
+    "id": 39,
+    "slug": "digital-image-processing",
+    "aliases": [
+      "digital-image-processing",
+      "21csc402t",
+      "sem7-dip",
+      "digital image processing"
+    ],
+    "name": "Digital Image Processing",
+    "code": "SEM7-DIP",
+    "canonicalCode": "21CSC402T",
+    "semester": 7,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Visual perception, spatial and frequency domain filtering, image restoration, color processing, morphological algorithms, segmentation, and feature extraction.",
+    "paperCount": 6,
+    "questionCount": 212,
+    "mappedQuestionCount": 190,
+    "mappingRate": 0.896,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Digital Image Fundamentals and Visual Perception",
+        "topicCount": 5,
+        "topics": [
+          "Elements of Visual Perception, Eye Structure, and Brightness Adaptation",
+          "Image Sensing, Acquisition, Sampling, and Quantization",
+          "Representing Digital Images, Spatial and Gray-Level Resolution",
+          "Pixel Relationships: Neighbors, Adjacency, Connectivity, and Distance Measures",
+          "Basic Mathematical Operations on Digital Images (Arithmetic, Logical, Geometric)"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Spatial Domain Image Enhancement and Filtering",
+        "topicCount": 5,
+        "topics": [
+          "Intensity Transformations: Negative, Log, Power-Law (Gamma), Piecewise-Linear",
+          "Histogram Processing: Histogram Equalization, Specification, and Local Histograms",
+          "Spatial Filtering Fundamentals: Correlation and Convolution Operations",
+          "Smoothing Spatial Filters: Linear Box Filters, Gaussian Filters, Non-linear Median Filters",
+          "Sharpening Spatial Filters: First and Second Derivatives, Laplacian, Unsharp Masking"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Frequency Domain Filtering and Image Restoration",
+        "topicCount": 5,
+        "topics": [
+          "2D Discrete Fourier Transform (DFT) and Frequency Domain Properties",
+          "Frequency Domain Filtering Pipeline: Ideal, Butterworth, and Gaussian Lowpass Filters",
+          "Frequency Domain Highpass Filters and High-Frequency Emphasis Filtering",
+          "Image Degradation and Restoration Model, Noise Probability Density Functions",
+          "Restoration in Presence of Noise Only: Mean, Order-Statistics, Wiener Filtering"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Color Image Processing, Wavelets, and Morphological Operations",
+        "topicCount": 5,
+        "topics": [
+          "Color Models: RGB, CMY/CMYK, HSI/HSV, and Color Transformations",
+          "Pseudocolor and Full-Color Image Processing and Sharpening",
+          "Morphological Image Processing: Dilation, Erosion, Opening, and Closing",
+          "Hit-or-Miss Transformation, Boundary Extraction, Hole Filling, and Thinning",
+          "Image Pyramids, Subband Coding, and Discrete Wavelet Transform (DWT)"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Image Segmentation, Feature Representation, and Object Detection",
+        "topicCount": 5,
+        "topics": [
+          "Point, Line, and Edge Detection: Sobel, Prewitt, Laplacian, and Canny Edge Detector",
+          "Hough Transform for Line and Circle Detection",
+          "Thresholding Techniques: Global, Adaptive, and Otsu's Optimum Global Thresholding",
+          "Region-Based Segmentation: Region Growing, Region Splitting and Merging",
+          "Feature Representation: Boundary Descriptors, Topological Descriptors, and Moments"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Elements of Visual Perception, Eye Structure, and Brightness Adaptation",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Image Sensing, Acquisition, Sampling, and Quantization",
+        "unitNumber": 1,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Intensity Transformations: Negative, Log, Power-Law (Gamma), Piecewise-Linear",
+        "unitNumber": 2,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Histogram Processing: Histogram Equalization, Specification, and Local Histograms",
+        "unitNumber": 2,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "2D Discrete Fourier Transform (DFT) and Frequency Domain Properties",
+        "unitNumber": 3,
+        "questionCount": 16,
+        "paperCount": 4
+      },
+      {
+        "topic": "Frequency Domain Filtering Pipeline: Ideal, Butterworth, and Gaussian Lowpass Filters",
+        "unitNumber": 3,
+        "questionCount": 16,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM7-DIP",
+    "practiceUrl": "/mintai?course=SEM7-DIP&tab=practice"
+  },
+  {
+    "id": 40,
+    "slug": "security-governance-risk-and-compliance",
+    "aliases": [
+      "security-governance-risk-and-compliance",
+      "21css401t",
+      "sem7-grc",
+      "security governance, risk and compliance"
+    ],
+    "name": "Security Governance, Risk and Compliance",
+    "code": "SEM7-GRC",
+    "canonicalCode": "21CSS401T",
+    "semester": 7,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Enterprise security governance frameworks, risk assessment methodologies, security policies, regulatory audits, compliance architectures, and business continuity.",
+    "paperCount": 7,
+    "questionCount": 254,
+    "mappedQuestionCount": 229,
+    "mappingRate": 0.902,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Information Security Governance and Strategic Alignment",
+        "topicCount": 5,
+        "topics": [
+          "Foundations of Information Security Governance and Executive Oversight",
+          "Governance Frameworks: COBIT, ISO/IEC 27014, and NIST Cybersecurity Framework (CSF)",
+          "Strategic Alignment: Aligning Information Security with Business Objectives",
+          "Roles and Responsibilities: Board of Directors, CISO, Security Steering Committee",
+          "Security Metrics and Key Performance Indicators (KPIs/KRIs)"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Risk Management Frameworks and Threat Identification",
+        "topicCount": 5,
+        "topics": [
+          "Information Security Risk Concepts: Assets, Threats, Vulnerabilities, and Impact",
+          "Risk Assessment Methodologies: ISO 27005, NIST SP 800-30, and OCTAVE",
+          "Asset Identification, Valuation, and Classification Schemes",
+          "Threat Profiling, Vulnerability Assessment, and Threat Intelligence Integration",
+          "Risk Appetite, Tolerance, and Risk Treatment Strategies (Mitigate, Transfer, Accept, Avoid)"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Information Security Policies, Standards, and Architecture",
+        "topicCount": 5,
+        "topics": [
+          "Security Policy Hierarchy: Policies, Standards, Baselines, Guidelines, and Procedures",
+          "Developing Enterprise Information Security Policy (EISP) and Issue-Specific Policies (ISSP)",
+          "Access Control and Data Protection Policies (Need-to-Know, Least Privilege)",
+          "Vendor and Third-Party Risk Management Policies (Supply Chain Cybersecurity)",
+          "Security Awareness, Education, and Training Programs (SETA)"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Regulatory Compliance, Auditing, and Privacy Frameworks",
+        "topicCount": 5,
+        "topics": [
+          "Legal, Regulatory, and Industry Mandates: GDPR, HIPAA, Sarbanes-Oxley (SOX), PCI-DSS",
+          "ISO/IEC 27001 Certification, Statement of Applicability (SoA), and ISO 27002 Controls",
+          "Internal and External Security Auditing: Audit Planning, Fieldwork, and Reporting",
+          "SOC 1, SOC 2, and SOC 3 Compliance and Trust Services Criteria",
+          "Data Privacy Principles, Cross-Border Data Transfers, and Data Subject Rights"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Incident Management, Business Continuity, and Disaster Recovery",
+        "topicCount": 5,
+        "topics": [
+          "Incident Response Life Cycle: NIST SP 800-61 Preparation, Detection, Containment, Recovery",
+          "Computer Security Incident Response Teams (CSIRT) and Digital Forensics Readiness",
+          "Business Impact Analysis (BIA), Maximum Tolerable Downtime (MTD), RTO, and RPO",
+          "Business Continuity Planning (BCP) and Disaster Recovery Planning (DRP)",
+          "Crisis Communication, Exercise Testing (Tabletop, Parallel, Full Interruption), and Post-Mortem"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Foundations of Information Security Governance and Executive Oversight",
+        "unitNumber": 1,
+        "questionCount": 20,
+        "paperCount": 4
+      },
+      {
+        "topic": "Governance Frameworks: COBIT, ISO/IEC 27014, and NIST Cybersecurity Framework (CSF)",
+        "unitNumber": 1,
+        "questionCount": 20,
+        "paperCount": 4
+      },
+      {
+        "topic": "Information Security Risk Concepts: Assets, Threats, Vulnerabilities, and Impact",
+        "unitNumber": 2,
+        "questionCount": 20,
+        "paperCount": 4
+      },
+      {
+        "topic": "Risk Assessment Methodologies: ISO 27005, NIST SP 800-30, and OCTAVE",
+        "unitNumber": 2,
+        "questionCount": 20,
+        "paperCount": 4
+      },
+      {
+        "topic": "Security Policy Hierarchy: Policies, Standards, Baselines, Guidelines, and Procedures",
+        "unitNumber": 3,
+        "questionCount": 20,
+        "paperCount": 4
+      },
+      {
+        "topic": "Developing Enterprise Information Security Policy (EISP) and Issue-Specific Policies (ISSP)",
+        "unitNumber": 3,
+        "questionCount": 20,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM7-GRC",
+    "practiceUrl": "/mintai?course=SEM7-GRC&tab=practice"
+  },
+  {
+    "id": 41,
+    "slug": "security-risk-management-and-principles",
+    "aliases": [
+      "security-risk-management-and-principles",
+      "21csc403t",
+      "sem7-srmp",
+      "security risk management and principles"
+    ],
+    "name": "Security Risk Management and Principles",
+    "code": "SEM7-SRMP",
+    "canonicalCode": "21CSC403T",
+    "semester": 7,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Threat modeling, quantitative and qualitative risk analysis, defense-in-depth, security controls selection, residual risk management, and enterprise cyber resilience.",
+    "paperCount": 6,
+    "questionCount": 194,
+    "mappedQuestionCount": 166,
+    "mappingRate": 0.856,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Fundamentals of Security Risk and Threat Environments",
+        "topicCount": 5,
+        "topics": [
+          "Principles of Information Security: CIA Triad, Non-Repudiation, and Authenticity",
+          "The Threat Landscape: Nation-State Actors, Cybercriminals, Insiders, and APTs",
+          "Cyber Kill Chain and MITRE ATT&CK Framework Mapping",
+          "Vulnerability Management: CVE, NVD, and CVSS v3.1 Scoring Mechanics",
+          "Risk Terminology: Inherent Risk, Control Effectiveness, and Residual Risk"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Threat Modeling and System Security Analysis",
+        "topicCount": 5,
+        "topics": [
+          "Threat Modeling Methodologies: STRIDE, DREAD, PASTA, and VAST",
+          "Data Flow Diagrams (DFDs) for Trust Boundaries and Security Analysis",
+          "Attack Trees, Attack Graphs, and Exploitation Probability Calculation",
+          "Systemic Weakness Identification in Software Architectures and Cloud Infrastructures",
+          "Security Architecture Review and Security Defect Prioritization"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Qualitative and Quantitative Risk Analysis Methodologies",
+        "topicCount": 5,
+        "topics": [
+          "Qualitative Risk Analysis: Risk Matrices, Probability-Impact Ratings, Heat Maps",
+          "Quantitative Risk Analysis: Single Loss Expectancy (SLE), Annualized Rate of Occurrence (ARO)",
+          "Annualized Loss Expectancy (ALE) and Return on Security Investment (ROSI)",
+          "Factor Analysis of Information Risk (FAIR) Framework and Monte Carlo Simulations",
+          "Evaluating Uncertainty, Biases, and Confidence Intervals in Risk Estimates"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Security Controls, Mitigation, and Architecture",
+        "topicCount": 5,
+        "topics": [
+          "Security Control Categories: Technical, Operational, Management, and Physical",
+          "Control Types: Preventive, Detective, Corrective, Deterrent, and Compensating",
+          "NIST SP 800-53 Control Catalog and Baseline Selection",
+          "Defense-in-Depth, Zero Trust Architecture (ZTA), and Least Privilege Implementation",
+          "Cost-Benefit Analysis for Risk Mitigation and Security Controls"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Residual Risk, Cyber Insurance, and Enterprise Governance",
+        "topicCount": 5,
+        "topics": [
+          "Managing Residual Risk and Formal Risk Acceptance Procedures",
+          "Risk Transfer Strategies: Cyber Liability Insurance Underwriting and Policy Exclusions",
+          "Third-Party Vendor Risk Assessments (SOC Reports, SIG, CAIQ)",
+          "Continuous Monitoring, Key Risk Indicators (KRIs), and Dynamic Risk Dashboards",
+          "Legal, Regulatory Penalties, and Corporate Board Risk Communication"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Principles of Information Security: CIA Triad, Non-Repudiation, and Authenticity",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "The Threat Landscape: Nation-State Actors, Cybercriminals, Insiders, and APTs",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Threat Modeling Methodologies: STRIDE, DREAD, PASTA, and VAST",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Data Flow Diagrams (DFDs) for Trust Boundaries and Security Analysis",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Qualitative Risk Analysis: Risk Matrices, Probability-Impact Ratings, Heat Maps",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Quantitative Risk Analysis: Single Loss Expectancy (SLE), Annualized Rate of Occurrence (ARO)",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM7-SRMP",
+    "practiceUrl": "/mintai?course=SEM7-SRMP&tab=practice"
+  },
+  {
+    "id": 42,
+    "slug": "information-security",
+    "aliases": [
+      "information-security",
+      "21csc404t",
+      "sem7-is",
+      "information security"
+    ],
+    "name": "Information Security",
+    "code": "SEM7-IS",
+    "canonicalCode": "21CSC404T",
+    "semester": 7,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Cryptographic foundations, public key infrastructure, digital signatures, authentication protocols, network perimeter security, firewalls, and intrusion detection systems.",
+    "paperCount": 3,
+    "questionCount": 103,
+    "mappedQuestionCount": 90,
+    "mappingRate": 0.874,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Cryptographic Foundations and Classical Encryption",
+        "topicCount": 5,
+        "topics": [
+          "Security Attacks, Services, and Mechanisms (X.800 Architecture)",
+          "Classical Encryption Techniques: Substitution Ciphers (Caesar, Playfair, Vigen\u00e8re)",
+          "Transposition Techniques and Steganography Principles",
+          "Block Ciphers vs Stream Ciphers: Shannon's Principles of Confusion and Diffusion",
+          "Data Encryption Standard (DES), Triple DES (3DES), and Differential Cryptanalysis Overview"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Symmetric Encryption and Advanced Encryption Standard",
+        "topicCount": 5,
+        "topics": [
+          "Advanced Encryption Standard (AES) Structure, SubBytes, ShiftRows, MixColumns, AddRoundKey",
+          "Block Cipher Modes of Operation: ECB, CBC, CFB, OFB, and CTR",
+          "Galois/Counter Mode (GCM) and Authenticated Encryption",
+          "Random Number Generation and Pseudorandom Generators (PRNGs)",
+          "Stream Ciphers: RC4 and ChaCha20 Algorithms"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Asymmetric Cryptography and Key Management",
+        "topicCount": 5,
+        "topics": [
+          "Mathematical Foundations: Fermat's and Euler's Theorems, Modular Arithmetic, GCD",
+          "RSA Algorithm: Key Generation, Encryption, Decryption, and Security Analysis",
+          "Diffie-Hellman Key Exchange Algorithm and Man-in-the-Middle Vulnerability",
+          "Elliptic Curve Cryptography (ECC) Fundamentals and ECDH",
+          "Key Distribution Centers (KDC), Public Key Authorities, and X.509 Certificates"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Cryptographic Hashes, Digital Signatures, and Authentication",
+        "topicCount": 5,
+        "topics": [
+          "Cryptographic Hash Functions: Properties, Collision Resistance, MD5, SHA-256, SHA-3",
+          "Message Authentication Codes (MAC) and HMAC Construction",
+          "Digital Signature Standard (DSS) and RSA Digital Signatures",
+          "Mutual Authentication Protocols: Kerberos Authentication Architecture (Tickets, TGS)",
+          "Public Key Infrastructure (PKI), Certification Authorities (CA), and CRL/OCSP"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Network Security Protocols and Defense Systems",
+        "topicCount": 5,
+        "topics": [
+          "IP Security (IPSec): Architecture, AH, ESP, and IKE Protocol Modes (Transport vs Tunnel)",
+          "Transport Layer Security (TLS/SSL): Handshake Protocol, Record Protocol, and Ciphersuites",
+          "Email Security: PGP (Pretty Good Privacy) and S/MIME Protocol",
+          "Firewall Technologies: Packet Filtering, Stateful Inspection, and Next-Gen Firewalls (NGFW)",
+          "Intrusion Detection and Prevention Systems (IDS/IPS): Signature vs Anomaly Based"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Security Attacks, Services, and Mechanisms (X.800 Architecture)",
+        "unitNumber": 1,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Classical Encryption Techniques: Substitution Ciphers (Caesar, Playfair, Vigen\u00e8re)",
+        "unitNumber": 1,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Advanced Encryption Standard (AES) Structure, SubBytes, ShiftRows, MixColumns, AddRoundKey",
+        "unitNumber": 2,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Block Cipher Modes of Operation: ECB, CBC, CFB, OFB, and CTR",
+        "unitNumber": 2,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "Mathematical Foundations: Fermat's and Euler's Theorems, Modular Arithmetic, GCD",
+        "unitNumber": 3,
+        "questionCount": 8,
+        "paperCount": 3
+      },
+      {
+        "topic": "RSA Algorithm: Key Generation, Encryption, Decryption, and Security Analysis",
+        "unitNumber": 3,
+        "questionCount": 8,
+        "paperCount": 3
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM7-IS",
+    "practiceUrl": "/mintai?course=SEM7-IS&tab=practice"
+  },
+  {
+    "id": 43,
+    "slug": "digital-signal-processing",
+    "aliases": [
+      "digital-signal-processing",
+      "21ecc302j",
+      "sem8-dsp",
+      "digital signal processing"
+    ],
+    "name": "Digital Signal Processing",
+    "code": "SEM8-DSP",
+    "canonicalCode": "21ECC302J",
+    "semester": 8,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Discrete-time signals and systems, Z-transforms, DFT/FFT algorithms, IIR and FIR digital filter synthesis, finite wordlength effects, and DSP architectures.",
+    "paperCount": 4,
+    "questionCount": 133,
+    "mappedQuestionCount": 122,
+    "mappingRate": 0.917,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Discrete-Time Signals, Systems, and Z-Transforms",
+        "topicCount": 5,
+        "topics": [
+          "Classification of Discrete-Time Signals and Systems (Linearity, Causality, Stability)",
+          "Linear Time-Invariant (LTI) Systems, Convolution Sum, and Difference Equations",
+          "Z-Transform Definition, Region of Convergence (ROC), and Key Properties",
+          "Inverse Z-Transform: Partial Fraction Expansion, Power Series, and Contour Integration",
+          "System Function H(z), Frequency Response, Pole-Zero Plots, and Stability Analysis"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Discrete Fourier Transform (DFT) and Fast Fourier Transform (FFT)",
+        "topicCount": 5,
+        "topics": [
+          "Discrete Fourier Transform (DFT) Definition and Inverse DFT (IDFT)",
+          "Properties of DFT: Linearity, Periodicity, Circular Convolution, and Parseval's Theorem",
+          "Linear Filtering via DFT: Overlap-Add and Overlap-Save Methods",
+          "Fast Fourier Transform (FFT): Decimation-in-Time (DIT-FFT) Radix-2 Algorithm",
+          "Decimation-in-Frequency (DIF-FFT) Radix-2 Algorithm and Computational Complexity"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Infinite Impulse Response (IIR) Digital Filter Design",
+        "topicCount": 5,
+        "topics": [
+          "Analog Filter Approximations: Butterworth and Chebyshev Filter Responses",
+          "IIR Filter Design by Impulse Invariance Method and Aliasing Issues",
+          "IIR Filter Design by Bilinear Transformation Method and Frequency Warping",
+          "Spectral Frequency Transformations for Lowpass, Highpass, Bandpass, and Bandstop",
+          "Realization of IIR Filters: Direct Form I, Direct Form II, Cascade, and Parallel Structures"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Finite Impulse Response (FIR) Digital Filter Design",
+        "topicCount": 5,
+        "topics": [
+          "Symmetric and Antisymmetric FIR Filters and Linear Phase Characteristics",
+          "FIR Filter Design using Windowing Techniques (Rectangular, Hamming, Hanning, Blackman)",
+          "Kaiser Window Design and Parameter Optimization",
+          "Frequency Sampling Method for FIR Filter Synthesis",
+          "Realization of FIR Filters: Direct Form, Cascade Form, and Lattice Structures"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Finite Wordlength Effects and DSP Hardware Architectures",
+        "topicCount": 5,
+        "topics": [
+          "Number Representations: Fixed-Point, Floating-Point, and Quantization Errors",
+          "ADC Quantization Noise Analysis and Signal-to-Quantization Noise Ratio (SQNR)",
+          "Coefficient Quantization Effects on Pole Locations in IIR/FIR Filters",
+          "Limit Cycle Oscillations and Overflow Limit Cycles in Recursive Systems",
+          "Architecture of Digital Signal Processors (Harvard Architecture, MAC Unit, Pipelining)"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Classification of Discrete-Time Signals and Systems (Linearity, Causality, Stability)",
+        "unitNumber": 1,
+        "questionCount": 10,
+        "paperCount": 4
+      },
+      {
+        "topic": "Linear Time-Invariant (LTI) Systems, Convolution Sum, and Difference Equations",
+        "unitNumber": 1,
+        "questionCount": 10,
+        "paperCount": 4
+      },
+      {
+        "topic": "Discrete Fourier Transform (DFT) Definition and Inverse DFT (IDFT)",
+        "unitNumber": 2,
+        "questionCount": 10,
+        "paperCount": 4
+      },
+      {
+        "topic": "Properties of DFT: Linearity, Periodicity, Circular Convolution, and Parseval's Theorem",
+        "unitNumber": 2,
+        "questionCount": 10,
+        "paperCount": 4
+      },
+      {
+        "topic": "Analog Filter Approximations: Butterworth and Chebyshev Filter Responses",
+        "unitNumber": 3,
+        "questionCount": 10,
+        "paperCount": 4
+      },
+      {
+        "topic": "IIR Filter Design by Impulse Invariance Method and Aliasing Issues",
+        "unitNumber": 3,
+        "questionCount": 10,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM8-DSP",
+    "practiceUrl": "/mintai?course=SEM8-DSP&tab=practice"
   }
 ]

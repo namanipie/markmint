@@ -181,7 +181,7 @@ class DiscoverySearchEngine:
     def _hybrid_search_questions(self, intent: ParsedIntent, filters: SearchFilters, limit: int) -> list[SearchResult]:
         if not self.db:
             return []
-        query = self.db.query(Question).join(Question.section).join(Section.exam).outerjoin(Exam.document)
+        query = self.db.query(Question).join(Question.section).join(Section.exam).outerjoin(Exam.document).outerjoin(Exam.course).outerjoin(Question.family)
         
         # Exact/Metadata filters
         if intent.extracted_marks:
@@ -190,33 +190,71 @@ class DiscoverySearchEngine:
             query = query.filter(Question.marks == filters.marks)
         if filters.year:
             query = query.filter(Exam.year == filters.year)
+        if filters.course_id:
+            query = query.filter(Exam.course_id == filters.course_id)
+        if filters.subject:
+            query = query.filter(or_(
+                Course.name.ilike(f"%{filters.subject}%"),
+                Course.code.ilike(f"%{filters.subject}%"),
+                Course.canonical_code.ilike(f"%{filters.subject}%")
+            ))
+        if filters.topic:
+            query = query.filter(Question.topics.any(Topic.name.ilike(f"%{filters.topic}%")))
+        if filters.repetition_type:
+            query = query.filter(QuestionFamily.repetition_type == filters.repetition_type)
             
         if intent.clean_search_term:
-            term = f"%{intent.clean_search_term}%"
-            query = query.filter(
-                or_(
-                    Question.original_text.ilike(term),
-                    Question.normalized_text.ilike(term)
+            clean = intent.clean_search_term.strip()
+            tokens = [t.strip() for t in clean.split() if t.strip()]
+            if len(tokens) > 1:
+                token_conditions = [
+                    or_(
+                        Question.original_text.ilike(f"%{t}%"),
+                        Question.normalized_text.ilike(f"%{t}%")
+                    )
+                    for t in tokens
+                ]
+                query = query.filter(and_(*token_conditions))
+            else:
+                term = f"%{clean}%"
+                query = query.filter(
+                    or_(
+                        Question.original_text.ilike(term),
+                        Question.normalized_text.ilike(term)
+                    )
                 )
-            )
             
-        results = query.limit(limit).all()
+        results = query.order_by(Exam.year.desc().nullslast(), Question.marks.desc().nullslast(), Question.id.asc()).limit(limit).all()
         
         out = []
         for q in results:
             doc_url = q.section.exam.document.original_url if (q.section and q.section.exam and q.section.exam.document) else None
             top_name = ", ".join(t.name for t in q.topics) if q.topics else "General"
+            course_name = q.section.exam.course.name if (q.section and q.section.exam and q.section.exam.course) else None
+            fam = q.family
             out.append(SearchResult(
                 id=q.id,
                 result_type=SearchResultType.EXAM_QUESTION,
                 title=f"Exam Question: {top_name} ({q.marks or 0:.0f} marks)",
-                text_snippet=q.original_text[:200] if q.original_text else "",
+                text_snippet=q.original_text if q.original_text else "",
+                subject=course_name,
                 year=q.section.exam.year if q.section and q.section.exam else None,
                 exam_type=q.section.exam.assessment_type if q.section and q.section.exam else None,
                 topic=top_name,
-                relevance_score=0.88,
+                relevance_score=0.92,
                 provenance_url=doc_url,
-                metadata={"question_id": q.id, "marks": q.marks, "is_alternative": q.is_alternative}
+                metadata={
+                    "question_id": q.id,
+                    "question_number": q.question_number,
+                    "marks": q.marks,
+                    "is_alternative": q.is_alternative,
+                    "course_id": q.section.exam.course_id if (q.section and q.section.exam) else None,
+                    "family_id": fam.id if fam else None,
+                    "family_name": fam.canonical_name if fam else None,
+                    "repetition_type": fam.repetition_type if fam else "singleton",
+                    "difficulty": q.difficulty,
+                    "cognitive_level": q.cognitive_level
+                }
             ))
         return out
 

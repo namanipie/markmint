@@ -259,3 +259,72 @@ def get_practice_questions(
         }
     finally:
         db.close()
+
+
+@router.get("/practice/topic-questions")
+def get_topic_historical_questions(
+    topic_name: str = Query(..., description="Name of the syllabus topic"),
+    course_id: Optional[int] = Query(None, description="Course ID filter"),
+    course_code: Optional[str] = Query(None, description="Course code filter"),
+    limit: int = Query(25, ge=1, le=100),
+    db: Session = Depends(get_db)
+):
+    """
+    Retrieve verified authentic past examination questions mapped to a specific syllabus topic.
+    Returns provenance including exam year, assessment term, marks, and question family repetition type.
+    """
+    from sqlalchemy import func
+    from backend.api.endpoints.predictions import _find_course
+
+    query = (
+        db.query(Question, Exam, Section, QuestionFamily)
+        .select_from(Question)
+        .join(Section, Question.section_id == Section.id)
+        .join(Exam, Section.exam_id == Exam.id)
+        .outerjoin(QuestionFamily, Question.family_id == QuestionFamily.id)
+        .join(question_topic, Question.id == question_topic.c.question_id)
+        .join(Topic, question_topic.c.topic_id == Topic.id)
+        .filter(func.lower(Topic.name) == topic_name.strip().lower())
+    )
+
+    if course_id:
+        query = query.filter(Exam.course_id == course_id)
+    elif course_code:
+        course = _find_course(db, course_code)
+        if course:
+            query = query.filter(Exam.course_id == course.id)
+
+    results = (
+        query
+        .order_by(
+            Exam.year.desc().nullslast(),
+            Question.marks.desc().nullslast(),
+            Question.id.asc()
+        )
+        .limit(limit)
+        .all()
+    )
+
+    items = []
+    for q, exam, sec, fam in results:
+        items.append({
+            "id": q.id,
+            "question_number": q.question_number,
+            "original_text": q.original_text,
+            "marks": q.marks,
+            "year": exam.year,
+            "term": exam.term,
+            "assessment_type": exam.assessment_type,
+            "section_name": sec.name,
+            "family_id": fam.id if fam else None,
+            "family_name": fam.canonical_name if fam else None,
+            "repetition_type": fam.repetition_type if fam else "singleton",
+            "difficulty": q.difficulty,
+            "cognitive_level": q.cognitive_level
+        })
+
+    return {
+        "topic": topic_name,
+        "total_questions": len(items),
+        "questions": items
+    }

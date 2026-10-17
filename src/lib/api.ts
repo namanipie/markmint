@@ -75,7 +75,9 @@ import {
   AdminReviewSummary,
   SubmitterFeedback,
   SubmissionQualityMetrics,
-  ExamDNA
+  ExamDNA,
+  TopicHistoricalQuestion,
+  TopicQuestionsResponse
 } from "./types";
 
 // ==========================================
@@ -295,12 +297,41 @@ export async function getCorpusHealth(): Promise<any> {
   return fetchAPI("/intelligence/corpus-health");
 }
 
-export async function searchIntelligence(query: { raw_query: string; limit?: number }): Promise<SearchResult[]> {
+export async function searchIntelligence(query: { 
+  raw_query: string; 
+  filters?: {
+    subject?: string;
+    course_id?: number;
+    semester?: number;
+    year?: number;
+    exam_type?: string;
+    unit?: string;
+    topic?: string;
+    marks?: number;
+    resource_type?: string;
+    repetition_type?: string;
+  };
+  limit?: number;
+}): Promise<SearchResult[]> {
   return fetchAPI("/search/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(query),
   });
+}
+
+export async function getTopicHistoricalQuestions(
+  topicName: string,
+  courseId?: number,
+  courseCode?: string | null,
+  limit: number = 25
+): Promise<TopicQuestionsResponse> {
+  const params = new URLSearchParams();
+  params.set("topic_name", topicName);
+  if (courseId !== undefined && courseId !== null) params.set("course_id", String(courseId));
+  if (courseCode) params.set("course_code", courseCode);
+  params.set("limit", String(limit));
+  return fetchAPI(`/practice/topic-questions?${params.toString()}`);
 }
 
 export async function logFailedSearch(query: string, assessment?: string, subject?: string, course_id?: number): Promise<any> {

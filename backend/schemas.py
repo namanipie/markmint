@@ -607,6 +607,7 @@ class SearchResultType(str, Enum):
 
 class SearchFilters(BaseModel):
     subject: Optional[str] = None
+    course_id: Optional[int] = None
     semester: Optional[int] = None
     year: Optional[int] = None
     exam_type: Optional[str] = None
@@ -614,6 +615,7 @@ class SearchFilters(BaseModel):
     topic: Optional[str] = None
     marks: Optional[float] = None
     resource_type: Optional[str] = None
+    repetition_type: Optional[str] = None
 
 class SearchResult(BaseModel):
     id: int

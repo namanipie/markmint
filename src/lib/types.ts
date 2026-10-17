@@ -803,6 +803,28 @@ export interface SearchResult {
   metadata?: Record<string, any> | null;
 }
 
+export interface TopicHistoricalQuestion {
+  id: number;
+  question_number?: string;
+  original_text: string;
+  marks?: number;
+  year?: number;
+  term?: string;
+  assessment_type?: string;
+  section_name?: string;
+  family_id?: number;
+  family_name?: string;
+  repetition_type?: "exact_repeat" | "family_repeat" | "singleton" | string;
+  difficulty?: number;
+  cognitive_level?: string;
+}
+
+export interface TopicQuestionsResponse {
+  topic: string;
+  total_questions: number;
+  questions: TopicHistoricalQuestion[];
+}
+
 export interface RepetitionOverview {
   course_id: number;
   course_name: string;

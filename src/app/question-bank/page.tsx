@@ -5,8 +5,8 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { MathText } from "@/components/ui/math-text";
-import { getCurriculumBranches, getCurriculumSubjects } from "@/lib/api";
-import { CurriculumSubject } from "@/lib/types";
+import { getCurriculumBranches, getCurriculumSubjects, searchIntelligence } from "@/lib/api";
+import { CurriculumSubject, SearchResult } from "@/lib/types";
 import { coursesCatalog } from "@/lib/courses";
 import { 
   ChevronRight, 
@@ -17,10 +17,17 @@ import {
   Target,
   Loader2,
   ListChecks,
-  Database
+  Database,
+  Search,
+  X,
+  Sparkles,
+  RotateCcw,
+  Award,
+  Calendar
 } from "lucide-react";
 
 import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
+import { TopicQuestionsViewer } from "@/components/ui/topic-questions-viewer";
 
 export default function QuestionBankPage() {
   const [branches, setBranches] = useState<string[]>([]);
@@ -31,6 +38,50 @@ export default function QuestionBankPage() {
   
   const [expandedUnit, setExpandedUnit] = useState<number | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
+
+  // Search Radar state
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [showSearchResults, setShowSearchResults] = useState<boolean>(false);
+
+  // Handle search with debouncing
+  useEffect(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      setShowSearchResults(false);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setIsSearching(true);
+      searchIntelligence({
+        raw_query: searchQuery.trim(),
+        limit: 12,
+      })
+        .then((res) => {
+          setSearchResults(res || []);
+          setShowSearchResults(true);
+          setIsSearching(false);
+        })
+        .catch(() => {
+          setIsSearching(false);
+        });
+    }, 280);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
+  const quickPills = [
+    "Eigenvalues",
+    "\\int f(x) dx",
+    "Finite Automata",
+    "TCP 3-Way Handshake",
+    "Deadlock Avoidance",
+    "Gantt Chart",
+    "Round Robin",
+    "Normal Forms BCNF",
+  ];
 
   // Load branches
   useEffect(() => {
@@ -102,6 +153,129 @@ export default function QuestionBankPage() {
           <p className="text-sm text-muted-foreground max-w-2xl">
             Select your semester and subject to drill down into unit-wise topics. MintAI will instantly organize and generate 1-mark MCQs, 4-mark, 8-mark, and 13-mark questions for any topic.
           </p>
+        </div>
+
+        {/* Search Radar: Universal Question & Formula Search */}
+        <div className="p-4 sm:p-5 rounded-2xl border border-border/80 bg-card shadow-xs space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <Search className="w-4 h-4 text-accent" />
+              <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                Search Radar • 10,391 Authentic Questions
+              </h3>
+            </div>
+            {isSearching && (
+              <span className="inline-flex items-center gap-1 text-[11px] text-accent">
+                <Loader2 className="w-3 h-3 animate-spin" />
+                Searching...
+              </span>
+            )}
+          </div>
+
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search by keywords, topic, or LaTeX formula (e.g. 'eigenvalues', '\begin{pmatrix}', 'Gantt chart', 'TCP')..."
+              className="w-full bg-background border border-border rounded-xl px-4 py-2.5 pl-10 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-xs"
+            />
+            <Search className="w-4 h-4 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2" />
+            {searchQuery && (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSearchResults([]);
+                  setShowSearchResults(false);
+                }}
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+
+          {/* Quick Formula / Topic Pills */}
+          <div className="flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-[11px] font-semibold text-muted-foreground mr-1">Quick:</span>
+            {quickPills.map((pill) => (
+              <button
+                key={pill}
+                onClick={() => setSearchQuery(pill)}
+                className="text-[11px] px-2.5 py-1 rounded-lg bg-muted/40 hover:bg-accent/10 border border-border/60 hover:border-accent/30 text-muted-foreground hover:text-accent transition-all font-mono"
+              >
+                {pill}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Results Drawer */}
+          {showSearchResults && (
+            <div className="mt-4 pt-3 border-t border-border/50 space-y-3">
+              <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <span>Found {searchResults.length} matching questions across the academic corpus:</span>
+                <button
+                  onClick={() => setShowSearchResults(false)}
+                  className="text-xs text-accent hover:underline"
+                >
+                  Close Results
+                </button>
+              </div>
+
+              {searchResults.length === 0 ? (
+                <p className="text-xs text-muted-foreground py-3 text-center">
+                  No questions directly matched &ldquo;{searchQuery}&rdquo;. Try another formula or keyword.
+                </p>
+              ) : (
+                <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+                  {searchResults.map((res, rIdx) => (
+                    <div
+                      key={res.id || rIdx}
+                      className="p-3.5 rounded-xl border border-border/80 bg-background hover:border-accent/40 transition-all space-y-1.5 shadow-2xs"
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-1.5 text-[11px]">
+                        <div className="flex items-center gap-2">
+                          {res.subject && (
+                            <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary font-semibold text-[10px]">
+                              {res.subject}
+                            </span>
+                          )}
+                          {res.topic && (
+                            <span className="text-muted-foreground font-medium">
+                              • {res.topic}
+                            </span>
+                          )}
+                          {res.year && (
+                            <span className="text-muted-foreground">
+                              • {res.year}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          {res.metadata?.repetition_type === "exact_repeat" && (
+                            <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+                              <RotateCcw className="w-2.5 h-2.5" />
+                              Repeat
+                            </span>
+                          )}
+                          {res.metadata?.marks && (
+                            <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded">
+                              {res.metadata.marks} Marks
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="text-xs text-foreground/90 leading-relaxed font-sans">
+                        <MathText content={res.text_snippet} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
@@ -280,10 +454,14 @@ export default function QuestionBankPage() {
                                     )}
                                   </button>
 
-                                  {/* Generated Questions (Expanded) */}
+                                  {/* Authentic & Practice Questions (Expanded) */}
                                   {expandedTopic === topic && (
                                     <div className="border-t border-border/50 p-4">
-                                      <MintAIQuestionGenerator topicName={topic} courseId={activeSubject.courseId} />
+                                      <TopicQuestionsViewer
+                                        topicName={topic}
+                                        courseId={activeSubject.courseId}
+                                        courseCode={activeSubject.canonicalCode}
+                                      />
                                     </div>
                                   )}
                                 </div>
