@@ -111,7 +111,7 @@ export default async function Image() {
               color: "#F3F0E8",
             }}
           >
-            9,205 Verified Questions
+            11,498 Verified Questions
           </div>
           <div
             style={{
@@ -126,7 +126,7 @@ export default async function Image() {
               color: "#F3F0E8",
             }}
           >
-            320 Exam Papers
+            389 Authentic Papers
           </div>
           <div
             style={{

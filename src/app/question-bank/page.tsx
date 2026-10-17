@@ -161,7 +161,7 @@ export default function QuestionBankPage() {
             <div className="flex items-center gap-2">
               <Search className="w-4 h-4 text-accent" />
               <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
-                Search Radar • 10,391 Authentic Questions
+                Search Radar • 11,498 Authentic Questions
               </h3>
             </div>
             {isSearching && (

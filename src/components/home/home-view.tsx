@@ -43,7 +43,7 @@ export function HomeView() {
           <div className="w-full md:w-3/5 flex flex-col items-start">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-              MarkMint v1.0 • SRMIST First-Year Intelligence
+              MarkMint v2.0 • SRMIST Semesters 1–8 Academic Intelligence
             </p>
             
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
@@ -205,7 +205,7 @@ export function HomeView() {
                 href="/courses"
                 className="text-xs text-muted-foreground hover:text-foreground transition-colors"
               >
-                Select from 23 courses
+                Select from 43 courses
               </Link>
             </div>
           </section>
@@ -226,7 +226,7 @@ export function HomeView() {
               href="/courses"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
             >
-              View all 23 courses <ChevronRight className="w-4 h-4" />
+              View all 43 courses <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
