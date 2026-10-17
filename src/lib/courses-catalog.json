@@ -1130,14 +1130,14 @@
         "units": [
           {
             "number": 1,
-            "name": "Begrüßungen, Sich Vorstellen und Grundlagen",
+            "name": "Begr\u00fc\u00dfungen, Sich Vorstellen und Grundlagen",
             "topicCount": 6,
             "topics": [
-              "Begrüßungen und Verabschiedungen",
-              "Sich Vorstellen und Persönliche Angaben",
+              "Begr\u00fc\u00dfungen und Verabschiedungen",
+              "Sich Vorstellen und Pers\u00f6nliche Angaben",
               "Alphabet, Zahlen bis 100 und Buchstabieren",
-              "Länder, Sprachen und Wohnort",
-              "W-Fragen und Fragewörter",
+              "L\u00e4nder, Sprachen und Wohnort",
+              "W-Fragen und Fragew\u00f6rter",
               "Wochentage, Monate und Jahreszeiten"
             ]
           },
@@ -1147,10 +1147,10 @@
             "topicCount": 5,
             "topics": [
               "Personalpronomen im Nominativ",
-              "Konjugation Regelmäßiger und Unregelmäßiger Verben",
+              "Konjugation Regelm\u00e4\u00dfiger und Unregelm\u00e4\u00dfiger Verben",
               "Zahlen bis eine Million",
-              "Satzbau: Aussagesatz und Fragesätze",
-              "Formulare und Steckbriefe Ausfüllen"
+              "Satzbau: Aussagesatz und Frages\u00e4tze",
+              "Formulare und Steckbriefe Ausf\u00fcllen"
             ]
           },
           {
@@ -1158,8 +1158,8 @@
             "name": "Wortschatz, Artikel und Wegbeschreibung",
             "topicCount": 6,
             "topics": [
-              "Wortschatz: Gebäude, Plätze und Verkehrsmittel",
-              "Gegenstände, Schulsachen und Geräte",
+              "Wortschatz: Geb\u00e4ude, Pl\u00e4tze und Verkehrsmittel",
+              "Gegenst\u00e4nde, Schulsachen und Ger\u00e4te",
               "Bestimmte und Unbestimmte Artikel im Nominativ",
               "Negation mit kein und nicht",
               "Wegbeschreibung, Orientierung und Himmelsrichtungen",
@@ -1171,10 +1171,10 @@
             "name": "Lebensmittel, Einkaufen, Akkusativ und Uhrzeit",
             "topicCount": 5,
             "topics": [
-              "Lebensmittel, Mahlzeiten und Getränke",
-              "Preise, Einkaufen und Maßeinheiten",
+              "Lebensmittel, Mahlzeiten und Getr\u00e4nke",
+              "Preise, Einkaufen und Ma\u00dfeinheiten",
               "Akkusativ: Bestimmte, Unbestimmte Artikel und Negation",
-              "Verben mit Akkusativ-Ergänzung",
+              "Verben mit Akkusativ-Erg\u00e4nzung",
               "Uhrzeit: Offizielle und Inoffizielle Zeitangaben"
             ]
           },
@@ -1183,23 +1183,23 @@
             "name": "Modalverben, Trennbare Verben und Familie",
             "topicCount": 5,
             "topics": [
-              "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+              "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
               "Trennbare und Untrennbare Verben",
               "Possessivpronomen im Nominativ",
-              "Familie und Verwandtschaftsverhältnisse",
-              "Präteritum von sein und haben"
+              "Familie und Verwandtschaftsverh\u00e4ltnisse",
+              "Pr\u00e4teritum von sein und haben"
             ]
           }
         ],
         "highYieldTopics": [
           {
-            "topic": "Modalverben: müssen, können, wollen, sollen, dürfen, mögen",
+            "topic": "Modalverben: m\u00fcssen, k\u00f6nnen, wollen, sollen, d\u00fcrfen, m\u00f6gen",
             "unitNumber": 5,
             "questionCount": 9,
             "paperCount": 5
           },
           {
-            "topic": "Länder, Sprachen und Wohnort",
+            "topic": "L\u00e4nder, Sprachen und Wohnort",
             "unitNumber": 1,
             "questionCount": 4,
             "paperCount": 4
@@ -1211,7 +1211,7 @@
             "paperCount": 2
           },
           {
-            "topic": "Präteritum von sein und haben",
+            "topic": "Pr\u00e4teritum von sein und haben",
             "unitNumber": 5,
             "questionCount": 2,
             "paperCount": 2
@@ -1235,12 +1235,12 @@
         "units": [
           {
             "number": 1,
-            "name": "Alphabet, Phonétique et Communication en Classe",
+            "name": "Alphabet, Phon\u00e9tique et Communication en Classe",
             "topicCount": 4,
             "topics": [
-              "L'Alphabet Français et la Phonétique",
+              "L'Alphabet Fran\u00e7ais et la Phon\u00e9tique",
               "Les Accents et la Ponctuation",
-              "L'Orthographe et les Règles de Prononciation",
+              "L'Orthographe et les R\u00e8gles de Prononciation",
               "La Communication et les Consignes en Classe"
             ]
           },
@@ -1251,25 +1251,25 @@
             "topics": [
               "Les Salutations et Formules de Politesse",
               "Les Pronoms Personnels Sujets",
-              "Verbes Fondamentaux: être, avoir, s'appeler, habiter",
-              "Se Présenter et Présenter Quelqu'un",
-              "Les Articles Définis et Indéfinis",
-              "Les Nombres de 0 à 69, Jours et Mois",
+              "Verbes Fondamentaux: \u00eatre, avoir, s'appeler, habiter",
+              "Se Pr\u00e9senter et Pr\u00e9senter Quelqu'un",
+              "Les Articles D\u00e9finis et Ind\u00e9finis",
+              "Les Nombres de 0 \u00e0 69, Jours et Mois",
               "Les Pronoms Toniques"
             ]
           },
           {
             "number": 3,
-            "name": "Verbes du 1er Groupe, Nationalités et Famille",
+            "name": "Verbes du 1er Groupe, Nationalit\u00e9s et Famille",
             "topicCount": 8,
             "topics": [
-              "Les Nombres de 70 à 1000",
-              "Verbes Réguliers du 1er Groupe en -er",
+              "Les Nombres de 70 \u00e0 1000",
+              "Verbes R\u00e9guliers du 1er Groupe en -er",
               "Verbes Aller et Venir",
-              "Les Professions et Métiers",
-              "Pays, Villes et Nationalités",
+              "Les Professions et M\u00e9tiers",
+              "Pays, Villes et Nationalit\u00e9s",
               "Genre et Nombre des Adjectifs Qualificatifs",
-              "Les Prépositions de Lieu",
+              "Les Pr\u00e9positions de Lieu",
               "Les Adjectifs Possessifs et la Famille"
             ]
           },
@@ -1281,36 +1281,36 @@
               "Les Mots et Structures Interrogatives",
               "Les Verbes Modaux: vouloir, pouvoir, devoir",
               "Les Verbes Pronominaux et la Routine",
-              "Verbes du 2ème Groupe en -ir",
-              "Les Loisirs, Goûts et Préférences",
+              "Verbes du 2\u00e8me Groupe en -ir",
+              "Les Loisirs, Go\u00fbts et Pr\u00e9f\u00e9rences",
               "Le Futur Proche",
               "L'Heure et les Horaires"
             ]
           },
           {
             "number": 5,
-            "name": "Adjectifs Démonstratifs, Quantités, Vêtements et Sorties",
+            "name": "Adjectifs D\u00e9monstratifs, Quantit\u00e9s, V\u00eatements et Sorties",
             "topicCount": 7,
             "topics": [
-              "Les Adjectifs Démonstratifs: ce, cette, ces",
-              "Les Expressions de Quantité et Articles Partitifs",
+              "Les Adjectifs D\u00e9monstratifs: ce, cette, ces",
+              "Les Expressions de Quantit\u00e9 et Articles Partitifs",
               "Verbes Particuliers en -ger, -cer, -yer",
-              "Verbes du 3ème Groupe Irréguliers",
-              "Les Vêtements, Couleurs et la Mode",
-              "Adverbes de Fréquence et de Temps",
+              "Verbes du 3\u00e8me Groupe Irr\u00e9guliers",
+              "Les V\u00eatements, Couleurs et la Mode",
+              "Adverbes de Fr\u00e9quence et de Temps",
               "Proposer, Accepter ou Refuser une Sortie"
             ]
           }
         ],
         "highYieldTopics": [
           {
-            "topic": "Pays, Villes et Nationalités",
+            "topic": "Pays, Villes et Nationalit\u00e9s",
             "unitNumber": 3,
             "questionCount": 20,
             "paperCount": 4
           },
           {
-            "topic": "Les Nombres de 70 à 1000",
+            "topic": "Les Nombres de 70 \u00e0 1000",
             "unitNumber": 3,
             "questionCount": 5,
             "paperCount": 2
@@ -1322,7 +1322,7 @@
             "paperCount": 3
           },
           {
-            "topic": "Les Nombres de 0 à 69, Jours et Mois",
+            "topic": "Les Nombres de 0 \u00e0 69, Jours et Mois",
             "unitNumber": 2,
             "questionCount": 3,
             "paperCount": 3
@@ -1346,32 +1346,32 @@
         "units": [
           {
             "number": 1,
-            "name": "Abecedario, Saludos, Presentación y Verbos Básicos",
+            "name": "Abecedario, Saludos, Presentaci\u00f3n y Verbos B\u00e1sicos",
             "topicCount": 8,
             "topics": [
-              "El Abecedario y Pronunciación",
+              "El Abecedario y Pronunciaci\u00f3n",
               "Saludos y Despedidas",
               "Nacionalidades y Profesiones",
-              "Números del 1 al 100",
-              "Presentación Personal y Datos de Contacto",
-              "Pronombres Personales y Artículos Definidos",
+              "N\u00fameros del 1 al 100",
+              "Presentaci\u00f3n Personal y Datos de Contacto",
+              "Pronombres Personales y Art\u00edculos Definidos",
               "Verbos Auxiliares: ser, tener, llamarse",
               "La Familia y Relaciones"
             ]
           },
           {
             "number": 2,
-            "name": "Artículos Indefinidos, Direcciones y Presente Regular",
+            "name": "Art\u00edculos Indefinidos, Direcciones y Presente Regular",
             "topicCount": 8,
             "topics": [
-              "Artículos Indefinidos y Números hasta 1000",
-              "Estructuras de Negación y Traducción",
+              "Art\u00edculos Indefinidos y N\u00fameros hasta 1000",
+              "Estructuras de Negaci\u00f3n y Traducci\u00f3n",
               "Direcciones Cardinales y Medios de Transporte",
               "Preguntar por Direcciones y Ubicaciones",
               "Presente de Indicativo: Verbos Regulares -ar, -er, -ir",
-              "El Verbo Hay y Expresión de Existencia",
+              "El Verbo Hay y Expresi\u00f3n de Existencia",
               "El Superlativo y Cuantificadores",
-              "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo"
+              "Preguntas Interrogativas: qu\u00e9, cu\u00e1l, cu\u00e1ntos, d\u00f3nde, c\u00f3mo"
             ]
           },
           {
@@ -1379,32 +1379,32 @@
             "name": "Verbos Ser y Estar, Clima y Verbos Irregulares",
             "topicCount": 5,
             "topics": [
-              "Diferenciación entre Ser y Estar",
-              "Números Ordinales y Días de la Semana",
+              "Diferenciaci\u00f3n entre Ser y Estar",
+              "N\u00fameros Ordinales y D\u00edas de la Semana",
               "Verbos Irregulares en Tiempo Presente",
-              "Expresiones del Clima y Estaciones del Año",
-              "Comprensión Lectora y Expresión Escrita"
+              "Expresiones del Clima y Estaciones del A\u00f1o",
+              "Comprensi\u00f3n Lectora y Expresi\u00f3n Escrita"
             ]
           },
           {
             "number": 4,
-            "name": "Compras, Precios, Demostrativos y Perífrasis Obligativa",
+            "name": "Compras, Precios, Demostrativos y Per\u00edfrasis Obligativa",
             "topicCount": 6,
             "topics": [
-              "Vocabulario Escolar y Académico",
+              "Vocabulario Escolar y Acad\u00e9mico",
               "Compras en Tiendas y Pedir Precios",
               "Demostrativos: este, esta, estos, estas, esto",
-              "Perífrasis Obligativa: tener que + infinitivo",
+              "Per\u00edfrasis Obligativa: tener que + infinitivo",
               "El Verbo Ir y Lugares",
               "Prendas de Vestir y Colores"
             ]
           },
           {
             "number": 5,
-            "name": "Aspecto, Carácter, Gustos con Gustar y Restaurante",
+            "name": "Aspecto, Car\u00e1cter, Gustos con Gustar y Restaurante",
             "topicCount": 5,
             "topics": [
-              "Descripción del Aspecto Físico y Carácter",
+              "Descripci\u00f3n del Aspecto F\u00edsico y Car\u00e1cter",
               "Expresar Gustos e Intereses con el Verbo Gustar",
               "En el Restaurante: Ordenar Comida y Pagar",
               "Adjetivos Posesivos y Pertenencia",
@@ -1414,13 +1414,13 @@
         ],
         "highYieldTopics": [
           {
-            "topic": "Preguntas Interrogativas: qué, cuál, cuántos, dónde, cómo",
+            "topic": "Preguntas Interrogativas: qu\u00e9, cu\u00e1l, cu\u00e1ntos, d\u00f3nde, c\u00f3mo",
             "unitNumber": 2,
             "questionCount": 15,
             "paperCount": 3
           },
           {
-            "topic": "Números del 1 al 100",
+            "topic": "N\u00fameros del 1 al 100",
             "unitNumber": 1,
             "questionCount": 4,
             "paperCount": 3
@@ -1432,13 +1432,13 @@
             "paperCount": 3
           },
           {
-            "topic": "Descripción del Aspecto Físico y Carácter",
+            "topic": "Descripci\u00f3n del Aspecto F\u00edsico y Car\u00e1cter",
             "unitNumber": 5,
             "questionCount": 2,
             "paperCount": 2
           },
           {
-            "topic": "Artículos Indefinidos y Números hasta 1000",
+            "topic": "Art\u00edculos Indefinidos y N\u00fameros hasta 1000",
             "unitNumber": 2,
             "questionCount": 1,
             "paperCount": 1
@@ -1574,11 +1574,11 @@
             "topicCount": 6,
             "topics": [
               "Introduction to Korea and Korean Culture",
-              "Hangul Writing System (한글 소개)",
-              "Single Vowels and Double Vowels (단모음, 이중모음)",
+              "Hangul Writing System (\ud55c\uae00 \uc18c\uac1c)",
+              "Single Vowels and Double Vowels (\ub2e8\ubaa8\uc74c, \uc774\uc911\ubaa8\uc74c)",
               "Basic, Aspirated and Tense Consonants",
-              "Final Consonants / Batchim (받침)",
-              "Self-Introduction and Daily Greetings (자기 소개, 인사말)"
+              "Final Consonants / Batchim (\ubc1b\uce68)",
+              "Self-Introduction and Daily Greetings (\uc790\uae30 \uc18c\uac1c, \uc778\uc0ac\ub9d0)"
             ]
           },
           {
@@ -1586,11 +1586,11 @@
             "name": "Particles, Sentence Endings and Demonstratives",
             "topicCount": 6,
             "topics": [
-              "Topic Marking Particles: eun / neun (은/는)",
-              "Subject Marking Particles: i / ga (이/가)",
-              "Informal Polite Sentence Endings: ieyo / yeyo (이에요/예요)",
-              "Formal Polite Sentence Endings: bipnida / seupnida (ㅂ니다/습니다)",
-              "Demonstrative Pronouns: i, geu, jeo (이, 그, 저)",
+              "Topic Marking Particles: eun / neun (\uc740/\ub294)",
+              "Subject Marking Particles: i / ga (\uc774/\uac00)",
+              "Informal Polite Sentence Endings: ieyo / yeyo (\uc774\uc5d0\uc694/\uc608\uc694)",
+              "Formal Polite Sentence Endings: bipnida / seupnida (\u3142\ub2c8\ub2e4/\uc2b5\ub2c8\ub2e4)",
+              "Demonstrative Pronouns: i, geu, jeo (\uc774, \uadf8, \uc800)",
               "Sino-Korean Number System and Applications"
             ]
           },
@@ -1599,11 +1599,11 @@
             "name": "Verb Conjugations, Tenses and Weather",
             "topicCount": 5,
             "topics": [
-              "Present Tense Verb Conjugation: ayo / eoyo / haeyo (아요/어요/해요)",
-              "Past Tense Verb Conjugation: asseoyo / eosseoyo (았/었/했어요)",
+              "Present Tense Verb Conjugation: ayo / eoyo / haeyo (\uc544\uc694/\uc5b4\uc694/\ud574\uc694)",
+              "Past Tense Verb Conjugation: asseoyo / eosseoyo (\uc558/\uc5c8/\ud588\uc5b4\uc694)",
               "Native Korean Numbers and Counting Units",
               "Weather, Seasons and Daily Vocabulary",
-              "Location Particles: e and eseo (에, 에서)"
+              "Location Particles: e and eseo (\uc5d0, \uc5d0\uc11c)"
             ]
           },
           {
@@ -1613,9 +1613,9 @@
             "topics": [
               "Telling Time: Hours, Minutes and Periods of the Day",
               "Days of the Week and Months of the Year",
-              "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
-              "Object Marking Particles: eul / reul (을/를)",
-              "Honorific Particle: kkeseo and Subject Honorifics (시/으시)"
+              "Future Tense Conjugation: (eu)l geoyeyo ((\uc73c)\u3139 \uac70\uc608\uc694)",
+              "Object Marking Particles: eul / reul (\uc744/\ub97c)",
+              "Honorific Particle: kkeseo and Subject Honorifics (\uc2dc/\uc73c\uc2dc)"
             ]
           },
           {
@@ -1623,30 +1623,30 @@
             "name": "Ability, Obligations, Requests and Daily Activities",
             "topicCount": 6,
             "topics": [
-              "Expressing Ability and Possibility: (eu)l su itda / eopda ((으)ㄹ 수 있다/없다)",
-              "Imperatives and Requests: (eu)seyo ((으)세요)",
-              "Prohibitions: ji maseyo (지 마세요)",
-              "Expressing Desire and Wants: go sipda (고 싶다)",
-              "Complex Sentences with Connective Particles (고, 서)",
+              "Expressing Ability and Possibility: (eu)l su itda / eopda ((\uc73c)\u3139 \uc218 \uc788\ub2e4/\uc5c6\ub2e4)",
+              "Imperatives and Requests: (eu)seyo ((\uc73c)\uc138\uc694)",
+              "Prohibitions: ji maseyo (\uc9c0 \ub9c8\uc138\uc694)",
+              "Expressing Desire and Wants: go sipda (\uace0 \uc2f6\ub2e4)",
+              "Complex Sentences with Connective Particles (\uace0, \uc11c)",
               "Daily Activities, Hobbies and Campus Life"
             ]
           }
         ],
         "highYieldTopics": [
           {
-            "topic": "Honorific Particle: kkeseo and Subject Honorifics (시/으시)",
+            "topic": "Honorific Particle: kkeseo and Subject Honorifics (\uc2dc/\uc73c\uc2dc)",
             "unitNumber": 4,
             "questionCount": 17,
             "paperCount": 7
           },
           {
-            "topic": "Self-Introduction and Daily Greetings (자기 소개, 인사말)",
+            "topic": "Self-Introduction and Daily Greetings (\uc790\uae30 \uc18c\uac1c, \uc778\uc0ac\ub9d0)",
             "unitNumber": 1,
             "questionCount": 7,
             "paperCount": 6
           },
           {
-            "topic": "Future Tense Conjugation: (eu)l geoyeyo ((으)ㄹ 거예요)",
+            "topic": "Future Tense Conjugation: (eu)l geoyeyo ((\uc73c)\u3139 \uac70\uc608\uc694)",
             "unitNumber": 4,
             "questionCount": 6,
             "paperCount": 3
@@ -1658,7 +1658,7 @@
             "paperCount": 4
           },
           {
-            "topic": "Complex Sentences with Connective Particles (고, 서)",
+            "topic": "Complex Sentences with Connective Particles (\uace0, \uc11c)",
             "unitNumber": 5,
             "questionCount": 4,
             "paperCount": 3
@@ -1683,8 +1683,8 @@
               "Pinyin System: Initials, Finals and Combinations",
               "The Four Tones and Tone Neutralization",
               "Eight Basic Strokes and Stroke Order of Characters",
-              "Personal Pronouns and Plural Forms (我, 你, 他, 们)",
-              "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+              "Personal Pronouns and Plural Forms (\u6211, \u4f60, \u4ed6, \u4eec)",
+              "Grammar Particles: hen (\u5f88), ye (\u4e5f), ma (\u5417), ne (\u5462), de (\u7684)",
               "Basic Daily Greetings and Politeness Phrases"
             ]
           },
@@ -1694,11 +1694,11 @@
             "topicCount": 7,
             "topics": [
               "Chinese Number System and Counting",
-              "Chinese Currency and Monetary Terms (元, 角, 分)",
+              "Chinese Currency and Monetary Terms (\u5143, \u89d2, \u5206)",
               "Telephone Numbers and Conversational Needs",
               "Time Telling, Calendar, Days, Months and Seasons",
               "Basic S-V-O Sentence Patterns in Mandarin",
-              "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+              "Verbs: shi / bu shi (\u662f/\u4e0d\u662f) and you / mei you (\u6709/\u6ca1\u6709)",
               "Asking and Introducing Nationalities"
             ]
           },
@@ -1707,11 +1707,11 @@
             "name": "Question Words, Prices, Locations and Professions",
             "topicCount": 6,
             "topics": [
-              "Interrogative Words: ji (几) and duo shao (多少)",
+              "Interrogative Words: ji (\u51e0) and duo shao (\u591a\u5c11)",
               "Asking and Bargaining Prices in Chinese",
               "Asking Names Formally and Expressing Apologies",
-              "Location Prepositions with zai (在)",
-              "Spatial Demonstratives: zher (这儿), nar (那儿), nar (哪儿)",
+              "Location Prepositions with zai (\u5728)",
+              "Spatial Demonstratives: zher (\u8fd9\u513f), nar (\u90a3\u513f), nar (\u54ea\u513f)",
               "Occupations, Professions and Workplace Vocabulary"
             ]
           },
@@ -1734,8 +1734,8 @@
             "topics": [
               "Describing Family Members and Relatives",
               "University, Academic Departments and Student Life",
-              "Time Sequencing Words: yiqian (以前), yihou (以后), haishi (还是)",
-              "Optative Modal Verbs: hui (会), neng (能), keyi (可以)",
+              "Time Sequencing Words: yiqian (\u4ee5\u524d), yihou (\u4ee5\u540e), haishi (\u8fd8\u662f)",
+              "Optative Modal Verbs: hui (\u4f1a), neng (\u80fd), keyi (\u53ef\u4ee5)",
               "Expressing Likes, Dislikes and Color Preferences",
               "Traditional Chinese Festivals and Culture"
             ]
@@ -1743,7 +1743,7 @@
         ],
         "highYieldTopics": [
           {
-            "topic": "Verbs: shi / bu shi (是/不是) and you / mei you (有/没有)",
+            "topic": "Verbs: shi / bu shi (\u662f/\u4e0d\u662f) and you / mei you (\u6709/\u6ca1\u6709)",
             "unitNumber": 2,
             "questionCount": 13,
             "paperCount": 4
@@ -1755,7 +1755,7 @@
             "paperCount": 4
           },
           {
-            "topic": "Grammar Particles: hen (很), ye (也), ma (吗), ne (呢), de (的)",
+            "topic": "Grammar Particles: hen (\u5f88), ye (\u4e5f), ma (\u5417), ne (\u5462), de (\u7684)",
             "unitNumber": 1,
             "questionCount": 5,
             "paperCount": 2
@@ -2797,7 +2797,7 @@
         "topicCount": 5,
         "topics": [
           "Mechanics of Writing (Punctuation, Capitalization, Parallelism)",
-          "Paragraph Development, Topic Sentences, and Précis Writing",
+          "Paragraph Development, Topic Sentences, and Pr\u00e9cis Writing",
           "Formal Letters (Inquiry, Complaint, Permission)",
           "Professional E-mail Writing and Netiquette",
           "Resume, Curriculum Vitae (CV), and Job Applications"
@@ -3386,7 +3386,7 @@
     "semester": 1,
     "regulation": "2021",
     "credits": 4,
-    "description": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics covers Maxwell equations, electromagnetic wave propagation, wave-particle duality, Schrödinger equation, and optical wave phenomena.",
+    "description": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics covers Maxwell equations, electromagnetic wave propagation, wave-particle duality, Schr\u00f6dinger equation, and optical wave phenomena.",
     "paperCount": 12,
     "questionCount": 366,
     "mappedQuestionCount": 164,
@@ -3429,7 +3429,7 @@
           "Photoelectric and Compton Effects",
           "Matter Waves and Uncertainty Principle",
           "Wave Function and Postulates",
-          "Schrödinger Wave Equations",
+          "Schr\u00f6dinger Wave Equations",
           "Quantum Wells and Potential Barriers",
           "Harmonic Oscillator and Hydrogen Atom"
         ]
@@ -3520,7 +3520,7 @@
         "paperCount": 6
       },
       {
-        "topic": "Schrödinger Wave Equations",
+        "topic": "Schr\u00f6dinger Wave Equations",
         "unitNumber": 3,
         "questionCount": 10,
         "paperCount": 5
@@ -5415,5 +5415,947 @@
     ],
     "mintAiUrl": "/mintai?course=SEM4-PQT",
     "practiceUrl": "/mintai?course=SEM4-PQT&tab=practice"
+  },
+  {
+    "id": 32,
+    "slug": "discrete-mathematics",
+    "aliases": [
+      "discrete-mathematics",
+      "21mab301t",
+      "sem5-dm",
+      "discrete mathematics"
+    ],
+    "name": "Discrete Mathematics",
+    "code": "SEM5-DM",
+    "canonicalCode": "21MAB301T",
+    "semester": 5,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Discrete Mathematics covers mathematical logic, propositional calculus, combinatorics, counting techniques, relations, functions, algebraic structures, lattices, and graph theory under SRMIST Regulation 2021.",
+    "paperCount": 6,
+    "questionCount": 193,
+    "mappedQuestionCount": 106,
+    "mappingRate": 0.549,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Mathematical Logic and Propositional Calculus",
+        "topicCount": 5,
+        "topics": [
+          "Propositional Logic and Connectives",
+          "Truth Tables and Logical Equivalences",
+          "Normal Forms (PCNF and PDNF)",
+          "Predicates and Quantifiers",
+          "Rules of Inference and Proof Techniques"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Combinatorics and Counting Techniques",
+        "topicCount": 5,
+        "topics": [
+          "Mathematical Induction",
+          "Pigeonhole Principle and Inclusion-Exclusion",
+          "Permutations and Combinations",
+          "Generating Functions",
+          "Recurrence Relations and Characteristic Roots"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Set Theory, Relations, and Functions",
+        "topicCount": 5,
+        "topics": [
+          "Sets and Set Operations",
+          "Binary Relations and Equivalence Relations",
+          "Partitions and Equivalence Classes",
+          "Partial Ordering Relations and Hasse Diagrams",
+          "Functions, Injections, Surjections, and Bijections"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Algebraic Structures",
+        "topicCount": 5,
+        "topics": [
+          "Semigroups and Monoids",
+          "Groups, Subgroups, and Abelian Groups",
+          "Cyclic Groups and Cosets",
+          "Lagrange's Theorem",
+          "Group Homomorphism and Normal Subgroups"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Lattices and Graph Theory",
+        "topicCount": 5,
+        "topics": [
+          "Lattices as Posets and Properties of Lattices",
+          "Boolean Algebra and Karnaugh Maps",
+          "Graphs, Subgraphs, and Degree Sequences",
+          "Eulerian and Hamiltonian Graphs",
+          "Trees, Spanning Trees, and Graph Isomorphism"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Propositional Logic and Connectives",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Truth Tables and Logical Equivalences",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Mathematical Induction",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Pigeonhole Principle and Inclusion-Exclusion",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Sets and Set Operations",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Binary Relations and Equivalence Relations",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM5-DM",
+    "practiceUrl": "/mintai?course=SEM5-DM&tab=practice"
+  },
+  {
+    "id": 33,
+    "slug": "formal-languages-and-automata",
+    "aliases": [
+      "formal-languages-and-automata",
+      "21csc301t",
+      "sem5-fla",
+      "formal languages and automata"
+    ],
+    "name": "Formal Languages and Automata",
+    "code": "SEM5-FLA",
+    "canonicalCode": "21CSC301T",
+    "semester": 5,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Formal Languages and Automata covers finite state machines, regular expressions, context-free languages, pushdown automata, Turing machines, decidability, and computational complexity under SRMIST Regulation 2021.",
+    "paperCount": 5,
+    "questionCount": 170,
+    "mappedQuestionCount": 137,
+    "mappingRate": 0.806,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Finite Automata and Regular Expressions",
+        "topicCount": 5,
+        "topics": [
+          "Deterministic Finite Automata (DFA)",
+          "Nondeterministic Finite Automata (NFA) and Equivalence",
+          "Regular Expressions and Regular Languages",
+          "Pumping Lemma for Regular Languages",
+          "Equivalence and Minimization of Finite Automata"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Grammars and Chomsky Hierarchy",
+        "topicCount": 5,
+        "topics": [
+          "Chomsky Hierarchy of Formal Languages",
+          "Context-Free Grammars (CFG) and Parse Trees",
+          "Ambiguity in Context-Free Grammars",
+          "Simplification of Grammars (Useless, Epsilon, Unit)",
+          "Chomsky Normal Form (CNF) and Greibach Normal Form (GNF)"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Pushdown Automata (PDA)",
+        "topicCount": 5,
+        "topics": [
+          "Pushdown Automata Formal Definition and Configurations",
+          "Deterministic vs Nondeterministic Pushdown Automata",
+          "Equivalence of PDA and Context-Free Grammars",
+          "Pumping Lemma for Context-Free Languages",
+          "Closure Properties of Context-Free Languages"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Turing Machines",
+        "topicCount": 5,
+        "topics": [
+          "Turing Machine Formal Definition and State Transition Diagrams",
+          "Techniques for Turing Machine Construction",
+          "Multi-tape and Nondeterministic Turing Machines",
+          "Church-Turing Thesis and Computability",
+          "Universal Turing Machine"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Undecidability and Complexity Theory",
+        "topicCount": 5,
+        "topics": [
+          "Decidable and Undecidable Problems",
+          "Halting Problem and Rice's Theorem",
+          "Post Correspondence Problem (PCP)",
+          "Recursive and Recursively Enumerable Languages",
+          "Computational Complexity Classes (P, NP, NP-Complete)"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Deterministic Finite Automata (DFA)",
+        "unitNumber": 1,
+        "questionCount": 13,
+        "paperCount": 4
+      },
+      {
+        "topic": "Nondeterministic Finite Automata (NFA) and Equivalence",
+        "unitNumber": 1,
+        "questionCount": 13,
+        "paperCount": 4
+      },
+      {
+        "topic": "Chomsky Hierarchy of Formal Languages",
+        "unitNumber": 2,
+        "questionCount": 13,
+        "paperCount": 4
+      },
+      {
+        "topic": "Context-Free Grammars (CFG) and Parse Trees",
+        "unitNumber": 2,
+        "questionCount": 13,
+        "paperCount": 4
+      },
+      {
+        "topic": "Pushdown Automata Formal Definition and Configurations",
+        "unitNumber": 3,
+        "questionCount": 13,
+        "paperCount": 4
+      },
+      {
+        "topic": "Deterministic vs Nondeterministic Pushdown Automata",
+        "unitNumber": 3,
+        "questionCount": 13,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM5-FLA",
+    "practiceUrl": "/mintai?course=SEM5-FLA&tab=practice"
+  },
+  {
+    "id": 34,
+    "slug": "computer-networks",
+    "aliases": [
+      "computer-networks",
+      "21csc302j",
+      "sem5-cn",
+      "computer networks"
+    ],
+    "name": "Computer Networks",
+    "code": "SEM5-CN",
+    "canonicalCode": "21CSC302J",
+    "semester": 5,
+    "regulation": "2021",
+    "credits": 4,
+    "description": "Computer Networks provides foundational and practical principles of network architectures, physical and link protocols, IP routing, TCP/UDP transport mechanics, and application-layer services under SRMIST Regulation 2021.",
+    "paperCount": 6,
+    "questionCount": 186,
+    "mappedQuestionCount": 137,
+    "mappingRate": 0.737,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Physical and Data Link Layer",
+        "topicCount": 5,
+        "topics": [
+          "OSI Reference Model and TCP/IP Architecture",
+          "Framing, Flow Control, and Error Detection (CRC, Checksum)",
+          "Sliding Window Protocols (Go-Back-N, Selective Repeat)",
+          "Multiple Access Protocols (ALOHA, CSMA/CD, CSMA/CA)",
+          "Ethernet Standards and IEEE 802.11 Wireless LAN"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Network Layer: Data Plane and Addressing",
+        "topicCount": 5,
+        "topics": [
+          "IPv4 and IPv6 Addressing and Subnetting",
+          "Classless Inter-Domain Routing (CIDR) and VLSM",
+          "NAT, DHCP, and ICMP Protocols",
+          "Packet Switching and Datagram Forwarding",
+          "Address Resolution Protocol (ARP and RARP)"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Network Layer: Control Plane and Routing",
+        "topicCount": 5,
+        "topics": [
+          "Routing Principles and Graph Abstractions",
+          "Distance Vector Routing and RIP Protocol",
+          "Link State Routing and OSPF Protocol",
+          "Border Gateway Protocol (BGP) and Inter-AS Routing",
+          "Software-Defined Networking (SDN) Fundamentals"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Transport Layer",
+        "topicCount": 5,
+        "topics": [
+          "Transport Layer Services and Multiplexing/Demultiplexing",
+          "User Datagram Protocol (UDP) Principles",
+          "TCP Connection Management (3-Way Handshake and Teardown)",
+          "Principles of Reliable Data Transfer (Stop-and-Wait, Pipelining)",
+          "TCP Congestion Control, Slow Start, and Flow Control"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Application Layer and Network Security",
+        "topicCount": 5,
+        "topics": [
+          "Domain Name System (DNS) Architecture and Operation",
+          "Web Architecture and HTTP/HTTPS Protocols",
+          "Electronic Mail Protocols (SMTP, POP3, IMAP)",
+          "Cryptography Basics (Symmetric and Asymmetric Encryption)",
+          "Network Security Protocols (SSL/TLS, IPsec, Firewalls)"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "OSI Reference Model and TCP/IP Architecture",
+        "unitNumber": 1,
+        "questionCount": 14,
+        "paperCount": 4
+      },
+      {
+        "topic": "Framing, Flow Control, and Error Detection (CRC, Checksum)",
+        "unitNumber": 1,
+        "questionCount": 14,
+        "paperCount": 4
+      },
+      {
+        "topic": "IPv4 and IPv6 Addressing and Subnetting",
+        "unitNumber": 2,
+        "questionCount": 14,
+        "paperCount": 4
+      },
+      {
+        "topic": "Classless Inter-Domain Routing (CIDR) and VLSM",
+        "unitNumber": 2,
+        "questionCount": 14,
+        "paperCount": 4
+      },
+      {
+        "topic": "Routing Principles and Graph Abstractions",
+        "unitNumber": 3,
+        "questionCount": 14,
+        "paperCount": 4
+      },
+      {
+        "topic": "Distance Vector Routing and RIP Protocol",
+        "unitNumber": 3,
+        "questionCount": 14,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM5-CN",
+    "practiceUrl": "/mintai?course=SEM5-CN&tab=practice"
+  },
+  {
+    "id": 35,
+    "slug": "software-engineering-and-project-management",
+    "aliases": [
+      "software-engineering-and-project-management",
+      "21csc303j",
+      "sem6-sepm",
+      "software engineering and project management"
+    ],
+    "name": "Software Engineering and Project Management",
+    "code": "SEM6-SEPM",
+    "canonicalCode": "21CSC303J",
+    "semester": 6,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Software Engineering and Project Management covers software process models, agile principles, requirements elicitation, architectural design, verification and testing, risk analysis, and project metrics under SRMIST Regulation 2021.",
+    "paperCount": 6,
+    "questionCount": 196,
+    "mappedQuestionCount": 135,
+    "mappingRate": 0.689,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Software Process Models and Agile Methodologies",
+        "topicCount": 5,
+        "topics": [
+          "Software Process Models (Waterfall, Incremental, RAD, Spiral)",
+          "Agile Development Philosophy and Agile Manifesto",
+          "Scrum Framework, Sprints, and Roles",
+          "Extreme Programming (XP) and Kanban",
+          "DevOps Concepts and Continuous Integration/Continuous Deployment"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Requirements Engineering and Modeling",
+        "topicCount": 5,
+        "topics": [
+          "Requirements Elicitation, Analysis, and Validation",
+          "Software Requirements Specification (SRS) Guidelines",
+          "Use Case Modeling and Actor Identification",
+          "UML Structural and Behavioral Diagrams",
+          "Data Flow Diagrams (DFD) and State Transition Diagrams"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Architectural and Detailed Design",
+        "topicCount": 5,
+        "topics": [
+          "Software Design Concepts and Modularity (Cohesion and Coupling)",
+          "Architectural Styles and Patterns (Layered, Client-Server, Microservices)",
+          "Object-Oriented Design Principles (SOLID)",
+          "Component-Level Design and Interface Specifications",
+          "User Interface Design Principles and Usability Engineering"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Software Testing and Quality Assurance",
+        "topicCount": 5,
+        "topics": [
+          "Verification and Validation Principles",
+          "White-Box Testing (Basis Path, Control Structure)",
+          "Black-Box Testing (Equivalence Partitioning, Boundary Value)",
+          "Integration, System, and Regression Testing Strategies",
+          "Software Quality Attributes, SQA Plans, and CMMI Levels"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Software Project Management and Maintenance",
+        "topicCount": 5,
+        "topics": [
+          "Project Planning, Scheduling, and Work Breakdown Structure (WBS)",
+          "Software Cost and Effort Estimation (COCOMO I & II, Function Points)",
+          "Risk Management, RMMM Plan, and Contingency Planning",
+          "Software Configuration Management (SCM) and Version Control",
+          "Software Maintenance, Reverse Engineering, and Re-engineering"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Software Process Models (Waterfall, Incremental, RAD, Spiral)",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Agile Development Philosophy and Agile Manifesto",
+        "unitNumber": 1,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Requirements Elicitation, Analysis, and Validation",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Software Requirements Specification (SRS) Guidelines",
+        "unitNumber": 2,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Software Design Concepts and Modularity (Cohesion and Coupling)",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      },
+      {
+        "topic": "Architectural Styles and Patterns (Layered, Client-Server, Microservices)",
+        "unitNumber": 3,
+        "questionCount": 15,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM6-SEPM",
+    "practiceUrl": "/mintai?course=SEM6-SEPM&tab=practice"
+  },
+  {
+    "id": 36,
+    "slug": "compiler-design",
+    "aliases": [
+      "compiler-design",
+      "21csc305j",
+      "sem6-cd",
+      "compiler design"
+    ],
+    "name": "Compiler Design",
+    "code": "SEM6-CD",
+    "canonicalCode": "21CSC305J",
+    "semester": 6,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Compiler Design covers the architecture of language translators, lexical tokenization, context-free parsing algorithms, syntax-directed translation, symbol tables, intermediate code representation, and code optimization under SRMIST Regulation 2021.",
+    "paperCount": 8,
+    "questionCount": 290,
+    "mappedQuestionCount": 162,
+    "mappingRate": 0.559,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Introduction to Compilers and Lexical Analysis",
+        "topicCount": 5,
+        "topics": [
+          "Phases of a Compiler and Compiler Construction Tools",
+          "Lexical Analysis and Token Recognition",
+          "Input Buffering Techniques (One-Buffer, Two-Buffer)",
+          "Regular Expressions to Finite Automata (Thompson Construction)",
+          "Lexical Analyzer Generators (LEX / Flex)"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Syntax Analysis: Top-Down and Bottom-Up Parsing",
+        "topicCount": 5,
+        "topics": [
+          "Context-Free Grammars and Ambiguity in Parsing",
+          "Top-Down Parsing and LL(1) Grammars (First and Follow Sets)",
+          "Recursive Descent and Non-Recursive Predictive Parsers",
+          "Bottom-Up Parsing and Shift-Reduce Conflicts",
+          "LR Parsers (SLR, Canonical LR, LALR) and YACC"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Syntax-Directed Translation and Intermediate Code",
+        "topicCount": 5,
+        "topics": [
+          "Syntax-Directed Definitions (Synthesized and Inherited Attributes)",
+          "Evaluation Orders for SDDs and Dependency Graphs",
+          "Intermediate Code Representations (Syntax Trees, DAGs, Three-Address Code)",
+          "Translation of Expressions, Boolean Statements, and Control Flow",
+          "Backpatching for Boolean Expressions and Flow-of-Control"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Type Checking and Runtime Storage Environments",
+        "topicCount": 5,
+        "topics": [
+          "Type Systems and Type Checking Rules",
+          "Equivalence of Type Expressions and Type Conversions",
+          "Runtime Storage Organization and Memory Allocation",
+          "Activation Records and Stack Allocation Strategy",
+          "Heap Management, Parameter Passing, and Garbage Collection"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Code Optimization and Code Generation",
+        "topicCount": 5,
+        "topics": [
+          "Principal Sources of Optimization (Common Subexpression, Dead Code)",
+          "Basic Blocks and Flow Graphs Construction",
+          "Loop Optimization (Code Motion, Induction Variables)",
+          "Data-Flow Analysis Frameworks",
+          "Code Generator Design, Target Code Issues, and Register Allocation"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Phases of a Compiler and Compiler Construction Tools",
+        "unitNumber": 1,
+        "questionCount": 23,
+        "paperCount": 4
+      },
+      {
+        "topic": "Lexical Analysis and Token Recognition",
+        "unitNumber": 1,
+        "questionCount": 23,
+        "paperCount": 4
+      },
+      {
+        "topic": "Context-Free Grammars and Ambiguity in Parsing",
+        "unitNumber": 2,
+        "questionCount": 23,
+        "paperCount": 4
+      },
+      {
+        "topic": "Top-Down Parsing and LL(1) Grammars (First and Follow Sets)",
+        "unitNumber": 2,
+        "questionCount": 23,
+        "paperCount": 4
+      },
+      {
+        "topic": "Syntax-Directed Definitions (Synthesized and Inherited Attributes)",
+        "unitNumber": 3,
+        "questionCount": 23,
+        "paperCount": 4
+      },
+      {
+        "topic": "Evaluation Orders for SDDs and Dependency Graphs",
+        "unitNumber": 3,
+        "questionCount": 23,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM6-CD",
+    "practiceUrl": "/mintai?course=SEM6-CD&tab=practice"
+  },
+  {
+    "id": 37,
+    "slug": "data-science",
+    "aliases": [
+      "data-science",
+      "21csc304p",
+      "sem6-ds",
+      "data science"
+    ],
+    "name": "Data Science",
+    "code": "SEM6-DS",
+    "canonicalCode": "21CSC304P",
+    "semester": 6,
+    "regulation": "2021",
+    "credits": 3,
+    "description": "Data Science covers the full data science lifecycle, exploratory statistical analysis, supervised prediction, clustering, dimensionality reduction, distributed big data architectures, and ethical data governance under SRMIST Regulation 2021.",
+    "paperCount": 5,
+    "questionCount": 151,
+    "mappedQuestionCount": 118,
+    "mappingRate": 0.781,
+    "hasTracks": false,
+    "tracks": [],
+    "units": [
+      {
+        "number": 1,
+        "name": "Data Science Foundations and Data Wrangling",
+        "topicCount": 5,
+        "topics": [
+          "Data Science Lifecycle and Workflow",
+          "NumPy for High-Performance Vector Computations",
+          "Pandas DataFrames and Series Operations",
+          "Data Cleaning, Missing Value Imputation, and Normalization",
+          "Data Transformation, Reshaping, and Feature Extraction"
+        ]
+      },
+      {
+        "number": 2,
+        "name": "Exploratory Data Analysis and Statistical Inference",
+        "topicCount": 5,
+        "topics": [
+          "Descriptive Statistics and Measures of Dispersion",
+          "Exploratory Visualization with Matplotlib and Seaborn",
+          "Probability Distributions in Data Analysis (Normal, Binomial)",
+          "Hypothesis Testing, P-Values, and Confidence Intervals",
+          "Correlation, Covariance, and Bivariate Analysis"
+        ]
+      },
+      {
+        "number": 3,
+        "name": "Supervised Learning and Model Evaluation",
+        "topicCount": 5,
+        "topics": [
+          "Linear Regression and Polynomial Regression",
+          "Logistic Regression for Binary and Multi-Class Classification",
+          "Model Evaluation Metrics (Confusion Matrix, Precision, Recall, ROC-AUC)",
+          "Cross-Validation Strategies (K-Fold, Stratified)",
+          "Overfitting, Regularization (Ridge, Lasso), and Bias-Variance Tradeoff"
+        ]
+      },
+      {
+        "number": 4,
+        "name": "Unsupervised Learning and Dimensionality Reduction",
+        "topicCount": 5,
+        "topics": [
+          "K-Means Clustering and Cluster Quality (Elbow, Silhouette)",
+          "Hierarchical Clustering (Agglomerative, Dendrograms)",
+          "Principal Component Analysis (PCA) and Eigen-Decomposition",
+          "Singular Value Decomposition (SVD)",
+          "Association Rule Mining and Apriori Algorithm"
+        ]
+      },
+      {
+        "number": 5,
+        "name": "Big Data Frameworks and Data Ethics",
+        "topicCount": 5,
+        "topics": [
+          "Big Data Characteristics (Volume, Velocity, Variety)",
+          "Hadoop Architecture, HDFS, and MapReduce Paradigm",
+          "Apache Spark Fundamentals and Resilient Distributed Datasets (RDDs)",
+          "Data Privacy, Security Regulations, and GDPR",
+          "Model Fairness, Algorithmic Bias, and Ethical AI Governance"
+        ]
+      }
+    ],
+    "assessmentCycles": [
+      {
+        "cycle": "CT1",
+        "label": "Cycle Test 1 (Formative Test 1)",
+        "units": [
+          1,
+          2
+        ],
+        "coverageDescription": "Covers foundational concepts from Units 1 and 2."
+      },
+      {
+        "cycle": "CT2",
+        "label": "Cycle Test 2 (Formative Test 2)",
+        "units": [
+          3,
+          4
+        ],
+        "coverageDescription": "Covers intermediate applications from Units 3 and 4."
+      },
+      {
+        "cycle": "EndSem",
+        "label": "Semester University Examination",
+        "units": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverageDescription": "Covers comprehensive syllabus across Units 1 through 5."
+      }
+    ],
+    "highYieldTopics": [
+      {
+        "topic": "Data Science Lifecycle and Workflow",
+        "unitNumber": 1,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "NumPy for High-Performance Vector Computations",
+        "unitNumber": 1,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "Descriptive Statistics and Measures of Dispersion",
+        "unitNumber": 2,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "Exploratory Visualization with Matplotlib and Seaborn",
+        "unitNumber": 2,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "Linear Regression and Polynomial Regression",
+        "unitNumber": 3,
+        "questionCount": 12,
+        "paperCount": 4
+      },
+      {
+        "topic": "Logistic Regression for Binary and Multi-Class Classification",
+        "unitNumber": 3,
+        "questionCount": 12,
+        "paperCount": 4
+      }
+    ],
+    "mintAiUrl": "/mintai?course=SEM6-DS",
+    "practiceUrl": "/mintai?course=SEM6-DS&tab=practice"
   }
 ]
