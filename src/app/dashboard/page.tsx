@@ -34,7 +34,8 @@ import {
   Info,
   X,
   BookOpen,
-  Check
+  Check,
+  RotateCcw
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -52,8 +53,8 @@ export default function DashboardPage() {
   const [selectedSemester, setSelectedSemester] = useState<number>(1);
   const [semesterSubjects, setSemesterSubjects] = useState<CurriculumSubject[]>([]);
 
-  // Active Course & Assessment Cycle
-  const [selectedCourseId, setSelectedCourseId] = useState<number>(1);
+  // Active Course: Null until explicitly chosen by user or via URL param (NO AUTOFILL)
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
   const [selectedCycle, setSelectedCycle] = useState<string>("ENDSEM");
 
   // Primary Course Selection Modal State
@@ -83,7 +84,7 @@ export default function DashboardPage() {
   // Real backend intelligence states
   const [predictionsData, setPredictionsData] = useState<any>(null);
   const [dnaData, setDnaData] = useState<ExamDNA | null>(null);
-  const [isLoadingIntelligence, setIsLoadingIntelligence] = useState<boolean>(true);
+  const [isLoadingIntelligence, setIsLoadingIntelligence] = useState<boolean>(false);
   const [intelligenceError, setIntelligenceError] = useState<string | null>(null);
 
   // Lock body scroll and ESC listener when course selection modal is open
@@ -101,7 +102,7 @@ export default function DashboardPage() {
     };
   }, [isCourseModalOpen]);
 
-  // 1. Initial Load: Load branches & initialize from StudyContext / URL params
+  // 1. Initial Load: Load branches & check for explicit deep link in URL
   useEffect(() => {
     let isMounted = true;
 
@@ -114,38 +115,28 @@ export default function DashboardPage() {
         const ctx = getStudyContext();
         setStudyContext(ctx);
 
-        // Check URL search params for deep linking
+        // Check URL search params for deep linking (e.g. ?course_id=2 or ?course=chemistry)
         const urlParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
         const targetCourseId = urlParams?.get("course_id") || urlParams?.get("course");
         const targetCycle = urlParams?.get("cycle") || urlParams?.get("assessment_cycle");
-        const forceSelect = urlParams?.get("select") === "true";
 
         let initialBranch = "Computer Science and Engineering";
         let initialSemester = 1;
-        let initialCourseId = eligibleCourses[0]?.id || 1;
         let initialCycle = "ENDSEM";
 
-        if (ctx?.branch && branchList.includes(ctx.branch)) {
-          initialBranch = ctx.branch;
+        if (targetCycle && ["ALL", "ENDSEM", "CT1", "CT2"].includes(targetCycle.toUpperCase())) {
+          initialCycle = targetCycle.toUpperCase();
         }
-        if (ctx?.semester) {
-          initialSemester = ctx.semester;
-        }
-        if (ctx?.course_id && eligibleCourses.some((c) => c.id === ctx.course_id)) {
-          initialCourseId = ctx.course_id;
-        }
-        if (ctx?.assessment_cycle) {
-          initialCycle = ctx.assessment_cycle;
-        }
+        setSelectedCycle(initialCycle);
 
-        // Deep link override if URL params present
         if (targetCourseId) {
+          // Explicit deep link in URL: resolve and load requested course
           const numId = Number(targetCourseId);
           const found = !isNaN(numId) ? findCurriculumSubjectByCourseId(numId) : null;
           if (found) {
             initialBranch = found.branch;
             initialSemester = found.semester;
-            initialCourseId = found.subject.course_id || numId;
+            setSelectedCourseId(found.subject.course_id || numId);
           } else {
             const matchedCatalog = eligibleCourses.find(
               (c) =>
@@ -154,13 +145,13 @@ export default function DashboardPage() {
                 c.canonicalCode.toLowerCase() === targetCourseId.toLowerCase()
             );
             if (matchedCatalog) {
-              initialCourseId = matchedCatalog.id;
+              setSelectedCourseId(matchedCatalog.id);
             }
           }
-        }
-
-        if (targetCycle && ["ALL", "ENDSEM", "CT1", "CT2"].includes(targetCycle.toUpperCase())) {
-          initialCycle = targetCycle.toUpperCase();
+        } else {
+          // NO COURSE IN URL: DO NOT AUTOFILL. PROMPT USER WITH PRIMARY MODAL
+          setSelectedCourseId(null);
+          setIsCourseModalOpen(true);
         }
 
         setSelectedBranch(initialBranch);
@@ -172,14 +163,6 @@ export default function DashboardPage() {
         const subList = await getCurriculumSubjects(initialBranch, initialSemester);
         if (!isMounted) return;
         setSemesterSubjects(subList);
-
-        setSelectedCourseId(initialCourseId);
-        setSelectedCycle(initialCycle);
-
-        // If user has not chosen a course previously AND no URL target course is provided, prompt them with the modal
-        if ((!ctx?.course_id && !targetCourseId) || forceSelect) {
-          setIsCourseModalOpen(true);
-        }
       } catch (err) {
         console.error("Failed to initialize academic context:", err);
       }
@@ -190,12 +173,6 @@ export default function DashboardPage() {
     const handleContextUpdate = () => {
       const updated = getStudyContext();
       setStudyContext(updated);
-      if (updated?.course_id && eligibleCourses.some((c) => c.id === updated.course_id)) {
-        setSelectedCourseId(updated.course_id);
-      }
-      if (updated?.assessment_cycle) {
-        setSelectedCycle(updated.assessment_cycle);
-      }
     };
 
     window.addEventListener("markmint:study_context_updated", handleContextUpdate);
@@ -218,18 +195,6 @@ export default function DashboardPage() {
 
       const subList = await getCurriculumSubjects(newBranch, nextSem);
       setSemesterSubjects(subList);
-
-      const existingMatch = subList.find((s) => s.course_id === selectedCourseId);
-      if (existingMatch && existingMatch.course_id) {
-        syncContext(newBranch, nextSem, existingMatch.course_id, existingMatch.subject_name, existingMatch.canonical_code);
-      } else {
-        const firstWithExams = subList.find((s) => s.has_exams && s.course_id);
-        const fallback = firstWithExams || subList.find((s) => s.course_id) || null;
-        if (fallback && fallback.course_id) {
-          setSelectedCourseId(fallback.course_id);
-          syncContext(newBranch, nextSem, fallback.course_id, fallback.subject_name, fallback.canonical_code);
-        }
-      }
     } catch (err) {
       console.error("Failed to update branch:", err);
     }
@@ -241,18 +206,6 @@ export default function DashboardPage() {
     try {
       const subList = await getCurriculumSubjects(selectedBranch, newSem);
       setSemesterSubjects(subList);
-
-      const existingMatch = subList.find((s) => s.course_id === selectedCourseId);
-      if (existingMatch && existingMatch.course_id) {
-        syncContext(selectedBranch, newSem, existingMatch.course_id, existingMatch.subject_name, existingMatch.canonical_code);
-      } else {
-        const firstWithExams = subList.find((s) => s.has_exams && s.course_id);
-        const fallback = firstWithExams || subList.find((s) => s.course_id) || null;
-        if (fallback && fallback.course_id) {
-          setSelectedCourseId(fallback.course_id);
-          syncContext(selectedBranch, newSem, fallback.course_id, fallback.subject_name, fallback.canonical_code);
-        }
-      }
     } catch (err) {
       console.error("Failed to update semester:", err);
     }
@@ -277,8 +230,10 @@ export default function DashboardPage() {
     });
   };
 
-  // Active course object from catalog or API
-  const currentCourse: CourseCatalogItem = useMemo(() => {
+  // Active course object from catalog or API (null if no course selected yet)
+  const currentCourse: CourseCatalogItem | null = useMemo(() => {
+    if (!selectedCourseId) return null;
+
     const verified = eligibleCourses.find((c) => c.id === selectedCourseId);
     if (verified) return verified;
 
@@ -296,7 +251,7 @@ export default function DashboardPage() {
       } as unknown as CourseCatalogItem;
     }
 
-    return eligibleCourses[0];
+    return null;
   }, [eligibleCourses, semesterSubjects, selectedCourseId, selectedSemester]);
 
   // Instant Search Across All 43 Courses
@@ -339,13 +294,18 @@ export default function DashboardPage() {
     }
   }, [studyContext]);
 
+  // Only fetch when course is explicitly selected by user
   useEffect(() => {
     if (selectedCourseId) {
       fetchIntelligence(selectedCourseId, selectedCycle);
+    } else {
+      setPredictionsData(null);
+      setDnaData(null);
+      setIsLoadingIntelligence(false);
     }
   }, [selectedCourseId, selectedCycle, fetchIntelligence]);
 
-  // Direct Course Switcher with automatic branch & semester resolution
+  // Explicit user course selection handler
   const handleCourseSwitch = (courseId: number) => {
     setShowAllSignals(false);
     setSelectedCourseId(courseId);
@@ -399,6 +359,8 @@ export default function DashboardPage() {
 
   // Structured Forecast Output: topics and question families
   const allForecastItems = useMemo(() => {
+    if (!currentCourse) return [];
+
     if (predictionsData?.predictions && Array.isArray(predictionsData.predictions) && predictionsData.predictions.length > 0) {
       return predictionsData.predictions.map((p: any, idx: number) => {
         const isFamily = p.family_id != null || (p.repetition_type && p.repetition_type !== "NONE");
@@ -427,7 +389,7 @@ export default function DashboardPage() {
     }
 
     // Fallback from catalog
-    return (currentCourse?.highYieldTopics || []).map((hyt, idx) => ({
+    return (currentCourse.highYieldTopics || []).map((hyt, idx) => ({
       rank: idx + 1,
       name: hyt.topic,
       isFamily: false,
@@ -462,8 +424,8 @@ export default function DashboardPage() {
   }, [filteredForecastItems, showAllSignals]);
 
   // Compact historical evidence counters
-  const scopePapersCount = dnaData?.sample_size?.papers || currentCourse.paperCount;
-  const scopeQuestionsCount = dnaData?.sample_size?.questions || currentCourse.questionCount;
+  const scopePapersCount = dnaData?.sample_size?.papers || currentCourse?.paperCount || 0;
+  const scopeQuestionsCount = dnaData?.sample_size?.questions || currentCourse?.questionCount || 0;
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-accent/20">
@@ -492,59 +454,103 @@ export default function DashboardPage() {
             </div>
 
             {/* Compact 1-Line Evidence Trust Bar */}
-            <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/20 border border-border/60 rounded-xl px-3.5 py-2 self-start md:self-auto flex-wrap">
-              <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
-              <span>
-                Evidence: <strong className="text-foreground font-semibold">{scopePapersCount}</strong> verified papers •{" "}
-                <strong className="text-foreground font-semibold">{scopeQuestionsCount}</strong> questions •{" "}
-                <strong className="text-foreground font-semibold">{currentCourse.units?.length || 5}</strong> units
-              </span>
-              <span className="text-border mx-0.5">•</span>
-              <Link
-                href={`/mintai/exam-dna?course=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
-                className="font-semibold text-accent hover:underline flex items-center gap-1 shrink-0"
-              >
-                <span>Exam DNA</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
+            {currentCourse ? (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/20 border border-border/60 rounded-xl px-3.5 py-2 self-start md:self-auto flex-wrap">
+                <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                <span>
+                  Evidence: <strong className="text-foreground font-semibold">{scopePapersCount}</strong> verified papers •{" "}
+                  <strong className="text-foreground font-semibold">{scopeQuestionsCount}</strong> questions •{" "}
+                  <strong className="text-foreground font-semibold">{currentCourse.units?.length || 5}</strong> units
+                </span>
+                <span className="text-border mx-0.5">•</span>
+                <Link
+                  href={`/mintai/exam-dna?course=${currentCourse.id}${selectedCycle !== "ALL" ? `&cycle=${selectedCycle}` : ""}`}
+                  className="font-semibold text-accent hover:underline flex items-center gap-1 shrink-0"
+                >
+                  <span>Exam DNA</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted/20 border border-border/60 rounded-xl px-3.5 py-2 self-start md:self-auto">
+                <ShieldCheck className="w-4 h-4 text-accent shrink-0" />
+                <span>
+                  <strong>43</strong> engineering courses • <strong>313</strong> verified papers indexed
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Active Course Card: Primary Card to Choose / Switch Course */}
           <div className="pt-3 border-t border-border/50 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                setCourseSearchQuery("");
-                setIsCourseModalOpen(true);
-              }}
-              className="flex-1 flex items-center justify-between p-3.5 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/80 hover:border-accent/50 transition-all text-left group cursor-pointer shadow-2xs"
-            >
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center font-mono text-xs font-bold shrink-0 border border-accent/25 group-hover:scale-105 transition-transform">
-                  <BookOpen className="w-4 h-4 text-accent" />
-                </div>
-                <div className="space-y-0.5 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-bold text-foreground text-sm sm:text-base group-hover:text-accent transition-colors truncate">
-                      {currentCourse?.canonicalCode ? `[${currentCourse.canonicalCode}] ` : ""}
-                      {currentCourse?.name || "Choose Your Course"}
-                    </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-semibold shrink-0">
-                      Semester {selectedSemester}
-                    </span>
+            {currentCourse ? (
+              <button
+                type="button"
+                onClick={() => {
+                  setCourseSearchQuery("");
+                  setIsCourseModalOpen(true);
+                }}
+                className="flex-1 flex items-center justify-between p-3.5 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/80 hover:border-accent/50 transition-all text-left group cursor-pointer shadow-2xs"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center font-mono text-xs font-bold shrink-0 border border-accent/25 group-hover:scale-105 transition-transform">
+                    <BookOpen className="w-4 h-4 text-accent" />
                   </div>
-                  <p className="text-xs text-muted-foreground truncate">
-                    {selectedBranch} • <span className="text-accent/90 font-medium">Click to change branch or course</span>
-                  </p>
+                  <div className="space-y-0.5 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-bold text-foreground text-sm sm:text-base group-hover:text-accent transition-colors truncate">
+                        {currentCourse.canonicalCode ? `[${currentCourse.canonicalCode}] ` : ""}
+                        {currentCourse.name}
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-semibold shrink-0">
+                        Semester {selectedSemester}
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground truncate">
+                      {selectedBranch} • <span className="text-accent/90 font-medium">Click to change branch or course</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-center gap-1.5 pl-3 text-xs font-semibold text-muted-foreground group-hover:text-accent shrink-0">
-                <span className="hidden sm:inline">Change Course</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </button>
+                
+                <div className="flex items-center gap-1.5 pl-3 text-xs font-semibold text-muted-foreground group-hover:text-accent shrink-0">
+                  <span className="hidden sm:inline">Change Course</span>
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setCourseSearchQuery("");
+                  setIsCourseModalOpen(true);
+                }}
+                className="flex-1 flex items-center justify-between p-4 rounded-xl bg-accent/5 hover:bg-accent/10 border-2 border-dashed border-accent/40 hover:border-accent transition-all text-left group cursor-pointer shadow-xs"
+              >
+                <div className="flex items-center gap-3.5 min-w-0">
+                  <div className="w-10 h-10 rounded-xl bg-accent/20 text-accent flex items-center justify-center font-mono text-xs font-bold shrink-0 border border-accent/30 group-hover:scale-105 transition-transform">
+                    <Sparkles className="w-5 h-5 text-accent animate-pulse" />
+                  </div>
+                  <div className="space-y-0.5 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-foreground text-base group-hover:text-accent transition-colors">
+                        Select Your Course to Begin
+                      </span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/15 border border-accent/30 text-accent font-bold uppercase tracking-wider">
+                        Input Required
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Choose your branch and semester or search any of our 43 engineering subjects
+                    </p>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-accent text-accent-foreground text-xs font-bold shadow-xs shrink-0">
+                  <span>Choose Course</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
+              </button>
+            )}
 
             {/* Assessment Cycle Selector */}
             <div className="grid grid-cols-3 rounded-xl border border-border p-1 bg-muted/20 text-xs shrink-0 self-center">
@@ -579,7 +585,9 @@ export default function DashboardPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onClick={() => setIsCourseModalOpen(false)}
+                onClick={() => {
+                  if (selectedCourseId) setIsCourseModalOpen(false);
+                }}
                 className="fixed inset-0 bg-background/80 backdrop-blur-sm"
               />
 
@@ -596,7 +604,7 @@ export default function DashboardPage() {
                 <div className="p-5 sm:p-6 border-b border-border/60 bg-card shrink-0 flex items-start justify-between gap-4">
                   <div className="space-y-1">
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-semibold text-accent uppercase tracking-wider">
-                      Academic Context
+                      Academic Setup
                     </div>
                     <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
                       What are you preparing for?
@@ -606,14 +614,16 @@ export default function DashboardPage() {
                     </p>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => setIsCourseModalOpen(false)}
-                    className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors shrink-0 cursor-pointer"
-                    aria-label="Close dialog"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+                  {selectedCourseId && (
+                    <button
+                      type="button"
+                      onClick={() => setIsCourseModalOpen(false)}
+                      className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors shrink-0 cursor-pointer"
+                      aria-label="Close dialog"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  )}
                 </div>
 
                 {/* Modal Body */}
@@ -625,7 +635,7 @@ export default function DashboardPage() {
                       type="text"
                       value={courseSearchQuery}
                       onChange={(e) => setCourseSearchQuery(e.target.value)}
-                      placeholder="Instant search all 43 courses (e.g. Data Structures, 18CSC201J, Physics)..."
+                      placeholder="Instant search 43 courses (e.g. Data Structures, 18CSC201J, Physics)..."
                       className="w-full bg-muted/20 border border-border rounded-xl pl-10 pr-10 py-2.5 text-sm placeholder:text-muted-foreground text-foreground focus:ring-1 focus:ring-accent focus:outline-none transition-all"
                       autoFocus
                     />
@@ -784,13 +794,15 @@ export default function DashboardPage() {
                 {/* Modal Footer */}
                 <div className="p-4 border-t border-border/60 bg-muted/10 shrink-0 flex items-center justify-between text-xs text-muted-foreground">
                   <span>SRMIST Verified Curriculum</span>
-                  <button
-                    type="button"
-                    onClick={() => setIsCourseModalOpen(false)}
-                    className="px-4 py-2 rounded-xl bg-foreground text-background font-semibold hover:bg-foreground/90 transition-all cursor-pointer shadow-xs"
-                  >
-                    Close
-                  </button>
+                  {selectedCourseId && (
+                    <button
+                      type="button"
+                      onClick={() => setIsCourseModalOpen(false)}
+                      className="px-4 py-2 rounded-xl bg-foreground text-background font-semibold hover:bg-foreground/90 transition-all cursor-pointer shadow-xs"
+                    >
+                      Close
+                    </button>
+                  )}
                 </div>
               </motion.div>
             </div>
@@ -808,9 +820,15 @@ export default function DashboardPage() {
                 Your MintAI Forecast
               </h2>
               <p className="text-xs text-muted-foreground">
-                High-yield topics and recurring question signals calibrated from verified past papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
+                {currentCourse ? (
+                  <>
+                    High-yield topics and recurring question signals calibrated from verified past papers for <strong className="text-foreground">{currentCourse.name}</strong> ({cycleDisplayLabel}).
+                  </>
+                ) : (
+                  "Select a course to view calibrated topics, probability scores, and recurring question families."
+                )}
               </p>
-              {selectedCycle !== "ALL" && predictionsData?.assessment_scope?.component_code === "ALL" && (
+              {currentCourse && selectedCycle !== "ALL" && predictionsData?.assessment_scope?.component_code === "ALL" && (
                 <div className="flex items-center gap-2 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-600 dark:text-amber-400 mt-2">
                   <Info className="w-4 h-4 shrink-0" />
                   <span>
@@ -820,55 +838,82 @@ export default function DashboardPage() {
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
-              {/* Filter pills: All | Topics | Questions */}
-              <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/20 text-xs">
-                <button
-                  type="button"
-                  onClick={() => setForecastFilter("ALL")}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
-                    forecastFilter === "ALL"
-                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  All Signals
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setForecastFilter("TOPIC")}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
-                    forecastFilter === "TOPIC"
-                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  Topics
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setForecastFilter("FAMILY")}
-                  className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
-                    forecastFilter === "FAMILY"
-                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  Questions
-                </button>
-              </div>
+            {currentCourse && (
+              <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+                {/* Filter pills: All | Topics | Questions */}
+                <div className="inline-flex rounded-lg border border-border p-0.5 bg-muted/20 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setForecastFilter("ALL")}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                      forecastFilter === "ALL"
+                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    All Signals
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setForecastFilter("TOPIC")}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                      forecastFilter === "TOPIC"
+                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    Topics
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setForecastFilter("FAMILY")}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer ${
+                      forecastFilter === "FAMILY"
+                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    Questions
+                  </button>
+                </div>
 
-              <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-accent/15 text-accent border border-accent/20">
-                Target: {cycleDisplayLabel}
-              </span>
-            </div>
+                <span className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-accent/15 text-accent border border-accent/20">
+                  Target: {cycleDisplayLabel}
+                </span>
+              </div>
+            )}
           </div>
 
-          {/* Forecast Items Grid */}
-          {isLoadingIntelligence ? (
+          {/* Forecast Items / Selection Prompt */}
+          {!currentCourse ? (
+            <div className="p-10 md:p-14 text-center rounded-2xl border-2 border-dashed border-border/70 bg-muted/5 space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-accent/10 border border-accent/20 text-accent flex items-center justify-center mx-auto shadow-inner">
+                <BookOpen className="w-7 h-7 text-accent" />
+              </div>
+              <div className="space-y-1.5 max-w-md mx-auto">
+                <h3 className="text-lg font-bold text-foreground">
+                  Choose Your Course
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Select your engineering department and semester to generate calibrated topic recurrence, recurring question families, and exam intelligence.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setCourseSearchQuery("");
+                  setIsCourseModalOpen(true);
+                }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-foreground text-background text-xs font-bold hover:bg-foreground/90 transition-all cursor-pointer shadow-md"
+              >
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span>Select Course & Branch</span>
+              </button>
+            </div>
+          ) : isLoadingIntelligence ? (
             <div className="py-12 flex flex-col items-center justify-center gap-3 text-muted-foreground">
               <Loader2 className="w-6 h-6 animate-spin text-accent" />
-              <span className="text-xs font-medium">Calibrating historical exam predictions...</span>
+              <span className="text-xs font-medium">Calibrating historical exam predictions for {currentCourse.name}...</span>
             </div>
           ) : displayedForecastItems.length === 0 ? (
             <div className="p-8 text-center rounded-xl bg-muted/10 border border-border/60 space-y-4">
@@ -1015,7 +1060,7 @@ export default function DashboardPage() {
           }
           subtitle={
             <div className="flex items-center gap-2 text-xs text-muted-foreground pt-1 flex-wrap">
-              <span>{currentCourse.name}</span>
+              <span>{currentCourse?.name}</span>
               <span>•</span>
               <span>{cycleDisplayLabel}</span>
               {activePracticeTopic?.probability != null && (
@@ -1029,55 +1074,57 @@ export default function DashboardPage() {
             </div>
           }
         >
-          <div className="space-y-5">
-            {/* Drawer Tabs: Authentic PYQs vs AI Practice Generator */}
-            <div className="grid grid-cols-2 rounded-lg border border-border p-1 bg-muted/20 text-xs">
-              <button
-                type="button"
-                onClick={() => setDrawerActiveTab("pyq")}
-                className={`py-2 px-3 rounded-md text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  drawerActiveTab === "pyq"
-                    ? "bg-accent text-accent-foreground shadow-2xs"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Past Exam Questions</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setDrawerActiveTab("ai")}
-                className={`py-2 px-3 rounded-md text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  drawerActiveTab === "ai"
-                    ? "bg-accent text-accent-foreground shadow-2xs"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>AI Practice Questions</span>
-              </button>
-            </div>
+          {currentCourse && (
+            <div className="space-y-5">
+              {/* Drawer Tabs: Authentic PYQs vs AI Practice Generator */}
+              <div className="grid grid-cols-2 rounded-lg border border-border p-1 bg-muted/20 text-xs">
+                <button
+                  type="button"
+                  onClick={() => setDrawerActiveTab("pyq")}
+                  className={`py-2 px-3 rounded-md text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    drawerActiveTab === "pyq"
+                      ? "bg-accent text-accent-foreground shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>Past Exam Questions</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDrawerActiveTab("ai")}
+                  className={`py-2 px-3 rounded-md text-xs font-semibold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    drawerActiveTab === "ai"
+                      ? "bg-accent text-accent-foreground shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>AI Practice Questions</span>
+                </button>
+              </div>
 
-            {/* Drawer Content Body */}
-            {drawerActiveTab === "pyq" ? (
-              <TopicQuestionsViewer
-                topicName={activePracticeTopic?.name || ""}
-                courseId={currentCourse.id}
-                courseCode={currentCourse.canonicalCode || currentCourse.code}
-              />
-            ) : (
-              <div className="space-y-4">
-                <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 text-xs text-muted-foreground">
-                  MintAI generates 1-mark, 4-mark, and 13-mark practice problems aligned strictly with the exam structure of <strong className="text-foreground">{currentCourse.name}</strong>.
-                </div>
-                <MintAIQuestionGenerator
+              {/* Drawer Content Body */}
+              {drawerActiveTab === "pyq" ? (
+                <TopicQuestionsViewer
                   topicName={activePracticeTopic?.name || ""}
                   courseId={currentCourse.id}
-                  cycle={selectedCycle}
+                  courseCode={currentCourse.canonicalCode || currentCourse.code}
                 />
-              </div>
-            )}
-          </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="p-3.5 rounded-xl bg-accent/5 border border-accent/20 text-xs text-muted-foreground">
+                    MintAI generates 1-mark, 4-mark, and 13-mark practice problems aligned strictly with the exam structure of <strong className="text-foreground">{currentCourse.name}</strong>.
+                  </div>
+                  <MintAIQuestionGenerator
+                    topicName={activePracticeTopic?.name || ""}
+                    courseId={currentCourse.id}
+                    cycle={selectedCycle}
+                  />
+                </div>
+              )}
+            </div>
+          )}
         </Drawer>
 
         {/* 4. Minimal Institutional Scope Notice */}
