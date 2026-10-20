@@ -3,12 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Leaf, Menu, X, Flame } from "lucide-react";
+import { Leaf, Menu, X, Flame, Search } from "lucide-react";
 import { HangingLamp } from "@/components/ambient/HangingLamp";
 import { cn } from "@/lib/utils";
 import { useStreak } from "@/hooks/use-streak";
 import { DeepFocusToggle } from "@/components/ui/deep-focus";
-
 import { preloadCurriculumMetadata } from "@/lib/api";
 
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
@@ -16,7 +15,6 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const streak = useStreak();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    
 
   const links = [
     { href: "/", label: "Home" },
@@ -26,6 +24,11 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
   ];
+
+  const handleOpenSearch = () => {
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true }));
+  };
 
   return (
     <header className="relative z-50 flex h-16 items-center justify-between bg-background/90 backdrop-blur-md px-6 md:px-10 transition-all duration-300 border-b border-border/40">
@@ -40,15 +43,15 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               <span className="px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-medium tracking-wide translate-y-[1px]">v2.0</span>
             </span>
           </Link>
-            <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
-              For SRMIST Students
-            </span>
-          </div>
+          <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
+            For SRMIST Students
+          </span>
+        </div>
 
-        {/* Right Side: Nav + Streak + Mobile Toggle */}
+        {/* Right Side: Nav + Quick Search + Streak + Focus + Mobile Toggle */}
         <div className="flex items-center gap-2 md:gap-4 ml-auto">
-          {/* Center: Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Center: Navigation Links */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {links.map((link) => {
               const isActive =
                 pathname === link.href ||
@@ -74,8 +77,22 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               );
             })}
           </nav>
+
+          {/* Quick Search Button (⌘K) */}
+          <button
+            type="button"
+            onClick={handleOpenSearch}
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/60 border border-border/60 hover:border-accent/40 text-xs text-muted-foreground transition-all cursor-pointer shadow-2xs"
+            title="Search questions, topics, courses (⌘K)"
+          >
+            <Search className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="hidden lg:inline text-[11px] font-medium">Search</span>
+            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded bg-background border border-border/80 text-[10px] font-mono font-medium text-muted-foreground">
+              ⌘K
+            </kbd>
+          </button>
           
-          <div className="flex items-center gap-2 md:gap-3 md:ml-6 md:pl-6 md:border-l border-border/40 mr-2 md:mr-0">
+          <div className="flex items-center gap-2 md:gap-3 md:ml-2 md:pl-3 md:border-l border-border/40 mr-2 md:mr-0">
             <div className="flex items-center gap-1 px-2 md:px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20" title={`${streak} Day Study Streak`}>
               <Flame className={`w-3 h-3 md:w-3.5 md:h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/80'}`} />
               <span className="text-[10px] md:text-xs font-bold text-orange-500">{streak}</span>
@@ -98,23 +115,37 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
         <HangingLamp />
       </div>
 
-      {/* Mobile Menu Dropdown (#5) */}
+      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="absolute top-20 left-0 w-full bg-background border-b border-border shadow-lg flex flex-col p-4 md:hidden no-print z-40">
+        <div className="absolute top-16 left-0 w-full bg-background border-b border-border shadow-lg flex flex-col p-4 md:hidden no-print z-40 space-y-1">
+          {/* Mobile Search Trigger */}
+          <button
+            type="button"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              handleOpenSearch();
+            }}
+            className="flex items-center justify-between py-2.5 px-4 mb-2 rounded-xl bg-muted/30 border border-border/60 text-xs font-medium text-muted-foreground"
+          >
+            <div className="flex items-center gap-2">
+              <Search className="w-4 h-4 text-accent" />
+              <span>Search questions &amp; courses</span>
+            </div>
+            <kbd className="px-1.5 py-0.5 rounded bg-background border border-border text-[10px] font-mono">⌘K</kbd>
+          </button>
+
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="py-3 px-4 text-sm font-medium border-b border-border/50 text-foreground hover:bg-accent/10 transition-colors"
+              className="py-3 px-4 text-sm font-medium border-b border-border/40 text-foreground hover:bg-accent/10 transition-colors rounded-lg"
             >
               {link.label}
             </Link>
           ))}
-
         </div>
       )}
-
     </header>
   );
 }
