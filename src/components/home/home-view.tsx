@@ -1,16 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import Link from "next/link";
-import { Leaf, ChevronRight, BookOpen, Clock, CheckCircle2, ArrowRight, Target } from "lucide-react";
+import { 
+  Leaf, 
+  ChevronRight, 
+  BookOpen, 
+  Clock, 
+  CheckCircle2, 
+  ArrowRight, 
+  Target, 
+  Search, 
+  Sparkles,
+  Dna,
+  X
+} from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getStudyContext, StudyContext } from "@/lib/study-context";
 import { MagneticButton } from "@/components/ui/magnetic-button";
+import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
 
 export function HomeView() {
   const [studyContext, setStudyContext] = useState<StudyContext | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -25,6 +41,35 @@ export function HomeView() {
     };
   }, []);
 
+  // Close search dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target as Node)) {
+        setIsSearchOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Filter courses for instant search
+  const searchResults = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    const q = searchQuery.toLowerCase().trim();
+    return coursesCatalog
+      .filter((c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.code.toLowerCase().includes(q) ||
+        (c.canonicalCode && c.canonicalCode.toLowerCase().includes(q))
+      )
+      .slice(0, 5);
+  }, [searchQuery]);
+
+  // Featured engineering subjects from official verified catalog
+  const featuredCourses = useMemo(() => {
+    return coursesCatalog.filter((c) => c.paperCount > 0).slice(0, 6);
+  }, []);
+
   // Compute completed tasks summary if available
   const completedCount = studyContext?.task_statuses
     ? Object.values(studyContext.task_statuses).filter((s) => s === "COMPLETED").length
@@ -37,7 +82,7 @@ export function HomeView() {
       <main id="main-content" className="flex-1 flex flex-col items-start justify-start w-full px-6 md:px-10 pt-4 pb-16">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative z-10 w-full pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-12">
+        <section className="relative z-10 w-full pt-8 pb-10 flex flex-col md:flex-row items-center justify-between gap-12">
           
           {/* Left: Text Content */}
           <div className="w-full md:w-3/5 flex flex-col items-start">
@@ -46,43 +91,98 @@ export function HomeView() {
               MarkMint v2.0 • SRMIST Semesters 1–8 Academic Intelligence
             </p>
             
-            <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-8">
+            <h1 className="text-5xl md:text-[64px] font-bold tracking-tight text-foreground leading-[1.1] mb-6">
               Predict your exams with <br/>
               <span className="text-accent italic font-serif">historical evidence.</span>
             </h1>
             
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed mb-10">
-              MintAI analyzes previous year papers, recurring question families, section weightage, and historical volatility to forecast high-yield exam topics for students at SRM Institute of Science and Technology (SRMIST).
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mb-8">
+              MintAI analyzes verified previous year papers, recurring question families, section blueprints, and syllabus weighting to forecast high-yield exam topics for engineering students at SRMIST.
             </p>
+
+            {/* Instant Course Search Box */}
+            <div ref={searchContainerRef} className="relative w-full max-w-lg mb-8">
+              <div className="relative">
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setIsSearchOpen(true);
+                  }}
+                  onFocus={() => setIsSearchOpen(true)}
+                  placeholder="Instant search your course (e.g. Data Structures, 18CSC201J, Physics)..."
+                  className="w-full bg-card border border-border/80 hover:border-accent/40 rounded-xl pl-10 pr-10 py-3 text-sm placeholder:text-muted-foreground text-foreground focus:ring-2 focus:ring-accent/30 focus:outline-none transition-all shadow-xs"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery("");
+                      setIsSearchOpen(false);
+                    }}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
+
+              {/* Instant Search Dropdown */}
+              {isSearchOpen && searchQuery.trim() && (
+                <div className="absolute top-full left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-30 overflow-hidden divide-y divide-border/40 animate-in fade-in-50 zoom-in-95">
+                  {searchResults.length === 0 ? (
+                    <div className="p-4 text-center text-xs text-muted-foreground">
+                      No engineering subjects matching &ldquo;{searchQuery}&rdquo;
+                    </div>
+                  ) : (
+                    searchResults.map((c) => (
+                      <Link
+                        key={c.id}
+                        href={`/dashboard?course_id=${c.id}#forecast`}
+                        className="p-3 text-xs flex items-center justify-between hover:bg-muted/40 transition-colors group"
+                        onClick={() => setIsSearchOpen(false)}
+                      >
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className="font-mono text-accent font-semibold">[{c.canonicalCode || c.code}]</span>
+                            <span className="font-medium text-foreground group-hover:text-accent transition-colors">{c.name}</span>
+                          </div>
+                          <span className="text-[11px] text-muted-foreground">Semester {c.semester}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground group-hover:text-accent shrink-0">
+                          <span className="text-[11px] font-mono">{c.paperCount} exams</span>
+                          <ChevronRight className="w-3.5 h-3.5" />
+                        </div>
+                      </Link>
+                    ))
+                  )}
+                </div>
+              )}
+            </div>
             
-            <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            {/* Streamlined Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
               <MagneticButton className="relative group w-full sm:w-auto" intensity={0.15}>
-                {/* Animated Glow Behind Button */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-600 rounded-lg blur-lg opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-600 rounded-lg blur-lg opacity-25 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 
                 <Link 
                   href="/dashboard"
-                  className="relative flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-foreground text-background rounded-md hover:bg-foreground/90 transition-all duration-150 active:scale-[0.98] font-medium overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.15)]"
+                  className="relative flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-3.5 bg-foreground text-background rounded-xl hover:bg-foreground/90 transition-all active:scale-[0.98] font-semibold text-sm shadow-sm"
                 >
-                  <Leaf className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform duration-500" strokeWidth={2.5} />
-                  Open MintAI
+                  <Sparkles className="w-4 h-4 text-accent" />
+                  <span>Open MintAI Intelligence</span>
                 </Link>
               </MagneticButton>
-              
-              <Link 
-                href="/study-plan"
-                className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-transparent border border-border text-foreground rounded-md hover:border-foreground/50 transition-all duration-150 active:scale-[0.98] font-medium"
-              >
-                <Target className="w-4 h-4 text-accent" />
-                Study Plan
-              </Link>
 
               <Link 
                 href="/courses"
-                className="flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md transition-all duration-150 active:scale-[0.98] font-medium border border-border/50"
+                className="flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-xl transition-all active:scale-[0.98] font-medium text-sm border border-border/60"
               >
-                <BookOpen className="w-4 h-4 text-accent" />
-                Browse Courses
+                <BookOpen className="w-4 h-4 text-muted-foreground" />
+                <span>Browse 43 Courses</span>
               </Link>
             </div>
           </div>
@@ -103,14 +203,14 @@ export function HomeView() {
           </div>
         </section>
 
-        {/* --- CONTINUE STUDYING OR ORIENTATION --- */}
-        {isClient && studyContext ? (
-          <section className="w-full max-w-2xl mt-2 mb-10 p-6 rounded-2xl bg-card border border-border/80 shadow-sm space-y-4">
+        {/* --- RECENT STUDY SESSION --- */}
+        {isClient && studyContext && studyContext.course_id ? (
+          <section className="w-full max-w-2xl mt-1 mb-8 p-5 rounded-2xl bg-card border border-border/80 shadow-xs space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
-                  Continue Studying
+                  Recent Course
                 </h2>
               </div>
               {studyContext.assessment_cycle && studyContext.assessment_cycle !== "ALL" && (
@@ -120,10 +220,10 @@ export function HomeView() {
               )}
             </div>
 
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-1">
-              <div className="space-y-1">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1">
+              <div className="space-y-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="font-bold text-foreground text-lg hover:text-accent transition-colors">
+                  <h3 className="font-bold text-foreground text-base truncate">
                     {studyContext.course_name}
                   </h3>
                   {studyContext.course_code && (
@@ -131,29 +231,18 @@ export function HomeView() {
                       ({studyContext.course_code})
                     </span>
                   )}
-                  {studyContext.language && (
-                    <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-secondary text-secondary-foreground border border-border">
-                      {studyContext.language}
-                    </span>
-                  )}
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-muted-foreground flex-wrap pt-0.5">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
                   {studyContext.last_topic_name ? (
-                    <span className="flex items-center gap-1.5 text-foreground">
-                      <Target className="w-3.5 h-3.5 text-accent" />
-                      Last target: <span className="font-medium text-accent">{studyContext.last_topic_name}</span>
+                    <span className="flex items-center gap-1.5 text-foreground truncate">
+                      <Target className="w-3.5 h-3.5 text-accent shrink-0" />
+                      <span>Last viewed: <strong className="font-medium text-accent">{studyContext.last_topic_name}</strong></span>
                     </span>
                   ) : (
                     <span className="flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5" />
-                      Active study session
-                    </span>
-                  )}
-                  {completedCount > 0 && (
-                    <span className="flex items-center gap-1 text-emerald-500 font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      {completedCount} completed
+                      <span>Active preparation session</span>
                     </span>
                   )}
                 </div>
@@ -161,147 +250,88 @@ export function HomeView() {
 
               <div className="flex items-center gap-2 shrink-0">
                 <Link
-                  href={`/study-plan?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
-                  className="px-4 py-2 bg-foreground text-background font-medium rounded-lg hover:bg-foreground/90 transition-all text-xs flex items-center gap-1.5 active:scale-95 shadow-sm"
+                  href={`/dashboard?course_id=${studyContext.course_id}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}#forecast`}
+                  className="px-4 py-2 bg-foreground text-background font-semibold rounded-lg hover:bg-foreground/90 transition-all text-xs flex items-center gap-1.5 active:scale-95 shadow-xs"
                 >
-                  <span>Go to Study Plan</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3.5 h-3.5 text-accent" />
+                  <span>View Forecast</span>
+                  <ArrowRight className="w-3 h-3" />
                 </Link>
                 <Link
-                  href={`/dashboard?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}#forecast`}
-                  className="px-3.5 py-2 bg-secondary text-secondary-foreground font-medium rounded-lg hover:bg-secondary/80 transition-all text-xs border border-border/60"
+                  href={`/mintai/exam-dna?course=${studyContext.course_id}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
+                  className="px-3.5 py-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 font-medium rounded-lg transition-all text-xs border border-border/60 flex items-center gap-1.5"
                 >
-                  Forecast
-                </Link>
-                <Link
-                  href={`/mintai/exam-dna?course_id=${studyContext.course_id}${studyContext.language ? `&language=${encodeURIComponent(studyContext.language)}` : ""}${studyContext.assessment_cycle ? `&cycle=${encodeURIComponent(studyContext.assessment_cycle)}` : ""}`}
-                  className="px-3.5 py-2 bg-accent/10 hover:bg-accent/20 text-accent font-medium rounded-lg transition-all text-xs border border-accent/20"
-                >
-                  Exam DNA
+                  <Dna className="w-3.5 h-3.5 text-accent" />
+                  <span>Exam DNA</span>
                 </Link>
               </div>
             </div>
           </section>
-        ) : isClient ? (
-          <section className="w-full max-w-2xl mt-2 mb-10 p-5 rounded-2xl bg-card/60 border border-border/50 space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              <h2 className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
-                What should I study?
-              </h2>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Start by discovering which topics and question families carry the highest frequency for your upcoming exams.
-            </p>
-            <div className="flex items-center gap-3 pt-1">
-              <Link
-                href="/dashboard#forecast"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
-              >
-                Open MintAI Intelligence <ChevronRight className="w-3.5 h-3.5" />
-              </Link>
-              <span className="text-muted-foreground text-xs">•</span>
-              <Link
-                href="/courses"
-                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Select from 43 courses
-              </Link>
-            </div>
-          </section>
         ) : null}
 
-        {/* --- FEATURED COURSES & DISCOVERY --- */}
+        {/* --- FEATURED ENGINEERING COURSES --- */}
         <section className="w-full pt-8 pb-4 border-t border-border/40 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-1">
               <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">
-                Authoritative Curriculum & Past Exams
+                Authoritative Curriculum &amp; Past Exams
               </p>
               <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                Explore Engineering Courses & Exam Intelligence
+                Explore Engineering Courses &amp; Exam Intelligence
               </h2>
             </div>
             <Link
               href="/courses"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:underline"
             >
-              View all 43 courses <ChevronRight className="w-4 h-4" />
+              <span>View all 43 courses</span>
+              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              {
-                name: "Calculus and Linear Algebra",
-                code: "21MAB101T",
-                slug: "calculus-and-linear-algebra",
-                papers: 19,
-                questions: 524,
-                sem: 1,
-              },
-              {
-                name: "Chemistry",
-                code: "21CYB101J",
-                slug: "chemistry",
-                papers: 17,
-                questions: 468,
-                sem: 1,
-              },
-              {
-                name: "Semiconductor Physics & Computational Methods",
-                code: "21PYB102J",
-                slug: "semiconductor-physics-and-computational-methods",
-                papers: 14,
-                questions: 412,
-                sem: 1,
-              },
-              {
-                name: "Electrical and Electronics Engineering",
-                code: "21EEB101J",
-                slug: "electrical-and-electronics-engineering",
-                papers: 15,
-                questions: 440,
-                sem: 1,
-              },
-              {
-                name: "Object Oriented Design and Programming",
-                code: "21CSC102J",
-                slug: "object-oriented-design-and-programming",
-                papers: 16,
-                questions: 435,
-                sem: 2,
-              },
-              {
-                name: "Foreign Languages (6 Tracks)",
-                code: "21LEH Elective",
-                slug: "foreign-languages",
-                papers: 32,
-                questions: 955,
-                sem: 1,
-              },
-            ].map((c) => (
-              <Link
-                key={c.slug}
-                href={`/courses/${c.slug}`}
-                className="group p-5 rounded-xl bg-card border border-border/60 hover:border-accent/40 transition-all duration-150 hover:-translate-y-0.5 hover:shadow-sm flex flex-col justify-between"
+            {featuredCourses.map((c) => (
+              <div
+                key={c.id}
+                className="group p-5 rounded-2xl bg-card border border-border/60 hover:border-accent/40 transition-all duration-150 flex flex-col justify-between shadow-xs"
               >
                 <div>
                   <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                    <span className="font-mono text-accent font-semibold">{c.code}</span>
-                    <span className="px-2 py-0.5 rounded bg-secondary text-[10px]">Sem {c.sem}</span>
+                    <span className="font-mono text-accent font-semibold">[{c.canonicalCode || c.code}]</span>
+                    <span className="px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground text-[10px] font-medium">
+                      Sem {c.semester}
+                    </span>
                   </div>
                   <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors line-clamp-1">
                     {c.name}
                   </h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2 mt-1.5">
+                    {c.description}
+                  </p>
                 </div>
-                <div className="pt-4 mt-4 border-t border-border/30 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>{c.papers} Papers • {c.questions} Questions</span>
-                  <span className="text-accent font-medium group-hover:translate-x-0.5 transition-transform flex items-center">
-                    Explore <ChevronRight className="w-3.5 h-3.5" />
+
+                <div className="pt-4 mt-4 border-t border-border/40 flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground font-mono text-[11px]">
+                    {c.paperCount} Papers • {c.questionCount} Questions
                   </span>
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href={`/dashboard?course_id=${c.id}#forecast`}
+                      className="px-2.5 py-1 rounded-lg bg-accent/10 hover:bg-accent/20 text-accent font-semibold text-xs border border-accent/20 transition-all flex items-center gap-1"
+                    >
+                      <Sparkles className="w-3 h-3" />
+                      <span>Forecast</span>
+                    </Link>
+                    <Link
+                      href={`/courses/${c.slug}`}
+                      className="p-1 text-muted-foreground hover:text-foreground transition-colors"
+                      title="View syllabus & details"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
