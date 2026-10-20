@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { MathText } from "@/components/ui/math-text";
+import { cleanQuestionText } from "@/lib/utils";
 import { getTopicHistoricalQuestions } from "@/lib/api";
 import { TopicHistoricalQuestion } from "@/lib/types";
 import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
@@ -158,7 +159,7 @@ export function TopicQuestionsViewer({ topicName, courseId, courseCode }: TopicQ
 
                   {/* Question Text with KaTeX Rendering */}
                   <div className="text-sm text-foreground/90 leading-relaxed font-sans pt-1">
-                    <MathText content={q.original_text} />
+                    <MathText content={cleanQuestionText(q.original_text)} />
                   </div>
                 </div>
               );

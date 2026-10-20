@@ -1,256 +1,527 @@
-import os
-import re
-import json
-import time
-import random
-from typing import Any, Optional
-from pydantic import BaseModel, Field
-from dotenv import load_dotenv
-
-load_dotenv()
-
-from google import genai
-from google.genai import types
-
-from backend.schemas import (
-    DocumentExtractionResult,
-    ExtractedSection,
-    ExtractedQuestion,
-)
-
-
-class GeminiSubSubquestion(BaseModel):
-    number: str = Field(description="Sub-subquestion number/letter, e.g. 'i'")
-    text: str = Field(description="Text. Preserve math notation.")
-    marks: Optional[float] = Field(None, description="Marks if any.")
-
-class GeminiSubquestion(BaseModel):
-    number: str = Field(description="Subquestion number/letter, e.g. 'a'")
-    text: str = Field(description="Text. Preserve math notation.")
-    marks: Optional[float] = Field(None, description="Marks if any.")
-    subquestions: list[GeminiSubSubquestion] = Field(default_factory=list, description="Further nested subquestions.")
-
-class GeminiAlternativeQuestion(BaseModel):
-    number: str = Field(description="Main question number, e.g. '1', '2'")
-    text: str = Field(description="Text of the question. Preserve math notation.")
-    marks: Optional[float] = Field(None, description="Marks for the question, if any.")
-    subquestions: list[GeminiSubquestion] = Field(default_factory=list, description="Subquestions belonging to this question.")
-
-class GeminiQuestion(BaseModel):
-    number: str = Field(description="Main question number, e.g. '1', '2'")
-    text: str = Field(description="Text of the question. Preserve math notation.")
-    marks: Optional[float] = Field(None, description="Marks for the question, if any.")
-    subquestions: list[GeminiSubquestion] = Field(default_factory=list, description="Subquestions belonging to this question.")
-    or_alternative: Optional[GeminiAlternativeQuestion] = Field(None, description="If this question has an 'OR' alternative, nest it here.")
-
-class GeminiSection(BaseModel):
-    name: str = Field(description="Name of the section, e.g. 'PART A', 'Section 1'")
-    instructions: Optional[str] = Field(None, description="Instructions for this section.")
-    questions: list[GeminiQuestion] = Field(default_factory=list)
-
-class GeminiDocumentMetadata(BaseModel):
-    assessment_type: Optional[str] = Field(None, description="e.g., 'CT1', 'CT2', 'END_SEM', 'MID_SEM', 'MODEL', 'UNKNOWN'. Look at the visible headings/title. Do NOT guess.")
-    year: Optional[int] = Field(None, description="e.g. 2023. Extract from visible text. Do not guess.")
-
-class GeminiDocument(BaseModel):
-    metadata: Optional[GeminiDocumentMetadata] = Field(None, description="Global document metadata")
-    sections: list[GeminiSection]
-
-
-class VisionExtractor:
-    """Multimodal vision-based document extractor using Gemini 1.5 Flash / 3.x Flash."""
-
-    @classmethod
-    def extract_pdf(cls, file_path: str) -> DocumentExtractionResult:
-        api_key = os.environ.get("GEMINI_API_KEY")
-        if not api_key:
-            return DocumentExtractionResult(
-                sections=[],
-                total_pages=0,
-                successful=False,
-                error_message="GEMINI_API_KEY not found in environment."
-            )
-
-        client = genai.Client()
-
-        # Upload the PDF via the Files API
-        try:
-            print(f"[VisionExtractor] Uploading {file_path} to Gemini...")
-            # We must use client.files.upload
-            gemini_file = client.files.upload(
-                file=file_path,
-                config={"display_name": os.path.basename(file_path), "mime_type": "application/pdf"}
-            )
-            
-            # Wait for processing if needed
-            while gemini_file.state.name == "PROCESSING":
-                time.sleep(2)
-                gemini_file = client.files.get(name=gemini_file.name)
-            
-            if gemini_file.state.name == "FAILED":
-                return DocumentExtractionResult(
-                    sections=[],
-                    total_pages=0,
-                    successful=False,
-                    error_message="Gemini file processing failed."
-                )
-
-        except Exception as e:
-            return DocumentExtractionResult(
-                sections=[],
-                total_pages=0,
-                successful=False,
-                error_message=f"Failed to upload PDF to Gemini: {str(e)}"
-            )
-
-        prompt = """
-        You are an expert academic document parser. 
-        Extract all exam questions from this document. 
-        Preserve the exact hierarchical structure (Sections -> Questions -> Subquestions -> Sub-subquestions).
-        If there is an "OR" choice between two questions, place the second question inside the `or_alternative` field of the first question.
-        
-        CRITICAL RULES FOR STEM/MATH:
-        1. Preserve all mathematical notation, formulas, matrices, integrals, superscripts, subscripts, Greek letters, and chemical equations exactly. Use LaTeX notation for math (e.g., \\frac{dy}{dx}, \\int_0^\\pi).
-        2. Do NOT convert mathematical equations into flat ASCII garbage.
-        3. Extract the exact marks (e.g. 5, 10) if they are explicitly present.
-        4. Do NOT hallucinate questions that do not exist.
-        """
-
-        max_retries = 5
-        base_delay = 2.0
-        last_error = None
-
-        models_to_try = ["gemini-3-flash-preview", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.7-flash", "gemini-flash-latest"]
-        try:
-            for attempt in range(max_retries):
-                model_name = models_to_try[attempt % len(models_to_try)]
-                try:
-                    print(f"[VisionExtractor] Generating structured content with {model_name} (attempt {attempt + 1}/{max_retries})...")
-                    response = client.models.generate_content(
-                        model=model_name,
-                        contents=[gemini_file, prompt],
-                        config=types.GenerateContentConfig(
-                            response_mime_type="application/json",
-                            response_schema=GeminiDocument,
-                            temperature=0.1
-                        )
-                    )
-                    if not response.text:
-                        raise ValueError(f"Empty response from Gemini: finish_reason={response.candidates[0].finish_reason if response.candidates else 'None'}")
-                    raw_text = response.text.strip()
-                    if raw_text.startswith("```"):
-                        raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
-                        raw_text = re.sub(r"\s*```$", "", raw_text)
-                    data = json.loads(raw_text)
-                    return cls._transform_to_domain(data)
-                except Exception as e:
-                    err_str = str(e)
-                    last_error = err_str
-                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out", "Empty response", "NoneType", "Expecting property", "JSONDecodeError", "Unterminated", "Extra data"])
-                    if is_transient and attempt < max_retries - 1:
-                        sleep_time = min(60.0, (base_delay * (2 ** attempt)) + random.uniform(0.1, 1.0))
-                        print(f"[VisionExtractor] Transient error ({err_str[:60]}). Retrying in {sleep_time:.2f}s...")
-                        time.sleep(sleep_time)
-                    else:
-                        break
-
-            return DocumentExtractionResult(
-                sections=[],
-                total_pages=0,
-                successful=False,
-                error_message=f"Gemini API error: {last_error}"
-            )
-        finally:
-            try:
-                client.files.delete(name=gemini_file.name)
-            except Exception as exc:
-                print(f"[VisionExtractor] Uploaded file cleanup failed: {exc}")
-
-
-    @classmethod
-    def _transform_to_domain(cls, data: dict) -> DocumentExtractionResult:
-        sections: list[ExtractedSection] = []
-        
-        for sec_data in data.get("sections", []):
-            ext_questions: list[ExtractedQuestion] = []
-            
-            for q_data in sec_data.get("questions", []):
-                q_text = cls._flatten_question_text(q_data)
-                
-                # We don't have page numbers natively from this schema, default to 1
-                page_number = 1
-                confidence = 0.9 # High base confidence if vision succeeded
-                
-                # Heuristic for needs_review (e.g., if it still contains obvious OCR garbage)
-                needs_review = "[UNRECOGNIZED" in q_text
-                
-                # Check for OR alternative
-                is_alternative = False
-                
-                ext_q = ExtractedQuestion(
-                    question_number=q_data.get("number", ""),
-                    original_text=q_text,
-                    structured_content=q_data,
-                    marks=q_data.get("marks"),
-                    is_alternative=is_alternative,
-                    page_number=page_number,
-                    confidence=confidence,
-                    needs_review=needs_review,
-                    extraction_method="vision_gemini"
-                )
-                ext_questions.append(ext_q)
-                
-                # Add the OR alternative as a separate question marked is_alternative=True
-                or_alt = q_data.get("or_alternative")
-                if or_alt:
-                    alt_text = cls._flatten_question_text(or_alt)
-                    alt_q = ExtractedQuestion(
-                        question_number=or_alt.get("number", ""),
-                        original_text=alt_text,
-                        structured_content=or_alt,
-                        marks=or_alt.get("marks"),
-                        is_alternative=True,
-                        page_number=page_number,
-                        confidence=confidence,
-                        needs_review="[UNRECOGNIZED" in alt_text,
-                        extraction_method="vision_gemini"
-                    )
-                    ext_questions.append(alt_q)
-
-            sections.append(
-                ExtractedSection(
-                    name=sec_data.get("name", "General"),
-                    instructions=sec_data.get("instructions"),
-                    questions=ext_questions
-                )
-            )
-            
-        return DocumentExtractionResult(
-            sections=sections,
-            total_pages=1, # We don't track total pages via the LLM response right now
-            successful=True,
-            assessment_type=data.get("metadata", {}).get("assessment_type") if data.get("metadata") else None,
-            year=data.get("metadata", {}).get("year") if data.get("metadata") else None
-        )
-
-    @classmethod
-    def _flatten_question_text(cls, q_data: dict, indent_level: int = 0) -> str:
-        """Render the structured question back into a readable markdown string."""
-        indent = "  " * indent_level
-        lines = []
-        
-        num = q_data.get("number", "")
-        text = q_data.get("text", "")
-        marks = q_data.get("marks")
-        
-        header = f"{indent}{num}. {text}"
-        if marks is not None:
-            header += f" [{marks}]"
-            
-        lines.append(header)
-        
-        for sub in q_data.get("subquestions", []):
-            lines.append(cls._flatten_question_text(sub, indent_level + 1))
-            
-        return "\n".join(lines)
-
+import os
+
+import re
+
+import json
+
+import time
+
+import random
+
+from typing import Any, Optional
+
+from pydantic import BaseModel, Field
+
+from dotenv import load_dotenv
+
+
+
+load_dotenv()
+
+
+
+from google import genai
+
+from google.genai import types
+
+
+
+from backend.services.extraction.cleaner import strip_question_prefix
+
+from backend.schemas import (
+
+    DocumentExtractionResult,
+
+    ExtractedSection,
+
+    ExtractedQuestion,
+
+)
+
+
+
+
+
+class GeminiSubSubquestion(BaseModel):
+
+    number: str = Field(description="Sub-subquestion number/letter, e.g. 'i'")
+
+    text: str = Field(description="Text stem only. Do not include labels like '(i)'. Preserve math notation.")
+
+    marks: Optional[float] = Field(None, description="Marks if any.")
+
+
+
+class GeminiSubquestion(BaseModel):
+
+    number: str = Field(description="Subquestion number/letter, e.g. 'a'")
+
+    text: str = Field(description="Text stem only. Do not include labels like '(a)'. Preserve math notation.")
+
+    marks: Optional[float] = Field(None, description="Marks if any.")
+
+    subquestions: list[GeminiSubSubquestion] = Field(default_factory=list, description="Further nested subquestions.")
+
+
+
+class GeminiAlternativeQuestion(BaseModel):
+
+    number: str = Field(description="Main question number, e.g. '1', '2'")
+
+    text: str = Field(description="Text stem of the question body ONLY. Do NOT include question number or labels (like '1.', 'Q1.') here. Preserve math notation.")
+
+    marks: Optional[float] = Field(None, description="Marks for the question, if any.")
+
+    subquestions: list[GeminiSubquestion] = Field(default_factory=list, description="Subquestions belonging to this question.")
+
+
+
+class GeminiQuestion(BaseModel):
+
+    number: str = Field(description="Main question number, e.g. '1', '2'")
+
+    text: str = Field(description="Text stem of the question body ONLY. Do NOT include question number or labels (like '1.', 'Q1.') here. Preserve math notation.")
+
+    marks: Optional[float] = Field(None, description="Marks for the question, if any.")
+
+    subquestions: list[GeminiSubquestion] = Field(default_factory=list, description="Subquestions belonging to this question.")
+
+    or_alternative: Optional[GeminiAlternativeQuestion] = Field(None, description="If this question has an 'OR' alternative, nest it here.")
+
+
+
+class GeminiSection(BaseModel):
+
+    name: str = Field(description="Name of the section, e.g. 'PART A', 'Section 1'")
+
+    instructions: Optional[str] = Field(None, description="Instructions for this section.")
+
+    questions: list[GeminiQuestion] = Field(default_factory=list)
+
+
+
+class GeminiDocumentMetadata(BaseModel):
+
+    assessment_type: Optional[str] = Field(None, description="e.g., 'CT1', 'CT2', 'END_SEM', 'MID_SEM', 'MODEL', 'UNKNOWN'. Look at the visible headings/title. Do NOT guess.")
+
+    year: Optional[int] = Field(None, description="e.g. 2023. Extract from visible text. Do not guess.")
+
+
+
+class GeminiDocument(BaseModel):
+
+    metadata: Optional[GeminiDocumentMetadata] = Field(None, description="Global document metadata")
+
+    sections: list[GeminiSection]
+
+
+
+
+
+class VisionExtractor:
+
+    """Multimodal vision-based document extractor using Gemini 1.5 Flash / 3.x Flash."""
+
+
+
+    @classmethod
+
+    def extract_pdf(cls, file_path: str) -> DocumentExtractionResult:
+
+        api_key = os.environ.get("GEMINI_API_KEY")
+
+        if not api_key:
+
+            return DocumentExtractionResult(
+
+                sections=[],
+
+                total_pages=0,
+
+                successful=False,
+
+                error_message="GEMINI_API_KEY not found in environment."
+
+            )
+
+
+
+        client = genai.Client()
+
+
+
+        # Upload the PDF via the Files API
+
+        try:
+
+            print(f"[VisionExtractor] Uploading {file_path} to Gemini...")
+
+            # We must use client.files.upload
+
+            gemini_file = client.files.upload(
+
+                file=file_path,
+
+                config={"display_name": os.path.basename(file_path), "mime_type": "application/pdf"}
+
+            )
+
+            
+
+            # Wait for processing if needed
+
+            while gemini_file.state.name == "PROCESSING":
+
+                time.sleep(2)
+
+                gemini_file = client.files.get(name=gemini_file.name)
+
+            
+
+            if gemini_file.state.name == "FAILED":
+
+                return DocumentExtractionResult(
+
+                    sections=[],
+
+                    total_pages=0,
+
+                    successful=False,
+
+                    error_message="Gemini file processing failed."
+
+                )
+
+
+
+        except Exception as e:
+
+            return DocumentExtractionResult(
+
+                sections=[],
+
+                total_pages=0,
+
+                successful=False,
+
+                error_message=f"Failed to upload PDF to Gemini: {str(e)}"
+
+            )
+
+
+
+        prompt = """
+
+        You are an expert academic document parser. 
+
+        Extract all exam questions from this document. 
+
+        Preserve the exact hierarchical structure (Sections -> Questions -> Subquestions -> Sub-subquestions).
+
+        If there is an "OR" choice between two questions, place the second question inside the `or_alternative` field of the first question.
+
+        
+
+        CRITICAL RULES FOR STEM/MATH:
+
+        1. Preserve all mathematical notation, formulas, matrices, integrals, superscripts, subscripts, Greek letters, and chemical equations exactly. Use LaTeX notation for math (e.g., \\frac{dy}{dx}, \\int_0^\\pi).
+
+        2. Do NOT convert mathematical equations into flat ASCII garbage.
+
+        3. Extract the exact marks (e.g. 5, 10) if they are explicitly present.
+
+        4. Do NOT hallucinate questions that do not exist.
+        5. Do NOT include leading question numbers, bullets, or question prefixes (like '1.', 'Q.2', '(a)') in the 'text' field. The question number must be placed ONLY in the 'number' field.
+
+        5. Do NOT include leading question numbers, bullets, or question prefixes (like '1.', 'Q.2', '(a)') in the 'text' field. The question number must be placed ONLY in the 'number' field.
+
+        """
+
+
+
+        max_retries = 5
+
+        base_delay = 2.0
+
+        last_error = None
+
+
+
+        models_to_try = ["gemini-3-flash-preview", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.7-flash", "gemini-flash-latest"]
+
+        try:
+
+            for attempt in range(max_retries):
+
+                model_name = models_to_try[attempt % len(models_to_try)]
+
+                try:
+
+                    print(f"[VisionExtractor] Generating structured content with {model_name} (attempt {attempt + 1}/{max_retries})...")
+
+                    response = client.models.generate_content(
+
+                        model=model_name,
+
+                        contents=[gemini_file, prompt],
+
+                        config=types.GenerateContentConfig(
+
+                            response_mime_type="application/json",
+
+                            response_schema=GeminiDocument,
+
+                            temperature=0.1
+
+                        )
+
+                    )
+
+                    if not response.text:
+
+                        raise ValueError(f"Empty response from Gemini: finish_reason={response.candidates[0].finish_reason if response.candidates else 'None'}")
+
+                    raw_text = response.text.strip()
+
+                    if raw_text.startswith("```"):
+
+                        raw_text = re.sub(r"^```(?:json)?\s*", "", raw_text)
+
+                        raw_text = re.sub(r"\s*```$", "", raw_text)
+
+                    data = json.loads(raw_text)
+
+                    return cls._transform_to_domain(data)
+
+                except Exception as e:
+
+                    err_str = str(e)
+
+                    last_error = err_str
+
+                    is_transient = any(code in err_str for code in ["429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "timeout", "timed out", "Empty response", "NoneType", "Expecting property", "JSONDecodeError", "Unterminated", "Extra data"])
+
+                    if is_transient and attempt < max_retries - 1:
+
+                        sleep_time = min(60.0, (base_delay * (2 ** attempt)) + random.uniform(0.1, 1.0))
+
+                        print(f"[VisionExtractor] Transient error ({err_str[:60]}). Retrying in {sleep_time:.2f}s...")
+
+                        time.sleep(sleep_time)
+
+                    else:
+
+                        break
+
+
+
+            return DocumentExtractionResult(
+
+                sections=[],
+
+                total_pages=0,
+
+                successful=False,
+
+                error_message=f"Gemini API error: {last_error}"
+
+            )
+
+        finally:
+
+            try:
+
+                client.files.delete(name=gemini_file.name)
+
+            except Exception as exc:
+
+                print(f"[VisionExtractor] Uploaded file cleanup failed: {exc}")
+
+
+
+
+
+    @classmethod
+
+    def _transform_to_domain(cls, data: dict) -> DocumentExtractionResult:
+
+        sections: list[ExtractedSection] = []
+
+        
+
+        for sec_data in data.get("sections", []):
+
+            ext_questions: list[ExtractedQuestion] = []
+
+            
+
+            for q_data in sec_data.get("questions", []):
+
+                q_text = cls._flatten_question_text(q_data)
+
+                
+
+                # We don't have page numbers natively from this schema, default to 1
+
+                page_number = 1
+
+                confidence = 0.9 # High base confidence if vision succeeded
+
+                
+
+                # Heuristic for needs_review (e.g., if it still contains obvious OCR garbage)
+
+                needs_review = "[UNRECOGNIZED" in q_text
+
+                
+
+                # Check for OR alternative
+
+                is_alternative = False
+
+                
+
+                ext_q = ExtractedQuestion(
+
+                    question_number=q_data.get("number", ""),
+
+                    original_text=q_text,
+
+                    structured_content=q_data,
+
+                    marks=q_data.get("marks"),
+
+                    is_alternative=is_alternative,
+
+                    page_number=page_number,
+
+                    confidence=confidence,
+
+                    needs_review=needs_review,
+
+                    extraction_method="vision_gemini"
+
+                )
+
+                ext_questions.append(ext_q)
+
+                
+
+                # Add the OR alternative as a separate question marked is_alternative=True
+
+                or_alt = q_data.get("or_alternative")
+
+                if or_alt:
+
+                    alt_text = cls._flatten_question_text(or_alt)
+
+                    alt_q = ExtractedQuestion(
+
+                        question_number=or_alt.get("number", ""),
+
+                        original_text=alt_text,
+
+                        structured_content=or_alt,
+
+                        marks=or_alt.get("marks"),
+
+                        is_alternative=True,
+
+                        page_number=page_number,
+
+                        confidence=confidence,
+
+                        needs_review="[UNRECOGNIZED" in alt_text,
+
+                        extraction_method="vision_gemini"
+
+                    )
+
+                    ext_questions.append(alt_q)
+
+
+
+            sections.append(
+
+                ExtractedSection(
+
+                    name=sec_data.get("name", "General"),
+
+                    instructions=sec_data.get("instructions"),
+
+                    questions=ext_questions
+
+                )
+
+            )
+
+            
+
+        return DocumentExtractionResult(
+
+            sections=sections,
+
+            total_pages=1, # We don't track total pages via the LLM response right now
+
+            successful=True,
+
+            assessment_type=data.get("metadata", {}).get("assessment_type") if data.get("metadata") else None,
+
+            year=data.get("metadata", {}).get("year") if data.get("metadata") else None
+
+        )
+
+
+
+    @classmethod
+
+    def _flatten_question_text(cls, q_data: dict, indent_level: int = 0) -> str:
+
+        """Render the structured question back into a readable markdown string."""
+
+        indent = "  " * indent_level
+
+        lines = []
+
+        
+
+        num = q_data.get("number", "")
+
+        raw_text = q_data.get("text", "")
+
+        text = strip_question_prefix(raw_text, num)
+
+        marks = q_data.get("marks")
+
+        
+
+        if indent_level > 0 and num:
+
+            sub_label = f"({num.strip('().')})" if not num.startswith("(") else num
+
+            header = f"{indent}{sub_label} {text}".strip()
+
+        else:
+
+            header = f"{indent}{text}".strip()
+
+        if marks is not None:
+
+            header += f" [{marks}]"
+
+            
+
+        lines.append(header)
+
+        
+
+        for sub in q_data.get("subquestions", []):
+
+            lines.append(cls._flatten_question_text(sub, indent_level + 1))
+
+            
+
+        return "\n".join(lines)
+
+
+
