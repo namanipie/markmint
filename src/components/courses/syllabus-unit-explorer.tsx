@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { CourseUnitCatalogItem } from "@/lib/courses";
 import { findTopicSlug } from "@/lib/topics";
+import { MathText } from "@/components/ui/math-text";
 import { BookOpen, ChevronDown, ChevronRight, ArrowUpRight } from "lucide-react";
 
 interface SyllabusUnitExplorerProps {
@@ -107,7 +108,9 @@ export function SyllabusUnitExplorer({ units, courseSlug }: SyllabusUnitExplorer
                         >
                           <div className="flex items-start gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                            <span className="group-hover:text-accent transition-colors">{t}</span>
+                            <span className="group-hover:text-accent transition-colors">
+                              <MathText content={t} inlineOnly />
+                            </span>
                           </div>
                           <span className="text-[10px] text-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0 flex items-center">
                             PYQs <ArrowUpRight className="w-3 h-3 ml-0.5" />
@@ -119,7 +122,9 @@ export function SyllabusUnitExplorer({ units, courseSlug }: SyllabusUnitExplorer
                           className="flex items-start gap-2 text-xs text-muted-foreground py-1 px-2 -mx-2"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-muted mt-1.5 shrink-0" />
-                          <span>{t}</span>
+                          <span>
+                            <MathText content={t} inlineOnly />
+                          </span>
                         </div>
                       );
                     })}
