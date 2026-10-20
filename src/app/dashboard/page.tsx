@@ -19,6 +19,7 @@ import {
   getExamDNA
 } from "@/lib/api";
 import { CurriculumSubject, ExamDNA } from "@/lib/types";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Dna,
   Sparkles,
@@ -31,7 +32,9 @@ import {
   Loader2,
   FileText,
   Info,
-  X
+  X,
+  BookOpen,
+  Check
 } from "lucide-react";
 
 export default function DashboardPage() {
@@ -53,11 +56,13 @@ export default function DashboardPage() {
   const [selectedCourseId, setSelectedCourseId] = useState<number>(1);
   const [selectedCycle, setSelectedCycle] = useState<string>("ENDSEM");
 
+  // Primary Course Selection Modal State
+  const [isCourseModalOpen, setIsCourseModalOpen] = useState<boolean>(false);
+  const [courseSearchQuery, setCourseSearchQuery] = useState<string>("");
+
   // Forecast view filter: "ALL" | "TOPIC" | "FAMILY"
   const [forecastFilter, setForecastFilter] = useState<"ALL" | "TOPIC" | "FAMILY">("ALL");
   const [showAllSignals, setShowAllSignals] = useState<boolean>(false);
-  const [isEditingContext, setIsEditingContext] = useState<boolean>(false);
-  const [courseSearchQuery, setCourseSearchQuery] = useState<string>("");
 
   // Slide-over Practice Drawer State
   const [activePracticeTopic, setActivePracticeTopic] = useState<{
@@ -81,6 +86,21 @@ export default function DashboardPage() {
   const [isLoadingIntelligence, setIsLoadingIntelligence] = useState<boolean>(true);
   const [intelligenceError, setIntelligenceError] = useState<string | null>(null);
 
+  // Lock body scroll and ESC listener when course selection modal is open
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsCourseModalOpen(false);
+    };
+    if (isCourseModalOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isCourseModalOpen]);
+
   // 1. Initial Load: Load branches & initialize from StudyContext / URL params
   useEffect(() => {
     let isMounted = true;
@@ -98,6 +118,7 @@ export default function DashboardPage() {
         const urlParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
         const targetCourseId = urlParams?.get("course_id") || urlParams?.get("course");
         const targetCycle = urlParams?.get("cycle") || urlParams?.get("assessment_cycle");
+        const forceSelect = urlParams?.get("select") === "true";
 
         let initialBranch = "Computer Science and Engineering";
         let initialSemester = 1;
@@ -154,6 +175,11 @@ export default function DashboardPage() {
 
         setSelectedCourseId(initialCourseId);
         setSelectedCycle(initialCycle);
+
+        // If user has not chosen a course previously AND no URL target course is provided, prompt them with the modal
+        if ((!ctx?.course_id && !targetCourseId) || forceSelect) {
+          setIsCourseModalOpen(true);
+        }
       } catch (err) {
         console.error("Failed to initialize academic context:", err);
       }
@@ -181,7 +207,7 @@ export default function DashboardPage() {
     };
   }, [eligibleCourses]);
 
-  // Handle Branch change
+  // Handle Branch change inside setup modal
   const handleBranchChange = async (newBranch: string) => {
     setSelectedBranch(newBranch);
     try {
@@ -209,7 +235,7 @@ export default function DashboardPage() {
     }
   };
 
-  // Handle Semester change
+  // Handle Semester change inside setup modal
   const handleSemesterChange = async (newSem: number) => {
     setSelectedSemester(newSem);
     try {
@@ -324,7 +350,7 @@ export default function DashboardPage() {
     setShowAllSignals(false);
     setSelectedCourseId(courseId);
     setCourseSearchQuery("");
-    setIsEditingContext(false);
+    setIsCourseModalOpen(false);
 
     const found = findCurriculumSubjectByCourseId(courseId);
     if (found) {
@@ -484,194 +510,292 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Active Course & Cycle Bar */}
-          <div className="pt-3 border-t border-border/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="space-y-0.5 min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h2 className="text-lg md:text-xl font-bold text-foreground">
-                  {currentCourse?.canonicalCode ? `[${currentCourse.canonicalCode}] ` : ""}
-                  {currentCourse?.name || "Select Course"}
-                </h2>
-                <span className="text-xs px-2 py-0.5 rounded-md bg-muted text-muted-foreground font-mono">
-                  Sem {selectedSemester}
-                </span>
+          {/* Active Course Card: Primary Card to Choose / Switch Course */}
+          <div className="pt-3 border-t border-border/50 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() => {
+                setCourseSearchQuery("");
+                setIsCourseModalOpen(true);
+              }}
+              className="flex-1 flex items-center justify-between p-3.5 rounded-xl bg-muted/20 hover:bg-muted/40 border border-border/80 hover:border-accent/50 transition-all text-left group cursor-pointer shadow-2xs"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-xl bg-accent/15 text-accent flex items-center justify-center font-mono text-xs font-bold shrink-0 border border-accent/25 group-hover:scale-105 transition-transform">
+                  <BookOpen className="w-4 h-4 text-accent" />
+                </div>
+                <div className="space-y-0.5 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-bold text-foreground text-sm sm:text-base group-hover:text-accent transition-colors truncate">
+                      {currentCourse?.canonicalCode ? `[${currentCourse.canonicalCode}] ` : ""}
+                      {currentCourse?.name || "Choose Your Course"}
+                    </span>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-accent font-semibold shrink-0">
+                      Semester {selectedSemester}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground truncate">
+                    {selectedBranch} • <span className="text-accent/90 font-medium">Click to change branch or course</span>
+                  </p>
+                </div>
               </div>
-              <p className="text-xs text-muted-foreground">
-                {selectedBranch}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
-              {/* Assessment Cycle Selector */}
-              <div className="grid grid-cols-3 rounded-lg border border-border p-1 bg-muted/20 text-xs">
-                {[
-                  { key: "ENDSEM", label: "EndSem" },
-                  { key: "CT1", label: "CT1" },
-                  { key: "CT2", label: "CT2" }
-                ].map((cycle) => (
-                  <button
-                    key={cycle.key}
-                    type="button"
-                    onClick={() => handleCycleChange(cycle.key)}
-                    className={`py-1.5 px-3 rounded-md text-xs font-medium transition-all cursor-pointer ${
-                      selectedCycle === cycle.key
-                        ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {cycle.label}
-                  </button>
-                ))}
+              
+              <div className="flex items-center gap-1.5 pl-3 text-xs font-semibold text-muted-foreground group-hover:text-accent shrink-0">
+                <span className="hidden sm:inline">Change Course</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </div>
+            </button>
 
-              {/* Course Change Trigger */}
-              <button
-                type="button"
-                onClick={() => setIsEditingContext(!isEditingContext)}
-                className="px-3.5 py-1.5 rounded-lg border border-border bg-background text-xs font-medium hover:bg-muted/50 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-              >
-                <span>{isEditingContext ? "Close Search" : "Change Course"}</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isEditingContext ? "rotate-180" : ""}`} />
-              </button>
+            {/* Assessment Cycle Selector */}
+            <div className="grid grid-cols-3 rounded-xl border border-border p-1 bg-muted/20 text-xs shrink-0 self-center">
+              {[
+                { key: "ENDSEM", label: "EndSem" },
+                { key: "CT1", label: "CT1" },
+                { key: "CT2", label: "CT2" }
+              ].map((cycle) => (
+                <button
+                  key={cycle.key}
+                  type="button"
+                  onClick={() => handleCycleChange(cycle.key)}
+                  className={`py-2 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+                    selectedCycle === cycle.key
+                      ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {cycle.label}
+                </button>
+              ))}
             </div>
           </div>
+        </div>
 
-          {/* Course Selector Dropdown & Instant Search */}
-          {isEditingContext && (
-            <div className="p-4 rounded-xl bg-background border border-border/80 shadow-sm space-y-4 animate-in slide-in-from-top-2">
-              {/* Instant Search Across All 43 Courses */}
-              <div className="relative">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                <input
-                  type="text"
-                  value={courseSearchQuery}
-                  onChange={(e) => setCourseSearchQuery(e.target.value)}
-                  placeholder="Instant search all 43 courses by name or code (e.g. Data Structures, 18CSC201J, Physics)..."
-                  className="w-full bg-muted/20 border border-border rounded-lg pl-9 pr-9 py-2 text-sm placeholder:text-muted-foreground text-foreground focus:ring-1 focus:ring-accent focus:outline-none"
-                  autoFocus
-                />
-                {courseSearchQuery && (
+        {/* PRIMARY COURSE SELECTION MODAL CARD */}
+        <AnimatePresence>
+          {isCourseModalOpen && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsCourseModalOpen(false)}
+                className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+              />
+
+              {/* Modal Dialog Card */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                transition={{ type: "spring", damping: 25, stiffness: 250 }}
+                className="relative w-full max-w-2xl bg-card border border-border/80 rounded-2xl shadow-2xl overflow-hidden z-10 flex flex-col max-h-[88vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header */}
+                <div className="p-5 sm:p-6 border-b border-border/60 bg-card shrink-0 flex items-start justify-between gap-4">
+                  <div className="space-y-1">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/20 text-[11px] font-semibold text-accent uppercase tracking-wider">
+                      Academic Context
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                      What are you preparing for?
+                    </h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      Select your branch and semester or instantly search any of our 43 engineering subjects.
+                    </p>
+                  </div>
+
                   <button
                     type="button"
-                    onClick={() => setCourseSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
-                    aria-label="Clear course search"
+                    onClick={() => setIsCourseModalOpen(false)}
+                    className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-xl transition-colors shrink-0 cursor-pointer"
+                    aria-label="Close dialog"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-5 h-5" />
                   </button>
-                )}
-              </div>
+                </div>
 
-              {/* If Searching: Instant Search Results */}
-              {courseSearchQuery.trim() ? (
-                <div className="space-y-2">
-                  <div className="text-xs font-semibold text-muted-foreground">
-                    {searchedCourses.length} courses matching &ldquo;{courseSearchQuery}&rdquo;
-                  </div>
-                  <div className="max-h-60 overflow-y-auto divide-y divide-border/40 border border-border/60 rounded-lg">
-                    {searchedCourses.length === 0 ? (
-                      <div className="p-4 text-center text-xs text-muted-foreground">
-                        No engineering courses matching &ldquo;{courseSearchQuery}&rdquo;
-                      </div>
-                    ) : (
-                      searchedCourses.map((c) => (
-                        <button
-                          key={c.id}
-                          type="button"
-                          onClick={() => handleCourseSwitch(c.id)}
-                          className={`w-full p-2.5 text-left text-xs flex items-center justify-between hover:bg-muted/40 transition-colors cursor-pointer ${
-                            c.id === selectedCourseId ? "bg-accent/10 font-bold" : ""
-                          }`}
-                        >
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-accent font-semibold">[{c.canonicalCode || c.code}]</span>
-                            <span className="text-foreground">{c.name}</span>
-                          </div>
-                          <span className="text-muted-foreground font-mono text-[11px] shrink-0">
-                            {c.paperCount} exams
-                          </span>
-                        </button>
-                      ))
+                {/* Modal Body */}
+                <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
+                  {/* Instant Search Bar */}
+                  <div className="relative">
+                    <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                    <input
+                      type="text"
+                      value={courseSearchQuery}
+                      onChange={(e) => setCourseSearchQuery(e.target.value)}
+                      placeholder="Instant search all 43 courses (e.g. Data Structures, 18CSC201J, Physics)..."
+                      className="w-full bg-muted/20 border border-border rounded-xl pl-10 pr-10 py-2.5 text-sm placeholder:text-muted-foreground text-foreground focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                      autoFocus
+                    />
+                    {courseSearchQuery && (
+                      <button
+                        type="button"
+                        onClick={() => setCourseSearchQuery("")}
+                        className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-1"
+                        aria-label="Clear search"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
                     )}
                   </div>
-                </div>
-              ) : (
-                /* If Not Searching: Curriculum Hierarchy (Branch -> Semester -> Course) */
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="space-y-1.5">
-                    <label htmlFor="academic-branch-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                      Branch / Programme
-                    </label>
-                    <select
-                      id="academic-branch-select"
-                      value={selectedBranch}
-                      onChange={(e) => handleBranchChange(e.target.value)}
-                      className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
-                    >
-                      {branches.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
 
-                  <div className="space-y-1.5">
-                    <label htmlFor="academic-semester-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                      Semester
-                    </label>
-                    <select
-                      id="academic-semester-select"
-                      value={selectedSemester}
-                      onChange={(e) => handleSemesterChange(Number(e.target.value))}
-                      className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs"
-                    >
-                      {semesters.map((s) => (
-                        <option key={s} value={s}>
-                          Semester {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label htmlFor="academic-course-select" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
-                      Course
-                    </label>
-                    <select
-                      id="academic-course-select"
-                      value={selectedCourseId}
-                      onChange={(e) => handleCourseSwitch(Number(e.target.value))}
-                      className="w-full bg-background border border-border rounded-lg px-3 py-2 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs font-mono"
-                    >
-                      {semesterSubjects.length > 0 && (
-                        <optgroup label={`Semester ${selectedSemester} Curriculum`}>
-                          {semesterSubjects.map((sub) => {
-                            const matchedCatalog = eligibleCourses.find((c) => c.id === sub.course_id);
-                            const targetId = sub.course_id || (matchedCatalog ? matchedCatalog.id : null);
-                            if (!targetId) return null;
+                  {/* If Searching: Display Instant Search Results */}
+                  {courseSearchQuery.trim() ? (
+                    <div className="space-y-2">
+                      <div className="text-xs font-semibold text-muted-foreground flex items-center justify-between">
+                        <span>{searchedCourses.length} courses matching &ldquo;{courseSearchQuery}&rdquo;</span>
+                        <span className="text-[10px] font-mono">Click course to select</span>
+                      </div>
+                      <div className="max-h-72 overflow-y-auto space-y-1.5 pr-1">
+                        {searchedCourses.length === 0 ? (
+                          <div className="p-8 text-center text-xs text-muted-foreground bg-muted/10 rounded-xl border border-dashed border-border/80">
+                            No engineering courses matching &ldquo;{courseSearchQuery}&rdquo;
+                          </div>
+                        ) : (
+                          searchedCourses.map((c) => {
+                            const isSelected = c.id === selectedCourseId;
                             return (
-                              <option key={`sem-${sub.curriculum_id}`} value={targetId}>
-                                {sub.canonical_code ? `[${sub.canonical_code}] ` : ""}{sub.subject_name}{sub.has_exams ? "" : " (Awaiting Papers)"}
+                              <button
+                                key={c.id}
+                                type="button"
+                                onClick={() => handleCourseSwitch(c.id)}
+                                className={`w-full p-3 rounded-xl text-left text-xs flex items-center justify-between border transition-all cursor-pointer ${
+                                  isSelected
+                                    ? "bg-accent/15 border-accent text-foreground font-bold shadow-2xs"
+                                    : "bg-muted/15 border-border/60 hover:bg-muted/30 hover:border-accent/40 text-foreground"
+                                }`}
+                              >
+                                <div className="space-y-0.5">
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-mono text-accent font-semibold">[{c.canonicalCode || c.code}]</span>
+                                    <span className="font-medium text-foreground">{c.name}</span>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-2 shrink-0">
+                                  <span className="text-muted-foreground font-mono text-[11px]">
+                                    {c.paperCount} exams
+                                  </span>
+                                  {isSelected && <Check className="w-4 h-4 text-accent" />}
+                                </div>
+                              </button>
+                            );
+                          })
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    /* If Not Searching: Branch -> Semester -> Subject Flow */
+                    <div className="space-y-5">
+                      {/* Branch Selector */}
+                      <div className="space-y-2">
+                        <label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                          1. Select Branch / Specialization
+                        </label>
+                        <div className="relative">
+                          <select
+                            value={selectedBranch}
+                            onChange={(e) => handleBranchChange(e.target.value)}
+                            className="w-full bg-background border border-border rounded-xl px-3.5 py-2.5 text-sm font-medium text-foreground focus:ring-1 focus:ring-accent focus:outline-none shadow-2xs appearance-none pr-10 cursor-pointer"
+                          >
+                            {branches.map((b) => (
+                              <option key={b} value={b}>
+                                {b}
                               </option>
+                            ))}
+                          </select>
+                          <ChevronDown className="w-4 h-4 text-muted-foreground absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        </div>
+                      </div>
+
+                      {/* Semester Pills (1 - 8) */}
+                      <div className="space-y-2">
+                        <label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                          2. Select Semester
+                        </label>
+                        <div className="grid grid-cols-4 sm:grid-cols-8 gap-1.5">
+                          {semesters.map((s) => (
+                            <button
+                              key={s}
+                              type="button"
+                              onClick={() => handleSemesterChange(s)}
+                              className={`py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                selectedSemester === s
+                                  ? "bg-accent text-accent-foreground shadow-2xs"
+                                  : "bg-muted/20 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/40"
+                              }`}
+                            >
+                              Sem {s}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Available Subjects for this Branch & Semester */}
+                      <div className="space-y-2">
+                        <label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground block">
+                          3. Select Course ({semesterSubjects.length > 0 ? `${semesterSubjects.length} subjects in Semester ${selectedSemester}` : "Available Courses"})
+                        </label>
+                        <div className="max-h-60 overflow-y-auto space-y-1.5 pr-1">
+                          {(semesterSubjects.length > 0 ? semesterSubjects : eligibleCourses).map((item: any) => {
+                            const courseId = item.course_id || item.id;
+                            const courseName = item.subject_name || item.name;
+                            const courseCode = item.canonical_code || item.canonicalCode || item.code;
+                            const isSelected = courseId === selectedCourseId;
+                            const hasExams = item.has_exams !== undefined ? item.has_exams : (item.paperCount > 0);
+
+                            return (
+                              <button
+                                key={courseId}
+                                type="button"
+                                onClick={() => handleCourseSwitch(courseId)}
+                                className={`w-full p-3 rounded-xl text-left text-xs flex items-center justify-between border transition-all cursor-pointer ${
+                                  isSelected
+                                    ? "bg-accent/15 border-accent text-foreground font-bold shadow-2xs"
+                                    : "bg-muted/15 border-border/60 hover:bg-muted/30 hover:border-accent/40 text-foreground"
+                                }`}
+                              >
+                                <div className="space-y-0.5">
+                                  <div className="flex items-center gap-2">
+                                    {courseCode && (
+                                      <span className="font-mono text-accent font-semibold">[{courseCode}]</span>
+                                    )}
+                                    <span className="font-medium text-foreground">{courseName}</span>
+                                  </div>
+                                  {!hasExams && (
+                                    <span className="text-[10px] text-amber-500 font-medium block">
+                                      Awaiting past exam papers
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-2 shrink-0">
+                                  {isSelected && <Check className="w-4 h-4 text-accent" />}
+                                </div>
+                              </button>
                             );
                           })}
-                        </optgroup>
-                      )}
-                      <optgroup label="All Verified Engineering Courses">
-                        {eligibleCourses.map((c) => (
-                          <option key={`all-${c.id}`} value={c.id}>
-                            {c.canonicalCode ? `[${c.canonicalCode}] ` : ""}{c.name}
-                          </option>
-                        ))}
-                      </optgroup>
-                    </select>
-                  </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+
+                {/* Modal Footer */}
+                <div className="p-4 border-t border-border/60 bg-muted/10 shrink-0 flex items-center justify-between text-xs text-muted-foreground">
+                  <span>SRMIST Verified Curriculum</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsCourseModalOpen(false)}
+                    className="px-4 py-2 rounded-xl bg-foreground text-background font-semibold hover:bg-foreground/90 transition-all cursor-pointer shadow-xs"
+                  >
+                    Close
+                  </button>
+                </div>
+              </motion.div>
             </div>
           )}
-        </div>
+        </AnimatePresence>
 
         {/* 2. PRIMARY OUTPUT: YOUR MINTAI FORECAST */}
         <section id="forecast" className="bg-card border-2 border-accent/25 rounded-2xl p-5 md:p-7 shadow-sm space-y-5 scroll-mt-20">
