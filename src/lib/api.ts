@@ -298,8 +298,13 @@ export async function getHistoricalQuestions(
   return fetchAPI(url);
 }
 
-export async function getModelPerformance(): Promise<any> {
-  return fetchAPI("/intelligence/model-performance");
+export async function getModelPerformance(courseId?: number, targetYear?: number, cycle?: string): Promise<any> {
+  const params = new URLSearchParams();
+  if (courseId !== undefined && courseId !== null) params.set("course_id", String(courseId));
+  if (targetYear !== undefined && targetYear !== null) params.set("target_year", String(targetYear));
+  if (cycle) params.set("cycle", cycle);
+  const qs = params.toString();
+  return fetchAPI(`/intelligence/model-performance${qs ? `?${qs}` : ""}`);
 }
 
 export async function getCorpusHealth(): Promise<any> {
@@ -764,6 +769,39 @@ export async function generateTopicQuestions(payload: {
   });
 }
 
+export interface ExamAnnouncementItem {
+  id?: number;
+  course_id?: number;
+  course_code?: string;
+  course_name: string;
+  exam_type: string;
+  exam_title?: string;
+  units: number[];
+  batch_department?: string;
+  announced_date?: string;
+  notes?: string;
+  session_id?: string;
+  created_at?: string;
+}
 
+export async function submitExamAnnouncement(
+  announcement: ExamAnnouncementItem
+): Promise<{ status: string; message: string; announcement: ExamAnnouncementItem }> {
+  return fetchAPI("/curriculum/exam-announcements", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(announcement),
+  });
+}
 
-
+export async function getExamAnnouncementsForCourse(
+  courseId: number,
+  limit: number = 5
+): Promise<ExamAnnouncementItem[]> {
+  try {
+    const res = await fetchAPI(`/curriculum/exam-announcements/${courseId}?limit=${limit}`);
+    return Array.isArray(res) ? res : [];
+  } catch (err) {
+    return [];
+  }
+}

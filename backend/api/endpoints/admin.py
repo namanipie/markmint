@@ -56,9 +56,9 @@ def create_broadcast(
     return new_broadcast
 
 
-@router.get("/broadcast/active", response_model=SystemBroadcastResponse)
+@router.get("/broadcast/active", response_model=Optional[SystemBroadcastResponse])
 def get_active_broadcast(db: Session = Depends(get_db)):
-    """Fetch the currently active broadcast banner (publicly accessible)."""
+    """Fetch the currently active broadcast banner (publicly accessible). Returns null if none active."""
     active = (
         db.query(SystemBroadcast)
         .filter(SystemBroadcast.is_active == True)
@@ -66,7 +66,7 @@ def get_active_broadcast(db: Session = Depends(get_db)):
         .first()
     )
     if not active:
-        raise HTTPException(status_code=404, detail="No active broadcast")
+        return None
     return active
 
 

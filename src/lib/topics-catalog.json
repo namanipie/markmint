@@ -150,7 +150,7 @@
       },
       {
         "id": 675,
-        "text": "The eigen values of A^3 if A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 2 & -7 \\\\ 0 & 0 & 3 \\end{pmatrix} (A) 1^3, 2^3, 3^3 (B) 1, 2, 3 (C) 1, \\frac{1}{2^3}, \\frac{1}{3^3} (D) 1,...",
+        "text": "The eigen values of A^3 if A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 2 & -7 \\\\ 0 & 0 & 3 \\end{pmatrix} (A) 1^3, 2^3, 3^3 (B) 1, 2, 3 (C) 1, $\\frac{1}{2^3}, \\frac{1}{3^3}$ (D) 1,...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -384,7 +384,7 @@
       },
       {
         "id": 645,
-        "text": "(a) Find the eigen values and eigen vectors of $A = \\begin{pmatrix} 1 & 1 & 3 \\\\ 1 & 5 & 1 \\\\ 3 & 1 & 1 \\end{pmatrix}$. --- OR --- 21. Find the inverse of $A = \\begin{pmatrix} 6 &...",
+        "text": "Find the eigen values and eigen vectors of $A = \\begin{pmatrix} 1 & 1 & 3 \\\\ 1 & 5 & 1 \\\\ 3 & 1 & 1 \\end{pmatrix}$. --- OR --- 21. Find the inverse of $A = \\begin{pmatrix} 6 &...$",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -672,7 +672,7 @@
     "sampleQuestions": [
       {
         "id": 649,
-        "text": "(a) Solve $\\frac{d^2 y}{dx^2} + 2\\frac{dy}{dx} + 3y = 5x^2$. --- OR --- 23. Solve $y'' + y = \\sec x$ by the method of variation of parameters. (b) Solve $y'' + y = \\sec x$ by the...",
+        "text": "Solve $\\frac{d^2 y}{dx^2} + 2\\frac{dy}{dx} + 3y = 5x^2$. --- OR --- 23. Solve $y'' + y = \\sec x$ by the method of variation of parameters. (b) Solve $y'' + y = \\sec x$ by the...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -686,21 +686,21 @@
       },
       {
         "id": 352,
-        "text": "Answer part a or b (a) Solve the differential equation x^2 \\frac{d^2y}{dx^2} + x \\frac{dy}{dx} + y = 4 \\sin(\\log x). --- OR --- 23. Solve the differential equation (D^2 + 3D + 2)y...",
+        "text": "Answer part a or b (a) Solve the differential equation x^2 $\\frac{d^2y}{dx^2} + x \\frac{dy}{dx} + y = 4 \\sin(\\log x)$. --- OR --- 23. Solve the differential equation (D^2 + 3D + 2)y...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 353,
-        "text": "Solve the differential equation (D^2 + 3D + 2)y = \\sin x.",
+        "text": "Solve the differential equation (D^2 + 3D + 2)y = $\\sin x$.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 683,
-        "text": "Solution of (D^2 + 4)y = 0 (A) y = Ae^{2x} + Be^{-2x} (B) y = A \\cos 2x + B \\sin 2x (C) y = A \\cos\\sqrt{2}x + B \\sin\\sqrt{2}x (D) y = A(x + B)e^{2x}",
+        "text": "Solution of (D^2 + 4)y = 0 (A) y = Ae^{2x} + Be^{-2x} (B) y = A $\\cos 2x + B \\sin 2x$ (C) y = A $\\cos\\sqrt{2}x + B \\sin\\sqrt{2}x$ (D) y = A(x + B)e^{2x}",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -765,14 +765,14 @@
     "sampleQuestions": [
       {
         "id": 338,
-        "text": "If y_1 and y_2 are two linearly independent solution of an ordinary differential equation, then the Wronskian W(y_1, y_2) = (A) W = 0 (B) W \\neq 0 (C) W = 1 (D) W = 2",
+        "text": "If y_1 and y_2 are two linearly independent solution of an ordinary differential equation, then the Wronskian W(y_1, y_2) = (A) W = 0 (B) W $\\neq 0$ (C) W = 1 (D) W = 2",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 749,
-        "text": "If y_1 = \\cos ax, y_2 = \\sin ax then the Wronskian value y_1 y'_2 - y_2 y'_1 is (A) -a (B) 0 (C) 1 (D) a",
+        "text": "If y_1 = $\\cos$ ax, y_2 = $\\sin$ ax then the Wronskian value y_1 y'_2 - y_2 y'_1 is (A) -a (B) 0 (C) 1 (D) a",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -862,14 +862,14 @@
     "sampleQuestions": [
       {
         "id": 690,
-        "text": "\\beta(m,n) = (A) \\frac{mn}{(m+n)} (B) \\frac{(m+n)}{(m-n)} (C) \\frac{(m+n)}{mn} (D) \\frac{\\sqrt{mn}}{(m+n)}",
+        "text": "$\\beta(m,n) = (A) \\frac{mn}{(m+n)}$ (B) $\\frac{(m+n)}{(m-n)}$ (C) $\\frac{(m+n)}{mn}$ (D) $\\frac{\\sqrt{mn}}{(m+n)}$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 734,
-        "text": "(b) Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
+        "text": "Using gamma function, prove that \\(\\int_0^\\infty e^{-4x} x^{3/2} dx = \\frac{3}{128}\\sqrt{\\pi}\\).",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -883,7 +883,7 @@
       },
       {
         "id": 340,
-        "text": "The value of \\Gamma(n + 1) is (A) n (B) \\Gamma(n) (C) n \\Gamma(n) (D) n/2",
+        "text": "The value of $\\Gamma(n + 1)$ is (A) n (B) $\\Gamma(n)$ (C) n $\\Gamma(n)$ (D) n/2",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -1008,14 +1008,14 @@
     "sampleQuestions": [
       {
         "id": 345,
-        "text": "The series \\sum_{n=1}^\\infty \\frac{1}{n^{5/2}} is (A) Convergent (B) Divergent (C) Oscillates (D) Conditionally convergent",
+        "text": "The series $\\sum_{n=1}^\\infty \\frac{1}{n^{5/2}}$ is (A) Convergent (B) Divergent (C) Oscillates (D) Conditionally convergent",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 653,
-        "text": "(a) Test the convergence of $\\sum_{n=1}^{\\infty} \\left(\\sqrt{n^2 + 1} - n\\right)$. --- OR --- 25. Test the convergence of the series $\\frac{1}{2} + \\frac{4}{9}x + \\frac{9}{28}x^2...",
+        "text": "Test the convergence of $\\sum_{n=1}^{\\infty} \\left(\\sqrt{n^2 + 1} - n\\right)$. --- OR --- 25. Test the convergence of the series $\\frac{1}{2} + \\frac{4}{9}x + \\frac{9}{28}x^2...$",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -1029,14 +1029,14 @@
       },
       {
         "id": 356,
-        "text": "Answer part a or b (a) Test the convergence of 1 + \\frac{1^2}{2^2} \\frac{2^2}{3^3} + \\frac{3^3}{4^4} + \\dots \\infty. --- OR --- 25. Prove that the series \\sum_{n=1}^\\infty...",
+        "text": "Answer part a or b (a) Test the convergence of 1 $+ \\frac{1^2}{2^2} \\frac{2^2}{3^3} + \\frac{3^3}{4^4} + \\dots \\infty$. --- OR --- 25. Prove that the series $\\sum_{n=1}^\\infty$...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 357,
-        "text": "Prove that the series \\sum_{n=1}^\\infty (-1)^{n+1} \\frac{1}{n} is conditionally convergent, but not absolutely convergent.",
+        "text": "Prove that the series $\\sum_{n=1}^\\infty$ (-1)^{n+1} $\\frac{1}{n}$ is conditionally convergent, but not absolutely convergent.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -1168,7 +1168,7 @@
     "sampleQuestions": [
       {
         "id": 12,
-        "text": "If x = r \\cos \\theta, y = r \\sin \\theta verify that \\frac{\\partial(x, y)}{\\partial(r, \\theta)} \\frac{\\partial(r, \\theta)}{\\partial(x, y)} = 1.",
+        "text": "If x = r $\\cos \\theta, y = r \\sin \\theta$ verify that $\\frac{\\partial(x, y)}{\\partial(r, \\theta)} \\frac{\\partial(r, \\theta)}{\\partial(x, y)} = 1$.",
         "marks": 0,
         "year": 2015,
         "assessmentType": "CT2"
@@ -1189,7 +1189,7 @@
       },
       {
         "id": 651,
-        "text": "(a) Find the radius of curvature for the curve $x = a(\\cos t + t \\sin t), y = a(\\sin t - t \\cos t)$. --- OR --- 24. Find the envelope of the family of lines $y = mx - am^3$. (b)...",
+        "text": "Find the radius of curvature for the curve $x = a(\\cos t + t \\sin t), y = a(\\sin t - t \\cos t)$. --- OR --- 24. Find the envelope of the family of lines $y = mx - am^3$. (b)...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -1480,7 +1480,7 @@
     "sampleQuestions": [
       {
         "id": 14,
-        "text": "Using Taylor's Series expand e^x \\log(1 + y) up to third degree term in the neighborhood of Origin.",
+        "text": "Using Taylor's Series expand e^x $\\log(1 + y)$ up to third degree term in the neighborhood of Origin.",
         "marks": 0,
         "year": 2015,
         "assessmentType": "CT2"
@@ -1501,7 +1501,7 @@
       },
       {
         "id": 350,
-        "text": "Answer part a or b (a) Are the functions u = \\frac{x + y}{1 - xy} and v = \\tan^{-1} x + \\tan^{-1} y functionally dependent? If so, find the relation between them. --- OR --- 22....",
+        "text": "Answer part a or b (a) Are the functions u = $\\frac{x + y}{1 - xy}$ and v = $\\tan^{-1} x + \\tan^{-1} y$ functionally dependent? If so, find the relation between them. --- OR --- 22....",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -2865,7 +2865,7 @@
       },
       {
         "id": 2677,
-        "text": "b. Write short notes on structural isomerism in coordination compounds. Give examples.",
+        "text": "Write short notes on structural isomerism in coordination compounds. Give examples.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -3060,7 +3060,7 @@
       },
       {
         "id": 199,
-        "text": "First law of thermodynamics states that (A) \\Delta U = q - w (B) \\Delta U = q + w (C) \\Delta U = q + \\Delta w (D) \\Delta E = \\Delta q + w",
+        "text": "First law of thermodynamics states that (A) $\\Delta U = q - w$ (B) $\\Delta U = q + w$ (C) $\\Delta U = q + \\Delta w$ (D) $\\Delta E = \\Delta q + w$",
         "marks": 1,
         "year": 2018,
         "assessmentType": "EndSem"
@@ -3973,7 +3973,7 @@
       },
       {
         "id": 2681,
-        "text": "b. Sketch the potential energy diagram and explain in detail the conformational analysis of n-butane.",
+        "text": "Sketch the potential energy diagram and explain in detail the conformational analysis of n-butane.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -4623,7 +4623,7 @@
       },
       {
         "id": 2685,
-        "text": "b. Answer the following terms: (1) Elastic body (2) Plastic body (3) Elasticity",
+        "text": "Answer the following terms: (1) Elastic body (2) Plastic body (3) Elasticity",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -4742,7 +4742,7 @@
       },
       {
         "id": 2679,
-        "text": "b. With proper equations compare dry and wet corrosion.",
+        "text": "With proper equations compare dry and wet corrosion.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -4984,7 +4984,7 @@
       },
       {
         "id": 194,
-        "text": "In a rotational spectrum transitions are only observed between rotational levels of \\Delta J = (A) \\pm 1 (B) \\pm 2 (C) 0 (D) \\pm 3",
+        "text": "In a rotational spectrum transitions are only observed between rotational levels of $\\Delta J = (A) \\pm 1$ (B) $\\pm 2$ (C) 0 (D) $\\pm 3$",
         "marks": 1,
         "year": 2018,
         "assessmentType": "EndSem"
@@ -9302,7 +9302,7 @@
       },
       {
         "id": 1629,
-        "text": "______ determines the propensity or intrinsic tendency of each residue to be in the helix, strand, and \\beta-turn conformation (A) PHD (B) Chou Fasman (C) GOR (D) PROTFUN",
+        "text": "______ determines the propensity or intrinsic tendency of each residue to be in the helix, strand, and $\\beta-turn$ conformation (A) PHD (B) Chou Fasman (C) GOR (D) PROTFUN",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -11388,7 +11388,7 @@
       },
       {
         "id": 2934,
-        "text": "(b) Write a C program to read two matrices a and b as input from the user and get the option from user as 1 for addition and 2 for transpose of matrix a.",
+        "text": "Write a C program to read two matrices a and b as input from the user and get the option from user as 1 for addition and 2 for transpose of matrix a.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -11543,7 +11543,7 @@
       },
       {
         "id": 2936,
-        "text": "(b) Write short notes on (i) Constant pointers (ii) Function pointers (iii) Null pointers",
+        "text": "Write short notes on (i) Constant pointers (ii) Function pointers (iii) Null pointers",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -11564,7 +11564,7 @@
       },
       {
         "id": 2990,
-        "text": "2a. Answer questions (i) to (v) under 2a. (i) Problem: Neha has a string S with her fname and lname. She needs to know the number of characters in fname and lname. Help her to...",
+        "text": "Answer questions (i) to (v) under 2a. (i) Problem: Neha has a string S with her fname and lname. She needs to know the number of characters in fname and lname. Help her to...",
         "marks": 25,
         "year": 2023,
         "assessmentType": "Other"
@@ -11929,7 +11929,7 @@
     "sampleQuestions": [
       {
         "id": 2465,
-        "text": "b. Describe function and its types in C and explain recursion function with example.",
+        "text": "Describe function and its types in C and explain recursion function with example.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -12082,7 +12082,7 @@
       },
       {
         "id": 2930,
-        "text": "(b) List down the various storage classes in C. Explain Extern and Static storage classes with suitable examples.",
+        "text": "List down the various storage classes in C. Explain Extern and Static storage classes with suitable examples.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -12252,7 +12252,7 @@
       },
       {
         "id": 2467,
-        "text": "b. Write a python program to find the sum of N natural numbers.",
+        "text": "Write a python program to find the sum of N natural numbers.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -12647,7 +12647,7 @@
     "sampleQuestions": [
       {
         "id": 2469,
-        "text": "b. Explain statistical functions in Numpy.",
+        "text": "Explain statistical functions in Numpy.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -12935,7 +12935,7 @@
       },
       {
         "id": 3188,
-        "text": "21b. What is the nature of scarcity?",
+        "text": "What is the nature of scarcity?",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -12949,7 +12949,7 @@
       },
       {
         "id": 3219,
-        "text": "(a) Explain in detail about the fundamentals of economics in detail. --- OR --- (b) Explain in detail about the importance of theory of demand.",
+        "text": "Explain in detail about the fundamentals of economics in detail. --- OR --- (b) Explain in detail about the importance of theory of demand.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -13427,14 +13427,14 @@
     "sampleQuestions": [
       {
         "id": 3221,
-        "text": "(a) Discuss the advantages of tax and subsidies with an example. --- OR --- (b) Examine the consumer's equilibrium with income and substitution effects.",
+        "text": "Discuss the advantages of tax and subsidies with an example. --- OR --- (b) Examine the consumer's equilibrium with income and substitution effects.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3222,
-        "text": "(b) Examine the consumer's equilibrium with income and substitution effects.",
+        "text": "Examine the consumer's equilibrium with income and substitution effects.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -13552,7 +13552,7 @@
       },
       {
         "id": 3190,
-        "text": "22b. Discuss law of supply",
+        "text": "Discuss law of supply",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -13735,7 +13735,7 @@
       },
       {
         "id": 3192,
-        "text": "23b. Define production",
+        "text": "Define production",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16028,7 +16028,7 @@
     "sampleQuestions": [
       {
         "id": 1436,
-        "text": "a. Leseverstehen- Beantworten Sie die Fragen: Vinay ist sechsundzwanzig Jahre alt. Er kommt aus Deutschland. Er spielt gern Eishockey, aber Fu\u00dfball ist sein Lieblingssport. Er...",
+        "text": "Leseverstehen- Beantworten Sie die Fragen: Vinay ist sechsundzwanzig Jahre alt. Er kommt aus Deutschland. Er spielt gern Eishockey, aber Fu\u00dfball ist sein Lieblingssport. Er...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -16262,7 +16262,7 @@
     "sampleQuestions": [
       {
         "id": 1433,
-        "text": "a. Redewendungen-Wie sagt man auf English? (i) Ich verstehe das nicht. (ii) Ich habe eine Frage. (iii) Ist das richtig? (iv) Noch Einmal, bitte? (v) Redewendungen-Wie sagt man auf...",
+        "text": "Redewendungen-Wie sagt man auf English? (i) Ich verstehe das nicht. (ii) Ich habe eine Frage. (iii) Ist das richtig? (iv) Noch Einmal, bitte? (v) Redewendungen-Wie sagt man auf...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -17843,7 +17843,7 @@
       },
       {
         "id": 2612,
-        "text": "b. Escribe los n\u00fameros en palabras: (i) 25 (ii) 50 (iii) 100 (iv) 150 (v) 200 (vi) 250 (vii) 900 (viii) 1000",
+        "text": "Escribe los n\u00fameros en palabras: (i) 25 (ii) 50 (iii) 100 (iv) 150 (v) 200 (vi) 250 (vii) 900 (viii) 1000",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -17857,7 +17857,7 @@
       },
       {
         "id": 2645,
-        "text": "b. Escr\u00edbe los n\u00fameros en palabras: (i) 55 (ii) 85 (iii) 200 (iv) 450 (v) 2000 (vi) 3500 (vii) 6000 (viii) 10000",
+        "text": "Escr\u00edbe los n\u00fameros en palabras: (i) 55 (ii) 85 (iii) 200 (iv) 450 (v) 2000 (vi) 3500 (vii) 6000 (viii) 10000",
         "marks": 8,
         "year": 2024,
         "assessmentType": "Other"
@@ -19201,7 +19201,7 @@
     "sampleQuestions": [
       {
         "id": 1753,
-        "text": "a. Write Consonants and Double Consonants in Korean? Write all the rules to write syllables in Korean with examples? --- OR --- 21. b. Write about Exchanging Information between 2...",
+        "text": "Write Consonants and Double Consonants in Korean? Write all the rules to write syllables in Korean with examples? --- OR --- 21. b. Write about Exchanging Information between 2...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -19427,14 +19427,14 @@
     "sampleQuestions": [
       {
         "id": 3695,
-        "text": "a. Explain about\uc138\uc694/\uc73c\uc138\uc694 in Korean? Change the following verbs in (\ub974\uae4c\uc694/\uc744\uae4c\uc694) form. (i) \uc624\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uc0ac\ub2e4 (iv) \ub9cc\ub098\ub2e4 --- OR --- 25. b. Translate the following sentences in to English?...",
+        "text": "Explain about\uc138\uc694/\uc73c\uc138\uc694 in Korean? Change the following verbs in (\ub974\uae4c\uc694/\uc744\uae4c\uc694) form. (i) \uc624\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uc0ac\ub2e4 (iv) \ub9cc\ub098\ub2e4 --- OR --- 25. b. Translate the following sentences in to English?...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3696,
-        "text": "b. Translate the following sentences in to English? (i) \ubb3c \ub9c8\uc2e4\uae4c\uc694? (ii) \ucc45 \uc5bc\ub9c8\uc608\uc694? (iii) \uce74\uba54\ub77c \uc0ac\uc138\uc694. (iv) \ub0b4\uc77c \uae08\uc694\uc77c \uc774\uc9c0\uc694? (v) \uc800\ub294 \uacf5\ubd80\ud560\uc218\uc788\uc5b4\uc694. (vi) \uc800\ub294 \uc601\ud654 \ubcf4\uace0\uc2f6\uc5b4\uc694. (vii) \uc800\ub294 \uc9d1\uc5d0 \uac00\uc788\uc5b4\uc694. (viii) \uc800\ub294 \uc778\ub3c4\uc0ac\ub78c \uc774\uc5d0\uc694",
+        "text": "Translate the following sentences in to English? (i) \ubb3c \ub9c8\uc2e4\uae4c\uc694? (ii) \ucc45 \uc5bc\ub9c8\uc608\uc694? (iii) \uce74\uba54\ub77c \uc0ac\uc138\uc694. (iv) \ub0b4\uc77c \uae08\uc694\uc77c \uc774\uc9c0\uc694? (v) \uc800\ub294 \uacf5\ubd80\ud560\uc218\uc788\uc5b4\uc694. (vi) \uc800\ub294 \uc601\ud654 \ubcf4\uace0\uc2f6\uc5b4\uc694. (vii) \uc800\ub294 \uc9d1\uc5d0 \uac00\uc788\uc5b4\uc694. (viii) \uc800\ub294 \uc778\ub3c4\uc0ac\ub78c \uc774\uc5d0\uc694",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -19582,7 +19582,7 @@
     "sampleQuestions": [
       {
         "id": 1757,
-        "text": "a. Explain all 3 rules to conjugate a Verb in Past tense? Conjugate the following Verbs in PAST TENSE as (\uc558\uc5b4\uc694/\uc5c8\uc5b4\uc694/\ud588\uc5b4\uc694) form. (i) \uc694\ub9ac\ud558\ub2e4 (ii) \ub9cc\ub098\ub2e4 (iii) \ubcf4\ub2e4 (iv) \ub9c8\uc2dc\ub2e4 --- OR --- 23. b....",
+        "text": "Explain all 3 rules to conjugate a Verb in Past tense? Conjugate the following Verbs in PAST TENSE as (\uc558\uc5b4\uc694/\uc5c8\uc5b4\uc694/\ud588\uc5b4\uc694) form. (i) \uc694\ub9ac\ud558\ub2e4 (ii) \ub9cc\ub098\ub2e4 (iii) \ubcf4\ub2e4 (iv) \ub9c8\uc2dc\ub2e4 --- OR --- 23. b....",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -19692,14 +19692,14 @@
     "sampleQuestions": [
       {
         "id": 1759,
-        "text": "a. Write days of the week and months of a year in Korean? --- OR --- 24. b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as...",
+        "text": "Write days of the week and months of a year in Korean? --- OR --- 24. b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 1760,
-        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139\uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
+        "text": "Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139\uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -19720,7 +19720,7 @@
       },
       {
         "id": 3694,
-        "text": "b. Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139 \uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
+        "text": "Explain the rules to conjugate a verb in Future Tense? Conjugate the following verbs in Future Tense as (\u3139 \uac70\uc608\uc694/\uc744\uac70\uc608\uc694) form (i) \uc790\ub2e4 (ii) \uc8fc\ub2e4 (iii) \uacf5\ubd80\ud558\ub2e4 (iv) \ub9c8\uc2dc\ub2e4",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -19791,7 +19791,7 @@
     "sampleQuestions": [
       {
         "id": 1755,
-        "text": "a. Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c) (i) \uce74\uba54\ub77c _________ \uc0ac\uc544\uc694. (ii) \ud55c\uad6d\uc5b4 _________ \uacf5\ubd80\ud574\uc694 (iii) \ubb3c _________ \ub9c8\uc2dc\uc5b4\uc694 (iv) \uacf5\ucc45...",
+        "text": "Explain about object marking particles? Fill in the blanks with Object marking particles(\uc744/\ub97c) (i) \uce74\uba54\ub77c _________ \uc0ac\uc544\uc694. (ii) \ud55c\uad6d\uc5b4 _________ \uacf5\ubd80\ud574\uc694 (iii) \ubb3c _________ \ub9c8\uc2dc\uc5b4\uc694 (iv) \uacf5\ucc45...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -21126,14 +21126,14 @@
       },
       {
         "id": 3734,
-        "text": "(a) Describe the molecular composition of cells. (b) Describe the structure, composition and function of semipermeable membrane in cells. --- OR --- (b) Describe the structure,...",
+        "text": "Describe the molecular composition of cells. (b) Describe the structure, composition and function of semipermeable membrane in cells. --- OR --- (b) Describe the structure,...",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3735,
-        "text": "(b) Describe the structure, composition and function of semipermeable membrane in cells.",
+        "text": "Describe the structure, composition and function of semipermeable membrane in cells.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -21494,7 +21494,7 @@
       },
       {
         "id": 3737,
-        "text": "(b) ATP producing structures has a main role in energy metabolism. Justify.",
+        "text": "ATP producing structures has a main role in energy metabolism. Justify.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -21775,7 +21775,7 @@
       },
       {
         "id": 3739,
-        "text": "(b) Smaller molecules can be transported across cell membrane without energy. Explain with diagram.",
+        "text": "Smaller molecules can be transported across cell membrane without energy. Explain with diagram.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -24617,7 +24617,7 @@
       },
       {
         "id": 3745,
-        "text": "Which of the following is false regarding non-ideal solutions? (A) They do not obey Raoult's law (B) \\Delta V_{\\text{mixing}} \\neq 0 (C) \\Delta H_{\\text{mixing}} = 0 (D) They form...",
+        "text": "Which of the following is false regarding non-ideal solutions? (A) They do not obey Raoult's law (B) $\\Delta V$_{\\text{mixing}} $\\neq 0$ (C) $\\Delta H$_{\\text{mixing}} = 0 (D) They form...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -24851,7 +24851,7 @@
       },
       {
         "id": 3767,
-        "text": "Derive the expression \\Delta G = - RT \\ln(K) and explain its significance?",
+        "text": "Derive the expression $\\Delta G = - RT \\ln(K)$ and explain its significance?",
         "marks": 0,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -25065,7 +25065,7 @@
       },
       {
         "id": 3755,
-        "text": "At thermodynamic equilibrium for two phases, the _____. (A) T_\\alpha = T_\\beta (B) P_\\alpha = P_\\beta (C) \\mu_\\alpha = \\mu_\\beta (D) All of the other choices put together are...",
+        "text": "At thermodynamic equilibrium for two phases, the _____. (A) T_$\\alpha = T$_$\\beta$ (B) P_$\\alpha = P$_$\\beta$ (C) $\\mu$_$\\alpha = \\mu$_$\\beta$ (D) All of the other choices put together are...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -25123,7 +25123,7 @@
     "sampleQuestions": [
       {
         "id": 3752,
-        "text": "At triple point; water exists in equilibrium as shown below. (A) \\text{Solid} \\leftrightarrow \\text{Liquid} \\leftrightarrow \\text{Vapor} (B) \\text{Solid} \\leftrightarrow...",
+        "text": "At triple point; water exists in equilibrium as shown below. (A) \\text{Solid} $\\leftrightarrow$ \\text{Liquid} $\\leftrightarrow$ \\text{Vapor} (B) \\text{Solid} $\\leftrightarrow$...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -25909,7 +25909,7 @@
     "sampleQuestions": [
       {
         "id": 471,
-        "text": "Which of the following is correctly represented? (A) Collagen : plasma proteins involved in blood clotting (B) Histones : A combination of 2 cysteines (C) \\gamma - carboxyglutamic...",
+        "text": "Which of the following is correctly represented? (A) Collagen : plasma proteins involved in blood clotting (B) Histones : A combination of 2 cysteines (C) $\\gamma - carboxyglutamic$...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -26120,7 +26120,7 @@
       },
       {
         "id": 475,
-        "text": "Which of the following must be true for a reaction to occur spontaneously? (A) \\Delta G must be negative (B) \\Delta H must be positive (C) \\Delta S must be positive (D) \\Delta G...",
+        "text": "Which of the following must be true for a reaction to occur spontaneously? (A) $\\Delta G$ must be negative (B) $\\Delta H$ must be positive (C) $\\Delta S$ must be positive (D) $\\Delta G$...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -27185,7 +27185,7 @@
     "sampleQuestions": [
       {
         "id": 485,
-        "text": "Which of the following is a characteristics of phenyl ketonuria? (A) Deficiency of phenylalanine hydroxylase (B) \\alpha-ketoglutarate defect (C) Upregulation of phenyl alanine (D)...",
+        "text": "Which of the following is a characteristics of phenyl ketonuria? (A) Deficiency of phenylalanine hydroxylase (B) $\\alpha-ketoglutarate$ defect (C) Upregulation of phenyl alanine (D)...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -27376,7 +27376,7 @@
       },
       {
         "id": 487,
-        "text": "Oxidation of palmitic acid (C16) involves _____ rounds of \\beta-oxidation and yields _____ molecules of acetyl CoA. (A) 8,8 (B) 7,8 (C) 16,8 (D) 7,7",
+        "text": "Oxidation of palmitic acid (C16) involves _____ rounds of $\\beta-oxidation$ and yields _____ molecules of acetyl CoA. (A) 8,8 (B) 7,8 (C) 16,8 (D) 7,7",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -27857,7 +27857,7 @@
       },
       {
         "id": 5104,
-        "text": "b. Write about the basic assumptions of Drude and Lorentz model with their merits and demerits.",
+        "text": "Write about the basic assumptions of Drude and Lorentz model with their merits and demerits.",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -28028,7 +28028,7 @@
       },
       {
         "id": 4996,
-        "text": "(a) How do you define density of states (DoS)? Derive the expression for the DoS by considering 1/8 part of the sphere. --- OR --- 21. Explain elaborately quantum free electron...",
+        "text": "How do you define density of states (DoS)? Derive the expression for the DoS by considering 1/8 part of the sphere. --- OR --- 21. Explain elaborately quantum free electron...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -28169,14 +28169,14 @@
       },
       {
         "id": 2557,
-        "text": "(i) Apply Bloch theorem and derive the expression for an electron in a periodic field of 1D crystal Lattice. (ii) Discuss the energy of electron under the condition P \\rightarrow...",
+        "text": "Apply Bloch theorem and derive the expression for an electron in a periodic field of 1D crystal Lattice. (ii) Discuss the energy of electron under the condition P \\rightarrow...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5006,
-        "text": "Derive an expression for motion of electron in a periodic potential using Kronig-Penney model. Calculate the energy of particles at P = 0 and P = \\infty, where P is the power of...",
+        "text": "Derive an expression for motion of electron in a periodic potential using Kronig-Penney model. Calculate the energy of particles at P = 0 and P = $\\infty$, where P is the power of...",
         "marks": 15,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -28648,7 +28648,7 @@
       },
       {
         "id": 5102,
-        "text": "b. What is Intrinsic semiconductor? Explain atomic structure and energy level diagram of Intrinsic semiconductor. Where does the Fermi level lie in an Intrinsic semiconductor?",
+        "text": "What is Intrinsic semiconductor? Explain atomic structure and energy level diagram of Intrinsic semiconductor. Where does the Fermi level lie in an Intrinsic semiconductor?",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -28942,14 +28942,14 @@
       },
       {
         "id": 5229,
-        "text": "b. Derive the continuity equation for electron an infinitesimal slice thickness of dx in a one-dimensional system.",
+        "text": "Derive the continuity equation for electron an infinitesimal slice thickness of dx in a one-dimensional system.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "Other"
       },
       {
         "id": 5261,
-        "text": "b. Derive and explain the continuity equation with diagram.",
+        "text": "Derive and explain the continuity equation with diagram.",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -29097,7 +29097,7 @@
       },
       {
         "id": 2490,
-        "text": "a. E en x e p r l g a y in le P v -t e y l p v e a r s ia e t m io i n co w nd it u h c r t e o s r p w ec it t h t o n t e e c m es p s e a r r a y t u d r i e a g in ra P m t ....",
+        "text": "E en x e p r l g a y in le P v -t e y l p v e a r s ia e t m io i n co w nd it u h c r t e o s r p w ec it t h t o n t e e c m es p s e a r r a y t u d r i e a g in ra P m t ....",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -29705,7 +29705,7 @@
     "sampleQuestions": [
       {
         "id": 2535,
-        "text": "Band to Band transition in GaAs can results absorption and emission of photons with wavelength of.................. (A) 0.087 \\text{ \\mu m} (B) 0.087 \\text{ mm} (C) 0.87 \\text{...",
+        "text": "Band to Band transition in GaAs can results absorption and emission of photons with wavelength of.................. (A) 0.087 \\text{ $\\mu m$} (B) 0.087 \\text{ mm} (C) 0.87 \\text{...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -30372,14 +30372,14 @@
       },
       {
         "id": 4987,
-        "text": "The total current, through the junction of a photovoltaic cell is ___ (A) I_{total} = -I_L (B) I_{total} = I_o (e^{qv/\\beta KT} - 1) (C) I_{total} = I_o (e^{qv/\\beta KT} - 1) +...",
+        "text": "The total current, through the junction of a photovoltaic cell is ___ (A) I_{total} = -I_L (B) I_{total} = I_o (e^{qv/$\\beta$ KT} - 1) (C) I_{total} = I_o (e^{qv/$\\beta$ KT} - 1) +...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5017,
-        "text": "is the formula used to determine solar cell efficiency. A) (I_{sc} \\times V_{oc} \\times FF) / P_{in} B) (I_{sc} \\times V_{oc} \\times P_{max}) / P_{in} C) (I_{sc} \\times V_{oc}...",
+        "text": "is the formula used to determine solar cell efficiency. A) (I_{sc} $\\times V_{oc} \\times$ FF) / P_{in} B) (I_{sc} $\\times V_{oc} \\times P_{max}) / P_{in} C$) (I_{sc} $\\times V_{oc}$...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -30542,7 +30542,7 @@
       },
       {
         "id": 5002,
-        "text": "(a) Explain elaborately with a neat diagram Schotky and ohmie junction. --- OR --- 24. Explain about the four probe collinear method for a bulk sample and a thin sheet with...",
+        "text": "Explain elaborately with a neat diagram Schotky and ohmie junction. --- OR --- 24. Explain about the four probe collinear method for a bulk sample and a thin sheet with...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -30676,7 +30676,7 @@
     "sampleQuestions": [
       {
         "id": 2492,
-        "text": "a. sheet resistance. 8 2 4 coefficient. expression of Hall b. What is Hall effect? Derive an 26MI,2 21R0)",
+        "text": "sheet resistance. 8 2 4 coefficient. expression of Hall b. What is Hall effect? Derive an 26MI,2 21R0)",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -30690,21 +30690,21 @@
       },
       {
         "id": 5066,
-        "text": "(a) Discuss the Four point collinear probe method for bulk material and thin sheet resistance. --- OR --- (b) What is Hall effect? Derive an expression of Hall coefficient.",
+        "text": "Discuss the Four point collinear probe method for bulk material and thin sheet resistance. --- OR --- (b) What is Hall effect? Derive an expression of Hall coefficient.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 5067,
-        "text": "(b) What is Hall effect? Derive an expression of Hall coefficient.",
+        "text": "What is Hall effect? Derive an expression of Hall coefficient.",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 5200,
-        "text": "a) Define Hall Effect and derive the expression for the Hall coefficient and deduce carrier density, carrier and mobility Hall voltage. --- OR --- 24. b) Explain the principle,...",
+        "text": "Define Hall Effect and derive the expression for the Hall coefficient and deduce carrier density, carrier and mobility Hall voltage. --- OR --- 24. b) Explain the principle,...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -32110,7 +32110,7 @@
       },
       {
         "id": 4363,
-        "text": "Using Mesh analysis, find mesh current in first loop (I_1). (a) Using Mesh analysis, find mesh current in first loop (I_1). --- OR --- 21. A resistor of 10 \\Omega, an inductance...",
+        "text": "Using Mesh analysis, find mesh current in first loop (I_1). (a) Using Mesh analysis, find mesh current in first loop (I_1). --- OR --- 21. A resistor of 10 $\\Omega$, an inductance...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -32345,7 +32345,7 @@
     "sampleQuestions": [
       {
         "id": 4336,
-        "text": "b. (i) Analyze that the RMS and Average values of sinusoidal alternating current are $\\frac{I_m}{\\sqrt{2}}$ and $\\frac{2I_m}{\\pi}$. (ii) An air cored toroidal coil has $480$...",
+        "text": "Analyze that the RMS and Average values of sinusoidal alternating current are $\\frac{I_m}{\\sqrt{2}}$ and $\\frac{2I_m}{\\pi}$. (ii) An air cored toroidal coil has $480$...",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -32713,7 +32713,7 @@
       },
       {
         "id": 4378,
-        "text": "The expression for RMS voltage in half wave rectifier is _____ A) 2Vm/\\pi B) Vm/2 C) Vm/\\pi D) Vm/2\\pi",
+        "text": "The expression for RMS voltage in half wave rectifier is _____ A) 2Vm/$\\pi B$) Vm/2 C) Vm/$\\pi D$) Vm/2$\\pi$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -33181,7 +33181,7 @@
     "sampleQuestions": [
       {
         "id": 4195,
-        "text": "Explain the working of SCR. Also draw its VI characteristics. --- OR --- 22. Find the minimal Sum of Products for the Boolean expression, $Y(A, B, C, D) = \\sum m(1, 2, 3, 4, 9,...",
+        "text": "Explain the working of SCR. Also draw its VI characteristics. --- OR --- 22. Find the minimal Sum of Products for the Boolean expression, $Y(A, B, C, D) = \\sum m(1, 2, 3, 4, 9,...$",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -33446,14 +33446,14 @@
       },
       {
         "id": 4260,
-        "text": "b. Discuss the working of an SMPS with a neat block diagram.",
+        "text": "Discuss the working of an SMPS with a neat block diagram.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 4398,
-        "text": "b. Discuss the operation of switched mode power supply with neat diagram",
+        "text": "Discuss the operation of switched mode power supply with neat diagram",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -33711,7 +33711,7 @@
     "sampleQuestions": [
       {
         "id": 988,
-        "text": "Simplify the following expression using K-map. (b) Simplify the following expression using K-map. (i) $Y(A,B,C,D) = \\Sigma_m(0,1,2,4,5,7,8,9,10,12,13)$ (ii) $F(A,B,C,D) =...",
+        "text": "Simplify the following expression using K-map. (b) Simplify the following expression using K-map. (i) $Y(A,B,C,D) = \\Sigma_m(0,1,2,4,5,7,8,9,10,12,13)$ (ii) $F(A,B,C,D) =...$",
         "marks": 10,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -33732,7 +33732,7 @@
       },
       {
         "id": 4268,
-        "text": "Simplify the following Boolean expressions using k-map and implement the simplified expressions using logic gates. (i) Y(A,B,C,D) = \\Sigma m(1,5,6,7,9,11,12,13,15) (ii) Y(A,B,C,D)...",
+        "text": "Simplify the following Boolean expressions using k-map and implement the simplified expressions using logic gates. (i) Y(A,B,C,D) = $\\Sigma m(1,5,6,7,9,11,12,13,15)$ (ii) Y(A,B,C,D)...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -34477,7 +34477,7 @@
       },
       {
         "id": 1017,
-        "text": "a. Describe the construction and working principle of BLDC motor with neat diagram. b. Briefly explain the factors to be considered for the selection of drives for 8 1 3 1 cranes....",
+        "text": "Describe the construction and working principle of BLDC motor with neat diagram. b. Briefly explain the factors to be considered for the selection of drives for 8 1 3 1 cranes....",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -34644,7 +34644,7 @@
       },
       {
         "id": 4262,
-        "text": "b. Discuss the working operation of chopper fed dc drive with neat block diagram.",
+        "text": "Discuss the working operation of chopper fed dc drive with neat block diagram.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
@@ -35309,7 +35309,7 @@
       },
       {
         "id": 1018,
-        "text": "a. With neat sketch, comment on the construction and working principle of an instrument which is used to measure only dc quantities. 4 b. Write short notes on: Thermistor (2)...",
+        "text": "With neat sketch, comment on the construction and working principle of an instrument which is used to measure only dc quantities. 4 b. Write short notes on: Thermistor (2)...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
@@ -35585,7 +35585,7 @@
       },
       {
         "id": 4302,
-        "text": "a. Write short notes on the following transducers with sketches (i) Photo transistors (ii) Solar cell (iii) LDR (iv) Thermocouple (v) LED (vi) Photo voltaic cell --- OR --- 31. b....",
+        "text": "Write short notes on the following transducers with sketches (i) Photo transistors (ii) Solar cell (iii) LDR (iv) Thermocouple (v) LED (vi) Photo voltaic cell --- OR --- 31. b....",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -35823,7 +35823,7 @@
     "sampleQuestions": [
       {
         "id": 4648,
-        "text": "(a) Explain the various components of electrical power system. Electrical power is generated in power stations which are mostly located in remote places. This is because the...",
+        "text": "Explain the various components of electrical power system. Electrical power is generated in power stations which are mostly located in remote places. This is because the...",
         "marks": 2,
         "year": 2023,
         "assessmentType": "Other"
@@ -35955,7 +35955,7 @@
       },
       {
         "id": 4404,
-        "text": "b. With a neat diagram, describe the 11 kV/400 V indoor substation.",
+        "text": "With a neat diagram, describe the 11 kV/400 V indoor substation.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -35969,7 +35969,7 @@
       },
       {
         "id": 4531,
-        "text": "(a) Draw the key diagram of 11kV/400 V indoor substation and describe the operation of each component. --- OR --- 25. Describe the operation of any two types of EV with suitable...",
+        "text": "Draw the key diagram of 11kV/400 V indoor substation and describe the operation of each component. --- OR --- 25. Describe the operation of any two types of EV with suitable...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -36488,7 +36488,7 @@
     "sampleQuestions": [
       {
         "id": 262,
-        "text": "(A) 400k V D) 1265 k (C) 1100k V 25 ollowing is not a renewable energy resource? oft he B) Wind power Which (A) Solarp ower D) Tidal power (C)Thermaplo wer fuel used in fuel...",
+        "text": "400k V D) 1265 k (C) 1100k V 25 ollowing is not a renewable energy resource? oft he B) Wind power Which (A) Solarp ower D) Tidal power (C)Thermaplo wer fuel used in fuel...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -36502,7 +36502,7 @@
       },
       {
         "id": 1019,
-        "text": "a. Describe the simple layout of electrical power system with neat sketch. 8 b. With neat diagram, explain the working of a fuel cell. PART-C(1x 1S 15 Marks) Answer ANY ONE...",
+        "text": "Describe the simple layout of electrical power system with neat sketch. 8 b. With neat diagram, explain the working of a fuel cell. PART-C(1x 1S 15 Marks) Answer ANY ONE...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -36664,7 +36664,7 @@
       },
       {
         "id": 4266,
-        "text": "b. Write short notes on EV Charging station with necessary components.",
+        "text": "Write short notes on EV Charging station with necessary components.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
@@ -38266,14 +38266,14 @@
       },
       {
         "id": 6365,
-        "text": "b. Write a paragraph with a suitable title in about 200 words presenting the information furnished below about the using expressions of comparison.",
+        "text": "Write a paragraph with a suitable title in about 200 words presenting the information furnished below about the using expressions of comparison.",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 6370,
-        "text": "a. Write an essay of 300 words on the causes and effects of increasing crime among youth. --- OR --- 32. b. Write an essay of 300 words on the cultural transformation in the 21st...",
+        "text": "Write an essay of 300 words on the causes and effects of increasing crime among youth. --- OR --- 32. b. Write an essay of 300 words on the cultural transformation in the 21st...",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -38700,7 +38700,7 @@
       },
       {
         "id": 6367,
-        "text": "b. Ford India Pvt. Ltd requires graduates from automobile department with a minimum of two years' experience. Send your resume to the HR, Ford India Ltd., Chennai.",
+        "text": "Ford India Pvt. Ltd requires graduates from automobile department with a minimum of two years' experience. Send your resume to the HR, Ford India Ltd., Chennai.",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -38981,7 +38981,7 @@
     "sampleQuestions": [
       {
         "id": 251,
-        "text": "a. Elaborate on the types of reports and its significance in an organization. 55 10 b.. Write a letter to the Manager of Shubiksha Electronics, Chromepet, Chennai, 8 5 5 10...",
+        "text": "Elaborate on the types of reports and its significance in an organization. 55 10 b.. Write a letter to the Manager of Shubiksha Electronics, Chromepet, Chennai, 8 5 5 10...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -40242,7 +40242,7 @@
       },
       {
         "id": 425,
-        "text": "Area of the double integral in polar co-ordinates is equal to (A) \\iint drd\\theta (B) \\iint r drd\\theta (C) \\iint (r+1) drd\\theta (D) \\iint rdrd\\theta",
+        "text": "Area of the double integral in polar co-ordinates is equal to (A) $\\iint$ drd$\\theta$ (B) $\\iint r$ drd$\\theta$ (C) $\\iint$ (r+1) drd$\\theta$ (D) $\\iint$ rdrd$\\theta$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -40256,7 +40256,7 @@
       },
       {
         "id": 3847,
-        "text": "Area of the double integral in polar coordinates is equal to (A) \\(\\iint_{R} dr d\\theta\\) (B) \\(\\iint_{R} r^2 dr d\\theta\\) (C) \\(\\iint_{R} (r+1) dr d\\theta\\) (D) \\(\\iint_{R} r dr...",
+        "text": "Area of the double integral in polar coordinates is equal to (A) \\(\\iint_{R} dr d\\theta\\) (B) \\(\\iint_{R} r^2 dr d\\theta\\) (C) \\(\\iint_{R} (r+1) dr d\\theta\\) (D) \\($\\iint_{R} r$ dr...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -40389,35 +40389,35 @@
     "sampleQuestions": [
       {
         "id": 380,
-        "text": "a. Change the order of integration and evaluation \\(\\int \\limits_0^{4a} \\int \\limits_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21.b. Evaluate \\(\\int \\limits_0^a \\int...",
+        "text": "Change the order of integration and evaluation \\(\\int \\limits_0^{4a} \\int \\limits_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21.b. Evaluate \\($\\int \\limits_0^a \\int$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 412,
-        "text": "By changing the order of integration, evaluate \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). (a) By changing the order of integration, evaluate \\(\\int_{0}^{4a}...",
+        "text": "By changing the order of integration, evaluate \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). (a) By changing the order of integration, evaluate \\($\\int_{0}^{4a}$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 444,
-        "text": "Change the order of integration in \\int_0^1 \\int_0^{\\frac{b}{a}\\sqrt{a^2-x^2}} xydxdy and then evaluate it. (a) Change the order of integration in \\int_0^1...",
+        "text": "Change the order of integration in $\\int_0^1 \\int_0^{\\frac{b}{a}\\sqrt{a^2-x^2}}$ xydxdy and then evaluate it. (a) Change the order of integration in $\\int_0^1$...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3833,
-        "text": "By changing the order of integration, evaluate \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21. Evaluate \\(\\int_{0}^{a} \\int_{0}^{\\sqrt{a^2-x^2}}...",
+        "text": "By changing the order of integration, evaluate \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21. Evaluate \\($\\int_{0}^{a} \\int_{0}^{\\sqrt{a^2-x^2}}$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 3864,
-        "text": "Change the order of integration and evaluation \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21. Evaluate \\(\\int_{0}^{a} \\int_{0}^{\\sqrt{a^2-x^2}}...",
+        "text": "Change the order of integration and evaluation \\(\\int_{0}^{4a} \\int_{x^2/4a}^{2\\sqrt{ax}} dydx\\). --- OR --- 21. Evaluate \\($\\int_{0}^{a} \\int_{0}^{\\sqrt{a^2-x^2}}$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -40532,14 +40532,14 @@
     "sampleQuestions": [
       {
         "id": 3904,
-        "text": "28b. \\text{Find the volume of the sphere } x^2 + y^2 + z^2 = a^2 \\text{ by triple integral.}",
+        "text": "\\text{Find the volume of the sphere } x^2 + y^2 + z^2 = a^2 \\text{ by triple integral.}",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3939,
-        "text": "b. Find the volume of the sphere x^2 + y^2 + z^2 = a^2 by using triple integration.",
+        "text": "Find the volume of the sphere x^2 + y^2 + z^2 = a^2 by using triple integration.",
         "marks": 10,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -40553,14 +40553,14 @@
       },
       {
         "id": 4039,
-        "text": "b. Find the volume of the sphere x^{2} + y^{2} + z^{2} = a^{2} by using triple integration.",
+        "text": "Find the volume of the sphere x^{2} + y^{2} + z^{2} = a^{2} by using triple integration.",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
       },
       {
         "id": 427,
-        "text": "\\iiint dxdydz (A) 8 (B) 4 (C) 2 (D) 6",
+        "text": "$\\iiint$ dxdydz (A) 8 (B) 4 (C) 2 (D) 6",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -40827,7 +40827,7 @@
     "sampleQuestions": [
       {
         "id": 383,
-        "text": "b. Show that \\(\\vec{F} = (2xy + z^3)\\vec{i} - x^2\\vec{j} + 3xz^2\\vec{k}\\) is a conservative vector field. Find the scalar potential also.",
+        "text": "Show that \\(\\vec{F} = (2xy + z^3)\\vec{i} - x^2\\vec{j} + 3xz^2\\vec{k}\\) is a conservative vector field. Find the scalar potential also.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -40841,21 +40841,21 @@
       },
       {
         "id": 428,
-        "text": "The maximum directional derivative of \\phi = xyz^2 at (1,0,3) is (A) 9 (B) 9\\vec{j} + 6\\vec{k} (C) 2\\vec{i} + 4\\vec{j} - \\vec{k} (D) -9",
+        "text": "The maximum directional derivative of $\\phi = xyz^2$ at (1,0,3) is (A) 9 (B) 9$\\vec{j} + 6\\vec{k}$ (C) 2$\\vec{i} + 4\\vec{j} - \\vec{k}$ (D) -9",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 429,
-        "text": "Curl (grad \\phi) (A) -1 (B) 1 (C) 0 (D) 2",
+        "text": "Curl (grad $\\phi$) (A) -1 (B) 1 (C) 0 (D) 2",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3819,
-        "text": "The unit normal vector to the surface \\(x^2 + y^2 - z^2 = 1\\) at \\((1, 1, 1)\\) is (A) \\((\\vec{i} + \\vec{j} - \\vec{k}) / \\sqrt{3}\\) (B) \\((2\\vec{i} + 2\\vec{j} - 2\\vec{k}) /...",
+        "text": "The unit normal vector to the surface \\(x^2 + y^2 - z^2 = 1\\) at \\((1, 1, 1)\\) is (A) \\((\\vec{i} + \\vec{j} - \\vec{k}) / \\sqrt{3}\\) (B) \\((2$\\vec{i} + 2\\vec{j} - 2\\vec{k}) /$...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41004,7 +41004,7 @@
       },
       {
         "id": 382,
-        "text": "a. Find \\(a, b, c\\) so that the vector \\(\\vec{F} = (x+2y+az)\\vec{i} + (bx-3y-z)\\vec{j} + (4x+cy+2z)\\vec{k}\\) is irrotational. --- OR --- 22.b. Show that \\(\\vec{F} = (2xy +...",
+        "text": "Find \\(a, b, c\\) so that the vector \\(\\vec{F} = (x+2y+az)\\vec{i} + (bx-3y-z)\\vec{j} + (4x+cy+2z)\\vec{k}\\) is irrotational. --- OR --- 22.b. Show that \\($\\vec{F} = (2xy +$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41151,35 +41151,35 @@
     "sampleQuestions": [
       {
         "id": 446,
-        "text": "Vector differentiation and Green's theorem. (a) i. Find the directional derivative of the function \\phi = 2yz + z^2 in the direction of the vector \\vec{i} + 2\\vec{j} + 2\\vec{k} at...",
+        "text": "Vector differentiation and Green's theorem. (a) i. Find the directional derivative of the function $\\phi = 2yz + z^2$ in the direction of the vector $\\vec{i} + 2\\vec{j} + 2\\vec{k}$ at...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 447,
-        "text": "Verify Green's theorem in a plane for \\iint_C [(3x^2 - 8y^2)dx + (4y - 6xy)dy] where C is the boundary of the region defined by the lines x=0, y=0 and x+y=1. (b) Verify Green's...",
+        "text": "Verify Green's theorem in a plane for $\\iint_C$ [(3x^2 - 8y^2)dx + (4y - 6xy)dy] where C is the boundary of the region defined by the lines x=0, y=0 and x+y=1. (b) Verify Green's...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3978,
-        "text": "Verify Gauss-Divergence theorem for \\vec{F}=x^{2}\\hat{i}+z\\hat{j}+y\\hat{z} over a cube formed by 0 \\le x \\le 1, 0 \\le y \\le 1, 0 \\le z \\le 1. --- OR --- 29. Verify Green's theorem...",
+        "text": "Verify Gauss-Divergence theorem for $\\vec{F}=x^{2}\\hat{i}+z\\hat{j}+y\\hat{z}$ over a cube formed by 0 $\\le x \\le 1, 0 \\le y \\le 1, 0 \\le z \\le 1$. --- OR --- 29. Verify Green's theorem...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3979,
-        "text": "Verify Green's theorem in a plane for \\iint_{R} (3x^{2}-8y^{2})dx+(4y-6xy)dy where 'c' is the boundary of the region defined by x=y^{2} and y=x^{2}.",
+        "text": "Verify Green's theorem in a plane for $\\iint_{R}$ (3x^{2}-8y^{2})dx+(4y-6xy)dy where 'c' is the boundary of the region defined by x=y^{2} and y=x^{2}.",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 4008,
-        "text": "Prove that \\vec{F} = (y^2 \\cos x + z^3)\\vec{i} + (2y \\sin x - 4)\\vec{j} + 3xz^2\\vec{k} is irrotational and find its scalar potential. (a) Prove that \\vec{F} = (y^2 \\cos x +...",
+        "text": "Prove that $\\vec{F} = (y^2 \\cos x + z^3)\\vec{i} + (2y \\sin x - 4)\\vec{j} + 3xz^2\\vec{k}$ is irrotational and find its scalar potential. (a) Prove that $\\vec{F} = (y^2 \\cos x +$...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -41300,7 +41300,7 @@
     "sampleQuestions": [
       {
         "id": 391,
-        "text": "Verify divergence theorem for \\(\\vec{F} = (x^2 - yz)\\vec{i} + (y^2 - zx)\\vec{j} + (z^2 - xy)\\vec{k}\\) taken over the rectangular parallelopiped \\(0 \\le x \\le a; 0 \\le y \\le b; 0...",
+        "text": "Verify divergence theorem for \\(\\vec{F} = (x^2 - yz)\\vec{i} + (y^2 - zx)\\vec{j} + (z^2 - xy)\\vec{k}\\) taken over the rectangular parallelopiped \\(0 $\\le x \\le a$; 0 $\\le y \\le b$; 0...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41314,7 +41314,7 @@
       },
       {
         "id": 454,
-        "text": "Verify Gauss divergence theorem for \\vec{F} = 4xz\\vec{i} - y^2\\vec{j} + yz\\vec{k} over the cube bounded by x=0, x=1, y=0, y=1, z=0, z=1.",
+        "text": "Verify Gauss divergence theorem for $\\vec{F} = 4xz\\vec{i} - y^2\\vec{j} + yz\\vec{k}$ over the cube bounded by x=0, x=1, y=0, y=1, z=0, z=1.",
         "marks": 15,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -41328,7 +41328,7 @@
       },
       {
         "id": 3875,
-        "text": "Verify divergence theorem for \\(\\vec{F} = (x^2-yz)\\vec{i} + (y^2-zx)\\vec{j} + (z^2-xy)\\vec{k}\\) taken over the rectangular parallelopiped \\(0 \\le x \\le a; 0 \\le y \\le b; 0 \\le z...",
+        "text": "Verify divergence theorem for \\(\\vec{F} = (x^2-yz)\\vec{i} + (y^2-zx)\\vec{j} + (z^2-xy)\\vec{k}\\) taken over the rectangular parallelopiped \\(0 $\\le x \\le a$; 0 $\\le y \\le b$; 0 $\\le z$...",
         "marks": 15,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41477,21 +41477,21 @@
       },
       {
         "id": 3898,
-        "text": "\\text{Find Laplace transform of } e^{t} \\sin^2 t.",
+        "text": "\\text{Find Laplace transform of } e^{t} $\\sin^2 t$.",
         "marks": 4,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3942,
-        "text": "Solve \\left(D^2 - 4D + 8\\right)y = e^{2t}, given y(0) = 2, y'(0) = -2 using Laplace transform. (a) Solve \\left(D^2 - 4D + 8\\right)y = e^{2t}, given y(0) = 2, y'(0) = -2 using...",
+        "text": "Solve $\\left(D^2 - 4D + 8\\right)y = e^{2t}$, given y(0) = 2, y'(0) = -2 using Laplace transform. (a) Solve $\\left(D^2 - 4D + 8\\right)y = e^{2t}$, given y(0) = 2, y'(0) = -2 using...",
         "marks": 10,
         "year": 2022,
         "assessmentType": "EndSem"
       },
       {
         "id": 3943,
-        "text": "b. Find the Laplace transform of f(t) = \\begin{cases} t, & 0 \\le t \\le 2 \\\\ 4 - t, & 2 \\le t \\le 4 \\end{cases} where f(t + 4) = f(t).",
+        "text": "Find the Laplace transform of f(t) = \\begin{cases} t, & 0 \\le t \\le 2 \\\\ 4 - t, & 2 \\le t \\le 4 \\end{cases} where f(t + 4) = f(t).",
         "marks": 10,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -41694,7 +41694,7 @@
       },
       {
         "id": 385,
-        "text": "b. Find \\(\\mathcal{L}^{-1} \\left[ \\log \\left( \\frac{s(s+1)}{s^2+1} \\right) \\right]\\).",
+        "text": "Find \\(\\mathcal{L}^{-1} \\left[ \\log \\left( \\frac{s(s+1)}{s^2+1} \\right) \\right]\\).",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41708,7 +41708,7 @@
       },
       {
         "id": 434,
-        "text": "Find L^{-1}\\left[\\frac{1}{(s+a)^2}\\right] (A) te^{at} (B) te^{-at} (C) t (D) e^{at}",
+        "text": "Find L^{-1}$\\left[\\frac{1}{(s+a)^2}\\right]$ (A) te^{at} (B) te^{-at} (C) t (D) e^{at}",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -41813,21 +41813,21 @@
     "sampleQuestions": [
       {
         "id": 448,
-        "text": "Find \\mathcal{L}^{-1}\\left[\\frac{s^2}{(s^2+a^2)(s^2+b^2)}\\right] using convolution theorem. --- OR --- 23. Using Laplace transform solve y'' + 4y' + 5y = 0 given y(0) = 0, y'(0) =...",
+        "text": "Find $\\mathcal{L}^{-1}\\left[\\frac{s^2}{(s^2+a^2)(s^2+b^2)}\\right]$ using convolution theorem. --- OR --- 23. Using Laplace transform solve y'' + 4y' + 5y = 0 given y(0) = 0, y'(0) =...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 3907,
-        "text": "\\text{Solve using Laplace transform method } (D^2 + 4)y = \\cos 2t, y(0) = 3 \\text{ and } y'(0) = 4. --- OR --- (i) \\text{Using convolution theorem find }...",
+        "text": "\\text{Solve using Laplace transform method } (D^2 + 4)y = $\\cos 2t, y(0) = 3$ \\text{ and } y'(0) = 4. --- OR --- (i) \\text{Using convolution theorem find }...",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3908,
-        "text": "(i) \\text{Using convolution theorem find } \\mathcal{L}^{-1}\\left[\\frac{1}{s^2(s + 1)^2}\\right]. (ii) \\text{Verify the final value theorem for the function } 1 + e^{t}(\\sin t +...",
+        "text": "\\text{Using convolution theorem find } $\\mathcal{L}^{-1}\\left[\\frac{1}{s^2(s + 1)^2}\\right]$. (ii) \\text{Verify the final value theorem for the function } 1 + e^{t}($\\sin t +$...",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -41841,7 +41841,7 @@
       },
       {
         "id": 4010,
-        "text": "Find L^{-1}\\left[\\frac{s}{(s^2 + a^2)^2}\\right] using convolution theorem. (a) Find L^{-1}\\left[\\frac{s}{(s^2 + a^2)^2}\\right] using convolution theorem. --- OR --- b. Using...",
+        "text": "Find L^{-1}$\\left[\\frac{s}{(s^2 + a^2)^2}\\right]$ using convolution theorem. (a) Find L^{-1}$\\left[\\frac{s}{(s^2 + a^2)^2}\\right]$ using convolution theorem. --- OR --- b. Using...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -41974,14 +41974,14 @@
     "sampleQuestions": [
       {
         "id": 386,
-        "text": "a. Find the bilinear map which maps the points \\(z = 1, i, -1\\) on to the point \\(\\omega = i, 0, -i\\). --- OR --- 24.b. Find the analytic function \\(f(z) = u+iv\\) where \\(u-v =...",
+        "text": "Find the bilinear map which maps the points \\(z = 1, i, -1\\) on to the point \\(\\omega = i, 0, -i\\). --- OR --- 24.b. Find the analytic function \\(f(z) = u+iv\\) where \\(u-v =...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 387,
-        "text": "b. Find the analytic function \\(f(z) = u+iv\\) where \\(u-v = e^x(\\cos y - \\sin y)\\).",
+        "text": "Find the analytic function \\(f(z) = u+iv\\) where \\(u-v = e^x(\\cos y - \\sin y)\\).",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -41995,7 +41995,7 @@
       },
       {
         "id": 3870,
-        "text": "Find the bilinear map which maps the points \\(z=1, i, -1\\) on to the point \\(\\omega=i, 0, -i\\). --- OR --- 24. Find the analytic function \\(f(z)=u+iv\\) where \\(u-v=e^x(\\cos y -...",
+        "text": "Find the bilinear map which maps the points \\(z=1, i, -1\\) on to the point \\(\\omega=i, 0, -i\\). --- OR --- 24. Find the analytic function \\(f(z)=u+iv\\) where \\(u-v=e^x($\\cos y -$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -42093,14 +42093,14 @@
     "sampleQuestions": [
       {
         "id": 3909,
-        "text": "\\text{Find the bilinear transformation which maps the points } z = 0, z = 1 \\text{ and } z = \\infty \\text{ into the point } w = i, w = 1 \\text{ and } w = -1. --- OR --- 31b....",
+        "text": "\\text{Find the bilinear transformation which maps the points } z = 0, z = 1 \\text{ and } z = $\\infty$ \\text{ into the point } w = i, w = 1 \\text{ and } w = -1. --- OR --- 31b....",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 3910,
-        "text": "31b. \\text{Find the analytic function } w = u + iv \\text{ where } u = e^x(x \\sin y + y \\cos y) \\text{ and hence find the harmonic conjugate } v.",
+        "text": "\\text{Find the analytic function } w = u + iv \\text{ where } u = e^x(x $\\sin y + y \\cos y$) \\text{ and hence find the harmonic conjugate } v.",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -42114,7 +42114,7 @@
       },
       {
         "id": 23,
-        "text": "Verify whether the function \\frac{1}{2} \\log(x^2 + y^2) is harmonic. Find the harmonic conjugate. Also find f(z). --- OR --- 31. Find the images of the infinite strips (A) 1/4 < y...",
+        "text": "Verify whether the function $\\frac{1}{2} \\log(x^2 + y^2)$ is harmonic. Find the harmonic conjugate. Also find f(z). --- OR --- 31. Find the images of the infinite strips (A) 1/4 < y...",
         "marks": 12,
         "year": 2018,
         "assessmentType": "EndSem"
@@ -42185,14 +42185,14 @@
     "sampleQuestions": [
       {
         "id": 4044,
-        "text": "Prove that the function u = \\frac{1}{2}\\log(x^{2} + y^{2}) is harmonic. Find f(z) by using Milne-Thomson method. Also find its harmonic conjugate. (a) Prove that the function u =...",
+        "text": "Prove that the function u = $\\frac{1}{2}\\log(x^{2} + y^{2})$ is harmonic. Find f(z) by using Milne-Thomson method. Also find its harmonic conjugate. (a) Prove that the function u =...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
       },
       {
         "id": 4139,
-        "text": "Find the analytic function f(z) = u + iv if u - v = e^x(\\cos y - \\sin y) by Milne - Thomson method. (a) Find the analytic function f(z) = u + iv if u - v = e^x(\\cos y - \\sin y) by...",
+        "text": "Find the analytic function f(z) = u + iv if u - v = e^x($\\cos y - \\sin y$) by Milne - Thomson method. (a) Find the analytic function f(z) = u + iv if u - v = e^x($\\cos y - \\sin y$) by...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -42437,14 +42437,14 @@
       },
       {
         "id": 450,
-        "text": "Determine the analytic function f(z) = u+iv such that u-v = e^x(\\cos y - \\sin y). (a) Determine the analytic function f(z) = u+iv such that u-v = e^x(\\cos y - \\sin y). --- OR ---...",
+        "text": "Determine the analytic function f(z) = u+iv such that u-v = e^x($\\cos y - \\sin y$). (a) Determine the analytic function f(z) = u+iv such that u-v = e^x($\\cos y - \\sin y$). --- OR ---...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 451,
-        "text": "Find the bilinear transformation which maps the points 1, i, -1 of z-plane onto the points 0, 1, \\infty of w-plane. (b) Find the bilinear transformation which maps the points 1,...",
+        "text": "Find the bilinear transformation which maps the points 1, i, -1 of z-plane onto the points 0, 1, $\\infty$ of w-plane. (b) Find the bilinear transformation which maps the points 1,...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -42509,7 +42509,7 @@
     "sampleQuestions": [
       {
         "id": 4131,
-        "text": "If f(z) is analytic and f'(z) is continuous at all points inside and on a simple closed curve C, then by Cauchy's integral theorem \\oint_C f(z) \\, dz = (A) 0 (B) 1 (C) \\infty (D)...",
+        "text": "If f(z) is analytic and f'(z) is continuous at all points inside and on a simple closed curve C, then by Cauchy's integral theorem $\\oint_C f(z)$ \\, dz = (A) 0 (B) 1 (C) $\\infty$ (D)...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -42643,7 +42643,7 @@
     "sampleQuestions": [
       {
         "id": 388,
-        "text": "a. If \\(f(z) = \\frac{1}{(z-1)(z-2)}\\) expand as Laurent's series about \\(z=0\\) valid in \\((i) |z| < 1 \\quad (ii) 1 < |z| < 2\\) --- OR --- 25.b. Evaluate \\(\\oint_c \\frac{\\sin \\pi...",
+        "text": "If \\(f(z) = \\frac{1}{(z-1)(z-2)}\\) expand as Laurent's series about \\(z=0\\) valid in \\((i) |z| < 1 \\quad (ii) 1 < |z| < 2\\) --- OR --- 25.b. Evaluate \\($\\oint_c \\frac${$\\sin \\pi$...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -42657,14 +42657,14 @@
       },
       {
         "id": 452,
-        "text": "Evaluate \\int_C \\frac{(z-1)dz}{z^2(z+1)^2(z-2)} where C is |z-i|=2. (a) Evaluate \\int_C \\frac{(z-1)dz}{z^2(z+1)^2(z-2)} where C is |z-i|=2. --- OR --- 25. Expand f(z) =...",
+        "text": "Evaluate $\\int_C \\frac{(z-1)dz}{z^2(z+1)^2(z-2)}$ where C is |z-i|=2. (a) Evaluate $\\int_C \\frac{(z-1)dz}{z^2(z+1)^2(z-2)}$ where C is |z-i|=2. --- OR --- 25. Expand f(z) =...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 453,
-        "text": "Expand f(z) = \\frac{1}{z^3-3z+2} in a Laurent's series in the region (i) 1 < |z| < 2 (ii) 0 < |z-1| < 2. (b) Expand f(z) = \\frac{1}{z^3-3z+2} in a Laurent's series in the region...",
+        "text": "Expand f(z) = $\\frac{1}{z^3-3z+2}$ in a Laurent's series in the region (i) 1 < |z| < 2 (ii) 0 < |z-1| < 2. (b) Expand f(z) = $\\frac{1}{z^3-3z+2}$ in a Laurent's series in the region...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -42816,14 +42816,14 @@
       },
       {
         "id": 379,
-        "text": "f(z) = \\frac{z+2}{(z-1)^2(z-2)} has (A) Only poles (B) A simple pole at \\(z=1/2\\) (C) Essential singularity (D) No poles",
+        "text": "f(z) = $\\frac{z+2}{(z-1)^2(z-2)}$ has (A) Only poles (B) A simple pole at \\(z=1/2\\) (C) Essential singularity (D) No poles",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 443,
-        "text": "If f(z) = \\frac{\\sin z - z}{z^3} then (A) z=0 is a simple pole (B) z=0 is a pole of order 2 (C) z=0 is a removable singularity (D) z=0 is a zero f f(z)",
+        "text": "If f(z) = $\\frac{\\sin z - z}{z^3}$ then (A) z=0 is a simple pole (B) z=0 is a pole of order 2 (C) z=0 is a removable singularity (D) z=0 is a zero f f(z)",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -42943,7 +42943,7 @@
       },
       {
         "id": 3840,
-        "text": "Answer the following subquestions: (a) Using Cauchy integral formula evaluate \\(\\int_{c} \\frac{z}{z - 2}dz\\), where \\(c\\) is the circle \\(|z - 2| = 3/2\\). (ii) Evaluate \\(\\int_{c}...",
+        "text": "Answer the following subquestions: (a) Using Cauchy integral formula evaluate \\(\\int_{c} \\frac{z}{z - 2}dz\\), where \\(c\\) is the circle \\(|z - 2| = 3/2\\). (ii) Evaluate \\($\\int_{c}$...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -42957,14 +42957,14 @@
       },
       {
         "id": 4035,
-        "text": "By Cauchy's residue theorem, the value of \\oint_{C} \\frac{z}{z - 3} dz where C is the circle |z| = 2 is",
+        "text": "By Cauchy's residue theorem, the value of $\\oint_{C} \\frac{z}{z - 3}$ dz where C is the circle |z| = 2 is",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
       },
       {
         "id": 25,
-        "text": "\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta} by calculus of residues. --- OR --- 32. Find the Laurent expansion to represent the function f(z) = \\frac{z^2 - 1}{(z + 2)(z + 3)}...",
+        "text": "$\\int_0^{2\\pi} \\frac{d\\theta}{5 + 4 \\cos \\theta}$ by calculus of residues. --- OR --- 32. Find the Laurent expansion to represent the function f(z) = $\\frac{z^2 - 1}{(z + 2)(z + 3)}$...",
         "marks": 12,
         "year": 2018,
         "assessmentType": "EndSem"
@@ -43099,7 +43099,7 @@
       },
       {
         "id": 455,
-        "text": "Evaluate \\int_0^{2\\pi} \\frac{d\\theta}{2+\\cos\\theta} using contour integration.",
+        "text": "Evaluate $\\int_0^{2\\pi} \\frac{d\\theta}{2+\\cos\\theta}$ using contour integration.",
         "marks": 15,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -43113,7 +43113,7 @@
       },
       {
         "id": 3911,
-        "text": "\\text{Find the Laurent series expansion for } f(z) = \\frac{1}{(z + 1)(z + 2)} \\text{ over (i) } |z| < 1 \\text{ (ii) } 1 < |z| < 2 \\text{ (iii) } |z| > 2 --- OR --- 32b....",
+        "text": "\\text{Find the Laurent series expansion for } f(z) = $\\frac{1}{(z + 1)(z + 2)}$ \\text{ over (i) } |z| < 1 \\text{ (ii) } 1 < |z| < 2 \\text{ (iii) } |z| > 2 --- OR --- 32b....",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -43369,7 +43369,7 @@
       },
       {
         "id": 6195,
-        "text": "(a) Write a C++ program for the following specifications Class: SRMIST_Library private members of the class SRMIST_Library are Book_No - integer type Book_Title - 20 characters...",
+        "text": "Write a C++ program for the following specifications Class: SRMIST_Library private members of the class SRMIST_Library are Book_No - integer type Book_Title - 20 characters...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -43655,7 +43655,7 @@
       },
       {
         "id": 2032,
-        "text": "(A) Alg is o r a i t p h r m oc edure that is used to process the data contained in containers. 1 2 5 2 (B) Iterator (C) Pointer (D) Object PART -B( 5 x 8= 40 Marks) Marks BL Co...",
+        "text": "Alg is o r a i t p h r m oc edure that is used to process the data contained in containers. 1 2 5 2 (B) Iterator (C) Pointer (D) Object PART -B( 5 x 8= 40 Marks) Marks BL Co...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -43933,7 +43933,7 @@
       },
       {
         "id": 2002,
-        "text": "(a) Construct a C++ program to create a class employee with datamembers as Employee_name, EID, phone, DoJ, no_of_hours_worked, pay_rate. Write necessary member functions to...",
+        "text": "Construct a C++ program to create a class employee with datamembers as Employee_name, EID, phone, DoJ, no_of_hours_worked, pay_rate. Write necessary member functions to...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -44372,7 +44372,7 @@
       },
       {
         "id": 6127,
-        "text": "(OR) (b) Draw UML sequence diagram for Library Management diagram for borrowing a book.",
+        "text": "Draw UML sequence diagram for Library Management diagram for borrowing a book.",
         "marks": 0,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -44982,7 +44982,7 @@
       },
       {
         "id": 2007,
-        "text": "(i) Construct a C++ program using class and object to implement Fibonacci series of given number using recursion concept and abstract class concept but the condition is, program...",
+        "text": "Construct a C++ program using class and object to implement Fibonacci series of given number using recursion concept and abstract class concept but the condition is, program...",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -45479,7 +45479,7 @@
       },
       {
         "id": 6163,
-        "text": "b. Write a C++ program containing a possible exception using a try block to throw it and a catch block to handle it properly.",
+        "text": "Write a C++ program containing a possible exception using a try block to throw it and a catch block to handle it properly.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "Other"
@@ -45710,7 +45710,7 @@
     "sampleQuestions": [
       {
         "id": 2035,
-        "text": "a. Write a CPP program to find the largest of two numbers using function 3 4 2 templates. 8 4 4 3 b. Develop the components and deployment diagram for online banking system. 8 3 5",
+        "text": "Write a CPP program to find the largest of two numbers using function 3 4 2 templates. 8 4 4 3 b. Develop the components and deployment diagram for online banking system. 8 3 5",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -45731,7 +45731,7 @@
       },
       {
         "id": 6131,
-        "text": "(OR) (b) Discuss Component and Deployment diagram. Illustrate the notations of Component and Deployment diagram for Vehicle Registration System.",
+        "text": "Discuss Component and Deployment diagram. Illustrate the notations of Component and Deployment diagram for Vehicle Registration System.",
         "marks": 0,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -46184,7 +46184,7 @@
     "sampleQuestions": [
       {
         "id": 2036,
-        "text": "a. Explain in detal about the components that make up the Standard Template Libraries (STL). Page 3 of4 29MF2&3-21CSC101T b. Write aC PP program to demonstrate the working of STL...",
+        "text": "Explain in detal about the components that make up the Standard Template Libraries (STL). Page 3 of4 29MF2&3-21CSC101T b. Write aC PP program to demonstrate the working of STL...",
         "marks": 0,
         "year": 2023,
         "assessmentType": "Other"
@@ -46212,7 +46212,7 @@
       },
       {
         "id": 6132,
-        "text": "(a) Elaborate in detail about Associative Container: Map, Multi-map and Set, Muti-set with example program. (b) Explain in detail about the components that make up the Standard...",
+        "text": "Elaborate in detail about Associative Container: Map, Multi-map and Set, Muti-set with example program. (b) Explain in detail about the components that make up the Standard...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -46416,7 +46416,7 @@
       },
       {
         "id": 2011,
-        "text": "b. Write a C++ code using fstream class object to write the content in file and then to read the content of file.",
+        "text": "Write a C++ code using fstream class object to write the content in file and then to read the content of file.",
         "marks": 8,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -46502,7 +46502,7 @@
       },
       {
         "id": 6991,
-        "text": "b. Cylindrically shaped section of n-type silicon has a 1 mm length and 0.1 \\text{ mm}^2 cross-sectional area. Its electron, holes mobility and Intrinsic concentration are 1500...",
+        "text": "Cylindrically shaped section of n-type silicon has a 1 mm length and 0.1 \\text{ mm}^2 cross-sectional area. Its electron, holes mobility and Intrinsic concentration are 1500...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -46613,7 +46613,7 @@
     "sampleQuestions": [
       {
         "id": 6977,
-        "text": "Which of the following equation represents mass action law for semiconductors in electronic circuits? a) n \\times p = n_i b) n \\times p = n_i^2 c) n \\times p = n_i^3 d) n \\times p...",
+        "text": "Which of the following equation represents mass action law for semiconductors in electronic circuits? a) n $\\times p = n_i b) n \\times p = n_i^2 c) n \\times p = n_i^3 d) n \\times p$...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
@@ -46634,14 +46634,14 @@
       },
       {
         "id": 7100,
-        "text": "In an n-type semiconductor the intrinsic carrier concentration and hole concentration are given as, n_i = 1.5 \\times 10^{15} \\text{ cm}^{-3} and n = 2.25 \\times 10^8 \\text{...",
+        "text": "In an n-type semiconductor the intrinsic carrier concentration and hole concentration are given as, n_i = 1.5 $\\times 10^{15}$ \\text{ cm}^{-3} and n = 2.25 $\\times 10^8$ \\text{...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 7130,
-        "text": "Mass action law for semiconductors in electronic devices is ............................ (A) n \\times p = ni^2 (B) n \\times p = ni (C) n \\times p = ni3 (D) n \\times p = ni/2",
+        "text": "Mass action law for semiconductors in electronic devices is ............................ (A) n $\\times p = ni^2$ (B) n $\\times p = ni$ (C) n $\\times p = ni3$ (D) n $\\times p = ni/2$",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -46746,21 +46746,21 @@
     "sampleQuestions": [
       {
         "id": 6976,
-        "text": "Which of the following is the Einstein equation for semiconductor. a) D = \\mu V_T b) V_T= \\mu D c) \\mu = D V_T d) None of these",
+        "text": "Which of the following is the Einstein equation for semiconductor. a) D = $\\mu V_T b) V_T= \\mu D c) \\mu = D V_T d$) None of these",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 6987,
-        "text": "If the electron mobility (\\mu_n) is 1400 \\text{ cm}^2/\\text{V}\\cdot\\text{Sec} at 350K, calculate the electron diffusion coefficient D_n.",
+        "text": "If the electron mobility ($\\mu_n$) is 1400 \\text{ cm}^2/\\text{V}$\\cdot$\\text{Sec} at 350K, calculate the electron diffusion coefficient D_n.",
         "marks": 5,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 7118,
-        "text": "Answer part a or part b (a) In a P-type germanium, n_i = 2.1 \\times 10^{19} \\text{ m}^{-3} and density of Boron is 4.5 \\times 10^{23} \\text{ atoms/m}^3 . The electron and hole...",
+        "text": "Answer part a or part b (a) In a P-type germanium, n_i = 2.1 $\\times 10^{19}$ \\text{ m}^{-3} and density of Boron is 4.5 $\\times 10^{23}$ \\text{ atoms/m}^3 . The electron and hole...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -46923,7 +46923,7 @@
       },
       {
         "id": 6980,
-        "text": "If _______________ then MOSFET is in saturation mode a) V_{DS} \\ge (V_{GS} - V_T) b) V_{DS} < (V_{GS} - V_T) c) V_{GS} \\ge (V_{DS} - V_T) d) V_{GS} < (V_{DS} - V_T)",
+        "text": "If _______________ then MOSFET is in saturation mode a) V_{DS} $\\ge$ (V_{GS} - V_T) b) V_{DS} < (V_{GS} - V_T) c) V_{GS} $\\ge$ (V_{DS} - V_T) d) V_{GS} < (V_{DS} - V_T)",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
@@ -47064,7 +47064,7 @@
       },
       {
         "id": 7064,
-        "text": "(i) Explain the basic structure and working of an n-channel MOSFET and its drain and transfer characteristics (ii) Explain the working principle of FinFET and its advantages over...",
+        "text": "Explain the basic structure and working of an n-channel MOSFET and its drain and transfer characteristics (ii) Explain the working principle of FinFET and its advantages over...",
         "marks": 15,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -47344,7 +47344,7 @@
     "sampleQuestions": [
       {
         "id": 7015,
-        "text": "(b) With a neat sketch, Explain the construction, and working principle of a thyristor device.",
+        "text": "With a neat sketch, Explain the construction, and working principle of a thyristor device.",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -47477,7 +47477,7 @@
       },
       {
         "id": 7072,
-        "text": "A power BJT is based to operate in the saturation region, with collector biasing potential V_CC = 10V and collector biasing resistance R_c = 2 k\\Omega, then collector current is...",
+        "text": "A power BJT is based to operate in the saturation region, with collector biasing potential V_CC = 10V and collector biasing resistance R_c = 2 k$\\Omega$, then collector current is...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -47625,7 +47625,7 @@
       },
       {
         "id": 7014,
-        "text": "(a) Describe in detail the monolithic fabrication process. --- OR --- 13. (b) With a neat sketch, Explain the construction, and working principle of a thyristor device.",
+        "text": "Describe in detail the monolithic fabrication process. --- OR --- 13. (b) With a neat sketch, Explain the construction, and working principle of a thyristor device.",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -47780,7 +47780,7 @@
     "sampleQuestions": [
       {
         "id": 7032,
-        "text": "(a) A voltage $v = 300 \\cos 100t$ is applied to a half wave rectifier with $R_L = 5k \\text{ ohm}$. The rectifier may be represented by ideal diode in series with resistance of...",
+        "text": "A voltage $v = 300 \\cos 100t$ is applied to a half wave rectifier with $R_L = 5k \\text{ ohm}$. The rectifier may be represented by ideal diode in series with resistance of...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -47808,7 +47808,7 @@
       },
       {
         "id": 7096,
-        "text": "Answer subquestions (i) Explain the operation of energy meter with suitable diagram. (ii) A full wave rectifier has a load of 100 \\Omega. If the diode resistance and secondary...",
+        "text": "Answer subquestions (i) Explain the operation of energy meter with suitable diagram. (ii) A full wave rectifier has a load of 100 $\\Omega$. If the diode resistance and secondary...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -47922,7 +47922,7 @@
       },
       {
         "id": 7059,
-        "text": "(i) Discuss the importance of line and load regulation in a power supply. (ii) A Zener diode voltage regulator provides a constant output voltage of $12\\text{V}$. If the input...",
+        "text": "Discuss the importance of line and load regulation in a power supply. (ii) A Zener diode voltage regulator provides a constant output voltage of $12\\text{V}$. If the input...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -48142,14 +48142,14 @@
       },
       {
         "id": 7016,
-        "text": "(a) A single-phase full-wave bridge rectifier is supplied with a 230V RMS, 50Hz AC voltage. The load connected to the rectifier is a 10\u03a9 resistor. Assume ideal diodes. (i)...",
+        "text": "A single-phase full-wave bridge rectifier is supplied with a 230V RMS, 50Hz AC voltage. The load connected to the rectifier is a 10\u03a9 resistor. Assume ideal diodes. (i)...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 7017,
-        "text": "(b) Draw the circuit diagram and explain the working and applications of the Monostable Multivibrator.",
+        "text": "Draw the circuit diagram and explain the working and applications of the Monostable Multivibrator.",
         "marks": 12,
         "year": 2023,
         "assessmentType": "Other"
@@ -48281,14 +48281,14 @@
       },
       {
         "id": 7018,
-        "text": "d. Spectrum Analyzer",
+        "text": "Spectrum Analyzer",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
       },
       {
         "id": 7020,
-        "text": "c. Multimeter",
+        "text": "Multimeter",
         "marks": 1,
         "year": 2023,
         "assessmentType": "Other"
@@ -48664,7 +48664,7 @@
       },
       {
         "id": 7284,
-        "text": "a. Write short notes on (i) Rules for component placement in PCB (ii) Rules for power supply and ground. --- OR --- b. What are the classification of PCBs? Explain them.",
+        "text": "Write short notes on (i) Rules for component placement in PCB (ii) Rules for power supply and ground. --- OR --- b. What are the classification of PCBs? Explain them.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -49316,7 +49316,7 @@
       },
       {
         "id": 1213,
-        "text": "The relation between electric field intensity and potential is ............. (A) E = \\Delta V (B) E = - \\Delta V (C) E = \\Delta^2 V (D) E = \\Delta^3 V",
+        "text": "The relation between electric field intensity and potential is ............. (A) E = $\\Delta V$ (B) E = $- \\Delta V$ (C) E = $\\Delta^2 V$ (D) E = $\\Delta^3 V$",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -49718,7 +49718,7 @@
       },
       {
         "id": 6835,
-        "text": "b. What is meant by Internal electric field? Derive an expression for the internal field in dielectrics.",
+        "text": "What is meant by Internal electric field? Derive an expression for the internal field in dielectrics.",
         "marks": 12,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -49828,28 +49828,28 @@
     "sampleQuestions": [
       {
         "id": 1090,
-        "text": "The relationship between magnetic susceptibility and magnetic permeability is given by ___ (A) \\mu_r = 1 + \\chi (B) \\mu_r = 1 - \\chi (C) \\mu_r = \\chi - 1 (D) \\chi = 1 + \\mu_r",
+        "text": "The relationship between magnetic susceptibility and magnetic permeability is given by ___ (A) $\\mu_r = 1 + \\chi$ (B) $\\mu_r = 1 - \\chi$ (C) $\\mu_r = \\chi - 1$ (D) $\\chi = 1 + \\mu_r$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 1173,
-        "text": "(i) Explain the phenomenon of giant magneto resistance. (ii) The magnetic field strength of copper is $10^6$ ampere/ metre. If the magnetic susceptibility of copper is $-0.8...",
+        "text": "Explain the phenomenon of giant magneto resistance. (ii) The magnetic field strength of copper is $10^6$ ampere/ metre. If the magnetic susceptibility of copper is $-0.8...$",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 6795,
-        "text": "The magnetic permeability of free space (\\mu_0) has the value: a. 4\\pi \\times 10^{-7} H/m b. 8.85 \\times 10^{-12} F/m c. 1.26 \\times 10^{-6} F/m d. 3 \\times 10^8 m/s",
+        "text": "The magnetic permeability of free space ($\\mu_0$) has the value: a. 4$\\pi \\times 10^{-7} H/m b$. 8.85 $\\times 10^{-12} F/m c$. 1.26 $\\times 10^{-6} F/m d$. 3 $\\times 10^8 m/s$",
         "marks": 1,
         "year": 2025,
         "assessmentType": "Other"
       },
       {
         "id": 6800,
-        "text": "Magnetic field of 80 \\text{Am}^{-1} produces a Magnetic field of Induction 0.030 T, then the value of the magnetic permeability found out to be: a. 2.75 \\times 10^{-4}...",
+        "text": "Magnetic field of 80 \\text{Am}^{-1} produces a Magnetic field of Induction 0.030 T, then the value of the magnetic permeability found out to be: a. 2.75 $\\times 10^{-4}$...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "Other"
@@ -50153,7 +50153,7 @@
       },
       {
         "id": 1045,
-        "text": "b. Illustrate regular and inverse spinel structure of ferrites with neat diagram.",
+        "text": "Illustrate regular and inverse spinel structure of ferrites with neat diagram.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -50266,7 +50266,7 @@
       },
       {
         "id": 1140,
-        "text": "(a) Illustrate the concept of TMR and CMR --- OR --- (b) What is magnetic bubble memory (MBM)? Explain the principle and working of MBM and write their uses",
+        "text": "Illustrate the concept of TMR and CMR --- OR --- (b) What is magnetic bubble memory (MBM)? Explain the principle and working of MBM and write their uses",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -50602,7 +50602,7 @@
       },
       {
         "id": 1143,
-        "text": "(b) Explain how Davisson-Germer experiment proves the wave nature of electrons.",
+        "text": "Explain how Davisson-Germer experiment proves the wave nature of electrons.",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -50715,7 +50715,7 @@
       },
       {
         "id": 1219,
-        "text": "The wave function satisfying the condition ............. is called normalized wave function (A) \\int \\int \\int \\psi \\psi^* d \\tau = 1 (B) \\int \\int \\psi \\psi^* d \\tau = 1 (C) \\int...",
+        "text": "The wave function satisfying the condition ............. is called normalized wave function (A) $\\int \\int \\int \\psi \\psi^* d \\tau = 1$ (B) $\\int \\int \\psi \\psi^* d \\tau = 1$ (C) $\\int$...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -50729,7 +50729,7 @@
       },
       {
         "id": 6816,
-        "text": "A wave function satisfying the condition \\int \\int \\int \\psi^2 d\\tau = 1 is called normalized wave function. (A) \\int \\int \\int \\psi^2 d\\tau = 1 (B) \\int \\int \\int \\psi^2 d\\tau =...",
+        "text": "A wave function satisfying the condition $\\int \\int \\int \\psi^2 d\\tau = 1$ is called normalized wave function. (A) $\\int \\int \\int \\psi^2 d\\tau = 1$ (B) $\\int \\int \\int \\psi^2 d\\tau =$...",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -50842,7 +50842,7 @@
     "sampleQuestions": [
       {
         "id": 1033,
-        "text": "Time dependent Schrodinger wave equation in shorter form is given by H\\psi is equal to _____ (A) E\\psi^2 (B) E^2 (C) E^2H^2 (D) E\\psi",
+        "text": "Time dependent Schrodinger wave equation in shorter form is given by H$\\psi$ is equal to _____ (A) E$\\psi^2$ (B) E^2 (C) E^2H^2 (D) E$\\psi$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -50856,7 +50856,7 @@
       },
       {
         "id": 1047,
-        "text": "b. Derive Schrodinger time independent wave equation.",
+        "text": "Derive Schrodinger time independent wave equation.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -51008,7 +51008,7 @@
       },
       {
         "id": 1066,
-        "text": "The path difference for destructive interference is (A) (2n+1)\\frac{\\lambda}{2} (B) (2n+1)\\lambda (C) (n+1)\\frac{\\lambda}{2} (D) (n+1)\\lambda",
+        "text": "The path difference for destructive interference is (A) (2n+1)$\\frac{\\lambda}{2}$ (B) (2n+1)$\\lambda$ (C) (n+1)$\\frac{\\lambda}{2}$ (D) (n+1)$\\lambda$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -51340,14 +51340,14 @@
     "sampleQuestions": [
       {
         "id": 1037,
-        "text": "Brewster's law in terms of refractive index can be expressed as _____ (A) \\mu = \\sin \\theta_p (B) \\mu = \\cos \\theta_p (C) \\mu = \\tan \\theta_p (D) \\mu = \\cot \\theta_p",
+        "text": "Brewster's law in terms of refractive index can be expressed as _____ (A) $\\mu = \\sin \\theta_p$ (B) $\\mu = \\cos \\theta_p$ (C) $\\mu = \\tan \\theta_p$ (D) $\\mu = \\cot \\theta_p$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 1068,
-        "text": "Brewster's Law in terms of refractive index can be expressed as (A) \\mu=\\sin\\theta_{p} (B) \\mu=\\cos\\theta_{p} (C) \\mu=\\tan\\theta_{p} (D) \\mu=\\cot\\theta_{p}",
+        "text": "Brewster's Law in terms of refractive index can be expressed as (A) $\\mu=\\sin\\theta_{p}$ (B) $\\mu=\\cos\\theta_{p}$ (C) $\\mu=\\tan\\theta_{p}$ (D) $\\mu=\\cot\\theta_{p}$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -51551,7 +51551,7 @@
       },
       {
         "id": 1146,
-        "text": "(a) Explain the Einstein's theory of spontaneous and stimulated emission. --- OR --- (b) Explain the applications of Fiber optic in communication system and Industries",
+        "text": "Explain the Einstein's theory of spontaneous and stimulated emission. --- OR --- (b) Explain the applications of Fiber optic in communication system and Industries",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -51783,7 +51783,7 @@
       },
       {
         "id": 1238,
-        "text": "(a) (i) Explain the characteristics of laser. (ii) Describe with a neat diagram, the process of construction of a hologram. --- OR --- 25. Explain the working of Nd:YAG laser with...",
+        "text": "Explain the characteristics of laser. (ii) Describe with a neat diagram, the process of construction of a hologram. --- OR --- 25. Explain the working of Nd:YAG laser with...",
         "marks": 8,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -51797,7 +51797,7 @@
       },
       {
         "id": 6888,
-        "text": "The wave length emitted by Nd:YAG laser is ________ (A) 10.6 \\mu m (B) 1.06 \\mu m (C) 0.86 \\mu m (D) 16.6 \\mu m",
+        "text": "The wave length emitted by Nd:YAG laser is ________ (A) 10.6 $\\mu m$ (B) 1.06 $\\mu m$ (C) 0.86 $\\mu m$ (D) 16.6 $\\mu m$",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -52002,7 +52002,7 @@
       },
       {
         "id": 1179,
-        "text": "b. Derive an expression for numerical aperture.",
+        "text": "Derive an expression for numerical aperture.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -52120,7 +52120,7 @@
       },
       {
         "id": 1073,
-        "text": "The number of mode in a graded index fiber is about M_{n}= (A) \\frac{V^2}{2} (B) \\frac{V^2}{4} (C) \\frac{V^2}{16} (D) \\frac{V^2}{32}",
+        "text": "The number of mode in a graded index fiber is about M_{n}= (A) $\\frac{V^2}{2}$ (B) $\\frac{V^2}{4}$ (C) $\\frac{V^2}{16}$ (D) $\\frac{V^2}{32}$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -52211,7 +52211,7 @@
       },
       {
         "id": 1181,
-        "text": "(i) Explain the construction and working of $CO_2$ laser with necessary diagrams. (ii) Explain the Fiber optic communication system.",
+        "text": "Explain the construction and working of $CO_2$ laser with necessary diagrams. (ii) Explain the Fiber optic communication system.",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -52536,14 +52536,14 @@
       },
       {
         "id": 5974,
-        "text": "(i) Sketch the displacement curve for a spring-mass system undergoing damped oscillations against time. With the necessary theory derive an equation to represent the displacement...",
+        "text": "Sketch the displacement curve for a spring-mass system undergoing damped oscillations against time. With the necessary theory derive an equation to represent the displacement...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5996,
-        "text": "(a) Outline the different types of forces in nature using suitable expressions. Outline the significance of each of them. Arrange the forces in increasing order of their strength....",
+        "text": "Outline the different types of forces in nature using suitable expressions. Outline the significance of each of them. Arrange the forces in increasing order of their strength....",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -52607,14 +52607,14 @@
     "sampleQuestions": [
       {
         "id": 5964,
-        "text": "(a) On what factors does the total energy of the spring-mass system depend? Derive an expression for the total energy of the spring-mass system to justify your answer. Graphically...",
+        "text": "On what factors does the total energy of the spring-mass system depend? Derive an expression for the total energy of the spring-mass system to justify your answer. Graphically...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5965,
-        "text": "(b) Describe the working of the viscous damper with a neatly labeled sketch. Mention other types of dampers and their mode of energy absorption.",
+        "text": "Describe the working of the viscous damper with a neatly labeled sketch. Mention other types of dampers and their mode of energy absorption.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -52755,14 +52755,14 @@
       },
       {
         "id": 5966,
-        "text": "(a) With proper definitions, compare a particle and a rigid body. Describe the various types of rigid body motion with suitable examples. --- OR --- (b) Derive the fundamental...",
+        "text": "With proper definitions, compare a particle and a rigid body. Describe the various types of rigid body motion with suitable examples. --- OR --- (b) Derive the fundamental...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5967,
-        "text": "(b) Derive the fundamental equation of motion for a rigid body rotating with an angular velocity, \\omega about a particular axis.",
+        "text": "Derive the fundamental equation of motion for a rigid body rotating with an angular velocity, $\\omega$ about a particular axis.",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -52886,7 +52886,7 @@
       },
       {
         "id": 5916,
-        "text": "The moment of inertia of a thin rod of mass m and length l about an axis passing through one end and perpendicular to the rod is (A) \\frac{1}{12} ml^2 (B) ml^2 (C) 5 ml^3 (D)...",
+        "text": "The moment of inertia of a thin rod of mass m and length l about an axis passing through one end and perpendicular to the rod is (A) $\\frac{1}{12}$ ml^2 (B) ml^2 (C) 5 ml^3 (D)...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -52951,7 +52951,7 @@
     "sampleQuestions": [
       {
         "id": 5983,
-        "text": "The principal moments of inertia ($I_1, I_2, I_3$) of a spherical top satisfies the condition (A) $I_1 = 2I_2 = I_3$ (B) $I_1 = I_2 = I_3$ (C) $I_1 \\neq I_2 \\neq I_3$ (D) $I_1 +...",
+        "text": "The principal moments of inertia ($I_1, I_2, I_3$) of a spherical top satisfies the condition (A) $I_1 = 2I_2 = I_3$ (B) $I_1 = I_2 = I_3$ (C) $I_1 \\neq I_2 \\neq I_3$ (D) $I_1 +...$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53107,14 +53107,14 @@
       },
       {
         "id": 5998,
-        "text": "(a) Develop an equation of motion of a body rotating about a fixed axis. --- OR --- (b) Describe the motion of a conical pendulum and derive an expression for time period.",
+        "text": "Develop an equation of motion of a body rotating about a fixed axis. --- OR --- (b) Describe the motion of a conical pendulum and derive an expression for time period.",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 5999,
-        "text": "(b) Describe the motion of a conical pendulum and derive an expression for time period.",
+        "text": "Describe the motion of a conical pendulum and derive an expression for time period.",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53412,7 +53412,7 @@
       },
       {
         "id": 6000,
-        "text": "(a) Elaborate on the benefits of a bridge truss. With suitable diagrams discuss the any four different types of bridge trusses. --- OR --- (b) The graph shows a relationship of...",
+        "text": "Elaborate on the benefits of a bridge truss. With suitable diagrams discuss the any four different types of bridge trusses. --- OR --- (b) The graph shows a relationship of...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53516,7 +53516,7 @@
       },
       {
         "id": 5988,
-        "text": "Identify the stress tensor corresponding to pure shear stress (A) $\\begin{bmatrix} \\sigma_{xx} & \\tau_{xy} \\\\ \\tau_{yx} & \\sigma_{yy} \\end{bmatrix}$ (B) $\\begin{bmatrix} 0 &...",
+        "text": "Identify the stress tensor corresponding to pure shear stress (A) $\\begin{bmatrix} \\sigma_{xx} & \\tau_{xy} \\\\ \\tau_{yx} & \\sigma_{yy} \\end{bmatrix}$ (B) $\\begin{bmatrix} 0 &...$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53620,14 +53620,14 @@
       },
       {
         "id": 5992,
-        "text": "The work done is stretching a wire of length $2\\text{ m}$ and of cross-sectional area $1\\text{ mm}^2$ through $0.1\\text{ cm}$ is ______ (young's modulus $= 2 \\times 10^{11}\\text{...",
+        "text": "The work done is stretching a wire of length $2\\text{ m}$ and of cross-sectional area $1\\text{ mm}^2$ through $0.1\\text{ cm}$ is ______ (young's modulus $= 2 \\times 10^{11}\\text{...$",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 6007,
-        "text": "(i) Derive an expression for generalized Hooke's law with thermal strains for a homogeneous isotropic material. (ii) Explain the mechanism of failure due to creep with a typical...",
+        "text": "Derive an expression for generalized Hooke's law with thermal strains for a homogeneous isotropic material. (ii) Explain the mechanism of failure due to creep with a typical...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53782,21 +53782,21 @@
       },
       {
         "id": 5975,
-        "text": "(i) Examine the usage of strain gauges in field-testing operations in aerospace applications, rail monitoring and monitoring bridge cables. (ii) Illustrate with a neat sketch and...",
+        "text": "Examine the usage of strain gauges in field-testing operations in aerospace applications, rail monitoring and monitoring bridge cables. (ii) Illustrate with a neat sketch and...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 6002,
-        "text": "(a) Assume a cube of a material is subjected to an arbitrary load. Deduce a mathematical expression to represent the normal and shear stresses on it. Explain it with suitable...",
+        "text": "Assume a cube of a material is subjected to an arbitrary load. Deduce a mathematical expression to represent the normal and shear stresses on it. Explain it with suitable...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 6003,
-        "text": "(b) Illustrate the principle, construction and working of a strain gauge with a sketch. Mention any two application.",
+        "text": "Illustrate the principle, construction and working of a strain gauge with a sketch. Mention any two application.",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -53912,7 +53912,7 @@
     "sampleQuestions": [
       {
         "id": 5973,
-        "text": "(b) Derive the torsion equation for a shaft / circular member subjected to a torque. (Mention the assumptions).",
+        "text": "Derive the torsion equation for a shaft / circular member subjected to a torque. (Mention the assumptions).",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -54043,7 +54043,7 @@
       },
       {
         "id": 6004,
-        "text": "(a) Derive an expression for strain energy due to axial loading. Figure out an example of strain energy and explain. --- OR --- (b) Following the assumptions of theory of pure...",
+        "text": "Derive an expression for strain energy due to axial loading. Figure out an example of strain energy and explain. --- OR --- (b) Following the assumptions of theory of pure...",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -54176,14 +54176,14 @@
     "sampleQuestions": [
       {
         "id": 6966,
-        "text": "a. Three cables are connected at A, where the forces P and Q are applied as shown below. Knowing that Q=0. Find the value of P for which the tension in cable AD is 305 N. --- OR...",
+        "text": "Three cables are connected at A, where the forces P and Q are applied as shown below. Knowing that Q=0. Find the value of P for which the tension in cable AD is 305 N. --- OR...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 6967,
-        "text": "b. Two vertical forces and a couple of magnitude 20 kNm, acting on a horizontal rod, which is fixed at A. (i) Determine the resultant of the system (ii) Reduce the force couple...",
+        "text": "Two vertical forces and a couple of magnitude 20 kNm, acting on a horizontal rod, which is fixed at A. (i) Determine the resultant of the system (ii) Reduce the force couple...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -54480,7 +54480,7 @@
       },
       {
         "id": 6961,
-        "text": "The block shown below is kept in equilibrium and prevented from sliding down by applying a force of 500 N. The coefficient of friction is \\frac{\\sqrt{3}}{5}. Determine the weight...",
+        "text": "The block shown below is kept in equilibrium and prevented from sliding down by applying a force of 500 N. The coefficient of friction is $\\frac{\\sqrt{3}}{5}$. Determine the weight...",
         "marks": 4,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -54684,14 +54684,14 @@
       },
       {
         "id": 6944,
-        "text": "The efficiency of a screw jack is given by (A) \\frac{\\tan(\\alpha + \\phi)}{\\tan\\alpha} (B) \\frac{\\tan\\alpha}{\\tan(\\alpha + \\phi)} (C) \\frac{\\tan(\\alpha - \\phi)}{\\tan\\alpha} (D)...",
+        "text": "The efficiency of a screw jack is given by (A) $\\frac{\\tan(\\alpha + \\phi)}{\\tan\\alpha}$ (B) $\\frac{\\tan\\alpha}{\\tan(\\alpha + \\phi)}$ (C) $\\frac{\\tan(\\alpha - \\phi)}{\\tan\\alpha}$ (D)...",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
       },
       {
         "id": 6945,
-        "text": "The efficiency of a screw jack is maximum when (A) \\alpha = 45^\\circ + \\frac{\\phi}{2} (B) \\alpha = 45^\\circ - \\frac{\\phi}{2} (C) \\alpha = 90^\\circ + \\phi (D) \\alpha = 90^\\circ -...",
+        "text": "The efficiency of a screw jack is maximum when (A) $\\alpha = 45^\\circ + \\frac{\\phi}{2}$ (B) $\\alpha = 45^\\circ - \\frac{\\phi}{2}$ (C) $\\alpha = 90^\\circ + \\phi$ (D) $\\alpha = 90^\\circ -$...",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -54705,7 +54705,7 @@
       },
       {
         "id": 6968,
-        "text": "a. Block A supports a pipe column and rests as shown on wedge B. knowing that the coefficient of static friction at all surfaces of contact is 0.25 and that \\theta = 45^\\circ....",
+        "text": "Block A supports a pipe column and rests as shown on wedge B. knowing that the coefficient of static friction at all surfaces of contact is 0.25 and that $\\theta = 45^\\circ$....",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -54809,7 +54809,7 @@
       },
       {
         "id": 1285,
-        "text": "Centroid of a quadrant of a circle is given by (A) \\bar{x} = \\frac{4r}{3\\pi}, \\bar{y} = \\frac{2r}{3\\pi} (B) \\bar{x} = \\frac{4r}{3\\pi}, \\bar{y} = \\frac{4r}{3\\pi} (C) \\bar{x} =...",
+        "text": "Centroid of a quadrant of a circle is given by (A) $\\bar{x} = \\frac{4r}{3\\pi}, \\bar{y} = \\frac{2r}{3\\pi}$ (B) $\\bar{x} = \\frac{4r}{3\\pi}, \\bar{y} = \\frac{4r}{3\\pi}$ (C) $\\bar{x} =$...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -54894,7 +54894,7 @@
     "sampleQuestions": [
       {
         "id": 1253,
-        "text": "The centre of gravity of a semi circle lies at a distance of ____________ from its base measured along the vertical radius. (A) \\frac{4R}{3\\pi} (B) \\frac{3R}{4\\pi} (C)...",
+        "text": "The centre of gravity of a semi circle lies at a distance of ____________ from its base measured along the vertical radius. (A) $\\frac{4R}{3\\pi}$ (B) $\\frac{3R}{4\\pi}$ (C)...",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -54986,7 +54986,7 @@
     "sampleQuestions": [
       {
         "id": 1256,
-        "text": "The moment of inertia of a hollow cylinder section with outer diameter, D and inner diameter d is (A) \\frac{\\pi}{64}(D^4 - d^4) (B) \\frac{\\pi}{32}(D^4 - d^4) (C)...",
+        "text": "The moment of inertia of a hollow cylinder section with outer diameter, D and inner diameter d is (A) $\\frac{\\pi}{64}(D^4 - d^4)$ (B) $\\frac{\\pi}{32}(D^4 - d^4)$ (C)...",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -55078,7 +55078,7 @@
       },
       {
         "id": 6949,
-        "text": "The mass moment of inertia of a circular disc of radius 'r' about its radial axis is (A) \\frac{mr^2}{2} (B) \\frac{mr^2}{4} (C) \\frac{mr^2}{8} (D) mr^2",
+        "text": "The mass moment of inertia of a circular disc of radius 'r' about its radial axis is (A) $\\frac{mr^2}{2}$ (B) $\\frac{mr^2}{4}$ (C) $\\frac{mr^2}{8}$ (D) mr^2",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -55183,7 +55183,7 @@
       },
       {
         "id": 1289,
-        "text": "Motion of a particle along a straight line is given by x = t^3 - 4.5t^2 + 5, acceleration at time t = 5 seconds is (A) 17.5 \\frac{m}{s^2} (B) 30.0 \\frac{m}{s^2} (C) 21.0...",
+        "text": "Motion of a particle along a straight line is given by x = t^3 - 4.5t^2 + 5, acceleration at time t = 5 seconds is (A) 17.5 $\\frac{m}{s^2}$ (B) 30.0 $\\frac{m}{s^2}$ (C) 21.0...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -55423,7 +55423,7 @@
       },
       {
         "id": 6972,
-        "text": "a. The pilot of an aeroplane flying horizontally at a height of 3000 m with a constant speed of 510 km/hr aims to hit a target on the ground. At what distance from the target...",
+        "text": "The pilot of an aeroplane flying horizontally at a height of 3000 m with a constant speed of 510 km/hr aims to hit a target on the ground. At what distance from the target...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -55495,7 +55495,7 @@
       },
       {
         "id": 6954,
-        "text": "The coefficient of restitution of a perfectly plastic impact is (A) 0 (B) 1 (C) 2 (D) \\infty",
+        "text": "The coefficient of restitution of a perfectly plastic impact is (A) 0 (B) 1 (C) 2 (D) $\\infty$",
         "marks": 1,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -55620,7 +55620,7 @@
       },
       {
         "id": 6974,
-        "text": "a. Two blocks and a pulley are connected by inextensible cords as shown. The pulley has an initial angular velocity of 0.8 rad/s in counter clockwise direction and a constant...",
+        "text": "Two blocks and a pulley are connected by inextensible cords as shown. The pulley has an initial angular velocity of 0.8 rad/s in counter clockwise direction and a constant...",
         "marks": 0,
         "year": 2019,
         "assessmentType": "EndSem"
@@ -55756,7 +55756,7 @@
     "sampleQuestions": [
       {
         "id": 1266,
-        "text": "The rate of change of angular momentum in terms of angular acceleration is (A) I\\alpha (B) I/\\alpha (C) \\alpha/I (D) IW",
+        "text": "The rate of change of angular momentum in terms of angular acceleration is (A) I$\\alpha$ (B) I/$\\alpha$ (C) $\\alpha/I$ (D) IW",
         "marks": 1,
         "year": 2022,
         "assessmentType": "EndSem"
@@ -55986,7 +55986,7 @@
       },
       {
         "id": 2338,
-        "text": "The density function of a random variable 'X' is given by f(x) = kx(2-x); 0 \\le x \\le 2 Find k, mean and variance.",
+        "text": "The density function of a random variable 'X' is given by f(x) = kx(2-x); 0 $\\le x \\le 2$ Find k, mean and variance.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56265,7 +56265,7 @@
     "sampleQuestions": [
       {
         "id": 2293,
-        "text": "The variance of the Poisson distribution is (A) \\lambda (B) \\lambda^2 (C) 1/\\lambda (D) 1/\\lambda^2",
+        "text": "The variance of the Poisson distribution is (A) $\\lambda$ (B) $\\lambda^2$ (C) 1/$\\lambda$ (D) 1/$\\lambda^2$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56279,14 +56279,14 @@
       },
       {
         "id": 2321,
-        "text": "The mean of the Poisson distribution is (A) \\lambda (B) \\lambda + 1 (C) \\lambda^2 (D) \\lambda - 1",
+        "text": "The mean of the Poisson distribution is (A) $\\lambda$ (B) $\\lambda + 1$ (C) $\\lambda^2$ (D) $\\lambda - 1$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2354,
-        "text": "If the standard deviation of the Poisson distribution is 2, then the probability mass function (pmf) of the probability distribution is (A) \\frac{e^{-2} 2^x}{x!} (B) \\frac{e^{-2}...",
+        "text": "If the standard deviation of the Poisson distribution is 2, then the probability mass function (pmf) of the probability distribution is (A) $\\frac{e^{-2} 2^x}{x!}$ (B) $\\frac${e^{-2}...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56344,7 +56344,7 @@
     "sampleQuestions": [
       {
         "id": 2322,
-        "text": "The MGF of geometric distribution is (A) \\frac{1}{1-qe^t} (B) \\frac{1}{1-pe^t} (C) \\frac{q}{1-pe^t} (D) \\frac{pe^t}{1-qe^t}",
+        "text": "The MGF of geometric distribution is (A) $\\frac{1}{1-qe^t}$ (B) $\\frac{1}{1-pe^t}$ (C) $\\frac{q}{1-pe^t}$ (D) $\\frac{pe^t}{1-qe^t}$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56435,7 +56435,7 @@
       },
       {
         "id": 2356,
-        "text": "If the parameter of the exponential distribution is 3, then the MGF is (A) \\frac{1}{3 - t} (B) \\frac{3}{3 - t} (C) \\frac{3 - t}{3} (D) \\frac{3 - t}{1}",
+        "text": "If the parameter of the exponential distribution is 3, then the MGF is (A) $\\frac{1}{3 - t}$ (B) $\\frac{3}{3 - t}$ (C) $\\frac{3 - t}{3}$ (D) $\\frac{3 - t}{1}$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56592,14 +56592,14 @@
     "sampleQuestions": [
       {
         "id": 2297,
-        "text": "The value set for \\alpha is known as (A) The level of rejection (B) The level of acceptance (C) The level of significance (D) Error",
+        "text": "The value set for $\\alpha$ is known as (A) The level of rejection (B) The level of acceptance (C) The level of significance (D) Error",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2298,
-        "text": "Consider a hypothesis where H_0:\\phi_0=23 against H_1:\\phi_1 < 23 then this test is (A) Right tailed (B) Left tailed (C) Center tailed (D) Cross tailed",
+        "text": "Consider a hypothesis where H_0:$\\phi_0=23$ against H_1:$\\phi_1 < 23$ then this test is (A) Right tailed (B) Left tailed (C) Center tailed (D) Cross tailed",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56734,7 +56734,7 @@
     "sampleQuestions": [
       {
         "id": 2299,
-        "text": "For an m\\times n contingency table, the number of degrees of freedom equals (A) mn (B) m+n (C) (m+1)(n-1) (D) (m-1)(n-1)",
+        "text": "For an m$\\times n$ contingency table, the number of degrees of freedom equals (A) mn (B) m+n (C) (m+1)(n-1) (D) (m-1)(n-1)",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56748,7 +56748,7 @@
       },
       {
         "id": 2358,
-        "text": "In Chi-square test (A) \\sum O_i \\neq \\sum E_i (B) \\sum O_i = \\sum E_i (C) \\sum O_i > \\sum E_i (D) \\sum O_i < \\sum E_i",
+        "text": "In Chi-square test (A) $\\sum O_i \\neq \\sum E_i$ (B) $\\sum O_i = \\sum E_i$ (C) $\\sum O_i > \\sum E_i$ (D) $\\sum O_i < \\sum E_i$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -56891,14 +56891,14 @@
     "sampleQuestions": [
       {
         "id": 2302,
-        "text": "If the two lines of regression are x+2y-5=0 and 2x+3y-8=0 then evaluate the means of x and y (A) \\bar{x}=-3, \\bar{y}=4 (B) \\bar{x}=-3, \\bar{y}=-4 (C) \\bar{x}=1, \\bar{y}=2 (D)...",
+        "text": "If the two lines of regression are x+2y-5=0 and 2x+3y-8=0 then evaluate the means of x and y (A) $\\bar{x}=-3, \\bar{y}=4$ (B) $\\bar{x}=-3, \\bar{y}=-4$ (C) $\\bar{x}=1, \\bar{y}=2$ (D)...",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
       },
       {
         "id": 2330,
-        "text": "If b_1 and b_2 are the two regression coefficients, then the correlation is (A) \\frac{b_1}{b_2} (B) \\frac{b_1 + b_2}{2} (C) b_1 b_2 (D) \\sqrt{b_1 b_2}",
+        "text": "If b_1 and b_2 are the two regression coefficients, then the correlation is (A) $\\frac{b_1}{b_2}$ (B) $\\frac{b_1 + b_2}{2}$ (C) b_1 b_2 (D) $\\sqrt{b_1 b_2}$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -57305,7 +57305,7 @@
     "sampleQuestions": [
       {
         "id": 2333,
-        "text": "In c-chart \\bar{c} = 11, then LCL value is (A) 1.05 (B) 11 (C) 20.95 (D) 7.68",
+        "text": "In c-chart $\\bar{c} = 11$, then LCL value is (A) 1.05 (B) 11 (C) 20.95 (D) 7.68",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -57573,7 +57573,7 @@
       },
       {
         "id": 7375,
-        "text": "b. Explain the dry manufacturing process of cement with neat sketch.",
+        "text": "Explain the dry manufacturing process of cement with neat sketch.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -58143,7 +58143,7 @@
       },
       {
         "id": 7376,
-        "text": "a. How are plastics classified? State the uses of plastic as a building material. --- OR --- 22. b. Write a detailed note on the treatment of building against dampness by...",
+        "text": "How are plastics classified? State the uses of plastic as a building material. --- OR --- 22. b. Write a detailed note on the treatment of building against dampness by...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -58261,7 +58261,7 @@
       },
       {
         "id": 7377,
-        "text": "b. Write a detailed note on the treatment of building against dampness by interposing damp proofing courses (D.P.C) in a structure at various positions.",
+        "text": "Write a detailed note on the treatment of building against dampness by interposing damp proofing courses (D.P.C) in a structure at various positions.",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -58802,7 +58802,7 @@
       },
       {
         "id": 7378,
-        "text": "a. Explain the different types of stairs with neat sketch. --- OR --- 23. b. Write short notes on (i) Composite masonry (ii) Anti-termite treatment",
+        "text": "Explain the different types of stairs with neat sketch. --- OR --- 23. b. Write short notes on (i) Composite masonry (ii) Anti-termite treatment",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -59115,7 +59115,7 @@
       },
       {
         "id": 7381,
-        "text": "b. Discuss in detail about (i) Artificial aggregates substitutes (ii) Agro industrial waste",
+        "text": "Discuss in detail about (i) Artificial aggregates substitutes (ii) Agro industrial waste",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -59219,7 +59219,7 @@
       },
       {
         "id": 7383,
-        "text": "b. Explain the following (i) Green construction materials (ii) Cost effective consumption techniques",
+        "text": "Explain the following (i) Green construction materials (ii) Cost effective consumption techniques",
         "marks": 0,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -59740,7 +59740,7 @@
       },
       {
         "id": 8941,
-        "text": "b. Write a 'C' program to store students information using structures. How effectively improved using pointers? [8]",
+        "text": "Write a 'C' program to store students information using structures. How effectively improved using pointers? [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -61021,14 +61021,14 @@
       },
       {
         "id": 8945,
-        "text": "b. Illustrate the steps to insert the following elements step by step in sequence into an empty AVL tree $15, 18, 20, 21, 28, 23, 30, 26$. [8]",
+        "text": "Illustrate the steps to insert the following elements step by step in sequence into an empty AVL tree $15, 18, 20, 21, 28, 23, 30, 26$. [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
       },
       {
         "id": 8947,
-        "text": "b. Illustrate how different notations performed on a AVL tree with suitable example and routines. [8]",
+        "text": "Illustrate how different notations performed on a AVL tree with suitable example and routines. [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -61615,7 +61615,7 @@
       },
       {
         "id": 8949,
-        "text": "b. Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. Trace the algorithm for the following graph. [8]",
+        "text": "Illustrate Kruskal's algorithm to find the minimum spanning tree of a graph. Trace the algorithm for the following graph. [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -61718,7 +61718,7 @@
       },
       {
         "id": 8948,
-        "text": "a. Illustrate the algorithm to compute the shortest path using Dijkstra's algorithm. Validate the algorithm with suitable example. [8]",
+        "text": "Illustrate the algorithm to compute the shortest path using Dijkstra's algorithm. Validate the algorithm with suitable example. [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -64042,7 +64042,7 @@
       },
       {
         "id": 8350,
-        "text": "a. The binary numbers listed have a sign in the leftmost position and if negative are in 2's complement form. Perform the arithmetic operations indicated and verify the answer....",
+        "text": "The binary numbers listed have a sign in the leftmost position and if negative are in 2's complement form. Perform the arithmetic operations indicated and verify the answer....",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -64056,7 +64056,7 @@
       },
       {
         "id": 8415,
-        "text": "i. Find 2's complement of (1001)_2 and (1010 0011)_2. [4] ii. Subtract 10101_2 from 111001_2 using the 1's complement method. [4]",
+        "text": "Find 2's complement of (1001)_2 and (1010 0011)_2. [4] ii. Subtract 10101_2 from 111001_2 using the 1's complement method. [4]",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -64115,7 +64115,7 @@
     "sampleQuestions": [
       {
         "id": 8351,
-        "text": "b. Draw the graphic symbol, algebraic function and truth table for the following logic gates. [8] i. AND ii. OR iii. NAND iv. EX-OR",
+        "text": "Draw the graphic symbol, algebraic function and truth table for the following logic gates. [8] i. AND ii. OR iii. NAND iv. EX-OR",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -64180,7 +64180,7 @@
     "sampleQuestions": [
       {
         "id": 8424,
-        "text": "i. Define Boolean algebra. [2] ii. Explain the working of a logic gate. [2] iii. List the types of logic gate with diagram. [2] iv. Explain any two types of logic gate in detail....",
+        "text": "Define Boolean algebra. [2] ii. Explain the working of a logic gate. [2] iii. List the types of logic gate with diagram. [2] iv. Explain any two types of logic gate in detail....",
         "marks": 0,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -64478,7 +64478,7 @@
       },
       {
         "id": 8399,
-        "text": "A CPU has 12 registers and uses 6 addressing modes. RAM is 64 K \\times 32. What is the maximum size of the op-code field if the instruction has a register operand and a memory...",
+        "text": "A CPU has 12 registers and uses 6 addressing modes. RAM is 64 K $\\times 32$. What is the maximum size of the op-code field if the instruction has a register operand and a memory...",
         "marks": 1,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -64711,7 +64711,7 @@
       },
       {
         "id": 8355,
-        "text": "b. i. What are the advantages of bit pair recoding of multipliers? [3] ii. Multiply (+13) \u00d7 (-6) by using bit pair recoding method. [5]",
+        "text": "What are the advantages of bit pair recoding of multipliers? [3] ii. Multiply (+13) \u00d7 (-6) by using bit pair recoding method. [5]",
         "marks": 3,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -65738,7 +65738,7 @@
     "sampleQuestions": [
       {
         "id": 8464,
-        "text": "The time complexities of binary search are given as (A) Best Case: $\\Theta(n)$, Average Case: $\\Theta(n \\log n)$ and Worst Case: $\\Theta(n \\log n)$ (B) Best Case: $\\Theta(n \\log...",
+        "text": "The time complexities of binary search are given as (A) Best Case: $\\Theta(n)$, Average Case: $\\Theta(n \\log n)$ and Worst Case: $\\Theta(n \\log n)$ (B) Best Case: $\\Theta(n \\log...$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -65839,7 +65839,7 @@
       },
       {
         "id": 8614,
-        "text": "b. Construct an algorithm for randomized quick sort and perform the complexity analysis of randomized quick sort algorithm. [8]",
+        "text": "Construct an algorithm for randomized quick sort and perform the complexity analysis of randomized quick sort algorithm. [8]",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -65904,7 +65904,7 @@
       },
       {
         "id": 8687,
-        "text": "Strassen's Algorithm is more efficient that the naive \\Theta(n^3) matrix multiplication method. This statement is (A) False (B) True (C) False only for small matrices (D) True...",
+        "text": "Strassen's Algorithm is more efficient that the naive $\\Theta(n^3)$ matrix multiplication method. This statement is (A) False (B) True (C) False only for small matrices (D) True...",
         "marks": 1,
         "year": 2025,
         "assessmentType": "EndSem"
@@ -66571,7 +66571,7 @@
     "sampleQuestions": [
       {
         "id": 8486,
-        "text": "a. Consider the sum-of-subset problem, n=4, Sum=13 and w1=3, w2=4, w3=5 and w4=6. Find a solution to the problem using backtracking. Show the state-space tree leading to the...",
+        "text": "Consider the sum-of-subset problem, n=4, Sum=13 and w1=3, w2=4, w3=5 and w4=6. Find a solution to the problem using backtracking. Show the state-space tree leading to the...",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -66853,7 +66853,7 @@
       },
       {
         "id": 8612,
-        "text": "b. Imagine you're a logistics manager for a distribution company responsible for planning delivery routes for your fleet of trucks. Your company operates in a city with multiple...",
+        "text": "Imagine you're a logistics manager for a distribution company responsible for planning delivery routes for your fleet of trucks. Your company operates in a city with multiple...",
         "marks": 8,
         "year": 2024,
         "assessmentType": "EndSem"
@@ -66934,7 +66934,7 @@
     "sampleQuestions": [
       {
         "id": 8484,
-        "text": "a. Write Rabin-Karp Algorithm and Perform Pattern matching for the following using Rabin Karp Algorithm. [8]",
+        "text": "Write Rabin-Karp Algorithm and Perform Pattern matching for the following using Rabin Karp Algorithm. [8]",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -67180,7 +67180,7 @@
     "sampleQuestions": [
       {
         "id": 8485,
-        "text": "b. Construct a graph with atleast 5 vertices and 10 edges, and give the vertex cover for the graph and explain. [8]",
+        "text": "Construct a graph with atleast 5 vertices and 10 edges, and give the vertex cover for the graph and explain. [8]",
         "marks": 8,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -67602,7 +67602,7 @@
       },
       {
         "id": 8848,
-        "text": "a. The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended...",
+        "text": "The basic ER concepts can model most database features. Some aspects of a database may be more aptly expressed by certain extensions to the basic ER model. Discuss the extended...",
         "marks": 12,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -70327,7 +70327,7 @@
       },
       {
         "id": 9319,
-        "text": "Match the terms with correct options i) Disjunction ii) Implication iii) Biconditional iv) Conjunction 1) $a \\rightarrow b$ 2) $a \\land b$ 3) $a \\lor b$ 4) $a \\rightarrow b \\land...",
+        "text": "Match the terms with correct options i) Disjunction ii) Implication iii) Biconditional iv) Conjunction 1) $a \\rightarrow b$ 2) $a \\land b$ 3) $a \\lor b$ 4) $a \\rightarrow b \\land...$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"
@@ -70439,7 +70439,7 @@
       },
       {
         "id": 9318,
-        "text": "Assume that the knowledge base contains axiom: \"All students who did hard work got passed\" Pick the correct FOL: (A) $\\forall x \\text{ student } (x) \\land \\text{ hardwork } (x)...",
+        "text": "Assume that the knowledge base contains axiom: \"All students who did hard work got passed\" Pick the correct FOL: (A) $\\forall x \\text{ student } (x) \\land \\text{ hardwork } (x)...$",
         "marks": 1,
         "year": 2023,
         "assessmentType": "EndSem"

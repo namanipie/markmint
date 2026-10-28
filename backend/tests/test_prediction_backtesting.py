@@ -357,3 +357,128 @@ def test_10_empty_canonical_name_family_fallback():
     assert fam.occurrences == 2
     assert fam.family_id == 3527
 
+
+
+def test_11_ndcg_ranking_math():
+    """11. Prove NDCG and DCG calculations match information retrieval ground truth."""
+    target_rel = {"Topic A": 3.0, "Topic B": 2.0, "Topic C": 1.0}
+    perfect_ranks = ["Topic A", "Topic B", "Topic C"]
+    ndcg_perfect = BacktestEvaluator.compute_ndcg(perfect_ranks, target_rel, k=3)
+    assert ndcg_perfect == 1.0
+
+    inverted_ranks = ["Topic C", "Topic B", "Topic A"]
+    ndcg_inverted = BacktestEvaluator.compute_ndcg(inverted_ranks, target_rel, k=3)
+    assert 0.0 < ndcg_inverted < 1.0
+
+    irrelevant_ranks = ["Topic X", "Topic Y", "Topic Z"]
+    ndcg_zero = BacktestEvaluator.compute_ndcg(irrelevant_ranks, target_rel, k=3)
+    assert ndcg_zero == 0.0
+
+    assert BacktestEvaluator.compute_ndcg(perfect_ranks, {}, k=3) == 0.0
+    assert BacktestEvaluator.compute_ndcg(perfect_ranks, target_rel, k=0) == 0.0
+
+
+def test_12_candidate_model_scoring():
+    """12. Prove EvidenceAwareCandidateModel weights recency, paper coverage, and marks with calibrated probabilities."""
+    exams_payload = [
+        {
+            "id": 1,
+            "year": 2021,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 1, "marks": 10.0, "is_alternative": False, "topic": "Calculus", "family_id": None},
+                {"id": 2, "marks": 5.0, "is_alternative": False, "topic": "Matrices", "family_id": None},
+            ]
+        },
+        {
+            "id": 2,
+            "year": 2022,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 3, "marks": 10.0, "is_alternative": False, "topic": "Calculus", "family_id": None},
+                {"id": 4, "marks": 10.0, "is_alternative": False, "topic": "Calculus", "family_id": None},
+            ]
+        },
+        {
+            "id": 3,
+            "year": 2023,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 5, "marks": 10.0, "is_alternative": False, "topic": "Calculus", "family_id": None},
+                {"id": 6, "marks": 5.0, "is_alternative": False, "topic": "Differential Equations", "family_id": None},
+            ]
+        }
+    ]
+    analyzer = DNAAnalyzerService()
+    dna = analyzer.analyze(exams_payload)
+    from backend.services.prediction.engine import EvidenceAwareCandidateModel
+    candidate = EvidenceAwareCandidateModel(dna)
+    preds = candidate.predict_topics()
+
+    assert len(preds) > 0
+    top = preds[0]
+    assert top.name == "Calculus"
+    assert top.rank == 1
+    assert top.score > 0.0
+    assert top.probability == 0.8000
+    assert BacktestEvaluator.verify_probability_calibration(preds, sample_papers=3) is True
+
+
+def test_13_blueprint_weighted_baseline():
+    """13. Prove BlueprintWeightedBaseline ranks topics accounting for syllabus unit distributions."""
+    exams_payload = [
+        {
+            "id": 1,
+            "year": 2023,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 1, "marks": 10.0, "is_alternative": False, "topic": "Topic A", "family_id": None},
+                {"id": 2, "marks": 10.0, "is_alternative": False, "topic": "Topic B", "family_id": None},
+            ]
+        }
+    ]
+    from backend.services.prediction.engine import BlueprintWeightedBaseline
+    dna = DNAAnalyzerService().analyze(exams_payload)
+    model = BlueprintWeightedBaseline(dna)
+    preds = model.predict_topics()
+    assert len(preds) == 2
+    for p in preds:
+        assert p.score > 0.0
+        assert "blueprint_weight" in p.evidence
+
+
+def test_14_component_ablations():
+    """14. Prove component ablations successfully isolate individual model scoring factors."""
+    exams_payload = [
+        {
+            "id": 1,
+            "year": 2021,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 1, "marks": 2.0, "is_alternative": False, "topic": "Topic Past", "family_id": None},
+            ]
+        },
+        {
+            "id": 2,
+            "year": 2023,
+            "exam_type": "ENDSEM",
+            "questions": [
+                {"id": 2, "marks": 15.0, "is_alternative": False, "topic": "Topic Recent", "family_id": None},
+            ]
+        }
+    ]
+    from backend.services.prediction.engine import (
+        AblationNoRecencyModel,
+        AblationNoMarksModel,
+        AblationNoRecurrenceModel,
+    )
+    dna = DNAAnalyzerService().analyze(exams_payload)
+
+    no_rec = AblationNoRecencyModel(dna).predict_topics()
+    assert any(p.evidence.get("ablation") == "no_recency" for p in no_rec)
+
+    no_marks = AblationNoMarksModel(dna).predict_topics()
+    assert any(p.evidence.get("ablation") == "no_marks" for p in no_marks)
+
+    no_recur = AblationNoRecurrenceModel(dna).predict_topics()
+    assert any(p.evidence.get("ablation") == "no_historical_recurrence" for p in no_recur)

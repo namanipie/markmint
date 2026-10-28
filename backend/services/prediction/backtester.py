@@ -21,6 +21,7 @@ Guarantees:
 import os
 import sys
 import json
+import math
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Set, Tuple
 
@@ -41,6 +42,11 @@ from backend.services.prediction.engine import (
     RecentFrequencyBaseline,
     RecencyWeightedBaseline,
     MarksWeightedBaseline,
+    BlueprintWeightedBaseline,
+    AblationNoRecencyModel,
+    AblationNoMarksModel,
+    AblationNoRecurrenceModel,
+    EvidenceAwareCandidateModel,
     FamilyRecurrenceBaseline,
     ExamScopeCombinedModel,
     PredictionResult
@@ -55,6 +61,33 @@ class EvidenceSufficiencyState:
 
 class BacktestEvaluator:
     @staticmethod
+    def compute_dcg(relevances: List[float], k: int) -> float:
+        """Calculates Discounted Cumulative Gain at rank K."""
+        dcg = 0.0
+        for i, rel in enumerate(relevances[:k]):
+            if rel > 0:
+                dcg += rel / math.log2(i + 2)
+        return dcg
+
+    @staticmethod
+    def compute_ndcg(ranked_names: List[str], target_rel_map: Dict[str, float], k: int) -> float:
+        """Calculates Normalized Discounted Cumulative Gain at rank K."""
+        if k <= 0 or not target_rel_map:
+            return 0.0
+
+        # Actual DCG
+        actual_rels = [target_rel_map.get(name, 0.0) for name in ranked_names[:k]]
+        dcg = BacktestEvaluator.compute_dcg(actual_rels, k)
+
+        # Ideal DCG
+        ideal_rels = sorted(target_rel_map.values(), reverse=True)[:k]
+        idcg = BacktestEvaluator.compute_dcg(ideal_rels, k)
+
+        if idcg <= 0.0:
+            return 0.0
+        return round(dcg / idcg, 4)
+
+    @staticmethod
     def evaluate(predictions: list, target_items: list, k_values: list = [3, 5, 10]) -> dict:
         """
         Evaluates predictions against target items.
@@ -66,28 +99,40 @@ class BacktestEvaluator:
         total_target_unique = len(target_names)
         total_target_questions = sum(t.get('count', 0) for t in target_items)
         total_target_marks = sum(t.get('marks', 0.0) for t in target_items)
-        
+
+        # Relevance maps: binary presence and mark-weighted relevance
+        binary_rel_map = {t['name']: 1.0 for t in target_items if t.get('name')}
+        marks_rel_map = {t['name']: float(t.get('marks', 0.0)) for t in target_items if t.get('name')}
+
+        pred_names = [p.name for p in predictions if getattr(p, "name", None)]
+
         for k in k_values:
-            top_k = predictions[:k]
-            top_k_names = {p.name for p in top_k if p.name}
-            
+            top_k_names = pred_names[:k]
+            top_k_set = set(top_k_names)
+
             # Intersection (True Positives)
-            hits = top_k_names.intersection(target_names)
-            
+            hits = top_k_set.intersection(target_names)
+
             # Metrics
             precision = len(hits) / k if k > 0 else 0.0
             recall = len(hits) / total_target_unique if total_target_unique > 0 else 0.0
-            
+
+            # NDCG (binary and mark-weighted)
+            ndcg = BacktestEvaluator.compute_ndcg(top_k_names, binary_rel_map, k)
+            marks_ndcg = BacktestEvaluator.compute_ndcg(top_k_names, marks_rel_map, k)
+
             # Coverage
-            covered_questions = sum(t.get('count', 0) for t in target_items if t.get('name') in top_k_names)
-            covered_marks = sum(t.get('marks', 0.0) for t in target_items if t.get('name') in top_k_names)
-            
+            covered_questions = sum(t.get('count', 0) for t in target_items if t.get('name') in top_k_set)
+            covered_marks = sum(t.get('marks', 0.0) for t in target_items if t.get('name') in top_k_set)
+
             q_coverage = covered_questions / total_target_questions if total_target_questions > 0 else 0.0
             m_coverage = covered_marks / total_target_marks if total_target_marks > 0 else 0.0
-            
+
             # Formally named metrics
             results[f"Precision@{k}"] = round(precision, 4)
             results[f"Recall@{k}"] = round(recall, 4)
+            results[f"NDCG@{k}"] = ndcg
+            results[f"Marks_NDCG@{k}"] = marks_ndcg
             results[f"Marks_Coverage@{k}"] = round(m_coverage, 4)
             results[f"Question_Coverage@{k}"] = round(q_coverage, 4)
 
@@ -96,7 +141,7 @@ class BacktestEvaluator:
             results[f"R@{k}"] = round(recall, 4)
             results[f"Q_Cov@{k}"] = round(q_coverage, 4)
             results[f"M_Cov@{k}"] = round(m_coverage, 4)
-            
+
         return results
 
     @staticmethod
@@ -304,10 +349,16 @@ class BacktestHarness:
             "RecentFrequencyBaseline": RecentFrequencyBaseline(dna),
             "RecencyWeightedBaseline": RecencyWeightedBaseline(dna),
             "MarksWeightedBaseline": MarksWeightedBaseline(dna),
+            "BlueprintWeightedBaseline": BlueprintWeightedBaseline(dna),
+            "Ablation_NoRecency": AblationNoRecencyModel(dna),
+            "Ablation_NoMarks": AblationNoMarksModel(dna),
+            "Ablation_NoRecurrence": AblationNoRecurrenceModel(dna),
+            "EvidenceAwareCandidateModel": EvidenceAwareCandidateModel(dna),
         }
         family_models = {
             "FamilyRecurrenceBaseline": FamilyRecurrenceBaseline(dna),
             "ExamScopeCombinedModel": ExamScopeCombinedModel(dna),
+            "EvidenceAwareCandidateModel": EvidenceAwareCandidateModel(dna),
         }
 
         evaluations = []
@@ -555,12 +606,18 @@ class BacktestHarness:
                     "RecentFrequencyBaseline": RecentFrequencyBaseline(dna),
                     "RecencyWeightedBaseline": RecencyWeightedBaseline(dna),
                     "MarksWeightedBaseline": MarksWeightedBaseline(dna),
+                    "BlueprintWeightedBaseline": BlueprintWeightedBaseline(dna),
+                    "Ablation_NoRecency": AblationNoRecencyModel(dna),
+                    "Ablation_NoMarks": AblationNoMarksModel(dna),
+                    "Ablation_NoRecurrence": AblationNoRecurrenceModel(dna),
                     "ExamScopeCombinedModel": ExamScopeCombinedModel(dna),
+                    "EvidenceAwareCandidateModel": EvidenceAwareCandidateModel(dna),
                 }
 
                 family_models = {
                     "FamilyRecurrenceBaseline": FamilyRecurrenceBaseline(dna),
                     "ExamScopeCombinedModel": ExamScopeCombinedModel(dna),
+                    "EvidenceAwareCandidateModel": EvidenceAwareCandidateModel(dna),
                 }
 
                 # 4. Evaluate Topic Predictions
@@ -674,78 +731,269 @@ class BacktestHarness:
             keys = [
                 "Precision@3", "Precision@5", "Precision@10",
                 "Recall@3", "Recall@5", "Recall@10",
+                "NDCG@3", "NDCG@5", "NDCG@10",
+                "Marks_NDCG@3", "Marks_NDCG@5", "Marks_NDCG@10",
                 "Marks_Coverage@3", "Marks_Coverage@5", "Marks_Coverage@10",
                 "Question_Coverage@3", "Question_Coverage@5", "Question_Coverage@10"
             ]
             return {
-                k: round(sum(e["metrics"][k] for e in eval_list) / n, 4)
+                k: round(sum(e["metrics"].get(k, 0.0) for e in eval_list) / n, 4)
                 for k in keys
             }
 
-        # By Model
+        # By Topic Model (All topic models + candidate + ablations)
+        topic_model_names = [
+            "AllTimeFrequencyBaseline",
+            "RecentFrequencyBaseline",
+            "RecencyWeightedBaseline",
+            "MarksWeightedBaseline",
+            "BlueprintWeightedBaseline",
+            "Ablation_NoRecency",
+            "Ablation_NoMarks",
+            "Ablation_NoRecurrence",
+            "ExamScopeCombinedModel",
+            "EvidenceAwareCandidateModel",
+        ]
         model_summary: Dict[str, Dict[str, Any]] = {}
-        for m in ["AllTimeFrequencyBaseline", "RecentFrequencyBaseline", "RecencyWeightedBaseline", "MarksWeightedBaseline", "ExamScopeCombinedModel"]:
+        for m in topic_model_names:
             m_evals = [e for e in completed_topic_evals if e["model"] == m]
             model_summary[m] = {
                 "evaluation_count": len(m_evals),
                 "averages": calc_averages(m_evals)
             }
 
-        fam_m_evals = [e for e in completed_family_evals if e["model"] == "FamilyRecurrenceBaseline"]
-        model_summary["FamilyRecurrenceBaseline"] = {
-            "evaluation_count": len(fam_m_evals),
-            "averages": calc_averages(fam_m_evals) if fam_m_evals else "INSUFFICIENT_EVIDENCE"
-        }
+        # By Question Family Model (Distinct namespace to avoid key collision)
+        family_model_summary: Dict[str, Dict[str, Any]] = {}
+        family_model_names = [
+            "FamilyRecurrenceBaseline",
+            "ExamScopeCombinedModel",
+            "EvidenceAwareCandidateModel",
+        ]
+        for fm in family_model_names:
+            fam_m_evals = [e for e in completed_family_evals if e["model"] == fm]
+            family_model_summary[fm] = {
+                "evaluation_count": len(fam_m_evals),
+                "averages": calc_averages(fam_m_evals) if fam_m_evals else "INSUFFICIENT_EVIDENCE"
+            }
 
         # By Assessment Cycle
         cycle_summary: Dict[str, Dict[str, Any]] = {}
-        distinct_cycles = list(set(e["assessment_cycle"] for e in completed_topic_evals))
+        distinct_cycles = sorted(list(set(e["assessment_cycle"] for e in completed_topic_evals)))
         for cyc in distinct_cycles:
-            cyc_evals = [e for e in completed_topic_evals if e["assessment_cycle"] == cyc and e["model"] == "ExamScopeCombinedModel"]
+            cyc_evals = [e for e in completed_topic_evals if e["assessment_cycle"] == cyc and e["model"] == "EvidenceAwareCandidateModel"]
+            if not cyc_evals:
+                cyc_evals = [e for e in completed_topic_evals if e["assessment_cycle"] == cyc and e["model"] == "ExamScopeCombinedModel"]
             cycle_summary[cyc] = {
                 "target_exams": len(set(e["target_exam_id"] for e in cyc_evals)),
-                "averages": calc_averages(cyc_evals)
+                "candidate_averages": calc_averages([e for e in completed_topic_evals if e["assessment_cycle"] == cyc and e["model"] == "EvidenceAwareCandidateModel"]),
+                "baseline_averages": calc_averages([e for e in completed_topic_evals if e["assessment_cycle"] == cyc and e["model"] == "ExamScopeCombinedModel"]),
             }
 
         # By Sufficiency State
         sufficiency_summary: Dict[str, Dict[str, Any]] = {}
         for suff in [EvidenceSufficiencyState.SUFFICIENT_HISTORY, EvidenceSufficiencyState.LIMITED_HISTORY]:
-            suff_evals = [e for e in completed_topic_evals if e["evidence_sufficiency"] == suff and e["model"] == "ExamScopeCombinedModel"]
+            suff_evals = [e for e in completed_topic_evals if e["evidence_sufficiency"] == suff and e["model"] == "EvidenceAwareCandidateModel"]
             sufficiency_summary[suff] = {
                 "evaluation_count": len(suff_evals),
-                "averages": calc_averages(suff_evals)
+                "candidate_averages": calc_averages(suff_evals),
+                "baseline_averages": calc_averages([e for e in completed_topic_evals if e["evidence_sufficiency"] == suff and e["model"] == "ExamScopeCombinedModel"]),
             }
+
+        # Per-Course Summary Breakdown
+        course_summary: Dict[str, Dict[str, Any]] = {}
+        for course in courses:
+            c_topic_evals = [e for e in completed_topic_evals if e["course_id"] == course.id]
+            if not c_topic_evals:
+                continue
+
+            target_exam_ids = sorted(list(set(e["target_exam_id"] for e in c_topic_evals)))
+            c_cand_evals = [e for e in c_topic_evals if e["model"] == "EvidenceAwareCandidateModel"]
+            c_base_evals = [e for e in c_topic_evals if e["model"] == "ExamScopeCombinedModel"]
+            c_rec_evals = [e for e in c_topic_evals if e["model"] == "RecencyWeightedBaseline"]
+
+            cand_avg = calc_averages(c_cand_evals)
+            base_avg = calc_averages(c_base_evals)
+            rec_avg = calc_averages(c_rec_evals)
+
+            course_summary[str(course.id)] = {
+                "course_id": course.id,
+                "course_name": course.name,
+                "canonical_code": course.canonical_code,
+                "target_exams_evaluated": len(target_exam_ids),
+                "target_exam_ids": target_exam_ids,
+                "evidence_sufficiency": c_cand_evals[0]["evidence_sufficiency"] if c_cand_evals else EvidenceSufficiencyState.LIMITED_HISTORY,
+                "candidate": {
+                    "precision_at_3": cand_avg.get("Precision@3", 0.0),
+                    "precision_at_5": cand_avg.get("Precision@5", 0.0),
+                    "ndcg_at_5": cand_avg.get("NDCG@5", 0.0),
+                    "marks_ndcg_at_5": cand_avg.get("Marks_NDCG@5", 0.0),
+                    "marks_coverage_at_5": cand_avg.get("Marks_Coverage@5", 0.0),
+                    "question_coverage_at_5": cand_avg.get("Question_Coverage@5", 0.0),
+                    "full_averages": cand_avg,
+                },
+                "production_baseline": {
+                    "precision_at_3": base_avg.get("Precision@3", 0.0),
+                    "precision_at_5": base_avg.get("Precision@5", 0.0),
+                    "ndcg_at_5": base_avg.get("NDCG@5", 0.0),
+                    "marks_ndcg_at_5": base_avg.get("Marks_NDCG@5", 0.0),
+                    "marks_coverage_at_5": base_avg.get("Marks_Coverage@5", 0.0),
+                    "question_coverage_at_5": base_avg.get("Question_Coverage@5", 0.0),
+                    "full_averages": base_avg,
+                },
+                "recency_baseline": {
+                    "precision_at_5": rec_avg.get("Precision@5", 0.0),
+                    "ndcg_at_5": rec_avg.get("NDCG@5", 0.0),
+                    "marks_coverage_at_5": rec_avg.get("Marks_Coverage@5", 0.0),
+                },
+                "models": {
+                    m: calc_averages([e for e in c_topic_evals if e["model"] == m])
+                    for m in topic_model_names
+                }
+            }
+
+        evaluated_courses_set = set(e["course_id"] for e in completed_topic_evals)
+        coverage_summary = {
+            "total_courses_count": total_courses_count,
+            "evaluated_courses_count": len(evaluated_courses_set),
+            "sparse_or_excluded_courses_count": len(sparse_cases),
+            "coverage_rate": round(len(evaluated_courses_set) / max(1, total_courses_count), 4),
+            "abstention_rate": round(len(sparse_cases) / max(1, total_courses_count), 4),
+        }
 
         report_payload = {
             "metadata": {
                 "timestamp": datetime.utcnow().isoformat(),
                 "total_courses_evaluated": total_courses_count,
                 "eligible_target_exams_evaluated": evaluated_target_exams,
-                "mapped_topic_evaluations_count": len([e for e in completed_topic_evals if e["model"] == "ExamScopeCombinedModel"]),
-                "unmapped_target_exams_count": len([e for e in detailed_evaluations if e["mode"] == "topic" and e["status"] == "INSUFFICIENT_EVIDENCE" and e["model"] == "ExamScopeCombinedModel"]),
+                "mapped_topic_evaluations_count": len([e for e in completed_topic_evals if e["model"] == "EvidenceAwareCandidateModel"]),
+                "unmapped_target_exams_count": len([e for e in detailed_evaluations if e["mode"] == "topic" and e["status"] == "INSUFFICIENT_EVIDENCE" and e["model"] == "EvidenceAwareCandidateModel"]),
                 "completed_family_evaluations_count": len(completed_family_evals),
                 "total_evaluation_records": len(detailed_evaluations),
                 "total_sparse_cases": len(sparse_cases),
                 "k_values": [3, 5, 10],
-                "probability_calibration_formula": "P = (papers_with_topic + 1) / (sample_papers + 2)"
+                "probability_calibration_formula": "P = (papers_with_topic + 1) / (sample_papers + 2)",
+                "models_evaluated": topic_model_names,
+                "family_models_evaluated": family_model_names,
             },
+            "coverage_summary": coverage_summary,
             "model_summary": model_summary,
+            "family_model_summary": family_model_summary,
             "cycle_summary": cycle_summary,
             "sufficiency_summary": sufficiency_summary,
+            "course_summary": course_summary,
             "sparse_cases": sparse_cases,
             "detailed_evaluations": detailed_evaluations
         }
 
-        # 7. Write Persistent JSON Report
+        # 7. Write Persistent JSON and Markdown Reports
         os.makedirs("data/reports", exist_ok=True)
         report_path = "data/reports/backtest_results.json"
         with open(report_path, "w", encoding="utf-8") as f:
             json.dump(report_payload, f, indent=2)
 
+        md_path = "data/reports/forecast_evaluation_report.md"
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write(self.generate_markdown_report(report_payload))
+
         print(f"Backtest complete. Evaluated {evaluated_target_exams} target exams across {total_courses_count} courses.")
-        print(f"Results written to {report_path}")
+        print(f"Results written to {report_path} and {md_path}")
 
         return report_payload
+
+    @staticmethod
+    def generate_markdown_report(report: Dict[str, Any]) -> str:
+        """Produces a transparent, human-readable evaluation report with tables and per-course breakdowns."""
+        meta = report.get("metadata", {})
+        cov = report.get("coverage_summary", {})
+        models = report.get("model_summary", {})
+        cycles = report.get("cycle_summary", {})
+        courses = report.get("course_summary", {})
+        sparse = report.get("sparse_cases", [])
+
+        lines = []
+        lines.append("# MintAI Forecast Lab: Empirical Historical Evaluation Report\n")
+        lines.append(f"**Generated**: {meta.get('timestamp')}  ")
+        lines.append(f"**Target Exams Evaluated**: {meta.get('eligible_target_exams_evaluated')} across {cov.get('evaluated_courses_count', 0)} eligible courses  ")
+        lines.append(f"**Abstentions / Excluded Sparse Targets**: {cov.get('sparse_or_excluded_courses_count', 0)} ({round(cov.get('abstention_rate', 0.0) * 100, 1)}%)  ")
+        lines.append(f"**Deterministic Rules**: Strict temporal cutoff ($Year < T$), zero future leakage, held-out target ground truth, Laplace-calibrated probabilities.\n")
+
+        lines.append("## 1. Model & Baseline Benchmark Comparison\n")
+        lines.append("| Model Architecture / Baseline | Type | Evals | Precision@3 | Precision@5 | NDCG@5 | Marks NDCG@5 | Marks Cov@5 | Q Cov@5 |")
+        lines.append("|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|")
+
+        for m_name, data in models.items():
+            if isinstance(data, dict) and "averages" in data and isinstance(data["averages"], dict):
+                avg = data["averages"]
+                p3 = f"{avg.get('Precision@3', 0.0)*100:.2f}%"
+                p5 = f"{avg.get('Precision@5', 0.0)*100:.2f}%"
+                ndcg5 = f"{avg.get('NDCG@5', 0.0):.4f}"
+                m_ndcg5 = f"{avg.get('Marks_NDCG@5', 0.0):.4f}"
+                m_cov5 = f"{avg.get('Marks_Coverage@5', 0.0)*100:.2f}%"
+                q_cov5 = f"{avg.get('Question_Coverage@5', 0.0)*100:.2f}%"
+                m_type = "Candidate" if "Candidate" in m_name else ("Ablation" if "Ablation" in m_name else "Baseline")
+                lines.append(f"| **{m_name}** | {m_type} | {data.get('evaluation_count', 0)} | {p3} | {p5} | {ndcg5} | {m_ndcg5} | {m_cov5} | {q_cov5} |")
+
+        lines.append("\n## 2. Question Family Predictions\n")
+        fam_models = report.get("family_model_summary", {})
+        lines.append("| Family Model | Evals | Precision@3 | Precision@5 | NDCG@5 | Marks NDCG@5 | Marks Cov@5 |")
+        lines.append("|:---|:---:|:---:|:---:|:---:|:---:|:---:|")
+        for fm_name, fm_data in fam_models.items():
+            if isinstance(fm_data, dict) and "averages" in fm_data and isinstance(fm_data["averages"], dict):
+                f_avg = fm_data["averages"]
+                p3 = f"{f_avg.get('Precision@3', 0.0)*100:.2f}%"
+                p5 = f"{f_avg.get('Precision@5', 0.0)*100:.2f}%"
+                ndcg5 = f"{f_avg.get('NDCG@5', 0.0):.4f}"
+                m_ndcg5 = f"{f_avg.get('Marks_NDCG@5', 0.0):.4f}"
+                m_cov5 = f"{f_avg.get('Marks_Coverage@5', 0.0)*100:.2f}%"
+                lines.append(f"| **{fm_name}** | {fm_data.get('evaluation_count', 0)} | {p3} | {p5} | {ndcg5} | {m_ndcg5} | {m_cov5} |")
+
+        lines.append("\n## 3. Component Ablation Findings\n")
+        lines.append("Analyzing the marginal contribution of scoring features against `EvidenceAwareCandidateModel`:\n")
+        ablations = ["Ablation_NoRecency", "Ablation_NoMarks", "Ablation_NoRecurrence"]
+        lines.append("| Ablation Variant | Hypothesized Component Removed | Precision@5 | Delta vs Candidate P@5 | Marks Cov@5 |")
+        lines.append("|:---|:---|:---:|:---:|:---:|")
+        cand_p5 = models.get("EvidenceAwareCandidateModel", {}).get("averages", {}).get("Precision@5", 0.0)
+        for ab in ablations:
+            if ab in models and isinstance(models[ab].get("averages"), dict):
+                ab_p5 = models[ab]["averages"].get("Precision@5", 0.0)
+                ab_mc = models[ab]["averages"].get("Marks_Coverage@5", 0.0)
+                diff = ab_p5 - cand_p5
+                diff_str = f"{diff*100:+.2f}%"
+                desc = "Recency decay (uses only all-time frequency + marks)" if "NoRecency" in ab else ("Marks weighting (uses only recency + frequency)" if "NoMarks" in ab else "Long-term recurrence (uses only recent frequency + marks)")
+                lines.append(f"| `{ab}` | {desc} | {ab_p5*100:.2f}% | {diff_str} | {ab_mc*100:.2f}% |")
+
+        lines.append("\n## 3. Assessment Cycle Consistency\n")
+        lines.append("| Assessment Cycle | Target Exams | Candidate P@5 | Candidate NDCG@5 | Baseline P@5 | Baseline NDCG@5 |")
+        lines.append("|:---|:---:|:---:|:---:|:---:|:---:|")
+        for cyc, cdata in cycles.items():
+            c_cand = cdata.get("candidate_averages", {})
+            c_base = cdata.get("baseline_averages", {})
+            lines.append(f"| **{cyc}** | {cdata.get('target_exams', 0)} | {c_cand.get('Precision@5', 0.0)*100:.2f}% | {c_cand.get('NDCG@5', 0.0):.4f} | {c_base.get('Precision@5', 0.0)*100:.2f}% | {c_base.get('NDCG@5', 0.0):.4f} |")
+
+        lines.append("\n## 4. Course-Level Empirical Breakdown\n")
+        lines.append("| Course ID | Code | Course Name | Evaluated Targets | Cand P@5 | Base P@5 | Cand NDCG@5 | Cand Marks Cov@5 | Diff (P@5) |")
+        lines.append("|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|")
+        for cid, cinfo in sorted(courses.items(), key=lambda x: int(x[0])):
+            c_p5 = cinfo["candidate"]["precision_at_5"]
+            b_p5 = cinfo["production_baseline"]["precision_at_5"]
+            diff = (c_p5 - b_p5) * 100
+            diff_str = f"{diff:+.1f}%" if diff != 0 else "0.0%"
+            lines.append(f"| {cid} | `{cinfo.get('canonical_code') or 'N/A'}` | {cinfo.get('course_name')} | {cinfo.get('target_exams_evaluated')} | {c_p5*100:.1f}% | {b_p5*100:.1f}% | {cinfo['candidate']['ndcg_at_5']:.4f} | {cinfo['candidate']['marks_coverage_at_5']*100:.1f}% | {diff_str} |")
+
+        if sparse:
+            lines.append("\n## 5. Excluded Targets and Disclosed Sparse Cases\n")
+            lines.append(f"Total excluded targets: {len(sparse)}. MarkMint enforces zero hallucination and abstains when historical evidence is below sufficiency guardrails:\n")
+            lines.append("| Course ID | Course Name | Reason | Excluded Year/Target |")
+            lines.append("|:---:|:---|:---|:---:|")
+            for sp in sparse[:25]:
+                yr = sp.get("target_year") or "N/A"
+                lines.append(f"| {sp.get('course_id')} | {sp.get('course_name')} | {sp.get('reason')} | {yr} |")
+            if len(sparse) > 25:
+                lines.append(f"| ... | *and {len(sparse) - 25} additional sparse instances* | | |")
+
+        lines.append("\n---\n*Report generated deterministically by `backend.services.prediction.backtester.BacktestHarness`.*")
+        return "\n".join(lines)
+
 
 
 if __name__ == "__main__":

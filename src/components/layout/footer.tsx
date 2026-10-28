@@ -37,7 +37,7 @@ export function Footer() {
         </div>
 
         {/* Right: Navigation */}
-        <nav className="flex items-center gap-5 text-sm text-muted-foreground">
+        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (

@@ -30,10 +30,7 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
     return courses.filter((c) => {
       // Semester filter
       if (selectedSemester !== "all") {
-        if (selectedSemester === 5) {
-          // 5+ represents higher semesters (5, 6, 7, 8)
-          if (c.semester < 5) return false;
-        } else if (c.semester !== selectedSemester) {
+        if (c.semester !== selectedSemester) {
           return false;
         }
       }
@@ -118,15 +115,18 @@ export function CourseDirectoryView({ courses }: CourseDirectoryViewProps) {
             )}
           </div>
 
-          {/* Tactile Semester Tabs (1-Click Switch) */}
-          <div className="flex items-center gap-1 p-1 bg-muted/30 rounded-xl border border-border/50 overflow-x-auto shrink-0">
+          {/* Tactile Semester Tabs (1-Click Switch for Semesters 1 through 8) */}
+          <div className="flex items-center gap-1 p-1 bg-muted/30 rounded-xl border border-border/50 overflow-x-auto max-w-full scrollbar-none shrink-0">
             {[
               { key: "all" as const, label: "All Semesters" },
               { key: 1, label: "Sem 1" },
               { key: 2, label: "Sem 2" },
               { key: 3, label: "Sem 3" },
               { key: 4, label: "Sem 4" },
-              { key: 5, label: "Sem 5–8" },
+              { key: 5, label: "Sem 5" },
+              { key: 6, label: "Sem 6" },
+              { key: 7, label: "Sem 7" },
+              { key: 8, label: "Sem 8" },
             ].map((tab) => {
               const isSelected = selectedSemester === tab.key;
               return (

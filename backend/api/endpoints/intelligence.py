@@ -1,5 +1,7 @@
 from typing import Any, Dict, List, Optional
 from datetime import datetime
+import os
+import json
 import copy
 import time
 import logging
@@ -21,7 +23,7 @@ from backend.services.prediction.context import HistoricalContext, PredictionTar
 from backend.services.prediction.repository import HistoricalRepository
 from backend.services.dna.analyzer import DNAAnalyzerService, DataSufficiency
 from backend.services.prediction.engine import (
-    ExamScopeCombinedModel, AllTimeFrequencyBaseline, RecentFrequencyBaseline,
+    ExamScopeCombinedModel, EvidenceAwareCandidateModel, AllTimeFrequencyBaseline, RecentFrequencyBaseline,
     RecencyWeightedBaseline, MarksWeightedBaseline, FamilyRecurrenceBaseline,
     PredictionResult
 )
@@ -227,6 +229,57 @@ def get_model_performance(
             "result": target_res,
         }
 
+    # Fast path: check for precomputed backtest results
+    results_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "reports", "backtest_results.json"))
+    if os.path.exists(results_path):
+        try:
+            with open(results_path, "r", encoding="utf-8") as f:
+                cached_data = json.load(f)
+
+            if course_id is not None and target_year is None:
+                str_cid = str(course_id)
+                course_summary = cached_data.get("course_summary", {})
+                if str_cid in course_summary:
+                    c_info = course_summary[str_cid]
+                    c_evals = [e for e in cached_data.get("detailed_evaluations", []) if e.get("course_id") == course_id]
+                    return {
+                        "status": "COMPLETED",
+                        "course_id": course_id,
+                        "course_name": c_info.get("course_name"),
+                        "canonical_code": c_info.get("canonical_code"),
+                        "target_exams_evaluated": c_info.get("target_exams_evaluated", 0),
+                        "evidence_sufficiency": c_info.get("evidence_sufficiency", "SUFFICIENT_HISTORY"),
+                        "candidate": c_info.get("candidate"),
+                        "production_baseline": c_info.get("production_baseline"),
+                        "recency_baseline": c_info.get("recency_baseline"),
+                        "models": c_info.get("models"),
+                        "methodology": "Chronological backtesting with strict temporal cutoff. Only exams prior to cutoff year were provided to models.",
+                        "evaluation_rules": "Strict temporal isolation: Exam.year >= cutoff_year is inaccessible to models. Unknown-year data is excluded.",
+                        "model_version": MODEL_VERSION,
+                        "engine_version": ENGINE_VERSION,
+                        "corpus_version": CORPUS_VERSION,
+                        "evaluations": c_evals,
+                    }
+
+            if course_id is None and target_year is None:
+                return {
+                    "status": "COMPLETED",
+                    "coverage_summary": cached_data.get("coverage_summary"),
+                    "model_summary": cached_data.get("model_summary"),
+                    "family_model_summary": cached_data.get("family_model_summary"),
+                    "cycle_summary": cached_data.get("cycle_summary"),
+                    "sufficiency_summary": cached_data.get("sufficiency_summary"),
+                    "course_summary": cached_data.get("course_summary"),
+                    "sparse_cases": cached_data.get("sparse_cases"),
+                    "methodology": "Chronological backtesting with strict temporal cutoff. Only exams prior to cutoff year were provided to models.",
+                    "evaluation_rules": "Strict temporal isolation: Exam.year >= cutoff_year is inaccessible to models. Unknown-year data is excluded.",
+                    "model_version": MODEL_VERSION,
+                    "engine_version": ENGINE_VERSION,
+                    "corpus_version": CORPUS_VERSION,
+                }
+        except Exception as e:
+            logger.warning(f"Failed to read precomputed backtest report: {e}")
+
     courses = db.query(Course)
     if course_id is not None:
         courses = courses.filter(Course.id == course_id)
@@ -235,7 +288,6 @@ def get_model_performance(
     evaluated_courses_count = 0
 
     for course in courses:
-        # Check years with at least 2 distinct anchored years
         years = (
             db.query(Exam.year)
             .filter(Exam.course_id == course.id, Exam.year != None)
@@ -248,7 +300,6 @@ def get_model_performance(
             continue
 
         evaluated_courses_count += 1
-        # Evaluate each target year after the first year
         for target_year in usable_years[1:]:
             context = HistoricalContext(course_id=course.id, cutoff_year=target_year)
             repo = HistoricalRepository(db, context)
@@ -277,8 +328,8 @@ def get_model_performance(
             if not target_items:
                 continue
 
-            # Evaluate model variants
             models = {
+                "EvidenceAwareCandidate": EvidenceAwareCandidateModel(dna),
                 "ExamScopeCombined": ExamScopeCombinedModel(dna),
                 "AllTimeFrequency": AllTimeFrequencyBaseline(dna),
                 "RecentFrequency": RecentFrequencyBaseline(dna),
@@ -317,7 +368,6 @@ def get_model_performance(
         "corpus_version": CORPUS_VERSION,
         "evaluations": results,
     }
-
 
 @router.get("/corpus-health")
 def get_corpus_health(db: Session = Depends(get_db)) -> Dict[str, Any]:

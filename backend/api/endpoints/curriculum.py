@@ -1,10 +1,13 @@
-from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException
+from datetime import datetime
+from typing import List, Optional, Dict, Any
+from fastapi import APIRouter, Depends, HTTPException, Query
+from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
 from backend.core.database import get_db
 from backend.models.core import CurriculumMapping, Course, Exam, Section, Question
+from backend.models.beta_telemetry import StudentExamAnnouncement, BetaEvent
 from backend.schemas import (
     CurriculumSubjectResponse,
     CourseTrackResponse,
@@ -299,3 +302,123 @@ def get_curriculum_stats(db: Session = Depends(get_db)) -> dict:
         "unmatched_entries": unmatched,
         "backend_courses_count": courses_count
     }
+
+
+# ---------------------------------------------------------------------------
+# STUDENT EXAM SCOPE & ANNOUNCEMENTS
+# ---------------------------------------------------------------------------
+
+_in_memory_announcements: List[Dict[str, Any]] = []
+
+class ExamAnnouncementCreate(BaseModel):
+    course_id: Optional[int] = None
+    course_code: Optional[str] = None
+    course_name: str = Field(..., min_length=2, max_length=255)
+    exam_type: str = Field(..., max_length=64)
+    exam_title: Optional[str] = Field(None, max_length=128)
+    units: List[int] = Field(..., min_length=1)
+    batch_department: Optional[str] = Field(None, max_length=128)
+    announced_date: Optional[str] = Field(None, max_length=64)
+    notes: Optional[str] = Field(None, max_length=1000)
+    session_id: Optional[str] = Field(None, max_length=64)
+
+
+@router.post("/exam-announcements")
+def create_exam_announcement(
+    data: ExamAnnouncementCreate,
+    db: Session = Depends(get_db)
+) -> Dict[str, Any]:
+    """
+    Allows students to report upcoming exam portions (units, exam type, batch)
+    to help calibrate forecasts and practice questions for their classmates.
+    """
+    clean_units = sorted(list({int(u) for u in data.units if 1 <= int(u) <= 10}))
+    if not clean_units:
+        clean_units = [1, 2]
+
+    announcement_dict = {
+        "course_id": data.course_id,
+        "course_code": data.course_code,
+        "course_name": data.course_name,
+        "exam_type": data.exam_type,
+        "exam_title": data.exam_title or data.exam_type,
+        "units": clean_units,
+        "batch_department": data.batch_department,
+        "announced_date": data.announced_date,
+        "notes": data.notes,
+        "created_at": datetime.utcnow().isoformat()
+    }
+
+    record_id = None
+    try:
+        record = StudentExamAnnouncement(
+            course_id=data.course_id,
+            course_code=data.course_code,
+            course_name=data.course_name,
+            exam_type=data.exam_type,
+            exam_title=data.exam_title or data.exam_type,
+            units=clean_units,
+            batch_department=data.batch_department,
+            announced_date=data.announced_date,
+            notes=data.notes,
+            session_id=data.session_id
+        )
+        db.add(record)
+        db.commit()
+        db.refresh(record)
+        record_id = record.id
+    except Exception:
+        db.rollback()
+        record_id = len(_in_memory_announcements) + 1
+
+    announcement_dict["id"] = record_id
+    _in_memory_announcements.append(announcement_dict)
+
+    return {
+        "status": "success",
+        "message": f"Exam portion for {data.course_name} recorded successfully! Thank you for helping your classmates.",
+        "announcement": announcement_dict
+    }
+
+
+@router.get("/exam-announcements/{course_id}")
+def get_exam_announcements_for_course(
+    course_id: int,
+    limit: int = Query(5, ge=1, le=20),
+    db: Session = Depends(get_db)
+) -> List[Dict[str, Any]]:
+    """Fetch recent student-reported exam portions and unit scopes for a course."""
+    results = []
+    try:
+        db_records = (
+            db.query(StudentExamAnnouncement)
+            .filter(StudentExamAnnouncement.course_id == course_id)
+            .order_by(StudentExamAnnouncement.id.desc())
+            .limit(limit)
+            .all()
+        )
+        for r in db_records:
+            results.append({
+                "id": r.id,
+                "course_id": r.course_id,
+                "course_code": r.course_code,
+                "course_name": r.course_name,
+                "exam_type": r.exam_type,
+                "exam_title": r.exam_title,
+                "units": r.units,
+                "batch_department": r.batch_department,
+                "announced_date": r.announced_date,
+                "notes": r.notes,
+                "created_at": r.created_at.isoformat() if r.created_at else "Just now"
+            })
+    except Exception:
+        pass
+
+    # Combine with in-memory fallback
+    for mem in reversed(_in_memory_announcements):
+        if mem.get("course_id") == course_id and not any(r["id"] == mem.get("id") for r in results):
+            results.append(mem)
+        if len(results) >= limit:
+            break
+
+    return results

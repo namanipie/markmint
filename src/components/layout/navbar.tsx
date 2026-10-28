@@ -31,7 +31,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   };
 
   return (
-    <header className="relative z-50 flex h-16 items-center justify-between bg-background/90 backdrop-blur-md px-6 md:px-10 transition-all duration-300 border-b border-border/40">
+    <header className="relative z-50 flex h-16 items-center justify-between bg-background/90 backdrop-blur-md pl-4 pr-12 sm:pl-6 sm:pr-14 md:px-10 transition-all duration-300 border-b border-border/40">
       <div className="flex items-center justify-between w-full">
         
         {/* Left: Logo & SRMIST Tag */}
@@ -111,7 +111,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
       </div>
 
       {/* The Hanging Lamp - Flush against the absolute right edge */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2">
+      <div className="hidden sm:block absolute right-2 top-1/2 -translate-y-1/2">
         <HangingLamp />
       </div>
 

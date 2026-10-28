@@ -43,9 +43,35 @@ class BetaError(Base):
     created_at = Column(DateTime, default=datetime.utcnow, index=True)
 
 
-# Ensure tables exist
-Base.metadata.create_all(bind=engine, tables=[
-    BetaEvent.__table__,
-    BetaFeedback.__table__,
-    BetaError.__table__
-])
+class StudentExamAnnouncement(Base):
+    """
+    Student crowd-sourced exam scope announcement.
+    Allows students to report upcoming exam portions, target units, and batch
+    timetables to calibrate MarkMint predictions and question generation for their section.
+    """
+    __tablename__ = "student_exam_announcements"
+
+    id = Column(Integer, primary_key=True, index=True)
+    course_id = Column(Integer, nullable=True, index=True)
+    course_code = Column(String(64), nullable=True, index=True)
+    course_name = Column(String(255), nullable=False)
+    exam_type = Column(String(64), nullable=False)  # CT1, CT2, MODEL, SURPRISE, ENDSEM, OTHER
+    exam_title = Column(String(128), nullable=True)
+    units = Column(JSON, nullable=False)  # List[int], e.g. [1, 2]
+    batch_department = Column(String(128), nullable=True)
+    announced_date = Column(String(64), nullable=True)
+    notes = Column(Text, nullable=True)
+    session_id = Column(String(64), nullable=True, index=True)
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+
+# Ensure tables exist safely
+try:
+    Base.metadata.create_all(bind=engine, tables=[
+        BetaEvent.__table__,
+        BetaFeedback.__table__,
+        BetaError.__table__,
+        StudentExamAnnouncement.__table__
+    ], checkfirst=True)
+except Exception:
+    pass
