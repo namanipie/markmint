@@ -139,7 +139,7 @@ function dedupeRequest<T>(cacheKey: string, fetcher: () => Promise<T>): Promise<
   return promise;
 }
 
-import canonicalCatalog from "@/data/canonical_curriculum.json";
+import canonicalCatalog from "./canonical_curriculum.json";
 
 // Types for the canonical catalog JSON
 interface CatalogHierarchy {
