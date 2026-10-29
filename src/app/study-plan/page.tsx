@@ -13,6 +13,9 @@ import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { GrowingMint } from "@/components/ui/growing-mint";
 import { MathText } from "@/components/ui/math-text";
+import { getTopicResources } from "@/lib/course-resources";
+import { ResourceViewerModal, ResourceViewerItem } from "@/components/ui/resource-viewer-modal";
+import { Video, Sparkles, Play } from "lucide-react";
 import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
 import { useAnalytics } from "@/hooks/use-analytics";
 
@@ -25,6 +28,7 @@ export default function StudyIntelligencePage() {
   
   const [loading, setLoading] = useState(false);
   const [studyData, setStudyData] = useState<any>(null);
+  const [viewerItem, setViewerItem] = useState<ResourceViewerItem | null>(null);
   const [error, setError] = useState("");
 
   // Upload states
@@ -473,6 +477,67 @@ export default function StudyIntelligencePage() {
                             </div>
                           )}
                           
+                          {/* Verified Study Resources (Dr. E. Suresh / Gate Smashers / Cheat Sheets) */}
+                          {(() => {
+                            const topRes = getTopicResources(selectedCourse, topic.name || topic.topic);
+                            if (!topRes.hasResources) return null;
+                            return (
+                              <div className="mt-4 pt-3 border-t border-border/50 space-y-2">
+                                <div className="flex items-center justify-between">
+                                  <span className="text-[11px] font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
+                                    <Sparkles className="w-3.5 h-3.5" />
+                                    <span>Master This Topic: Verified Resources</span>
+                                  </span>
+                                  <span className="text-[10px] text-muted-foreground">In-App Preview</span>
+                                </div>
+                                
+                                <div className="flex flex-wrap items-center gap-2">
+                                  {topRes.videos.map((v) => (
+                                    <button
+                                      key={v.id}
+                                      type="button"
+                                      onClick={() => setViewerItem({ type: "video", data: v, courseName: selectedCourseObj?.name })}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/30 transition-all cursor-pointer"
+                                    >
+                                      <Play className="w-3 h-3 fill-current" />
+                                      <span>
+                                        {v.channel.includes("Suresh") 
+                                          ? "Dr. E. Suresh Video" 
+                                          : v.channel.includes("Gate") 
+                                          ? "Gate Smashers Video" 
+                                          : "Lecture Video"} ({v.duration})
+                                      </span>
+                                    </button>
+                                  ))}
+
+                                  {topRes.formulas.map((f) => (
+                                    <button
+                                      key={f.id}
+                                      type="button"
+                                      onClick={() => setViewerItem({ type: "formula", data: f, courseName: selectedCourseObj?.name })}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/10 text-amber-300 hover:bg-amber-500 hover:text-black border border-amber-500/30 transition-all cursor-pointer"
+                                    >
+                                      <Sparkles className="w-3 h-3" />
+                                      <span>Formula Cheat Sheet</span>
+                                    </button>
+                                  ))}
+
+                                  {topRes.notes.slice(0, 1).map((n, nidx) => (
+                                    <button
+                                      key={nidx}
+                                      type="button"
+                                      onClick={() => setViewerItem({ type: "note", data: n, courseName: selectedCourseObj?.name })}
+                                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white border border-blue-500/30 transition-all cursor-pointer"
+                                    >
+                                      <FileText className="w-3 h-3" />
+                                      <span>Unit {n.unit || 1} Notes</span>
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            );
+                          })()}
+
                           <MintAIQuestionGenerator topicName={topic.name || topic.topic || 'Unknown Target'} />
                           
                           <div className="mt-4 pt-4 flex justify-end">
@@ -586,6 +651,12 @@ export default function StudyIntelligencePage() {
     </motion.div>
         ) : null}
       </main>
+
+      {/* In-App Resource Viewer */}
+      <ResourceViewerModal
+        item={viewerItem}
+        onClose={() => setViewerItem(null)}
+      />
 
       <Footer />
     </div>

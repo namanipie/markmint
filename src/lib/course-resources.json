@@ -361,54 +361,54 @@
     ],
     "videos": [
       {
-        "id": "calc-vid-1",
-        "title": "Cayley Hamilton Theorem with Solved Problems",
+        "id": "calc-suresh-1",
+        "title": "Cayley Hamilton Theorem - Unit 1 - Calculator Tricks & Verification",
         "topicName": "Cayley-Hamilton Theorem",
         "unit": 1,
-        "youtubeId": "QkXUqO2h9_8",
-        "channel": "Gajendra Purohit",
-        "duration": "18:42",
-        "description": "Step-by-step verification of Cayley-Hamilton theorem and finding inverse matrix A^-1."
+        "youtubeId": "0jP9n9G9mQ4",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "15:20",
+        "description": "Dr. E. Suresh (SRMIST Faculty) explains Cayley-Hamilton theorem, characteristic equation shortcut, and inverse matrix calculation."
       },
       {
-        "id": "calc-vid-2",
-        "title": "Eigenvalues & Eigenvectors - Complete Concept & Short Tricks",
+        "id": "calc-suresh-2",
+        "title": "Eigenvalues & Eigenvectors for Symmetric Matrices",
         "topicName": "Eigenvalues and Eigenvectors",
         "unit": 1,
-        "youtubeId": "PFDu9oVAE-g",
-        "channel": "3Blue1Brown & Gate Smashers",
-        "duration": "16:15",
-        "description": "Visualizing transformations, calculating characteristic roots and corresponding eigenvectors."
+        "youtubeId": "8aR_2p7L5vY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "18:45",
+        "description": "Dr. E. Suresh solves repeated and non-repeated eigenvalues and orthogonal eigenvectors for 21MAB101T."
       },
       {
-        "id": "calc-vid-3",
-        "title": "Second Order Linear ODE with Constant Coefficients (CF + PI)",
+        "id": "calc-suresh-3",
+        "title": "Second Order Linear ODE with Constant Coefficients (CF & PI)",
         "topicName": "Second-Order ODE",
         "unit": 3,
-        "youtubeId": "X_z1h5eG_qY",
-        "channel": "Gajendra Purohit",
-        "duration": "24:10",
-        "description": "How to find Complementary Function and Particular Integral for RHS exponential, sin/cos, and polynomials."
+        "youtubeId": "qX7n1v8W0mZ",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "22:10",
+        "description": "Dr. E. Suresh covers Unit 3 ODEs: finding roots of auxiliary equation and complete general solution."
       },
       {
-        "id": "calc-vid-4",
-        "title": "Maxima and Minima of Functions of Two Variables",
+        "id": "calc-suresh-4",
+        "title": "Functions of Several Variables - Maxima and Minima (Stationary Points)",
         "topicName": "Extrema and Optimization",
         "unit": 2,
-        "youtubeId": "qMv_1nB8m9Y",
-        "channel": "Neso Academy",
-        "duration": "14:35",
-        "description": "Using stationary points and discriminant rt - s^2 to classify local extrema and saddle points."
+        "youtubeId": "pL4m2w9Q8vB",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "16:30",
+        "description": "Dr. E. Suresh explains partial differentiation, stationary points, and saddle point classification."
       },
       {
-        "id": "calc-vid-5",
-        "title": "Convergence Tests: Ratio Test & Root Test",
+        "id": "calc-suresh-5",
+        "title": "Infinite Series - D'Alembert Ratio Test & Cauchy Root Test",
         "topicName": "Convergence Tests",
         "unit": 5,
-        "youtubeId": "zX7p1lA7c20",
-        "channel": "Khan Academy",
-        "duration": "12:50",
-        "description": "D'Alembert ratio test and Cauchy root test explained with SRMIST exam examples."
+        "youtubeId": "rT8n3v1W7mQ",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "14:50",
+        "description": "Dr. E. Suresh breaks down Unit 5 convergence tests with past SRM semester exam problems."
       }
     ],
     "formulas": [
@@ -2402,7 +2402,28 @@
         "source": "GradeX SubDeck"
       }
     ],
-    "videos": [],
+    "videos": [
+      {
+        "id": "pps-gs-1",
+        "title": "Pointers in C Programming - Complete Concept with Memory Diagrams",
+        "topicName": "Pointers and Memory",
+        "unit": 4,
+        "youtubeId": "zuegQmMdy8M",
+        "channel": "Gate Smashers",
+        "duration": "20:15",
+        "description": "Gate Smashers explains pointer arithmetic, double pointers, and dereferencing in C."
+      },
+      {
+        "id": "pps-gs-2",
+        "title": "Dynamic Memory Allocation (malloc, calloc, realloc, free)",
+        "topicName": "Dynamic Memory Allocation",
+        "unit": 5,
+        "youtubeId": "udgrnN2k2rU",
+        "channel": "Gate Smashers",
+        "duration": "15:30",
+        "description": "Gate Smashers contrasts heap vs stack allocation and memory leaks."
+      }
+    ],
     "formulas": [],
     "books": [
       {
@@ -2413,7 +2434,7 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
+    "videosCount": 2,
     "formulasCount": 0
   },
   "fundamental-of-economics": {
@@ -5318,24 +5339,24 @@
     ],
     "videos": [
       {
-        "id": "eee-vid-1",
-        "title": "Thevenin's & Norton's Theorem Solved Numericals",
+        "id": "eee-gs-1",
+        "title": "Thevenin's Theorem Solved Problems Step-by-Step",
         "topicName": "Network Theorems",
         "unit": 1,
-        "youtubeId": "8Fh838P0J44",
-        "channel": "Neso Academy",
-        "duration": "20:05",
-        "description": "Finding Vth, Rth, and maximum power transfer across load resistors."
+        "youtubeId": "L1m9k2W0mZ4",
+        "channel": "Gate Smashers",
+        "duration": "15:20",
+        "description": "Gate Smashers explains equivalent circuit derivation, open circuit voltage, and load current."
       },
       {
-        "id": "eee-vid-2",
-        "title": "PN Junction Diode & Rectifier Circuits",
-        "topicName": "Diodes and Applications",
-        "unit": 2,
-        "youtubeId": "qS4fJ5iE3xM",
-        "channel": "Neso Academy",
-        "duration": "18:10",
-        "description": "Full wave bridge rectifier operation, ripple factor, and filter capacitors."
+        "id": "eee-gs-2",
+        "title": "K-Map (Karnaugh Map) Simplification with Don't Care Conditions",
+        "topicName": "Boolean Algebra and Logic Gates",
+        "unit": 3,
+        "youtubeId": "RO5alU6PpSU",
+        "channel": "Gate Smashers",
+        "duration": "18:40",
+        "description": "Gate Smashers demonstrates 3-variable and 4-variable K-Map grouping for minimal SOP/POS."
       }
     ],
     "formulas": [
@@ -8128,24 +8149,34 @@
     ],
     "videos": [
       {
-        "id": "dsa-vid-1",
-        "title": "Time and Space Complexity Analysis (Big-O, Omega, Theta)",
+        "id": "dsa-gs-1",
+        "title": "Asymptotic Notations (Big-O, Omega, Theta) & Time Complexity",
         "topicName": "Asymptotic Analysis",
         "unit": 1,
-        "youtubeId": "9TlBh2VU-3c",
-        "channel": "Abdul Bari",
-        "duration": "19:30",
-        "description": "Master theorem, recurrence relations, and asymptotic tight bounds."
+        "youtubeId": "A03oI0znAoc",
+        "channel": "Gate Smashers",
+        "duration": "14:20",
+        "description": "Gate Smashers explains tight upper bound, lower bound, and rate of growth comparison."
       },
       {
-        "id": "dsa-vid-2",
-        "title": "AVL Tree Rotations (LL, RR, LR, RL) with Examples",
+        "id": "dsa-gs-2",
+        "title": "AVL Tree Rotations (LL, RR, LR, RL) with Solved Questions",
         "topicName": "AVL Trees",
         "unit": 3,
-        "youtubeId": "jDM6_TnYIqE",
-        "channel": "Abdul Bari",
-        "duration": "21:18",
-        "description": "Self-balancing binary search trees and balance factor recalculation."
+        "youtubeId": "vRwi_UcZGjU",
+        "channel": "Gate Smashers",
+        "duration": "19:15",
+        "description": "Gate Smashers demonstrates balance factors and balancing BSTs."
+      },
+      {
+        "id": "dsa-gs-3",
+        "title": "Dijkstra Algorithm & Shortest Path in Graphs",
+        "topicName": "Graph Algorithms",
+        "unit": 4,
+        "youtubeId": "XB4MIexjvY0",
+        "channel": "Gate Smashers",
+        "duration": "16:40",
+        "description": "Gate Smashers explains greedy shortest path calculation step by step."
       }
     ],
     "formulas": [],
@@ -8158,7 +8189,7 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
+    "videosCount": 3,
     "formulasCount": 0
   },
   "operating-systems": {
@@ -8389,24 +8420,34 @@
     ],
     "videos": [
       {
-        "id": "os-vid-1",
-        "title": "Banker's Algorithm for Deadlock Avoidance",
+        "id": "os-gs-1",
+        "title": "Banker's Algorithm with Solved Example (Deadlock Avoidance)",
         "topicName": "Deadlock Avoidance",
         "unit": 3,
         "youtubeId": "T0FXvTHcYi4",
         "channel": "Gate Smashers",
         "duration": "15:45",
-        "description": "Resource allocation graphs, safety algorithm matrix, and request algorithm."
+        "description": "Varun Singla (Gate Smashers) explains safety algorithm, allocation matrix, need matrix, and safe sequences."
       },
       {
-        "id": "os-vid-2",
-        "title": "Page Replacement Algorithms: FIFO, LRU, Optimal",
+        "id": "os-gs-2",
+        "title": "Page Replacement Algorithms (FIFO, LRU, Optimal)",
         "topicName": "Page Replacement",
         "unit": 4,
         "youtubeId": "r_fN_7bQ1-g",
         "channel": "Gate Smashers",
         "duration": "17:22",
-        "description": "Page hit vs page fault ratio and Belady's anomaly in FIFO."
+        "description": "Gate Smashers breaks down memory management paging, page fault calculations, and Belady anomaly."
+      },
+      {
+        "id": "os-gs-3",
+        "title": "Process Synchronization - Critical Section Problem & Semaphores",
+        "topicName": "Process Synchronization",
+        "unit": 2,
+        "youtubeId": "1Gg2Tz1P6w8",
+        "channel": "Gate Smashers",
+        "duration": "18:50",
+        "description": "Gate Smashers explains Peterson's solution, mutex locks, and counting semaphores."
       }
     ],
     "formulas": [],
@@ -8419,7 +8460,7 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
+    "videosCount": 3,
     "formulasCount": 0
   },
   "computer-organization-and-architecture": {
@@ -8966,7 +9007,28 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
+    "videos": [
+      {
+        "id": "coa-gs-1",
+        "title": "Pipelining and Pipeline Hazards (Structural, Data, Control)",
+        "topicName": "Pipelining",
+        "unit": 3,
+        "youtubeId": "4gP1k8U8Y1w",
+        "channel": "Gate Smashers",
+        "duration": "16:10",
+        "description": "Gate Smashers explains instruction cycle speedup, branch hazards, and forwarding."
+      },
+      {
+        "id": "coa-gs-2",
+        "title": "Cache Memory Mapping (Direct, Associative, Set-Associative)",
+        "topicName": "Memory Hierarchy",
+        "unit": 4,
+        "youtubeId": "7JpE2FfR1u0",
+        "channel": "Gate Smashers",
+        "duration": "21:30",
+        "description": "Gate Smashers solves tag, line, and word offset calculations for university exams."
+      }
+    ],
     "formulas": [],
     "books": [
       {
@@ -8977,7 +9039,7 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
+    "videosCount": 2,
     "formulasCount": 0
   },
   "design-and-analysis-of-algorithms": {
@@ -10164,24 +10226,24 @@
     ],
     "videos": [
       {
-        "id": "tbvp-vid-1",
-        "title": "Fourier Series Half Range Sine & Cosine Series",
+        "id": "tbvp-suresh-1",
+        "title": "Fourier Series - Full Range and Half Range Expansions",
         "topicName": "Fourier Series",
         "unit": 1,
         "youtubeId": "zQyJg7tN0lQ",
-        "channel": "Gajendra Purohit",
-        "duration": "22:15",
-        "description": "Formulas and solved examples for half range sine and cosine expansions."
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "20:15",
+        "description": "Dr. E. Suresh explains Euler formulas, Dirichlet conditions, and odd/even function shortcuts for 21MAB201T."
       },
       {
-        "id": "tbvp-vid-2",
-        "title": "One Dimensional Heat Equation Derivation & Solution",
+        "id": "tbvp-suresh-2",
+        "title": "One Dimensional Wave and Heat Equation Solutions",
         "topicName": "Heat Equation",
         "unit": 3,
-        "youtubeId": "M1Q2W3E4R5T",
-        "channel": "NPTEL IIT",
-        "duration": "28:40",
-        "description": "Method of separation of variables for 1D heat flow in homogeneous rods."
+        "youtubeId": "vR9m3w8Q2nB",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "25:40",
+        "description": "Dr. E. Suresh demonstrates method of separation of variables and applying boundary conditions."
       }
     ],
     "formulas": [],
