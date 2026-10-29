@@ -14,7 +14,10 @@ import {
   Layers, 
   Video, 
   FolderOpen,
-  Maximize2
+  Maximize2,
+  Minimize2,
+  Share2,
+  CheckCircle2
 } from "lucide-react";
 import { MathText } from "@/components/ui/math-text";
 import { 
@@ -25,12 +28,13 @@ import {
   CourseNoteResource,
   CourseExamResource
 } from "@/lib/course-resources";
+import { useResourceMastery } from "@/hooks/use-resource-mastery";
 
 export type ResourceViewerItem = 
-  | { type: "video"; data: CourseVideoResource; courseName?: string }
-  | { type: "formula"; data: CourseFormulaResource; courseName?: string }
-  | { type: "note"; data: CourseNoteResource; courseName?: string }
-  | { type: "pyq"; data: CourseExamResource; courseName?: string };
+  | { type: "video"; data: CourseVideoResource; courseName?: string; courseSlug?: string }
+  | { type: "formula"; data: CourseFormulaResource; courseName?: string; courseSlug?: string }
+  | { type: "note"; data: CourseNoteResource; courseName?: string; courseSlug?: string }
+  | { type: "pyq"; data: CourseExamResource; courseName?: string; courseSlug?: string };
 
 interface ResourceViewerModalProps {
   item: ResourceViewerItem | null;
@@ -39,6 +43,10 @@ interface ResourceViewerModalProps {
 
 export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps) {
   const [copied, setCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [isTheaterMode, setIsTheaterMode] = useState(false);
+
+  const { isMastered, toggleMastered } = useResourceMastery();
 
   // Close on Escape key
   useEffect(() => {
@@ -59,18 +67,50 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
 
   if (!item) return null;
 
+  // Stable resource identifier
+  const resourceId = item.type === "video" 
+    ? (item.data.id || item.data.youtubeId)
+    : item.type === "formula"
+    ? item.data.id
+    : item.data.url;
+
+  const mastered = isMastered(resourceId);
+
   const handleCopyLatex = (latex: string) => {
     navigator.clipboard.writeText(latex);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleCopyShareLink = () => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    if (item.type === "video") {
+      url.searchParams.set("tab", "videos");
+      url.searchParams.set("v", item.data.id || item.data.youtubeId);
+    } else if (item.type === "formula") {
+      url.searchParams.set("tab", "formulas");
+      url.searchParams.set("f", item.data.id);
+    } else if (item.type === "note") {
+      url.searchParams.set("tab", "notes");
+      url.searchParams.set("note", item.data.title);
+    } else if (item.type === "pyq") {
+      url.searchParams.set("tab", "pyqs");
+      url.searchParams.set("pyq", item.data.title);
+    }
+    navigator.clipboard.writeText(url.toString());
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 2000);
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/85 backdrop-blur-md animate-in fade-in duration-200">
       {/* Backdrop tap to close */}
       <div className="absolute inset-0 -z-10" onClick={onClose} />
 
-      <div className="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-border/80 bg-card shadow-2xl overflow-hidden transition-all">
+      <div className={`relative w-full flex flex-col rounded-2xl border border-border/80 bg-card shadow-2xl overflow-hidden transition-all duration-300 ${
+        isTheaterMode ? "max-w-6xl max-h-[96vh]" : "max-w-4xl max-h-[92vh]"
+      }`}>
         {/* Top Header Bar */}
         <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-border/60 bg-muted/30">
           <div className="flex items-center gap-2.5 min-w-0 pr-2">
@@ -110,13 +150,49 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
           </div>
 
           <div className="flex items-center gap-1.5 shrink-0">
+            {/* Mark as Mastered button */}
+            <button
+              type="button"
+              onClick={() => toggleMastered(resourceId)}
+              className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                mastered 
+                  ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40 hover:bg-emerald-500/30" 
+                  : "bg-muted/60 text-muted-foreground hover:text-foreground border-border/60 hover:bg-muted"
+              }`}
+              title={mastered ? "Marked as Mastered (Click to undo)" : "Mark as Mastered"}
+            >
+              <CheckCircle2 className={`w-3.5 h-3.5 ${mastered ? "text-emerald-400 fill-emerald-500/20" : ""}`} />
+              <span className="hidden sm:inline">{mastered ? "Mastered" : "Mark Mastered"}</span>
+            </button>
+
+            {/* Share link button */}
+            <button
+              type="button"
+              onClick={handleCopyShareLink}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground border border-border/60 transition-all cursor-pointer"
+              title="Copy direct shareable link"
+            >
+              {linkCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
+              <span className="hidden sm:inline">{linkCopied ? "Link Copied!" : "Share"}</span>
+            </button>
+
+            {/* Theater Mode toggle */}
+            <button
+              type="button"
+              onClick={() => setIsTheaterMode(!isTheaterMode)}
+              className="hidden md:inline-flex p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors cursor-pointer"
+              title={isTheaterMode ? "Default View" : "Theater / Expanded View"}
+            >
+              {isTheaterMode ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+            </button>
+
             {/* Direct Open in new tab button */}
             {item.type === "video" && (
               <a
                 href={`https://www.youtube.com/watch?v=${item.data.youtubeId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                className="hidden sm:flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-colors"
                 title="Open directly on YouTube"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -129,7 +205,7 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
                 href={item.data.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-colors"
+                className="hidden sm:flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-colors"
                 title="Open directly in Google Drive"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -155,7 +231,9 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
           {/* ============================================================== */}
           {item.type === "video" && (
             <div className="space-y-4">
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border/80 bg-black shadow-inner">
+              <div className={`relative w-full rounded-xl overflow-hidden border border-border/80 bg-black shadow-inner transition-all duration-300 ${
+                isTheaterMode ? "aspect-video max-h-[75vh]" : "aspect-video"
+              }`}>
                 <iframe
                   src={getYouTubeEmbedUrl(item.data.youtubeId) || ""}
                   title={item.data.title}
@@ -185,7 +263,9 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
           {(item.type === "note" || item.type === "pyq") && (
             <div className="space-y-3">
               {getDrivePreviewUrl(item.data.url) ? (
-                <div className="relative w-full h-[60vh] sm:h-[68vh] rounded-xl overflow-hidden border border-border/80 bg-muted/20">
+                <div className={`relative w-full rounded-xl overflow-hidden border border-border/80 bg-muted/20 transition-all duration-300 ${
+                  isTheaterMode ? "h-[78vh]" : "h-[60vh] sm:h-[68vh]"
+                }`}>
                   <iframe
                     src={getDrivePreviewUrl(item.data.url) || ""}
                     title={item.data.title}

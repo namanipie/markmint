@@ -26,6 +26,8 @@ import {
   CourseFormulaResource 
 } from "@/lib/course-resources";
 import { ResourceViewerModal, ResourceViewerItem } from "@/components/ui/resource-viewer-modal";
+import { useResourceMastery } from "@/hooks/use-resource-mastery";
+import { Search, CheckCircle2, Share2 } from "lucide-react";
 import { SubmitResourceModal } from "@/components/courses/submit-resource-modal";
 
 interface CourseResourcesSectionProps {
@@ -39,6 +41,71 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
   const [selectedUnit, setSelectedUnit] = useState<number | "ALL" | "CT1" | "CT2">("ALL");
   const [activeViewerItem, setActiveViewerItem] = useState<ResourceViewerItem | null>(null);
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [communitySubmissions, setCommunitySubmissions] = useState<any[]>([]);
+
+  const { isMastered, toggleMastered, getProgress } = useResourceMastery();
+
+  // Load community submissions from LocalStorage
+  React.useEffect(() => {
+    try {
+      const raw = localStorage.getItem("markmint_community_resources");
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          const matching = parsed.filter(
+            (item: any) => item.courseName === courseName || item.courseCode === resources?.courseCode
+          );
+          setCommunitySubmissions(matching);
+        }
+      }
+    } catch {
+      // Ignore storage errors
+    }
+  }, [courseName, resources?.courseCode]);
+
+  // Deep linking: read query parameters on mount to auto-open specific resources
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get("tab");
+    const vParam = params.get("v");
+    const fParam = params.get("f");
+    const noteParam = params.get("note");
+
+    if (tabParam && ["pyqs", "notes", "videos", "formulas"].includes(tabParam)) {
+      setActiveTab(tabParam as any);
+    }
+
+    if (vParam && resources?.videos) {
+      const targetVideo = resources.videos.find((v) => v.id === vParam || v.youtubeId === vParam);
+      if (targetVideo) {
+        setActiveViewerItem({ type: "video", data: targetVideo, courseName });
+      }
+    } else if (fParam && resources?.formulas) {
+      const targetFormula = resources.formulas.find((f) => f.id === fParam);
+      if (targetFormula) {
+        setActiveViewerItem({ type: "formula", data: targetFormula, courseName });
+      }
+    } else if (noteParam && resources?.notes) {
+      const targetNote = resources.notes.find((n) => n.title.toLowerCase().includes(noteParam.toLowerCase()));
+      if (targetNote) {
+        setActiveViewerItem({ type: "note", data: targetNote, courseName });
+      }
+    }
+  }, [resources, courseName]);
+
+  // Total resources for mastery computation
+  const allResourceIds = React.useMemo(() => {
+    const ids: string[] = [];
+    (resources?.videos || []).forEach((v) => ids.push(v.id || v.youtubeId));
+    (resources?.formulas || []).forEach((f) => ids.push(f.id));
+    (resources?.notes || []).forEach((n) => ids.push(n.url));
+    (resources?.pyqs || []).forEach((p) => ids.push(p.url));
+    return ids;
+  }, [resources]);
+
+  const { completed, total, percentage } = getProgress(allResourceIds);
 
   if (!resources || (resources.pyqsCount === 0 && resources.notesCount === 0 && !resources.syllabusUrl)) {
     return null;
@@ -52,22 +119,54 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
   // Filtered PYQs
   const filteredPyqs = useMemo(() => {
     if (!resources.pyqs) return [];
-    if (selectedExamType === "ALL") return resources.pyqs;
-    return resources.pyqs.filter((p) => p.examType === selectedExamType);
-  }, [resources.pyqs, selectedExamType]);
+    let list = selectedExamType === "ALL" 
+      ? resources.pyqs 
+      : resources.pyqs.filter((p) => p.examType === selectedExamType);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter((p) => p.title.toLowerCase().includes(q) || p.source.toLowerCase().includes(q));
+    }
+    return list;
+  }, [resources.pyqs, selectedExamType, searchQuery]);
 
   // Filtered Notes
   const filteredNotes = useMemo(() => {
     if (!resources.notes) return [];
-    if (selectedUnit === "ALL") return resources.notes;
-    if (selectedUnit === "CT1") return resources.notes.filter((n) => n.unit === 1 || n.unit === 2);
-    if (selectedUnit === "CT2") return resources.notes.filter((n) => n.unit === 3 || n.unit === 4);
-    return resources.notes.filter((n) => n.unit === selectedUnit);
-  }, [resources.notes, selectedUnit]);
+    let list = resources.notes;
+    if (selectedUnit === "CT1") list = list.filter((n) => n.unit === 1 || n.unit === 2);
+    else if (selectedUnit === "CT2") list = list.filter((n) => n.unit === 3 || n.unit === 4);
+    else if (selectedUnit !== "ALL") list = list.filter((n) => n.unit === selectedUnit);
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter((n) => n.title.toLowerCase().includes(q) || n.source.toLowerCase().includes(q));
+    }
+    return list;
+  }, [resources.notes, selectedUnit, searchQuery]);
 
   // Videos & Formulas
-  const videos = resources.videos || [];
-  const formulas = resources.formulas || [];
+  const rawVideos = resources.videos || [];
+  const rawFormulas = resources.formulas || [];
+
+  const videos = useMemo(() => {
+    if (!searchQuery.trim()) return rawVideos;
+    const q = searchQuery.toLowerCase().trim();
+    return rawVideos.filter(
+      (v) => v.title.toLowerCase().includes(q) || 
+             v.channel.toLowerCase().includes(q) || 
+             (v.topicName && v.topicName.toLowerCase().includes(q))
+    );
+  }, [rawVideos, searchQuery]);
+
+  const formulas = useMemo(() => {
+    if (!searchQuery.trim()) return rawFormulas;
+    const q = searchQuery.toLowerCase().trim();
+    return rawFormulas.filter(
+      (f) => f.title.toLowerCase().includes(q) || 
+             f.summary.toLowerCase().includes(q) || 
+             (f.topicName && f.topicName.toLowerCase().includes(q))
+    );
+  }, [rawFormulas, searchQuery]);
 
   // Counts by portion
   const ct1NotesCount = resources.notes ? resources.notes.filter((n) => n.unit === 1 || n.unit === 2).length : 0;
@@ -104,6 +203,68 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
           <span>Share Material</span>
         </button>
       </div>
+
+      {/* Study Mastery Progress Bar */}
+      <div className="p-3.5 sm:p-4 rounded-xl bg-card border border-border/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+            {percentage}%
+          </div>
+          <div className="space-y-0.5">
+            <div className="flex items-center gap-2">
+              <span className="text-xs sm:text-sm font-bold text-foreground">Course Study Mastery</span>
+              <span className="text-[10px] px-1.5 py-0.2 rounded font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                {completed} of {total} Completed
+              </span>
+            </div>
+            <p className="text-[11px] text-muted-foreground">
+              Interactive checklist: mark completed video lectures, formulas, and notes as you revise.
+            </p>
+          </div>
+        </div>
+        <div className="w-full sm:w-48 bg-muted rounded-full h-2 overflow-hidden border border-border/40">
+          <div
+            className="bg-emerald-500 h-full transition-all duration-500 rounded-full"
+            style={{ width: `${percentage}%` }}
+          />
+        </div>
+      </div>
+
+      {/* Quick In-Course Resource Search */}
+      <div className="relative">
+        <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Filter lecture videos, formulas, or past papers by topic..."
+          className="w-full pl-9 pr-14 py-2 rounded-xl bg-card border border-border/60 text-xs text-foreground placeholder:text-muted-foreground focus:outline-hidden focus:border-accent transition-colors"
+        />
+        {searchQuery && (
+          <button
+            type="button"
+            onClick={() => setSearchQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground hover:text-foreground cursor-pointer px-1.5 py-0.5 rounded bg-muted/60"
+          >
+            Clear
+          </button>
+        )}
+      </div>
+
+      {/* Community Submissions Notification Banner */}
+      {communitySubmissions.length > 0 && (
+        <div className="p-3 rounded-xl bg-accent/5 border border-accent/20 flex items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-accent shrink-0" />
+            <span>
+              <strong>{communitySubmissions.length}</strong> community study material{communitySubmissions.length > 1 ? "s" : ""} shared for this course.
+            </span>
+          </div>
+          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold">
+            Peer Review Pending
+          </span>
+        </div>
+      )}
 
       {/* Primary Tab Switcher */}
       <div className="flex items-center gap-1.5 p-1 bg-muted/20 border border-border/60 rounded-xl overflow-x-auto no-scrollbar text-xs font-semibold">
@@ -455,14 +616,29 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
                   )}
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => setActiveViewerItem({ type: "video", data: v, courseName })}
-                  className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/30 text-xs font-bold transition-all cursor-pointer"
-                >
-                  <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Watch in MarkMint</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setActiveViewerItem({ type: "video", data: v, courseName })}
+                    className="flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/30 text-xs font-bold transition-all cursor-pointer"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    <span>Watch in MarkMint</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); toggleMastered(v.id || v.youtubeId); }}
+                    className={`p-2 rounded-lg border transition-all cursor-pointer ${
+                      isMastered(v.id || v.youtubeId)
+                        ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                        : "bg-muted/40 text-muted-foreground hover:text-foreground border-border/60 hover:bg-muted"
+                    }`}
+                    title={isMastered(v.id || v.youtubeId) ? "Mastered" : "Mark as Mastered"}
+                  >
+                    <CheckCircle2 className={`w-3.5 h-3.5 ${isMastered(v.id || v.youtubeId) ? "fill-emerald-500/20" : ""}`} />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -498,14 +674,29 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
                 </p>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setActiveViewerItem({ type: "formula", data: f, courseName })}
-                className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-amber-500/10 text-amber-300 hover:bg-amber-500 hover:text-black border border-amber-500/30 text-xs font-bold transition-all cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>View Full Cheat Sheet</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setActiveViewerItem({ type: "formula", data: f, courseName })}
+                  className="flex-1 inline-flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-amber-500/10 text-amber-300 hover:bg-amber-500 hover:text-black border border-amber-500/30 text-xs font-bold transition-all cursor-pointer"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>View Full Cheat Sheet</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); toggleMastered(f.id); }}
+                  className={`p-2 rounded-lg border transition-all cursor-pointer ${
+                    isMastered(f.id)
+                      ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/40"
+                      : "bg-muted/40 text-muted-foreground hover:text-foreground border-border/60 hover:bg-muted"
+                  }`}
+                  title={isMastered(f.id) ? "Mastered" : "Mark as Mastered"}
+                >
+                  <CheckCircle2 className={`w-3.5 h-3.5 ${isMastered(f.id) ? "fill-emerald-500/20" : ""}`} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
