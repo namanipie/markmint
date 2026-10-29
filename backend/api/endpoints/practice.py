@@ -336,9 +336,9 @@ def get_topic_historical_questions(
 CT_QUESTIONS_PATH = Path(__file__).resolve().parents[3] / "data" / "extracted_cycle_test_questions.json"
 _ct_questions_cache = None
 
-def _load_ct_questions():
+def _load_ct_questions(force_reload: bool = False):
     global _ct_questions_cache
-    if _ct_questions_cache is None and CT_QUESTIONS_PATH.exists():
+    if (_ct_questions_cache is None or force_reload) and CT_QUESTIONS_PATH.exists():
         try:
             with open(CT_QUESTIONS_PATH, "r", encoding="utf-8") as f:
                 _ct_questions_cache = json.load(f)
@@ -351,17 +351,20 @@ def _load_ct_questions():
 def get_cycle_test_questions(
     subject: str,
     cycle: Optional[str] = Query(None),
+    category: Optional[str] = Query("all", description="all | descriptive | mcq"),
     limit: int = Query(100, ge=1, le=1000),
 ):
     """
     Retrieve authentic past Cycle Test questions extracted directly from SRMIST CT papers.
-    Supports filtering by subject name/slug (or 'ALL' for universal archive) and assessment cycle.
+    Supports filtering by subject name/slug (or 'ALL' for universal archive), assessment cycle,
+    and question category (all | descriptive | mcq) to ensure MCQs and normal questions
+    are never mixed up.
     """
     all_qs = _load_ct_questions()
     s_clean = re.sub(r"[^a-z0-9]+", " ", subject.lower()).strip()
     is_universal = s_clean in ["all", "any", "all subjects", "universal", "*"]
 
-    matched = []
+    matched_for_cycle = []
     for q in all_qs:
         q_subj = re.sub(r"[^a-z0-9]+", " ", q.get("subject", "").lower()).strip()
         if is_universal or s_clean in q_subj or q_subj in s_clean:
@@ -370,7 +373,19 @@ def get_cycle_test_questions(
                 q_cyc = q.get("cycle", "CT").upper()
                 if c_up not in q_cyc and q_cyc != "CT":
                     continue
-            matched.append(q)
+            matched_for_cycle.append(q)
+
+    # Calculate overall counts before category filter
+    total_mcqs = sum(1 for q in matched_for_cycle if q.get("is_mcq") is True or q.get("q_type") == "MCQ")
+    total_descriptive = len(matched_for_cycle) - total_mcqs
+
+    cat_clean = (category or "all").lower().strip()
+    if cat_clean == "mcq":
+        matched = [q for q in matched_for_cycle if q.get("is_mcq") is True or q.get("q_type") == "MCQ"]
+    elif cat_clean in ["descriptive", "normal"]:
+        matched = [q for q in matched_for_cycle if not (q.get("is_mcq") is True or q.get("q_type") == "MCQ")]
+    else:
+        matched = matched_for_cycle
 
     # Sort so questions with verified answer keys come first
     def _parse_qnum(val):
@@ -389,7 +404,10 @@ def get_cycle_test_questions(
     return {
         "subject": "All Subjects" if is_universal else subject,
         "cycle": cycle or "ALL",
+        "category": cat_clean,
         "total_available": len(matched),
+        "total_descriptive": total_descriptive,
+        "total_mcqs": total_mcqs,
         "available_subjects": available_subjects,
         "questions": matched[:limit]
     }

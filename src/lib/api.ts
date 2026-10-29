@@ -816,12 +816,17 @@ export interface CycleTestQuestion {
   subject: string;
   cycle: string;
   source_file: string;
+  is_mcq?: boolean;
+  section?: string;
 }
 
 export interface CycleTestQuestionsResponse {
   subject: string;
   cycle: string;
+  category?: string;
   total_available: number;
+  total_descriptive?: number;
+  total_mcqs?: number;
   available_subjects?: { subject: string; count: number }[];
   questions: CycleTestQuestion[];
 }
@@ -829,10 +834,12 @@ export interface CycleTestQuestionsResponse {
 export async function getCycleTestQuestions(
   subject: string,
   cycle?: string,
-  limit: number = 50
+  limit: number = 50,
+  category?: "all" | "descriptive" | "mcq" | string
 ): Promise<CycleTestQuestionsResponse> {
   const params = new URLSearchParams();
   if (cycle && cycle !== "ALL") params.set("cycle", cycle);
+  if (category && category !== "all") params.set("category", category);
   params.set("limit", String(limit));
   try {
     return await fetchAPI(`/practice/cycle-tests/${encodeURIComponent(subject)}?${params.toString()}`);
@@ -840,7 +847,10 @@ export async function getCycleTestQuestions(
     return {
       subject,
       cycle: cycle || "ALL",
+      category: category || "all",
       total_available: 0,
+      total_descriptive: 0,
+      total_mcqs: 0,
       questions: []
     };
   }

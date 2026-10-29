@@ -163,7 +163,7 @@ export default function QuestionBankPage() {
             Topic-Wise Question Bank
           </h1>
           <p className="text-sm text-muted-foreground max-w-2xl">
-            Select your semester and subject to drill down into unit-wise topics, or explore 1,343 authentic Cycle Test questions with faculty answer keys.
+            Select your semester and subject to drill down into unit-wise topics, or explore 5,536 authentic Cycle Test questions with faculty answer keys and dedicated MCQ sections.
           </p>
         </div>
 
@@ -194,7 +194,7 @@ export default function QuestionBankPage() {
             <Sparkles className="w-4 h-4" />
             <span>⚡ Cycle Test Archive</span>
             <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-accent/20 border border-accent/30 text-accent">
-              1,343 Questions &amp; Keys
+              5,536 Questions &amp; Keys
             </span>
           </button>
         </div>
