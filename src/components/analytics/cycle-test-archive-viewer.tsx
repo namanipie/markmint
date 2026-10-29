@@ -28,6 +28,16 @@ interface CycleTestArchiveViewerProps {
   onSelectCourse?: (subjectName: string) => void;
 }
 
+function isMcqQuestion(q: CycleTestQuestion): boolean {
+  if (q.is_mcq || q.q_type === "MCQ") return true;
+  if (q.options && q.options.length >= 2) return true;
+  const txt = q.question_text || "";
+  if (/(?:^|[\n\s])(?:\([A-Da-d]\)|\[[A-Da-d]\]|[A-Da-d][\.\)])\s*[\\s\\S]+?(?:\([B-Db-d]\)|\[[B-Db-d]\]|[B-Db-d][\.\)])/.test(txt)) {
+    return true;
+  }
+  return false;
+}
+
 export function CycleTestArchiveViewer({
   initialSubject = "ALL",
   initialCycle = "ALL",
@@ -86,9 +96,9 @@ export function CycleTestArchiveViewer({
   const filteredQuestions = useMemo(() => {
     let list = questions;
     if (activeCategory === "descriptive") {
-      list = list.filter((q) => !q.is_mcq && q.q_type !== "MCQ");
+      list = list.filter((q) => !isMcqQuestion(q));
     } else if (activeCategory === "mcq") {
-      list = list.filter((q) => q.is_mcq || q.q_type === "MCQ");
+      list = list.filter((q) => isMcqQuestion(q));
     }
 
     if (selectedType !== "ALL") {
@@ -113,9 +123,9 @@ export function CycleTestArchiveViewer({
 
   const types = useMemo(() => {
     const relevant = activeCategory === "descriptive"
-      ? questions.filter((q) => !q.is_mcq && q.q_type !== "MCQ")
+      ? questions.filter((q) => !isMcqQuestion(q))
       : activeCategory === "mcq"
-      ? questions.filter((q) => q.is_mcq || q.q_type === "MCQ")
+      ? questions.filter((q) => isMcqQuestion(q))
       : questions;
     return ["ALL", ...Array.from(new Set(relevant.map((q) => q.q_type)))];
   }, [questions, activeCategory]);

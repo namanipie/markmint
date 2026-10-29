@@ -27,6 +27,16 @@ interface CycleTestQuestionsDrawerProps {
   isOpenDefault?: boolean;
 }
 
+function isMcqQuestion(q: CycleTestQuestion): boolean {
+  if (q.is_mcq || q.q_type === "MCQ") return true;
+  if (q.options && q.options.length >= 2) return true;
+  const txt = q.question_text || "";
+  if (/(?:^|[\n\s])(?:\([A-Da-d]\)|\[[A-Da-d]\]|[A-Da-d][\.\)])\s*[\\s\\S]+?(?:\([B-Db-d]\)|\[[B-Db-d]\]|[B-Db-d][\.\)])/.test(txt)) {
+    return true;
+  }
+  return false;
+}
+
 export function CycleTestQuestionsDrawer({
   courseName,
   cycle = "CT1",
@@ -73,12 +83,12 @@ export function CycleTestQuestionsDrawer({
 
   // Separate MCQs completely from normal/descriptive questions
   const descriptiveQuestions = useMemo(
-    () => questions.filter((q) => !q.is_mcq && q.q_type !== "MCQ"),
+    () => questions.filter((q) => !isMcqQuestion(q)),
     [questions]
   );
 
   const mcqQuestions = useMemo(
-    () => questions.filter((q) => q.is_mcq || q.q_type === "MCQ"),
+    () => questions.filter((q) => isMcqQuestion(q)),
     [questions]
   );
 

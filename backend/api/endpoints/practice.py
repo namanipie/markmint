@@ -347,6 +347,17 @@ def _load_ct_questions(force_reload: bool = False):
     return _ct_questions_cache or []
 
 
+def _is_mcq_dict(q: dict) -> bool:
+    if q.get("is_mcq") is True or q.get("q_type") == "MCQ":
+        return True
+    if q.get("options") and len(q.get("options")) >= 2:
+        return True
+    txt = q.get("question_text", "") or ""
+    if re.search(r'(?s)(?:\([A-Da-d]\)|\[[A-Da-d]\]|(?<=\n)[A-Da-d][\.\)])\s*.+?(?:\([B-Db-d]\)|\[[B-Db-d]\]|(?<=\n)[B-Db-d][\.\)])', txt):
+        return True
+    return False
+
+
 @router.get("/practice/cycle-tests/{subject}")
 def get_cycle_test_questions(
     subject: str,
@@ -360,7 +371,7 @@ def get_cycle_test_questions(
     and question category (all | descriptive | mcq) to ensure MCQs and normal questions
     are never mixed up.
     """
-    all_qs = _load_ct_questions()
+    all_qs = _load_ct_questions(force_reload=True)
     s_clean = re.sub(r"[^a-z0-9]+", " ", subject.lower()).strip()
     is_universal = s_clean in ["all", "any", "all subjects", "universal", "*"]
 
@@ -376,14 +387,14 @@ def get_cycle_test_questions(
             matched_for_cycle.append(q)
 
     # Calculate overall counts before category filter
-    total_mcqs = sum(1 for q in matched_for_cycle if q.get("is_mcq") is True or q.get("q_type") == "MCQ")
+    total_mcqs = sum(1 for q in matched_for_cycle if _is_mcq_dict(q))
     total_descriptive = len(matched_for_cycle) - total_mcqs
 
     cat_clean = (category or "all").lower().strip()
     if cat_clean == "mcq":
-        matched = [q for q in matched_for_cycle if q.get("is_mcq") is True or q.get("q_type") == "MCQ"]
+        matched = [q for q in matched_for_cycle if _is_mcq_dict(q)]
     elif cat_clean in ["descriptive", "normal"]:
-        matched = [q for q in matched_for_cycle if not (q.get("is_mcq") is True or q.get("q_type") == "MCQ")]
+        matched = [q for q in matched_for_cycle if not _is_mcq_dict(q)]
     else:
         matched = matched_for_cycle
 
