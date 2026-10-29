@@ -9,12 +9,16 @@ Architecture:
 - Insert syllabuses 25..30, units 126..155, topics 550..736 from local SQLite.
 - Synchronize PostgreSQL sequences.
 """
+import os
 import sqlite3
 import psycopg2
 
-PG_URL = "postgresql://markmint_user:RDXfizQBWXFjhEUbfshlumjwuQajSUFR@dpg-dakpv1gu01pc73bj47e0-a.oregon-postgres.render.com/markmint?sslmode=require"
+PG_URL = os.environ.get("RENDER_DATABASE_URL") or os.environ.get("DATABASE_URL", "")
 
 def main():
+    if not PG_URL:
+        print("[!] No RENDER_DATABASE_URL or DATABASE_URL provided. Exiting.")
+        return
     conn_sqlite = sqlite3.connect("production_corpus.db")
     cur_sqlite = conn_sqlite.cursor()
 

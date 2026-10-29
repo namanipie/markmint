@@ -402,10 +402,14 @@ def run_assessment_promotion(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Promote course assessment structure to PostgreSQL.")
-    parser.add_argument("--pg-url", type=str, default="postgresql+psycopg2://markmint_user:RDXfizQBWXFjhEUbfshlumjwuQajSUFR@dpg-dakpv1gu01pc73bj47e0-a.oregon-postgres.render.com/markmint?sslmode=require")
+    parser.add_argument("--pg-url", type=str, default=os.environ.get("DATABASE_URL", ""), help="PostgreSQL connection URL (or set DATABASE_URL env var)")
     parser.add_argument("--live", action="store_true", help="Execute live mutations")
     parser.add_argument("--confirm", action="store_true", help="Explicit confirmation for live promotion")
     args = parser.parse_args()
+
+    if not args.pg_url:
+        print("[!] No --pg-url provided and DATABASE_URL not set. Exiting.")
+        exit(1)
 
     run_assessment_promotion(
         pg_url=args.pg_url,

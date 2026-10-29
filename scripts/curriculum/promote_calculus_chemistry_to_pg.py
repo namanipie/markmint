@@ -32,12 +32,15 @@ if BASE_DIR not in sys.path:
 
 from backend.models.core import Course, Syllabus, Unit, Topic, Question, Exam, question_topic
 
-PG_URL = os.environ.get(
-    "RENDER_DATABASE_URL",
-    "postgresql://markmint_user:RDXfizQBWXFjhEUbfshlumjwuQajSUFR@dpg-dakpv1gu01pc73bj47e0-a.oregon-postgres.render.com/markmint?sslmode=require"
+PG_URL = (
+    os.environ.get("RENDER_DATABASE_URL")
+    or os.environ.get("DATABASE_URL", "")
 ).replace("postgresql://", "postgresql+psycopg2://")
 
 def run_pg_migration():
+    if not PG_URL:
+        print("[!] No RENDER_DATABASE_URL or DATABASE_URL provided. Exiting.")
+        return
     print("=" * 80, flush=True)
     print("PROMOTING CANONICAL 5-UNIT CURRICULUM INTEGRITY TO RENDER POSTGRESQL", flush=True)
     print("=" * 80, flush=True)

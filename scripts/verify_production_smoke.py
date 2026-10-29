@@ -4,10 +4,10 @@ import urllib.request
 import urllib.parse
 from sqlalchemy import create_engine, text
 
-BASE_URL = "https://markmint.onrender.com"
-PG_URL = os.environ.get(
-    "RENDER_DATABASE_URL",
-    "postgresql://markmint_user:RDXfizQBWXFjhEUbfshlumjwuQajSUFR@dpg-dakpv1gu01pc73bj47e0-a.oregon-postgres.render.com/markmint?sslmode=require"
+BASE_URL = os.environ.get("BASE_URL", "https://markmint.onrender.com")
+PG_URL = (
+    os.environ.get("RENDER_DATABASE_URL")
+    or os.environ.get("DATABASE_URL", "")
 ).replace("postgresql://", "postgresql+psycopg2://")
 
 print("=" * 80)

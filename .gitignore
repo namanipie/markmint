@@ -87,6 +87,15 @@ tmp/
 temp_gpa.html
 *.log
 inspection_results.json
+qa_audit/screenshots/
+qa_audit/browser_audit_results.json
+*.patch
+*.dump
+benchmark_*.txt
+scratch_*.txt
+findings_*.json
+audit*.txt
+audit*.json
 
 .neon
 data/submissions/

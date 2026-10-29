@@ -98,7 +98,8 @@ def audit_postgres(pg_url):
 
 if __name__ == "__main__":
     audit_sqlite()
-    pg_url = os.environ.get("RENDER_DATABASE_URL")
+    pg_url = os.environ.get("RENDER_DATABASE_URL") or os.environ.get("DATABASE_URL")
     if not pg_url:
-        pg_url = "postgresql://markmint_user:RDXfizQBWXFjhEUbfshlumjwuQajSUFR@dpg-dakpv1gu01pc73bj47e0-a.oregon-postgres.render.com/markmint?sslmode=require"
-    audit_postgres(pg_url)
+        print("[!] No RENDER_DATABASE_URL or DATABASE_URL provided. Skipping PostgreSQL audit.")
+    else:
+        audit_postgres(pg_url)

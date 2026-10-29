@@ -127,11 +127,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ],
         notes="Authoritative Course Learning Syllabus Table 5 defines CA-1, CA-2, CA-3, and Final Exam."
@@ -182,11 +182,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -232,11 +232,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -282,11 +282,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -344,11 +344,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=4,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -406,11 +406,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=4,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -456,11 +456,11 @@ COURSE_ASSESSMENT_PLANS: Dict[int, CoursePlanDefinition] = {
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     ),
@@ -526,11 +526,11 @@ for cid, (code, name, reg_yr) in _OTHER_COURSE_CODES.items():
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=50.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope not specified in authoritative assessment circular; observed scope derived from actual exam questions."
             ),
         ]
     )
@@ -583,11 +583,11 @@ for cid, (code, name, reg_yr) in _S3_S4_COURSE_CODES.items():
                 student_label="End Semester",
                 role="SUMMATIVE_EXAM",
                 sequence=3,
-                marks=100.0,
+                marks=40.0,
                 raw_labels=_STANDARD_ENDSEM_LABELS,
                 syllabus_units=None,
                 has_authoritative_unit_scope=False,
-                notes="Final degree examination. Intended unit scope covers all syllabus units; observed scope derived from actual exam questions.",
+                notes="Final degree examination (scaled from 100 marks to 40% weightage under Regulation 2021 60/40 scheme). Intended unit scope covers all syllabus units; observed scope derived from actual exam questions.",
             ),
         ],
         notes="Authoritative 3-stage continuous learning assessment plan for Semester 3-4 core.",

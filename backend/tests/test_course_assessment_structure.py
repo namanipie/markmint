@@ -116,7 +116,7 @@ def test_assessment_scope_unit_enforcement(db: Session):
     assert scope_calc_ct2.has_authoritative_unit_scope is False
     assert scope_calc_ct2.intended_scope is None
     assert scope_calc_ct2.in_scope_unit_numbers == set()
-    assert set(scope_calc_ct2.observed_scope["unit_numbers"]) == {1, 2}
+    assert set(scope_calc_ct2.observed_scope["unit_numbers"]) == {1, 2, 3, 4}
 
 
 def test_prediction_candidate_restriction_by_scope(db: Session):
@@ -181,7 +181,7 @@ def test_api_endpoints_expose_assessment_structure(db: Session):
     assert snap["assessment_component"] == "CT2"
     assert "assessment_scope" in snap
     assert snap["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
-    assert set(snap["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
+    assert set(snap["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2, 3, 4}
 
     q_res = get_course_historical_questions("1", assessment_cycle="CT2", db=db)
     assert q_res["assessment_cycle"] == "CT2"
@@ -191,16 +191,16 @@ def test_api_endpoints_expose_assessment_structure(db: Session):
     assert pred["assessment_cycle"] == "CT2"
     assert pred["assessment_component"] == "CT2"
     assert pred["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
-    assert set(pred["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
+    assert set(pred["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2, 3, 4}
 
     prio = get_study_priorities(course_name="Calculus", assessment_cycle="CT2", db=db)
     assert prio["assessment_cycle"] == "CT2"
     assert prio["assessment_component"] == "CT2"
     assert prio["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
-    assert set(prio["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
+    assert set(prio["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2, 3, 4}
 
     practice = get_practice_questions(subject="1", assessment_cycle="CT2")
     assert practice["assessment_cycle"] == "CT2"
     assert practice["assessment_component"] == "CT2"
     assert practice["assessment_scope"]["evidence_status"] == "UNPLANNED_OBSERVED_ONLY"
-    assert set(practice["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2}
+    assert set(practice["assessment_scope"]["observed_scope"]["unit_numbers"]) == {1, 2, 3, 4}
