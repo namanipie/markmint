@@ -108,9 +108,23 @@ export function MathText({ content, className = "", inlineOnly = false }: MathTe
     // - Block math: $$...$$ or \[...\]
     // - LaTeX environments: \begin{...}...\end{...}
     // - Inline math: \(...\) or $...$
+    // - Differential & operator algebraic equations: (D^2 - 4)y = 0 or (D^2 + 3D + 2)y = \sin x
+    // - Equations like y = Ae^{2x} + Be^{-2x}
     // - LaTeX commands: \frac, \sqrt, \pm, \int, \cos, \sin, \tan, etc.
-    // - Algebraic equations: (D^2 - 4)y = 0, y = Ae^{2x} + Be^{-2x}, etc.
-    const regex = /(\$\$[\s\S]*?\$\$|\\\[[\s\S]*?\\\]|\\begin\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\}[\s\S]*?\\end\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\}|\\\([\s\S]*?\\\)|(?<!\\)\$((?:\\\\|\\\$|[^\$])+?)(?<!\\)\$|\\(?:frac|sqrt)(?:\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\})+(?:[\^_]\{?[a-zA-Z0-9+-]+\}?)?|\\(?:int|iint|iiint|oint|sum|prod|lim|infty|partial|nabla|sin|cos|tan|cot|sec|csc|sinh|cosh|tanh|ln|log|exp|det|vec|hat|bar|dot|ddot|tilde|alpha|beta|gamma|delta|epsilon|varepsilon|zeta|eta|theta|vartheta|iota|kappa|lambda|mu|nu|xi|pi|varpi|rho|varrho|sigma|varsigma|tau|upsilon|phi|varphi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega|times|cdot|pm|mp|approx|neq|leq|geq|le|ge|equiv|sim|propto|in|notin|subset|supset|subseteq|supseteq|cap|cup|oplus|otimes|angle|perp|circ|mathbf|mathbb|mathcal|mathrm)(?:\{[^{}]*\}|\[[^\[\]]*\]|\^[a-zA-Z0-9+\-_]|\^\{[^{}]*\}|_[a-zA-Z0-9+\-_]|_\{[^{}]*\}|[a-zA-Z0-9\(\)\,\^\+\-\*\/]+)*|(?:\(?[a-zA-Z0-9\^_\+\-\*\/\{\}]+\)?\s*[\=\+\-]\s*)+[a-zA-Z0-9\^_\+\-\*\/\{\}\(\)]+|\(?[a-zA-Z0-9]+\^[a-zA-Z0-9\{\}\+\-]+\)?(?:[a-zA-Z0-9\(\)\+\-\*\/\s\=]+)?)/g;
+    const mathCommandNames = "frac|sqrt|int|iint|iiint|oint|sum|prod|lim|infty|partial|nabla|sin|cos|tan|cot|sec|csc|sinh|cosh|tanh|ln|log|exp|det|vec|hat|bar|dot|ddot|tilde|alpha|beta|gamma|delta|epsilon|varepsilon|zeta|eta|theta|vartheta|iota|kappa|lambda|mu|nu|xi|pi|varpi|rho|varrho|sigma|varsigma|tau|upsilon|phi|varphi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Upsilon|Phi|Psi|Omega|times|cdot|pm|mp|approx|neq|leq|geq|le|ge|equiv|sim|propto|in|notin|subset|supset|subseteq|supseteq|cap|cup|oplus|otimes|angle|perp|circ|mathbf|mathbb|mathcal|mathrm";
+
+    const regex = new RegExp(
+      "(" +
+        "\\$\\$[\\s\\S]*?\\$\\$|\\\\\\[[\\s\\S]*?\\\\\\]|" +
+        "\\\\begin\\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\\}[\\s\\S]*?\\\\end\\{(?:matrix|pmatrix|bmatrix|vmatrix|Vmatrix|cases|aligned|align)\\}|" +
+        "\\\\\\([\\s\\S]*?\\\\\\)|" +
+        "(?<!\\\\)\\$((?:\\\\\\\\|\\\\\\$|[^\\$])+?)(?<!\\\\)\\$|" +
+        "\\([a-zA-Z0-9\\^\\+\\-\\s\\*\\/]+\\)[a-zA-Z0-9\\^\\_\\s]*(?:\\=\\s*(?:[0-9]+|\\\\[a-zA-Z]+(?:\\s+[a-zA-Z0-9]+)?|[a-zA-Z0-9\\^\\_]+))|" +
+        "[a-zA-Z]\\s*\\=\\s*(?:[a-zA-Z0-9\\^\\_\\+\\-\\(\\)\\{\\}]|\\\\[a-zA-Z]+|\\s)+|" +
+        "\\\\(?:" + mathCommandNames + ")(?:\\{[^{}]*(?:\\{[^{}]*\\}[^{}]*)*\\}|\\[[^\\[\\]]*\\]|\\^[a-zA-Z0-9+\\-_]|\\^\\{[^{}]*\\}|_[a-zA-Z0-9+\\-_]|_\\{[^{}]*\\}|[a-zA-Z0-9\\(\\)\\,\\^\\+\\-\\*\\/\\s]+)*" +
+      ")",
+      "g"
+    );
 
     const tokens: { type: "text" | "inline-math" | "block-math"; value: string; html?: string }[] = [];
     let lastIndex = 0;
@@ -208,7 +222,7 @@ export function MathText({ content, className = "", inlineOnly = false }: MathTe
         return (
           <span
             key={index}
-            className="inline-block px-0.5 font-serif"
+            className="inline-block px-0.5 font-serif max-w-full overflow-x-auto align-middle"
             dangerouslySetInnerHTML={{ __html: part.html }}
           />
         );

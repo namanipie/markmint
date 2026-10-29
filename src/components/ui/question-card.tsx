@@ -1,3 +1,4 @@
+import { MathText } from "@/components/ui/math-text";
 "use client";
 
 import { motion } from "framer-motion";
@@ -45,7 +46,7 @@ export function QuestionCard({ question, onClick, className }: QuestionCardProps
         </div>
       </div>
       <p className="line-clamp-3 text-sm text-foreground">
-        {question.text}
+        <MathText content={question.text} />
       </p>
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-2 text-xs font-medium">
         <span className="rounded-full bg-accent/10 px-2 py-1 text-accent-foreground">

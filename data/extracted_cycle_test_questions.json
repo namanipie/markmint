@@ -2151,13 +2151,13 @@
     "q_num": 3,
     "question_text": "In spectrochemical series, the order of ligands is \n(a) n acceptor < donor < o donor \n(c) n donor < o donor < t acceptor \nDate: 12-0 92025",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Chemistry",
     "cycle": "CT1",
     "source_file": "CT_12-09-2025 chem.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
@@ -2175,25 +2175,25 @@
     "q_num": 1,
     "question_text": "Which of the following octahedral complexes of cobalt will have highest magnitude of Aoet? \n(c) [CoBraJ² \n1 \n3 \nPO \n(bo acceptor <n donor <o donor \n(d) n acccptor < o donor <n donor \nSet- 2",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Chemistry",
     "cycle": "CT1",
     "source_file": "CT_12-09-2025 chem.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 1,
     "question_text": "In K«Fe(CN)Js] complex, the number of unpaired clectrons in iron are: \n(d) 4 \n(b) K,[Fe(CN)] \n(d) [Pi(NH3).]Cl: \nRAQ3IONEO O32) \n(c) 4. \n(b) 0.30 \nare: T209-20s \nMarks: 25 marks \n(d) s \n3 \n3 \n(c) 1.65 \n3 \n2 \n3 \n3",
     "marks": 25,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Chemistry",
     "cycle": "CT1",
     "source_file": "CT_12-09-2025 chem.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -2211,13 +2211,13 @@
     "q_num": 2,
     "question_text": "Which of the following is a complex compound in which the oxidation state of the metal is zero? \n(a) K.[Fe(CN)6] \n4, The effective nuclear charge experienced by an electron of Helium atom is \n(a) 0.35 \n3 \n(d) 1.70 \n4",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Chemistry",
     "cycle": "CT1",
     "source_file": "CT_12-09-2025 chem.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
@@ -4035,25 +4035,25 @@
     "q_num": 1,
     "question_text": "What does extensive reading focus on compared to intensive reading? (BL -2 CO - 1 PO - 10)\nA) Grammatical structure and vocabulary B) Comprehension of the general idea\nC) Identifying disciplinary differences D) Analysis of prefixes, suffixes, and root words",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
     "question_text": "When abstracting information from a bar chart, which of the following is most crucial?\n(BL -2 CO - 1PO - 10)\nA) Using comparative adjectives B) Explaining the process of data collection\nC) Identifying trends and relationships D) Summarizing the text accompanying the chart",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -4092,13 +4092,13 @@
     "q_num": 4,
     "question_text": "What is a significant challenge when analyzing information from digital sources? (BL - 5 CO - 2 PO - 10) A) Determining the credibility of the sources B) Recognizing acceptable online behaviors\nC) Using tools to check grammar D) Understanding non-verbal cues in digital platforms",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
@@ -4166,25 +4166,25 @@
     "q_num": 7,
     "question_text": "Which of the phrases follows netiquette principles in an email? (BL - 5 CO - 3 PO - 10)\nA) \"Please revert back at the earliest.\" B) \"This task is overdue! Kindly finish it ASAP.\"\nC) \"I appreciate your prompt attention to this matter.\"\nD) \"Why haven't you replied to my previous message?\"",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 8,
     "question_text": "What is the correct form of a conditional sentence for the following: (BL - 2 CO - 4 PO - 10)\n\"If you _______ (prepare) well, you _______ (succeed) in the test.\" A) prepare; would succeed B) had prepared; would have succeeded\nC) prepares; will succeed D) will prepare; will succeed",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 9,
@@ -4244,13 +4244,13 @@
     "q_num": 11,
     "question_text": "In business communication, paralinguistic features refer to: (BL - 5 CO - 4 PO - 10)\nA) Proper use of grammar B) Non-verbal aspects such as tone and body language\nC) Structured presentation slides D) Using formal vocabulary\nPART-B - (3x8=24 Marks)",
     "marks": 24,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT1",
     "source_file": "ANSWER_KEY_Keys-SET B.docx",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 12,
@@ -4677,13 +4677,13 @@
     "q_num": 5,
     "question_text": "What is the synonym of \"gregarious\"? (BL-3, CO-4, PO-10) \nA. Shy B. Outgoing C. Reserved D. Withdrawn",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP SET A.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 6,
@@ -4788,37 +4788,37 @@
     "q_num": 9,
     "question_text": "Which of the following would be considered poor netiquette in an email? \n (BL-4, CO-3, PO-10) \nA. Using a formal greeting with a colleague. B. Typing the entire message in uppercase \nletters. C. Ending the email with a polite closing line. D. Using a clear subject line.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP SET A.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 10,
     "question_text": "What is the primary goal of the \"Where do you see yourself in five years?\" question \nduring an interview? (BL-1, CO-4, PO-10) \nA. To test your imagination and creativity. B. To gauge your familiarity with industry \ntrends. C. To understand your current skills in detail. \nD. To evaluate your long-term career goals and alignment with the organization.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP SET A.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 11,
     "question_text": "Which of the following is an example of semantic noise in communication? \n (BL-1, CO-2, PO-10) \nA. A message being too complicated to understand. B. A poor internet connection during \na webinar. C. Distractions like background noise during a meeting. \nD. Participants speaking at the same time in a discussion. \nPART-B - (3x8=24 Marks) \nAnswer the following questions as directed.",
     "marks": 24,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": "the following questions as directed.",
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP SET A.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 13,
@@ -5006,13 +5006,13 @@
     "q_num": 1,
     "question_text": "The word Commūnicāre means ______ in Latin. (BL-4, CO-3, PO-10) \na. \nto deliver b) to share c) to present d) to sacrifice",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "______ in Latin. (BL-4, CO-3, PO-10)",
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 1.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
@@ -5327,13 +5327,13 @@
     "q_num": 13,
     "question_text": "a. Compare the features and utility of Extensive and Intensive Reading with \nreference to the books and articles you have read. (BL-2, CO-1, PO-10) \n(OR) \nb. Briefly describe the problems and opportunities in handling digital resources for the \npurpose of education. (Essay word limit 150 words). (BL-4, CO-3, PO-10)",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 1.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 15,
@@ -5540,13 +5540,13 @@
     "q_num": 6,
     "question_text": "Determine the type of clause in the sentence \"because I was tired.\" \n(BL-2, CO-2, PO-10) \nA) Independent clause B) Dependent clause C) Relative clause D) Subordinate clause",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 3.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 7,
@@ -5684,13 +5684,13 @@
     "q_num": 11,
     "question_text": "Which verb form is most appropriate for describing an action that will occur at a \nspecific time in the future? \n(BL-3, CO-5, PO-10) \nA) Present Simple B) Present Continuous C) Future Simple D) Future Perfect \n\n \n2 \nPART B (3x8=24 Marks) \nAnswer the following questions as instructed.",
     "marks": 24,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": "the following questions as instructed.",
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 3.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 12,
@@ -6454,25 +6454,25 @@
     "q_num": 2,
     "question_text": "Reading the titles, subtitles and topic sentences can be classified under__________ \n (BL -2 CO - 1PO - 10) \na. Skimming b) Scanning c) Intensive reading d) Critical reading",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 5.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
     "question_text": "Identify the pattern in the following sentence: \"The old man walked slowly down the \nstreet.\" (BL -1 CO - 2 PO - 10) \na. \nSVO b) SVC c) SVA d) SVAA",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 5.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 4,
@@ -6577,13 +6577,13 @@
     "q_num": 7,
     "question_text": "Choose the best option as an example of asynchronous communication. (BL -5 CO -3PO \n-10) \na. \nA phone call b)A live chat c) A video conference d) Email",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 5.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 8,
@@ -6688,13 +6688,13 @@
     "q_num": 11,
     "question_text": "Which of the following is NOT a key skill required for effective participation in a \ngroup discussion? \n \n \n \n \n \n \n \n(BL - 5 CO - 4 PO - 10) \na. \nActive Listening b)Assertiveness c) Dominance d) Critical Thinking \n \nPART - B (3 x 8 = 24 Marks) \nAnswer ALL the following questions as directed in not less than 150 words",
     "marks": 24,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": "skill required for effective participation in a",
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 5.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 15,
@@ -6790,13 +6790,13 @@
     "q_num": 3,
     "question_text": "The president, as well as his advisors, _____ making crucial decisions about the \neconomy. Fill in the blank. (BL-4, CO-5, PO-10) \na. are \n b. is \nc. were \nd. have",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 6.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 4,
@@ -6868,13 +6868,13 @@
     "q_num": 10,
     "question_text": "a. Research on renewable energy has been conducted for years. \nb. Research on renewable energy has been being conducted for years. \nc. Research on renewable energy has been conducted for years. \nd. Research on renewable energy has been conducted for years by them.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 6.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 7,
@@ -7048,49 +7048,49 @@
     "q_num": 10,
     "question_text": "a) Zoom b) WhatsApp Call c) Email d) Microsoft Teams (Real-Time Chat)",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 7.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 10,
     "question_text": "a) Plagiarism \nb) Citing all sources properly \nc) Cheating during an examination \nd) Submitting someone else's work as your own",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 7.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 10,
     "question_text": "a) Access to global resources \nb) Flexibility in learning schedules \nc) Immediate teacher-student interaction \nd) Reduced learning costs",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 7.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 10,
     "question_text": "a) Dear Sir/Madam b) Hey! c) Hello there! d) What's up? \nPART-B - (3x8=24 Marks)",
     "marks": 24,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 7.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 1,
@@ -7216,13 +7216,13 @@
     "q_num": 1,
     "question_text": "Which of these is a method for reading to locate specific information quickly? (BL-1, \nCO-3, PO-10) \na. \nScanning b.Extensive reading c.Intensive reading d.Paraphrasing",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 8.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
@@ -7240,13 +7240,13 @@
     "q_num": 10,
     "question_text": "a. \nFacial expressions b.Gestures c.Spoken words d.Body language",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 8.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -7285,25 +7285,25 @@
     "q_num": 4,
     "question_text": "Fill in the blank with the correct verb tense: (BL-3, CO-2, PO-10) \n\"By the time we reached the station, the train __________.\" \na. \nhas left b.had left c.will leave d.is leaving",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 8.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
     "question_text": "Which of these tools is used for asynchronous communication? (BL-2, CO-3, PO-10) \na. \nZoom b.Slack c.Face-to-face meetings d.Whiteboard discussions",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 8.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 6,
@@ -7342,13 +7342,13 @@
     "q_num": 7,
     "question_text": "Which prefix can form the antonym of the word \"responsible\"? (BL-3, CO-1, PO-10) \na. \nun- b.in- c. non- d.ir-",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Communicative English",
     "cycle": "CT2",
     "source_file": "MODEL_Model QP-ODD-Set 8.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 8,
@@ -8975,13 +8975,13 @@
     "q_num": 64,
     "question_text": "bit instruction set \nb.\nSIMD (Single Instruction, Multiple Data) support \nc.\nVariable-length instruction encoding \nd.\nSuperscalar execution \n1\n1\n5\n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Computer Organization and Architecture",
     "cycle": "CT3",
     "source_file": "CT3_coa ct3 set c answer key.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 1,
@@ -9634,13 +9634,13 @@
     "q_num": 4,
     "question_text": "What is the postfix expression of the following infix expression: \n((A + B) * (C - D)) / ((E ^ F) + G) \nAnswer: A B + C D - * E F ^ G + / \n \nPart - B (2 x 5 = 10 Marks)",
     "marks": 10,
-    "q_type": "Part C (Comprehensive)",
+    "q_type": "MCQ",
     "answer_key": "A B + C D - * E F ^ G + /",
     "subject": "Data Structures and Algorithms",
     "cycle": "CT2",
     "source_file": "CT2_DSA CT 2 SET A Key.pdf",
-    "is_mcq": false,
-    "section": "Part C (Comprehensive Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
@@ -15409,61 +15409,61 @@
     "q_num": 1,
     "question_text": "Which of the following is the Einstein equation for semiconductor. \n a) D = µVT b) VT= µD c) µ= DVT d) None of these \n1 \n1 \n1 \n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Electronic System and PCB Design",
     "cycle": "CT1",
     "source_file": "CT1_21ecc101j-pcb-design-qa-for-ct-1-exam-and-solutions.PDF",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
     "question_text": "Which of the following equation represents mass action law for \nsemiconductors in electronic circuits? \na) n × p = ni b) n × p = ni2 c) n × p =ni3 d) n × p =ni1/2 \n1 \n1 \n1 \n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Electronic System and PCB Design",
     "cycle": "CT1",
     "source_file": "CT1_21ecc101j-pcb-design-qa-for-ct-1-exam-and-solutions.PDF",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
     "question_text": "In _____________region does BJT act as the amplifier electronic device? \na) Cut-off b) Saturation c) Active d) Reverse saturation \n1 \n1 \n1 \n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Electronic System and PCB Design",
     "cycle": "CT1",
     "source_file": "CT1_21ecc101j-pcb-design-qa-for-ct-1-exam-and-solutions.PDF",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 4,
     "question_text": "In Common Emitter Transistor current gain is 50 then which of the following \nis current gain of Common Base transistor. \na) 0.99 b) 0.97 c)0.97 d)0.98 \n1 \n4 \n1 \n2",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "istor current gain is 50 then which of the following",
     "subject": "Electronic System and PCB Design",
     "cycle": "CT1",
     "source_file": "CT1_21ecc101j-pcb-design-qa-for-ct-1-exam-and-solutions.PDF",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
     "question_text": "If _______________ then MOSFET is in saturation mode \n a) VDS ≥ (VGS - VT ) b) VDS < (VGS - VT ) \n c) VGS ≥ (VDS - VT) d) VGS < (VDS - VT) \n1 \n2 \n1 \n2",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Electronic System and PCB Design",
     "cycle": "CT1",
     "source_file": "CT1_21ecc101j-pcb-design-qa-for-ct-1-exam-and-solutions.PDF",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -17618,13 +17618,13 @@
     "q_num": 6,
     "question_text": "7, If u1 =1,u3 =17,u4 = 43 and uS =89, the value of uz is\nPage 4 of4\nx 0 I\n,,\n5\nv\n\"|\n3 t2\n147\n(B) l/tr),r'(r)1. l{,r'(r)}12\n(D) l/{,).r,(,)1, l{.r(,)}12",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_1.18MAB202T (OR)15MA206 (Nov 2016).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -17696,37 +17696,37 @@
     "q_num": 10,
     "question_text": "(A) Odd\n(C) Multiple of 3",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_1.18MAB202T (OR)15MA206 (Nov 2016).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 12,
     "question_text": "The error in Trapezoidal rule is of order\n(A) h2\nn\n(A) Taylor's formula\n(C) Milne's predictor formula\n(A) 3\n(c) 4",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_1.18MAB202T (OR)15MA206 (Nov 2016).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 15,
     "question_text": "Predictor corrector method are\nk+ = .12105\n(A) 0.130s\n(c) o.1lo34",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_1.18MAB202T (OR)15MA206 (Nov 2016).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 17,
@@ -17810,13 +17810,13 @@
     "q_num": 28,
     "question_text": "a-i. Given the following data\nFind the parabola of best fit using least square method.\nii. Fioa the positive root ofx3 -2x - 5-0 by Regula Falsi method.\nPage 3 of4\n(B) 25\n(D) I\n(c) h3\n6",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_1.18MAB202T (OR)15MA206 (Nov 2016).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 13,
@@ -17943,25 +17943,25 @@
     "q_num": 2,
     "question_text": "Identify one of the direct method to solve a system of simulaneous linear \n11 \nequation is \n(A) Gauss-Jacobi mcthod \n(C) Gauss-Seidel mcthod \n10 \n3 \n4 \n2",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB2012T July 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 29,
     "question_text": "a. \n(0)=1 by using fourth order Runge-Kutta method and \n(B) Gauss elimination metbod \nD) Newton's method\nevaluate y when x=0.1. \n(OR) \nb.i. Using \nTaylor's \nseries \neth0d.",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB2012T July 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -18099,25 +18099,25 @@
     "q_num": 19,
     "question_text": "State the enor tem in Milne's predlctor forrula\n(B) 14o \n45 \n19h \n(A) \n720 o \nC)14h a \nt \nthrew tems in the Neut îrgy fvwand interolation fonnula will \n2 \nLinar interpatm\nC \nadrai atergviaion",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB2012T July 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 8,
     "question_text": "Parahulic intemalation \nD) hperbolie interpolatien \n90 \n1 \n42 \ntiaanon is tde pmss ef \nAadig the vaks cUnite the (B) Fndng the values inside the \nickenai (a \nang de vabs oftho conetant (D) F'nding the vulues of the variables",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB2012T July 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 20,
@@ -18305,13 +18305,13 @@
     "q_num": 4,
     "question_text": "The condition for convergence of a function *= #(r) in any iterative method is \n(B) Jor>1\n(A) oa< 1 \n(C)loC)>1 \nD) lotx<",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB202T NM Dec 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 5,
@@ -18483,13 +18483,13 @@
     "q_num": 14,
     "question_text": "The eror in Trapezoidal rule is \n(B) \n(A) -li \n12 \nEl-a \n(DI- a)h \n2",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB202T NM Dec 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 15,
@@ -18611,13 +18611,13 @@
     "q_num": 22,
     "question_text": "Bender-Schnidt scheme converges for \n(A) 2=1 \n(D) \n(C) =3",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB202T NM Dec 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 23,
@@ -18668,13 +18668,13 @@
     "q_num": 27,
     "question_text": "a. The population of a town is as follows.\n10 \nYear: x \n1941 1951 1961 1971 1981 1991 \nPopulation in lakhs: y 20 \n24 \n29 \n36 \n46 \n51 \nEstimate the population increase during the period 1946 to 1976.\n(OR) \nb. Using Lagrange's interpolation formula find y(l) from the following tabl \n0 \n0 \n2 3 \ny-8 3:1.12",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB202T NM Dec 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 28,
@@ -18704,13 +18704,13 @@
     "q_num": 30,
     "question_text": "a. Solve uu tuy =0 over the square mesh of sides 4 units, satisfying the following \nboundary conditions: (Divide the square mesh into l6 sub squares)\n()u0.y)=0 for0sys4 \nu(4.y)=12+y forOs ys4 \n(ii) \nu(x.0)=3x for0sxs4\nu(x.4)=x* for0SxS4\n(i) \n(iv) \n(OR) \nb. Solve 25u,u =u, for u at the pivotal points. gven \nu(0.t)=u(5.t)=0.u,(x,0)=0 andu(%.u)= 2x",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_18MAB202T NM Dec 2022.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 10,
@@ -18728,13 +18728,13 @@
     "q_num": 29,
     "question_text": "a. Thepopulation of a town is as follows.\nYear\nt94t\n1951\n1961 t97l\n1981\n1991\nPopulation (in lakhs)\n20\n24\n29\n36\n46\n51\nEstimate the population during the period 1946 and 1976.\nb. Using Newton's divided difflerence t:ti]ta frnd the values of f(2), f(8) and f(15) from\nthe following data.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 30,
@@ -18776,25 +18776,25 @@
     "q_num": 1,
     "question_text": "The condition for the convergence of Newton-Raphson method in solving \"f(x) - 0 ls\n(A) f@)f\"{*)l'lf'@\\72\n(c) \nl,r(r),r'(*)l rfy,tilz",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 2,
     "question_text": "The order of convergence of Regula-Falsi method is\n(B) fr,l/rrll .lf\"@)12\n'' l/'(,1/\\,)l .[f(*))2\n(B) 2.618\n(D) -1.618\n(A) -2.618\n(c) 1.6r8",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 3,
@@ -18854,13 +18854,13 @@
     "q_num": 6,
     "question_text": "The nft divided difference of a polynomial is\n(A) Zero\n(C) Constant",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 7,
@@ -18891,37 +18891,37 @@
     "q_num": 8,
     "question_text": "The operator E is called\n(A) Forward difference operator\n(C) Backward difference operator\n(A) 0.024ss\n(c) -o.ooo:\n(A) Ellipse\n(C) Parabola\n(A) h4\n(c) t2\n(A) Points\n(C) Tangents\n(A) 0.0904837s\n(c) 0.823366",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 16,
     "question_text": "To apply'Milne's method we need atleast\nvalue of Y.\n(^) 2\n(c) 1\n(A) Laplace equation\n(C) One dimensional heat equation\n(A)\n(c)\ng. If h -1, Lyo =0.0244, L2yo =-0.0003, A3yo = 0, then the value, [#)r=r, ,,",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 19,
     "question_text": "The Laplace equation *.*=0 \nis of\naxo fu'\n(A) Elliptic\n(C) Parabolic\n^) \n^)",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 29,
@@ -18964,13 +18964,13 @@
     "q_num": 1,
     "question_text": "1. In Simpson's one-third rule, y(x) is a polynomial of degree _.\n(A) One\n(C) Three\nThe error in the Trapezoidal rule is of the order",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 21,
@@ -19009,13 +19009,13 @@
     "q_num": 15,
     "question_text": "(B) h\n(D) rf\n(B) 0.0902s146\n(D) 0.8re02s\n.(B) ohz\n)\n(D) zn2\nct\nprior values of Y to get the required\n23' E\"pr.r, Zi -Zxz +7x-infactorial polynomial taking h: 1.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 24,
@@ -19045,13 +19045,13 @@
     "q_num": 26,
     "question_text": ")7\ny' =x* y,.y(0):l at x=0.2.\n(8 Marks)\n(4 Marks)\n(B) 3\n(D) 4\n(B) Poisson's equation\n(D) Two dimensional heat equation\nr6MA1{ir5MA2o6\nolto\nx\n-.1\n3\n6\nl1\nv\n4\n32\n224\n1344",
     "marks": 8,
-    "q_type": "Part B (Medium Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_4.18MAB202T (OR)15MA206 (May 2018).pdf",
-    "is_mcq": false,
-    "section": "Part B (Medium Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 17,
@@ -19240,13 +19240,13 @@
     "q_num": 10,
     "question_text": "Simpson's three-eight rule can be applied only when n is\n(A) Odd\n(C) Prime\n1 1. Simpson's one-third rule is also called\n(A) Parabolic rule\n(C) Elliptic rule\n(A) Points\n(C) Cuwes\n(A) 4\n(c) 2",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_6.18MAB202T(OR)15MA206(May 2017).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 16,
@@ -19264,25 +19264,25 @@
     "q_num": 24,
     "question_text": "(B) x:tt2\n(D) ;r--stz",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_6.18MAB202T(OR)15MA206(May 2017).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 13,
     "question_text": "Taylor's series method is\n(A) Single step method\n(C) Iterative method",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_6.18MAB202T(OR)15MA206(May 2017).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 22,
@@ -19329,25 +19329,25 @@
     "q_num": 17,
     "question_text": "lf 82 -4AC>O,then the second order PDE is known as\n(A) Elliptic\n(C) Hyperbolic",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_6.18MAB202T(OR)15MA206(May 2017).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 18,
     "question_text": "The nature of the PDE l; -2f* =0 is\n(A) Elliptic\n(C) Hyperbolic\nPage 2 of 4",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Numerical Methods & Analysis",
     "cycle": "CT1",
     "source_file": "CT_6.18MAB202T(OR)15MA206(May 2017).pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 26,
@@ -21027,13 +21027,13 @@
     "q_num": 2,
     "question_text": "1.2 \n\n4 \n5 \n6 \nB) 3 \nC) 2 \nD) -1 \nGuess the output of the below code: \n#include<stdio.h> \nint main0 \ndouble x-78.999: \nprintf(\"%2f. x)k \nreturn 0:. \nA)",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Programming For Problem Solving",
     "cycle": "CT1",
     "source_file": "CT1_PPS CT1 Papers 24-09-2025.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 78,
@@ -22184,13 +22184,13 @@
     "q_num": 18,
     "question_text": "Femina needs to concatenates two given strings and store the result in another string. Help femina to \nconcatenate two strings from the standard input device and write a loop to copy each character of the first \nstring into third string till the end of the first string. She also wants to copy each character of the second string \ninto third string till the end of second string.\nInput: \nEnter the first string·:·Rajesh\nEnter the second string·: Kanna\nOutput:\nThe concatenated string·= RajeshKanna\nSolution:\n#include <stdio.h>\nvoid main() {\nchar a[20], b[20], c[20];\nint i, j;\nprintf(\"Enter the first string : \");\nscanf(\"%s\", a);\nprintf(\"Enter the second string : \");\nscanf(\"%s\", b);\nfor ( i = 0; a[i] != '\\0'; i++ ) { // Complete the code in for\nc[i] = a[i] ; //Complete the statement\n}\nfor ( j = 0; b[j] != '\\0'; j++ ) { // Complete the code in for\nc[i] =b[j] ; //Complete the statement\ni++;\n}\nc[i] ='\\0' ; //Complete the statement\nprintf(\"The concatenated string = %s\\n\", c);\n}\n(v) Problem:",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "#include <stdio.h>",
     "subject": "Programming For Problem Solving",
     "cycle": "CT1",
     "source_file": "CT_PPS CT Compilation Paper Set 4.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 19,
@@ -22744,13 +22744,13 @@
     "q_num": 6,
     "question_text": "Photo diode acts as a…….. \n a. Inductor \n b. Capacitor \n c. Sensor \n d. Insulator \nAns: C \n1 \n1 \n2 \n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "C",
     "subject": "Semiconductor Physics and Computational Methods",
     "cycle": "CT2",
     "source_file": "CT2_ANS KEY CT-2 D21 FINAL.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 7,
@@ -23461,13 +23461,13 @@
     "q_num": 3,
     "question_text": "The expression for drift current density due \nto electrons is given by \na .J = pμeE \nb. J = pμeV \nc. J = nμeE \nd. J = nμeV \n Ans: C \n1 \n1 \n2 \n1",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "C",
     "subject": "Semiconductor Physics and Computational Methods",
     "cycle": "CT2",
     "source_file": "CT2_D22 CT-2 ANSWER KEY.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 4,
@@ -23584,25 +23584,25 @@
     "q_num": 7,
     "question_text": "11-2023 \nb. \nJ= \npeV \na. \nJ= \npuE \n1 \n1 \n2 \n1 \nto \nelectrons \nis \ngiven \nby....",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Semiconductor Physics and Computational Methods",
     "cycle": "CT2",
     "source_file": "CT2_MCQ B21 CT-2 answer key.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 4,
     "question_text": "The \néxpression \nfor \ndrift \ncurrent \ndensity \ndue \nAcademic \nYear: \n2023-24 \n(ODD) \nSRM \nNagar, \nKattankulathur \n-\n603203, \nChengalpattu \nDistrict, \nTamilnadu \nDEPARTMENT \nOF \nPHYSICS \nAND \nd. \nom \n=0 C. \nQm< op b. \nOm \n= \np \n1 \n1 \n2 \n1 \nSchool \nof \nBasic \nSciences \nCollege \nof \nEngineering \nand \nTechnology \nSRM \nInstitute \nof \nScience \nand \nTechnology \n3 \na. \nOm \n> \nop \nthe \nrectifying \njunction \nis \nformed \nwhen \n-----\nGSRM \n(eed \niotr \nUriverrty \nesAK \n^ \nISSTTEOF \n5CTSCE \nMode \nof \nExam: \nOFF \nLINE \nB22 \n(EVEN) \ntransition \nNANOTECHNOLOGY \ntype \nsemiconductor \nand \na \nmetal, \nrespectively, \nIf \nOp \nand \nOm \nare \nthe \nwork \nfunctions of p \n&1ECINULKN \n\nQ.NO \n1 \nb \n11 \nAnswers: \nQ.No \n2 \nAsst. Prof. \nQ.No \nb \n3 \nC \nIf the number of upward transitions per \nseconds exceeds the number of downward \ntransitions, \nis achieved. \na. \nb. \nC \nDr. P. Bandyopadhyay \nMomentum of electrons \nAbsorption energy of electron \nTransition rate per unit volume \nOptical gain \nOptical loss \nEquilibrium \nAbsorption \nQ.No Q.No \nQ.No Q.No \n4 \n5 \nDr. G \n6 \n7 \nb \nDr. Tusharbhai H Rana \nCoordinator \n1 \n1 \nQ.No \n10",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "ition",
     "subject": "Semiconductor Physics and Computational Methods",
     "cycle": "CT2",
     "source_file": "CT2_MCQ B21 CT-2 answer key.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 0,
@@ -25316,13 +25316,13 @@
     "q_num": 90,
     "question_text": "Translate the exp (a+b)*(c+d)+(a+b+c) into \nQuadruple b) Triples c) Indirect triples.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": "late the exp (a+b)*(c+d)+(a+b+c) into",
     "subject": "Compiler Design",
     "cycle": "CT1",
     "source_file": "Compiler_Design_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 91,
@@ -25605,13 +25605,13 @@
     "q_num": 14,
     "question_text": "a. Discuss the Language for specifying Lexical analyzer\n b. Explain the design of a Lexical analyzer generator",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Compiler Design",
     "cycle": "CT1",
     "source_file": "Compiler_Design_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 15,
@@ -25701,13 +25701,13 @@
     "q_num": 22,
     "question_text": "a. Check whether the following grammar is a LL(1) grammar\nS->iEtS | iEtSeS | a\nE->b\n b. Explain the first and follow procedures to construct a predictive parser.",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Compiler Design",
     "cycle": "CT1",
     "source_file": "Compiler_Design_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 23,
@@ -25773,13 +25773,13 @@
     "q_num": 28,
     "question_text": "a. Construct the LR(0) items for the Grammar given below \n(8)\n E -> E + T | T\n T -> TF | F\n F -> F * | a | b\n b. Construct a SLR parsing table for the above",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Compiler Design",
     "cycle": "CT1",
     "source_file": "Compiler_Design_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 29,
@@ -25809,13 +25809,13 @@
     "q_num": 31,
     "question_text": "Write short notes on: \n a) Left factoring b) Handle pruning c) Left recursion & backtracking",
     "marks": 2,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Compiler Design",
     "cycle": "CT1",
     "source_file": "Compiler_Design_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "q_num": 32,
@@ -28025,14 +28025,14 @@
     "q_num": 3,
     "question_text": "Which of the following is a important role of a function?\nA. give a name to a block of code\nB, reduce program size\nC. accept arguments and provide a return value\nD. help organize a program into conceptual units",
     "marks": 1,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "answer_key": null,
     "subject": "Object Oriented Design and Programming",
     "cycle": "CT1",
     "unit": 1,
     "source_file": "Object_Oriented_Design_and_Programming_CT1_Question_Bank.pdf",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)",
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)",
     "explanation": "Correct option is (D)."
   },
   {
@@ -38793,7 +38793,7 @@
     "q_num": "26",
     "question_text": "Draw the Fischer projection of (S)-2-hydroxybutanoic Acid, CH_3 CH_2 CH(OH)COOH. Find R/S for each of the following Fischer Projections a., b., c.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -38801,7 +38801,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -38809,7 +38809,7 @@
     "q_num": "27",
     "question_text": "Convert the following Fischer projections to Newman Projections a., b.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -38817,7 +38817,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -38857,7 +38857,7 @@
     "q_num": "30",
     "question_text": "Write notes on Fischer projection.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -38865,7 +38865,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39288,15 +39288,15 @@
     "q_num": "6",
     "question_text": "How many optical isomers are possible in a compound with one chiral carbon? a) 5 b) 4 c) 2 d) 3",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Optical Activity and Chirality",
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Optical Activity and Chirality.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39304,15 +39304,15 @@
     "q_num": "8",
     "question_text": "The infinity of intermediate conformations is called a) Skew conformations b) Staggered conformations c) Eclipsed conformations d) Gauche",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Conformational Analysis",
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Conformational Analysis.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39368,7 +39368,7 @@
     "q_num": "26",
     "question_text": "Draw the Fischer projection of (S)-2-hydroxybutanoic Acid, CH_3 CH_2 CH(OH)COOH. Find R/S for each of the following Fischer Projections a., b., c.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -39376,7 +39376,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39384,7 +39384,7 @@
     "q_num": "27",
     "question_text": "Convert the following Fischer projections to Newman Projections a., b.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -39392,7 +39392,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39432,7 +39432,7 @@
     "q_num": "30",
     "question_text": "Write notes on Fischer projection.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
@@ -39440,7 +39440,7 @@
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Stereochemical Projections.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
     "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "section": "Part B (Medium Answer Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39863,15 +39863,15 @@
     "q_num": "8",
     "question_text": "The infinity of intermediate conformations is called a) Skew conformations b) Staggered conformations c) Eclipsed conformations d) Gauche",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Conformational Analysis",
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Conformational Analysis.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Chemistry",
@@ -39879,15 +39879,15 @@
     "q_num": "24",
     "question_text": "a.i. Give the differences between thermoplastic and thermosets. 4 I 4 I ii. How polyurethane is prepared? Give its properties and uses. 4 I 4 1 b. Write as hort note on conducting polymer. Explain n and p doping in 2 4 I conducting polymer.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Polymer Types",
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Polymer Types.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Chemistry",
@@ -40139,15 +40139,15 @@
     "q_num": "24",
     "question_text": "a.i. Give the differences between thermoplastic and thermosets. 4 I 4 I ii. How polyurethane is prepared? Give its properties and uses. 4 I 4 1 b. Write as hort note on conducting polymer. Explain n and p doping in 2 4 I conducting polymer.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Polymer Types",
     "source_file": "SEM1-CHEM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Polymer Types.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Chemistry",
@@ -40486,15 +40486,15 @@
     "q_num": "12",
     "question_text": "--------is related to the systematic mental processes prior to actions and 1 2 3 3 conceptualization (pre-execution) stages for planning composing and decision making. A)Design as activity B) Design as planning C) Design as epistemology D) Design as enterprising",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Design Epistemology and Engineering Knowledge Base",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Design Epistemology and Engineering Knowledge Base.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -40682,15 +40682,15 @@
     "q_num": "9",
     "question_text": "What is the primary relationship between science, technology, and engineering? A) Science creates theoretical knowledge, technology applies it, and engineering solves real-world problems using both B) Science focuses on building machines, technology designs solutions, and engineering theorizes ideas C) Engineering creates theories, while science and technology develop products D) Technology and science are independent, with no connection to engineering",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Relations Between Science, Technology, and Engineering",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Relations Between Science, Technology, and Engineering.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -40698,15 +40698,15 @@
     "q_num": "11",
     "question_text": "What is the RIASEC model primarily used for? A) Predicting technological trends B) Understanding career choices and personality types C) Designing engineering products D) Building software applications",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "RIASEC Model and Engineering Typology",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of RIASEC Model and Engineering Typology.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -40939,15 +40939,15 @@
     "q_num": "12",
     "question_text": "--------is related to the systematic mental processes prior to actions and 1 2 3 3 conceptualization (pre-execution) stages for planning composing and decision making. A)Design as activity B) Design as planning C) Design as epistemology D) Design as enterprising",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Design Epistemology and Engineering Knowledge Base",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Design Epistemology and Engineering Knowledge Base.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41135,15 +41135,15 @@
     "q_num": "9",
     "question_text": "What is the primary relationship between science, technology, and engineering? A) Science creates theoretical knowledge, technology applies it, and engineering solves real-world problems using both B) Science focuses on building machines, technology designs solutions, and engineering theorizes ideas C) Engineering creates theories, while science and technology develop products D) Technology and science are independent, with no connection to engineering",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Relations Between Science, Technology, and Engineering",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Relations Between Science, Technology, and Engineering.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41151,15 +41151,15 @@
     "q_num": "11",
     "question_text": "What is the RIASEC model primarily used for? A) Predicting technological trends B) Understanding career choices and personality types C) Designing engineering products D) Building software applications",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "RIASEC Model and Engineering Typology",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of RIASEC Model and Engineering Typology.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41353,15 +41353,15 @@
     "q_num": "14",
     "question_text": "The current instructional design models are spin-offs or variations of the i 2 4 3 A) Scientific model B) Engineers model C) RAISEC model D) ADDIE model",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "ADDIE Model and Instructional System Design",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of ADDIE Model and Instructional System Design.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41613,15 +41613,15 @@
     "q_num": "13",
     "question_text": "What does the ADDIE model in engineering design stand for? A) Analyze, Develop, Design, Implement, Evaluate B) Analyze, Design, Develop, Implement, Evaluate C) Apply, Design, Develop, Integrate, Evaluate D) Analyze, Discover, Develop, Implement, Evolve",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "ADDIE Model and Instructional System Design",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of ADDIE Model and Instructional System Design.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41629,15 +41629,15 @@
     "q_num": "14",
     "question_text": "What is the primary focus of the \"Conceive\" stage in the CDIO engineering process? A) Prototyping and testing B) Identifying needs, conceptualizing solutions, and determining requirements C) Implementing solutions in the real world D) Maintenance of systems",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "CDIO Framework in Industry and Practice",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of CDIO Framework in Industry and Practice.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -41953,15 +41953,15 @@
     "q_num": "14",
     "question_text": "The current instructional design models are spin-offs or variations of the i 2 4 3 A) Scientific model B) Engineers model C) RAISEC model D) ADDIE model",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "ADDIE Model and Instructional System Design",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of ADDIE Model and Instructional System Design.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -42213,15 +42213,15 @@
     "q_num": "13",
     "question_text": "What does the ADDIE model in engineering design stand for? A) Analyze, Develop, Design, Implement, Evaluate B) Analyze, Design, Develop, Implement, Evaluate C) Apply, Design, Develop, Integrate, Evaluate D) Analyze, Discover, Develop, Implement, Evolve",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "ADDIE Model and Instructional System Design",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of ADDIE Model and Instructional System Design.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -42229,15 +42229,15 @@
     "q_num": "14",
     "question_text": "What is the primary focus of the \"Conceive\" stage in the CDIO engineering process? A) Prototyping and testing B) Identifying needs, conceptualizing solutions, and determining requirements C) Implementing solutions in the real world D) Maintenance of systems",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "CDIO Framework in Industry and Practice",
     "source_file": "SEM1-PHIL_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of CDIO Framework in Industry and Practice.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Philosophy Of Engineering",
@@ -45122,15 +45122,15 @@
     "q_num": "28",
     "question_text": "Write the algorithm, pseudocode and draw the flowchart to find the factorial of a given number.\n (a) Write the algorithm, pseudocode and draw the flowchart to find the factorial of a given number.\n --- OR ---\n (b.i) Discuss the various storage classes in C with example program.\n (ii) Write a C program to find the roots of a quadratic equation.",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Storage Classes, Variable Scope, and Linkage",
     "source_file": "SEM1-PROG_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Storage Classes, Variable Scope, and Linkage.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Programming For Problem Solving",
@@ -58088,15 +58088,15 @@
     "q_num": "5",
     "question_text": "In intrinsic semiconductor, the number of electrons equal to (B) number of holes (A) number of protons (C) number of neutrons (D) number of photons 1 2 1",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "Intrinsic Semiconductors",
     "source_file": "SEM1-SPCM_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Intrinsic Semiconductors.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)",
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)",
     "explanation": "Core Definition & Faculty Marking Key:\n1. Direct statement of Intrinsic Semiconductors.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2)."
   },
   {
@@ -58138,15 +58138,15 @@
     "q_num": "7",
     "question_text": "For a PN junction diode, the current in reverse bias may be (B) Several amperes (A) Few milliamperes (C) Few micro amperes to (D) Few milliamperes to several amperes nanoamperes given by clcctrons is density due to",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "P-N Junction and Biasing",
     "source_file": "SEM1-SPCM_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of P-N Junction and Biasing.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)",
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)",
     "explanation": "Core Definition & Faculty Marking Key:\n1. Direct statement of P-N Junction and Biasing.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2)."
   },
   {
@@ -80928,15 +80928,15 @@
     "q_num": "19",
     "question_text": "The bankers algorithm is ________ than the resource allocation graph algorithm. \n(A) Less efficient \n(B) More efficient \n(C) Equal \n(D) Zero [1]",
     "marks": 1.0,
-    "q_type": "MCQ",
+    "q_type": "Part B (Medium Answer)",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Deadlock Characterization and Resource Allocation Graph",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Deadlock Characterization and Resource Allocation Graph.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": true,
-    "section": "Part A (Multiple Choice Questions)",
+    "is_mcq": false,
+    "section": "Part B (Medium Answer Questions)",
     "stem": "The bankers algorithm is ________ than the resource allocation graph algorithm.",
     "options": [
       {
@@ -81426,15 +81426,15 @@
     "q_num": "3",
     "question_text": "Which scheduler is used to load the processes from secondary memory to main memory? A) short-term scheduler B) long-term scheduler C) medium-term scheduler D) CPU scheduler [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "CPU Scheduling Criteria and Dispatcher",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) short-term scheduler B) long-term scheduler C) medium-term scheduler D) CPU scheduler [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -81442,15 +81442,15 @@
     "q_num": "9",
     "question_text": "In multiple-processor scheduling, what is the main challenge associated with Load Balancing? A) Overloading a single processor B) Minimizing context switches C) Distributing the workload evenly across all processors D) Ensuring all processors run at the same clock speed [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Real-Time and Multiprocessor Scheduling",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) Overloading a single processor B) Minimizing context switches C) Distributing the workload evenly across all processors D) Ensuring all processors run at the same clock speed [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -81458,15 +81458,15 @@
     "q_num": "10",
     "question_text": "Which CPU scheduling algorithm can result in \"starvation\" of some processes? A) First-Come, First-Served (FCFS) B) Shortest Job Next (SJN) C) Round Robin (RR) D) Multilevel Queue Scheduling [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "CPU Scheduling Algorithms",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) First-Come, First-Served (FCFS) B) Shortest Job Next (SJN) C) Round Robin (RR) D) Multilevel Queue Scheduling [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -81511,15 +81511,15 @@
     "q_num": "12",
     "question_text": "In the context of deadlocks, what is a resource allocation graph used for? A) To allocate resources to processes B) To detect potential deadlocks C) To manage processor scheduling D) To determine system throughput [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Deadlock Characterization and Resource Allocation Graph",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) To allocate resources to processes B) To detect potential deadlocks C) To manage processor scheduling D) To determine system throughput [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -83514,15 +83514,15 @@
     "q_num": "13",
     "question_text": "What is the primary purpose of memory management in an operating system? A) To maximize CPU usage B) To provide efficient disk usage C) To allocate and deallocate memory to processes as needed D) To manage user input [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Main Memory and Contiguous Memory Allocation",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) To maximize CPU usage B) To provide efficient disk usage C) To allocate and deallocate memory to processes as needed D) To manage user input [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -83530,15 +83530,15 @@
     "q_num": "14",
     "question_text": "In paging, what is a page frame? A) A variable-size block of logical memory B) A fixed-size block of physical memory C) A logical segment of memory D) A pointer to the next memory page [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Paging, Segmentation and TLB",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) A variable-size block of logical memory B) A fixed-size block of physical memory C) A logical segment of memory D) A pointer to the next memory page [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -83546,15 +83546,15 @@
     "q_num": "15",
     "question_text": "Which disk scheduling algorithm is designed to minimize the seek time of read/write head movement? A) First-Come, First-Served (FCFS) B) Shortest Seek Time First (SSTF) C) SCAN (Elevator Algorithm) D) Round Robin (RR) [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Disk Scheduling Algorithms and RAID",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) First-Come, First-Served (FCFS) B) Shortest Seek Time First (SSTF) C) SCAN (Elevator Algorithm) D) Round Robin (RR) [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -83562,15 +83562,15 @@
     "q_num": "16",
     "question_text": "What is thrashing in the context of virtual memory management? A) The process of swapping pages to and from disk continuously B) The process of executing a page fault C) The process of allocating frames to processes D) The process of fragmenting memory into non-contiguous sections [1]",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Thrashing and Frame Allocation",
     "source_file": "SEM3-OS_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) The process of swapping pages to and from disk continuously B) The process of executing a page fault C) The process of allocating frames to processes D) The process of fragmenting memory into non-contiguous sections [1]",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Operating Systems",
@@ -92298,15 +92298,15 @@
     "q_num": "1",
     "question_text": "The cumulative distribution function of a random variable X is given as $F(x) = \\begin{cases} \\frac{x^3}{9}, & -1 < x < 2 \\\\ 0, & \\text{otherwise} \\end{cases}$ Find the probability distribution function f(x). A) $\\frac{x^2}{3}, -1 < x < 2$ B) $\\frac{x}{2}, -1 < x < 2$ C) $\\frac{x^2}{3}, -1 < x < 2$ D) $\\frac{x^2}{2}, -1 < x < 2$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92314,15 +92314,15 @@
     "q_num": "2",
     "question_text": "Let the PDF of X be $f_X(x)$ and let $Y = g(x)$ be the given transformation. If $g(x)$ is strictly monotonic then the PDF of Y is $f_Y(y) = $ A) $\\frac{dy}{dx} f_X(x)$ B) $\\frac{dx}{dy} f_X(x)$ C) $\\frac{dx}{dy} \\frac{1}{f_X(x)}$ D) $\\frac{dy}{dx} \\frac{1}{f_X(x)}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92330,15 +92330,15 @@
     "q_num": "3",
     "question_text": "The MGF of a random variable X is $M_X(t) = \\frac{2}{2-t}$. Find the mean of X. A) 2 B) 4 C) $\\frac{1}{2}$ D) $\\frac{1}{4}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92346,15 +92346,15 @@
     "q_num": "4",
     "question_text": "Variance of a random variable X is given by $\\mu_2 = $ A) $E(X^2) - E(X)$ B) $E(X^2)^2 - E(X)$ C) $E(X^2)$ D) $E(X^2) - (E(X))^2$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92362,15 +92362,15 @@
     "q_num": "5",
     "question_text": "If the parameters n and p of a binomial distribution are 4, $\\frac{1}{3}$ respectively, find the MGF. A) $(\\frac{2}{3} + \\frac{1}{3} e^t)^4$ B) $(\\frac{1}{3} + \\frac{2}{3} e^t)^4$ C) $(\\frac{2}{3} - \\frac{1}{3} e^t)^4$ D) $(\\frac{1}{3} - \\frac{2}{3} e^t)^4$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Binomial, Poisson, and Geometric Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Binomial, Poisson, and Geometric Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92378,15 +92378,15 @@
     "q_num": "6",
     "question_text": "If $X_1$ and $X_2$ are 2 independent Poisson variates with parameters $\\lambda_1$ and $\\lambda_2$ respectively then $X_1 + X_2$ is also a Poisson variate with parameter A) $2(\\lambda_1 + \\lambda_2)$ B) $\\lambda_1 - \\lambda_2$ C) $\\lambda_1 + \\lambda_2$ D) $2(\\lambda_1 - \\lambda_2)$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Binomial, Poisson, and Geometric Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Binomial, Poisson, and Geometric Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92394,15 +92394,15 @@
     "q_num": "7",
     "question_text": "If the parameter of an exponential distribution is $\\theta > 0$, then its mean is A) $\\frac{2}{\\theta}$ B) $\\frac{1}{\\theta}$ C) $\\frac{1}{\\theta^2}$ D) $\\frac{2}{\\theta^2}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Uniform, Exponential, and Normal Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Uniform, Exponential, and Normal Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92410,15 +92410,15 @@
     "q_num": "8",
     "question_text": "If $Z = \\frac{X-\\mu}{\\sigma}$, then $E(Z)$ and $Var(Z)$ are ________ respectively. A) 1, 0 B) 1, 1 C) 0, 1 D) 2, 1",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92426,15 +92426,15 @@
     "q_num": "9",
     "question_text": "If $(X, Y)$ is a two dimensional discrete random variable, then $p(x/y=2) = $ A) $\\frac{p(x, 2)}{p_Y(2)}$ B) $\\frac{p(2, x)}{p_Y(2)}$ C) $\\frac{p(x, 2)}{p_X(2)}$ D) $\\frac{p(2, x)}{p_X(2)}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92442,15 +92442,15 @@
     "q_num": "10",
     "question_text": "$Cov(X + a, Y + b) = $ A) $a Cov(X, Y)$ B) $b Cov(X, Y)$ C) $Cov(X, Y)$ D) $a b Cov(X, Y)$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -92458,15 +92458,15 @@
     "q_num": "12",
     "question_text": "The regression coefficient $r = $ ________ A) $\\pm b_{yx} b_{xy}$ B) $\\pm \\sqrt{b_{yx} b_{xy}}$ C) $(b_{yx} b_{xy})^2$ D) $b_{yx} b_{xy}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93078,15 +93078,15 @@
     "q_num": "1",
     "question_text": "A box contains 4 red, 5 white and 6 black balls. What is the probability that two balls drawn are red and black? A) 8/35 B) 8/5 C) 10/15 D) 0",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93094,15 +93094,15 @@
     "q_num": "2",
     "question_text": "If c is a constant then E(c) is A) 1 B) 0 C) c D) c^2",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93110,15 +93110,15 @@
     "q_num": "3",
     "question_text": "If $f(x) = k(1+x), 2 \\le x \\le 5$ is a density function, then the value of k is A) 2/27 B) 27/2 C) 1/27 D) 3/27",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93126,15 +93126,15 @@
     "q_num": "4",
     "question_text": "The first moment of a random variable $X$ about its mean is always A) 1 B) -1 C) 0 D) $\\infty$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93142,15 +93142,15 @@
     "q_num": "5",
     "question_text": "The mean and variance of a normal distribution are A) 0 and 1 B) $\\mu$ \\text{ and } $\\sigma^2 C) 1$ and 0 D) np \\text{ and } npq",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Moment Generating Functions, Expectation, and Variance",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Moment Generating Functions, Expectation, and Variance.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93158,15 +93158,15 @@
     "q_num": "6",
     "question_text": "Poisson distribution is limiting case of A) Geometric distribution B) Normal distribution C) Binomial distribution D) Exponential distribution",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Binomial, Poisson, and Geometric Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Binomial, Poisson, and Geometric Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93174,15 +93174,15 @@
     "q_num": "7",
     "question_text": "If the probability of a target to destroy on any one shot is 0.5, what is the probability that it would be destroyed on $6^{th}$ attempt? A) (0.5)^4 B) (0.5)^6 C) (0.5)^5 D) (0.5)^7",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93190,15 +93190,15 @@
     "q_num": "8",
     "question_text": "The mean and variance of a binomial distribution are 4 and 4/3 respectively. Then the probability of success is A) 1/3 B) 2/3 C) 4/3 D) 1/2",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93206,15 +93206,15 @@
     "q_num": "9",
     "question_text": "$F(-\\infty, -\\infty)$ is equal to A) 0 B) 1 C) 1/2 D) $\\infty$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93222,15 +93222,15 @@
     "q_num": "10",
     "question_text": "If $X$ and $Y$ are continuous random variables then, $E(X+Y)$ is equal to A) E(X) B) E(Y) C) 0 D) E(X)+E(Y)",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93238,15 +93238,15 @@
     "q_num": "12",
     "question_text": "The coefficient of correlation lies between A) -1 and 1 B) 0 and 1 C) 0 D) -1",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93254,15 +93254,15 @@
     "q_num": "19",
     "question_text": "A state i is said to be periodic with period $d_i$ of A) d_i < 1 B) d_i = 1 C) d_i > 1 D) d_i = 0",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Discrete and Continuous Random Variables and Probability Distributions",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Discrete and Continuous Random Variables and Probability Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93745,15 +93745,15 @@
     "q_num": "11",
     "question_text": "If the regression coefficient $r = $ ________, then the regression lines are perpendicular. A) 1 B) -1 C) $\\pm 1$ D) 0",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "Covariance and Karl Pearson's Correlation Coefficient",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Covariance and Karl Pearson's Correlation Coefficient.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -93899,15 +93899,15 @@
     "q_num": "11",
     "question_text": "If $X$ and $Y$ are independent, then their covariance is A) 1 B) Not defined C) -1 D) 0",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "Covariance and Karl Pearson's Correlation Coefficient",
     "source_file": "SEM4-PQT_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Covariance and Karl Pearson's Correlation Coefficient.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94413,15 +94413,15 @@
     "q_num": "17",
     "question_text": "Consider a Markov chain with the state space $(0, 1)$ and transition probability matrix $P = \\begin{pmatrix} 1 & 0 \\\\ \\frac{1}{2} & \\frac{1}{2} \\end{pmatrix}$ Find $F_{ii} = \\sum_{n=1}^{\\infty} f_{ii}^{(n)}$ A) 0 B) 1 C) $\\frac{1}{2}$ D) $\\frac{1}{4}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94429,15 +94429,15 @@
     "q_num": "18",
     "question_text": "Identify the one-step transition probability matrix. A) $\\begin{pmatrix} 1 & 0 \\\\ 0 & \\frac{1}{2} \\end{pmatrix}$ B) $\\begin{pmatrix} 1 & 0 \\\\ \\frac{1}{2} & 0 \\end{pmatrix}$ C) $\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ D) $\\begin{pmatrix} 0 & \\frac{1}{2} \\\\ 1 & 0 \\end{pmatrix}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94445,15 +94445,15 @@
     "q_num": "19",
     "question_text": "According to Chapman Kolmogorov's theorem A) $[p_{ij}^{(n)}] = [p_{ij}]$ B) $[p_{ij}^{(n)}] = [p_{ij}]^n$ C) $[p_{ij}^{(n)}] = [p_{ij}]^2$ D) $[p_{ij}] = [p_{ij}]^2$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Chapman-Kolmogorov Equations and Limiting Distributions",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Chapman-Kolmogorov Equations and Limiting Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94461,15 +94461,15 @@
     "q_num": "20",
     "question_text": "In a Markov chain with state space $(1, 2, 3)$, $P(X_2 = 1, X_1 = 2, X_0 = 3) = $ ________ A) $p_{32}^{(1)} p_{21}^{(1)} P(X_0 = 2)$ B) $p_{32}^{(1)} p_{21}^{(1)} P(X_0 = 3)$ C) $p_{32}^{(1)} p_{12}^{(1)} P(X_0 = 3)$ D) $p_{23}^{(1)} p_{21}^{(1)} P(X_0 = 2)$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94700,15 +94700,15 @@
     "q_num": "16",
     "question_text": "What is the mean of the Poisson process? A) $\\lambda B) \\lambda/t C) \\lambda t D) t/\\lambda$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Poisson Process and Memoryless Property",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Poisson Process and Memoryless Property.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94716,15 +94716,15 @@
     "q_num": "17",
     "question_text": "If the one step transition probability does not depend on the step, then the Markov chain is called a A) n step B) Non homogeneous C) Homogeneous D) Regular",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94732,15 +94732,15 @@
     "q_num": "18",
     "question_text": "The sum of all the elements of any row of the transition probability matrix is A) 0 B) 0.5 C) 0.75 D) 1",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -94748,15 +94748,15 @@
     "q_num": "20",
     "question_text": "A non null persistent and aperiodic state is called A) Markov B) Recurrence C) Irreducible D) Ergodic",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Markov Chains and Transition Probability Matrix",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Markov Chains and Transition Probability Matrix.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95230,15 +95230,15 @@
     "q_num": "13",
     "question_text": "Consider an $(M/M/1) : (\\infty/FIFO)$ queueing system. If $\\lambda = 6$ and $\\mu = 8$, find the expected waiting time of customer in the queue if he has to wait. A) $\\frac{1}{4}$ B) $\\frac{1}{2}$ C) $\\frac{3}{4}$ D) $\\frac{1}{2}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95246,15 +95246,15 @@
     "q_num": "14",
     "question_text": "In an $(M/M/s) : (\\infty/FIFO)$ model, find the probability of the serving facilities being busy. A) $\\frac{\\lambda}{\\mu s}$ B) $\\frac{\\lambda}{\\mu}$ C) $\\frac{s \\lambda}{\\mu}$ D) $\\frac{2 \\lambda}{\\mu s}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Queue Length, Waiting Time, and Busy Period Distributions",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Queue Length, Waiting Time, and Busy Period Distributions.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95262,15 +95262,15 @@
     "q_num": "15",
     "question_text": "In an $(M/M/1) : (\\infty/FIFO)$ model, the probability that a customer is idle is given as A) $\\frac{\\lambda}{\\mu}$ B) $1 - \\frac{\\lambda}{\\mu}$ C) $(\\frac{\\lambda}{\\mu})^2$ D) $1 - (\\frac{\\lambda}{\\mu})^2$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95278,15 +95278,15 @@
     "q_num": "16",
     "question_text": "In an $(M/M/1) : (k/FIFO)$ model, if $\\lambda = \\mu$ then $E(N_s) = $ ________ A) $\\frac{k}{2}$ B) $\\frac{k}{2k}$ C) $2k$ D) $\\frac{k}{4}$",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95437,15 +95437,15 @@
     "q_num": "14",
     "question_text": "If the customers arrive at a reception counter at an average interval rate of 10 minutes and the receptionists take an average of 6 minutes for one customer. Then the average queue length is A) 7/10 B) 9/10 C) 3/10 D) 11/10",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "(M/M/1) : (Infinity / FCFS) Single-Server Infinite Capacity Queue",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of (M/M/1) : (Infinity / FCFS) Single-Server Infinite Capacity Queue.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -95453,15 +95453,15 @@
     "q_num": "15",
     "question_text": "The symbolic notation of queueing model is represented by A) Kendall B) Euler C) Fisher D) Neumann",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula",
     "source_file": "SEM4-PQT_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "Core Definition & Faculty Marking Key:\n1. Direct statement of Characteristics of Queueing Systems, Kendall's Notation, and Little's Formula.\n2. Standard formula/principle and unit where applicable.\n3. Key operational condition for full marks (2/2).",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Probability and Queueing Theory",
@@ -97272,15 +97272,15 @@
     "q_num": "12",
     "question_text": "Push Down Automata with two stack is equivalent to\nA) Deterministic Finite Automata B) Epsilon NFA\nC) Turing Machne D) Non Deterministic Finite Automata",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 1,
     "topic": "Deterministic Finite Automata (DFA)",
     "source_file": "SEM5-FLA_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Turing Machne D) Non Deterministic Finite Automata",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -98281,15 +98281,15 @@
     "q_num": "8",
     "question_text": "The General format for Chomsky Normal Form is\nA) A->aB | a B) X->YZ | d\nC) X->ABC | ac D) A->aXY | a",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "Chomsky Normal Form (CNF) and Greibach Normal Form (GNF)",
     "source_file": "SEM5-FLA_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) X->ABC | ac D) A->aXY | a",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -98297,15 +98297,15 @@
     "q_num": "17",
     "question_text": "If L and L' are recursively enumerable, then L is\nA) Regular B) Recursive\nC) Context free D) Context Sensitive",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 2,
     "topic": "Chomsky Hierarchy of Formal Languages",
     "source_file": "SEM5-FLA_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Context free D) Context Sensitive",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -98313,15 +98313,15 @@
     "q_num": "18",
     "question_text": "The relationship between the Recursively Enumerables Language (RE), the Context Sensitive Language (CS), the Recursive Language (RL) and the Context Free Language (CFL) is given by\nA) CFL ⊂ CS ⊂ RL ⊂ RE B) CFL ⊂ CS ⊂ RE ⊂ RL\nC) RE ⊂ RL ⊂ CS ⊂ CFL D) RL ⊂ RE ⊂ CS ⊂ CFL",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 2,
     "topic": "Chomsky Hierarchy of Formal Languages",
     "source_file": "SEM5-FLA_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) CFL ⊂ CS ⊂ RL ⊂ RE B) CFL ⊂ CS ⊂ RE ⊂ RL",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -99060,15 +99060,15 @@
     "q_num": "14",
     "question_text": "An instantaneous description of turing machine consists of\nA) Current state and entire input to be processed B) Current state and processed input\nC) Next state and already processed input D) Next state and entire input to be processed",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 3,
     "topic": "Pushdown Automata Formal Definition and Configurations",
     "source_file": "SEM5-FLA_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Next state and already processed input D) Next state and entire input to be processed",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -99505,15 +99505,15 @@
     "q_num": "13",
     "question_text": "In multi head turing machine there are\nA) More than one heads of the turing machine B) More than one input tapes of turing machine\nC) Similar to the basic model of turing machine D) Multiple tracks in the input tape",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Turing Machine Formal Definition and State Transition Diagrams",
     "source_file": "SEM5-FLA_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) More than one heads of the turing machine B) More than one input tapes of turing machine",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -99521,15 +99521,15 @@
     "q_num": "15",
     "question_text": "The number of Tuples used to represent Turing Machine is\nA) 5 B) 6\nC) 7 D) 8",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Turing Machine Formal Definition and State Transition Diagrams",
     "source_file": "SEM5-FLA_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) 5 B) 6",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -99537,15 +99537,15 @@
     "q_num": "16",
     "question_text": "The tape elements after processing the input '10110', by the Turing Machine TM=({q0,q1,qaccept,qreject}, {0,1}, {0,1,B}, δ, q0,B, {qaccept,qreject}), where δ can be given as {((q0,1)=(q1,a,R)), ((q1,0)=(qaccept,b,R)), ((q0,1)=(qreject,b,R)), ((q1,0)=(qreject,a,R))} is\nA) ab110 B) 10bba\nC) 10110 D) abbba",
     "marks": 2.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "UNDERSTAND",
     "difficulty": 0.4,
     "unit": 4,
     "topic": "Turing Machine Formal Definition and State Transition Diagrams",
     "source_file": "SEM5-FLA_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) ab110 B) 10bba",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Formal Languages and Automata",
@@ -100724,15 +100724,15 @@
     "q_num": "8",
     "question_text": "________ is a 2 port device used for interconnecting two LANs working on the same protocol.\nA) Switch B) Bridge\nC) Router D) Modem",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Ethernet Standards and IEEE 802.11 Wireless LAN",
     "source_file": "SEM5-CN_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) Switch B) Bridge",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -100740,15 +100740,15 @@
     "q_num": "13",
     "question_text": "In CSMA/CD, what does a device do when it detects a collision on the network?\nA) It stops transmitting and sends a jamming signal. B) It immediately retransmits the data.\nC) It continues transmitting but at a lower power level. D) It waits for a fixed time and then retransmits",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Multiple Access Protocols (ALOHA, CSMA/CD, CSMA/CA)",
     "source_file": "SEM5-CN_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) It continues transmitting but at a lower power level. D) It waits for a fixed time and then retransmits",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -100756,15 +100756,15 @@
     "q_num": "14",
     "question_text": "What is the primary function of the Ethernet frame's MAC (Media Access Control) address?\nA) To segment the frame data into smaller packets. B) To encrypt the frame data for secure transmission.\nC) To identify the source and destination of the frame within a local network. D) To route the frame to the correct IP address.",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Ethernet Standards and IEEE 802.11 Wireless LAN",
     "source_file": "SEM5-CN_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) To identify the source and destination of the frame within a local network. D) To route the frame to the correct IP address.",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -100772,15 +100772,15 @@
     "q_num": "16",
     "question_text": "What is the primary difference between Stop-and-Wait ARQ and Sliding Window ARQ?\nA) Stop-and-Wait ARQ allows multiple packets to be sent before requiring an acknowledgment, while Sliding Window ARQ only sends one packet at a time. B) Stop-and-Wait ARQ uses a sliding window mechanism, while Sliding Window ARQ uses a stop-and-wait mechanism\nC) Sliding Window ARQ is used in analog communication, while Stop-and-Wait ARQ is used in digital communication. D) Sliding Window ARQ allows multiple packets to be sent before requiring an acknowledgment, while Stop-and-Wait ARQ only sends one packet at a time.",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Sliding Window Protocols (Go-Back-N, Selective Repeat)",
     "source_file": "SEM5-CN_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Sliding Window ARQ is used in analog communication, while Stop-and-Wait ARQ is used in digital communication. D) Sliding Window ARQ allows multiple packets to be sent before requiring an acknowledgment, while Stop-and-Wait ARQ only sends one packet at a time.",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -101741,15 +101741,15 @@
     "q_num": "7",
     "question_text": "________ field in the IP header is used to specify how long a datagram can reside in a network before it reaches the destination.\nA) Identifications B) Options\nC) Type of Service (TOS) D) Time To Live (TTL)",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 2,
     "topic": "IPv4 and IPv6 Addressing and Subnetting",
     "source_file": "SEM5-CN_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Type of Service (TOS) D) Time To Live (TTL)",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -102208,15 +102208,15 @@
     "q_num": "9",
     "question_text": "How does the Distance Vector Routing algorithm prevent routing loops?\nA) By sending periodic Hello messages B) By implementing the Split-Horizon rule\nC) By using the Link-State Advertisement. D) By using the Spanning Tree Protocol.",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Routing Principles and Graph Abstractions",
     "source_file": "SEM5-CN_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) By using the Link-State Advertisement. D) By using the Spanning Tree Protocol.",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -102224,15 +102224,15 @@
     "q_num": "10",
     "question_text": "What algorithm is commonly used by Link State Routing protocols to compute the shortest path?\nA) Floyd-Warshall algorithm B) Bellman-Ford algorithm\nC) A* algorithm D) Dijkstra's algorithm",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Routing Principles and Graph Abstractions",
     "source_file": "SEM5-CN_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) Floyd-Warshall algorithm B) Bellman-Ford algorithm",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -102240,15 +102240,15 @@
     "q_num": "11",
     "question_text": "Which protocol is an example of a Path Vector Routing protocol?\nA) BGP B) RIP v1\nC) OSPF D) RIP v2",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Link State Routing and OSPF Protocol",
     "source_file": "SEM5-CN_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) OSPF D) RIP v2",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Computer Networks",
@@ -105165,15 +105165,15 @@
     "q_num": "11",
     "question_text": "Coupling is a qualitative indication of the degree to which a module\nA) can be written more compactly B) focuses on just one thing\nC) is able to complete its function in a timely manner\nD) is connected to other modules and the outside world",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Software Design Concepts and Modularity (Cohesion and Coupling)",
     "source_file": "SEM6-SEPM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) can be written more compactly B) focuses on just one thing",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Software Engineering and Project Management",
@@ -105504,15 +105504,15 @@
     "q_num": "14",
     "question_text": "Discussing, making decisions, evaluating alternatives and finding defects are the main purposes of ______\nA) Informal review B) Walkthrough\nC) Inspection D) Technical review",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Verification and Validation Principles",
     "source_file": "SEM6-SEPM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) Informal review B) Walkthrough",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Software Engineering and Project Management",
@@ -105520,15 +105520,15 @@
     "q_num": "17",
     "question_text": "Knowledge of software programs, design and structure is essential in ______\nA) Black-box testing B) White-box testing\nC) Integration testing D) Regression testing",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "White-Box Testing (Basis Path, Control Structure)",
     "source_file": "SEM6-SEPM_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Integration testing D) Regression testing",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Software Engineering and Project Management",
@@ -117950,15 +117950,15 @@
     "q_num": "14",
     "question_text": "Based on the 4-directional code, the first difference of smallest magnitude is called as:\nA) Shape number B) Chain number\nC) Difference D) Difference number",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 2,
     "topic": "Sharpening Spatial Filters: First and Second Derivatives, Laplacian, Unsharp Masking",
     "source_file": "SEM7-DIP_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Difference D) Difference number",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Digital Image Processing",
@@ -118967,15 +118967,15 @@
     "q_num": "11",
     "question_text": "Gaussian Noise is referred to as\nA) Red noise B) White noise\nC) Black noise D) Normal noise",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 3,
     "topic": "Frequency Domain Filtering Pipeline: Ideal, Butterworth, and Gaussian Lowpass Filters",
     "source_file": "SEM7-DIP_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Black noise D) Normal noise",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Digital Image Processing",
@@ -119504,15 +119504,15 @@
     "q_num": "20",
     "question_text": "In Huffman coding, data in a tree always occur?\nA) roots B) right sub trees\nC) left sub trees D) leaves",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Image Pyramids, Subband Coding, and Discrete Wavelet Transform (DWT)",
     "source_file": "SEM7-DIP_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) roots B) right sub trees",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Digital Image Processing",
@@ -125601,15 +125601,15 @@
     "q_num": "1",
     "question_text": "______________ is the primary goal of security risk management\nA) Eliminate all risks B) Minimize all risks\nC) Maximize all risks D) Optimize risks to an acceptable level",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Principles of Information Security: CIA Triad, Non-Repudiation, and Authenticity",
     "source_file": "SEM7-SRMP_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Maximize all risks D) Optimize risks to an acceptable level",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",
@@ -125617,15 +125617,15 @@
     "q_num": "5",
     "question_text": "What is the purpose of a risk register?\nA) To track ongoing projects B) To document identified risks and their details\nC) To store employee information D) To manage financial transactions",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Principles of Information Security: CIA Triad, Non-Repudiation, and Authenticity",
     "source_file": "SEM7-SRMP_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) To track ongoing projects B) To document identified risks and their details",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",
@@ -125633,15 +125633,15 @@
     "q_num": "8",
     "question_text": "Who is responsible for designating the appropriate information classification level?\nA) Data custodian B) Data user\nC) Data owner D) Security manager",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 1,
     "topic": "Principles of Information Security: CIA Triad, Non-Repudiation, and Authenticity",
     "source_file": "SEM7-SRMP_CT1_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Data owner D) Security manager",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",
@@ -128766,15 +128766,15 @@
     "q_num": "3",
     "question_text": "What does the \"Risk Assessment\" step involve in security risk management?\nA) Implementing controls to eliminate risks B) Analyzing and evaluating risks\nC) Ignoring low-level risks D) Transferring risks to a third party",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Security Control Categories: Technical, Operational, Management, and Physical",
     "source_file": "SEM7-SRMP_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "A) Implementing controls to eliminate risks B) Analyzing and evaluating risks",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",
@@ -128782,15 +128782,15 @@
     "q_num": "6",
     "question_text": "The primary role of a project sponsor in data collection for information security mechanisms is ______________\nA) Conducting security audits B) Implementing security controls\nC) Providing financial support and project D) Analyzing security vulnerabilities oversight",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Security Control Categories: Technical, Operational, Management, and Physical",
     "source_file": "SEM7-SRMP_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) Providing financial support and project D) Analyzing security vulnerabilities oversight",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",
@@ -128798,15 +128798,15 @@
     "q_num": "7",
     "question_text": "Why is asset scoping essential in information security management?\nA) To identify all potential security threats B) To secure every asset equally\nC) To allocate resources effectively and prioritize D) To implement security controls protection efforts without assessment",
     "marks": 1.0,
-    "q_type": "Part A (Short Answer)",
+    "q_type": "MCQ",
     "bloom_level": "REMEMBER",
     "difficulty": 0.3,
     "unit": 4,
     "topic": "Security Control Categories: Technical, Operational, Management, and Physical",
     "source_file": "SEM7-SRMP_CT2_Authentic_Faculty_Paper.pdf",
     "answer_key": "C) To allocate resources effectively and prioritize D) To implement security controls protection efforts without assessment",
-    "is_mcq": false,
-    "section": "Part A (Short Answer Questions)"
+    "is_mcq": true,
+    "section": "Part A (Multiple Choice Questions)"
   },
   {
     "subject": "Security Risk Management and Principles",

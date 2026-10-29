@@ -40,6 +40,7 @@ export default function QuestionBankPage() {
   const [expandedUnit, setExpandedUnit] = useState<number | null>(null);
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"SYLLABUS" | "CYCLE_TESTS">("SYLLABUS");
+  const [isSidebarOpenMobile, setIsSidebarOpenMobile] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -139,6 +140,7 @@ export default function QuestionBankPage() {
     setSelectedSubjectId(id);
     setExpandedUnit(null);
     setExpandedTopic(null);
+    setIsSidebarOpenMobile(false);
   };
 
   const handleTopicClick = (topic: string) => {
@@ -168,32 +170,32 @@ export default function QuestionBankPage() {
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="flex flex-wrap items-center gap-2 border-b border-border/60 pb-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 border-b border-border/60 pb-3">
           <button
             type="button"
             onClick={() => setActiveTab("SYLLABUS")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer touch-manipulation ${
               activeTab === "SYLLABUS"
                 ? "bg-primary text-primary-foreground shadow-xs font-bold"
                 : "bg-muted/40 hover:bg-muted text-muted-foreground hover:text-foreground"
             }`}
           >
-            <BookOpen className="w-4 h-4" />
+            <BookOpen className="w-4 h-4 shrink-0" />
             <span>Syllabus Taxonomy &amp; Units</span>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab("CYCLE_TESTS")}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer border ${
+            className={`flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer border touch-manipulation ${
               activeTab === "CYCLE_TESTS"
                 ? "bg-accent text-accent-foreground border-accent shadow-xs font-bold"
                 : "bg-accent/10 hover:bg-accent/20 border-accent/25 text-accent"
             }`}
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 shrink-0" />
             <span>⚡ Cycle Test Archive</span>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-accent/20 border border-accent/30 text-accent">
+            <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border ${activeTab === "CYCLE_TESTS" ? "bg-black/25 text-white border-white/20" : "bg-accent/20 border-accent/30 text-accent"}`}>
               5,536 Questions &amp; Keys
             </span>
           </button>
@@ -328,10 +330,29 @@ export default function QuestionBankPage() {
           )}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
           
+          {/* Mobile Accordion Toggle for Selectors */}
+          <div className="lg:hidden col-span-1 p-3.5 rounded-xl border border-border/70 bg-card shadow-2xs space-y-2">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-[10px] uppercase font-bold text-muted-foreground block">Curriculum Filter:</span>
+                <span className="text-xs font-bold text-foreground">
+                  {selectedBranch.split(" ")[0]} • Sem {selectedSemester} • {activeSubject?.name || "Choose Subject"}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpenMobile(!isSidebarOpenMobile)}
+                className="px-3 py-1.5 rounded-lg bg-accent/15 border border-accent/25 text-accent text-xs font-bold hover:bg-accent/25 transition-all cursor-pointer touch-manipulation"
+              >
+                {isSidebarOpenMobile ? "Hide Selectors" : "Change Subject"}
+              </button>
+            </div>
+          </div>
+
           {/* Left Sidebar: Selectors */}
-          <div className="lg:col-span-1 space-y-6 sticky top-24">
+          <div className={`lg:col-span-1 space-y-6 sticky top-24 ${isSidebarOpenMobile ? 'block' : 'hidden lg:block'}`}>
             
             {/* Branch Selection */}
             <div className="space-y-3">

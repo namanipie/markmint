@@ -1,3 +1,4 @@
+import { MathText } from "@/components/ui/math-text";
 import Link from "next/link";
 import { TopicCatalogItem } from "@/lib/topics";
 import { 
@@ -264,7 +265,7 @@ export function TopicDetailView({ topic, siblingTopics = [] }: TopicDetailViewPr
               >
                 <div className="space-y-2 max-w-3xl">
                   <p className="text-xs text-foreground font-mono leading-relaxed">
-                    {sq.text}
+                    <MathText content={sq.text} />
                   </p>
                   <div className="flex items-center gap-2 text-[11px] text-muted-foreground font-mono">
                     <span>Year: {sq.year}</span>

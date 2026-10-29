@@ -31,7 +31,7 @@ function isMcqQuestion(q: CycleTestQuestion): boolean {
   if (q.is_mcq || q.q_type === "MCQ") return true;
   if (q.options && q.options.length >= 2) return true;
   const txt = q.question_text || "";
-  if (/(?:^|[\n\s])(?:\([A-Da-d]\)|\[[A-Da-d]\]|[A-Da-d][\.\)])\s*[\\s\\S]+?(?:\([B-Db-d]\)|\[[B-Db-d]\]|[B-Db-d][\.\)])/.test(txt)) {
+  if (/(?:^|[\n\s])(?:\([A-Da-d]\)|\[[A-Da-d]\]|[A-Da-d][\.\)])\s*[\s\S]+?(?:\([B-Db-d]\)|\[[B-Db-d]\]|[B-Db-d][\.\)])/.test(txt)) {
     return true;
   }
   return false;
@@ -123,11 +123,11 @@ export function CycleTestQuestionsDrawer({
             <Sparkles className="w-4 h-4" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h4 className="text-xs sm:text-sm font-bold text-foreground">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <h4 className="text-xs sm:text-sm font-bold text-foreground leading-tight">
                 Authentic {cycle === "ALL" ? "Cycle Test" : cycle} Questions &amp; Testing System
               </h4>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-accent/20 border border-accent/30 text-accent">
+              <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-accent/20 border border-accent/30 text-accent w-fit shrink-0">
                 {descriptiveQuestions.length} Normal • {mcqQuestions.length} Interactive MCQs
               </span>
             </div>
@@ -147,20 +147,20 @@ export function CycleTestQuestionsDrawer({
       {isOpen && (
         <div className="p-4 sm:p-5 border-t border-border/60 space-y-4">
           {/* Main Section Mode Tabs: Normal vs MCQ */}
-          <div className="flex items-center gap-2 p-1 rounded-xl bg-muted/30 border border-border/60">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 p-1 rounded-xl bg-muted/30 border border-border/60">
             <button
               type="button"
               onClick={() => {
                 setActiveCategory("descriptive");
                 setSelectedType("ALL");
               }}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
                 activeCategory === "descriptive"
-                  ? "bg-background text-foreground shadow-xs border border-border/70"
+                  ? "bg-background text-foreground shadow-xs border border-border/70 text-accent font-bold"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <FileText className="w-3.5 h-3.5 text-accent" />
+              <FileText className="w-3.5 h-3.5 text-accent shrink-0" />
               <span>Normal Questions ({descriptiveQuestions.length})</span>
             </button>
 
@@ -170,13 +170,13 @@ export function CycleTestQuestionsDrawer({
                 setActiveCategory("mcq");
                 setSelectedType("ALL");
               }}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
                 activeCategory === "mcq"
-                  ? "bg-background text-foreground shadow-xs border border-border/70 text-purple-400"
+                  ? "bg-background text-foreground shadow-xs border border-border/70 text-purple-400 font-bold"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              <CheckSquare className="w-3.5 h-3.5 text-purple-400" />
+              <CheckSquare className="w-3.5 h-3.5 text-purple-400 shrink-0" />
               <span>Interactive MCQ Test ({mcqQuestions.length})</span>
             </button>
           </div>
@@ -188,14 +188,14 @@ export function CycleTestQuestionsDrawer({
             <div className="space-y-4">
               {/* Sub-type filter pills (e.g. Part A Short Answer, Part B Medium) */}
               {descriptiveTypes.length > 2 && (
-                <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  <span className="text-[11px] font-semibold text-muted-foreground mr-1">Section:</span>
+                <div className="flex items-center gap-1.5 pt-1 overflow-x-auto no-scrollbar pb-1">
+                  <span className="text-[11px] font-semibold text-muted-foreground mr-1 shrink-0">Section:</span>
                   {descriptiveTypes.map((t) => (
                     <button
                       key={t}
                       type="button"
                       onClick={() => setSelectedType(t)}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all cursor-pointer whitespace-nowrap shrink-0 touch-manipulation ${
                         selectedType === t
                           ? "bg-accent text-accent-foreground font-semibold shadow-2xs"
                           : "bg-muted/40 hover:bg-muted text-muted-foreground"

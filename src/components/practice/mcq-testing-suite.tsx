@@ -238,17 +238,17 @@ export function McqTestingSuite({
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-background/80 border border-border/70 shadow-2xs">
+        <div className="w-full sm:w-auto flex items-center gap-1.5 p-1 rounded-xl bg-background/80 border border-border/70 shadow-2xs">
           <button
             type="button"
             onClick={() => setTestMode("PRACTICE")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
               testMode === "PRACTICE"
                 ? "bg-purple-600 text-white shadow-xs"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
+            <BookOpen className="w-3.5 h-3.5 shrink-0" />
             <span>Practice Mode</span>
           </button>
 
@@ -258,13 +258,13 @@ export function McqTestingSuite({
               setTestMode("QUIZ");
               if (!quizStarted) startQuiz();
             }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer touch-manipulation ${
               testMode === "QUIZ"
                 ? "bg-purple-600 text-white shadow-xs"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
+            <Award className="w-3.5 h-3.5 shrink-0" />
             <span>Timed Quiz Mode</span>
           </button>
         </div>
@@ -380,7 +380,7 @@ export function McqTestingSuite({
                           key={opt.key}
                           type="button"
                           onClick={() => handlePracticeSelect(idx, opt.key)}
-                          className={`w-full flex items-start gap-2.5 p-3 rounded-xl border text-left transition-all cursor-pointer ${btnStyle}`}
+                          className={`w-full min-h-[44px] flex items-start gap-2.5 p-3 sm:p-3.5 rounded-xl border text-left transition-all cursor-pointer touch-manipulation ${btnStyle}`}
                         >
                           <span
                             className={`w-6 h-6 shrink-0 rounded-lg flex items-center justify-center text-xs font-mono font-bold border ${keyBadgeStyle}`}
@@ -470,29 +470,35 @@ export function McqTestingSuite({
                 </div>
               </div>
 
-              {/* Question Navigation Strip */}
-              <div className="flex flex-wrap items-center gap-1.5 p-3 rounded-xl bg-muted/30 border border-border/50">
-                {mcqList.map((_, i) => {
-                  const isAnswered = !!quizAnswers[i];
-                  const isActive = currentQuizIndex === i;
+              {/* Question Navigation Strip (Touch-friendly & horizontally scrollable on mobile) */}
+              <div className="p-2.5 rounded-xl bg-muted/30 border border-border/50">
+                <div className="flex items-center justify-between text-[11px] text-muted-foreground pb-1.5 px-0.5">
+                  <span className="font-semibold">Question Navigator:</span>
+                  <span>Swipe to jump to question</span>
+                </div>
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+                  {mcqList.map((_, i) => {
+                    const isAnswered = !!quizAnswers[i];
+                    const isActive = currentQuizIndex === i;
 
-                  return (
-                    <button
-                      key={i}
-                      type="button"
-                      onClick={() => setCurrentQuizIndex(i)}
-                      className={`w-7 h-7 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer flex items-center justify-center ${
-                        isActive
-                          ? "bg-purple-600 text-white ring-2 ring-purple-400/50 shadow-xs"
-                          : isAnswered
-                          ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                          : "bg-muted text-muted-foreground hover:bg-muted/80"
-                      }`}
-                    >
-                      {i + 1}
-                    </button>
-                  );
-                })}
+                    return (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setCurrentQuizIndex(i)}
+                        className={`w-8 h-8 rounded-lg text-xs font-mono font-bold shrink-0 transition-all cursor-pointer touch-manipulation flex items-center justify-center ${
+                          isActive
+                            ? "bg-purple-600 text-white ring-2 ring-purple-400/50 shadow-xs"
+                            : isAnswered
+                            ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                            : "bg-muted/70 text-muted-foreground hover:bg-muted"
+                        }`}
+                      >
+                        {i + 1}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Active Quiz Question Card */}
