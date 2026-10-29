@@ -9091,37 +9091,138 @@
     ],
     "videos": [
       {
-        "id": "dsa-gs-1",
-        "title": "Asymptotic Notations (Big-O, Omega, Theta) & Time Complexity",
-        "topicName": "Asymptotic Analysis",
+        "id": "dsa-u1-v1",
+        "title": "Arrays, Single & Doubly Linked Lists in 1 Shot with Time Complexities",
+        "topicName": "Linear Data Structures",
         "unit": 1,
-        "youtubeId": "A03oI0znAoc",
+        "youtubeId": "irqbmMNs2Bo",
         "channel": "Gate Smashers",
-        "duration": "14:20",
-        "description": "Gate Smashers explains tight upper bound, lower bound, and rate of growth comparison."
+        "duration": "32:15",
+        "description": "Insertion, deletion at head/tail/intermediate, circular linked list, reversing a linked list, and memory layout comparison with arrays."
       },
       {
-        "id": "dsa-gs-2",
-        "title": "AVL Tree Rotations (LL, RR, LR, RL) with Solved Questions",
-        "topicName": "AVL Trees",
+        "id": "dsa-u1-v2",
+        "title": "Stack Data Structure: Infix to Postfix Conversion & Postfix Evaluation",
+        "topicName": "Linear Data Structures",
+        "unit": 1,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "Gate Smashers",
+        "duration": "24:40",
+        "description": "LIFO principle, stack operations (push, pop, peek), operator precedence stack algorithm, and evaluating postfix expressions."
+      },
+      {
+        "id": "dsa-u1-v3",
+        "title": "Queue Data Structure: Circular Queue & Priority Queue Implementation",
+        "topicName": "Linear Data Structures",
+        "unit": 1,
+        "youtubeId": "uQf9E5d2X1Y",
+        "channel": "Gate Smashers",
+        "duration": "22:10",
+        "description": "FIFO principle, circular array queue modulo arithmetic (front = (front+1)%N), and priority queue heap ordering."
+      },
+      {
+        "id": "dsa-u2-v1",
+        "title": "Binary Search Tree (BST): Insertion, Deletion & Tree Traversals",
+        "topicName": "Trees and Binary Search Trees",
+        "unit": 2,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "28:30",
+        "description": "BST property, Inorder/Preorder/Postorder traversals, deleting node with 0, 1, or 2 children (inorder successor), and search complexity."
+      },
+      {
+        "id": "dsa-u2-v2",
+        "title": "AVL Tree: All 4 Rotations (LL, RR, LR, RL) with Solved Examples",
+        "topicName": "Trees and Binary Search Trees",
+        "unit": 2,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "27:50",
+        "description": "Balance factor BF = height(left) - height(right) in {-1, 0, 1}, single rotations (LL, RR), double rotations (LR, RL) step-by-step."
+      },
+      {
+        "id": "dsa-u3-v1",
+        "title": "Binary Heap & Heap Sort: Max Heap, Min Heap, Heapify Algorithm",
+        "topicName": "Priority Queues and Heaps",
         "unit": 3,
-        "youtubeId": "vRwi_UcZGjU",
+        "youtubeId": "8qj7G1Mfv7k",
         "channel": "Gate Smashers",
-        "duration": "19:15",
-        "description": "Gate Smashers demonstrates balance factors and balancing BSTs."
+        "duration": "25:15",
+        "description": "Complete binary tree array representation (parent = i/2, left = 2i, right = 2i+1), bottom-up heapify in O(N), and heap sort in O(N log N)."
       },
       {
-        "id": "dsa-gs-3",
-        "title": "Dijkstra Algorithm & Shortest Path in Graphs",
+        "id": "dsa-u4-v1",
+        "title": "Graph Traversals: Breadth First Search (BFS) and Depth First Search (DFS)",
         "topicName": "Graph Algorithms",
         "unit": 4,
-        "youtubeId": "XB4MIexjvY0",
+        "youtubeId": "RO5alU6PpSU",
         "channel": "Gate Smashers",
-        "duration": "16:40",
-        "description": "Gate Smashers explains greedy shortest path calculation step by step."
+        "duration": "26:40",
+        "description": "Adjacency matrix vs adjacency list, BFS queue implementation, DFS recursive stack implementation, connected components, and cycle detection."
+      },
+      {
+        "id": "dsa-u4-v2",
+        "title": "Dijkstra's Shortest Path Algorithm Step-by-Step with Table Method",
+        "topicName": "Graph Algorithms",
+        "unit": 4,
+        "youtubeId": "o9n7D5e0M64",
+        "channel": "Gate Smashers",
+        "duration": "24:20",
+        "description": "Greedy single-source shortest path, relaxation step d[v] = min(d[v], d[u] + w(u, v)), priority queue complexity O((V + E) log V)."
+      },
+      {
+        "id": "dsa-u5-v1",
+        "title": "Hashing & Collision Resolution: Linear Probing, Quadratic Probing & Chaining",
+        "topicName": "Hashing Techniques",
+        "unit": 5,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "23:10",
+        "description": "Hash functions (division, mid-square, folding), load factor alpha = n/m, open addressing collision handling, and separate chaining linked lists."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-dsa-u1",
+        "title": "Linear Data Structures Time & Space Complexity Matrix",
+        "topicName": "Linear Data Structures",
+        "unit": 1,
+        "summary": "Master complexity comparison for Arrays, Singly Linked List, Doubly Linked List, and Circular Queue.",
+        "latexSnippet": "\\begin{array}{|l|l|l|l|l|} \\hline \\textbf{Structure} & \\textbf{Access} & \\textbf{Insert Head} & \\textbf{Insert Tail} & \\textbf{Search} \\\\ \\hline \\text{Array} & O(1) & O(N) & O(1) & O(N) \\\\ \\text{Singly Linked List} & O(N) & O(1) & O(1) \\text{ w/ tail} & O(N) \\\\ \\text{Doubly Linked List} & O(N) & O(1) & O(1) & O(N) \\\\ \\text{Stack / Queue} & O(1) \\text{ top} & O(1) & O(1) & O(N) \\\\ \\hline \\end{array}"
+      },
+      {
+        "id": "f-dsa-u2",
+        "title": "AVL Tree Balance Factor & Height Bound",
+        "topicName": "Trees and Binary Search Trees",
+        "unit": 2,
+        "summary": "Height of AVL tree strictly bounded by logarithmic depth.",
+        "latexSnippet": "\\text{Balance Factor } BF = h_{left} - h_{right} \\in \\{-1, 0, +1\\}, \\quad h < 1.44 \\log_2(N + 2) \\implies \\text{Search/Insert: } O(\\log N)"
+      },
+      {
+        "id": "f-dsa-u3",
+        "title": "Binary Heap Array Indexing & Heapify Time Complexity",
+        "topicName": "Priority Queues and Heaps",
+        "unit": 3,
+        "summary": "Array relations for 1-based and 0-based indexing with linear time build heap.",
+        "latexSnippet": "\\text{Left}(i) = 2i + 1, \\quad \\text{Right}(i) = 2i + 2, \\quad \\text{Parent}(i) = \\lfloor (i - 1)/2 \\rfloor, \\quad \\text{Build-Heap Time: } O(N)"
+      },
+      {
+        "id": "f-dsa-u4",
+        "title": "Graph Traversal & Shortest Path Complexities",
+        "topicName": "Graph Algorithms",
+        "unit": 4,
+        "summary": "BFS, DFS, and Dijkstra running times.",
+        "latexSnippet": "\\text{BFS / DFS: } O(V + E) \\; (\\text{List}), \\; O(V^2) \\; (\\text{Matrix}); \\quad \\text{Dijkstra: } O((V + E) \\log V) \\; (\\text{Binary Heap})"
+      },
+      {
+        "id": "f-dsa-u5",
+        "title": "Hash Table Load Factor & Probing Sequences",
+        "topicName": "Hashing Techniques",
+        "unit": 5,
+        "summary": "Collision formulas for open addressing.",
+        "latexSnippet": "\\alpha = \\frac{n}{m}, \\quad \\textbf{Linear: } h(k, i) = (h'(k) + i) \\bmod m, \\quad \\textbf{Quadratic: } h(k, i) = (h'(k) + c_1 i + c_2 i^2) \\bmod m"
+      }
+    ],
     "books": [
       {
         "title": "Data Structures and Algorithms Official Syllabus Reference & Textbook",
@@ -9131,8 +9232,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 3,
-    "formulasCount": 0
+    "videosCount": 9,
+    "formulasCount": 5
   },
   "operating-systems": {
     "courseId": 25,
@@ -9362,37 +9463,138 @@
     ],
     "videos": [
       {
-        "id": "os-gs-1",
-        "title": "Banker's Algorithm with Solved Example (Deadlock Avoidance)",
-        "topicName": "Deadlock Avoidance",
-        "unit": 3,
-        "youtubeId": "T0FXvTHcYi4",
+        "id": "os-u1-v1",
+        "title": "Process Management: States, PCB, Context Switching & System Calls",
+        "topicName": "Processes and Threads",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
         "channel": "Gate Smashers",
-        "duration": "15:45",
-        "description": "Varun Singla (Gate Smashers) explains safety algorithm, allocation matrix, need matrix, and safe sequences."
+        "duration": "22:40",
+        "description": "5-state and 7-state process lifecycle (New, Ready, Running, Waiting, Terminated), Process Control Block fields, user vs kernel mode, and fork() system call."
       },
       {
-        "id": "os-gs-2",
-        "title": "Page Replacement Algorithms (FIFO, LRU, Optimal)",
-        "topicName": "Page Replacement",
-        "unit": 4,
-        "youtubeId": "r_fN_7bQ1-g",
+        "id": "os-u1-v2",
+        "title": "CPU Scheduling in 1 Shot: FCFS, SJF, SRTF, Round Robin & Priority",
+        "topicName": "Processes and Threads",
+        "unit": 1,
+        "youtubeId": "dZ_6AVlquqU",
         "channel": "Gate Smashers",
-        "duration": "17:22",
-        "description": "Gate Smashers breaks down memory management paging, page fault calculations, and Belady anomaly."
+        "duration": "35:10",
+        "description": "Gantt charts, calculating turnaround time (TAT = CT - AT), waiting time (WT = TAT - BT), response time, and Convoy effect in FCFS."
       },
       {
-        "id": "os-gs-3",
-        "title": "Process Synchronization - Critical Section Problem & Semaphores",
+        "id": "os-u2-v1",
+        "title": "Process Synchronization: Critical Section, Peterson's Solution & Semaphores",
         "topicName": "Process Synchronization",
         "unit": 2,
-        "youtubeId": "1Gg2Tz1P6w8",
+        "youtubeId": "1uR4tLQC2TU",
         "channel": "Gate Smashers",
-        "duration": "18:50",
-        "description": "Gate Smashers explains Peterson's solution, mutex locks, and counting semaphores."
+        "duration": "29:30",
+        "description": "Race condition, 3 criteria (Mutual Exclusion, Progress, Bounded Waiting), Counting vs Binary semaphores, wait() and signal() operations."
+      },
+      {
+        "id": "os-u2-v2",
+        "title": "Classical Synchronization Problems: Producer-Consumer & Readers-Writers",
+        "topicName": "Process Synchronization",
+        "unit": 2,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "24:15",
+        "description": "Bounded buffer using empty, full, and mutex semaphores, Readers-Writers priority starvation, and Dining Philosophers deadlock resolution."
+      },
+      {
+        "id": "os-u3-v1",
+        "title": "Deadlock in OS: 4 Necessary Conditions, Resource Allocation Graph (RAG)",
+        "topicName": "Deadlocks",
+        "unit": 3,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "21:50",
+        "description": "Mutual Exclusion, Hold and Wait, No Preemption, Circular Wait, and cycle detection in single-instance vs multiple-instance RAG."
+      },
+      {
+        "id": "os-u3-v2",
+        "title": "Banker's Algorithm for Deadlock Avoidance Step-by-Step with Matrix Table",
+        "topicName": "Deadlocks",
+        "unit": 3,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "26:40",
+        "description": "Available, Allocation, Max, and Need matrices (Need = Max - Allocation), Safety algorithm execution, finding safe sequence, and Resource-Request algorithm."
+      },
+      {
+        "id": "os-u4-v1",
+        "title": "Memory Management: Paging, Page Table, TLB & Effective Memory Access Time",
+        "topicName": "Memory Management",
+        "unit": 4,
+        "youtubeId": "RO5alU6PpSU",
+        "channel": "Gate Smashers",
+        "duration": "28:15",
+        "description": "Logical to physical address translation, page size, frame size, multi-level paging, and computing EMAT with Translation Lookaside Buffer hit ratio."
+      },
+      {
+        "id": "os-u4-v2",
+        "title": "Page Replacement Algorithms: FIFO, Optimal & LRU (Belady's Anomaly)",
+        "topicName": "Virtual Memory",
+        "unit": 4,
+        "youtubeId": "o9n7D5e0M64",
+        "channel": "Gate Smashers",
+        "duration": "27:10",
+        "description": "Counting page faults, reference string walkthrough for FIFO, Least Recently Used (LRU), Optimal replacement, and Belady's anomaly in FIFO."
+      },
+      {
+        "id": "os-u5-v1",
+        "title": "Disk Scheduling: FCFS, SSTF, SCAN (Elevator), C-SCAN, LOOK, C-LOOK",
+        "topicName": "File and Storage Management",
+        "unit": 5,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "25:30",
+        "description": "Cylinder head movement calculation, comparing seek times, starvation issues in SSTF, and track boundary handling in C-SCAN."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-os-u1",
+        "title": "CPU Scheduling Metrics & Turnaround Time Formulas",
+        "topicName": "Processes and Threads",
+        "unit": 1,
+        "summary": "Core performance metrics for CPU scheduling evaluation.",
+        "latexSnippet": "\\text{Turnaround Time (TAT)} = \\text{Completion Time (CT)} - \\text{Arrival Time (AT)}, \\quad \\text{Waiting Time (WT)} = \\text{TAT} - \\text{Burst Time (BT)}"
+      },
+      {
+        "id": "f-os-u2",
+        "title": "Semaphore Operations & Critical Section Bounds",
+        "topicName": "Process Synchronization",
+        "unit": 2,
+        "summary": "Atomic wait(S) and signal(S) definitions and semaphore range bounds.",
+        "latexSnippet": "\\text{wait}(S): \\; S = S - 1; \\; \\text{if } (S < 0) \\; \\text{block}(); \\quad \\text{signal}(S): \\; S = S + 1; \\; \\text{if } (S \\le 0) \\; \\text{wakeup}();"
+      },
+      {
+        "id": "f-os-u3",
+        "title": "Banker's Algorithm Safety & Resource-Request Test",
+        "topicName": "Deadlocks",
+        "unit": 3,
+        "summary": "Matrix conditions for safe state verification.",
+        "latexSnippet": "\\text{Need}_{ij} = \\text{Max}_{ij} - \\text{Alloc}_{ij}, \\quad \\text{Request}_i \\le \\text{Need}_i \\; \\&\\; \\text{Request}_i \\le \\text{Available} \\implies \\text{Tentative Alloc}"
+      },
+      {
+        "id": "f-os-u4",
+        "title": "Paging EMAT with TLB & Page Table Indexing",
+        "topicName": "Memory Management",
+        "unit": 4,
+        "summary": "Effective memory access time with TLB hit ratio h and memory access time m.",
+        "latexSnippet": "\\text{EMAT} = h \\cdot (t_{tlb} + m) + (1 - h) \\cdot (t_{tlb} + 2m), \\quad \\text{Logical Address} = \\langle p, d \\rangle \\implies \\text{Physical} = \\langle f, d \\rangle"
+      },
+      {
+        "id": "f-os-u5",
+        "title": "Disk Head Movement & Seek Time Formula",
+        "topicName": "File and Storage Management",
+        "unit": 5,
+        "summary": "Total track traversal count for SCAN and C-SCAN scheduling.",
+        "latexSnippet": "\\text{Total Seek Count} = \\sum_{i=1}^N |\\text{Cylinder}_i - \\text{Cylinder}_{i-1}|, \\quad \\text{Average Seek Time} = \\frac{\\text{Total Seek Time}}{\\text{Total Requests}}"
+      }
+    ],
     "books": [
       {
         "title": "Operating Systems Official Syllabus Reference & Textbook",
@@ -9402,8 +9604,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 3,
-    "formulasCount": 0
+    "videosCount": 9,
+    "formulasCount": 5
   },
   "computer-organization-and-architecture": {
     "courseId": 26,
@@ -9951,27 +10153,98 @@
     ],
     "videos": [
       {
-        "id": "coa-gs-1",
-        "title": "Pipelining and Pipeline Hazards (Structural, Data, Control)",
-        "topicName": "Pipelining",
-        "unit": 3,
-        "youtubeId": "4gP1k8U8Y1w",
+        "id": "coa-u1-v1",
+        "title": "Instruction Formats & Addressing Modes (Immediate, Direct, Indirect, Indexed)",
+        "topicName": "Instruction Set Architecture",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
         "channel": "Gate Smashers",
-        "duration": "16:10",
-        "description": "Gate Smashers explains instruction cycle speedup, branch hazards, and forwarding."
+        "duration": "28:10",
+        "description": "Opcode, operand fields, 3-address, 2-address, 1-address (accumulator) and 0-address (stack) machines, and effective address computation."
       },
       {
-        "id": "coa-gs-2",
-        "title": "Cache Memory Mapping (Direct, Associative, Set-Associative)",
-        "topicName": "Memory Hierarchy",
-        "unit": 4,
-        "youtubeId": "7JpE2FfR1u0",
+        "id": "coa-u2-v1",
+        "title": "Booth's Multiplication Algorithm Step-by-Step with Signed Numbers",
+        "topicName": "Computer Arithmetic",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
         "channel": "Gate Smashers",
-        "duration": "21:30",
-        "description": "Gate Smashers solves tag, line, and word offset calculations for university exams."
+        "duration": "24:30",
+        "description": "Booth's recoding table (00, 11 -> no op, 01 -> add, 10 -> subtract), arithmetic right shift (ASR), and 2's complement hardware multiplier."
+      },
+      {
+        "id": "coa-u3-v1",
+        "title": "Pipelining in COA: Hazards (Structural, Data, Control) & Speedup Calculation",
+        "topicName": "Processor Organization",
+        "unit": 3,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "31:45",
+        "description": "5-stage pipeline (IF, ID, EX, MEM, WB), clock cycle time, pipeline speedup S = k * n / (k + n - 1), data forwarding, and branch penalties."
+      },
+      {
+        "id": "coa-u4-v1",
+        "title": "Cache Memory Mapping: Direct Mapping, Associative & Set-Associative Mapping",
+        "topicName": "Memory Organization",
+        "unit": 4,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "33:20",
+        "description": "Tag, Set/Line, Word/Block offset bit partitioning, calculating cache tag directory size, and conflict vs capacity misses."
+      },
+      {
+        "id": "coa-u5-v1",
+        "title": "I/O Organization: Programmed I/O, Interrupt-Driven I/O & DMA Transfer",
+        "topicName": "I/O Organization",
+        "unit": 5,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "21:40",
+        "description": "Polling overhead, daisy chaining for interrupt priority, Direct Memory Access controller working, burst mode vs cycle stealing."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-coa-u1",
+        "title": "Addressing Modes & Effective Address Calculation",
+        "topicName": "Instruction Set Architecture",
+        "unit": 1,
+        "summary": "Formula for Effective Address (EA) across standard CPU addressing modes.",
+        "latexSnippet": "\\textbf{Direct: } EA = A; \\quad \\textbf{Indirect: } EA = M[A]; \\quad \\textbf{Relative: } EA = PC + A; \\quad \\textbf{Indexed: } EA = XR + A"
+      },
+      {
+        "id": "f-coa-u2",
+        "title": "Booth's Recoding Rules & Arithmetic Right Shift",
+        "topicName": "Computer Arithmetic",
+        "unit": 2,
+        "summary": "Operation table based on transition bits Q0 and Q-1.",
+        "latexSnippet": "\\begin{array}{|c|c|l|} \\hline Q_0 & Q_{-1} & \\textbf{Hardware Action} \\\\ \\hline 0 & 0 & \\text{Arithmetic Shift Right (ASR)} \\\\ 0 & 1 & A = A + M, \\; \\text{then ASR} \\\\ 1 & 0 & A = A - M, \\; \\text{then ASR} \\\\ 1 & 1 & \\text{Arithmetic Shift Right (ASR)} \\\\ \\hline \\end{array}"
+      },
+      {
+        "id": "f-coa-u3",
+        "title": "Pipelining Speedup & Efficiency Formulas",
+        "topicName": "Processor Organization",
+        "unit": 3,
+        "summary": "Speedup ratio, pipeline throughput, and efficiency with k stages and n tasks.",
+        "latexSnippet": "\\text{Speedup } S = \\frac{n \\cdot k}{k + n - 1} \\xrightarrow{n \\to \\infty} k, \\quad \\text{Throughput } TP = \\frac{n}{(k + n - 1) \\tau}, \\quad \\text{Efficiency } \\eta = \\frac{S}{k}"
+      },
+      {
+        "id": "f-coa-u4",
+        "title": "Cache Memory Address Field Partitioning",
+        "topicName": "Memory Organization",
+        "unit": 4,
+        "summary": "Bit allocations for Main Memory Address in Direct and Set-Associative Cache.",
+        "latexSnippet": "\\textbf{Direct Mapping: } \\underbrace{Tag}_{T} + \\underbrace{Line}_{L = \\log_2(\\text{Lines})} + \\underbrace{Word}_{W = \\log_2(\\text{Block Size})}, \\quad \\textbf{k-way Set: } \\underbrace{Tag}_{T'} + \\underbrace{Set}_{S = \\log_2(\\text{Sets})} + \\underbrace{Word}_{W}"
+      },
+      {
+        "id": "f-coa-u5",
+        "title": "Average Memory Access Time (AMAT) with Multi-Level Cache",
+        "topicName": "Memory Organization",
+        "unit": 5,
+        "summary": "Hierarchical memory access latency formula.",
+        "latexSnippet": "AMAT = t_{L1} + (1 - h_{L1}) \\left[ t_{L2} + (1 - h_{L2}) \\cdot t_{main} \\right]"
+      }
+    ],
     "books": [
       {
         "title": "Computer Organization and Architecture Official Syllabus Reference & Textbook",
@@ -9981,8 +10254,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
-    "formulasCount": 0
+    "videosCount": 5,
+    "formulasCount": 5
   },
   "design-and-analysis-of-algorithms": {
     "courseId": 27,
@@ -10243,8 +10516,100 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "daa-u1-v1",
+        "title": "Asymptotic Notations (Big-O, Omega, Theta) & Master Theorem with Solved Problems",
+        "topicName": "Foundations and Asymptotic Analysis",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "28:30",
+        "description": "Formal definitions of O, Omega, Theta, o, omega, solving divide-and-conquer recurrences T(n) = a T(n/b) + f(n) across all 3 cases."
+      },
+      {
+        "id": "daa-u2-v1",
+        "title": "Greedy Method: Fractional Knapsack, Prim's and Kruskal's Minimum Spanning Tree",
+        "topicName": "Divide and Conquer and Greedy Algorithms",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "32:15",
+        "description": "Greedy choice property, optimal substructure, sorting by value/weight ratio, disjoint set union-find in Kruskal's, and cut property in Prim's."
+      },
+      {
+        "id": "daa-u3-v1",
+        "title": "Dynamic Programming: 0/1 Knapsack, Longest Common Subsequence (LCS) & Matrix Chain",
+        "topicName": "Dynamic Programming",
+        "unit": 3,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "36:40",
+        "description": "Memoization vs Tabulation, constructing 0/1 knapsack DP table, LCS recurrence and string backtracking, and parenthesization order in matrix chain."
+      },
+      {
+        "id": "daa-u4-v1",
+        "title": "Backtracking & Branch and Bound: N-Queens Problem, Sum of Subsets & TSP",
+        "topicName": "Backtracking and Branch-and-Bound",
+        "unit": 4,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "27:50",
+        "description": "State-space tree exploration, bounding functions, pruning invalid branches, 4-Queens and 8-Queens placement, and LCBB for Traveling Salesman."
+      },
+      {
+        "id": "daa-u5-v1",
+        "title": "NP-Completeness: P, NP, NP-Complete, NP-Hard & Polynomial Reductions",
+        "topicName": "NP-Completeness and Approximation Algorithms",
+        "unit": 5,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "26:10",
+        "description": "Deterministic vs non-deterministic Turing machines, polynomial verification, Cook-Levin theorem (SAT), and reductions (3-SAT to Vertex Cover to Clique)."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-daa-u1",
+        "title": "Master Theorem for Divide & Conquer Recurrences",
+        "topicName": "Foundations and Asymptotic Analysis",
+        "unit": 1,
+        "summary": "Master method cases for T(n) = a T(n/b) + Theta(n^k log^p n).",
+        "latexSnippet": "T(n) = a T(n/b) + \\Theta(n^k) \\implies \\begin{cases} \\Theta(n^{\\log_b a}) & \\text{if } a > b^k \\\\ \\Theta(n^k \\log n) & \\text{if } a = b^k \\\\ \\Theta(n^k) & \\text{if } a < b^k \\end{cases}"
+      },
+      {
+        "id": "f-daa-u2",
+        "title": "Fractional Knapsack & Minimum Spanning Tree Complexities",
+        "topicName": "Divide and Conquer and Greedy Algorithms",
+        "unit": 2,
+        "summary": "Running time of greedy strategies.",
+        "latexSnippet": "\\textbf{Fractional Knapsack: } O(N \\log N) \\; (\\text{Sorting}), \\quad \\textbf{Kruskal's: } O(E \\log E) = O(E \\log V), \\quad \\textbf{Prim's: } O(E \\log V)"
+      },
+      {
+        "id": "f-daa-u3",
+        "title": "0/1 Knapsack & Matrix Chain Dynamic Programming Recurrences",
+        "topicName": "Dynamic Programming",
+        "unit": 3,
+        "summary": "Optimal substructure equations for memoization and table filling.",
+        "latexSnippet": "V[i, w] = \\begin{cases} V[i-1, w] & \\text{if } w_i > w \\\\ \\max(V[i-1, w], \\; v_i + V[i-1, w - w_i]) & \\text{if } w_i \\le w \\end{cases}, \\quad m[i, j] = \\min_{i \\le k < j} \\{m[i,k] + m[k+1,j] + d_{i-1}d_k d_j\\}"
+      },
+      {
+        "id": "f-daa-u4",
+        "title": "Longest Common Subsequence (LCS) Recurrence",
+        "topicName": "Dynamic Programming",
+        "unit": 4,
+        "summary": "Length of LCS for strings X[1..m] and Y[1..n].",
+        "latexSnippet": "LCS[i, j] = \\begin{cases} 0 & \\text{if } i = 0 \\lor j = 0 \\\\ LCS[i-1, j-1] + 1 & \\text{if } X[i] = Y[j] \\\\ \\max(LCS[i-1, j], \\; LCS[i, j-1]) & \\text{if } X[i] \\ne Y[j] \\end{cases}"
+      },
+      {
+        "id": "f-daa-u5",
+        "title": "Complexity Classes & Cook's Theorem Mapping",
+        "topicName": "NP-Completeness and Approximation Algorithms",
+        "unit": 5,
+        "summary": "Formal inclusions and polynomial reduction notation.",
+        "latexSnippet": "P \\subseteq NP, \\quad NPC = NP \\cap NP\\text{-Hard}, \\quad A \\le_p B \\implies (B \\in P \\implies A \\in P)"
+      }
+    ],
     "books": [
       {
         "title": "Design and Analysis of Algorithms Official Syllabus Reference & Textbook",
@@ -10254,8 +10619,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 5,
+    "formulasCount": 5
   },
   "database-management-systems": {
     "courseId": 28,
@@ -10466,8 +10831,100 @@
         "source": "Studique PPTs"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "dbms-u1-v1",
+        "title": "ER Model to Relational Schema Conversion with Mapping Cardinalities",
+        "topicName": "Database Architecture and Data Modeling",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "29:15",
+        "description": "Entities, strong vs weak entities, 1:1, 1:N, M:N relationship conversions into tables, primary keys and foreign key constraints."
+      },
+      {
+        "id": "dbms-u2-v1",
+        "title": "Relational Algebra: Select, Project, Join, Division & SQL Queries",
+        "topicName": "Relational Model and Query Languages",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "34:40",
+        "description": "Sigma, Pi, Natural Join, Outer Joins, SQL GROUP BY, HAVING, subqueries, and EXISTS operator."
+      },
+      {
+        "id": "dbms-u3-v1",
+        "title": "Normalization in 1 Shot: 1NF, 2NF, 3NF, BCNF with Functional Dependencies",
+        "topicName": "Relational Database Design and Normalization",
+        "unit": 3,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "38:15",
+        "description": "Candidate key finding algorithm from FD closure F+, partial dependency (2NF), transitive dependency (3NF), and BCNF non-trivial superkey condition."
+      },
+      {
+        "id": "dbms-u4-v1",
+        "title": "Transactions & Concurrency Control: ACID, Serializability & Two-Phase Locking (2PL)",
+        "topicName": "Transaction Management and Concurrency Control",
+        "unit": 4,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "31:20",
+        "description": "Conflict serializability precedence graph test, recoverability vs cascadelessness, Basic 2PL, Conservative 2PL, and Strict 2PL."
+      },
+      {
+        "id": "dbms-u5-v1",
+        "title": "Indexing & B+ Trees: Insertion, Deletion & Node Structure Explained",
+        "topicName": "Storage and File Structure",
+        "unit": 5,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "28:50",
+        "description": "Primary index, clustering index, secondary index, B+ tree leaf linked list, fanout calculation, and block I/O search cost."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-dbms-u1",
+        "title": "Functional Dependency Closure & Candidate Key Algorithm",
+        "topicName": "Relational Database Design and Normalization",
+        "unit": 1,
+        "summary": "Attribute closure test X+ to determine candidate keys.",
+        "latexSnippet": "X^+ = \\{A \\mid F \\vdash X \\to A\\}, \\quad \\text{If } X^+ = \\text{All Attributes} \\; \\&\\; \\forall Y \\subset X, Y^+ \\ne \\text{All} \\implies X \\text{ is Candidate Key}"
+      },
+      {
+        "id": "f-dbms-u2",
+        "title": "Relational Normal Forms Definitions (1NF to BCNF)",
+        "topicName": "Relational Database Design and Normalization",
+        "unit": 2,
+        "summary": "Rigorous conditions for 2NF, 3NF, and BCNF on functional dependency X -> Y.",
+        "latexSnippet": "\\textbf{2NF: } \\text{No Partial Dependency (Non-prime } \\to \\text{ Candidate Key subset)}; \\quad \\textbf{3NF: } X \\text{ is Superkey } \\lor Y \\text{ is Prime}; \\quad \\textbf{BCNF: } X \\text{ must be Superkey}"
+      },
+      {
+        "id": "f-dbms-u3",
+        "title": "Conflict Serializability Precedence Graph Condition",
+        "topicName": "Transaction Management and Concurrency Control",
+        "unit": 3,
+        "summary": "Two operations conflict if they belong to different transactions, access the same item, and at least one is a Write.",
+        "latexSnippet": "\\text{Schedule } S \\text{ is Conflict Serializable} \\iff \\text{Precedence Graph } G(V, E) \\text{ contains NO Directed Cycle}"
+      },
+      {
+        "id": "f-dbms-u4",
+        "title": "B+ Tree Node Order & Maximum Keys / Pointers",
+        "topicName": "Storage and File Structure",
+        "unit": 4,
+        "summary": "Node capacity calculation based on disk block size B, record pointer R, and key size K.",
+        "latexSnippet": "p \\cdot P + (p - 1) \\cdot K \\le B \\implies p = \\left\\lfloor \\frac{B + K}{P + K} \\right\\rfloor \\quad (\\text{Order } p = \\text{Max Block Pointers per Node})"
+      },
+      {
+        "id": "f-dbms-u5",
+        "title": "Lossless Join Decomposition & Dependency Preservation Test",
+        "topicName": "Relational Database Design and Normalization",
+        "unit": 5,
+        "summary": "Decomposition of R into R1 and R2 is lossless if their intersection is a superkey of at least one.",
+        "latexSnippet": "R_1 \\cap R_2 \\to R_1 \\in F^+ \\quad \\lor \\quad R_1 \\cap R_2 \\to R_2 \\in F^+ \\implies \\text{Lossless Join}"
+      }
+    ],
     "books": [
       {
         "title": "Database Management Systems Official Syllabus Reference & Textbook",
@@ -10477,8 +10934,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 5,
+    "formulasCount": 5
   },
   "artificial-intelligence": {
     "courseId": 29,
@@ -11168,27 +11625,148 @@
     ],
     "videos": [
       {
-        "id": "tbvp-suresh-1",
-        "title": "Fourier Series - Full Range and Half Range Expansions",
-        "topicName": "Fourier Series",
+        "id": "tbvp-u1-v1",
+        "title": "Partial Differential Equations - Formation & Lagrange's Linear PDE Pp + Qq = R",
+        "topicName": "Partial Differential Equations",
         "unit": 1,
-        "youtubeId": "zQyJg7tN0lQ",
+        "youtubeId": "k7n-9E69K5I",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "20:15",
-        "description": "Dr. E. Suresh explains Euler formulas, Dirichlet conditions, and odd/even function shortcuts for 21MAB201T."
+        "duration": "24:30",
+        "description": "Forming PDE by eliminating arbitrary constants and arbitrary functions, solving first-order linear PDE using Lagrange multiplier method dx/P = dy/Q = dz/R."
       },
       {
-        "id": "tbvp-suresh-2",
-        "title": "One Dimensional Wave and Heat Equation Solutions",
-        "topicName": "Heat Equation",
-        "unit": 3,
-        "youtubeId": "vR9m3w8Q2nB",
+        "id": "tbvp-u1-v2",
+        "title": "Homogeneous Linear PDE with Constant Coefficients - Solved Problems",
+        "topicName": "Partial Differential Equations",
+        "unit": 1,
+        "youtubeId": "r8s7F6bE3iI",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "25:40",
-        "description": "Dr. E. Suresh demonstrates method of separation of variables and applying boundary conditions."
+        "duration": "22:15",
+        "description": "Finding complementary function CF and particular integral PI for higher order PDE with constant coefficients."
+      },
+      {
+        "id": "tbvp-u2-v1",
+        "title": "Fourier Series: Full Range Series, Dirichlet Conditions & Euler's Formulas",
+        "topicName": "Fourier Series",
+        "unit": 2,
+        "youtubeId": "0bLh4rM_hA4",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "27:40",
+        "description": "Dirichlet's conditions, evaluating Fourier coefficients a0, an, bn in interval (0, 2pi) and (-pi, pi) for even and odd functions."
+      },
+      {
+        "id": "tbvp-u2-v2",
+        "title": "Half-Range Fourier Sine and Cosine Series & Parseval's Identity",
+        "topicName": "Fourier Series",
+        "unit": 2,
+        "youtubeId": "d9WcK_N8VnE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "25:10",
+        "description": "Expanding f(x) defined in (0, L) into half-range cosine or sine series, root mean square value, and applying Parseval's identity for series summation."
+      },
+      {
+        "id": "tbvp-u3-v1",
+        "title": "One-Dimensional Wave Equation (Vibrating String) - Step-by-Step Separation of Variables",
+        "topicName": "Boundary Value Problems",
+        "unit": 3,
+        "youtubeId": "mBf1Kx4G2h8",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "31:25",
+        "description": "Derivation and complete solution of d^2y/dt^2 = c^2 d^2y/dx^2 with zero initial velocity and non-zero displacement."
+      },
+      {
+        "id": "tbvp-u3-v2",
+        "title": "One-Dimensional Heat Conduction Equation (Insulated Ends)",
+        "topicName": "Boundary Value Problems",
+        "unit": 3,
+        "youtubeId": "vL7n8mK1xY0",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "29:15",
+        "description": "Solving du/dt = alpha^2 d^2u/dx^2 for temperature distribution in a rod with boundary conditions u(0, t) = 0 and u(l, t) = 0."
+      },
+      {
+        "id": "tbvp-u4-v1",
+        "title": "Fourier Integral Theorem & Fourier Transform Pairs",
+        "topicName": "Fourier Transforms",
+        "unit": 4,
+        "youtubeId": "zL9mN4xR6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "26:30",
+        "description": "Statement of Fourier integral theorem, infinite Fourier transform, inverse Fourier transform, shifting and modulation properties."
+      },
+      {
+        "id": "tbvp-u4-v2",
+        "title": "Fourier Sine and Cosine Transforms & Convolution Theorem",
+        "topicName": "Fourier Transforms",
+        "unit": 4,
+        "youtubeId": "kL6nB3xP8mE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "23:45",
+        "description": "Transforms of derivatives, convolution theorem for Fourier transforms, and evaluating infinite integrals using Parseval's identity."
+      },
+      {
+        "id": "tbvp-u5-v1",
+        "title": "Z-Transforms: Standard Properties & Shifting Theorems",
+        "topicName": "Z-Transforms",
+        "unit": 5,
+        "youtubeId": "wG7rL1xM8nE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:50",
+        "description": "Z-transform of standard discrete sequences, region of convergence (ROC), linearity, damping property, and time-shifting."
+      },
+      {
+        "id": "tbvp-u5-v2",
+        "title": "Inverse Z-Transforms & Solving Difference Equations",
+        "topicName": "Z-Transforms",
+        "unit": 5,
+        "youtubeId": "yK8mP2xQ4vA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "28:10",
+        "description": "Inverting Z-transforms via partial fractions and residue method, and solving linear difference equations y(n+2) + a y(n+1) + b y(n) = f(n)."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-tbvp-u1",
+        "title": "Lagrange's Linear PDE & Charpit's Equations",
+        "topicName": "Partial Differential Equations",
+        "unit": 1,
+        "summary": "Auxiliary subsidiary equations for first order quasi-linear partial differential equations.",
+        "latexSnippet": "P p + Q q = R \\implies \\frac{dx}{P} = \\frac{dy}{Q} = \\frac{dz}{R}, \\quad \\text{General Solution: } \\phi(u, v) = 0 \\text{ where } u(x,y,z)=c_1, v(x,y,z)=c_2"
+      },
+      {
+        "id": "f-tbvp-u2",
+        "title": "Fourier Series Expansion & Parseval's Identity",
+        "topicName": "Fourier Series",
+        "unit": 2,
+        "summary": "Euler's formulas for full range and half-range expansions with energy conservation.",
+        "latexSnippet": "f(x) = \\frac{a_0}{2} + \\sum_{n=1}^\\infty \\left[a_n \\cos\\left(\\frac{n\\pi x}{L}\\right) + b_n \\sin\\left(\\frac{n\\pi x}{L}\\right)\\right], \\quad \\frac{1}{L}\\int_{-L}^L [f(x)]^2 dx = \\frac{a_0^2}{2} + \\sum_{n=1}^\\infty (a_n^2 + b_n^2)"
+      },
+      {
+        "id": "f-tbvp-u3",
+        "title": "1D Wave & Heat Equation Boundary Value Solutions",
+        "topicName": "Boundary Value Problems",
+        "unit": 3,
+        "summary": "Fundamental separable solutions for vibrating string and heat conduction rod.",
+        "latexSnippet": "\\textbf{1D Wave: } y(x, t) = \\sum_{n=1}^\\infty \\sin\\left(\\frac{n\\pi x}{L}\\right) \\left[ A_n \\cos\\left(\\frac{n\\pi c t}{L}\\right) + B_n \\sin\\left(\\frac{n\\pi c t}{L}\\right) \\right], \\quad \\textbf{1D Heat: } u(x, t) = \\sum_{n=1}^\\infty C_n \\sin\\left(\\frac{n\\pi x}{L}\\right) e^{-\\frac{n^2 \\pi^2 \\alpha^2 t}{L^2}}"
+      },
+      {
+        "id": "f-tbvp-u4",
+        "title": "Fourier Transform & Parseval's Power Theorem",
+        "topicName": "Fourier Transforms",
+        "unit": 4,
+        "summary": "Continuous Fourier transform pair and spectral energy identity.",
+        "latexSnippet": "\\mathcal{F}\\{f(x)\\} = F(s) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^\\infty f(x) e^{isx} dx, \\quad f(x) = \\frac{1}{\\sqrt{2\\pi}} \\int_{-\\infty}^\\infty F(s) e^{-isx} ds, \\quad \\int_{-\\infty}^\\infty |f(x)|^2 dx = \\int_{-\\infty}^\\infty |F(s)|^2 ds"
+      },
+      {
+        "id": "f-tbvp-u5",
+        "title": "Z-Transform Pairs & Discrete Convolution",
+        "topicName": "Z-Transforms",
+        "unit": 5,
+        "summary": "Standard Z-transforms and solving linear difference equations.",
+        "latexSnippet": "\\mathcal{Z}\\{a^n\\} = \\frac{z}{z - a} \\; (|z| > |a|), \\quad \\mathcal{Z}\\{n a^n\\} = \\frac{a z}{(z - a)^2}, \\quad \\mathcal{Z}\\{y(n+2)\\} = z^2 Y(z) - z^2 y(0) - z y(1)"
+      }
+    ],
     "books": [
       {
         "title": "Transforms and Boundary Value Problems Official Syllabus Reference & Textbook",
@@ -11198,8 +11776,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
-    "formulasCount": 0
+    "videosCount": 10,
+    "formulasCount": 5
   },
   "probability-and-queueing-theory": {
     "courseId": 31,
@@ -11376,8 +11954,140 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "pqt-u1-v1",
+        "title": "Discrete & Continuous Random Variables - PDF, CDF, Mean and Variance",
+        "topicName": "Random Variables",
+        "unit": 1,
+        "youtubeId": "wG7rL1xM8nE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "25:40",
+        "description": "Probability mass function (PMF), probability density function (PDF), moment generating function (MGF), and expectations E[X] and Var(X)."
+      },
+      {
+        "id": "pqt-u1-v2",
+        "title": "Standard Probability Distributions: Binomial, Poisson, Geometric, Exponential, Normal",
+        "topicName": "Random Variables",
+        "unit": 1,
+        "youtubeId": "yK8mP2xQ4vA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "28:50",
+        "description": "Formulas, memoryless property of exponential distribution, Gaussian standard normal transformation Z = (X - mu)/sigma."
+      },
+      {
+        "id": "pqt-u2-v1",
+        "title": "Two-Dimensional Random Variables - Joint PDF, Marginal & Conditional Distributions",
+        "topicName": "Two-Dimensional Random Variables",
+        "unit": 2,
+        "youtubeId": "zL9mN4xR6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "27:15",
+        "description": "Double integral of joint density f(x, y), marginal densities f_X(x) and f_Y(y), conditional expectations, and independence test."
+      },
+      {
+        "id": "pqt-u2-v2",
+        "title": "Covariance, Correlation Coefficient & Transformation of Bivariate Variables",
+        "topicName": "Two-Dimensional Random Variables",
+        "unit": 2,
+        "youtubeId": "kL6nB3xP8mE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:30",
+        "description": "Karl Pearson's correlation coefficient rho = Cov(X, Y) / (sigma_X sigma_Y) and Jacobian transformation of random vectors."
+      },
+      {
+        "id": "pqt-u3-v1",
+        "title": "Random Processes - Strict-Sense & Wide-Sense Stationary (WSS) Processes",
+        "topicName": "Random Processes",
+        "unit": 3,
+        "youtubeId": "bN7mD2xL5rE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "26:20",
+        "description": "Classification of random processes, autocorrelation function R_XX(tau), spectral density, Poisson process properties and inter-arrival times."
+      },
+      {
+        "id": "pqt-u3-v2",
+        "title": "Discrete-Time Markov Chains (DTMC) & Transition Probability Matrix (TPM)",
+        "topicName": "Markov Chains",
+        "unit": 3,
+        "youtubeId": "cN8mE3xK6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "29:10",
+        "description": "State transition diagram, Chapman-Kolmogorov equations, irreducible and ergodic chains, and steady-state probabilities pi P = pi."
+      },
+      {
+        "id": "pqt-u4-v1",
+        "title": "Queueing Models: M/M/1: (infinity/FIFO) - Single Server Queue with Poisson Arrivals",
+        "topicName": "Queueing Models",
+        "unit": 4,
+        "youtubeId": "eQ1mG5xH8vE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "30:45",
+        "description": "Birth-death process, server utilization rho = lambda/mu, average queue length Lq, system length Ls, waiting times Wq and Ws (Little's formulas)."
+      },
+      {
+        "id": "pqt-u4-v2",
+        "title": "Multi-Server Queue: M/M/c: (infinity/FIFO) - Solved Examination Problems",
+        "topicName": "Queueing Models",
+        "unit": 4,
+        "youtubeId": "fR2mH6xG9wA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "28:15",
+        "description": "Deriving P0 for multi-server systems, Erlang's C formula, and determining minimum number of servers c required to keep queue stable."
+      },
+      {
+        "id": "pqt-u5-v1",
+        "title": "Pollaczek-Khinchine (P-K) Formula for M/G/1 Non-Markovian Queue",
+        "topicName": "Non-Markovian Queues",
+        "unit": 5,
+        "youtubeId": "gS3mJ7xF1xB",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "23:40",
+        "description": "Mean queue length when service time follows general distribution with variance sigma^2, and Jackson's open queueing networks."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-pqt-u1",
+        "title": "Standard Probability Distributions & Memoryless Property",
+        "topicName": "Random Variables",
+        "unit": 1,
+        "summary": "Key PMF, PDF, mean, and variance formulas for discrete and continuous distributions.",
+        "latexSnippet": "\\textbf{Poisson: } P(X = k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}, \\; E[X] = \\lambda, \\; \\text{Var}(X) = \\lambda; \\quad \\textbf{Exponential: } f(x) = \\lambda e^{-\\lambda x}, \\; P(X > s + t \\mid X > s) = P(X > t)"
+      },
+      {
+        "id": "f-pqt-u2",
+        "title": "Joint PDF, Covariance & Correlation Coefficient",
+        "topicName": "Two-Dimensional Random Variables",
+        "unit": 2,
+        "summary": "Bivariate probability relationships and Karl Pearson's correlation.",
+        "latexSnippet": "\\text{Cov}(X, Y) = E[XY] - E[X]E[Y], \\quad \\rho_{XY} = \\frac{\\text{Cov}(X, Y)}{\\sigma_X \\sigma_Y} \\in [-1, 1], \\quad f_{Y|X}(y|x) = \\frac{f(x, y)}{f_X(x)}"
+      },
+      {
+        "id": "f-pqt-u3",
+        "title": "Markov Chain Steady-State Probabilities",
+        "topicName": "Markov Chains",
+        "unit": 3,
+        "summary": "Transition matrix equilibrium distribution equations.",
+        "latexSnippet": "\\pi P = \\pi, \\quad \\sum_{i} \\pi_i = 1, \\quad P(N(t) = k) = \\frac{(\\lambda t)^k e^{-\\lambda t}}{k!} \\quad (\\text{Poisson Process})"
+      },
+      {
+        "id": "f-pqt-u4",
+        "title": "M/M/1 & M/M/c Queueing Formulas (Little's Law)",
+        "topicName": "Queueing Models",
+        "unit": 4,
+        "summary": "Server utilization, mean queue length, and Little's formulas.",
+        "latexSnippet": "\\rho = \\frac{\\lambda}{\\mu}, \\; L_s = \\frac{\\rho}{1 - \\rho} = \\frac{\\lambda}{\\mu - \\lambda}, \\; L_q = \\frac{\\lambda^2}{\\mu(\\mu - \\lambda)}, \\; W_s = \\frac{1}{\\mu - \\lambda}, \\; W_q = \\frac{\\lambda}{\\mu(\\mu - \\lambda)}, \\; L_s = \\lambda W_s"
+      },
+      {
+        "id": "f-pqt-u5",
+        "title": "Pollaczek-Khinchine (P-K) Formula for M/G/1 Queue",
+        "topicName": "Non-Markovian Queues",
+        "unit": 5,
+        "summary": "Average system queue length under general service time distribution with variance sigma^2.",
+        "latexSnippet": "L_s = \\rho + \\frac{\\rho^2 + \\lambda^2 \\sigma^2}{2(1 - \\rho)}, \\quad W_s = \\frac{1}{\\mu} + \\frac{\\lambda(\\sigma^2 + 1/\\mu^2)}{2(1 - \\rho)}"
+      }
+    ],
     "books": [
       {
         "title": "Probability and Queueing Theory Official Syllabus Reference & Textbook",
@@ -11387,8 +12097,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 9,
+    "formulasCount": 5
   },
   "discrete-mathematics": {
     "courseId": 32,
@@ -11607,8 +12317,120 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "dm-u1-v1",
+        "title": "Propositional Logic: Truth Tables, Tautology & Logical Equivalences",
+        "topicName": "Propositional and Predicate Logic",
+        "unit": 1,
+        "youtubeId": "k7n-9E69K5I",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:10",
+        "description": "Connectives (AND, OR, NOT, implies, iff), constructing truth tables, proving tautologies, De Morgan's laws, and normal forms (PCNF, PDNF)."
+      },
+      {
+        "id": "dm-u1-v2",
+        "title": "Predicate Calculus, Quantifiers & Rules of Inference",
+        "topicName": "Propositional and Predicate Logic",
+        "unit": 1,
+        "youtubeId": "r8s7F6bE3iI",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "22:45",
+        "description": "Universal quantifier (for all) and Existential quantifier (there exists), negating quantified statements, Modus Ponens, Modus Tollens, and resolution."
+      },
+      {
+        "id": "dm-u2-v1",
+        "title": "Combinatorics: Pigeonhole Principle & Permutations and Combinations",
+        "topicName": "Combinatorics and Recurrence Relations",
+        "unit": 2,
+        "youtubeId": "0bLh4rM_hA4",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "26:30",
+        "description": "Generalized Pigeonhole Principle proofs, inclusion-exclusion principle for 2 and 3 sets, derangements, and circular permutations."
+      },
+      {
+        "id": "dm-u2-v2",
+        "title": "Solving Linear Recurrence Relations using Characteristic Roots & Generating Functions",
+        "topicName": "Combinatorics and Recurrence Relations",
+        "unit": 2,
+        "youtubeId": "d9WcK_N8VnE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "28:15",
+        "description": "Homogeneous recurrence relations a_n - c1 a_(n-1) - c2 a_(n-2) = 0 and non-homogeneous equations with polynomial and exponential RHS."
+      },
+      {
+        "id": "dm-u3-v1",
+        "title": "Graph Theory: Isomorphism, Euler Graphs & Hamiltonian Cycles",
+        "topicName": "Graph Theory and Trees",
+        "unit": 3,
+        "youtubeId": "mBf1Kx4G2h8",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "29:40",
+        "description": "Handshaking lemma sum deg(v) = 2|E|, graph isomorphism matrix representation, Euler's formula for planar graphs v - e + r = 2, and Dirac's theorem."
+      },
+      {
+        "id": "dm-u4-v1",
+        "title": "Algebraic Structures: Semigroups, Monoids, Groups and Subgroups",
+        "topicName": "Algebraic Structures",
+        "unit": 4,
+        "youtubeId": "vL7n8mK1xY0",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "27:50",
+        "description": "Group axioms (closure, associativity, identity, inverse), Abelian groups, Lagrange's Theorem (order of subgroup divides order of group)."
+      },
+      {
+        "id": "dm-u5-v1",
+        "title": "Lattices & Boolean Algebra - Hasse Diagrams and Distributive Lattices",
+        "topicName": "Lattices and Boolean Algebra",
+        "unit": 5,
+        "youtubeId": "zL9mN4xR6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "25:35",
+        "description": "Posets, drawing Hasse diagrams, least upper bound (LUB/join), greatest lower bound (GLB/meet), complemented and distributive lattices."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-dm-u1",
+        "title": "Rules of Inference & Logical Equivalences",
+        "topicName": "Propositional and Predicate Logic",
+        "unit": 1,
+        "summary": "Modus Ponens, Modus Tollens, Disjunctive Syllogism, and De Morgan's laws.",
+        "latexSnippet": "\\textbf{Modus Ponens: } p, \\; p \\implies q \\vdash q; \\quad \\textbf{Modus Tollens: } \\neg q, \\; p \\implies q \\vdash \\neg p; \\quad p \\implies q \\equiv \\neg p \\lor q"
+      },
+      {
+        "id": "f-dm-u2",
+        "title": "Inclusion-Exclusion Principle & Pigeonhole Principle",
+        "topicName": "Combinatorics and Recurrence Relations",
+        "unit": 2,
+        "summary": "Cardinality of set unions and minimum items in pigeonholes.",
+        "latexSnippet": "|A \\cup B \\cup C| = |A| + |B| + |C| - (|A \\cap B| + |B \\cap C| + |C \\cap A|) + |A \\cap B \\cap C|, \\quad \\left\\lceil \\frac{n}{k} \\right\\rceil \\text{ items in at least 1 box}"
+      },
+      {
+        "id": "f-dm-u3",
+        "title": "Graph Theory: Handshaking Lemma & Planar Graphs",
+        "topicName": "Graph Theory and Trees",
+        "unit": 3,
+        "summary": "Euler's planar formula and Handshaking theorem relating vertex degrees to edges.",
+        "latexSnippet": "\\sum_{v \\in V} \\text{deg}(v) = 2|E|, \\quad v - e + r = 2 \\; (\\text{Euler's Planar Formula}), \\quad e \\le 3v - 6 \\; (\\text{Planar graph } v \\ge 3)"
+      },
+      {
+        "id": "f-dm-u4",
+        "title": "Lagrange's Theorem in Group Theory",
+        "topicName": "Algebraic Structures",
+        "unit": 4,
+        "summary": "Subgroup order divides finite group order.",
+        "latexSnippet": "|G| = [G : H] \\cdot |H| \\implies |H| \\text{ divides } |G|, \\quad a^{|G|} = e \\; (\\text{Euler's / Fermat's Little Theorem})"
+      },
+      {
+        "id": "f-dm-u5",
+        "title": "Lattice Properties & Distributive Absorption Laws",
+        "topicName": "Lattices and Boolean Algebra",
+        "unit": 5,
+        "summary": "Join and meet axioms in partially ordered sets.",
+        "latexSnippet": "a \\land (a \\lor b) = a, \\quad a \\lor (a \\land b) = a, \\quad a \\land (b \\lor c) = (a \\land b) \\lor (a \\land c)"
+      }
+    ],
     "books": [
       {
         "title": "Discrete Mathematics Official Syllabus Reference & Textbook",
@@ -11618,8 +12440,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 7,
+    "formulasCount": 5
   },
   "formal-languages-and-automata": {
     "courseId": 33,
@@ -11773,8 +12595,110 @@
         "source": "TheHelper"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "flat-u1-v1",
+        "title": "Deterministic Finite Automata (DFA) Construction with String Acceptance Examples",
+        "topicName": "Finite Automata and Regular Languages",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "28:15",
+        "description": "Formal 5-tuple definition of DFA (Q, Sigma, delta, q0, F), transition tables, designing DFAs for strings ending in, starting with, containing substring."
+      },
+      {
+        "id": "flat-u1-v2",
+        "title": "NFA to DFA Conversion (Subset Construction Method) & Minimization of DFA",
+        "topicName": "Finite Automata and Regular Languages",
+        "unit": 1,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "26:40",
+        "description": "Non-deterministic finite automata, epsilon-NFA, subset construction algorithm, and Myhill-Nerode table-filling minimization algorithm."
+      },
+      {
+        "id": "flat-u2-v1",
+        "title": "Regular Expressions, Arden's Theorem & Pumping Lemma for Regular Languages",
+        "topicName": "Regular Expressions and Properties",
+        "unit": 2,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "31:20",
+        "description": "Converting state transition diagrams to regular expressions via R = Q + RP => R = QP*, and proving non-regularity (e.g. a^n b^n) using Pumping Lemma."
+      },
+      {
+        "id": "flat-u3-v1",
+        "title": "Context-Free Grammars (CFG), Derivation Trees & Ambiguity",
+        "topicName": "Context-Free Grammars and Languages",
+        "unit": 3,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "25:50",
+        "description": "Leftmost vs Rightmost derivations, parse trees, inherently ambiguous grammars, and simplification of CFGs (eliminating null, unit, and useless productions)."
+      },
+      {
+        "id": "flat-u4-v1",
+        "title": "Pushdown Automata (PDA): Acceptance by Final State and Empty Stack",
+        "topicName": "Pushdown Automata",
+        "unit": 4,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "29:30",
+        "description": "7-tuple PDA definition, transition function delta(q, a, Z), instant configurations (ID), and deterministic (DPDA) vs non-deterministic PDA (NPDA)."
+      },
+      {
+        "id": "flat-u5-v1",
+        "title": "Turing Machines: Design, Instantaneous Descriptions & Halting Problem",
+        "topicName": "Turing Machines and Computability",
+        "unit": 5,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "32:10",
+        "description": "7-tuple TM definition, infinite tape, head movement (L/R), designing TM for a^n b^n c^n, Chomsky Hierarchy, and proof of Halting Problem undecidability."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-flat-u1",
+        "title": "DFA 5-Tuple Definition & Transition Properties",
+        "topicName": "Finite Automata and Regular Languages",
+        "unit": 1,
+        "summary": "Formal mathematical components of deterministic finite state machines.",
+        "latexSnippet": "M = (Q, \\Sigma, \\delta, q_0, F), \\quad \\delta: Q \\times \\Sigma \\to Q, \\quad \\text{Extended: } \\delta^*(q, wa) = \\delta(\\delta^*(q, w), a)"
+      },
+      {
+        "id": "f-flat-u2",
+        "title": "Arden's Theorem & Regular Language Pumping Lemma",
+        "topicName": "Regular Expressions and Properties",
+        "unit": 2,
+        "summary": "State equation solution and contradiction steps for proving non-regularity.",
+        "latexSnippet": "R = Q + RP \\; (\\varepsilon \\notin P) \\implies R = QP^*, \\quad \\textbf{Pumping Lemma: } w = xyz, \\; |xy| \\le p, \\; |y| \\ge 1 \\implies \\forall i \\ge 0, \\; xy^i z \\in L"
+      },
+      {
+        "id": "f-flat-u3",
+        "title": "Chomsky Normal Form (CNF) Production Constraints",
+        "topicName": "Context-Free Grammars and Languages",
+        "unit": 3,
+        "summary": "Binary non-terminal or single terminal production form for CYK parsing.",
+        "latexSnippet": "A \\to BC \\quad \\text{or} \\quad A \\to a \\quad (A, B, C \\in V_N, \\; a \\in V_T)"
+      },
+      {
+        "id": "f-flat-u4",
+        "title": "Pushdown Automaton 7-Tuple & Transition Mapping",
+        "topicName": "Pushdown Automata",
+        "unit": 4,
+        "summary": "Stack transitions with read input and push/pop operations.",
+        "latexSnippet": "M = (Q, \\Sigma, \\Gamma, \\delta, q_0, Z_0, F), \\quad \\delta: Q \\times (\\Sigma \\cup \\{\\varepsilon\\}) \\times \\Gamma \\to 2^{Q \\times \\Gamma^*}"
+      },
+      {
+        "id": "f-flat-u5",
+        "title": "Chomsky Hierarchy Classification Table",
+        "topicName": "Turing Machines and Computability",
+        "unit": 5,
+        "summary": "Grammar types, corresponding automata, and language class containment.",
+        "latexSnippet": "\\begin{array}{|c|l|l|l|} \\hline \\textbf{Type} & \\textbf{Language} & \\textbf{Automaton} & \\textbf{Production Form} \\\\ \\hline 0 & \\text{Recursively Enumerable} & \\text{Turing Machine} & \\alpha \\to \\beta \\; (\\alpha \\in (V \\cup T)^+) \\\\ 1 & \\text{Context-Sensitive} & \\text{Linear Bounded Automaton} & \\alpha \\to \\beta \\; (|\\alpha| \\le |\\beta|) \\\\ 2 & \\text{Context-Free} & \\text{Pushdown Automaton} & A \\to \\alpha \\; (A \\in V) \\\\ 3 & \\text{Regular} & \\text{Finite Automaton} & A \\to aB \\; \\lor \\; A \\to a \\\\ \\hline \\end{array}"
+      }
+    ],
     "books": [
       {
         "title": "Formal Languages and Automata Official Syllabus Reference & Textbook",
@@ -11784,8 +12708,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 6,
+    "formulasCount": 5
   },
   "computer-networks": {
     "courseId": 34,
@@ -12035,8 +12959,120 @@
         "source": "GradeX SubDeck"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "cn-u1-v1",
+        "title": "OSI vs TCP/IP Model: Functions of All 7 Layers with Real-Life Examples",
+        "topicName": "Foundations and Physical Layer",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "27:40",
+        "description": "Physical, Data Link, Network, Transport, Session, Presentation, Application layers, encapsulation, and protocol data units (PDU)."
+      },
+      {
+        "id": "cn-u2-v1",
+        "title": "Error Detection: CRC (Cyclic Redundancy Check) Step-by-Step Generator Polynomial",
+        "topicName": "Data Link Layer",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "23:50",
+        "description": "Modulo-2 binary division, appending zeros, calculating CRC remainder, error detection capability, and internet checksum."
+      },
+      {
+        "id": "cn-u2-v2",
+        "title": "Flow Control Protocols: Stop and Wait, Go-Back-N (GBN) & Selective Repeat (SR)",
+        "topicName": "Data Link Layer",
+        "unit": 2,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "32:15",
+        "description": "Window sizes (Sender Ws, Receiver Wr), sequence numbers N, calculating maximum efficiency eta = N / (1 + 2a), and retransmission on packet loss."
+      },
+      {
+        "id": "cn-u3-v1",
+        "title": "IPv4 Addressing & Subnetting in 1 Shot: Classful vs CIDR (Subnet Mask)",
+        "topicName": "Network Layer",
+        "unit": 3,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "36:20",
+        "description": "Class A, B, C ranges, network ID, host ID, broadcast address, slash notation (/24, /27), finding subnets and assignable host IP ranges."
+      },
+      {
+        "id": "cn-u3-v2",
+        "title": "Routing Algorithms: Distance Vector (Bellman-Ford) vs Link State (Dijkstra)",
+        "topicName": "Network Layer",
+        "unit": 3,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "28:40",
+        "description": "Count-to-infinity problem in Distance Vector, split horizon, poison reverse, and Link State Advertisements (LSA) in OSPF."
+      },
+      {
+        "id": "cn-u4-v1",
+        "title": "TCP 3-Way Handshake, Connection Teardown & Congestion Control (AIMD)",
+        "topicName": "Transport Layer",
+        "unit": 4,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "30:15",
+        "description": "SYN, SYN-ACK, ACK packet sequence numbers, FIN termination, Slow Start exponential growth, Congestion Avoidance additive increase, and Fast Retransmit."
+      },
+      {
+        "id": "cn-u5-v1",
+        "title": "Application Layer Protocols: DNS, HTTP/HTTPS, FTP, SMTP & Email Architecture",
+        "topicName": "Application Layer",
+        "unit": 5,
+        "youtubeId": "RO5alU6PpSU",
+        "channel": "Gate Smashers",
+        "duration": "25:40",
+        "description": "Recursive vs iterative DNS queries, HTTP persistent vs non-persistent connections, port numbers, and symmetric vs asymmetric HTTPS TLS handshake."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-cn-u1",
+        "title": "Bandwidth-Delay Product & Transmission vs Propagation Delay",
+        "topicName": "Foundations and Physical Layer",
+        "unit": 1,
+        "summary": "Core delay components in packet-switched computer networks.",
+        "latexSnippet": "T_{trans} = \\frac{L}{B} \\; (\\text{Length / Bandwidth}), \\quad T_{prop} = \\frac{d}{v} \\; (\\text{Distance / Speed}), \\quad BDP = B \\times T_{prop}"
+      },
+      {
+        "id": "f-cn-u2",
+        "title": "Sliding Window Protocol Efficiency & Window Sizes",
+        "topicName": "Data Link Layer",
+        "unit": 2,
+        "summary": "Max throughput and minimum sequence numbers for GBN and Selective Repeat.",
+        "latexSnippet": "a = \\frac{T_{prop}}{T_{trans}}, \\quad \\eta_{stop-wait} = \\frac{1}{1 + 2a}, \\quad \\eta_{pipelined} = \\frac{W_s}{1 + 2a}, \\quad \\textbf{GBN: } W_s + W_r \\le 2^k \\implies W_s = 2^k - 1, W_r = 1; \\quad \\textbf{SR: } W_s = W_r = 2^{k-1}"
+      },
+      {
+        "id": "f-cn-u3",
+        "title": "IPv4 CIDR Subnetting & Usable Hosts Formula",
+        "topicName": "Network Layer",
+        "unit": 3,
+        "summary": "Host bits h and subnet bits s in CIDR prefix /N.",
+        "latexSnippet": "h = 32 - N, \\quad \\text{Total Addresses} = 2^h, \\quad \\text{Usable Hosts} = 2^h - 2 \\quad (\\text{Subtract Network ID and Directed Broadcast})"
+      },
+      {
+        "id": "f-cn-u4",
+        "title": "TCP Congestion Window Growth (Slow Start & AIMD)",
+        "topicName": "Transport Layer",
+        "unit": 4,
+        "summary": "Exponential growth during slow start and linear growth during avoidance.",
+        "latexSnippet": "\\textbf{Slow Start: } cwnd = cwnd + 1 \\text{ per ACK } (\\implies \\times 2 \\text{ per RTT}), \\quad \\textbf{Congestion Avoidance: } cwnd = cwnd + \\frac{1}{cwnd} \\text{ per ACK} (\\implies +1 \\text{ per RTT})"
+      },
+      {
+        "id": "f-cn-u5",
+        "title": "CSMA/CD Minimum Frame Size for Collision Detection",
+        "topicName": "Data Link Layer",
+        "unit": 5,
+        "summary": "Condition that transmission delay must exceed round-trip propagation delay.",
+        "latexSnippet": "T_{trans} \\ge 2 \\cdot T_{prop} \\implies \\frac{L_{min}}{B} \\ge 2 \\left(\\frac{d}{v}\\right) \\implies L_{min} = 2 \\times B \\times \\left(\\frac{d}{v}\\right)"
+      }
+    ],
     "books": [
       {
         "title": "Computer Networks Official Syllabus Reference & Textbook",
@@ -12046,8 +13082,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 7,
+    "formulasCount": 5
   },
   "software-engineering-and-project-management": {
     "courseId": 35,
@@ -12491,8 +13527,110 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "cd-u1-v1",
+        "title": "Phases of a Compiler in 1 Shot: Lexical, Syntax, Semantic & Code Gen",
+        "topicName": "Introduction to Compilers and Lexical Analysis",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "27:15",
+        "description": "Front-end vs back-end, token stream, syntax tree, annotated AST, intermediate code (3AC), symbol table interactions, and error handler."
+      },
+      {
+        "id": "cd-u2-v1",
+        "title": "Top-Down Parsing: FIRST and FOLLOW Computation & LL(1) Parsing Table",
+        "topicName": "Syntax Analysis and Parsing",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "34:30",
+        "description": "Rules for calculating FIRST(A) and FOLLOW(A), eliminating left recursion A -> A alpha | beta, left factoring, and detecting LL(1) grammar conflicts."
+      },
+      {
+        "id": "cd-u2-v2",
+        "title": "Bottom-Up Parsing: LR(0), SLR(1), CLR(1), LALR(1) Parsing Comparison",
+        "topicName": "Syntax Analysis and Parsing",
+        "unit": 2,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "38:40",
+        "description": "Canonical collection of LR(0) items, shift-reduce (S-R) conflicts, reduce-reduce (R-R) conflicts, SLR(1) reduction into FOLLOW, and merging states in LALR(1)."
+      },
+      {
+        "id": "cd-u3-v1",
+        "title": "Syntax Directed Translation (SDT): Synthesized vs Inherited Attributes",
+        "topicName": "Syntax-Directed Translation and Semantic Analysis",
+        "unit": 3,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "24:50",
+        "description": "S-attributed definitions (bottom-up evaluable) vs L-attributed definitions, dependency graphs, annotated parse trees, and semantic actions."
+      },
+      {
+        "id": "cd-u4-v1",
+        "title": "Intermediate Code Generation: Three-Address Code, Quadruples, Triples & Indirect Triples",
+        "topicName": "Intermediate Code Generation and Runtime Environments",
+        "unit": 4,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "22:15",
+        "description": "Generating 3AC for arithmetic expressions, boolean conditions (backpatching), array address calculations, and data structures representation."
+      },
+      {
+        "id": "cd-u5-v1",
+        "title": "Code Optimization: Basic Blocks, Control Flow Graph (CFG) & Loop Optimization",
+        "topicName": "Code Optimization and Code Generation",
+        "unit": 5,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "25:40",
+        "description": "Identifying leaders to form basic blocks, Common Subexpression Elimination, Dead Code Elimination, Loop Invariant Code Motion, and strength reduction."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-cd-u1",
+        "title": "Left Recursion Elimination & Left Factoring Formulas",
+        "topicName": "Syntax Analysis and Parsing",
+        "unit": 1,
+        "summary": "Standard transform to convert left-recursive CFGs into top-down parsable form.",
+        "latexSnippet": "A \\to A\\alpha_1 \\mid \\dots \\mid A\\alpha_m \\mid \\beta_1 \\mid \\dots \\mid \\beta_n \\implies \\begin{cases} A \\to \\beta_1 A' \\mid \\dots \\mid \\beta_n A' \\\\ A' \\to \\alpha_1 A' \\mid \\dots \\mid \\alpha_m A' \\mid \\varepsilon \\end{cases}"
+      },
+      {
+        "id": "f-cd-u2",
+        "title": "LL(1) Parsing Table Entry Condition",
+        "topicName": "Syntax Analysis and Parsing",
+        "unit": 2,
+        "summary": "Grammar is LL(1) if and only if every table entry contains at most 1 production.",
+        "latexSnippet": "\\forall (A \\to \\alpha), \\; M[A, a] = A \\to \\alpha \\; \\forall a \\in \\text{FIRST}(\\alpha); \\quad \\text{If } \\varepsilon \\in \\text{FIRST}(\\alpha) \\implies M[A, b] = A \\to \\alpha \\; \\forall b \\in \\text{FOLLOW}(A)"
+      },
+      {
+        "id": "f-cd-u3",
+        "title": "LR Parser Hierarchy & Power Relationship",
+        "topicName": "Syntax Analysis and Parsing",
+        "unit": 3,
+        "summary": "Set of languages recognized by LR parsers.",
+        "latexSnippet": "LR(0) \\subset SLR(1) \\subset LALR(1) \\subset CLR(1) \\subset LR(k), \\quad \\text{Number of States: } |LR(0)| = |SLR(1)| = |LALR(1)| < |CLR(1)|"
+      },
+      {
+        "id": "f-cd-u4",
+        "title": "Three-Address Code 1D & 2D Array Address Formulas",
+        "topicName": "Intermediate Code Generation and Runtime Environments",
+        "unit": 4,
+        "summary": "Address translation for array access in row-major order.",
+        "latexSnippet": "\\text{Address}(A[i]) = \\text{base} + (i - \\text{low}) \\times w, \\quad \\text{Address}(A[i][j]) = \\text{base} + ((i - \\text{low}_1) \\times n_2 + (j - \\text{low}_2)) \\times w"
+      },
+      {
+        "id": "f-cd-u5",
+        "title": "Basic Block Leader Identification Rules",
+        "topicName": "Code Optimization and Code Generation",
+        "unit": 5,
+        "summary": "Rules for partitioning three-address instruction sequences into basic blocks.",
+        "latexSnippet": "1. \\; \\text{Instruction 1 is Leader}; \\quad 2. \\; \\text{Any target of a conditional/unconditional jump is Leader}; \\quad 3. \\; \\text{Any instruction following a jump is Leader}"
+      }
+    ],
     "books": [
       {
         "title": "Compiler Design Official Syllabus Reference & Textbook",
@@ -12502,8 +13640,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 6,
+    "formulasCount": 5
   },
   "data-science": {
     "courseId": 37,
@@ -13429,7 +14567,7 @@
   "information-security": {
     "courseId": 42,
     "courseName": "Information Security",
-    "courseCode": "21CSC404T",
+    "courseCode": "21CSC405J",
     "semester": 7,
     "syllabusUrl": "https://drive.google.com/file/d/18mNKlqPc4MdtK9wRRNks1yn7SMGhYcZf/view?usp=sharing",
     "pyqsCount": 6,
@@ -13516,8 +14654,110 @@
         "source": "Studique PPTs"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "is-u1-v1",
+        "title": "Information Security Concepts: CIA Triad, Security Attacks, Services & Mechanisms",
+        "topicName": "Security Fundamentals and Classical Cryptography",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "24:10",
+        "description": "Confidentiality, Integrity, Availability, passive vs active attacks (eavesdropping, replay, denial of service), and classical ciphers."
+      },
+      {
+        "id": "is-u2-v1",
+        "title": "Symmetric Key Cryptography: DES (Data Encryption Standard) & AES Architecture",
+        "topicName": "Symmetric Cryptography and Block Ciphers",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "31:40",
+        "description": "Feistel cipher structure, 16 rounds of DES, S-boxes, key generation, and AES 128-bit state matrix (SubBytes, ShiftRows, MixColumns, AddRoundKey)."
+      },
+      {
+        "id": "is-u3-v1",
+        "title": "RSA Algorithm Step-by-Step Numerical Example (Asymmetric Cryptography)",
+        "topicName": "Asymmetric Cryptography and Key Management",
+        "unit": 3,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "27:50",
+        "description": "Key generation using prime numbers p and q, Euler totient phi(n) = (p-1)(q-1), public key (e, n), private key d = e^-1 mod phi(n), encryption C = M^e mod n."
+      },
+      {
+        "id": "is-u3-v2",
+        "title": "Diffie-Hellman Key Exchange Algorithm & Man-in-the-Middle Attack",
+        "topicName": "Asymmetric Cryptography and Key Management",
+        "unit": 3,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "21:30",
+        "description": "Discrete logarithm problem, shared secret key computation K = (Y_B)^X_A mod q, and vulnerability to MitM without authentication."
+      },
+      {
+        "id": "is-u4-v1",
+        "title": "Cryptographic Hash Functions (SHA-256) & Digital Signatures",
+        "topicName": "Integrity, Authentication, and Digital Signatures",
+        "unit": 4,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "26:15",
+        "description": "Pre-image resistance, second pre-image resistance, collision resistance, SHA-512 compression function, and digital signature verification."
+      },
+      {
+        "id": "is-u5-v1",
+        "title": "Network Security: Firewalls (Packet Filtering vs Application Gateway) & IDS",
+        "topicName": "Network and System Security",
+        "unit": 5,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "23:45",
+        "description": "Stateless vs stateful inspection firewalls, circuit-level gateways, Intrusion Detection Systems (signature-based vs anomaly-based), and SSL/TLS."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-is-u1",
+        "title": "Modular Arithmetic & Extended Euclidean Algorithm",
+        "topicName": "Security Fundamentals and Classical Cryptography",
+        "unit": 1,
+        "summary": "Finding modular multiplicative inverse a^-1 mod m.",
+        "latexSnippet": "a \\cdot x \\equiv 1 \\pmod m \\iff \\gcd(a, m) = 1, \\quad a \\cdot x + m \\cdot y = \\gcd(a, m) \\; (\\text{Extended Euclidean})"
+      },
+      {
+        "id": "f-is-u2",
+        "title": "RSA Algorithm Key Generation & Encryption Formulas",
+        "topicName": "Asymmetric Cryptography and Key Management",
+        "unit": 2,
+        "summary": "Asymmetric encryption and decryption equations.",
+        "latexSnippet": "n = p \\cdot q, \\; \\phi(n) = (p-1)(q-1), \\; e \\cdot d \\equiv 1 \\pmod{\\phi(n)}, \\quad C = M^e \\bmod n, \\quad M = C^d \\bmod n"
+      },
+      {
+        "id": "f-is-u3",
+        "title": "Diffie-Hellman Shared Secret Key Computation",
+        "topicName": "Asymmetric Cryptography and Key Management",
+        "unit": 3,
+        "summary": "Exchange of public keys Y_A, Y_B over insecure channel.",
+        "latexSnippet": "Y_A = \\alpha^{X_A} \\bmod q, \\; Y_B = \\alpha^{X_B} \\bmod q \\implies K = (Y_B)^{X_A} \\bmod q = (Y_A)^{X_B} \\bmod q = \\alpha^{X_A X_B} \\bmod q"
+      },
+      {
+        "id": "f-is-u4",
+        "title": "Hash Function Birthday Paradox Collision Bound",
+        "topicName": "Integrity, Authentication, and Digital Signatures",
+        "unit": 4,
+        "summary": "Number of hash attempts required to find collision with probability 50% for n-bit hash.",
+        "latexSnippet": "k \\approx 1.177 \\sqrt{2^n} = 2^{n/2} \\implies \\text{For SHA-256 (256-bit): Collision search takes } 2^{128} \\text{ operations}"
+      },
+      {
+        "id": "f-is-u5",
+        "title": "Digital Signature Generation & Verification",
+        "topicName": "Integrity, Authentication, and Digital Signatures",
+        "unit": 5,
+        "summary": "Signing with sender's private key and verification with sender's public key.",
+        "latexSnippet": "S = [H(M)]^{d_A} \\bmod n_A, \\quad \\text{Verification: } H'(M) \\stackrel{?}{=} S^{e_A} \\bmod n_A"
+      }
+    ],
     "books": [
       {
         "title": "Information Security Official Syllabus Reference & Textbook",
@@ -13527,8 +14767,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 6,
+    "formulasCount": 5
   },
   "digital-signal-processing": {
     "courseId": 43,
