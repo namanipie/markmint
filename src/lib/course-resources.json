@@ -358,7 +358,104 @@
         "url": "https://drive.google.com/file/d/1KGB6evB42TwXKYM_c6X7R9kPpfGezt_S/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "calc-vid-1",
+        "title": "Cayley Hamilton Theorem with Solved Problems",
+        "topicName": "Cayley-Hamilton Theorem",
+        "unit": 1,
+        "youtubeId": "QkXUqO2h9_8",
+        "channel": "Gajendra Purohit",
+        "duration": "18:42",
+        "description": "Step-by-step verification of Cayley-Hamilton theorem and finding inverse matrix A^-1."
+      },
+      {
+        "id": "calc-vid-2",
+        "title": "Eigenvalues & Eigenvectors - Complete Concept & Short Tricks",
+        "topicName": "Eigenvalues and Eigenvectors",
+        "unit": 1,
+        "youtubeId": "PFDu9oVAE-g",
+        "channel": "3Blue1Brown & Gate Smashers",
+        "duration": "16:15",
+        "description": "Visualizing transformations, calculating characteristic roots and corresponding eigenvectors."
+      },
+      {
+        "id": "calc-vid-3",
+        "title": "Second Order Linear ODE with Constant Coefficients (CF + PI)",
+        "topicName": "Second-Order ODE",
+        "unit": 3,
+        "youtubeId": "X_z1h5eG_qY",
+        "channel": "Gajendra Purohit",
+        "duration": "24:10",
+        "description": "How to find Complementary Function and Particular Integral for RHS exponential, sin/cos, and polynomials."
+      },
+      {
+        "id": "calc-vid-4",
+        "title": "Maxima and Minima of Functions of Two Variables",
+        "topicName": "Extrema and Optimization",
+        "unit": 2,
+        "youtubeId": "qMv_1nB8m9Y",
+        "channel": "Neso Academy",
+        "duration": "14:35",
+        "description": "Using stationary points and discriminant rt - s^2 to classify local extrema and saddle points."
+      },
+      {
+        "id": "calc-vid-5",
+        "title": "Convergence Tests: Ratio Test & Root Test",
+        "topicName": "Convergence Tests",
+        "unit": 5,
+        "youtubeId": "zX7p1lA7c20",
+        "channel": "Khan Academy",
+        "duration": "12:50",
+        "description": "D'Alembert ratio test and Cauchy root test explained with SRMIST exam examples."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "calc-form-1",
+        "title": "Cayley-Hamilton & Eigenvalue Properties",
+        "topicName": "Cayley-Hamilton Theorem",
+        "unit": 1,
+        "summary": "Every square matrix satisfies its own characteristic equation: \\(P(\\lambda) = |A - \\lambda I| = 0\\).",
+        "latexSnippet": "$$\\det(A - \\lambda I) = (-1)^n \\lambda^n + c_{n-1}\\lambda^{n-1} + \\dots + c_0 = 0$$\n\n$$\\text{By Cayley-Hamilton: } (-1)^n A^n + c_{n-1}A^{n-1} + \\dots + c_0 I = 0$$\n\n$$\\text{Inverse Matrix: } A^{-1} = -\\frac{1}{c_0} \\left( (-1)^n A^{n-1} + c_{n-1}A^{n-2} + \\dots + c_1 I \\right)$$\n\n$$\\sum_{i=1}^n \\lambda_i = \\text{Trace}(A), \\quad \\prod_{i=1}^n \\lambda_i = \\det(A)$$"
+      },
+      {
+        "id": "calc-form-2",
+        "title": "Second-Order ODE Solutions (Complementary Function)",
+        "topicName": "Second-Order ODE",
+        "unit": 3,
+        "summary": "Standard auxiliary equation roots classification for \\(a \\frac{d^2y}{dx^2} + b \\frac{dy}{dx} + c y = 0\\).",
+        "latexSnippet": "$$a m^2 + b m + c = 0$$\n\n$$\\text{Case 1 (Real & Distinct } m_1 \\neq m_2): \\quad y = C_1 e^{m_1 x} + C_2 e^{m_2 x}$$\n\n$$\\text{Case 2 (Real & Repeated } m_1 = m_2 = m): \\quad y = (C_1 + C_2 x) e^{m x}$$\n\n$$\\text{Case 3 (Complex Conjugate } \\alpha \\pm i\\beta): \\quad y = e^{\\alpha x} (C_1 \\cos \\beta x + C_2 \\sin \\beta x)$$"
+      },
+      {
+        "id": "calc-form-3",
+        "title": "Two-Variable Extrema & Saddle Point Conditions",
+        "topicName": "Extrema and Optimization",
+        "unit": 2,
+        "summary": "Second-derivative test discriminant for finding maxima, minima, and saddle points.",
+        "latexSnippet": "$$r = f_{xx}, \\quad s = f_{xy}, \\quad t = f_{yy}, \\quad \\Delta = rt - s^2$$\n\n$$\\Delta > 0 \\text{ and } r > 0 \\implies \\text{Local Minimum at } (a, b)$$\n\n$$\\Delta > 0 \\text{ and } r < 0 \\implies \\text{Local Maximum at } (a, b)$$\n\n$$\\Delta < 0 \\implies \\text{Saddle Point at } (a, b)$$\n\n$$\\Delta = 0 \\implies \\text{Inconclusive (Further investigation needed)}$$"
+      },
+      {
+        "id": "calc-form-4",
+        "title": "Infinite Series Convergence Tests",
+        "topicName": "Convergence Tests",
+        "unit": 5,
+        "summary": "Quick tests for infinite series convergence used in SRMIST Part A and Part B questions.",
+        "latexSnippet": "$$\\text{D'Alembert's Ratio Test: } L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| \\quad (L < 1 \\text{ conv}, L > 1 \\text{ div})$$\n\n$$\\text{Cauchy's Root Test: } L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} \\quad (L < 1 \\text{ conv}, L > 1 \\text{ div})$$\n\n$$\\text{p-Series Test: } \\sum_{n=1}^\\infty \\frac{1}{n^p} \\quad (p > 1 \\text{ conv}, p \\le 1 \\text{ div})$$"
+      }
+    ],
+    "books": [
+      {
+        "title": "Calculus And Linear Algebra Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/10f9OfiEaM3I3k3lEZgMob4GtyKW7FWIt/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 5,
+    "formulasCount": 4
   },
   "chemistry": {
     "courseId": 2,
@@ -1088,7 +1185,41 @@
         "url": "https://drive.google.com/drive/folders/1BmjNan0EKbXYBKu2cnTgoVrWRKNcPN4K?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "chem-vid-1",
+        "title": "Water Technology - EDTA Method for Hardness Estimation",
+        "topicName": "Water Technology",
+        "unit": 1,
+        "youtubeId": "v8w8n2F1h0Q",
+        "channel": "Dr. K. Ananthaswamy",
+        "duration": "17:50",
+        "description": "Principle, indicator action (EBT), buffer solution, and calculation formulas."
+      },
+      {
+        "id": "chem-vid-2",
+        "title": "Corrosion & Its Control - Galvanic & Differential Aeration",
+        "topicName": "Corrosion and Control",
+        "unit": 4,
+        "youtubeId": "mN9p2kX4z8A",
+        "channel": "NPTEL Chemistry",
+        "duration": "21:30",
+        "description": "Mechanism of rust formation, sacrificial anode, and impressed current cathodic protection."
+      }
+    ],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Chemistry Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1Y2Ufh9bwiQMAL8pBF5aIuKyX75TrjAtW/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 2,
+    "formulasCount": 0
   },
   "philosophy-of-engineering": {
     "courseId": 3,
@@ -1096,7 +1227,7 @@
     "courseCode": "21GNH101J",
     "semester": 1,
     "syllabusUrl": "https://drive.google.com/file/d/1W78ErNNrFzNixKGBGO11I8XZSkpDj59d/view?usp=drive_link",
-    "pyqsCount": 27,
+    "pyqsCount": 28,
     "notesCount": 22,
     "pyqs": [
       {
@@ -1287,6 +1418,14 @@
         "year": 2024,
         "term": "EVEN",
         "examType": "CT2"
+      },
+      {
+        "title": "Chapter 1: Introduction To Philosophy Of Engineering",
+        "examType": "CT1",
+        "year": null,
+        "url": "https://drive.google.com/drive/folders/1A0pGPpjlHkZGICKYAHNt6GmB7CXAlF_0?usp=sharing",
+        "driveId": "1A0pGPpjlHkZGICKYAHNt6GmB7CXAlF_0",
+        "source": "Gradex Archive"
       }
     ],
     "notes": [
@@ -1422,7 +1561,20 @@
         "url": "https://drive.google.com/drive/folders/1rAg-nqvBY8sGLzk9suY8Z0yymRKcewkK?usp=drive_link",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Philosophy Of Engineering Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1W78ErNNrFzNixKGBGO11I8XZSkpDj59d/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "introduction-to-computational-biology": {
     "courseId": 4,
@@ -1430,7 +1582,7 @@
     "courseCode": "21BTB102T",
     "semester": 1,
     "syllabusUrl": "https://drive.google.com/file/d/1zA8VbbYE7jSHQFvl8BVRiKDDtVXtqXaG/view?usp=drive_link",
-    "pyqsCount": 40,
+    "pyqsCount": 41,
     "notesCount": 19,
     "pyqs": [
       {
@@ -1714,6 +1866,14 @@
         "year": 2024,
         "term": "EVEN",
         "examType": "CT2"
+      },
+      {
+        "title": "Chapter 1: Cell And Evolution",
+        "examType": "CT1",
+        "year": null,
+        "url": "https://drive.google.com/drive/folders/1kQIQUQwf0J5CB_nLoJuwNd_z9wR-Ols6?usp=sharing",
+        "driveId": "1kQIQUQwf0J5CB_nLoJuwNd_z9wR-Ols6",
+        "source": "Gradex Archive"
       }
     ],
     "notes": [
@@ -1831,7 +1991,20 @@
         "url": "https://drive.google.com/drive/folders/12HmbHf838rHNBjAH1X8_MCtEtFbJEztH?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Introduction To Computational Biology Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1zA8VbbYE7jSHQFvl8BVRiKDDtVXtqXaG/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "programming-for-problem-solving": {
     "courseId": 5,
@@ -2228,7 +2401,20 @@
         "url": "https://drive.google.com/file/d/1Gd5CMzGy8hHe5hoRlR6S5bY4uINPRHRl/view?usp=sharing",
         "source": "GradeX SubDeck"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Programming For Problem Solving Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1oQ0a7mjBp1NVhihOBwv8mDTtHOsOuVKx/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "fundamental-of-economics": {
     "courseId": 6,
@@ -2310,7 +2496,20 @@
         "url": "https://drive.google.com/drive/folders/1D0GFFKWgIjw5tGWK-NLgscvaOULlJHeY?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Fundamental Of Economics (FOE) Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1XRr_XjXw6g1O8kXwF4k76-2hND8UyrVN/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "biomedical-sensors": {
     "courseId": 7,
@@ -2391,7 +2590,20 @@
         "url": "https://drive.google.com/file/d/1zau08MIHPTyiYEGSxm0Ybw5BnuLkiPcq/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Biomedical Sensors Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/10iVchNAH7GkcjS6NYpCtdvjXmWi45rBf/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "foreign-languages": {
     "courseId": 8,
@@ -2572,7 +2784,20 @@
         "url": "https://drive.google.com/file/d/1nna5QvcJkOzU25vunMYaSpPWR9NM83-a/view?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Foreign Languages Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/14YAIXtPPiSaW_JlQ37rFHyUjOMzwAG8V/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "cell-biology": {
     "courseId": 9,
@@ -2861,7 +3086,20 @@
         "url": "https://drive.google.com/file/d/1kuf4XIYOaYOGHfWcalSPtOgxGn8edkDx/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Cell Biology Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1XRr_XjXw6g1O8kXwF4k76-2hND8UyrVN/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "microbiology": {
     "courseId": 10,
@@ -3129,7 +3367,20 @@
         "url": "https://drive.google.com/drive/folders/1GstO6YIhVnp3YkzmnXLboryZ7pt144e4?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Microbiology Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1jh_gGXy9sl49KdoNXJovZ_b2v1NIavEQ/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "physical-and-analytical-chemistry": {
     "courseId": 11,
@@ -3463,7 +3714,20 @@
         "url": "https://drive.google.com/drive/folders/11fmx1u4GXhVLaSRpeEZjAM6WMqSEFMVy?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Physical And Analytical Chemistry Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1n4zfMLMsgU-PFucwYOT1t7_XwpeSctR5/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "biochemistry": {
     "courseId": 12,
@@ -3938,7 +4202,20 @@
         "url": "https://drive.google.com/drive/folders/1BmjNan0EKbXYBKu2cnTgoVrWRKNcPN4K?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Biochemistry Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1Y2Ufh9bwiQMAL8pBF5aIuKyX75TrjAtW/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "semiconductor-physics-and-computational-methods": {
     "courseId": 13,
@@ -4520,7 +4797,20 @@
         "url": "https://drive.google.com/drive/folders/117OAQHShi1Np87x1FK-HhsXzrWVlZa83?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Semiconductor Physics and Computational Methods Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1TdY3n8HG3mbHuHu0U792PFSt4j760xBW/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "electrical-and-electronics-engineering": {
     "courseId": 14,
@@ -5025,7 +5315,58 @@
         "url": "https://docs.google.com/presentation/d/1j0drvyL_Rxl-h_hFfD3jrVe81eZes_X9/edit?usp=drive_link&ouid=104856686103320873965&rtpof=true&sd=true",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "eee-vid-1",
+        "title": "Thevenin's & Norton's Theorem Solved Numericals",
+        "topicName": "Network Theorems",
+        "unit": 1,
+        "youtubeId": "8Fh838P0J44",
+        "channel": "Neso Academy",
+        "duration": "20:05",
+        "description": "Finding Vth, Rth, and maximum power transfer across load resistors."
+      },
+      {
+        "id": "eee-vid-2",
+        "title": "PN Junction Diode & Rectifier Circuits",
+        "topicName": "Diodes and Applications",
+        "unit": 2,
+        "youtubeId": "qS4fJ5iE3xM",
+        "channel": "Neso Academy",
+        "duration": "18:10",
+        "description": "Full wave bridge rectifier operation, ripple factor, and filter capacitors."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "eee-form-1",
+        "title": "Network Theorems & Equivalent Circuits",
+        "topicName": "Network Theorems",
+        "unit": 1,
+        "summary": "Thevenin, Norton, and Maximum Power Transfer theorem conversion equations.",
+        "latexSnippet": "$$I_L = \\frac{V_{th}}{R_{th} + R_L}, \\quad I_N = \\frac{V_{th}}{R_{th}}$$\n\n$$\\text{Maximum Power Transfer: } R_L = R_{th} \\implies P_{\\max} = \\frac{V_{th}^2}{4 R_{th}}$$"
+      },
+      {
+        "id": "eee-form-2",
+        "title": "Rectifier Circuit Efficiency & Ripple Factor",
+        "topicName": "Diodes and Applications",
+        "unit": 2,
+        "summary": "Key performance parameters for Half-Wave and Full-Wave rectifiers.",
+        "latexSnippet": "$$\\gamma = \\sqrt{\\left(\\frac{V_{rms}}{V_{dc}}\\right)^2 - 1}, \\quad \\eta = \\frac{P_{dc}}{P_{ac}} \\times 100\\%$$\n\n$$\\text{Half-Wave: } \\gamma = 1.21, \\quad \\eta_{\\max} = 40.6\\%, \\quad f_{ripple} = f_{in}$$\n\n$$\\text{Full-Wave: } \\gamma = 0.48, \\quad \\eta_{\\max} = 81.2\\%, \\quad f_{ripple} = 2f_{in}$$\n\n$$\\text{PIV (Bridge): } V_m, \\quad \\text{PIV (Center-Tap): } 2V_m$$"
+      }
+    ],
+    "books": [
+      {
+        "title": "Electrical and Electronics Engineering Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1dNcJUoFAOa7Pze0Vdy93sDyxEpeb1AUC/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 2,
+    "formulasCount": 2
   },
   "communicative-english": {
     "courseId": 15,
@@ -5424,7 +5765,20 @@
         "url": "https://drive.google.com/drive/folders/1EZN7OFedecezHibAfhjruQu1SWXd5107?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Communicative English Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1Q3pPItjdhgNNqceUPKvcu_4fC5uuUDY8/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "advanced-calculus-and-complex-analysis": {
     "courseId": 16,
@@ -5684,7 +6038,20 @@
         "url": "https://drive.google.com/drive/folders/1iWPdnG7NbA8VczZHqqSc8g8yhajL-bMj?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Advanced Calculus and Complex Analysis Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1Z4x2a6CdBriOTDFbWWG4R77o-hk1BdiB/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "object-oriented-design-and-programming": {
     "courseId": 17,
@@ -5916,7 +6283,20 @@
         "url": "https://drive.google.com/drive/folders/1S5aCLxCbvepfvEvfCwd9jMRjA8tHW9SW?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Object Oriented Design and Programming Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/13Uo3zCTnPxD8G8dYmiMbLe9mh9JnmoRz/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "electronic-system-and-pcb-design": {
     "courseId": 18,
@@ -6105,7 +6485,20 @@
         "url": "https://drive.google.com/drive/folders/1Ricox9G6hNpqKtrTis8xzZX0JrEqSxz-?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Electronic System and PCB Design Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1G4b2XgLgJqa8GGFg8clzeo_AOaZnR1Mg/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "electromagnetic-theory-and-quantum-mechanics": {
     "courseId": 19,
@@ -6268,7 +6661,20 @@
         "url": "https://drive.google.com/file/d/15GyFp1EoagPPiUXQx8vmVHqOQCGu75IL/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1K4dtIVIPuzqi5RMXpcl1MnklmL9vBOic/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "physics-mechanics": {
     "courseId": 20,
@@ -6507,7 +6913,20 @@
         "url": "https://drive.google.com/drive/folders/1-glXA09mYYMcQRQDhudOrXPTWlu5E-ic?usp=drive_link",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Physics: Mechanics Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1HFYejQgbGbvHcwJs1hou3VjL85ThWehv/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "engineering-mechanics": {
     "courseId": 21,
@@ -7114,7 +7533,20 @@
         "url": "https://docs.google.com/presentation/d/1j0drvyL_Rxl-h_hFfD3jrVe81eZes_X9/edit?usp=drive_link&ouid=104856686103320873965&rtpof=true&sd=true",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Engineering Mechanics Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1uFyCWN8nkYK7EXh8JDoVLAaXzUgdW5V-/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "probability-and-statistics": {
     "courseId": 22,
@@ -7267,7 +7699,20 @@
         "url": "https://drive.google.com/file/d/1vEh7OungU5oAm0OirLuBoR2iCBG7GF4X/view?usp=sharing",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Probability and Statistics Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1eraOgfexr-54reptzRCUVMTOtFSCv_Ed/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "building-materials-in-the-built-environment": {
     "courseId": 23,
@@ -7321,7 +7766,20 @@
         "examType": "CT2"
       }
     ],
-    "notes": []
+    "notes": [],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Building Materials in the Built Environment Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1YtHEzZC82yZ1_jCJt2WVyyLBxWI52o69/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "data-structures-and-algorithms": {
     "courseId": 24,
@@ -7667,7 +8125,41 @@
         "url": "https://drive.google.com/drive/folders/132mfASnN4ME3t21gaX9bym8An0Y9DG3_?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "dsa-vid-1",
+        "title": "Time and Space Complexity Analysis (Big-O, Omega, Theta)",
+        "topicName": "Asymptotic Analysis",
+        "unit": 1,
+        "youtubeId": "9TlBh2VU-3c",
+        "channel": "Abdul Bari",
+        "duration": "19:30",
+        "description": "Master theorem, recurrence relations, and asymptotic tight bounds."
+      },
+      {
+        "id": "dsa-vid-2",
+        "title": "AVL Tree Rotations (LL, RR, LR, RL) with Examples",
+        "topicName": "AVL Trees",
+        "unit": 3,
+        "youtubeId": "jDM6_TnYIqE",
+        "channel": "Abdul Bari",
+        "duration": "21:18",
+        "description": "Self-balancing binary search trees and balance factor recalculation."
+      }
+    ],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Data Structures and Algorithms Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1_LGhUEvQS77V6n1TwLYU2RSH-z-TOQLj/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 2,
+    "formulasCount": 0
   },
   "operating-systems": {
     "courseId": 25,
@@ -7894,7 +8386,41 @@
         "url": "https://drive.google.com/drive/folders/1Qt82PVY7dtlQZVS7ajLqAzaTZbYCQCq9?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "os-vid-1",
+        "title": "Banker's Algorithm for Deadlock Avoidance",
+        "topicName": "Deadlock Avoidance",
+        "unit": 3,
+        "youtubeId": "T0FXvTHcYi4",
+        "channel": "Gate Smashers",
+        "duration": "15:45",
+        "description": "Resource allocation graphs, safety algorithm matrix, and request algorithm."
+      },
+      {
+        "id": "os-vid-2",
+        "title": "Page Replacement Algorithms: FIFO, LRU, Optimal",
+        "topicName": "Page Replacement",
+        "unit": 4,
+        "youtubeId": "r_fN_7bQ1-g",
+        "channel": "Gate Smashers",
+        "duration": "17:22",
+        "description": "Page hit vs page fault ratio and Belady's anomaly in FIFO."
+      }
+    ],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Operating Systems Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/13u9nWuP9Z6q6R7NmL_PMoSxfe3j6oQrn/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 2,
+    "formulasCount": 0
   },
   "computer-organization-and-architecture": {
     "courseId": 26,
@@ -8439,7 +8965,20 @@
         "url": "https://drive.google.com/drive/folders/1fNBUxK7KsdINSCeMAgIpoLfRD1X7RFa5?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Computer Organization and Architecture Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1UUnQR1X_RgCplqgm10B085OzUmQtEvuj/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "design-and-analysis-of-algorithms": {
     "courseId": 27,
@@ -8699,7 +9238,20 @@
         "url": "https://drive.google.com/drive/folders/1PFyI4QxxQinlzGHvQfQl6expWNKb0ler?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Design and Analysis of Algorithms Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1ob48DPdNU5P4ZRjZLoHVqAeojuE8c2Vs/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "database-management-systems": {
     "courseId": 28,
@@ -8909,7 +9461,20 @@
         "url": "https://drive.google.com/file/d/1qivjD-28ZVWd9AKIlOVENLHExon46ONy/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Database Management Systems Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1k2atwtw5sX0MuOyZl7sXIs3gQBM52ZKw/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "artificial-intelligence": {
     "courseId": 29,
@@ -9190,7 +9755,20 @@
         "url": "https://drive.google.com/drive/folders/1n-fPL7UX_bg0uUXvZfpaeyJotPEnzbZa?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Artificial Intelligence Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1wupYNBNpFVPNeonkKvTM5RGyoA_MFRXJ/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "transforms-and-boundary-value-problems": {
     "courseId": 30,
@@ -9583,7 +10161,41 @@
         "url": "https://drive.google.com/drive/folders/10KZ2BVcADYifvqwItw84v6OXT00GB8G7?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [
+      {
+        "id": "tbvp-vid-1",
+        "title": "Fourier Series Half Range Sine & Cosine Series",
+        "topicName": "Fourier Series",
+        "unit": 1,
+        "youtubeId": "zQyJg7tN0lQ",
+        "channel": "Gajendra Purohit",
+        "duration": "22:15",
+        "description": "Formulas and solved examples for half range sine and cosine expansions."
+      },
+      {
+        "id": "tbvp-vid-2",
+        "title": "One Dimensional Heat Equation Derivation & Solution",
+        "topicName": "Heat Equation",
+        "unit": 3,
+        "youtubeId": "M1Q2W3E4R5T",
+        "channel": "NPTEL IIT",
+        "duration": "28:40",
+        "description": "Method of separation of variables for 1D heat flow in homogeneous rods."
+      }
+    ],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Transforms and Boundary Value Problems Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1817TcuyeTBy1V0sJ_Cn8pYyPaW32aY9p/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 2,
+    "formulasCount": 0
   },
   "probability-and-queueing-theory": {
     "courseId": 31,
@@ -9591,7 +10203,7 @@
     "courseCode": "21MAB204T",
     "semester": 4,
     "syllabusUrl": "https://drive.google.com/file/d/1uQyOIFlqvm5SdSdOHVIdrvDRuj9PqX8z/view?usp=drive_link",
-    "pyqsCount": 17,
+    "pyqsCount": 18,
     "notesCount": 6,
     "pyqs": [
       {
@@ -9712,6 +10324,14 @@
         "year": 2024,
         "term": "EVEN",
         "examType": "CT2"
+      },
+      {
+        "title": "Unit 1",
+        "examType": "CT1",
+        "year": null,
+        "url": "https://drive.google.com/drive/folders/1hQn53A49uYx3KlGZDRc7L6AQZFwc75py?usp=drive_link",
+        "driveId": "1hQn53A49uYx3KlGZDRc7L6AQZFwc75py",
+        "source": "Gradex Archive"
       }
     ],
     "notes": [
@@ -9751,7 +10371,20 @@
         "url": "https://drive.google.com/drive/folders/1BAxOMZDip6urOgxQmDrZYbqvw6R8GuM5?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Probability and Queueing Theory Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1uQyOIFlqvm5SdSdOHVIdrvDRuj9PqX8z/view?usp=drive_link",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "discrete-mathematics": {
     "courseId": 32,
@@ -9969,7 +10602,20 @@
         "url": "https://drive.google.com/file/d/1YDQy-MrOaAZ6nMN0Uv1oeJT1vKTy7RuL/view?usp=sharing",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Discrete Mathematics Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1wNZpzU_6IDrtBav9bNT6vo3RJeNX791C/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "formal-languages-and-automata": {
     "courseId": 33,
@@ -10122,7 +10768,20 @@
         "url": "https://drive.google.com/file/d/1GXtMZ4X8AxVlXEMEP6HkvcbJrnaafBBr/view?usp=sharing",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Formal Languages and Automata Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/12iTiGj8aN6CBniAAwx06CBCPY_Vv_Gw0/view",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "computer-networks": {
     "courseId": 34,
@@ -10371,7 +11030,20 @@
         "url": "/thedeck/CN_Exam_Predictions.pdf|EXCLUSIVE",
         "source": "GradeX SubDeck"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Computer Networks Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1dJmIspnVG14NVGnMgZHoGl6Xm79agLZa/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "software-engineering-and-project-management": {
     "courseId": 35,
@@ -10544,7 +11216,20 @@
         "url": "https://drive.google.com/drive/folders/1rAg-nqvBY8sGLzk9suY8Z0yymRKcewkK?usp=drive_link",
         "source": "TheHelper"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Software Engineering and Project Management Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1wkw4E1wD5xWyiOvNfJzhXp4I38WR-GqB/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "compiler-design": {
     "courseId": 36,
@@ -10801,7 +11486,20 @@
         "url": "https://drive.google.com/file/d/12LFxOLSVaUp0twsxJZzmwB8sJU0V4YBe/view?usp=drive_link",
         "source": "TheHelper Class Notes"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Compiler Design Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1nw-ttq6nbUEtWooR0CIpQq--KsAAAxqJ/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "data-science": {
     "courseId": 37,
@@ -11120,7 +11818,20 @@
         "url": "https://drive.google.com/file/d/1UpCX_VP24bgG2yxuQSCc7hTuTwZLRdTH/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Data Science Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/19KLzsKcNMsK51dHGOMHNu44iz38ofLyG/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "internet-of-things": {
     "courseId": 38,
@@ -11300,7 +12011,20 @@
         "url": "https://drive.google.com/file/d/12ETcla1Pqkv6R9aRXyBjzdTT5Rm6Ndsl/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Internet of Things Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1G4b2XgLgJqa8GGFg8clzeo_AOaZnR1Mg/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "digital-image-processing": {
     "courseId": 39,
@@ -11426,7 +12150,20 @@
         "url": "https://drive.google.com/file/d/1F0BlLa3xxuTXE8RJ8QchYKZ5A6RREVaB/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Digital Image Processing Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/18oAxc_v3p1YKM-MZollCg0xc9sd6at7h/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "security-governance-risk-and-compliance": {
     "courseId": 40,
@@ -11545,7 +12282,20 @@
         "url": "https://drive.google.com/file/d/10Cm8smHMxGESJpqr-GHUFPqcyi2SOHST/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Security Governance, Risk and Compliance Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1mo9v8dPt4ufWcos4-DutxUZE0FiZt3bR/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "security-risk-management-and-principles": {
     "courseId": 41,
@@ -11657,7 +12407,20 @@
         "url": "https://drive.google.com/file/d/19ahLY9i7PFGMRGFc60qPHyU0umPmKK2y/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Security Risk Management and Principles Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1xRAXjc8jS2nGt7N2HmugmQOuGGhHtf9Y/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "information-security": {
     "courseId": 42,
@@ -11748,7 +12511,20 @@
         "url": "https://drive.google.com/file/d/1yxflLAS4CEVyv0rDLvoo3iAQA_NHgnXW/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Information Security Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/18mNKlqPc4MdtK9wRRNks1yn7SMGhYcZf/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   },
   "digital-signal-processing": {
     "courseId": 43,
@@ -11873,6 +12649,19 @@
         "url": "https://drive.google.com/file/d/1_gB2ZWLo1AQP7nx7CpbB78HGSNnpuoNE/view",
         "source": "Studique PPTs"
       }
-    ]
+    ],
+    "videos": [],
+    "formulas": [],
+    "books": [
+      {
+        "title": "Digital Signal Processing Official Syllabus Reference & Textbook",
+        "author": "Prescribed by SRMIST Regulation 2021 Syllabus",
+        "edition": "Latest Regulation 2021 Standard",
+        "url": "https://drive.google.com/file/d/1_3duTybSh4yGv0L5oAif6H52-W_VZ6lY/view?usp=sharing",
+        "chapters": "Units 1 to 5 Comprehensive Text"
+      }
+    ],
+    "videosCount": 0,
+    "formulasCount": 0
   }
 }
