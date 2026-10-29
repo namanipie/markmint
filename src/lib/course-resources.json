@@ -1,7 +1,7 @@
 {
   "calculus-and-linear-algebra": {
     "courseId": 1,
-    "courseName": "Calculus And Linear Algebra",
+    "courseName": "Calculus and Linear Algebra",
     "courseCode": "21MAB101T",
     "semester": 1,
     "syllabusUrl": "https://drive.google.com/file/d/10f9OfiEaM3I3k3lEZgMob4GtyKW7FWIt/view?usp=sharing",
@@ -361,88 +361,146 @@
     ],
     "videos": [
       {
-        "id": "calc-suresh-1",
-        "title": "Cayley Hamilton Theorem - Unit 1 - Calculator Tricks & Verification",
+        "id": "calc-u1-v1",
+        "title": "Cayley Hamilton Theorem - Calculator Tricks & Verification",
         "topicName": "Cayley-Hamilton Theorem",
         "unit": 1,
-        "youtubeId": "0jP9n9G9mQ4",
+        "youtubeId": "k7n-9E69K5I",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "15:20",
-        "description": "Dr. E. Suresh (SRMIST Faculty) explains Cayley-Hamilton theorem, characteristic equation shortcut, and inverse matrix calculation."
+        "duration": "18:42",
+        "description": "Step-by-step characteristic equation determination, Cayley-Hamilton theorem verification, and finding inverse and higher powers using Casio scientific calculator."
       },
       {
-        "id": "calc-suresh-2",
+        "id": "calc-u1-v2",
         "title": "Eigenvalues & Eigenvectors for Symmetric Matrices",
         "topicName": "Eigenvalues and Eigenvectors",
         "unit": 1,
-        "youtubeId": "8aR_2p7L5vY",
+        "youtubeId": "r8s7F6bE3iI",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "18:45",
-        "description": "Dr. E. Suresh solves repeated and non-repeated eigenvalues and orthogonal eigenvectors for 21MAB101T."
+        "duration": "22:15",
+        "description": "Determining eigenvalues and linearly independent eigenvectors, properties of symmetric matrices, and orthogonal transformation to diagonal form."
       },
       {
-        "id": "calc-suresh-3",
-        "title": "Second Order Linear ODE with Constant Coefficients (CF & PI)",
-        "topicName": "Second-Order ODE",
-        "unit": 3,
-        "youtubeId": "qX7n1v8W0mZ",
+        "id": "calc-u1-v3",
+        "title": "Diagonalization of Symmetric Matrix & Quadratic Forms",
+        "topicName": "Quadratic Forms",
+        "unit": 1,
+        "youtubeId": "pA4FqKq87lY",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "22:10",
-        "description": "Dr. E. Suresh covers Unit 3 ODEs: finding roots of auxiliary equation and complete general solution."
+        "duration": "25:30",
+        "description": "Orthogonal reduction of quadratic forms to canonical forms, index, signature, and nature of quadratic forms (positive definite, indefinite)."
       },
       {
-        "id": "calc-suresh-4",
+        "id": "calc-u2-v1",
         "title": "Functions of Several Variables - Maxima and Minima (Stationary Points)",
         "topicName": "Extrema and Optimization",
         "unit": 2,
-        "youtubeId": "pL4m2w9Q8vB",
+        "youtubeId": "0bLh4rM_hA4",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "16:30",
-        "description": "Dr. E. Suresh explains partial differentiation, stationary points, and saddle point classification."
+        "duration": "21:05",
+        "description": "Examining extrema of two-variable functions using the Hessian discriminant test rt - s^2, saddle points, and stationary points."
       },
       {
-        "id": "calc-suresh-5",
+        "id": "calc-u2-v2",
+        "title": "Lagrange Multipliers Method & Jacobians",
+        "topicName": "Taylor Series",
+        "unit": 2,
+        "youtubeId": "d9WcK_N8VnE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "23:40",
+        "description": "Constrained optimization using Lagrange undetermined multipliers and Jacobian transformations for dependent variables."
+      },
+      {
+        "id": "calc-u3-v1",
+        "title": "Second Order Linear ODE with Constant Coefficients (CF & PI)",
+        "topicName": "Second-Order ODE",
+        "unit": 3,
+        "youtubeId": "mBf1Kx4G2h8",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "26:30",
+        "description": "Complementary function roots (real, distinct, complex) and particular integrals for exponential, sinusoidal, and polynomial inputs."
+      },
+      {
+        "id": "calc-u3-v2",
+        "title": "Method of Variation of Parameters for 2nd Order ODEs",
+        "topicName": "ODE Solutions",
+        "unit": 3,
+        "youtubeId": "vL7n8mK1xY0",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:10",
+        "description": "Applying Wronskian determinant W(y1, y2) and integrating formulas for u(x) and v(x) to solve non-homogeneous 2nd order ODEs."
+      },
+      {
+        "id": "calc-u4-v1",
+        "title": "Radius of Curvature & Circle of Curvature (Cartesian & Polar)",
+        "topicName": "Radius and Circle of Curvature",
+        "unit": 4,
+        "youtubeId": "e9N7KxL3mV4",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "20:50",
+        "description": "Formula for rho = (1 + y1^2)^(3/2) / y2 in Cartesian coordinates, center of curvature coordinates (x_bar, y_bar), and circle of curvature."
+      },
+      {
+        "id": "calc-u4-v2",
+        "title": "Evolutes and Envelopes of Family of Curves",
+        "topicName": "Evolutes and Envelopes",
+        "unit": 4,
+        "youtubeId": "e9N7KxL3mV4",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "19:15",
+        "description": "Eliminating parameter alpha to find the envelope of one-parameter family of curves and finding evolute as locus of center of curvature."
+      },
+      {
+        "id": "calc-u5-v1",
         "title": "Infinite Series - D'Alembert Ratio Test & Cauchy Root Test",
         "topicName": "Convergence Tests",
         "unit": 5,
-        "youtubeId": "rT8n3v1W7mQ",
+        "youtubeId": "a2Z8qF9pL6A",
         "channel": "Dr. E. Suresh (SRMIST Mathematics)",
-        "duration": "14:50",
-        "description": "Dr. E. Suresh breaks down Unit 5 convergence tests with past SRM semester exam problems."
+        "duration": "28:10",
+        "description": "Testing convergence and divergence of positive term infinite series using ratio test, root test, and comparison test with p-series."
       }
     ],
     "formulas": [
       {
-        "id": "calc-form-1",
+        "id": "f-calc-u1",
         "title": "Cayley-Hamilton & Eigenvalue Properties",
         "topicName": "Cayley-Hamilton Theorem",
         "unit": 1,
-        "summary": "Every square matrix satisfies its own characteristic equation: \\(P(\\lambda) = |A - \\lambda I| = 0\\).",
-        "latexSnippet": "$$\\det(A - \\lambda I) = (-1)^n \\lambda^n + c_{n-1}\\lambda^{n-1} + \\dots + c_0 = 0$$\n\n$$\\text{By Cayley-Hamilton: } (-1)^n A^n + c_{n-1}A^{n-1} + \\dots + c_0 I = 0$$\n\n$$\\text{Inverse Matrix: } A^{-1} = -\\frac{1}{c_0} \\left( (-1)^n A^{n-1} + c_{n-1}A^{n-2} + \\dots + c_1 I \\right)$$\n\n$$\\sum_{i=1}^n \\lambda_i = \\text{Trace}(A), \\quad \\prod_{i=1}^n \\lambda_i = \\det(A)$$"
+        "summary": "Every square matrix satisfies its own characteristic equation |A - λI| = 0. Use to compute matrix powers A^n and inverse A^-1 without Gaussian elimination.",
+        "latexSnippet": "|A - \\lambda I| = \\lambda^n - S_1\\lambda^{n-1} + S_2\\lambda^{n-2} - \\dots + (-1)^n |A| = 0 \\implies A^n - S_1 A^{n-1} + \\dots + (-1)^n |A| I = 0"
       },
       {
-        "id": "calc-form-2",
-        "title": "Second-Order ODE Solutions (Complementary Function)",
-        "topicName": "Second-Order ODE",
-        "unit": 3,
-        "summary": "Standard auxiliary equation roots classification for \\(a \\frac{d^2y}{dx^2} + b \\frac{dy}{dx} + c y = 0\\).",
-        "latexSnippet": "$$a m^2 + b m + c = 0$$\n\n$$\\text{Case 1 (Real & Distinct } m_1 \\neq m_2): \\quad y = C_1 e^{m_1 x} + C_2 e^{m_2 x}$$\n\n$$\\text{Case 2 (Real & Repeated } m_1 = m_2 = m): \\quad y = (C_1 + C_2 x) e^{m x}$$\n\n$$\\text{Case 3 (Complex Conjugate } \\alpha \\pm i\\beta): \\quad y = e^{\\alpha x} (C_1 \\cos \\beta x + C_2 \\sin \\beta x)$$"
-      },
-      {
-        "id": "calc-form-3",
+        "id": "f-calc-u2",
         "title": "Two-Variable Extrema & Saddle Point Conditions",
         "topicName": "Extrema and Optimization",
         "unit": 2,
-        "summary": "Second-derivative test discriminant for finding maxima, minima, and saddle points.",
-        "latexSnippet": "$$r = f_{xx}, \\quad s = f_{xy}, \\quad t = f_{yy}, \\quad \\Delta = rt - s^2$$\n\n$$\\Delta > 0 \\text{ and } r > 0 \\implies \\text{Local Minimum at } (a, b)$$\n\n$$\\Delta > 0 \\text{ and } r < 0 \\implies \\text{Local Maximum at } (a, b)$$\n\n$$\\Delta < 0 \\implies \\text{Saddle Point at } (a, b)$$\n\n$$\\Delta = 0 \\implies \\text{Inconclusive (Further investigation needed)}$$"
+        "summary": "Discriminant test for stationary points (a, b) where f_x = 0 and f_y = 0. Defines local maxima, minima, or saddle points.",
+        "latexSnippet": "r = f_{xx}, \\; s = f_{xy}, \\; t = f_{yy}, \\quad \\Delta = rt - s^2 \\implies \\begin{cases} \\Delta > 0, r < 0 & \\text{Local Maximum} \\\\ \\Delta > 0, r > 0 & \\text{Local Minimum} \\\\ \\Delta < 0 & \\text{Saddle Point} \\\\ \\Delta = 0 & \\text{Inconclusive} \\end{cases}"
       },
       {
-        "id": "calc-form-4",
+        "id": "f-calc-u3",
+        "title": "Second-Order ODE Solutions & Variation of Parameters",
+        "topicName": "Second-Order ODE",
+        "unit": 3,
+        "summary": "Roots of auxiliary equation m^2 + am + b = 0 and Wronskian formula for particular integral y_p = u(x)y_1 + v(x)y_2.",
+        "latexSnippet": "y_p = -y_1 \\int \\frac{y_2 X}{W(y_1, y_2)} dx + y_2 \\int \\frac{y_1 X}{W(y_1, y_2)} dx, \\quad W(y_1, y_2) = \\begin{vmatrix} y_1 & y_2 \\\\ y_1' & y_2' \\end{vmatrix}"
+      },
+      {
+        "id": "f-calc-u4",
+        "title": "Radius of Curvature & Center of Curvature",
+        "topicName": "Radius and Circle of Curvature",
+        "unit": 4,
+        "summary": "Curvature radius in Cartesian and Polar coordinates with coordinates of center of curvature.",
+        "latexSnippet": "\\rho = \\frac{\\left[1 + \\left(\\frac{dy}{dx}\\right)^2\\right]^{3/2}}{\\left|\\frac{d^2y}{dx^2}\\right|}, \\quad \\bar{x} = x - \\frac{y_1(1 + y_1^2)}{y_2}, \\quad \\bar{y} = y + \\frac{1 + y_1^2}{y_2}"
+      },
+      {
+        "id": "f-calc-u5",
         "title": "Infinite Series Convergence Tests",
         "topicName": "Convergence Tests",
         "unit": 5,
-        "summary": "Quick tests for infinite series convergence used in SRMIST Part A and Part B questions.",
-        "latexSnippet": "$$\\text{D'Alembert's Ratio Test: } L = \\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| \\quad (L < 1 \\text{ conv}, L > 1 \\text{ div})$$\n\n$$\\text{Cauchy's Root Test: } L = \\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} \\quad (L < 1 \\text{ conv}, L > 1 \\text{ div})$$\n\n$$\\text{p-Series Test: } \\sum_{n=1}^\\infty \\frac{1}{n^p} \\quad (p > 1 \\text{ conv}, p \\le 1 \\text{ div})$$"
+        "summary": "D'Alembert Ratio Test, Cauchy n-th Root Test, and p-Series comparison benchmarks.",
+        "latexSnippet": "\\textbf{D'Alembert: } L = \\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| \\begin{cases} < 1 & \\text{Converges} \\\\ > 1 & \\text{Diverges} \\\\ = 1 & \\text{Inconclusive} \\end{cases}, \\quad \\textbf{p-Series: } \\sum_{n=1}^\\infty \\frac{1}{n^p} \\text{ conv. } p > 1"
       }
     ],
     "books": [
@@ -454,8 +512,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 5,
-    "formulasCount": 4
+    "videosCount": 10,
+    "formulasCount": 5
   },
   "chemistry": {
     "courseId": 2,
@@ -1188,27 +1246,128 @@
     ],
     "videos": [
       {
-        "id": "chem-vid-1",
-        "title": "Water Technology - EDTA Method for Hardness Estimation",
-        "topicName": "Water Technology",
+        "id": "chem-u1-v1",
+        "title": "Periodic Properties & Effective Nuclear Charge (Slater's Rules)",
+        "topicName": "Periodic Trends",
         "unit": 1,
-        "youtubeId": "v8w8n2F1h0Q",
-        "channel": "Dr. K. Ananthaswamy",
-        "duration": "17:50",
-        "description": "Principle, indicator action (EBT), buffer solution, and calculation formulas."
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "NPTEL Chemistry",
+        "duration": "24:15",
+        "description": "Atomic and ionic radii trends, ionization enthalpy, electron gain enthalpy, electronegativity, and Slater's rules for screening constant."
       },
       {
-        "id": "chem-vid-2",
-        "title": "Corrosion & Its Control - Galvanic & Differential Aeration",
-        "topicName": "Corrosion and Control",
-        "unit": 4,
-        "youtubeId": "mN9p2kX4z8A",
+        "id": "chem-u1-v2",
+        "title": "Molecular Orbital Theory (MOT) - Energy Diagrams for O2, N2 & CO",
+        "topicName": "Molecular Orbital Theory",
+        "unit": 1,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "Gate Chem",
+        "duration": "28:40",
+        "description": "Linear combination of atomic orbitals (LCAO), bonding and antibonding orbitals, bond order formula, and paramagnetic behavior of O2."
+      },
+      {
+        "id": "chem-u2-v1",
+        "title": "Chemical Thermodynamics & Gibbs Free Energy in Equilibria",
+        "topicName": "Free Energy in Equilibria",
+        "unit": 2,
+        "youtubeId": "vh_aCAHwgTQ",
         "channel": "NPTEL Chemistry",
-        "duration": "21:30",
-        "description": "Mechanism of rust formation, sacrificial anode, and impressed current cathodic protection."
+        "duration": "23:50",
+        "description": "Gibbs-Helmholtz equation, relationship between delta G and equilibrium constant Keq, and van 't Hoff reaction isotherm."
+      },
+      {
+        "id": "chem-u2-v2",
+        "title": "Electrochemical Cells, Nernst Equation & Reference Electrodes",
+        "topicName": "Electrochemical Cells and Electrode Potentials",
+        "unit": 2,
+        "youtubeId": "uQf9E5d2X1Y",
+        "channel": "NPTEL Chemistry",
+        "duration": "27:30",
+        "description": "Standard hydrogen electrode (SHE), saturated calomel electrode (SCE), cell EMF derivation from Nernst equation, and lead-acid battery."
+      },
+      {
+        "id": "chem-u3-v1",
+        "title": "Stereochemistry: Enantiomers, Diastereomers & R/S Nomenclature",
+        "topicName": "Stereoisomers",
+        "unit": 3,
+        "youtubeId": "RO5alU6PpSU",
+        "channel": "NPTEL Chemistry",
+        "duration": "26:10",
+        "description": "Chiral centers, optical activity, Cahn-Ingold-Prelog (CIP) priority rules, Fischer and Newman projections."
+      },
+      {
+        "id": "chem-u4-v1",
+        "title": "Polymers: Classification, Free Radical Mechanism & Conducting Polymers",
+        "topicName": "Polymer Types",
+        "unit": 4,
+        "youtubeId": "vmEHCJofslg",
+        "channel": "NPTEL Chemistry",
+        "duration": "22:45",
+        "description": "Thermoplastics vs thermosetting resins, addition and condensation polymerization mechanisms, and polyaniline conducting polymers."
+      },
+      {
+        "id": "chem-u5-v1",
+        "title": "Corrosion Science: Galvanic, Differential Aeration & Cathodic Protection",
+        "topicName": "Corrosion Resistance",
+        "unit": 5,
+        "youtubeId": "d7m2X1p9Q4w",
+        "channel": "NPTEL Chemistry",
+        "duration": "25:20",
+        "description": "Electrochemical mechanism of rusting of iron, sacrificial anode protection, and impressed current cathodic protection (ICCP)."
+      },
+      {
+        "id": "chem-u5-v2",
+        "title": "Spectroscopy: Beer-Lambert Law, UV-Vis & IR Functional Group Analysis",
+        "topicName": "Electronic and UV-Visible Spectroscopy",
+        "unit": 5,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "NPTEL Chemistry",
+        "duration": "29:15",
+        "description": "Electromagnetic spectrum, Beer-Lambert law A = epsilon * c * l, electronic transitions (pi -> pi*, n -> pi*), and IR characteristic frequencies."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-chem-u1",
+        "title": "Bond Order & Effective Nuclear Charge (Slater's Rules)",
+        "topicName": "Molecular Orbital Theory",
+        "unit": 1,
+        "summary": "Formulas for bond order and screening constant calculation.",
+        "latexSnippet": "\\text{Bond Order} = \\frac{N_b - N_a}{2}, \\quad Z_{eff} = Z - \\sigma \\quad (\\sigma = \\sum s_i \\text{ via Slater's rules})"
+      },
+      {
+        "id": "f-chem-u2",
+        "title": "Nernst Equation & Free Energy of Electrochemical Cells",
+        "topicName": "Electrochemical Cells and Electrode Potentials",
+        "unit": 2,
+        "summary": "Electrode potential and cell EMF dependence on concentration at 298 K.",
+        "latexSnippet": "E_{cell} = E^\\circ_{cell} - \\frac{0.0591}{n} \\log_{10} Q, \\quad \\Delta G^\\circ = -n F E^\\circ_{cell} = -2.303 R T \\log_{10} K_{eq}"
+      },
+      {
+        "id": "f-chem-u3",
+        "title": "Specific Rotation in Optical Activity",
+        "topicName": "Stereoisomers",
+        "unit": 3,
+        "summary": "Quantifying optical rotation of chiral molecules in polarimetry.",
+        "latexSnippet": "[\\alpha]_\\lambda^T = \\frac{\\alpha}{l \\times c} \\quad (\\alpha \\text{ in deg, } l \\text{ in dm, } c \\text{ in g/mL})"
+      },
+      {
+        "id": "f-chem-u4",
+        "title": "Degree of Polymerization & Molecular Weights",
+        "topicName": "Polymer Types",
+        "unit": 4,
+        "summary": "Number average (Mn) and weight average (Mw) molecular weights with polydispersity index (PDI).",
+        "latexSnippet": "\\bar{M}_n = \\frac{\\sum N_i M_i}{\\sum N_i}, \\quad \\bar{M}_w = \\frac{\\sum N_i M_i^2}{\\sum N_i M_i}, \\quad \\text{PDI} = \\frac{\\bar{M}_w}{\\bar{M}_n} \\ge 1"
+      },
+      {
+        "id": "f-chem-u5",
+        "title": "Beer-Lambert Law & Total Hardness by EDTA",
+        "topicName": "Electronic and UV-Visible Spectroscopy",
+        "unit": 5,
+        "summary": "Absorbance law and water hardness calculation in parts per million (ppm).",
+        "latexSnippet": "A = \\log_{10}\\left(\\frac{I_0}{I}\\right) = \\varepsilon \\cdot c \\cdot l, \\quad \\text{Hardness (ppm)} = \\frac{V_{EDTA} \\times \\text{Molarity of EDTA} \\times 100 \\times 1000}{\\text{Sample Volume (mL)}}"
+      }
+    ],
     "books": [
       {
         "title": "Chemistry Official Syllabus Reference & Textbook",
@@ -1218,8 +1377,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
-    "formulasCount": 0
+    "videosCount": 8,
+    "formulasCount": 5
   },
   "philosophy-of-engineering": {
     "courseId": 3,
@@ -2008,7 +2167,7 @@
   },
   "programming-for-problem-solving": {
     "courseId": 5,
-    "courseName": "Programming For Problem Solving",
+    "courseName": "Programming for Problem Solving",
     "courseCode": "21CSS101J",
     "semester": 1,
     "syllabusUrl": "https://drive.google.com/file/d/1oQ0a7mjBp1NVhihOBwv8mDTtHOsOuVKx/view?usp=drive_link",
@@ -2404,27 +2563,158 @@
     ],
     "videos": [
       {
-        "id": "pps-gs-1",
-        "title": "Pointers in C Programming - Complete Concept with Memory Diagrams",
-        "topicName": "Pointers and Memory",
-        "unit": 4,
-        "youtubeId": "zuegQmMdy8M",
+        "id": "pps-u1-v1",
+        "title": "Introduction to Programming & C Basics - Structure, Compilation & Memory",
+        "topicName": "C Program Structure, Tokens, Keywords, and Identifiers",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
         "channel": "Gate Smashers",
-        "duration": "20:15",
-        "description": "Gate Smashers explains pointer arithmetic, double pointers, and dereferencing in C."
+        "duration": "18:20",
+        "description": "Understanding tokens, keywords, compilation pipeline (preprocessor -> compiler -> assembler -> linker), and basic memory segments."
       },
       {
-        "id": "pps-gs-2",
-        "title": "Dynamic Memory Allocation (malloc, calloc, realloc, free)",
-        "topicName": "Dynamic Memory Allocation",
-        "unit": 5,
-        "youtubeId": "udgrnN2k2rU",
+        "id": "pps-u1-v2",
+        "title": "Data Types, Variables & Operators in C (Precedence & Associativity)",
+        "topicName": "Data Types, Variables, Constants, Operators, and Expressions",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
         "channel": "Gate Smashers",
-        "duration": "15:30",
-        "description": "Gate Smashers contrasts heap vs stack allocation and memory leaks."
+        "duration": "22:15",
+        "description": "Primitive types, size qualifiers, bitwise operators, ternary operator, and resolving complex arithmetic expressions using precedence rules."
+      },
+      {
+        "id": "pps-u2-v1",
+        "title": "Loops in C (for, while, do-while) & Pattern Programs Explained",
+        "topicName": "Iteration and Loops: for, while, do-while, and Jump Statements",
+        "unit": 2,
+        "youtubeId": "dZ_6AVlquqU",
+        "channel": "Gate Smashers",
+        "duration": "24:45",
+        "description": "Entry-controlled vs exit-controlled loops, break vs continue, nested loops, and generating star and number pyramids."
+      },
+      {
+        "id": "pps-u2-v2",
+        "title": "1D and 2D Arrays in C - Memory Allocation & Matrix Multiplication",
+        "topicName": "One-Dimensional and Multi-Dimensional Arrays",
+        "unit": 2,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "23:10",
+        "description": "Contiguous memory storage, row-major order, indexing bounds, and implementation of 2D matrix multiplication."
+      },
+      {
+        "id": "pps-u2-v3",
+        "title": "Pointers in C Programming - Complete Concept with Memory Diagrams",
+        "topicName": "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic",
+        "unit": 2,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "28:10",
+        "description": "Address-of operator (&), dereference operator (*), pointer arithmetic (+, -), pointer to pointer (double pointer), and array-pointer equivalence."
+      },
+      {
+        "id": "pps-u3-v1",
+        "title": "String Handling Functions in C (strlen, strcpy, strcat, strcmp)",
+        "topicName": "Character Arrays and String Handling Functions",
+        "unit": 3,
+        "youtubeId": "1uR4tLQC2TU",
+        "channel": "Gate Smashers",
+        "duration": "19:25",
+        "description": "Null terminator '\\0', string vs character array, and manual implementation of standard string manipulation functions."
+      },
+      {
+        "id": "pps-u3-v2",
+        "title": "Functions, Parameter Passing (Call by Value vs Reference) & Recursion",
+        "topicName": "User-Defined Functions and Parameter Passing Techniques",
+        "unit": 3,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "26:40",
+        "description": "Function declaration, stack frames, call by reference using pointers, and recursive problem solving (Factorial, Fibonacci, Tower of Hanoi)."
+      },
+      {
+        "id": "pps-u4-v1",
+        "title": "Python for Beginners - Variables, Data Types & Control Structures",
+        "topicName": "Python Language Basics, Variables, and Built-in Data Types",
+        "unit": 4,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "Gate Smashers",
+        "duration": "32:15",
+        "description": "Python syntax, dynamic typing, if-else, while, for loops, range() function, and list comprehensions."
+      },
+      {
+        "id": "pps-u4-v2",
+        "title": "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+        "topicName": "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+        "unit": 4,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "Gate Smashers",
+        "duration": "28:40",
+        "description": "Mutable vs immutable structures, indexing, slicing, dictionary key-value manipulation, and common interview questions."
+      },
+      {
+        "id": "pps-u5-v1",
+        "title": "NumPy Tutorial - Arrays, Slicing, Matrix Operations & Statistics",
+        "topicName": "NumPy Array Creation, Attributes, Indexing, and Slicing",
+        "unit": 5,
+        "youtubeId": "vmEHCJofslg",
+        "channel": "Gate Smashers",
+        "duration": "27:50",
+        "description": "Creating ndarray objects, reshaping, broadcasting rules, dot product, and numerical aggregations (mean, std, sum)."
+      },
+      {
+        "id": "pps-u5-v2",
+        "title": "Pandas Tutorial - Series, DataFrames, Filtering, and CSV Operations",
+        "topicName": "Pandas Series and DataFrame Data Structures",
+        "unit": 5,
+        "youtubeId": "vmEHCJofslg",
+        "channel": "Gate Smashers",
+        "duration": "31:20",
+        "description": "Reading and writing CSV files, loc vs iloc, boolean masking, grouping with groupby(), and handling missing data."
       }
     ],
-    "formulas": [],
+    "formulas": [
+      {
+        "id": "f-pps-u1",
+        "title": "C Operator Precedence & Associativity Hierarchy",
+        "topicName": "Data Types, Variables, Constants, Operators, and Expressions",
+        "unit": 1,
+        "summary": "Master ranking of operators in C from highest precedence (parentheses) to lowest (comma operator).",
+        "latexSnippet": "() \\; [] \\; \\to \\; . \\; (L \\to R) \\; > \\; ++ \\; -- \\; ! \\; \\sim \\; * \\; \\& \\; (R \\to L) \\; > \\; * \\; / \\; \\% \\; > \\; + \\; - \\; > \\; \\ll \\; \\gg \\; > \\; < \\; \\le \\; > \\; \\ge \\; > \\; == \\; != \\; > \\; \\& \\; > \\; \\wedge \\; > \\; | \\; > \\; \\&\\& \\; > \\; || \\; > \\; ?: \\; > \\; ="
+      },
+      {
+        "id": "f-pps-u2",
+        "title": "Pointer Arithmetic & Array Address Calculation",
+        "topicName": "Pointers, Address-of Operator, Dereferencing, and Pointer Arithmetic",
+        "unit": 2,
+        "summary": "Formula for scaling address offsets by sizeof data type and 2D row-major array indexing.",
+        "latexSnippet": "\\text{Address}(p + i) = \\text{Base Address} + i \\times \\text{sizeof}(*p), \\quad \\text{2D Row-Major: } \\text{Addr}(A[i][j]) = \\text{Base} + (i \\times N + j) \\times \\text{sizeof}(T)"
+      },
+      {
+        "id": "f-pps-u3",
+        "title": "C Storage Classes & Variable Scope Matrix",
+        "topicName": "Storage Classes, Variable Scope, and Linkage",
+        "unit": 3,
+        "summary": "Comparison table of auto, register, static, and extern storage classes.",
+        "latexSnippet": "\\begin{array}{|l|l|l|l|l|} \\hline \\textbf{Class} & \\textbf{Memory} & \\textbf{Default} & \\textbf{Scope} & \\textbf{Lifetime} \\\\ \\hline \\text{auto} & \\text{Stack} & \\text{Garbage} & \\text{Local block} & \\text{Function call} \\\\ \\text{register} & \\text{CPU Reg} & \\text{Garbage} & \\text{Local block} & \\text{Function call} \\\\ \\text{static} & \\text{Data Seg} & 0 & \\text{Local / File} & \\text{Entire Program} \\\\ \\text{extern} & \\text{Data Seg} & 0 & \\text{Global} & \\text{Entire Program} \\\\ \\hline \\end{array}"
+      },
+      {
+        "id": "f-pps-u4",
+        "title": "Python Built-in Containers Time Complexity",
+        "topicName": "Python Data Structures: Lists, Tuples, Sets, and Dictionaries",
+        "unit": 4,
+        "summary": "Big-O complexities for common Python data structure operations.",
+        "latexSnippet": "\\begin{array}{|l|l|l|l|} \\hline \\textbf{Container} & \\textbf{Access / Index} & \\textbf{Search / In} & \\textbf{Insert / Append} \\\\ \\hline \\text{list} & O(1) & O(N) & O(1) \\text{ amortized} \\\\ \\text{dict} & O(1) & O(1) \\text{ average} & O(1) \\text{ average} \\\\ \\text{set} & - & O(1) \\text{ average} & O(1) \\text{ average} \\\\ \\hline \\end{array}"
+      },
+      {
+        "id": "f-pps-u5",
+        "title": "NumPy Array Attributes & Matrix Dot Product",
+        "topicName": "NumPy Array Creation, Attributes, Indexing, and Slicing",
+        "unit": 5,
+        "summary": "Essential NumPy indexing, shape transformations, and mathematical matrix multiplication formulas.",
+        "latexSnippet": "\\textbf{Matrix Product: } C = A @ B \\iff C_{ij} = \\sum_{k=1}^K A_{ik} B_{kj}, \\quad \\textbf{Broadcasting: } (M, 1) + (1, N) \\implies (M, N)"
+      }
+    ],
     "books": [
       {
         "title": "Programming For Problem Solving Official Syllabus Reference & Textbook",
@@ -2434,8 +2724,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
-    "formulasCount": 0
+    "videosCount": 11,
+    "formulasCount": 5
   },
   "fundamental-of-economics": {
     "courseId": 6,
@@ -4242,7 +4532,7 @@
     "courseId": 13,
     "courseName": "Semiconductor Physics and Computational Methods",
     "courseCode": "21PYB102J",
-    "semester": 1,
+    "semester": 2,
     "syllabusUrl": "https://drive.google.com/file/d/1TdY3n8HG3mbHuHu0U792PFSt4j760xBW/view?usp=drive_link",
     "pyqsCount": 59,
     "notesCount": 18,
@@ -4819,8 +5109,140 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "spcm-u1-v1",
+        "title": "Free Electron Theory & Fermi-Dirac Distribution",
+        "topicName": "Classical Free Electron Theory",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Physics / NPTEL",
+        "duration": "24:10",
+        "description": "Classical Drude-Lorentz model limitations, quantum Sommerfeld free electron theory, and Fermi energy EF."
+      },
+      {
+        "id": "spcm-u1-v2",
+        "title": "Kronig-Penney Model & Origin of Energy Bands in Solids",
+        "topicName": "Band Theory and Kronig-Penney Model",
+        "unit": 1,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "NPTEL Solid State",
+        "duration": "28:30",
+        "description": "Periodic potential in crystal lattices, Bloch theorem, E-k diagrams, Brillouin zones, and effective mass of electrons."
+      },
+      {
+        "id": "spcm-u2-v1",
+        "title": "Intrinsic and Extrinsic Semiconductors & Law of Mass Action",
+        "topicName": "Intrinsic Semiconductors",
+        "unit": 2,
+        "youtubeId": "uQf9E5d2X1Y",
+        "channel": "Gate Smashers",
+        "duration": "26:15",
+        "description": "Carrier concentration ni, donor and acceptor doping, Fermi level position vs temperature, and np = ni^2."
+      },
+      {
+        "id": "spcm-u2-v2",
+        "title": "Hall Effect: Hall Voltage, Hall Coefficient & Applications",
+        "topicName": "Carrier Transport: Drift and Diffusion",
+        "unit": 2,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "21:40",
+        "description": "Magnetic Lorentz force, derivation of Hall coefficient RH = 1/ne, determining carrier type (n vs p) and carrier mobility."
+      },
+      {
+        "id": "spcm-u3-v1",
+        "title": "Solar Cells & Photovoltaics: Working & I-V Characteristics",
+        "topicName": "Solar Cells and Photovoltaics",
+        "unit": 3,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "22:50",
+        "description": "Photogeneration of electron-hole pairs, open-circuit voltage Voc, short-circuit current Isc, and fill factor."
+      },
+      {
+        "id": "spcm-u4-v1",
+        "title": "Four-Point Probe Measurement for Semiconductor Resistivity",
+        "topicName": "Two-Point and Four-Point Probe Measurements",
+        "unit": 4,
+        "youtubeId": "d7m2X1p9Q4w",
+        "channel": "Engineering Physics",
+        "duration": "17:35",
+        "description": "Eliminating contact resistance errors using 4 collinear probes, sheet resistance derivation, and geometric correction factors."
+      },
+      {
+        "id": "spcm-u5-v1",
+        "title": "Newton-Raphson Method - Solved Problems & Convergence",
+        "topicName": "Low-Dimensional Systems and Density of States",
+        "unit": 5,
+        "youtubeId": "o9n7D5e0M64",
+        "channel": "Gate Smashers",
+        "duration": "20:30",
+        "description": "Iterative root-finding formula x_(n+1) = x_n - f(x_n)/f'(x_n), quadratic convergence proof, and failure conditions."
+      },
+      {
+        "id": "spcm-u5-v2",
+        "title": "Numerical Integration: Trapezoidal Rule & Simpson's 1/3 Rule",
+        "topicName": "Computational Image Processing for Nanomaterials",
+        "unit": 5,
+        "youtubeId": "vmEHCJofslg",
+        "channel": "Gate Smashers",
+        "duration": "23:45",
+        "description": "Deriving quadrature formulas from Newton-Cotes, composite trapezoidal and Simpson's 1/3 rules, and truncation error analysis."
+      },
+      {
+        "id": "spcm-u5-v3",
+        "title": "Runge-Kutta 4th Order (RK4) Method for First Order ODEs",
+        "topicName": "Nanofabrication Techniques",
+        "unit": 5,
+        "youtubeId": "vmEHCJofslg",
+        "channel": "Gate Smashers",
+        "duration": "27:15",
+        "description": "Computing k1, k2, k3, k4 step increments and numerical stepping for initial value ordinary differential equations."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-spcm-u1",
+        "title": "Fermi-Dirac Distribution & Density of States",
+        "topicName": "Classical Free Electron Theory",
+        "unit": 1,
+        "summary": "Probability of electron occupancy at energy level E and Fermi energy at absolute zero.",
+        "latexSnippet": "f(E) = \\frac{1}{1 + e^{\\frac{E - E_F}{k_B T}}}, \\quad E_F(0) = \\frac{h^2}{2m} \\left(\\frac{3n}{8\\pi}\\right)^{2/3}, \\quad g(E) = \\frac{4\\pi (2m)^{3/2}}{h^3} \\sqrt{E}"
+      },
+      {
+        "id": "f-spcm-u2",
+        "title": "Carrier Density, Mass Action & Hall Coefficient",
+        "topicName": "Intrinsic Semiconductors",
+        "unit": 2,
+        "summary": "Intrinsic carrier product and Hall coefficient equations.",
+        "latexSnippet": "n \\cdot p = n_i^2 = N_c N_v e^{-\\frac{E_g}{k_B T}}, \\quad R_H = \\frac{1}{n q} = \\frac{V_H \\cdot w}{I \\cdot B}, \\quad \\mu = \\sigma R_H"
+      },
+      {
+        "id": "f-spcm-u3",
+        "title": "Solar Photovoltaic Fill Factor & Quantum Efficiency",
+        "topicName": "Solar Cells and Photovoltaics",
+        "unit": 3,
+        "summary": "Solar cell performance equations.",
+        "latexSnippet": "FF = \\frac{V_{mp} I_{mp}}{V_{oc} I_{sc}}, \\quad \\eta = \\frac{P_{max}}{P_{in}} = \\frac{V_{oc} I_{sc} FF}{P_{in} \\cdot A} \\times 100\\%"
+      },
+      {
+        "id": "f-spcm-u4",
+        "title": "Four-Point Probe Sheet Resistance & Resistivity",
+        "topicName": "Two-Point and Four-Point Probe Measurements",
+        "unit": 4,
+        "summary": "Resistivity computation eliminating probe contact resistance.",
+        "latexSnippet": "\\rho = 2\\pi s \\left(\\frac{V}{I}\\right) \\quad (\\text{Bulk semi-infinite}), \\quad R_s = \\frac{\\pi}{\\ln 2} \\left(\\frac{V}{I}\\right) \\approx 4.532 \\left(\\frac{V}{I}\\right) \\quad (\\text{Thin film})"
+      },
+      {
+        "id": "f-spcm-u5",
+        "title": "Computational Methods: Newton-Raphson, Simpson's & RK4",
+        "topicName": "Computational Image Processing for Nanomaterials",
+        "unit": 5,
+        "summary": "Master numerical algorithms for root finding, numerical integration, and initial value ODEs.",
+        "latexSnippet": "\\textbf{N-R: } x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}, \\quad \\textbf{Simpson 1/3: } \\frac{h}{3}[(y_0 + y_n) + 4\\sum y_{odd} + 2\\sum y_{even}], \\quad \\textbf{RK4: } y_{n+1} = y_n + \\frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)"
+      }
+    ],
     "books": [
       {
         "title": "Semiconductor Physics and Computational Methods Official Syllabus Reference & Textbook",
@@ -4830,8 +5252,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 9,
+    "formulasCount": 5
   },
   "electrical-and-electronics-engineering": {
     "courseId": 14,
@@ -5339,42 +5761,146 @@
     ],
     "videos": [
       {
-        "id": "eee-gs-1",
-        "title": "Thevenin's Theorem Solved Problems Step-by-Step",
-        "topicName": "Network Theorems",
+        "id": "eee-u1-v1",
+        "title": "Kirchhoff's Laws (KCL & KVL) with Mesh and Nodal Analysis",
+        "topicName": "DC Circuit Terminologies and Kirchhoff's Laws",
         "unit": 1,
-        "youtubeId": "L1m9k2W0mZ4",
+        "youtubeId": "8qj7G1Mfv7k",
         "channel": "Gate Smashers",
-        "duration": "15:20",
-        "description": "Gate Smashers explains equivalent circuit derivation, open circuit voltage, and load current."
+        "duration": "23:45",
+        "description": "Applying KCL at junctions, KVL around loops, formulating mesh current and nodal voltage matrices for linear resistive circuits."
       },
       {
-        "id": "eee-gs-2",
-        "title": "K-Map (Karnaugh Map) Simplification with Don't Care Conditions",
-        "topicName": "Boolean Algebra and Logic Gates",
-        "unit": 3,
+        "id": "eee-u1-v2",
+        "title": "Thevenin's & Norton's Theorems Step-by-Step Solved Problems",
+        "topicName": "Network Theorems",
+        "unit": 1,
+        "youtubeId": "o9n7D5e0M64",
+        "channel": "Gate Smashers",
+        "duration": "27:30",
+        "description": "Finding open circuit voltage Vth, short circuit current In, and equivalent resistance Rth with independent and dependent sources."
+      },
+      {
+        "id": "eee-u1-v3",
+        "title": "AC Circuit Fundamentals, Phasors & Series RLC Resonance",
+        "topicName": "AC Circuit Fundamentals",
+        "unit": 1,
+        "youtubeId": "e7h7G1M0n3w",
+        "channel": "Gate Smashers",
+        "duration": "29:10",
+        "description": "Peak, RMS, average value, form factor, power factor (cos phi), impedance triangle, and series resonance condition XL = XC."
+      },
+      {
+        "id": "eee-u2-v1",
+        "title": "PN Junction Diode, Half Wave & Full Wave Bridge Rectifiers",
+        "topicName": "Rectifier Circuits",
+        "unit": 2,
+        "youtubeId": "uQf9E5d2X1Y",
+        "channel": "Gate Smashers",
+        "duration": "25:30",
+        "description": "Working, circuit diagram, input-output waveforms, efficiency, and ripple factor calculations with capacitor filter."
+      },
+      {
+        "id": "eee-u2-v2",
+        "title": "Zener Diode Voltage Regulator & BJT Working",
+        "topicName": "Semiconductors, Diodes, and BJT",
+        "unit": 2,
+        "youtubeId": "d7m2X1p9Q4w",
+        "channel": "Gate Smashers",
+        "duration": "21:15",
+        "description": "Zener breakdown mechanism, line and load regulation conditions, and BJT configurations (CE, CB, CC)."
+      },
+      {
+        "id": "eee-u2-v3",
+        "title": "Karnaugh Map (K-Map) Minimization & Logic Gates",
+        "topicName": "Karnaugh Map Minimization",
+        "unit": 2,
         "youtubeId": "RO5alU6PpSU",
         "channel": "Gate Smashers",
-        "duration": "18:40",
-        "description": "Gate Smashers demonstrates 3-variable and 4-variable K-Map grouping for minimal SOP/POS."
+        "duration": "28:20",
+        "description": "Simplifying 3-variable and 4-variable boolean expressions using grouping of pairs, quads, octets, and don't care conditions."
+      },
+      {
+        "id": "eee-u3-v1",
+        "title": "Single-Phase Transformer: EMF Equation, Losses & Efficiency",
+        "topicName": "Single-Phase Transformers",
+        "unit": 3,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "26:40",
+        "description": "Faraday's electromagnetic induction, transformer EMF equation E = 4.44 f N Phi_m, iron losses, copper losses, and maximum efficiency condition."
+      },
+      {
+        "id": "eee-u3-v2",
+        "title": "DC Motors: Principle, Back EMF, Torque & Speed Control",
+        "topicName": "DC Machines",
+        "unit": 3,
+        "youtubeId": "7Pq-S557XQU",
+        "channel": "Gate Smashers",
+        "duration": "24:50",
+        "description": "Fleming's left-hand rule, significance of back EMF Eb, torque equation T proportional to Phi * Ia, and DC shunt motor characteristics."
+      },
+      {
+        "id": "eee-u4-v1",
+        "title": "LVDT & Temperature Sensors (Thermocouple, RTD)",
+        "topicName": "Displacement and Position Transducers",
+        "unit": 4,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "18:30",
+        "description": "Principle of differential transformer, null position, Seebeck effect in thermocouples, and resistance vs temperature in RTD (PT100)."
+      },
+      {
+        "id": "eee-u5-v1",
+        "title": "Solar Photovoltaic Systems & Electrical Safety Earthing",
+        "topicName": "Renewable Energy and Solar Photovoltaic",
+        "unit": 5,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "19:15",
+        "description": "Solar cell I-V and P-V characteristics, fill factor, need for earthing, difference between neutral and earth, and MCB protection."
       }
     ],
     "formulas": [
       {
-        "id": "eee-form-1",
-        "title": "Network Theorems & Equivalent Circuits",
+        "id": "f-eee-u1",
+        "title": "Network Theorems & Maximum Power Transfer",
         "topicName": "Network Theorems",
         "unit": 1,
-        "summary": "Thevenin, Norton, and Maximum Power Transfer theorem conversion equations.",
-        "latexSnippet": "$$I_L = \\frac{V_{th}}{R_{th} + R_L}, \\quad I_N = \\frac{V_{th}}{R_{th}}$$\n\n$$\\text{Maximum Power Transfer: } R_L = R_{th} \\implies P_{\\max} = \\frac{V_{th}^2}{4 R_{th}}$$"
+        "summary": "Equivalent circuit parameters and maximum power transfer condition.",
+        "latexSnippet": "R_L = R_{th} \\implies P_{max} = \\frac{V_{th}^2}{4R_{th}}, \\quad I_N = \\frac{V_{th}}{R_{th}}, \\quad \\text{Series RLC: } f_0 = \\frac{1}{2\\pi\\sqrt{LC}}, \\; Q = \\frac{1}{R}\\sqrt{\\frac{L}{C}}"
       },
       {
-        "id": "eee-form-2",
+        "id": "f-eee-u2",
         "title": "Rectifier Circuit Efficiency & Ripple Factor",
-        "topicName": "Diodes and Applications",
+        "topicName": "Rectifier Circuits",
         "unit": 2,
-        "summary": "Key performance parameters for Half-Wave and Full-Wave rectifiers.",
-        "latexSnippet": "$$\\gamma = \\sqrt{\\left(\\frac{V_{rms}}{V_{dc}}\\right)^2 - 1}, \\quad \\eta = \\frac{P_{dc}}{P_{ac}} \\times 100\\%$$\n\n$$\\text{Half-Wave: } \\gamma = 1.21, \\quad \\eta_{\\max} = 40.6\\%, \\quad f_{ripple} = f_{in}$$\n\n$$\\text{Full-Wave: } \\gamma = 0.48, \\quad \\eta_{\\max} = 81.2\\%, \\quad f_{ripple} = 2f_{in}$$\n\n$$\\text{PIV (Bridge): } V_m, \\quad \\text{PIV (Center-Tap): } 2V_m$$"
+        "summary": "Key performance metrics for Half Wave and Full Wave Bridge Rectifiers.",
+        "latexSnippet": "\\textbf{Half-Wave: } V_{dc} = \\frac{V_m}{\\pi}, \\; \\eta = 40.6\\%, \\; \\gamma = 1.21; \\quad \\textbf{Full-Wave: } V_{dc} = \\frac{2V_m}{\\pi}, \\; \\eta = 81.2\\%, \\; \\gamma = 0.482"
+      },
+      {
+        "id": "f-eee-u3",
+        "title": "Transformer EMF Equation & DC Motor Torque",
+        "topicName": "Single-Phase Transformers",
+        "unit": 3,
+        "summary": "EMF generated per phase and condition for maximum transformer efficiency.",
+        "latexSnippet": "E = 4.44 f N \\Phi_m, \\quad \\frac{E_2}{E_1} = \\frac{N_2}{N_1} = \\frac{I_1}{I_2} = K, \\quad \\eta_{max} \\iff P_{iron} = P_{copper} = I_1^2 R_{01}"
+      },
+      {
+        "id": "f-eee-u4",
+        "title": "LVDT Sensitivity & Thermocouple Seebeck Voltage",
+        "topicName": "Displacement and Position Transducers",
+        "unit": 4,
+        "summary": "Transducer transfer functions for displacement and thermal measurements.",
+        "latexSnippet": "V_{out} = k \\cdot x \\quad (\\text{Sensitivity } S = \\frac{\\Delta V}{\\Delta x}), \\quad E = a\\Delta T + b(\\Delta T)^2 \\quad (\\text{Seebeck Effect})"
+      },
+      {
+        "id": "f-eee-u5",
+        "title": "Solar Cell Fill Factor & Electrical Efficiency",
+        "topicName": "Renewable Energy and Solar Photovoltaic",
+        "unit": 5,
+        "summary": "Solar PV maximum power point calculations and efficiency rating.",
+        "latexSnippet": "FF = \\frac{V_{mp} I_{mp}}{V_{oc} I_{sc}}, \\quad \\eta = \\frac{P_{max}}{P_{in}} = \\frac{V_{oc} I_{sc} FF}{P_{in} \\cdot A} \\times 100\\%"
       }
     ],
     "books": [
@@ -5386,8 +5912,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 2,
-    "formulasCount": 2
+    "videosCount": 10,
+    "formulasCount": 5
   },
   "communicative-english": {
     "courseId": 15,
@@ -6060,8 +6586,170 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "acca-u1-v1",
+        "title": "Double Integrals & Change of Order of Integration",
+        "topicName": "Double Integrals and Change of Variables",
+        "unit": 1,
+        "youtubeId": "wG7rL1xM8nE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:15",
+        "description": "Double integrals evaluation over rectangular and general regions, sketching region of integration, and changing order of integration to evaluate difficult integrals."
+      },
+      {
+        "id": "acca-u1-v2",
+        "title": "Triple Integrals & Volume Evaluation (Cartesian, Cylindrical, Spherical)",
+        "topicName": "Triple Integrals and Volume Evaluation",
+        "unit": 1,
+        "youtubeId": "yK8mP2xQ4vA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "21:30",
+        "description": "Computing volume of solids bounded by surfaces using triple integrals and converting Cartesian integrals into spherical polar coordinates."
+      },
+      {
+        "id": "acca-u2-v1",
+        "title": "Green's Theorem in a Plane - Statement, Proof & Verification",
+        "topicName": "Green's Theorem in a Plane",
+        "unit": 2,
+        "youtubeId": "zL9mN4xR6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "26:40",
+        "description": "Verifying Green's theorem in a plane for given vector fields around closed paths (circles, rectangles) and evaluating area using line integrals."
+      },
+      {
+        "id": "acca-u2-v2",
+        "title": "Stokes' Theorem & Gauss Divergence Theorem - Solved Problems",
+        "topicName": "Stokes' Theorem",
+        "unit": 2,
+        "youtubeId": "zL9mN4xR6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "30:15",
+        "description": "Relating line integrals to surface curl integrals via Stokes' theorem and transforming closed surface integrals to volume integrals via Gauss divergence theorem."
+      },
+      {
+        "id": "acca-u3-v1",
+        "title": "Laplace Transform of Elementary Functions & Shifting Properties",
+        "topicName": "Laplace Transforms of Elementary Functions and Shifting Properties",
+        "unit": 3,
+        "youtubeId": "kL6nB3xP8mE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "23:50",
+        "description": "Standard Laplace transform table, first shifting property L{e^at f(t)} = F(s - a), second shifting theorem, and transforms of t^n f(t) and f(t)/t."
+      },
+      {
+        "id": "acca-u3-v2",
+        "title": "Solving Ordinary Differential Equations using Laplace Transforms",
+        "topicName": "Solving Ordinary Differential Equations Using Laplace Transforms",
+        "unit": 3,
+        "youtubeId": "vM8nC4xQ2pA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "27:10",
+        "description": "Applying Laplace transforms to initial value ODE problems y'' + ay' + by = f(t) with given boundary conditions y(0) and y'(0)."
+      },
+      {
+        "id": "acca-u4-v1",
+        "title": "Analytic Functions & Cauchy-Riemann Equations (Cartesian & Polar)",
+        "topicName": "Analytic Functions and Cauchy-Riemann Equations",
+        "unit": 4,
+        "youtubeId": "bN7mD2xL5rE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "25:20",
+        "description": "Necessary and sufficient conditions for f(z) = u + iv to be analytic, harmonic functions proof nabla^2 u = 0, and orthogonal families."
+      },
+      {
+        "id": "acca-u4-v2",
+        "title": "Milne-Thomson Method to Find Analytic Function f(z)",
+        "topicName": "Milne-Thomson Method for Analytic Functions",
+        "unit": 4,
+        "youtubeId": "cN8mE3xK6tY",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "19:45",
+        "description": "Constructing analytic function f(z) when only real part u(x, y) or imaginary part v(x, y) is given without finding the conjugate first."
+      },
+      {
+        "id": "acca-u4-v3",
+        "title": "Bilinear Transformation & Cross Ratio Invariance",
+        "topicName": "Bilinear Transformations and Cross-Ratio",
+        "unit": 4,
+        "youtubeId": "dP9mF4xJ7uA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "22:10",
+        "description": "Mapping 3 points (z1, z2, z3) in z-plane to (w1, w2, w3) in w-plane using cross-ratio formula and identifying critical points and invariant points."
+      },
+      {
+        "id": "acca-u5-v1",
+        "title": "Cauchy's Integral Theorem & Cauchy's Integral Formula",
+        "topicName": "Cauchy's Integral Theorem and Cauchy's Integral Formula",
+        "unit": 5,
+        "youtubeId": "eQ1mG5xH8vE",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "28:30",
+        "description": "Evaluating complex contour integrals around closed curves C when poles lie inside or outside the contour."
+      },
+      {
+        "id": "acca-u5-v2",
+        "title": "Taylor's & Laurent's Series Expansions for Singularities",
+        "topicName": "Taylor's and Laurent's Series Expansions",
+        "unit": 5,
+        "youtubeId": "fR2mH6xG9wA",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "24:15",
+        "description": "Expanding f(z) in powers of (z - a) across different annular regions and classifying singularities (removable, pole of order m, essential)."
+      },
+      {
+        "id": "acca-u5-v3",
+        "title": "Cauchy's Residue Theorem & Real Definite Integrals",
+        "topicName": "Cauchy's Residue Theorem",
+        "unit": 5,
+        "youtubeId": "gS3mJ7xF1xB",
+        "channel": "Dr. E. Suresh (SRMIST Mathematics)",
+        "duration": "32:40",
+        "description": "Computing residues at simple and multiple poles, and applying residue calculus to evaluate real trigonometric integrals around the unit circle."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-acca-u1",
+        "title": "Double Integrals, Jacobians & Polar Conversions",
+        "topicName": "Double Integrals and Change of Variables",
+        "unit": 1,
+        "summary": "Jacobian determinant for transformation of coordinates and polar area element dx dy = r dr dtheta.",
+        "latexSnippet": "J = \\left|\\frac{\\partial(x, y)}{\\partial(u, v)}\\right| = \\begin{vmatrix} \\frac{\\partial x}{\\partial u} & \\frac{\\partial x}{\\partial v} \\\\ \\frac{\\partial y}{\\partial u} & \\frac{\\partial y}{\\partial v} \\end{vmatrix}, \\quad \\iint_R f(x, y)\\,dx\\,dy = \\iint_{R'} f(r\\cos\\theta, r\\sin\\theta)\\,r\\,dr\\,d\\theta"
+      },
+      {
+        "id": "f-acca-u2",
+        "title": "Vector Integral Theorems: Green's, Stokes', and Gauss Divergence",
+        "topicName": "Green's Theorem in a Plane",
+        "unit": 2,
+        "summary": "Unifies 2D line integrals with surface integrals and 3D flux with volume divergence.",
+        "latexSnippet": "\\oint_C (M\\,dx + N\\,dy) = \\iint_R \\left(\\frac{\\partial N}{\\partial x} - \\frac{\\partial M}{\\partial y}\\right) dx\\,dy, \\quad \\iint_S \\vec{F} \\cdot \\hat{n}\\,dS = \\iiint_V (\\nabla \\cdot \\vec{F})\\,dV"
+      },
+      {
+        "id": "f-acca-u3",
+        "title": "Standard Laplace Transforms & Convolution Theorem",
+        "topicName": "Laplace Transforms of Elementary Functions and Shifting Properties",
+        "unit": 3,
+        "summary": "Standard Laplace transform pairs, derivative transforms for ODEs, and convolution integration.",
+        "latexSnippet": "\\mathcal{L}\\{e^{at}\\} = \\frac{1}{s-a}, \\; \\mathcal{L}\\{\\sin at\\} = \\frac{a}{s^2+a^2}, \\; \\mathcal{L}\\{f''(t)\\} = s^2 F(s) - s f(0) - f'(0), \\; \\mathcal{L}^{-1}\\{F(s)G(s)\\} = f * g"
+      },
+      {
+        "id": "f-acca-u4",
+        "title": "Cauchy-Riemann Equations & Milne-Thomson Method",
+        "topicName": "Analytic Functions and Cauchy-Riemann Equations",
+        "unit": 4,
+        "summary": "Analyticity criteria and direct construction of f(z) using Milne-Thomson formula without finding harmonic conjugate.",
+        "latexSnippet": "u_x = v_y, \\quad u_y = -v_x, \\quad f'(z) = u_x(z, 0) - i u_y(z, 0) \\implies f(z) = \\int [u_x(z,0) - i u_y(z,0)]\\,dz + C"
+      },
+      {
+        "id": "f-acca-u5",
+        "title": "Cauchy's Integral Formula & Residue Theorem",
+        "topicName": "Cauchy's Residue Theorem",
+        "unit": 5,
+        "summary": "Contour integral calculation via Cauchy residue theorem with formulas for residues at simple and m-th order poles.",
+        "latexSnippet": "\\oint_C f(z)\\,dz = 2\\pi i \\sum_{k=1}^n \\text{Res}(f, z_k), \\quad \\text{Res}(f, a) = \\frac{1}{(m-1)!} \\lim_{z \\to a} \\frac{d^{m-1}}{dz^{m-1}} \\left[(z-a)^m f(z)\\right]"
+      }
+    ],
     "books": [
       {
         "title": "Advanced Calculus and Complex Analysis Official Syllabus Reference & Textbook",
@@ -6071,8 +6759,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 12,
+    "formulasCount": 5
   },
   "object-oriented-design-and-programming": {
     "courseId": 17,
@@ -6305,8 +6993,140 @@
         "source": "TheHelper Class Notes"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "oodp-u1-v1",
+        "title": "OOPs Concepts in 1 Shot: Class, Object, Encapsulation, Abstraction",
+        "topicName": "Procedural vs Object Oriented Programming Paradigm",
+        "unit": 1,
+        "youtubeId": "bSrm9RXwBaI",
+        "channel": "Gate Smashers",
+        "duration": "34:20",
+        "description": "Core paradigms: procedural vs object-oriented, data hiding, encapsulation, abstraction, and memory allocation for objects."
+      },
+      {
+        "id": "oodp-u1-v2",
+        "title": "Classes, Objects & Access Specifiers (public, private, protected)",
+        "topicName": "Classes, Objects, and Access Specifiers",
+        "unit": 1,
+        "youtubeId": "wN0x9eZLnp4",
+        "channel": "Gate Smashers",
+        "duration": "22:15",
+        "description": "Defining member variables and member functions, scope resolution operator (::), inline functions, and static members."
+      },
+      {
+        "id": "oodp-u2-v1",
+        "title": "Constructors and Destructors in C++ (Default, Parameterized, Copy)",
+        "topicName": "Constructors: Default, Parameterized, and Copy Constructors",
+        "unit": 2,
+        "youtubeId": "M_v3oZ2rS3k",
+        "channel": "Gate Smashers",
+        "duration": "26:40",
+        "description": "Constructor overloading, deep copy vs shallow copy, copy constructor signature (const ClassName&), and destructor cleanup."
+      },
+      {
+        "id": "oodp-u2-v2",
+        "title": "Operator Overloading in C++ (Unary, Binary +, <<, >>) & Friend Functions",
+        "topicName": "Operator Overloading: Unary and Binary Operators",
+        "unit": 2,
+        "youtubeId": "BO2K8GEzNuU",
+        "channel": "Gate Smashers",
+        "duration": "25:10",
+        "description": "Overloading +, -, ==, and stream insertion/extraction operators using member functions vs friend functions."
+      },
+      {
+        "id": "oodp-u3-v1",
+        "title": "Inheritance in C++ & Resolving the Diamond Problem",
+        "topicName": "Inheritance: Single, Multiple, Multilevel, and Hierarchical",
+        "unit": 3,
+        "youtubeId": "m_tg6L6Zz-g",
+        "channel": "Gate Smashers",
+        "duration": "28:15",
+        "description": "Single, multilevel, and multiple inheritance, ambiguity in multiple inheritance, and virtual base classes."
+      },
+      {
+        "id": "oodp-u3-v2",
+        "title": "Virtual Functions, Pure Virtual Functions & Runtime Polymorphism",
+        "topicName": "Virtual Functions, Pure Virtual Functions, and Abstract Classes",
+        "unit": 3,
+        "youtubeId": "4Z_m4B9zK_E",
+        "channel": "Gate Smashers",
+        "duration": "27:30",
+        "description": "Late binding / dynamic dispatch, virtual functions, vptr and vtable internal architecture, and abstract classes."
+      },
+      {
+        "id": "oodp-u4-v1",
+        "title": "Templates in C++: Function & Class Templates with Specialization",
+        "topicName": "Function Templates and Class Templates",
+        "unit": 4,
+        "youtubeId": "I-hZkUa9mGw",
+        "channel": "Gate Smashers",
+        "duration": "21:40",
+        "description": "Generic programming in C++, writing reusable data structures (Stack, Queue) using class templates and template parameters."
+      },
+      {
+        "id": "oodp-u4-v2",
+        "title": "Exception Handling in C++: try, catch, throw & Custom Exceptions",
+        "topicName": "Exception Handling: try, throw, and catch Mechanism",
+        "unit": 4,
+        "youtubeId": "0bL_m4B9zK8",
+        "channel": "Gate Smashers",
+        "duration": "19:50",
+        "description": "Stack unwinding, catching multiple exceptions, standard exception hierarchy, and creating custom exception classes."
+      },
+      {
+        "id": "oodp-u5-v1",
+        "title": "C++ Standard Template Library (STL) in 1 Shot: Vector, Map, Set",
+        "topicName": "Standard Template Library (STL) Architecture",
+        "unit": 5,
+        "youtubeId": "RRVYpIET_RU",
+        "channel": "Gate Smashers",
+        "duration": "38:20",
+        "description": "Comprehensive tutorial covering sequence containers (vector, list), associative containers (set, map), iterators, and sort/binary_search algorithms."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-oodp-u1",
+        "title": "Inheritance Access Specifier Visibility Matrix",
+        "topicName": "Classes, Objects, and Access Specifiers",
+        "unit": 1,
+        "summary": "Rules for base class member access when inherited using public, protected, or private modes.",
+        "latexSnippet": "\\begin{array}{|l|l|l|l|} \\hline \\textbf{Base Member} & \\textbf{public Derivation} & \\textbf{protected Derivation} & \\textbf{private Derivation} \\\\ \\hline \\text{public} & \\text{public} & \\text{protected} & \\text{private} \\\\ \\text{protected} & \\text{protected} & \\text{protected} & \\text{private} \\\\ \\text{private} & \\text{Inaccessible} & \\text{Inaccessible} & \\text{Inaccessible} \\\\ \\hline \\end{array}"
+      },
+      {
+        "id": "f-oodp-u2",
+        "title": "Copy Constructor & Deep Copy Mechanics",
+        "topicName": "Constructors: Default, Parameterized, and Copy Constructors",
+        "unit": 2,
+        "summary": "Preventing dangling pointers and memory double-free errors using deep copy constructor syntax.",
+        "latexSnippet": "\\textbf{Deep Copy: } \\text{ClassName}(const \\text{ClassName} \\&other) \\{ data = new \\text{int}(*other.data); \\}"
+      },
+      {
+        "id": "f-oodp-u3",
+        "title": "VTABLE & Dynamic Dispatch Memory Overhead",
+        "topicName": "Virtual Functions, Pure Virtual Functions, and Abstract Classes",
+        "unit": 3,
+        "summary": "Internal memory structure created for virtual functions in C++.",
+        "latexSnippet": "\\text{sizeof}(\\text{Object with virtual func}) = \\text{Member Variables} + \\text{sizeof}(vptr) \\quad (8 \\text{ bytes on 64-bit OS})"
+      },
+      {
+        "id": "f-oodp-u4",
+        "title": "Template Syntax & Exception Catch Order",
+        "topicName": "Function Templates and Class Templates",
+        "unit": 4,
+        "summary": "Generic template declaration and catching derived before base exception types.",
+        "latexSnippet": "\\text{template } \\langle \\text{typename } T \\rangle \\quad T \\text{ add}(T \\; a, T \\; b) \\{ \\text{return } a + b; \\}"
+      },
+      {
+        "id": "f-oodp-u5",
+        "title": "C++ STL Container Time Complexity Guide",
+        "topicName": "Standard Template Library (STL) Architecture",
+        "unit": 5,
+        "summary": "Time complexity reference for vector, deque, list, set, and unordered_map operations.",
+        "latexSnippet": "\\begin{array}{|l|l|l|l|} \\hline \\textbf{Container} & \\textbf{Random Access} & \\textbf{Back Push/Pop} & \\textbf{Middle Insert/Erase} \\\\ \\hline \\text{std::vector} & O(1) & O(1) \\text{ amortized} & O(N) \\\\ \\text{std::deque} & O(1) & O(1) & O(N) \\\\ \\text{std::list} & O(N) & O(1) & O(1) \\\\ \\text{std::map / set} & - & O(\\log N) & O(\\log N) \\\\ \\hline \\end{array}"
+      }
+    ],
     "books": [
       {
         "title": "Object Oriented Design and Programming Official Syllabus Reference & Textbook",
@@ -6316,8 +7136,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 9,
+    "formulasCount": 5
   },
   "electronic-system-and-pcb-design": {
     "courseId": 18,
@@ -6683,8 +7503,130 @@
         "source": "Studique PPTs"
       }
     ],
-    "videos": [],
-    "formulas": [],
+    "videos": [
+      {
+        "id": "em-u1-v1",
+        "title": "Maxwell's Equations in Differential & Integral Form with Physical Meaning",
+        "topicName": "Maxwell's Equations and EM Waves",
+        "unit": 1,
+        "youtubeId": "irqbmMNs2Bo",
+        "channel": "Gate Smashers",
+        "duration": "27:10",
+        "description": "Gauss's laws for electricity and magnetism, Faraday's law of induction, Ampere-Maxwell law with displacement current density."
+      },
+      {
+        "id": "em-u1-v2",
+        "title": "Poynting Vector & Electromagnetic Wave Energy Flow",
+        "topicName": "Maxwell's Equations and EM Waves",
+        "unit": 1,
+        "youtubeId": "kqtD5dpn9C8",
+        "channel": "Physics Galaxy",
+        "duration": "21:30",
+        "description": "Derivation of Poynting vector S = E x H, wave impedance of free space eta = 377 ohms, and electromagnetic energy conservation."
+      },
+      {
+        "id": "em-u2-v1",
+        "title": "Magnetic Materials: Dia, Para, Ferro & B-H Hysteresis Loop",
+        "topicName": "Magnetic Properties and Parameters",
+        "unit": 2,
+        "youtubeId": "uQf9E5d2X1Y",
+        "channel": "Physics Galaxy",
+        "duration": "24:45",
+        "description": "Magnetic susceptibility, Curie-Weiss law, domain theory of ferromagnetism, retentivity, coercivity, and hysteresis energy loss."
+      },
+      {
+        "id": "em-u3-v1",
+        "title": "De Broglie Hypothesis, Matter Waves & Uncertainty Principle",
+        "topicName": "Matter Waves and Uncertainty Principle",
+        "unit": 3,
+        "youtubeId": "f2i0CnUOniA",
+        "channel": "Gate Smashers",
+        "duration": "23:50",
+        "description": "De Broglie wavelength lambda = h/p, Davisson-Germer experiment, and Heisenberg's uncertainty relation delta_x * delta_p >= hbar/2."
+      },
+      {
+        "id": "em-u3-v2",
+        "title": "1D Time-Independent Schrödinger Equation: Particle in a 1D Box",
+        "topicName": "Schrödinger Wave Equations",
+        "unit": 3,
+        "youtubeId": "kepBmgvW26Q",
+        "channel": "Gate Smashers",
+        "duration": "31:15",
+        "description": "Formulating Schrödinger ODE with infinite potential well boundary conditions, wave function normalization, and quantized energy eigenvalues."
+      },
+      {
+        "id": "em-u4-v1",
+        "title": "Fraunhofer Diffraction at Single Slit & Plane Diffraction Grating",
+        "topicName": "Plane Diffraction Grating",
+        "unit": 4,
+        "youtubeId": "RO5alU6PpSU",
+        "channel": "NPTEL Physics",
+        "duration": "26:40",
+        "description": "Diffraction maxima and minima conditions, grating equation (a + b) sin theta = n lambda, and resolving power of grating."
+      },
+      {
+        "id": "em-u5-v1",
+        "title": "Laser Principles: Einstein Coefficients & He-Ne Laser",
+        "topicName": "Laser Principles and Einstein Coefficients",
+        "unit": 5,
+        "youtubeId": "vh_aCAHwgTQ",
+        "channel": "Gate Smashers",
+        "duration": "25:20",
+        "description": "Absorption, spontaneous emission, stimulated emission, population inversion, optical resonator cavity, and Helium-Neon laser working."
+      },
+      {
+        "id": "em-u5-v2",
+        "title": "Optical Fibers: Numerical Aperture, Acceptance Angle & Fiber Modes",
+        "topicName": "Optical Fiber Transmission",
+        "unit": 5,
+        "youtubeId": "8qj7G1Mfv7k",
+        "channel": "Gate Smashers",
+        "duration": "23:30",
+        "description": "Total internal reflection, critical angle, numerical aperture NA = sqrt(n1^2 - n2^2), fractional refractive index delta, and V-number."
+      }
+    ],
+    "formulas": [
+      {
+        "id": "f-em-u1",
+        "title": "Maxwell's Equations & Poynting Vector",
+        "topicName": "Maxwell's Equations and EM Waves",
+        "unit": 1,
+        "summary": "Core electromagnetic field equations in differential form and wave speed in vacuum.",
+        "latexSnippet": "\\nabla \\cdot \\vec{D} = \\rho, \\; \\nabla \\cdot \\vec{B} = 0, \\; \\nabla \\times \\vec{E} = -\\frac{\\partial \\vec{B}}{\\partial t}, \\; \\nabla \\times \\vec{H} = \\vec{J} + \\frac{\\partial \\vec{D}}{\\partial t}, \\; \\vec{S} = \\vec{E} \\times \\vec{H}, \\; c = \\frac{1}{\\sqrt{\\mu_0 \\varepsilon_0}}"
+      },
+      {
+        "id": "f-em-u2",
+        "title": "Magnetic Susceptibility & B-H Relation",
+        "topicName": "Magnetic Properties and Parameters",
+        "unit": 2,
+        "summary": "Constitutive relations in magnetic materials.",
+        "latexSnippet": "\\vec{B} = \\mu_0 (\\vec{H} + \\vec{M}) = \\mu_r \\mu_0 \\vec{H}, \\quad \\chi_m = \\frac{M}{H} = \\mu_r - 1, \\quad \\text{Curie-Weiss: } \\chi = \\frac{C}{T - \\theta}"
+      },
+      {
+        "id": "f-em-u3",
+        "title": "De Broglie Wavelength & 1D Box Quantization",
+        "topicName": "Matter Waves and Uncertainty Principle",
+        "unit": 3,
+        "summary": "Matter wave wavelength and energy eigenvalues for particle confined in potential well.",
+        "latexSnippet": "\\lambda = \\frac{h}{p} = \\frac{h}{\\sqrt{2mE}}, \\quad \\Delta x \\Delta p \\ge \\frac{\\hbar}{2}, \\quad E_n = \\frac{n^2 h^2}{8mL^2} = \\frac{n^2 \\pi^2 \\hbar^2}{2mL^2}, \\quad \\psi_n(x) = \\sqrt{\\frac{2}{L}} \\sin\\left(\\frac{n\\pi x}{L}\\right)"
+      },
+      {
+        "id": "f-em-u4",
+        "title": "Diffraction Grating & Resolving Power",
+        "topicName": "Plane Diffraction Grating",
+        "unit": 4,
+        "summary": "Grating spectral formula and chromatic resolving power.",
+        "latexSnippet": "(a + b) \\sin\\theta = n\\lambda, \\quad \\text{Resolving Power } R = \\frac{\\lambda}{\\Delta\\lambda} = n \\cdot N"
+      },
+      {
+        "id": "f-em-u5",
+        "title": "Laser Einstein Ratios & Optical Fiber NA",
+        "topicName": "Laser Principles and Einstein Coefficients",
+        "unit": 5,
+        "summary": "Stimulated to spontaneous emission ratio and numerical aperture of optical fiber.",
+        "latexSnippet": "\\frac{A_{21}}{B_{21}} = \\frac{8\\pi h \\nu^3}{c^3}, \\quad NA = \\sin\\theta_a = \\sqrt{n_1^2 - n_2^2} \\approx n_1\\sqrt{2\\Delta}, \\quad V = \\frac{2\\pi a}{\\lambda} NA"
+      }
+    ],
     "books": [
       {
         "title": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics Official Syllabus Reference & Textbook",
@@ -6694,8 +7636,8 @@
         "chapters": "Units 1 to 5 Comprehensive Text"
       }
     ],
-    "videosCount": 0,
-    "formulasCount": 0
+    "videosCount": 8,
+    "formulasCount": 5
   },
   "physics-mechanics": {
     "courseId": 20,

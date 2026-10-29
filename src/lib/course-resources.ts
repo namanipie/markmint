@@ -181,19 +181,33 @@ export function getTopicResources(
 
   const tClean = topicName.toLowerCase().trim();
 
-  // Match videos
-  const videos = (group.videos || []).filter((v) => {
-    if (!v.topicName) return false;
-    const vt = v.topicName.toLowerCase();
-    return vt === tClean || vt.includes(tClean) || tClean.includes(vt);
+  // Match videos by topic name, title keyword, or unit fallback
+  const directVideos = (group.videos || []).filter((v) => {
+    if (v.topicName) {
+      const vt = v.topicName.toLowerCase();
+      if (vt === tClean || vt.includes(tClean) || tClean.includes(vt)) return true;
+    }
+    const vTitle = (v.title || "").toLowerCase();
+    return vTitle.includes(tClean) || tClean.includes(vTitle);
   });
 
-  // Match formulas
-  const formulas = (group.formulas || []).filter((f) => {
-    if (!f.topicName) return false;
-    const ft = f.topicName.toLowerCase();
-    return ft === tClean || ft.includes(tClean) || tClean.includes(ft);
+  const videos = directVideos.length > 0 
+    ? directVideos 
+    : (unitNumber ? (group.videos || []).filter(v => v.unit === unitNumber) : []);
+
+  // Match formulas by topic name, title keyword, or unit fallback
+  const directFormulas = (group.formulas || []).filter((f) => {
+    if (f.topicName) {
+      const ft = f.topicName.toLowerCase();
+      if (ft === tClean || ft.includes(tClean) || tClean.includes(ft)) return true;
+    }
+    const fTitle = (f.title || "").toLowerCase();
+    return fTitle.includes(tClean) || tClean.includes(fTitle);
   });
+
+  const formulas = directFormulas.length > 0
+    ? directFormulas
+    : (unitNumber ? (group.formulas || []).filter(f => f.unit === unitNumber) : []);
 
   // Match notes by unit or topic keyword in title
   const notes = (group.notes || []).filter((n) => {
