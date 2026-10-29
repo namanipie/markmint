@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { MathText } from "@/components/ui/math-text";
 import { CycleTestQuestion, getCycleTestQuestions } from "@/lib/api";
+import { McqTestingSuite } from "@/components/practice/mcq-testing-suite";
 
 interface CycleTestArchiveViewerProps {
   initialSubject?: string;
@@ -138,7 +139,7 @@ export function CycleTestArchiveViewer({
                 </span>
               </div>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Past CT1, CT2, CT3, and Model exam questions parsed directly from SRMIST papers with faculty answer keys.
+                Past CT1, CT2, CT3, and Model exam questions parsed directly from SRMIST papers with faculty answer keys and interactive MCQ testing.
               </p>
             </div>
           </div>
@@ -199,7 +200,7 @@ export function CycleTestArchiveViewer({
               }`}
             >
               <CheckSquare className="w-3.5 h-3.5 text-purple-400" />
-              <span>MCQ Section ({totalMcqs || 530})</span>
+              <span>MCQ Testing System ({totalMcqs || 530})</span>
             </button>
           </div>
         </div>
@@ -279,37 +280,46 @@ export function CycleTestArchiveViewer({
           </div>
         </div>
 
-        {/* Question Type Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 pt-1">
-          <span className="text-[10px] font-semibold text-muted-foreground mr-1">Section:</span>
-          {types.map((t) => {
-            const count = t === "ALL" 
-              ? filteredQuestions.length 
-              : filteredQuestions.filter((q) => q.q_type === t).length;
-            return (
-              <button
-                key={t}
-                type="button"
-                onClick={() => setSelectedType(t)}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
-                  selectedType === t
-                    ? "bg-accent/20 border border-accent/40 text-accent font-semibold shadow-2xs"
-                    : "bg-muted/40 hover:bg-muted text-muted-foreground"
-                }`}
-              >
-                {t === "ALL" ? `All (${count})` : `${t.replace(/_/g, " ")} (${count})`}
-              </button>
-            );
-          })}
-        </div>
+        {/* Question Type Filter Pills (shown when not in dedicated MCQ mode) */}
+        {activeCategory !== "mcq" && (
+          <div className="flex flex-wrap items-center gap-1.5 pt-1">
+            <span className="text-[10px] font-semibold text-muted-foreground mr-1">Section:</span>
+            {types.map((t) => {
+              const count = t === "ALL" 
+                ? filteredQuestions.length 
+                : filteredQuestions.filter((q) => q.q_type === t).length;
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setSelectedType(t)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all cursor-pointer ${
+                    selectedType === t
+                      ? "bg-accent/20 border border-accent/40 text-accent font-semibold shadow-2xs"
+                      : "bg-muted/40 hover:bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {t === "ALL" ? `All (${count})` : `${t.replace(/_/g, " ")} (${count})`}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
-      {/* Questions Listing */}
+      {/* Main Content Area */}
       {isLoading ? (
         <div className="p-12 text-center rounded-2xl border border-dashed border-border flex flex-col items-center justify-center gap-3 text-muted-foreground">
           <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin" />
           <p className="text-xs font-medium">Fetching verified cycle test questions...</p>
         </div>
+      ) : activeCategory === "mcq" ? (
+        /* DEDICATED INTERACTIVE MCQ TESTING SUITE */
+        <McqTestingSuite
+          questions={filteredQuestions}
+          subjectName={selectedSubject === "ALL" ? "All Subjects" : selectedSubject}
+          cycle={selectedCycle === "ALL" ? "Cycle Tests" : selectedCycle}
+        />
       ) : filteredQuestions.length === 0 ? (
         <div className="p-10 text-center rounded-2xl border border-dashed border-border bg-card space-y-3">
           <p className="text-sm font-semibold text-foreground">No questions matched the current filters.</p>
@@ -329,13 +339,14 @@ export function CycleTestArchiveViewer({
           </button>
         </div>
       ) : (
+        /* STANDARD DESCRIPTIVE QUESTION LIST */
         <div className="space-y-4">
           <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
             <span>
               Showing <strong className="text-foreground">{Math.min(filteredQuestions.length, 50)}</strong> of{" "}
               <strong className="text-foreground">{filteredQuestions.length}</strong> questions
               {selectedSubject !== "ALL" ? ` for ${selectedSubject}` : ""}
-              {activeCategory === "mcq" ? " (MCQ Section Only)" : activeCategory === "descriptive" ? " (Normal Questions Only)" : ""}
+              {activeCategory === "descriptive" ? " (Normal Questions Only)" : ""}
             </span>
             <span className="font-mono text-[11px]">
               {selectedCycle !== "ALL" ? `Assessment: ${selectedCycle}` : "All Assessment Cycles"}
@@ -346,16 +357,11 @@ export function CycleTestArchiveViewer({
             {filteredQuestions.slice(0, 50).map((q, idx) => {
               const qKey = `archive-${idx}-${q.q_num}`;
               const isKeyOpen = !!revealedKeys[qKey];
-              const isMcq = q.is_mcq || q.q_type === "MCQ";
 
               return (
                 <div
                   key={qKey}
-                  className={`p-4 sm:p-5 rounded-2xl border transition-all space-y-3 shadow-2xs ${
-                    isMcq 
-                      ? "border-purple-500/25 bg-purple-500/5 hover:border-purple-500/40" 
-                      : "border-border/70 bg-card hover:border-accent/35"
-                  }`}
+                  className="p-4 sm:p-5 rounded-2xl border border-border/70 bg-card hover:border-accent/35 transition-all space-y-3 shadow-2xs"
                 >
                   {/* Top Bar Metadata */}
                   <div className="flex flex-wrap items-center justify-between gap-2 text-[10px]">
@@ -363,19 +369,11 @@ export function CycleTestArchiveViewer({
                       <span className="px-2 py-0.5 rounded font-mono font-bold bg-muted text-foreground border border-border/60">
                         Q{q.q_num}
                       </span>
-                      <span className={`px-2 py-0.5 rounded font-mono font-bold border ${
-                        isMcq 
-                          ? "bg-purple-500/20 text-purple-300 border-purple-500/30" 
-                          : "bg-accent/15 text-accent border border-accent/25"
-                      }`}>
+                      <span className="px-2 py-0.5 rounded font-mono font-bold bg-accent/15 text-accent border border-accent/25">
                         {q.marks} {q.marks === 1 ? "Mark" : "Marks"}
                       </span>
-                      <span className={`px-2 py-0.5 rounded font-semibold ${
-                        isMcq 
-                          ? "bg-purple-500/15 text-purple-300 border border-purple-500/30" 
-                          : "bg-muted/60 text-muted-foreground"
-                      }`}>
-                        {isMcq ? "Multiple Choice (MCQ)" : q.q_type.replace(/_/g, " ")}
+                      <span className="px-2 py-0.5 rounded bg-muted/60 text-muted-foreground font-semibold">
+                        {q.q_type.replace(/_/g, " ")}
                       </span>
                       <span className="px-2 py-0.5 rounded font-mono font-bold bg-primary/10 text-primary border border-primary/20">
                         {q.cycle}
@@ -406,9 +404,7 @@ export function CycleTestArchiveViewer({
                       <button
                         type="button"
                         onClick={() => toggleAnswer(qKey)}
-                        className={`inline-flex items-center gap-1.5 text-xs font-semibold hover:underline cursor-pointer ${
-                          isMcq ? "text-purple-400" : "text-emerald-600 dark:text-emerald-400"
-                        }`}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer"
                       >
                         {isKeyOpen ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                         <span>{isKeyOpen ? "Hide Solution" : "Reveal Faculty Answer Key"}</span>
@@ -420,7 +416,7 @@ export function CycleTestArchiveViewer({
                             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                             <span>Verified Faculty Answer Key:</span>
                           </div>
-                          <div className="whitespace-pre-line text-emerald-100 text-xs leading-relaxed">
+                          <div className="whitespace-pre-line text-emerald-100 text-xs leading-relaxed font-sans">
                             <MathText content={q.answer_key} />
                           </div>
                         </div>

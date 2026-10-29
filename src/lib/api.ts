@@ -807,6 +807,11 @@ export async function getExamAnnouncementsForCourse(
   }
 }
 
+export interface McqOption {
+  key: string;
+  text: string;
+}
+
 export interface CycleTestQuestion {
   q_num: number;
   question_text: string;
@@ -818,6 +823,10 @@ export interface CycleTestQuestion {
   source_file: string;
   is_mcq?: boolean;
   section?: string;
+  stem?: string;
+  options?: McqOption[];
+  correct_option?: string;
+  explanation?: string;
 }
 
 export interface CycleTestQuestionsResponse {
