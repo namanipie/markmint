@@ -1,3 +1,6 @@
+import json
+import re
+from pathlib import Path
 from typing import Optional, List, Dict, Any
 from fastapi import APIRouter, HTTPException, Query, Depends
 from pydantic import BaseModel
@@ -327,4 +330,66 @@ def get_topic_historical_questions(
         "topic": topic_name,
         "total_questions": len(items),
         "questions": items
+    }
+
+
+CT_QUESTIONS_PATH = Path(__file__).resolve().parents[3] / "data" / "extracted_cycle_test_questions.json"
+_ct_questions_cache = None
+
+def _load_ct_questions():
+    global _ct_questions_cache
+    if _ct_questions_cache is None and CT_QUESTIONS_PATH.exists():
+        try:
+            with open(CT_QUESTIONS_PATH, "r", encoding="utf-8") as f:
+                _ct_questions_cache = json.load(f)
+        except Exception:
+            _ct_questions_cache = []
+    return _ct_questions_cache or []
+
+
+@router.get("/practice/cycle-tests/{subject}")
+def get_cycle_test_questions(
+    subject: str,
+    cycle: Optional[str] = Query(None),
+    limit: int = Query(100, ge=1, le=1000),
+):
+    """
+    Retrieve authentic past Cycle Test questions extracted directly from SRMIST CT papers.
+    Supports filtering by subject name/slug (or 'ALL' for universal archive) and assessment cycle.
+    """
+    all_qs = _load_ct_questions()
+    s_clean = re.sub(r"[^a-z0-9]+", " ", subject.lower()).strip()
+    is_universal = s_clean in ["all", "any", "all subjects", "universal", "*"]
+
+    matched = []
+    for q in all_qs:
+        q_subj = re.sub(r"[^a-z0-9]+", " ", q.get("subject", "").lower()).strip()
+        if is_universal or s_clean in q_subj or q_subj in s_clean:
+            if cycle and cycle.upper() != "ALL":
+                c_up = cycle.upper()
+                q_cyc = q.get("cycle", "CT").upper()
+                if c_up not in q_cyc and q_cyc != "CT":
+                    continue
+            matched.append(q)
+
+    # Sort so questions with verified answer keys come first
+    def _parse_qnum(val):
+        try:
+            cleaned = re.sub(r"[^0-9]", "", str(val))
+            return int(cleaned) if cleaned else 999
+        except Exception:
+            return 999
+
+    matched.sort(key=lambda x: (x.get("answer_key") is None, _parse_qnum(x.get("q_num"))))
+
+    from collections import Counter
+    sub_counts = Counter(q.get("subject") for q in all_qs if q.get("subject"))
+    available_subjects = [{"subject": k, "count": v} for k, v in sub_counts.most_common()]
+
+    return {
+        "subject": "All Subjects" if is_universal else subject,
+        "cycle": cycle or "ALL",
+        "total_available": len(matched),
+        "available_subjects": available_subjects,
+        "questions": matched[:limit]
     }

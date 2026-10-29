@@ -1,0 +1,50 @@
+[
+  {
+    "file": "backend/api/endpoints/courses.py",
+    "line": 18,
+    "summary": "get_courses accesses service.db.query(service.repo.model).all() directly; CourseService has .repo (BaseRepository with .model=Course) so syntax valid, but bypasses service layer and exposes all courses with no pagination.",
+    "failure_scenario": "Any call to /courses/ loads entire table; large dataset causes slow response / memory pressure; no auth/filter applied at endpoint level."
+  },
+  {
+    "file": "backend/services/extraction/knowledge_extractor.py",
+    "line": 14,
+    "summary": "Regex changed to Nota(?:tion|te) with optional colon (:?) ; matches Notation/Notate but excludes Note/Nota solo; :? allows missing colon so 'Concept foo' matches unexpectedly.",
+    "failure_scenario": "Input 'Note: definition' fails to match (should match if 'Note' intended); input 'Concept foo' matches without colon (loose)."
+  },
+  {
+    "file": "scripts/ingest.py",
+    "line": 96,
+    "summary": "except: replaced with pass, removing the fallback string-parse for metadata; dead parse code at 105-109 unreachable after continue.",
+    "failure_scenario": "Source metadata in 'semester:1,subject:X' format no longer parsed; meta stays empty -> subject_name='Unknown Subject'; skip guard at 99 may incorrectly skip if meta has empty string text."
+  },
+  {
+    "file": "scripts/ingest.py",
+    "line": 99,
+    "summary": "Meta validation guard if not meta.get('text') and not meta.get('structured') treats falsy values (0, '', []) as missing; skips valid empty-text or structured-empty cases.",
+    "failure_scenario": "meta={'text':''} or meta={'structured':[]} incorrectly skipped with 'extraction produced no structured/text output'."
+  },
+  {
+    "file": "src/app/mintai/page.tsx",
+    "line": 70,
+    "summary": "dnaData?.sample_size?.time_range_years?.join(' - ') calls .join() on tuple[int,int]; tuples have no .join method.",
+    "failure_scenario": "Loading DNA data with time_range_years=(2015,2024) throws TypeError: tuple object has no attribute 'join'; page crashes."
+  },
+  {
+    "file": "src/app/mintai/page.tsx",
+    "line": 293,
+    "summary": "line-clamp-3 Tailwind class used; not in default Tailwind config without @plugin/@line-clamp plugin; may not truncate.",
+    "failure_scenario": "Family name text overflows container; no truncation rendered if tailwind plugin missing."
+  },
+  {
+    "file": "backend/services/extraction/pdf_parser.py",
+    "line": 13,
+    "summary": "extract_structured static method calls PDFParser.extract_text_with_pages(file_stream); file_stream is consumed by pdfplumber.open without seek(0) reset, so second call or reuse fails.",
+    "failure_scenario": "Calling extract_structured twice on same stream; or calling extract_text_with_pages after extract_structured raises pdfplumber error because stream at EOF."
+  },
+  {
+    "file": "backend/services/prediction/backtester.py",
+    "line": 129,
+    "summary": "Backtester serializes e.exam_type but Exam model defines term (not exam_type); mapping wrong field name.",
+    "failure_scenario": "Exam objects have .term; .exam_type is None/AttributeError -> hist_exams_dicts contain exam_type=None, breaking downstream DNA analysis that expects exam_type."
+  }
+]

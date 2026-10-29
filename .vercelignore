@@ -1,0 +1,55 @@
+# Vercel Deployment Ignore
+# Prevents backend, database, scraping, and audit artifacts from bloating Deployment Storage
+
+# Python Backend & Virtual Environments
+backend/
+alembic/
+alembic.ini
+requirements.txt
+pyproject.toml
+Procfile
+render_build.sh
+run.sh
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.py
+
+# Databases, Backups, and Dumps
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+production_corpus*
+production_corp*
+test_prod*
+tmp_test*
+scraper_cache*
+exam_archive*
+
+# Datasets, Corpus, and Scratch/Archives
+data/
+corpus/
+scratch/
+tmp/
+temp/
+logs/
+*.log
+*.patch
+*.tsbuildinfo
+audit*
+findings*
+benchmark*
+friend-api.txt
+inspection_results.json
+
+# Local Submodules, Brags, and Clones
+markmint/
+markmint-brag-final/
+paperino/
+brag-output*/
+
+# Tests
+tests/

@@ -1,0 +1,447 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. State space is \n (A) Representing problem with variables & parameters \n (B) Problems designed \n (C) Problem definition \n (D) Input and output [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "State space is \n (A) Representing problem with variables & parameters \n (B) Problems designed \n (C) Problem definition \n (D) Input and output",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Which of the following is NOT a goal of AI? \n (A) To create machines that can think and act like humans \n (B) To solve complex problems that cannot be solved by traditional methods \n (C) To create machines that can learn and improve over time \n (D) To create machines that are faster and more efficient than humans at performing tasks [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Which of the following is NOT a goal of AI? \n (A) To create machines that can think and act like humans \n (B) To solve complex problems that cannot be solved by traditional methods \n (C) To create machines that can learn and improve over time \n (D) To create machines that are faster and more efficient than humans at performing tasks",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Which of the following is NOT a factor that affects the efficiency of a search algorithm? \n (A) The size of the problem space \n (B) The branching factor \n (C) The depth of the search tree \n (D) The availability of heuristics [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Which of the following is NOT a factor that affects the efficiency of a search algorithm? \n (A) The size of the problem space \n (B) The branching factor \n (C) The depth of the search tree \n (D) The availability of heuristics",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. Which of the following is NOT a step in the problem-solving process? \n (A) Formulating the problem \n (B) Choosing a solution approach \n (C) Implementing the solution \n (D) Evaluating the solution [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "Which of the following is NOT a step in the problem-solving process? \n (A) Formulating the problem \n (B) Choosing a solution approach \n (C) Implementing the solution \n (D) Evaluating the solution",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. What is the process of finding a solution to a problem by exploring the problem space? \n (A) Search \n (B) Problem-solving \n (C) Control strategy \n (D) Uninformed search method [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "What is the process of finding a solution to a problem by exploring the problem space? \n (A) Search \n (B) Problem-solving \n (C) Control strategy \n (D) Uninformed search method",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. Which of the following informed search methods combines breadth-first search with best-first search? \n (A) Generate and test \n (B) Best first search \n (C) A* algorithm \n (D) Depth-limited search [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "Which of the following informed search methods combines breadth-first search with best-first search? \n (A) Generate and test \n (B) Best first search \n (C) A* algorithm \n (D) Depth-limited search",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Which of the following uninformed search methods is most likely to find the shortest solution to a problem? \n (A) Breadth-first search \n (B) Uniform cost search \n (C) Depth-first search \n (D) Depth-limited search [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Which of the following uninformed search methods is most likely to find the shortest solution to a problem? \n (A) Breadth-first search \n (B) Uniform cost search \n (C) Depth-first search \n (D) Depth-limited search",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following is NOT a component of a problem-solving agent? \n (A) Search algorithm \n (B) Knowledge base \n (C) Sensors \n (D) Actuators [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following is NOT a component of a problem-solving agent? \n (A) Search algorithm \n (B) Knowledge base \n (C) Sensors \n (D) Actuators",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. What is the main objective of the Alpha-Beta Pruning algorithm in game trees? \n (A) To maximize the number of nodes explored \n (B) To minimize the depth of the game tree \n (C) To reduce the number of nodes evaluated in the search \n (D) To improve the heuristic evaluation function [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "What is the main objective of the Alpha-Beta Pruning algorithm in game trees? \n (A) To maximize the number of nodes explored \n (B) To minimize the depth of the game tree \n (C) To reduce the number of nodes evaluated in the search \n (D) To improve the heuristic evaluation function",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. What are \"constraints\" in the context of CSPs? \n (A) Limitations on agent intelligence \n (B) Conditions that must be satisfied by variable assignments \n (C) Random factors in game theory \n (D) Performance measures for agents [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "What are \"constraints\" in the context of CSPs? \n (A) Limitations on agent intelligence \n (B) Conditions that must be satisfied by variable assignments \n (C) Random factors in game theory \n (D) Performance measures for agents",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. In the context of intelligent agents, what does \"flexibility\" refer to? \n (A) The ability to handle complex math problems \n (B) The capacity to adapt and perform well in various environments and tasks \n (C) The choice of algorithms used by the agent \n (D) The speed at which the agent operates [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "In the context of intelligent agents, what does \"flexibility\" refer to? \n (A) The ability to handle complex math problems \n (B) The capacity to adapt and perform well in various environments and tasks \n (C) The choice of algorithms used by the agent \n (D) The speed at which the agent operates",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. What is the primary focus of an \"intelligent agent\" in AI? \n (A) Solving a specific problem once \n (B) Responding to a predefined set of commands \n (C) Learning and acting to achieve goals in a dynamic environment \n (D) Simulating human emotions [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "What is the primary focus of an \"intelligent agent\" in AI? \n (A) Solving a specific problem once \n (B) Responding to a predefined set of commands \n (C) Learning and acting to achieve goals in a dynamic environment \n (D) Simulating human emotions",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. In the context of knowledge representation, what is the primary purpose of a \"knowledge base\"? \n (A) Storing random facts \n (B) Representing information in a structured way \n (C) Solving mathematical equations \n (D) Creating artistic designs [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "In the context of knowledge representation, what is the primary purpose of a \"knowledge base\"? \n (A) Storing random facts \n (B) Representing information in a structured way \n (C) Solving mathematical equations \n (D) Creating artistic designs",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. In the \"Wumpus World\" environment, what does the agent need to do? \n (A) Solve Sudoku puzzles \n (B) Navigate a maze \n (C) Hunt a mythical creature \n (D) Avoid hazards and find the gold [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "In the \"Wumpus World\" environment, what does the agent need to do? \n (A) Solve Sudoku puzzles \n (B) Navigate a maze \n (C) Hunt a mythical creature \n (D) Avoid hazards and find the gold",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Which type of logic represents relationships and quantified statements using variables, predicates, and quantifiers like \"forall\" and \"exists\"? \n (A) Propositional Logic \n (B) Fuzzy Logic \n (C) Modal Logic \n (D) Predicate Logic [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Which type of logic represents relationships and quantified statements using variables, predicates, and quantifiers like \"forall\" and \"exists\"? \n (A) Propositional Logic \n (B) Fuzzy Logic \n (C) Modal Logic \n (D) Predicate Logic",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. What is the purpose of \"knowledge representation using rules\" in AI? \n (A) Storing data in a database \n (B) Encoding relationships and patterns in a declarative way \n (C) Generating random facts \n (D) Creating complex mathematical formulas [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "What is the purpose of \"knowledge representation using rules\" in AI? \n (A) Storing data in a database \n (B) Encoding relationships and patterns in a declarative way \n (C) Generating random facts \n (D) Creating complex mathematical formulas",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. What is the primary objective of a planning agent in AI? \n (A) Predicting future events \n (B) Learning from data \n (C) Generating a sequence of actions to achieve a goal \n (D) Recognizing patterns in images [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "What is the primary objective of a planning agent in AI? \n (A) Predicting future events \n (B) Learning from data \n (C) Generating a sequence of actions to achieve a goal \n (D) Recognizing patterns in images",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. What is \"Means-Ends Analysis\" in AI planning? \n (A) A technique for organizing knowledge in expert systems \n (B) A method for learning from data \n (C) A strategy for breaking down a planning problem into subgoals \n (D) A way to represent uncertain knowledge [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "What is \"Means-Ends Analysis\" in AI planning? \n (A) A technique for organizing knowledge in expert systems \n (B) A method for learning from data \n (C) A strategy for breaking down a planning problem into subgoals \n (D) A way to represent uncertain knowledge",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Which type of machine learning model is typically used for regression tasks, where the goal is to predict continuous values? \n (A) Decision Trees \n (B) Support Vector Machines \n (C) Neural Networks \n (D) Linear Regression [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Which type of machine learning model is typically used for regression tasks, where the goal is to predict continuous values? \n (A) Decision Trees \n (B) Support Vector Machines \n (C) Neural Networks \n (D) Linear Regression",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. What is the role of the \"inference engine\" in an expert system? \n (A) Storing knowledge \n (B) Presenting information to the user \n (C) Making deductions and drawing conclusions based on the knowledge base \n (D) Learning from user interactions [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "What is the role of the \"inference engine\" in an expert system? \n (A) Storing knowledge \n (B) Presenting information to the user \n (C) Making deductions and drawing conclusions based on the knowledge base \n (D) Learning from user interactions",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer any 4 Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Model the following Problem as AI problem.\nTower of hanoi is mathematical game puzzle where have three pile (pillars) and n numbers of disk. This game has some rules.\n1. Only one disk will move at a time.\n2. The larger disk should always be on the bottom and the smaller disk on top of it. (Even during intermediate move)\n3. Move only the uppermost disk.\n4. All disk move to destination pile from source pile. [10]",
+          "structured_content": {
+            "number": "21",
+            "text": "Model the following Problem as AI problem.\nTower of hanoi is mathematical game puzzle where have three pile (pillars) and n numbers of disk. This game has some rules.\n1. Only one disk will move at a time.\n2. The larger disk should always be on the bottom and the smaller disk on top of it. (Even during intermediate move)\n3. Move only the uppermost disk.\n4. All disk move to destination pile from source pile.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Explain the concept of control strategies in problem-solving agents. Provide examples of different control strategies and discuss when each strategy might be suitable for solving specific types of problems. How do control strategies influence the behavior of problem-solving agents? [10]",
+          "structured_content": {
+            "number": "22",
+            "text": "Explain the concept of control strategies in problem-solving agents. Provide examples of different control strategies and discuss when each strategy might be suitable for solving specific types of problems. How do control strategies influence the behavior of problem-solving agents?",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Describe the concept of \"Alpha-Beta Pruning\" in adversarial search. How does this technique enhance the efficiency of the Mini-Max algorithm? Provide a step-by-step illustration of how Alpha-Beta Pruning helps reduce the search space in a game tree. [10]",
+          "structured_content": {
+            "number": "23",
+            "text": "Describe the concept of \"Alpha-Beta Pruning\" in adversarial search. How does this technique enhance the efficiency of the Mini-Max algorithm? Provide a step-by-step illustration of how Alpha-Beta Pruning helps reduce the search space in a game tree.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. You are presented with a classic CSP puzzle known as the \"8-Queens Problem.\" In this puzzle, you must place 8 queens on an 8x8 chessboard in such a way that no two queens threaten each other. A queen can threaten another queen if they are in the same row, column, or diagonal. Using the constraint that no two queens can threaten each other, find a valid arrangement for the 8 queens on the chessboard. Provide the coordinates (row and column) for each queen's position.\n\nInitial State:\n--Q-----\n----Q---\n--Q-----\n---Q----\n\n--Q-----\n-Q------ [10]",
+          "structured_content": {
+            "number": "24",
+            "text": "You are presented with a classic CSP puzzle known as the \"8-Queens Problem.\" In this puzzle, you must place 8 queens on an 8x8 chessboard in such a way that no two queens threaten each other. A queen can threaten another queen if they are in the same row, column, or diagonal. Using the constraint that no two queens can threaten each other, find a valid arrangement for the 8 queens on the chessboard. Provide the coordinates (row and column) for each queen's position.\n\nInitial State:\n--Q-----\n----Q---\n--Q-----\n---Q----\n\n--Q-----\n-Q------",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Suppose you have two first-order logic statements: \"P(x, y)\" and \"P(3, 5).\" Can unification be applied to these statements? If so, describe the unification process and the resulting substitutions. [10]",
+          "structured_content": {
+            "number": "25",
+            "text": "Suppose you have two first-order logic statements: \"P(x, y)\" and \"P(3, 5).\" Can unification be applied to these statements? If so, describe the unification process and the resulting substitutions.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "26",
+          "original_text": "26. Describe the architecture of expert systems. List the main components and describe how do they work together to emulate human expertise in a specific domain? Provide an example of a domain where expert systems have been successfully deployed and their impact. [10]",
+          "structured_content": {
+            "number": "26",
+            "text": "Describe the architecture of expert systems. List the main components and describe how do they work together to emulate human expertise in a specific domain? Provide an example of a domain where expert systems have been successfully deployed and their impact.",
+            "marks": 10
+          },
+          "marks": 10.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Questions",
+      "questions": [
+        {
+          "question_number": "27",
+          "original_text": "27. Explain and Implement Breadth first and Iterative Deepening Search for the following:\nSource Node : 1, Destination Node: 12\nWrite the Procedure and give the step by step execution [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Explain and Implement Breadth first and Iterative Deepening Search for the following:\nSource Node : 1, Destination Node: 12\nWrite the Procedure and give the step by step execution",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "28",
+          "original_text": "28. Implement Depth First and Uniform Cost Search for the following:\nSource Node : S, Destination Node: G\nWrite the Procedure and give the step by step execution. [15]",
+          "structured_content": {
+            "number": "28",
+            "text": "Implement Depth First and Uniform Cost Search for the following:\nSource Node : S, Destination Node: G\nWrite the Procedure and give the step by step execution.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

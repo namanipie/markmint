@@ -1,0 +1,226 @@
+[
+  {
+    "id": 3,
+    "name": "Philosophy Of Engineering",
+    "papers": 0,
+    "extracted": 20,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 4,
+    "name": "Introduction To Computational Biology",
+    "papers": 0,
+    "extracted": 28,
+    "db_ct1": 28,
+    "db_ct2": 0
+  },
+  {
+    "id": 6,
+    "name": "Fundamental Of Economics (FOE)",
+    "papers": 1,
+    "extracted": 99,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 7,
+    "name": "Biomedical Sensors",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 9,
+    "name": "Cell Biology",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 10,
+    "name": "Microbiology",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 11,
+    "name": "Physical And Analytical Chemistry",
+    "papers": 3,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 12,
+    "name": "Biochemistry",
+    "papers": 3,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 16,
+    "name": "Advanced Calculus and Complex Analysis",
+    "papers": 1,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 17,
+    "name": "Object Oriented Design and Programming",
+    "papers": 0,
+    "extracted": 252,
+    "db_ct1": 2,
+    "db_ct2": 28
+  },
+  {
+    "id": 19,
+    "name": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "papers": 2,
+    "extracted": 99,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 20,
+    "name": "Physics: Mechanics",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 21,
+    "name": "Engineering Mechanics",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 22,
+    "name": "Probability and Statistics",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 23,
+    "name": "Building Materials in the Built Environment",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 29,
+    "name": "Artificial Intelligence",
+    "papers": 5,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 31,
+    "name": "Probability and Queueing Theory",
+    "papers": 1,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 33,
+    "name": "Formal Languages and Automata",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 34,
+    "name": "Computer Networks",
+    "papers": 2,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 35,
+    "name": "Software Engineering and Project Management",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 36,
+    "name": "Compiler Design",
+    "papers": 0,
+    "extracted": 150,
+    "db_ct1": 81,
+    "db_ct2": 0
+  },
+  {
+    "id": 37,
+    "name": "Data Science",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 38,
+    "name": "Internet of Things",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 39,
+    "name": "Digital Image Processing",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 40,
+    "name": "Security Governance, Risk and Compliance",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 41,
+    "name": "Security Risk Management and Principles",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 42,
+    "name": "Information Security",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  },
+  {
+    "id": 43,
+    "name": "Digital Signal Processing",
+    "papers": 0,
+    "extracted": 0,
+    "db_ct1": 0,
+    "db_ct2": 0
+  }
+]

@@ -1,0 +1,381 @@
+{
+  "total_docs": 97,
+  "exams_count": 31,
+  "sections_count": 39,
+  "questions_count": 357,
+  "q_len_min": 37,
+  "q_len_max": 3472,
+  "q_len_avg": 230.42857142857142,
+  "short_questions": [],
+  "long_questions": [
+    "If X-ray of vvavelength 100 A is incident chi an atom at an angle of OO9, then what should be the value of i 4 5 5 d for first-order spectrum? A)30A B)40A C)50 A D)60 A Page 2 of 3 21DF1-21CYB101J PAR",
+    "The Bragg\u2019s equation for diffraction of X-rays is. i 2 5 5 A)nX = 2d2sin0 B)nk = 2dsin9 QnX = 2dsin20 D)nX=d2sin0 PART - B (5 x 8 = 40 Marks) Marks BL CO PO Answer ALL the Questions 21 a. Describe the",
+    "Which of the following complexes is paramagnctic ( ( Z c) o [ f C F o e B = ra 2 J 6 \u00b2 , Co = 2 ( 7, ) C ( u C o = (N 29 H ) B)} (b) [Fe(CN)Jt (a) [Cu(CN)4] RAQ3IONEO O32) DEPARTMENT OF CIUEMISTRY 3SR",
+    "() Compare the crystal filed splitting in octahedral and tetraltedral complexes. IIlustrate the answer with neat diagraIs. (i)Calculate spin only magnetic moment and CFSE for the complex K3[ Fe(oxalat",
+    "What is the output of thef ollowing program? # include <stdio.h int main () int a switch (a) Pege l f 4 .51 . .41 .21 o N H)A(G tuFp )CtE(uDoC BoAd eli h)Aw( rof )C( . s 9 i ehT n oiotc hn Gc)Aut(ifw ",
+    "a 2 0 2 0 -I Solve \"0 2 -1 2 0 1 0 2 0 1 1 10 1,2 Solve y\"+ 4y = 4tan 2x using the method of variation of parameters 3 2 2 C -1 1 Find the equation of circle of curvature of the rectangular hyperbola ",
+    "If u and v are functionally dependent then their Jacobian value is ***** {) (A) Zero One (C) Non-zero > 0 Ifrt-52 < 0 at (a, b) then the point is (A) Maximum Minimum point point Saddle point Zero du I",
+    "Testttre convergenoe ofthe series i,,, 1 \"11@+l)Qn+l) PART - C (5 x t2= 60 Marks) AnswerAII euestions B.Tech. DEGREE EXAMINATION, NOI,EMBER 2018 . First Semester 28' a' vsrig, Cavlev-Hamlton theorem f"
+  ],
+  "stem_sample": [
+    {
+      "course": "chemistry",
+      "text": "The crystal field splitting encrgy (Ao) is directly proportional to 2 (A) Geometry (B) Number of d-Electrons (C) Coordination number (D) Oxidation state",
+      "marks": null,
+      "number": "1"
+    },
+    {
+      "course": "chemistry",
+      "text": "The effective nuclear charge realised by is electron of helium atom is 3 (A) 1.00 (B) 1.20 (C) 1.70 (D) 1.65",
+      "marks": null,
+      "number": "2"
+    },
+    {
+      "course": "chemistry",
+      "text": "The complex [Pt (NH:):Cl;] exhibits 3 (A) Linkage isomerism (B) Coordination isomerism (C) Geometrical isomerism (D) Optical isomerism",
+      "marks": null,
+      "number": "3"
+    },
+    {
+      "course": "chemistry",
+      "text": "The spin only magnetic moment value (In bohr magneton units) of Cr(C0)% is (A) 0 (B) 2.84 (C) 4.90 (D) 5.92",
+      "marks": null,
+      "number": "4"
+    },
+    {
+      "course": "chemistry",
+      "text": "For a reaction that has an equilibrium constant of 3.2x10, which of the 4 2 following statement must be true? (A) AH\u00b0 is negative (B) AG\u00b0 is positive (C) AG\u00b0 is negative (D) AS\u00b0 is positive",
+      "marks": null,
+      "number": "5"
+    },
+    {
+      "course": "chemistry",
+      "text": "For an isolated system, AU = 0, what will be AS? 2 2 (B) AS<0 (A) AS>>0 (D) AS 20 (C) AS S0",
+      "marks": null,
+      "number": "6"
+    },
+    {
+      "course": "chemistry",
+      "text": "In the pourbaix diagram, the form of iron that will predominate at pH12 2 and at potential of 1.86 V is (B) Fe2 (A) Fe (C) Fe02 D) Fe(OH)s",
+      "marks": null,
+      "number": "7"
+    },
+    {
+      "course": "chemistry",
+      "text": "Helmholtz function F is given by (B) -U-TS (A) -U+ TS (C) U+ TS (D) U-TS 05JF21CYBI01J Page 1 of 3 OF EN cadem1 2",
+      "marks": null,
+      "number": "8"
+    },
+    {
+      "course": "chemistry",
+      "text": "The number of structural isomers for CsH14 is rst 40 (A) 6 (B) 5 ooklet. (C)4 (D) 3 I2 3 2",
+      "marks": null,
+      "number": "9"
+    },
+    {
+      "course": "chemistry",
+      "text": "Reactivity order ofa lkyl halides in Ss reaction is (A) CH3x1\u00b0>2\u00b0>3 (B) CH3x>2\u00b0>3\u00b0>1\u00b0 (C) 32>1\u00b0>CH3x (D) 3>1\u00b0>2\u00b0>CHx in 11. Among the following hex-2-ene reacts fastest with? 332 (A) HCI (B) HF (C) HI (D) HBr lutio. 12. Which of the following has the lowest priority according to the CIP 3 3 2 sequence rules? (A) CH(OH) CH; (B) CH CH: (C) CHO (D) CH2 CH cult",
+      "marks": null,
+      "number": "10"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following is a thermo setting polymer? 41 (A) Bakelite (B) Polystyrene C) PVC D) Polyethene ma",
+      "marks": null,
+      "number": "13"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which one of the below is used as an insulator and also as a lubricant? 2 4 1 (A) PVC (B) PTFE C) SBR (D) Poly propylene",
+      "marks": null,
+      "number": "14"
+    },
+    {
+      "course": "chemistry",
+      "text": "Hemodialysis tubes are made with 4 s (A) Silicone rubber (B) Polystyrene (C) Polyurethane intermediate (D) Nylon",
+      "marks": null,
+      "number": "15"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the below polymers show higher crystallinity? 4 (A) Isotactic (B) Atactic acj (C) Random (D) Syndiotactic",
+      "marks": null,
+      "number": "16"
+    },
+    {
+      "course": "chemistry",
+      "text": "In fibre reinforced composites which constituent will fail last? 251 (A) Filler (B) Matrix (C) Both fail at same time (D) Need more details on composite",
+      "marks": null,
+      "number": "17"
+    },
+    {
+      "course": "chemistry",
+      "text": "After the proportionality limit in the stress-strain curve, we observe 5 (A) Lower yield point (B) Upper yield point (C) Ultimate point (D) Elastic point",
+      "marks": null,
+      "number": "18"
+    },
+    {
+      "course": "chemistry",
+      "text": "Minimum inter planar spacing required for Bragg's diffraction is 25 (A) 4 (B) 4 (C) /2 (D) 2.",
+      "marks": null,
+      "number": "19"
+    },
+    {
+      "course": "chemistry",
+      "text": "Determine young's modulus of a material whose elastic stress and strain are 4 Nm and 0.15 respectively (A) 26.66 N/m2 (B) 2.666 N/m? (C) 266.6 N/ms (D) 2666 N/m2 PART-B (5 x8 =4 0 Marks) Marks i. CO PM Answer ALL Questions",
+      "marks": null,
+      "number": "20"
+    },
+    {
+      "course": "chemistry",
+      "text": "a. Find the number of unpaired electrons in strong and weak octahedral field 4 ra Mn*\" complex (d) based on CFT. Caiculate CFSE and magnetic noment for both the situation with energy level diagrams. b. Demonstrate with proper examples the isomerism exhibited in transition 3 metal complexes.",
+      "marks": null,
+      "number": "21"
+    },
+    {
+      "course": "chemistry",
+      "text": "a. With appropriate examples, elucidate how Nemst equation can be appiied 22 in a redox reaction and in an acid-base reaction. b. Derive Gibbs-Helmholtz equation and given its applications. 2",
+      "marks": null,
+      "number": "22"
+    },
+    {
+      "course": "chemistry",
+      "text": "a. Compare and contrast Sx' and Ss reactions with an example for cach 2. 32 3 2 b. Sketch the potential energy diagram and explain in detail the conformational analysis of n-butane.",
+      "marks": null,
+      "number": "23"
+    },
+    {
+      "course": "chemistry",
+      "text": "a. Provide a conscise note on the synthesis and applications of Teflon and PVC. (OR 4 b. Explain in detail n and p-doping in conducting polymers.",
+      "marks": null,
+      "number": "24"
+    },
+    {
+      "course": "chemistry",
+      "text": "a. Illustrate with a proper stress-strain plot for the following 35 i) Elastic region (ii) Plastic region b. Explain with an example ceramic matrix composite and metal matrix 25 composite.",
+      "marks": null,
+      "number": "25"
+    },
+    {
+      "course": "chemistry",
+      "text": "With an neat sketch discuss pourbaix diagram for iron. 15 21.1. Explain E2 mechanism with suitable example. i. Discuss about the principle and instrumentation of X-ray photo electron 10 spectroscopy. **** *",
+      "marks": null,
+      "number": "26"
+    },
+    {
+      "course": "chemistry",
+      "text": "For a high spin d4 octahedral complex the crystal field splitting energy will be 1 3 1 1 S A)-0.6Ao B)-0.8Ao C)0.6Ao D)0.8Ao R",
+      "marks": null,
+      "number": "1"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following is paramagnetic? [Z for Co= 27, Fe=26, Ni= 28] 1 2 1 1 E A) [Pt(NH3)3Cl]+ B) [Ni(CN)4]2- P Q [CoBr]4 2\u2019 D) [Co(NH3)6]3+ L",
+      "marks": null,
+      "number": "2"
+    },
+    {
+      "course": "chemistry",
+      "text": "The crystal field splitting energy for octahedral and tetrahedral complexes is related as i 2 1 1 A)At~l/2 Ao B)AEo~2 At C) Ao ~ 4/9 At D) At ~ 4/9 Ao H",
+      "marks": null,
+      "number": "3"
+    },
+    {
+      "course": "chemistry",
+      "text": "Suggest the hard acid from the following ions given: i 2 1 1 A)Cu+ B)Mg2+ E C)Cd2+ D)Hg2+ H",
+      "marks": null,
+      "number": "4"
+    },
+    {
+      "course": "chemistry",
+      "text": "According to the convention, the Daniel cell is represented as i 2 2 2 T A)Zn 1 ZnSO4ll Cu 1 CuSO4 , B) ZnSO4 1 Zn 11 CuSO4 1 Cu, E = 1.09 volt E= 1.09 volt C)Zn 1 ZnSO4ll CuSO4 1 Cu, D)Zn 1 ZnSll CuSO4 1 Cu, E = 1.09 volt E = 1.09 volt",
+      "marks": null,
+      "number": "5"
+    },
+    {
+      "course": "chemistry",
+      "text": "The following are state functions EXCEPT 1 2 2 2 A) enthalpy (H) B) heat (q) C) internal energy(U) D) entropy (S)",
+      "marks": null,
+      "number": "6"
+    },
+    {
+      "course": "chemistry",
+      "text": "When zinc metal, is attached to the ship's hull made of iron, zinc corrode itself instead of the i 3 2 2 hull. The type of corrosion is an example of\u2014 A) Galvanic corrosion B) oxidation corrosion C) liquid metal corrosion D) pitting corrosion",
+      "marks": null,
+      "number": "7"
+    },
+    {
+      "course": "chemistry",
+      "text": "1 4 2 3 If the solubility product of magnesium hydroxide is 2.00 x 10\u201911 mol3 dm'9 at 298 k, calculate its solubility in mol dm'3 at that temperature. A) 1.71 x 104 mol dm'3 B) 1.71 x 10'4mol dm'3 C)2.71 x 10'4mol dm'3 0)3.42 x 10'5mol dm'3 Page 1 of 3 21DF1-21CYB101J",
+      "marks": null,
+      "number": "8"
+    },
+    {
+      "course": "chemistry",
+      "text": "If our eyes travel in counter clockwise direction from the ligand of highest priority to the ligand of 1 2 3 2 lowest priority, the configuration is A) S-Configuration B) R-Configuration C) E-Configuration D)Z-Configuration",
+      "marks": null,
+      "number": "9"
+    },
+    {
+      "course": "chemistry",
+      "text": "When a molecule has a plane of symmetry, it will be i 2 3 2 A) Optically active B) Both optically active and optically inactive C) Enantiomer D) Optically inactive",
+      "marks": null,
+      "number": "10"
+    },
+    {
+      "course": "chemistry",
+      "text": "The infinity of intermediate conformations are called 1 2 3 2 A) Staggered conformations B) Eclipsed conformations C) Gauche D) Skew",
+      "marks": null,
+      "number": "11"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which step in S^jl reaction is a slow rate determining step? 1 2 3 2 A) Attack of nucleophile B) Formation of transition state C) Formation of racemic mixture D)both attack of nucleophile and formation of racemic mixture",
+      "marks": null,
+      "number": "12"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following polymer type is not classified on the basis of its application and 1 2 4 1 properties? A) rubbers B) plastics S C) fibres D) synthetic R",
+      "marks": null,
+      "number": "13"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following monomers are unsuitable for condensation polymerization? 1 2 4 1 A) propanoic acid and ethanol B) butane-dioic acEid and glycol C) diamines and dicarboxylic acids D) hydroxy acids P",
+      "marks": null,
+      "number": "14"
+    },
+    {
+      "course": "chemistry",
+      "text": "The polymer in which steric placements of the substituent are arranged in such a 1 2 4 4 L way to give alternate d and 1 cinfigurations, is known as A) isotactic polymer B) Eatactic polymer C) syndio-tactic polymer D) crosslinked polymers H",
+      "marks": null,
+      "number": "15"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following is a co-polymer? 1 2 4 1 A) Polythene B) Bakelite C) PVC ED) Polyacrylonitrile",
+      "marks": null,
+      "number": "16"
+    },
+    {
+      "course": "chemistry",
+      "text": "In fiber reinforced comHposites longitudinal strength is mainly influenced by 1 2 5 1 A) Fiber strength B) Fiber orientation T C) Fiber volume fraction D) Fiber length",
+      "marks": null,
+      "number": "17"
+    },
+    {
+      "course": "chemistry",
+      "text": "In storage battery plates the matrix commonly used is 1 2 5 1 A) Aluminium B ) Lead C) Silver D) Copper",
+      "marks": null,
+      "number": "18"
+    },
+    {
+      "course": "chemistry",
+      "text": "Which of the following methods use soft X-rays to eject electrons from inner shell 1 2 5 5 orbitals? A) Auger electron spectroscopy B) Electron impact spectroscopy C) X-ray crystallography D) X-ray photoelectron spectroscopy",
+      "marks": null,
+      "number": "19"
+    },
+    {
+      "course": "chemistry",
+      "text": "If X-ray of vvavelength 100 A is incident chi an atom at an angle of OO9, then what should be the value of i 4 5 5 d for first-order spectrum? A)30A B)40A C)50 A D)60 A Page 2 of 3 21DF1-21CYB101J PART - B (5 x 8 = 40 Marks) Marks BL CO PO Answer ALL the Questions 21 a. i)Write a short note on spectrochemical series? Explain the impact of ligands in the 8 2 1 4 formation of high and low spin complexes with suitable examples. ii) What is Pairing energy (P)? Give the relation between crystal field splitting in octahedral complexes (Ao) and pairing energy (P). [2] b. i) Write a note on the geometrical isomerism exhibited by octahedral complexes. 8 2 1 1 ii) Aluminium occurs in nature as an oxide, whereas Platinum occurs as sulfide. Explain it on the basis of HSAB principle.. 22 a. Derive Nemst equation and give its application towards emf determination by 8 2 2 1 potentiometric titration. b. Explain in detail the mechanism with equations involved in dry corrosion. 8 2 2 2 S 23 a. Sketch the potential diagram and discuss in detail the conformational analysis of n- 8 3 3 3 butane. R E b. Discuss elements of symmetry with an example for each. 8 3 3 4 P 24 a. i) Give the differences between addition and condensation reactions. 8 1 4 1 L ii) Compare isotactic and syndiotactic polymers E(OR) b. Explain in detail n and p doping in conducting polymers. 8 1 4 1 H 25 a. Explain the various regions in stress-strain graph with a neat diagram. 8 2 5 1 E b. Discuss on ceramic and metal matrix composites with examples. 8 2 5 3 H T PART - C (1 x 15 = 15 Marks) Marks BL CO PO Answer ANY ONE Questions 26 Discuss in detail Pourbaix diagram of Iron system with a neat sketch. 15 4 2 3 27 a. What is the principle underlying in XPS? Give the merits and demerits of XPS 15 2 5 5 analysis [8] b. What is Bragg's Law? Prove nX = 2d sinG. [7] ****** Page 3 of 3 21DF1-21CYB101J",
+      "marks": 6.0,
+      "number": "20"
+    },
+    {
+      "course": "chemistry",
+      "text": "Derive Gibbs-Helmhotz equation. Give its applications- , Reg. No. b. With a neat sketch explain Pourbaix diagram for kon. B.Tech. DEGREE EXAMINATION, NO\\EMBER 2018 First Semester a",
+      "marks": null,
+      "number": "31"
+    },
+    {
+      "course": "chemistry",
+      "text": "Explain in detail the conformational analysis of n-butane with potential erer5/ diagam. l8CYBlOIJ - CHEMSTRY (For the candidates admitted during the academic year 20lB-2019) b. How is isomerism exhibited in transition metal compounds? Explain the types with an Note: ..(l) example each? Part - A should be answered in OMR sheet within first 45 minutes and OMR sheet should be hmded over to hall invigilator at the end of 45fr minute. (ii) rirl.*** Part - B and Part - C should be answered in answer booklet. Time: Three Hours Mo<. Marks: 100 PART-A (20 x 1= 20 Marks) AnswerALL Questions l. Two electrons occupying the sarne orbital me distinguished by (A) (B) Azimuthal quantum number Spin quantum number (C) Magnetic quantum number @) Orbital quantum number",
+      "marks": null,
+      "number": "32"
+    },
+    {
+      "course": "chemistry",
+      "text": "Ttrc de-Broglie hypothesis is associated with (A) only (B) Wave nature of electrons Wave nature ofprotons only (C) radiation Wave nature of @) Wave nanre of all material particles 3. For a homonuclear diatomic niolecule the bonding orbital is (A) orof lowest enerry @) o,of second lowest enerry (C) arof lowest enerry @) z,of lowest ener5/ 4. Organic compounds which contain more than one benzene rings are terrned (A) (B) Arenes Aryls (C) Acyls @) Benzenes",
+      "marks": null,
+      "number": "2"
+    },
+    {
+      "course": "chemistry",
+      "text": "The crystal field splitting enersr for ockrhedral  and tetrahedral (A,) complexes is related as (A) L,=4l9Lo (B) A, =l l2yo (C) Ao =24, (D) Ao = 419L,",
+      "marks": 4.0,
+      "number": "5"
+    },
+    {
+      "course": "chemistry",
+      "text": "The number of unpaired electons in d6, low spin octahedral complex is (A) 0 (B) I (c) (D) 2 3",
+      "marks": null,
+      "number": "6"
+    },
+    {
+      "course": "chemistry",
+      "text": "The vibrational rotational spectnrm is obseried in _ region (A) NearIR @) Microwave region (C) Visible regron (D) Radio frequency region",
+      "marks": null,
+      "number": "7"
+    }
+  ],
+  "math_failures": [],
+  "marks_count": 12,
+  "missing_marks": 345,
+  "marks_sample": [
+    {
+      "text": "If X-ray of vvavelength 100 A is incident chi an atom at an angle of OO9, then what should be the va",
+      "marks": 6.0
+    },
+    {
+      "text": "The crystal field splitting enersr for ockrhedral  and tetrahedral (A,) complexes is related as (A) ",
+      "marks": 4.0
+    },
+    {
+      "text": "Corrosion of metals involves reactions ( iC A) ; E fo lec m tro a ch a em n ic a al n @ (D ) ) C Th ",
+      "marks": 4.0
+    },
+    {
+      "text": "The Bragg\u2019s equation for diffraction of X-rays is. i 2 5 5 A)nX = 2d2sin0 B)nk = 2dsin9 QnX = 2dsin2",
+      "marks": 8.0
+    },
+    {
+      "text": "() Compare the crystal filed splitting in octahedral and tetraltedral complexes. IIlustrate the answ",
+      "marks": 6.0
+    },
+    {
+      "text": "In which quadrant, social sciences fall-engineer as 23 Sociologist (A) Scientist D) Designer (C) Doe",
+      "marks": 3.0
+    },
+    {
+      "text": "a.i. List the advantages of uniting function in C programming. ii. Define preprocessor and its direc",
+      "marks": 8.0
+    },
+    {
+      "text": "a.i. Explain dynamic memory allocation in detail. Notei ii. Explain Stucture within Structure.  (i) ",
+      "marks": 8.0
+    },
+    {
+      "text": "A (A dd ) r e I s n s t e s g t e or r ed in the pointer variable is of ty ( p B e ) Floating b.i. A",
+      "marks": 8.0
+    },
+    {
+      "text": "a. Derive an expression for the equilibrium constant, Kr, thermodynamically for the reversible react",
+      "marks": 1.0
+    },
+    {
+      "text": "Find the Particular Integral of (D-4)y = cos2 x sin 2x (A)cos 2x SIn 8 (C)cos 2x D) --cos 2x cos 2x ",
+      "marks": 8.0
+    }
+  ],
+  "missing_years": 0,
+  "classified_q": 0,
+  "unresolved_q": 357,
+  "cross_contamination_count": 0,
+  "topic_mappings": [],
+  "families_count": 345,
+  "courses_count": 12,
+  "concepts_count": 1,
+  "topics_count": 1,
+  "study_evidence_count": 30
+}

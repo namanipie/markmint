@@ -1,0 +1,3422 @@
+[
+  {
+    "q_num": 2,
+    "question_text": "8.1 \n(i) Prove that 𝐴∩(𝐵−𝐶) = (𝐴∩𝐵) −(𝐴∩𝐶), using set identities, where 𝐴, 𝐵 and C are sets. 5 \n \n(ii) Given 𝑅1 = {(1,2), (2,3), (3,4)} and 𝑅2 = {(1,1), (1,2), (2,1), (2,2), (2,3), (3,1), (3,2), (3,3)} be the \nrelations from {1,2,3} to {1,2,3,4}, find 5 \n(a) 𝑅1 ∪𝑅2 (b) 𝑅1 ∩𝑅2 (c) 𝑅1 −𝑅2 (d) 𝑅1° 𝑅2",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "8.1 \n(i) Determine whether the function 𝑓: 𝑍→𝑍 defined by 𝑓(𝑥) = 𝑥2 + 14𝑥−51 is injective or not? 5 \n \n(ii) Let 𝑅= {(1,2), (1,3), (2,1), (2,2), (3,1), (3,3)} defined on 𝐴= {1,2,3} find the relational matrices 5 \n(a) 𝑀𝑅 (b) 𝑀𝑅2 (c) 𝑀𝑅−1 (d) 𝑀𝑅̅",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "8.1 \n(i) If 𝑅 is the relation on the set of integers such that (𝑎, 𝑏) ∈𝑹, if and only if 𝑎2 −𝑏2is divisible by 3. \nProve that 𝑅 is an equivalence relation. 5 \n \n(ii) If 𝑓, 𝑔 and ℎ are all functions defined on the set of real numbers such that 𝑓(𝑥) = 𝑥+ 2, 𝑔(𝑥) =\n1\n𝑥2+1 and \nℎ(𝑥) = 5, verify that ((ℎ°𝑔)°𝑓)(𝑥) = (ℎ°(𝑔°𝑓))(𝑥). 5",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "8.1 \n(i) Construct the relation 𝑅 defined on 𝐴= {1,2,3,4,6,8,12} such that 𝑎𝑅𝑏 if and only if \"a divides b\". \nDraw its directed graph and reduce it to Hasse diagram. 7 \n \n(ii) For the function 𝑓: 𝑅→𝑅 defined by 𝑓= {(𝑥, 𝑦)| 2𝑥+ 3𝑦= 7}, determine 𝑓−1. 3",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "(i) There are 250 students in an engineering college. Of these 188 have taken a course in \nFortran, 100 have taken a course in C and 35 have taken a course in java. Further 88 have \ntaken courses in both Fortran and C. 23 have taken courses in both C and java and 29 have \ntaken courses in both Fortran and Java. If 19 of these students have taken all the three courses, \nhow many of these 250 students have not taken a course in any of these three programming \nlanguages? ( 5 Marks) \n \n(ii) A man hikes for 10 hours and covered a total distance of 45 km. It is known that he hiked 6 \nkm. in the first hour and only 3 km. in the last hour. Show that he must have hiked at least 9 km. \nwithin a certain period of 2 consecutive hours. (5 Marks)",
+    "marks": 5,
+    "q_type": "CODING",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Find integers 𝑚 and 𝑛 such that 28844 𝑚+ 15712 𝑛= 4. (10 Marks)",
+    "marks": 10,
+    "q_type": "NUMERICAL",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Use mathematical induction to show that \n𝟏\n√𝟏+\n𝟏\n√𝟐+\n𝟏\n√𝟑+ ⋯+\n𝟏\n√𝒏> √𝑛 for 𝑛≥2. \n (10 Marks)",
+    "marks": 10,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Prove that the premises 𝑎→(𝑏→𝑐), 𝑑→(𝑏˄¬𝑐) and (𝑎˄𝑑) are inconsistent. (10 Marks)",
+    "marks": 10,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "If Jack misses many classes through illness, then he \nfails high school.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "If Jack fails high school, then he is uneducated.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "If Jack reads a lot of books, then he is not uneducated.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "i)\nii)\nThere are 3 piles of identical red, blue and green balls, where each pile contains at least 10 balls. In how many \nways can 10 balls be selected (a) if exactly one red ball must be selected? (b) if at least one red ball must be \nselected?\nHow many positive integers n can be formed using the digits 3,4,4,5,5,6,7, if n has to exceed 5000000?\nAnswer:\n(5)\n(5)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\n2\ni)\nii)\nOf any 5 points chosen within an equilateral triangle whose sides are of length 1, show that two are within a \ndistance of of each other.\nFind the number of integers between 1 and 250 both inclusive that are not divisible by any of the integers 2, 3, 5 \nand 7.\nAnswer:\n(5)\n(5)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "(5)",
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Show that the set Q+ of all positive rational numbers forms an abelian group with respect to * \ndefined by\nAnswer:\n(10)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\n2\ni)\n ii)\nProve that the intersection of two subgroup of a group G is also a subgroup of G\nAnswer:\n(5)\n(5)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "(10)",
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Given the generator matrix G = corresponding to the encoding function\ne: B3 → B6, find the corresponding parity check matrix and use it to decode the following received \nwords and hence to find the original message. Are all the words decoded uniquely?\n(i)110101, (ii)001111, (iii)110001(iv) 111 111\nAnswer:\n(10)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\n4\n(i)\n(ii)\nShow that the graphs G and H are isomorphic.\n Prove that, if G is a tree with n vertices then G has n-1 edges.\n(5)\n(5)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\nAnswer:\n5\nConstruct a minimum spanning tree using kruskal's algorithm for the graph given below \n(10)\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\nAnswer:\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650\n\nReference Text Book: T.Veerarajan, Discrete Mathematics with Graph Theory and Combinatorics, Tata McGraw Hill, 2015\nSignature of the Student\nSignature of the Staff\nSignature of HOD/MATHS\nDownloaded by THE HELPER (srmpyqs@gmail.com)\nlOMoARcPSD|52021650",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "(10)",
+    "subject": "Discrete Mathematics",
+    "cycle": "CT1",
+    "source_file": "Discrete_Mathematics_CT1_CT_Papers_2024.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "First-In-First-Out(FIFO)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Least Recently Used (LRU",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Optimal Algorithm \n(or) \nExplain the physical and logical structure of a disk, \nincluding the layout of tracks, sectors, and blocks. \nDescribe the concept of disk formatting, including Jo,v-\nlevel formatting and high-level formatting. Discuss the \nrole of the file allocation table (FAT) or inode table in \nmanaging disk storage. Finally, illustrate the steps \ninvolved in reading and writing data to a disk, including \nseek time, rotational delay, and data transfer time. \nExolain with example Threats to Protection and Securitv \n(Or) \nbriefly explain with example about con1puter security \nclassification \n10 \nL4 \n10 \n3 \n10 \n3 \n~-\n4 \n4 \n5 \ns \n4 \n4 \n5 \ns \nI \n\nI Sa \nA disk has 200 cy \nis currently at cylinder \nqueue: \n- Request 1 : Cylinder 50 \n- Request 2: Cylinder 120 \n- Request 3: Cylinder 30 \n- Request 4: Cylinder 180 \n- Request 5: Cylinder 70 \nUsing ~ch of the following disk scheduling algorithms, \ndetennme the order in which the requests are serviced and the \ntotal distance traveled by the disk head: \nI. First-Come-First-Served (FCFS)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "fer time.",
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Shortest-Seek-Time-First (SSTF)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "SCAN (Elevator Algorithm)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "C-SCAN (Circular SCAN)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "LOOK (Circular LOOK)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "C-LOOK Circular LOOK . \n1 Sb \nExplain how the concept of segmentation and paging can be \n1 O \napplied to manage the printing facility efficiently. Describe how \nthe printers can be segmented and paginated to allocate printing \nresources to each department, ensuring that both departments get \ntheir required printing done without any conflict. Consider the \nscenario where one department requires more printing resources \nthan the other. \nor \n>a \nDefine the security problem in computer systems and discuss the \n\\ \nvarious program threats that can compromise system integrit)' \nand confidentiality. Provide examples of common program \nthreats and their otential im acts. \nOr \nE.xplain with example for Program Threats, System and Network \nThreats",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 0,
+    "question_text": "and Bloom's level (BL) Co\"eraii\n\n- • \n• • • • Y 'll, : , I . \nI -\n- , •, r) \n. • Y.- . \\ ( > \nI , 14 I ' 'cl , II J' \nI Ii• • I \n. \" If \nI• , JI.I c; I I . \\r u < \\ u r c \n< 'f a d' ·• . , \n. \n• \n: I YI ) ' It \nf f \n' \n-\n. • , \nI >c •·1t·,;1,(. flat • . \n1 \nlr ;11 ... l-:·:, \n'•Ct.tor· \nanc\\ \nh\\o<.,Y: .. \n-\n-\n· '-•111t •e pt c, f I . k \n'• \n. \n\\ •)I-\nI<' , cl lo, •11 : 1lf 111 • \n, \nI \nc I '' lot,natting, in<;\\uchng, '> \n• \n>. •\n11\n1< \n1111\n1 11- lcv •I f \nl)' \n•uf, the \n,.,,(. cd fl1c- f J \n' \nC \n•1rrn~,\\\\1ne,. \n\\',(; , •\n. \n. \n, \n. \n~ c :ii loc:at ion lahlc ( I· /\\'I ) or inodc tah\\c 1n \\ \n111.'.11.11:'.111 :_ \ndi s k . s loragc, l-i11ally, illu~lralc the st~-ps \n11\n\" nl\\:qf \n111 reading and writing data to a disk, inc\\udtng \nSl~ck 1~111:,~~!!~•-~•n!!l__dc~_., and data transf1..\"T time. \n. \n! :~~jll:1i11 wi1l1 cxa111plc 'T'hrcats to Protection and Sccunt· \n~r\"",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "f1..\"T time.",
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "First-In-First-Out(FIFO)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Least Recently Used (LRU",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Ontimal Al2orithm \nLA \\ \n4 \n\\ \\ \n\\ \\ \n\\ \n~xplai_n the physical and logical ~~ \nof a disk, \\ 10 \\ lA \n1nc]ud1ng the layout of tracks, sectors, and blocks. \nDescribe the concept of disk formatting, including \\ow-\nleve] fonnatting and high-level formatting. Discuss the \nrole of the file allocation table (FAT) or inode table in \nmanaging disk storage. Finally, illustrate the steps \ninvolved in reading and writing data to a di~k, including \nseek time. rotational delay, and data ~fer time. \n. • \n___ , .,,. Tht\"PAtA to \n\\ \n3 \nI \n\\ \n' \n\n--=-\n-~----------------------\n-\n1 1 \n1~ \nl. ~ \nI ..I \nPart-B \n/ \\\\ ·hat arc the stCJlS required \n4 x 5 = 20 Marks \nto handle a page f au\\t in \n-~ 1-~l cn1an(f 11aging? ---- --- ----------------\n-\n\\\\ ·11~· arc !lagc sizes always at a power of 2? \n,. \nI ; E.-XJllain the ty1Jc..~ of program threats in detail, including \n! he_.,,,. cacl1 (l11c (li1cratcs and its pote11tial impact on a \n/ C()111puter s,1stc111. \nj \\\\1l1at ,ire tl1e Goals of Protection and Princip\\es \n· Prt)tcctio11 \nPart-C \nEither OR Choice Questi \nl 1 X 1o=10 Marki\nI \n\n(Or \n1£:: -~::=re: ;:roces.scs. ?O :i=e.:;h P4. d\n.; ~pcs of \n::s-,,:::-;:c:s.. A. T\"' .. c l:;r.e the f.::~ ~s:cm c-••c:: \n-\n-\n-\n~ \ni \" \n! \n• \nI \n• • . \nI \ni: a \n1 \n: \n• \nI \n• \n.. \ni • \n! ' \na;-\n! \nJ \n,. \n-\n• \n• \n-\nvivo Tb< ·~ \nApoorva Oct ,;202,4, W32 \n\\0 I \n\nTu,,.",
+    "marks": 20,
+    "q_type": "CODING",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 80,
+    "question_text": "r-.;, \nT1\"\"\"-' \nI \nI ' \nPl \n2~=1 \n0",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "P3 \n6 \n2 \n3 \nP4 \n10 \n3 \ns \n-\nPS \n8 \n\" \nl \nP6 \nl 2(h1gn} s \n4 \nP7 \n9 \n6 \n6 \nl)naw lhe Gann Chan and Calwt.. \nthe proc,cssc:s. \nIC lhc ro\\l ..... ,ng fo1 ~\\\\ \ni) \nComptct,oo umc \nIi) \nTum Around Tune \nii,) \nW111ung Time \nI \n,o,, \nt6b consider the following mapoho1 of a ,yo1cm·",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "3 \nI \n6Jj9s,l\\R!I \n~U-\n-1,lt \nARCO \nAl\" l1 \nII ~CD \nn. \np(\\12 \nno11 \nl'lQ \nI\\ \n1nuo \n175n \nI': \nJ\\H \nll5b \nr \nOft ,1 \nn,n \nr. \nno 11 \na~~\" \nIW\"c:r !he rollowing (lllCSIIOM using 11M, b:inkcr's \nnJgorhhm: \nu. Whal IS the contcnl or lhc 11\\lllnX 'lccd7 \nb. Is 1hc system ,n A s.1rc <laic? \nc. 1r, r,:quc:sl rrom proccn Pl :umcs for(0,4.2,0), can lhc \n-uc:sl be -n1cd 1mmcd1A1d•'? \nC••\"' 0•1<•tt\" (CO) and Oloora•• lc\"l (Bl.) Count• In Qu .. 11001 \nBL Cov1u1&• In ¥o \nAppro,rd b)' tbe Audll Profes,orlCourff Coordill11or \nvivo T2x lli!!> \nApoorva Oct 1, 2024, 11:33 \n\nrm.:.c: Am \nPnxa,1 \n~ \n\\'lll \nn11 \nTime Time \n·\\ \n0 \n3 \nB \nI \n6 \nC \n-I \n-I \nD \n6 \n2 \n14 \nIn • system ,.,th '\"\" pcOCC\\an Pl and P1 and l•O",
+    "marks": 11,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "3 \nN>OUl'CCS RI and tu, ~ \nfollow,ng ,nwuon an= \n• \nr I holds RI and n:quau IU. \n. \nP:? holds R2 one! n:quesu Ill \nCarutrucl the Rcsoun,c Alloc:,auon Gnph for the ~ \nc \n•lruotio11 and chccJ. \"hcthcr deal!~ has .,.,-um,,! If • \nJc:,dlocL. 1s dcta.._,Nl. •v1&,.\"C\"C1 • mnhod to roohc lhc \ndcodlocl. and Justir> >~ IIN\"CT \nl \nPan -C \nElthrr OR Choltt QuNtloo• \npx I0 • l0 \\lar~ \n!Sn \nLet us tons,d.:t o s,,:cruanu tn ~ l111i.h • r,\"'°'c r tn~ \nI 10 I \nL4 \nl \nJ \nrh,rngmg J.1111 tn 11 p.ut«ul.tt ncmot) lo.:,llon \\t ,he \n,.1J1t,> lune •nothcr pro<~< P2 Irle, rc:iJ1ni; J,i. lrom t,hc \n,11mc memo!) l<><•llon \nu \nII tcn1,c,n 1hc Nit:$ to be folto\"cd for J'l'C$CI' mi; \ndu1n con1is1cnc). \nb \nE.,pltam the ctum:at sotuuons me! S~,ichroniz:anea \nHllnlwaro for prcscn1ngtbta co~i'1c:nq. \n!or! \nISb Exp!Jun I.he thrc.: methods of rommuruQtK'fl ,n C,rmt• \nServer • )\"'tern ,, tth the nci:e5SU)' d1aiznuns. \n10 t4 \nl \nl \nI6n Consider the follo\\\\in11 c\"1mrlc \\\\llh SC'\\ffl !'\"\"'CSU:> ud \n10 \nJ \nj \nl.i\"c Pri.onh S!haiuh.ns \nvivo T2x -\nApoorva Oct 1. 2024, 11:33 \n\nl'lln 8 \n14 • 5 • 10 t,brbl \nII \nWhat nrc the suucs undcrpnc: b)' a procas v.hm • uaa , \n~pens mon, 1111111 one IIJll'hcotion on O bptoi, •• the \"\"\"-\" I ~ \\ u \n2 \n2 \\ 2h.l \nt1me'l lllu11ibatc 1hc L\\me using suitable di::t!VlfM. \n. \n12 \nlhplnl~ the role of scmiq,harc in chievulJ; n:wt\\W \ne,u,:lusion. \n4 u l 2 \n2 \nu..21 \nIJ \ns u \" \n1 I",
+    "marks": 11,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "21 \nE.numc:nuc: then~ condiuons for• deadlock to occur. \n14 \nCqn,id\"': four proccsu. \"'\"h the length af CPU bw'il lime \nond omval lime Cn:a,c o.nn chara ,llusuatang the \ns u \nl \n2 \nLl.3 \n••••:.nlon or lh<:ilc pmcca.•cs usm; SR'f \nEt!:11.:f:ll \nArriYill Iimi: \nD11c;L Iim~ \nP, \no.o \n7 \nI \nP,",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "0 \n\" \nPan -C \nElt~,r OR Clloltt Qu,.don, \n--\n_ \n! 2 X 10• 20 Marta) \nIS• -... ._ .. ~_..,.,~,_. ...... ~ \\\" \n!.A \n2 \nl",
+    "marks": 20,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "6J \nhandldl lhc removal or the runn,na pn,o:oo fiom tho, CPU \n1111d k i<'llli another f1mCC>O ba....i \"\" .m~ ,uatcll)' ro, \nploCCSS ,cl1c:duling. Rcprc:acnl lhc pmcoa ,d\\cduhng \"''\"II \n• Qucudng dilllV\"m. \n--;;,,1-\n-\n15b Who~ condition• l)e,cnbc • .olul,on IO lhc: o,n,na • 10 \\ LA \nl \n3",
+    "marks": 1,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "6J \nnhilosonhcr moblcm !IO lhal no \"\"'cs 1111C. \n--\n16• Cnnsl~cr nvc procdSCS Wilh lhc lcn111hofCPU bunt IIIIIC, \n10 I 1.3 \n3 \n3",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "- -\nPO ro \nPO \n,0 PO ' IOI I IOI \n5 ' \n7 • \nI\nf \nt \nI i\n(.'(J2 \n3 \n3 \n3 \n2 \n•J\n-\nCOJ \n3 \n3 \n3 \n2 \nCCJ4 \n3 \n3 \n3 \n2 \nl \nI \n.J \ncos \n3 \n2 \n3",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "I \n(Oi \nl \n1 \nJ \n: \nJ \nA11.,wer A11y Fiw! q11esril111s \nS X 10.,.S0marks \n\\ -~ \nI ll••• 'lftC ,r.,t. A f\\ {'_ 0 ... t fltq, •ffh ..-..l .. IWTnat ,_,, n \n..,1,-,., I I • t. aN.1 I, t toc, M \\ ( N...._.I ,__... 1.0 ff ,,t U.U .. ) \n..,Ml,,-. t~\"\"l'.\"-11,.lt 1 hr.\")' I.I\\~ lltat pv,nt,, a, 1.' I J Nit \\ ~ft, 11t1111l I \nI'\\ - 0 11rt..;1tw~•\"'ff \"\"') l('f~•N•tw-~Wo#loc.,_-dMillr_..,. ..... ._..... \n\"\"' ....,.,_,_a ,.._ 1,.,J -,11,-.;: llfltt I'll ,.,\n1111 ,.,.«.\"\" liat\"ff 1W __, ~\"\" \nl!IIIL', i,,.\"'...._,.\\~tli,;.-.l \\.lttlllNl \"'\"h•~r.. \n.... , ......... ,,cn#_. \n~1-.· \nI ,_...._\"' \"\"\"' Pr , .... tt# I IM(' ~\"'\" r1 wd Pl T\\ic ,,,.,.... 11w 11......- ,_ \nri ..: • .,,, ... \"' ,n\"\"' 100 ~,.,rl) n.-~ \n....-n .rri .., , 1 1.ff » -.t \n\"'1\" r,1.1,1.t-, lh. ,.,_,_. a.n, tt i.hac: ptt,r.,_.. ...._., ~ \n.,_., m \n\"-N ,,,, ... ;..r:i. ... ~ \"\" \\,I.wt t,1111:, .,, ~ \n\\ \nell('(~ .I'd flil'(\"tC I~ lllrae' c,,Kntn C. hit -.:lwditl:W .......... ~",
+    "marks": 0,
+    "q_type": "MCQ",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "!lf J<tdl•~ \nt, \\pc-1,~llflt~\" ...... ~••lc'!Wtlhbc:~-\n'\"\"\"-' •4.rt._,., tlw ~ \naa -«t llltW .....,_ I( Nt, ~ \n1\"-' \n.. \n_.....,.,...11 ..... llt~ \nat \nw.. • \n(__.,, , IJW\"\" .. ,-,itt.t~ ... r.ot\"'.aPI P'l. r1.l'l-4'1_,lrn Jl)JICI \nfll \".,_·\"'••~AO ..a f' &di_....< 1);,t:' '- t • _, 1 ttq'.'«'I~ \nA,, .... tl• ,tl'C lk~•..l • ia-.,cd~ -.-..-.:c+> NM· .C-tkrroco,n \n.. J t••~al- ff1l(JWQ ~- H \"\"'\"'' \n;\\\"-, • \"'• Ir\"~·•• l'I ~ \nPJ .......... , \n\"\" \n,so \nl'50 \nI \n' \nl \nto• \nJ \n\n• \nl ll \noo: \n..._.,. 1l\"'l'cw,.\"',v r•~\"'•s~•~' \n,sr \n.. , ,.t,,t-1( \n'\"' \n\"I \nr ftJ Ille ul.c ~ \n•hew~ lliit 1)\"\"\" dPit'\\\"\"\" Ind IO• dadik_1, o&liflC: \nfiW.Jn- t'nc ~ \nPM'\\,__,\"'\" l:O ..S \"° ~8. t.!4 li.ll. '°' ._O 4 JO ~8 \n9N :~ ~u i1io11.vt:c aw t,,,:A,•~ pm(cun Pl P1 \"'\"' _. r-,. ..,,._,. rt.rl \n.. ,~t-tc 1--\") P\"'''...._ 1 he ,Wfl \"'\"\" fft<na,r, ttt u• tr..D. :ua::n '\"\" tr,,.H \ntnll\"\"' ,n ,tlN(1 ~ct, rv,,,,,..1~ .~-..M•t11......., •\"'I \n1 \na, l•vl,t ·'\"t·\"....,. \nt-\ntt..,r t ,i .\\li\"\"''\"-\n4\"1 \"t,1;l1tAlr'l.a+.-\n( ••4' I~ Jlt'tJ .-1..,MN aC l.)1-Jrf.,a\"'11.~ 6\" J,,A...,\"\".,1,_ t.;.;cu \n..,...,.. \ntt.-..i .. na \n()1.-.irf,-,ho, \n' I \nI ' \n., \n•• \n,,. \n•• \n\" \n., \n, .. \n•• \nTlic'i&.,)._.,;\\c.1,,lfy~{ ',(A, M~•W\"'• .... \"-'...,...,--.i,~,,_CII \nJ,U. a.:,",
+    "marks": 1,
+    "q_type": "MCQ",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": ",l1&,,lll A eel 11-; t .A\"' °' i;.....,,_ •1111 P\"'f\"-.~.: \"\"\",..._ \nC hrd • :ci•itt lie \"'-•.r,.t 1.6 tt ~,N H\"-H • '\"\". ,. ~ \n._.,_,.,....,,, \n1,j ...... INC'\"'•• 1,.._,.___,_,.,..,.w..J_.~ .... ..,_ \nIUMfltl' '--'> >\"\"' ..... \" \nGt1r11,-ptt~•llli. \nJ \nI J)J I t J.}J I lt.7Jl I U \n'A't« • ..,,..,. .. llllf...,,. ~ \n..... \nJii.1111-a. .... .J-II .. \nI \nI \n) \n) \nI 7 \nI \nI \n\n--\n--\n--\n\n, \nI \n- !\n6\ni\nr (i(i) cc'aon,~,~•d~•~r-;;.-;:..,~ ... \n:;;;;;.,,:;;O~w:iti.i;;;\"'C:611<8Wbiblocl.io;;i. ~~~==:~ \n'-'-n.sfe~ rl'\\>ffl • d1.)k -.i 1h ro11-.. f r data •hoiAd -\n-\nI",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "..,.,.,n, pa,tarnc:tco. \n;..SplncHe l•~lfA-- IMency 1;,.\n1 \n'4.200 \nj1.,. \n- -\n·~ \n--:~5.56;;;-----l \ntnoo \n~\n7 \n110000 -\nt= -\n~\n-",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "Disk RPM- 1200 \nAvcmgc seek lfme; 5ms \nTmnsrc, ro1c: I OB/sec \nCon1rollcr ovcmco<1: 0. I.,,_, \nCalculnrc 1hc avcriayc drsk access time. \nii. Rend nnd wrhc •re lhc t\"''O opcra110ns iha1 can be pcrfonnc,s \nfrcquen1ly o;'cr 1'1<, life do1a. Consider we need 10 >ynchronitc \nthese opcra11ons 10 h•vc data consirtcocy. Explain how 1hc \nnllribu1c \"\"file o \nn count~ hcl \nin achicvin lhc \"\"\"'· \nThere an: lhn:e l)'pe., of life acec,,.s methods. They an: \ncomi11uou.,. linked and indexed aecc,:,. A..umc • Jile is \ncurrcnlly consl,1ing of I SO blocks. All the de1a1ls n:l1,1cd to lilc I \ncon1rol opcrn1ion urc slorcd in lhc memory. Calculo1c how \nm11ny disk n:ad/wri1c opcrn1ions ore required for con1111uous. \nlinked, ond indexed (single-level) alloca1ion •tralegics. A.,sun,c \n1h01 in the. cnse of con11suou-J-all«alion. 1hcrc i~ no way 10 \ngrow(ndd) a1 lhc bcginnini,: bu1 We can cxlcnd(Add} al lhc cnd. \nAlso llK<ume 1h01 the block lnforma1ion lo be a<l_dcd ts slorcd in \nmemory. \na. Add a block in lhc bcgrnning \nb. Addo block in lhe middle \nc. Add a block al lhc end. \nd. R.cl!)O)'.~ a. bl~Jc ff'2m !hc_bcJ!i!!.'1!n&.i.',__ ______ __._ \nCourse Ourc:ome (CO) and Bloom's level (BL) Coverqe In Questions \nco~ (l)\\l(llA(i[ \n!HO'J! IV,G( \" \n., \nI \n• \nI \n•• ,. \n• \n~ \nn• \n.7 \n.,, \nd by 'he Audit Proressor/Coum Coordinator \n,prove \n. \n'\"' ·•· \n•II\\ \n3 \n4 \n3",
+    "marks": 5,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Operating Systems",
+    "cycle": "CT1",
+    "source_file": "Operating_Systems_CT1_OS_CT_Paper.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "--------statement is used to catch all types of exceptions.\na) catch()\nb) catch(Test t)\nc) catch(…)\nd) no one of the mentioned\nCO4\n1\n14\nThe ------------ class name must be included in the class in which it\nis\nlocated.\na) try\nb) Exception\nc) catch\nd) template\nCO4\n1\n15\nSelect the ways to represent nodes in a deployment diagram?\na) Nodes instances are underlined identifiers of the form name:type\nb) The name may be left off, indicating an unnamed instance of the type\nc) The type may be left off, indicating a named instance with an\nunspecified type\nd)All of the mentioned\nCO5\n1\n16\n___ __ specifies additional detail about UML element.\na) Stereotype\nb) container\nc) associative container\nd) data processing\nCO5\n1",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT1",
+    "source_file": "Object_Oriented_Design_and_Programming_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "BT Level - Blooms Taxonomy Level",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT1",
+    "source_file": "Object_Oriented_Design_and_Programming_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Basic concept of OOPs",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "C++ Access Specifiers",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Write a C++ program for \n Reverse a numbers \n Fibonacci series \n Armstrong number or not \n prime number or not \n sum of even numbers \n sum of odd numbers",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Draw a Use case diagram for any one application ( Some time they will ask this \nquestion as a scenario based Question) \n Banking Management System \n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Draw a Class diagram for any one application ( Some time they will ask this \nquestion as a scenario based Question) \n Banking Management System \n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System \n \n \n \n \n \n\nUNIT-2",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Types of constructors with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Destructor with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Method Overloading with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Operator Overloading with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Draw a UML Interaction Diagrams (Sequence Diagram / Collaboration \nDiagram) any one application ( Some time they will ask this question as a \nscenario based Question) \n Banking Management System \n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System \n \nUNIT-3",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Multiple Inheritance with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Multilevel inheritance with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Hierarchical with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Hybrid Inheritance with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Friend function with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Virtual function with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Pure Virtual function with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Abstract class with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Interface or Pure abstract class with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Draw UML State Chart Diagram for any one application ( Some time they will \nask this question as a scenario based Question) \n Banking Management System \n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Draw UML Activity Diagram for any one application ( Some time they will ask \nthis question as a scenario based Question) \n Banking Management System \n\n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System \n \nUnit-4",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Function template",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Exception handling (try, throw, catch and multiple catch)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Types of exceptions",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Package diagram , Component diagram and Deployment diagram for following \napplications ( Some time they will ask this question as a scenario based Question) \n Banking Management System \n ATM Management System \n Online Ticket Reservation Management System \n Online Credit Card Processing System \n Online Course Reservation System \n Online purchasing System \n Stock management System \n Restaurant Management System \n Library Management System \n Hospital Management System \n \n \nUNIT-5",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Sequence Container: Vector, List, Deque, Array, Stack with an example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Associative Containers: Map, Multimap with an example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Algorithms: find(), count(), sort(), search(), merge(), for_each(), transform() with an \nexample.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "form() with an",
+    "subject": "Object Oriented Design and Programming",
+    "cycle": "CT2",
+    "source_file": "Object_Oriented_Design_and_Programming_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "What is a translator?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lator?",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Differentiate interpreters and compilers.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "What is an assembler?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "What are the phases of a compiler?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "What is bootstrapping a compiler?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "What are the two parts of compilation? Give a Diagram.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Give the parse tree for the statement a:=b+c*60.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "What is the use of scanner generator?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "What do you mean by syntax and semantics of a language?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Give some four compiler-generator tools.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Mention the cousins of the compiler.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "What is a preprocessor?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 14,
+    "question_text": "What is a symbol table?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 15,
+    "question_text": "Define regular expressions.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 16,
+    "question_text": "Write down the Algebraic laws obeyed by Regular expressions",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 17,
+    "question_text": "Define a finite state automation.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 18,
+    "question_text": "Draw the NFA for a*b*",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 19,
+    "question_text": "Draw the NFA for R = (( ε | a ) b* ) *",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 20,
+    "question_text": "Give the Procedure for ε-Closure",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 21,
+    "question_text": "What is a transition diagram? Give example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "ition diagram? Give example.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 22,
+    "question_text": "What is a recognizer?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 23,
+    "question_text": "What is CFG? Give example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 24,
+    "question_text": "What are the capabilities of CFG?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 25,
+    "question_text": "Describe language denoted by the following regular expression:\n 0(0/1)*0",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 26,
+    "question_text": "Describe language denoted by the following regular expression:\n (0/1)*0(0/1)(0/1)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 27,
+    "question_text": "Describe language denoted by the following regular expression:\n 0*a0*a0*a0*",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 28,
+    "question_text": "Write the regular definition for the following language:\n \"All strings of digits with no repeated digits\"",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 29,
+    "question_text": "Give an example for ambiguous grammar and justify it.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 30,
+    "question_text": "What is a parse tree?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 31,
+    "question_text": "What are the types of Grammars?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 32,
+    "question_text": "What is a Linear Grammar? Give ex.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 33,
+    "question_text": "What do you mean by BNF? Give Ex.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 34,
+    "question_text": "Consider the grammar:\n S --> (L) /a\n L --> L,S /S\n What are the terminals, non-terminals and start symbols?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 35,
+    "question_text": "Differentiate NFA and DFA.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 36,
+    "question_text": "What type of Grammar is the following, Define it.\nS -> Aa | Bb | a\nA -> aA | c\nB -> bB | c",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 37,
+    "question_text": "Given the grammar S -> a S b S | b S a S | ε \n What is the problem in this grammar?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 38,
+    "question_text": "What are the types of derivation?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 39,
+    "question_text": "What is right-most and left-most derivation? Give example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 40,
+    "question_text": "What is left-sentential form and right-sentential form?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 41,
+    "question_text": "Minimise the given transition table:\n states\na b\nA\nB C\nB\nB D\nC\nB C\nD\nB E\nE \nB C\nInitial State=A Final State=E",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "ition table:",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 42,
+    "question_text": "Write regular definition for a number which can have fraction or exponent part as optional.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 43,
+    "question_text": "For the following grammar:\nlist --> list+digit / list-digit / digit\ndigit --> 0/1/......../9\nDerive the sentence (9+5-4) using left-most derivation.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 44,
+    "question_text": "What is a Lexical analyzer?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 45,
+    "question_text": "Distinguish tokens, patterns and lexemes.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 46,
+    "question_text": "What are the lexical-error recovery actions?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 47,
+    "question_text": "What is the need for input buffering?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 48,
+    "question_text": "Explain prefix and suffix of the string with example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 49,
+    "question_text": "What is a transition diagram? Give example?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "ition diagram? Give example?",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 50,
+    "question_text": "Draw the transition diagram for identifiers.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "ition diagram for identifiers.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 51,
+    "question_text": "What is a parser?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 52,
+    "question_text": "What is the need for separating the parser from scanner?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 53,
+    "question_text": "What are the problems in Top down parsing?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 54,
+    "question_text": "What is ambiguity? Give Ex.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 55,
+    "question_text": "Consider the Grammer\nS -> (L) | a\nL -> L , S | S",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 56,
+    "question_text": "Construct the left most and Right most derivation for the following sentence \n(i) (a, a) ii) (a,( (a,a) , (a,a) ))",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 57,
+    "question_text": "What is Left recursion? Write the rules to eliminate left recursion.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 58,
+    "question_text": "Consider the grammar\nS -> aSbS | bSaS | e\nShow this grammar is ambiguous by constructing parse tree for the sentence abab.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 59,
+    "question_text": "Eliminate the left recursion for the following grammar\nS --> (L)/a\nL --> L,S/S",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 60,
+    "question_text": "Eliminate Left Recursion in the following Grammar.\n A -> Ac | Aad | bd | €",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 61,
+    "question_text": "What is Left factoring? How do you eliminate it?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 62,
+    "question_text": "What is parsing table?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 63,
+    "question_text": "What is the use of LEX?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 64,
+    "question_text": "What is a handle?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 65,
+    "question_text": "What is handle pruning?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 66,
+    "question_text": "What do you mean by Precedence and Associativity ?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 67,
+    "question_text": "Compare Shift-Reduce Parsing and Operator-Precedence Parsing",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 68,
+    "question_text": "What are Precedence Matrices and Precedence Functions?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 69,
+    "question_text": "What is the use of Boolean Matrices?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 70,
+    "question_text": "Translate the arithmetic expression a*-(b+c) into a syntax tree.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "late the arithmetic expression a*-(b+c) into a syntax tree.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 71,
+    "question_text": "Write the FIRST and FOLLOW rules",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 72,
+    "question_text": "Write the LEADING and TRAILING rules",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 73,
+    "question_text": "What are LR(0) items?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 74,
+    "question_text": "When is a grammer called SLR(1)?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 75,
+    "question_text": "What is the advantage of using LALR parsing over SLR parsing?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 76,
+    "question_text": "Define the CLOSURE and GOTO procedures",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 77,
+    "question_text": "Define a Quadruple.How it is different from Triples.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 78,
+    "question_text": "Convert the exp into three address code & Quadruple.\n S=(a+b)/(c-d)*(e+f)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 79,
+    "question_text": "Write the prefix & postfix exp for the following\nA=(20+(-5)*6+12)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 80,
+    "question_text": "What are Synthesized & Inherited Attributes?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 81,
+    "question_text": "Give example for inherited attributes.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 82,
+    "question_text": "Write the semantic actions for generating a Syntax tree",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 83,
+    "question_text": "What are the procedures used for Syntax tree generation?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 84,
+    "question_text": "Draw the Syntax tree and DAG for \n Y = C + D * T ; C = C + D; X = C + D ;",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 85,
+    "question_text": "Convert the following expression into Postfix and Triples\nZ := (X-Y+K) / (A + B) * C",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 86,
+    "question_text": "Convert the given exp into three address code\n a or b and not c",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 87,
+    "question_text": "What do you mean by Backpatching, why we are going for backpatching.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 88,
+    "question_text": "Draw the syntax tree for the following exp\na:=b* -c + b * -c",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 89,
+    "question_text": "Write the postfix notation for the following exp\n\n(-(a+b)*(c+d)+(a+b+c)).",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 90,
+    "question_text": "Translate the exp (a+b)*(c+d)+(a+b+c) into \nQuadruple b) Triples c) Indirect triples.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "late the exp (a+b)*(c+d)+(a+b+c) into",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 91,
+    "question_text": "What is an S-attributed definition?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 92,
+    "question_text": "What is a L-attributed definition?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 93,
+    "question_text": "What are the issues in Code Generation",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 94,
+    "question_text": "What do you mean by Peep-hole optimization?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 95,
+    "question_text": "Construct DAG for the following exp (a+b)-(e-(c+d)).",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 96,
+    "question_text": "Write the mnemonic code for (a+b)-(e-(c+d)).",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 97,
+    "question_text": "Construct the DAG for the following basic block\n d:=b*c\n e:=a+b\n b:=b*c\n a:=e-d",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 98,
+    "question_text": "What is Dangling Reference?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 99,
+    "question_text": "What are the three storage allocation strategies?\n100.\n What do you mean by binding of a name?\n101.\n What are the components of an Activation record?\n102.\n What are the various parameter passing techniques?\n103.\n Give example for Call by reference\n104.\n Give example for Call by name\n105.\n What are Static & Stack allocations?\n106.\n What is the need for code optimization?\n107.\nWhat are the loop optimization techniques?\n108.\n Explain about common sub-expression elimination \n109.\n What is the use of Dominator property in flow graphs?\n110.\n What are Basic Blocks? How to identify them?\n ---------------------------------\n \nPART-B",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Discuss the compiler construction tools.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Discuss about the cousins of the compiler.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain the phases of the compiler with diagram. Write down the output of each \n phase for the expression a := b + c * 50.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Write notes on: \n(i) Regular expressions. \n(ii) Context Free Grammar.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Show that the following grammar is ambiguous\nS --> aSbS/bSaS/e",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "For a sentence belonging to the above grammar:\na) Draw the parse tree.\n\nb) Construct the left-most and right-most derivations of \"abab\".",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Construct a minimal DFA for (a/b)*(a/b) and write the algorithm for\n minimizing a DFA.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Explain the process of constructing an NFA from the regular expression.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Find the NFA for the expression (a/b)*abb.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Construct the DFA for (a/b)*abb and minimise the DFA.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Convert the Regular expression to DFA using Thompson's Construction\n R = (a | b)* a ( a | b )",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "How would you construct a DFA directly from a regular expression?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "Write the appropriate rules and algorithm wherever necessary.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 14,
+    "question_text": "a. Discuss the Language for specifying Lexical analyzer\n b. Explain the design of a Lexical analyzer generator",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 15,
+    "question_text": "Explain the Thomson's construction technique in detail. Construct the \n NFA for the expression d(a/b)*a.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 16,
+    "question_text": "Explain Non recursive predictive parsing technique",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 17,
+    "question_text": "Explain shift-reduce parsing with stack implementation.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 18,
+    "question_text": "Explain Shift Reduce Parsing and Perform the stack implementation to show that the \n string not ( true or false ) is parsed using the grammar given below\nBexpr -> Bexpr or Bterm | Bterm\nBterm -> Bterm and Bfactor | Bfactor\nBfactor -> not Bfactor | ( Bexpr) | true | false",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 19,
+    "question_text": "Explain the operator precedence parsing algorithm with example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 20,
+    "question_text": "Explain the algorithm for constructing precedence functions with suitable example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 21,
+    "question_text": "Construct SLR parsing table for\n \nS -> AS|0, A -> SA|1",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 22,
+    "question_text": "a. Check whether the following grammar is a LL(1) grammar\nS->iEtS | iEtSeS | a\nE->b\n b. Explain the first and follow procedures to construct a predictive parser.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 23,
+    "question_text": "Find (i) FIRST and FOLLOW\n(ii) LEADING and TRAILING for the grammer in \n Q.22",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 24,
+    "question_text": "Explain the method of constructing Parsing table and error recovery in predictive \n parsing.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 25,
+    "question_text": "Construct predictive parser for the following grammar\nS -> (L) | a\nL -> L,S | S",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 26,
+    "question_text": "Check whether the following grammar is SLR(1) or not. Explain with reasons.\nS -> L = R\nS -> R\nL -> *R\nL -> id\nR -> L",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 27,
+    "question_text": "Construct LR(0) items for the grammar in question 26.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 28,
+    "question_text": "a. Construct the LR(0) items for the Grammar given below \n(8)\n E -> E + T | T\n T -> TF | F\n F -> F * | a | b\n b. Construct a SLR parsing table for the above",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 29,
+    "question_text": "Explain the LALR parsing method with example.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 30,
+    "question_text": "Show that the Grammar is LL(1) but not SLR(1)\n S -> AaAb | BbBa\n A -> ε\n B-> ε",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 31,
+    "question_text": "Write short notes on: \n a) Left factoring b) Handle pruning c) Left recursion & backtracking",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 32,
+    "question_text": "Explain LALR parsing, justify how it is efficient over SLR parsing.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 33,
+    "question_text": "Explain the various Inter mediate codes with suitable ex.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 34,
+    "question_text": "Explain the process of translating assignment statements",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lating assignment statements",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 35,
+    "question_text": "Describe the process of translating CASE statements.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lating CASE statements.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 36,
+    "question_text": "Explain the method of constructing Syntax trees for expressions with suitable \n procedures.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 37,
+    "question_text": "Discuss the Inherited attributes and Dependency graphs with an example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 38,
+    "question_text": "Discuss Back Patching with example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 39,
+    "question_text": "With a grammar explain the translation of Boolean expressions using Backpatching \n method. \nb. Explain the backpatching process for the statement given below\n (( a > b ) or (( c > d ) or (e < f)))",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lation of Boolean expressions using Backpatching",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 40,
+    "question_text": "Describe the process of translating Boolean Expressions.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lating Boolean Expressions.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 41,
+    "question_text": "Explain how flow of control statements are translated.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "lated.",
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 42,
+    "question_text": "Explain the various parameter passing mechanisms of a high level language with \n examples.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 43,
+    "question_text": "Discuss how access to non-local names is done in storage allocation strategies?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 44,
+    "question_text": "Explain in detail about Run Time Storage Allocations.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 45,
+    "question_text": "Explain in detail about Local & loop Optimization techniques",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 46,
+    "question_text": "Explain Frequency reduction and Strength reduction techniques with examples",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 47,
+    "question_text": "Explain in detail about Peep-Hole Optimization with examples.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 48,
+    "question_text": "Discuss the Data Flow Analysis with example",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 49,
+    "question_text": "Explain the issues in the design of code generator and design a simple Code \n generator.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 50,
+    "question_text": "Write the algorithm for constructing the DAG . Explain how to optimize using \n DAG.\n---------------------------------",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT1",
+    "source_file": "Compiler_Design_CT1_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "phases of compiler",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT2",
+    "source_file": "Compiler_Design_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Compiler construction Tool",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT2",
+    "source_file": "Compiler_Design_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Min if DFA (Direct method) etc",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT2",
+    "source_file": "Compiler_Design_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Thompson method \nUnit 2: \n 1. Predictive parser",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Compiler Design",
+    "cycle": "CT2",
+    "source_file": "Compiler_Design_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Elimination of ambiguity \nUNIT 3 - 4 Mark Questions \nLeading and Trailing. \nLookahead and GOTO function. \nLR(0), LR(1), Difference between LR(0) and LR(1). \nUNIT 4 - 4 Mark Questions \nQuadruple representation, Triples and Indirect Triples. \nTarget Code Generation. \nTheory:- \nIssues in Code Generation. \nTarget Machine, Input and Output. \nRuntime Storage. \n10 Mark Questions \nSLR parsing. \nLALR parsing. \nCLR (Canonical LR) parsing. \nOperator Precedence Parsing. \nShirt reduce \nS-attributed definitions. \nInherited attributes. \n \n \n \n \n\nPART B (8 Mark Questions) UNIT 1 \n• Phases of Compiler - 4 times \n• DFA Diagram - 3 times \n• Working of Compiler Phases - 3 times \n• Role of Lexical Analyser - 2 times \n• Input Buffering - 2 times \n• Compiler Construction Tools - 2 times \n• LEX Program \nUNIT 2 \n• First and Follow - 6 times \n• LL(1) Parser - 3 times \n• Ambiguous Grammar - 2 times \n• Derivation and Parse Tree - 2 times \n• Leading and Trailing \n• Operator Precedence Relation Table \n• Assignment Statements using SDT \n• Define CFG \n• Parse Tree \n• Top Down Parsing \nUNIT 3 \n• Shift Reduce Parsing - 5 times \n• LR(0), Closure of LR(0), GOTO of LR(0), SLR - 4 times \n• LR(1), Closure of LR(1), GOTO of LR(1), LALR/CLR - 3 times \n• LR Parsing - 2 times \n• Bottom Up Parsing \n• Operator Precedence Relation Table \nUNIT 4 \n• Intermediate Code Generation - 3 times \n• Types of Three Address Statements - 3 times \n• Quadruples, Triples, Indirect Triples - 2 times \n• Infix to Postfix \n\n• Code Optimisation Techniques \n• Syntax Tree \n• Simple Code Generator Algorithm \n• Issues in Design of Code Generator \n• Boolean Expression (Numerical Representation) using SDT \n• Boolean Expression - Flow of Control using SDT \nUNIT 5 \n• Peephole Optimisation - 4 times \n• DAG - 4 times \n• Global Data Flow Analysis - 2 times \n• Principal Sources of Optimisation - 2 times \n• Transformation on Basic Blocks - 2 times \n• Basic Blocks and Flow Graphs \nPART C (15 Mark Questions) \n• RE to DFA - 4 times \n• Quadruples, Triples and Indirect Triples - 2 times \n• Backpatching - 2 times \n• Derivation and Parse Tree - 2 times \n• Code Generator Algorithm - 2 times \n• First and Follow \n• Runtime Environment \n• Storage Organisation and Activation Records \n• Infix to Postfix \n• Syntax Tree \n• Input Buffering \n• LL(1) Parser \n• Top Down Parsing \n• Operator Precedence Parsing Table \n• Boolean Expression (Numerical Representation) using SDT \n• Storage Allocation Strategies \n• Transformation on Basic Blocks",
+    "marks": 4,
+    "q_type": "CODING",
+    "answer_key": "formation on Basic Blocks - 2 times",
+    "subject": "Compiler Design",
+    "cycle": "CT2",
+    "source_file": "Compiler_Design_CT2_Important_Questions.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Define Grad, Div and Curl and explain their physical significance",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Explain Gauss-Divergence theorem and its significance",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain Stoke's theorem and its significance",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Explain Electric field and Electric potential due to point charge \ndistribution",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Explain Electric field and Electric potential due to line charge \ndistribution",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Explain Electric field and Electric potential due to surface charge \ndistribution",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Explain Electric field and Electric potential due to voulme charge \ndistribution",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Using Gauss' law, find the electric field intensity due to line charge of \ninfinite length",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Derive the expression of Poisson's equation for electrostatic potential",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Derive expression of Laplace equation for electrostatic potential",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Derive the expression J1=E",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "Derive the expression \n2\nD\nJ\nt\n\n",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "Derive continuity equation",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 14,
+    "question_text": "State and explain Gauss's law",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 15,
+    "question_text": "State and explain Biot-Savart law",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 16,
+    "question_text": "State and explain Faraday's law",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 17,
+    "question_text": "State and explain Ampere circuital law",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 18,
+    "question_text": "Derive relationship between polarizability, permittivity and dielectric \nconstant",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 19,
+    "question_text": "Distinguish between polar and non-polar dielectrics \n \n \n\n8 Marks",
+    "marks": 8,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Apply Gauss' law to find the electric field intensity inside and outside a \nuniformly charged spherical shell",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Obtain Maxwell's equation for electromagnetism from fundamental \nlaws of electricity and magnetism",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain the various polarization mechanisms in dielectric",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Describe the frequency and temperature dependence on polarization of \ndielectrics",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Derive an expression for the internal field in a dielectric",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Derive Clausius-Mossotti equation \nMODULE-2 \n4 Marks",
+    "marks": 4,
+    "q_type": "NUMERICAL",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Compare Soft and Hard magnetic materials",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Explain Hysteresis loop and energy product with diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain the concept of ferromagnetism",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Write a note on Giant Magneto Resistance (GMR) with neat diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Write a note on Colossal Magneto Resistance (CMR) with neat diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Write a note on Garnets and its applications",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "What are Magnetoplumbites and give its applications",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "What are Multiferroic materials and explain its applications \n8 Marks",
+    "marks": 8,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Explain in detail about the theory of magnetic domain in ferromagnetic \nmaterials with neat diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "What are ferrites? Describe the regular and inverse Spinel structure of \n ferrites with neat diagram. Write their applications",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "What is magnetic bubble memory? Explain the principle and working of \nMBM and write their uses",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Explain the properties, magnetic mechanism and processing of \nmagnetic thin films.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Explain the function of Tunnel Magneto-resistance with neat sketch \nMODULE-3 \n4 Marks",
+    "marks": 4,
+    "q_type": "CODING",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Write a note on inadequacies of classical mechanics",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Explain photoelectric effect with neat diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain Compton effect with necessary diagram",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "What is blackbody radiation and explain Planck's theory of blackbody \nradiation?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Derive de-Broglie equation in terms of Energy/Voltage/Temperature",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Heisenberg's uncertainty principle",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Physical significance of the wave function",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Normalization of wave function",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Describe Davisson and Germer's diffraction experiment for the \nverification of matter waves or diffraction \n8 Marks",
+    "marks": 8,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Derive Schrödinger time independent equation",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Derive Schrodinger time dependent equation",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Application of Schrodinger equation for a particle in box (12)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Linear Harmonic Oscillator- Energy and Wave function (12)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Hydrogen atom problem - radial, angular equation derivation and its \nsolutions \n MODULE-4 \n4 Marks",
+    "marks": 4,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": "s",
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "What is meant by diffraction of light?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Distinguish between interference and diffraction",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Distinguish between Fresnel and Fraunhofer diffraction",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Dispersive power of a plane diffraction grating",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Resolving power of a plane diffraction grating",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "What is meant by plane polarized, circularly polarized and elliptical \npolarized light?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Distinguish between unpolarized and polarized light",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "How will you obtain plane polarized light by reflection?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Explain the terms plane of polarization and plane of vibration",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Explain the phenomena of double refraction in a calcite crystal",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Explain Brewster's law",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "State and explain law of Malus",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "Explain circular polarization",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 14,
+    "question_text": "Explain elliptical polarization",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 15,
+    "question_text": "Write a note on Quarter wave plate",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 16,
+    "question_text": "Write a note on Half wave plate",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 17,
+    "question_text": "State the laws of rotatory polarization \n\n8 Marks",
+    "marks": 8,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Derive an expression for the intensity distribution due to Fraunhofer \ndiffraction at a single slit.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Describe the Fraunhofer diffraction due to double slit",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Give the construction and theory of plane transmission grating and \nexplain the formation of spectra by it",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "mission grating and",
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Give the theory of plane transmission grating and show how would you \nuse it to determine the wavelength of light",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "mission grating and show how would you",
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "What do you understand by the resolving power of a grating? Derive \nthe necessary expression",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "How will you produce and detect plane, elliptically and circularly \npolarized light?",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Show that the plane polarized and circularly polarized lights are the \nspecial cases of elliptically polarized light",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Describe the construction of a Nicol prism and show how it can be used \nas a polarizer and as an analyzer.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Give the construction and theory of (i) quarter wave plate (ii) half-\nwave plate.",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Give three methods for producing plane polarized light",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Explain Brewster law and show that when light is incident on a \ntransparent substance at the polarizing angle, the reflected and \nrefracted rays are at right angles",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "parent substance at the polarizing angle, the reflected and",
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "State and explain Fresnel's relation at a dielectric interface \n\nMODULE-5 \n4 Marks",
+    "marks": 4,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Characteristics of LASER",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Explain Absorption and Emission process",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Explain different pumping mechanisms",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Essential components of a laser system",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Distinguish between Step index and Graded index fiber",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Distinguish between single mode and multimode fiber",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Pressure sensor (intrinsic)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Position sensor (extrinsic) \n8 Marks",
+    "marks": 8,
+    "q_type": "DESCRIPTIVE",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Derivation of Einstein's co-efficient (8)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "Carbon-di-oxide laser (3+5)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Nd:YAG Laser (2+6)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "Semi-Conductor (Homo-junction) LASER (2+6)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Semi-Conductor (Hetero-junction) LASER (2+6)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "Derivation of Numerical Aperture and acceptance angle or propagation \ncharacteristics of light through optical fiber (2+6)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Explain different types of fiber based on materials, no. of modes and \nrefractive index profile (4+4+4)",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "Explain different kind of losses associated with optical fibers - \nAttenuation and dispersion",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Fiber optic communication system",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "Intrinsic and extrinsic sensor",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": null,
+    "subject": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+    "cycle": "CT2",
+    "source_file": "Electromagnetic_Theory__Quantum_Mechanics__Waves_and_Optics_CT2_Question_Bank.pdf"
+  },
+  {
+    "q_num": 1,
+    "question_text": "Define Engineering:\na) Study of natural laws\nb) Application of science, mathematics, and technology to solve problems\nc) Understanding of society\nd) Philosophical analysis\nAnswer: b) Application of science, mathematics, and technology to solve problems",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Application of science, mathematics, and technology to solve problems",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 2,
+    "question_text": "A team compares how water systems were managed in ancient villages, medieval castles, and\nmodern smart cities.\na) Scientific Inquiry\nb) Historical comparison of engineering development\nc) Technological Impact Assessment\nd) Philosophical Reflection\nAnswer: b) Historical comparison of engineering development",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Historical comparison of engineering development",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 3,
+    "question_text": "Name the five elements of STEAM.\na) Science, Technology, Engineering, Arts, Mathematics\nb) Science, Technology, Economics, Arts, Management\nc) Statistics, Technology, Engineering, Arts, Management\nd) Science, Technology, English, Arts, Mathematics\nAnswer: a) Science, Technology, Engineering, Arts, Mathematics",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) Science, Technology, Engineering, Arts, Mathematics",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 4,
+    "question_text": "In a class, students debate whether adding music, design, and aesthetics improves engineering\nproblem-solving.\na) STEAM Pyramid - Art context\nb) Attributes of Engineers\nc) Industrial Age Innovations\nd) Social Development Theories\nAnswer: a) STEAM Pyramid - Art context",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) STEAM Pyramid - Art context",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 5,
+    "question_text": "Which is NOT a desired attribute of an engineer?\na) Logical Thinking\nb) Communication\nc) Lack of adaptability\nd) Problem Solving\nAnswer: c) Lack of adaptability",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "c) Lack of adaptability",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 6,
+    "question_text": "An engineer is recruited for creativity, persistence, and teamwork skills. Which framework\ndescribes these qualities?\na) Engineering Habits of Mind\nb) STEAM Pyramid\nc) Medieval Engineering History\nd) Industrial Economy framework\nAnswer: a) Engineering Habits of Mind",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) Engineering Habits of Mind",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 7,
+    "question_text": "Find the subject linking science and technology with engineering.\na) Mathematics\nb) Philosophy\n\nc) Arts\nd) History\nAnswer: a) Mathematics",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) Mathematics",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 8,
+    "question_text": "A group presents on Roman bridges, medieval aqueducts, and AI-enabled smart bridges.\na) Historical comparison of engineering development\nb) Engineering Design Methodology\nc) Ontological Study\nd) Analytical Design\nAnswer: a) Historical comparison of engineering development",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) Historical comparison of engineering development",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 9,
+    "question_text": "Which of the following is NOT in STEAM?\na) Science\nb) Mathematics\nc) Economics\nd) Engineering\nAnswer: c) Economics",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "c) Economics",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 10,
+    "question_text": "A report highlights an engineer who is innovative, ethical, and a successful leader. Which\npractice evaluates such attributes?\na) Historical Comparison\nb) STEAM Pyramid\nc) Case Study on Attributes of Engineers\nd) Habits of Mind framework\nAnswer: c) Case Study on Attributes of Engineers",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "c) Case Study on Attributes of Engineers",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 11,
+    "question_text": "Why has engineering evolved historically?\na) For political influence\nb) For solving problems with science and technology\nc) For entertainment\nd) For arts promotion\nAnswer: b) For solving problems with science and technology",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) For solving problems with science and technology",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 12,
+    "question_text": "Label the role of philosophy of engineering.\na) To improve coding practices\nb) To understand engineering's foundation and its social role\nc) To study artistic concepts\nd) To calculate efficiency\nAnswer: b) To understand engineering's foundation and its social role",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) To understand engineering's foundation and its social role",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 13,
+    "question_text": "Name the ancient structure often cited as an example of early engineering philosophy.\na) Great Wall of China\nb) Pyramids of Giza\nc) Stonehenge\nd) Colosseum\nAnswer: b) Pyramids of Giza",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Pyramids of Giza",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 14,
+    "question_text": "What does Ontology in Engineering primarily deal with?\na) Study of the physical properties of materials\nb) Study of the existence and relationships of engineering concepts\nc) Study of economic feasibility of projects\nd) Study of mathematical optimization methods\nAnswer: b) Study of the existence and relationships of engineering concepts",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Study of the existence and relationships of engineering concepts",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 15,
+    "question_text": "Product Life Cycle Ontology advantage for EVs:\na) It focuses on marketing and sales only\n\nb) It integrates processes across different life cycle stages\nc) It improves coding efficiency\nd) It avoids recycling processes\nAnswer: b) It integrates processes across different life cycle stages",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) It integrates processes across different life cycle stages",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 16,
+    "question_text": "Which of the following best describes Reference Ontology?\na) A set of informal practices engineers use\nb) A universal framework describing common engineering concepts\nc) A tool for financial planning\nd) A system for coding programming languages\nAnswer: b) A universal framework describing common engineering concepts",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) A universal framework describing common engineering concepts",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 17,
+    "question_text": "Application Ontology focuses on:\na) Domain-specific implementation of engineering concepts\nb) Historical analysis of engineering development\nc) General attributes of an engineer\nd) The STEAM Pyramid\nAnswer: a) Domain-specific implementation of engineering concepts",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "a) Domain-specific implementation of engineering concepts",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 18,
+    "question_text": "Smart city ontology approach:\na) Case-based Study\nb) Reference Ontology with Concept Mapping\nc) Historical Analysis\nd) Mathematical Ontology\nAnswer: b) Reference Ontology with Concept Mapping",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Reference Ontology with Concept Mapping",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 19,
+    "question_text": "Which method is often used in building Ontologies in Engineering?\na) Data Tables\nb) Concept/Mind Mapping\nc) Empirical Research\nd) Flowcharting\nAnswer: b) Concept/Mind Mapping",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Concept/Mind Mapping",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  },
+  {
+    "q_num": 20,
+    "question_text": "An engineer is tasked with developing a domain-specific ontology for railway systems (signals,\nstations, tracks). Which type of ontology is most suitable?\na) Reference Ontology\nb) Application Ontology\nc) Flowchart Ontology\nd) Mathematical Ontology\nAnswer: b) Application Ontology",
+    "marks": 2,
+    "q_type": "SHORT_ANSWER",
+    "answer_key": "b) Application Ontology",
+    "subject": "Philosophy Of Engineering",
+    "cycle": "CT1",
+    "source_file": "Philosophy_Of_Engineering_CT1_MCQ_Test_2025.pdf"
+  }
+]

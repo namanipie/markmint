@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarkMint - Official Promotional Poster (A4 Portrait)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,600;1,6..72,700&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0B1110;
+      --bg-surface: #070B09;
+      --bg-card: #0F1613;
+      --bg-chassis: #121815;
+      --text-white: #F3F0E8;
+      --text-muted: #B8C2BF;
+      --text-dim: #6E7A76;
+      --accent-pink: #E6327A;
+      --accent-pink-hover: #FF2E7E;
+      --accent-green: #10B981;
+      --border-subtle: #202C26;
+      --border-chassis: #303C36;
+      --border-card: #2D3A36;
+      --border-pink: rgba(230, 50, 122, 0.4);
+    }
+
+    body {
+      background-color: #030504;
+      color: var(--text-white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Floating Control Bar (Hidden in Print) */
+    .toolbar {
+      background: rgba(17, 25, 23, 0.96);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-pink);
+      border-radius: 9999px;
+      padding: 8px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(230, 50, 122, 0.2);
+      z-index: 1000;
+      position: sticky;
+      top: 16px;
+    }
+
+    .toolbar-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-pink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-title span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px var(--accent-green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #18221D;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #24332B;
+      border-color: var(--accent-pink);
+    }
+
+    .btn-primary {
+      background: var(--accent-pink);
+      border-color: var(--accent-pink-hover);
+      color: #FFFFFF;
+      box-shadow: 0 0 14px rgba(230, 50, 122, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-pink-hover);
+    }
+
+    /* A4 POSTER VIEWPORT */
+    .poster-viewport {
+      width: 210mm;
+      height: 297mm;
+      max-width: 100%;
+      background-color: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      background-image: 
+        radial-gradient(ellipse at 50% 22%, rgba(230, 50, 122, 0.16) 0%, transparent 46%),
+        radial-gradient(ellipse at 80% 78%, rgba(230, 50, 122, 0.12) 0%, transparent 42%);
+    }
+
+    .poster-content {
+      position: relative;
+      z-index: 20;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16mm 16mm 14mm;
+    }
+
+    /* 1. BRAND HEADER (TOP LEFT ONLY) */
+    .brand-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2mm;
+    }
+
+    .brand-lockup {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .leaf-icon-svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--accent-pink);
+      stroke-width: 2.2;
+      fill: none;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 21pt;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
+    }
+
+    .beta-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--accent-pink);
+      border: 1px solid #A0285A;
+      background: #2C1620;
+      padding: 1.5px 6px;
+      border-radius: 3px;
+    }
+
+    .brand-subline {
+      font-size: 8.5pt;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 40px;
+      margin-top: 2px;
+    }
+
+    /* 2. MAIN HEADLINE & SUBTITLE */
+    .headline-section {
+      margin-top: 3mm;
+      margin-bottom: 3.5mm;
+    }
+
+    .headline-sans {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32pt;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-white);
+    }
+
+    .headline-serif {
+      font-family: 'Newsreader', 'Georgia', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 36pt;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--accent-pink);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .headline-sub {
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 7px;
+      letter-spacing: 0.01em;
+    }
+
+    /* 3. THREE COMPACT FEATURE ITEMS (ONE HORIZONTAL ROW) */
+    .features-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4mm;
+    }
+
+    .feature-capsule {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #0E1613;
+      border: 1px solid var(--border-card);
+      border-radius: 9999px;
+      padding: 6px 16px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+    }
+
+    .feature-capsule svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--accent-pink);
+      stroke-width: 2.2;
+      flex-shrink: 0;
+    }
+
+    /* 4. SECONDARY VISUAL: COMPACT BROWSER / LAPTOP FRAME */
+    .browser-frame {
+      background: var(--bg-chassis);
+      border: 1.5px solid var(--border-chassis);
+      border-radius: 12px;
+      padding: 8px;
+      margin-bottom: 4.5mm;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .screen-surface {
+      background: var(--bg-dark);
+      border-radius: 8px;
+      padding: 8px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Screen Top Nav */
+    .screen-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+    }
+
+    .screen-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .screen-nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .screen-nav-brand svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--accent-pink);
+      stroke-width: 2.2;
+    }
+
+    .screen-nav-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8.5pt;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .screen-nav-beta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5.5pt;
+      font-weight: 700;
+      color: var(--accent-pink);
+      background: #2C1620;
+      border: 1px solid #A0285A;
+      padding: 0.5px 4px;
+      border-radius: 2px;
+    }
+
+    .screen-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 10px;
+      font-size: 6.8pt;
+      color: var(--text-muted);
+    }
+
+    .screen-nav-link.active {
+      color: var(--text-white);
+      font-weight: 700;
+      position: relative;
+    }
+
+    .screen-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-pink);
+      border-radius: 1px;
+    }
+
+    /* Screen Context Header */
+    .screen-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subject-code-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7pt;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .badge-calibrated {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #0C261E;
+      border: 1px solid #146E4E;
+      border-radius: 9999px;
+      padding: 1.5px 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5.6pt;
+      font-weight: 700;
+      color: var(--accent-green);
+    }
+
+    .badge-calibrated span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-green);
+    }
+
+    /* Screen Three-Column Grid */
+    .screen-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .screen-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 7px;
+      padding: 8px 10px;
+    }
+
+    .screen-panel-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 7.8pt;
+      font-weight: 800;
+      color: var(--text-white);
+      padding-bottom: 5px;
+      border-bottom: 1px solid #1C2621;
+      margin-bottom: 8px;
+    }
+
+    /* Column 1: High-Yield Topics */
+    .topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .topic-item-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 6.8pt;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topic-bar-track {
+      height: 4px;
+      background: #18221D;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .topic-bar-fill {
+      height: 100%;
+      background: var(--accent-pink);
+      border-radius: 2px;
+    }
+
+    /* Column 2 & 3 Items */
+    .clean-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .bullet-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-pink);
+      flex-shrink: 0;
+    }
+
+    .bullet-dot.muted {
+      background: #4A5C54;
+    }
+
+    .item-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 6.8pt;
+      font-weight: 700;
+      color: var(--text-white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .item-text.muted {
+      color: var(--text-muted);
+    }
+
+    /* 5. LOWER SECTION: CTA & CLEAN QR CODE */
+    .lower-section {
+      border-top: 1px solid #232E2A;
+      padding-top: 4.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 2mm;
+    }
+
+    .cta-left {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .cta-headline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14.5pt;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.015em;
+    }
+
+    .domain-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #111917;
+      border: 1.5px solid var(--accent-pink);
+      border-radius: 8px;
+      padding: 7px 18px;
+      width: fit-content;
+    }
+
+    .domain-pill svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent-pink);
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    .domain-pill span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: 0.02em;
+    }
+
+    /* QR Code Right Column */
+    .qr-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .qr-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+    }
+
+    .qr-box-wrapper {
+      position: relative;
+      padding: 5px;
+    }
+
+    /* Pink Corner Brackets */
+    .bracket {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border: 2.5px solid var(--accent-pink);
+      pointer-events: none;
+    }
+
+    .bracket-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+    .bracket-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+    .bracket-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+    .bracket-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+    .qr-white-card {
+      background: #FFFFFF;
+      border-radius: 7px;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 82px;
+      height: 82px;
+    }
+
+    .qr-white-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    .qr-subtext {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* 6. BOTTOM MICRO FOOTER */
+    .micro-footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 1mm;
+    }
+
+    .footer-line {
+      flex: 1;
+      height: 1px;
+      background: #232E2A;
+    }
+
+    .footer-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.5pt;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.22em;
+      white-space: nowrap;
+    }
+
+    /* PRINT SPECIFIC STYLES */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .poster-viewport {
+        width: 100vw !important;
+        height: 100vh !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Floating Controls (Screen Only) -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <span></span>
+      MarkMint Official Poster
+    </div>
+
+    <button onclick="window.print()" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Print / Save PDF
+    </button>
+
+    <a href="/promotional-poster.png" download="MarkMint-Promotional-Poster-A4.png" class="btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      300 DPI PNG
+    </a>
+
+    <a href="/promotional-poster.svg" target="_blank" class="btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      Vector SVG
+    </a>
+
+    <a href="/" class="btn">
+      Back to Platform
+    </a>
+  </div>
+
+  <!-- A4 POSTER CONTAINER -->
+  <div class="poster-viewport">
+    <div class="poster-content">
+      
+      <!-- 1. BRAND HEADER (TOP LEFT ONLY) -->
+      <header class="brand-header">
+        <div class="brand-lockup">
+          <div class="brand-row">
+            <svg class="leaf-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+            </svg>
+            <span class="brand-title">MarkMint</span>
+            <span class="beta-badge">BETA</span>
+          </div>
+          <span class="brand-subline">For SRMIST Students</span>
+        </div>
+      </header>
+
+      <!-- 2. MAIN HEADLINE & SUBTITLE -->
+      <section class="headline-section">
+        <div class="headline-sans">Predict your exams with</div>
+        <div class="headline-serif">historical evidence.</div>
+        <div class="headline-sub">Past papers. Real patterns. Smarter preparation.</div>
+      </section>
+
+      <!-- 3. THREE COMPACT FEATURE ITEMS (ONE HORIZONTAL ROW) -->
+      <section class="features-row">
+        <!-- Feature 1 -->
+        <div class="feature-capsule">
+          <svg viewBox="0 0 28 28" fill="none" stroke-linecap="round">
+            <line x1="6" y1="24" x2="6" y2="16"></line>
+            <line x1="14" y1="24" x2="14" y2="10"></line>
+            <line x1="22" y1="24" x2="22" y2="4"></line>
+            <line x1="0" y1="24" x2="28" y2="24" stroke="#F3F0E8" stroke-width="2"></line>
+          </svg>
+          <span>Past Paper Intelligence</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-capsule">
+          <svg viewBox="0 0 28 28" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2,20 10,12 18,16 26,6"></polyline>
+            <circle cx="26" cy="6" r="3" fill="#F3F0E8"></circle>
+          </svg>
+          <span>AI Exam Forecasts</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-capsule">
+          <svg viewBox="0 0 24 28" fill="none" stroke-linecap="round">
+            <rect x="2" y="2" width="20" height="24" rx="4" stroke-width="2"></rect>
+            <line x1="7" y1="8" x2="16" y2="8" stroke="#F3F0E8" stroke-width="2"></line>
+            <line x1="7" y1="14" x2="14" y2="14" stroke="#F3F0E8" stroke-width="2"></line>
+            <line x1="7" y1="20" x2="11" y2="20" stroke-width="2"></line>
+          </svg>
+          <span>Study Plans</span>
+        </div>
+      </section>
+
+      <!-- 4. SECONDARY VISUAL: COMPACT BROWSER / LAPTOP FRAME -->
+      <section class="browser-frame">
+        <div class="screen-surface">
+          
+          <!-- Screen Nav -->
+          <div class="screen-nav">
+            <div class="screen-nav-left">
+              <div class="screen-nav-brand">
+                <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+                <span class="screen-nav-title">MarkMint</span>
+                <span class="screen-nav-beta">BETA</span>
+              </div>
+              <div class="screen-nav-links">
+                <span class="screen-nav-link">Home</span>
+                <span class="screen-nav-link">Courses</span>
+                <span class="screen-nav-link active">MintAI</span>
+                <span class="screen-nav-link">Study Plan</span>
+              </div>
+            </div>
+
+            <div class="screen-nav-right">
+              <span class="subject-code-title">18MAB101T // Calculus &amp; Linear Algebra</span>
+              <div class="badge-calibrated">
+                <span></span>
+                Calibrated Evidence
+              </div>
+            </div>
+          </div>
+
+          <!-- Three-Column Grid -->
+          <div class="screen-grid">
+            
+            <!-- Column 1: High-Yield Topics -->
+            <div class="screen-panel">
+              <div class="screen-panel-title">High-Yield Topics</div>
+              <div class="topic-list">
+                <div>
+                  <div class="topic-item-title">Laplace Transforms</div>
+                  <div class="topic-bar-track"><div class="topic-bar-fill" style="width: 92%;"></div></div>
+                </div>
+                <div>
+                  <div class="topic-item-title">Eigenvalues &amp; Vectors</div>
+                  <div class="topic-bar-track"><div class="topic-bar-fill" style="width: 78%;"></div></div>
+                </div>
+                <div>
+                  <div class="topic-item-title">Multiple Integrals</div>
+                  <div class="topic-bar-track"><div class="topic-bar-fill" style="width: 64%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 2: Question Recurrence -->
+            <div class="screen-panel">
+              <div class="screen-panel-title">Question Recurrence</div>
+              <div class="clean-list">
+                <div class="list-item">
+                  <div class="bullet-dot"></div>
+                  <span class="item-text">Cayley-Hamilton Verification</span>
+                </div>
+                <div class="list-item">
+                  <div class="bullet-dot"></div>
+                  <span class="item-text">Analytic Functions &amp; CR Eq.</span>
+                </div>
+                <div class="list-item">
+                  <div class="bullet-dot"></div>
+                  <span class="item-text">Matrix Diagonalization</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Study Plan -->
+            <div class="screen-panel">
+              <div class="screen-panel-title">Study Plan</div>
+              <div class="clean-list">
+                <div class="list-item">
+                  <div class="bullet-dot"></div>
+                  <span class="item-text">Phase 1: High-Yield Core</span>
+                </div>
+                <div class="list-item">
+                  <div class="bullet-dot muted"></div>
+                  <span class="item-text muted">Phase 2: Question Patterns</span>
+                </div>
+                <div class="list-item">
+                  <div class="bullet-dot muted"></div>
+                  <span class="item-text muted">Phase 3: Targeted Revision</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. LOWER SECTION: CTA & CLEAN QR CODE -->
+      <section class="lower-section">
+        <div class="cta-left">
+          <div class="cta-headline">Built specifically for SRMIST students.</div>
+          <div class="domain-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="22" x2="22" y2="12"></line>
+              <ellipse cx="12" cy="12" rx="4.5" ry="10"></ellipse>
+            </svg>
+            <span>markmint.vercel.app</span>
+          </div>
+        </div>
+
+        <div class="qr-right">
+          <span class="qr-label">Scan to start predicting</span>
+          <div class="qr-box-wrapper">
+            <div class="bracket bracket-tl"></div>
+            <div class="bracket bracket-tr"></div>
+            <div class="bracket bracket-bl"></div>
+            <div class="bracket bracket-br"></div>
+            <div class="qr-white-card">
+              <img src="/qr-code.svg" alt="Scan QR Code">
+            </div>
+          </div>
+          <span class="qr-subtext">markmint.vercel.app</span>
+        </div>
+      </section>
+
+      <!-- 6. BOTTOM MICRO FOOTER -->
+      <footer class="micro-footer">
+        <div class="footer-line"></div>
+        <div class="footer-text">LEARN // PLAN // PREPARE // SCORE</div>
+        <div class="footer-line"></div>
+      </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

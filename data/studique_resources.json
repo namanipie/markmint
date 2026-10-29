@@ -1,0 +1,6554 @@
+{
+  "success": true,
+  "updatedAt": "2026-10-29T07:50:42.463Z",
+  "source": "cache",
+  "subjects": [
+    {
+      "name": "Advanced Calculus and Complex Analysis",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1yB4vRF4qjKsyvb24tzt0lYYvA96CEUqC"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1OBnc8BsJYTNGutwGYpC1ov7QqtFeWQ-J"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1tvG7b2Gok3GtXa_9Loez8E7ftnecRwRB"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1xqlEXAxxUViavTzrBZxr6cTUq59H3S_9"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1P-Fs1rVmV0zPCJW94LsN165facJjYAdb"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 July",
+          "fileKey": "17NQ7qslUROnZ1kc5V4zxcXCoFM_aIfXj"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1Uf9bb6Xlc-xqiEH62lFX806nCLJZ47on"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1nq6fGM6dmxGEa8cyI-Ed3JNMZibZsjnm"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1in1Bi8cnJTV1-lSJL5VOs_6Q54PPzh6O"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "15dChQszBljbElYDkjsFnLU9zNcI1xiNN"
+        }
+      ]
+    },
+    {
+      "name": "Advanced Characterization Of Nanomaterials",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "14togvsvDStQx5t1GTgGkAXwUa3sVSs1S"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Advanced Programming Practice (APP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "13yzWsu9wfHkh4axZ0Qsy8jAoPMcRJ1Hq"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "10O6CEoe8-HxZ4G-nTkDEf5jDCTjxeMqD"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1vMtiYD5IEmkDOp1uqqtVJZA-HNdvJkTI"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1TSEotDf-PmnGfTw6jWUBNnVyphP79n9t"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1V7QLn9ghaEPhc4uCkJ07n-xxYGwoEiqd"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1VSqzCeHpKRe2JB01-h-MfEa7Er7CsIWx"
+        }
+      ]
+    },
+    {
+      "name": "Aero Engineering Thermodynamics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1-wdtVy8b9om8Z2zY5OXHgydUyG0H4X86"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Air Breathing Propulsion",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1ztFiC78rxf9Yb6woIxsY2FeXS-UgVgzW"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ynHsO1u7p9fIDDiyOK0DxFfZ8XGPfirU"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Aircraft Materials And Production Techniques",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1oL9eRo8ZOyZsP5e4FXv9Jk52ReERIA58"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Analog And Digital Electronics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1-M3Jx6BTGfGUBpAWavxQHAePcOxC-c0m"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1JWYFWDmBVYr2IEuRvd5yJ4V7ZIwsLDLz"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Analog And Linear Electronic Circuits",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1GKZY-ZVSOetyZIvuX1LQ1F7dD5AP86iX"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Analog Devices And Circuits",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1g7KKAkMspq2FeqaaJHEsd7z6oFb--jjm"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "19ombO47ho1a781lbqIuEgcq8ITVENvVO"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Analog Electronics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1n_30mI8Gya0paQ4Ir0CxqA1AETGe8G3R"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Analog Integrated Circuits",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1fZb5u5pJXvwx-gxr5ySqic75ZY5F8fT0"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Applied Engineering Mechanics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1QYtmljtgwejFzr8iPgJurDDXEd8xvWPN"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Applied Solid Mechanics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1zBn1O2nFBlS_lypj9hviSitI1SyEUyII"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ynteRuQmHt_OrOg1M70XSerV7iuHAw1M"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Applied Thermal Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1-MjUnIViYaoBH9_o3dnfB29gkVFA7p6P"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1nKRkZV6OA2Yf26A5_-dRz07KrxgQuLqq"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Artificial Intelligence (AI)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "164hjZu4T-QFL_b8C65Blg3MfHEXPr7-c"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1UZNyEmKu3hBR9_CV8aNmV175OnUbgnl3"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1DtwjsEoZhM40zrD27EldGDTEADOvo6ZZ"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1XWFVW6B1Ps0wYavzh7Plgn7H0RCDXkAo"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1uQEIv_FWqCrOfUmYFMhOR0ZtzW_V0XP_"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1dehL5TmPn5XemH-rFY_ZOSynkt8IYYrq"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1yCsFsXcBIRITy6mLCJMw7Tmjj9t_OVJX"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1vKuH31rhBm7VIPSUMLTJS_n9aJTrbIeM"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1T_eVvX60GEzl-lPEL7tVUyUHqcobyscT"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1cEWkM0_xlljlfJLZlzVpVMWf5RtlJmnL"
+        },
+        {
+          "name": "2025 Dec",
+          "fileKey": "12YXZn1jhcAZ13ljmyPwozlZDcQmaK89a"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1cUcovEHJw87bAWBs5KTYuUFY9ml7PUvd"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Artificial Neural Network (ANN)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "10Q_TElJedLbMnCJ2gjvVz7Gdy7O6KIzC"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "17OIeFdbUo_5puFXVj142LCGwYY1sEf89"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1ef65tjBwrfjppbx8GLQzbpH9qEleFnEZ"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1dpoqw6rQLiOWRpOuU8191TlYOYZXpf8r"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1IELHGNz8wC7taqjhpegOL-ek53a1_8fy"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1j3Gt5XrgRrOGogR2KxhHT9SqgXGYgTYA"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1Gh1OerjVPnjnRsroN7m5kcPHyiA6vQbe"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1jLDqFM3CBs4ENirmVsvhfPLCzwD1FTkx"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1YeLuN-vNMX-8dY3T6LjMpqweLGtGYapQ"
+        },
+        {
+          "name": "2025 June",
+          "fileKey": "1o4TzjOs4qwIFFwEzBfXn2yvgfLwXNTj9"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1nVRska9rTPsKAQYiPe8CKuemVmjVtWzA"
+        }
+      ]
+    },
+    {
+      "name": "Automation In Manufacturing Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1J_d7EdFoZ7TGNfV0bAjBEB0E0VJ1MDz6"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Automotive Engines",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1mr-XImd7-2kEa4wETl1p8s_2Yucox5za"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Basic Chemical Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1rYkkgF8SlLfbBSTglsPJNn74pN8kR7Uz"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Basic Civil and Mechanical",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Lab Record",
+          "fileKey": "1a6fmB1_lyXboJy6vYY0yHZBcJlna7Epm"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "12j_zeFW-y8TApgHzsIUyndSbSVH8bo6K"
+        }
+      ]
+    },
+    {
+      "name": "Basics Of Accounting And Costing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1EHPKtxW59L1tAIbsdC-0JhDuZNSc3feu"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1e1MjQycp7fxic7Hf3kz31WkNcAa24uk-"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Big Data Tools And Techniques",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "190vgt2EZIu2Vtd3paiA_Vps694ofy4YY"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1I18ZZk5hJWXm4xOwq0y8xHfAET677XsZ"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Bio Inspired Computing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1I5iQggXgPnRewT6vqgK2nRCFZ4BsvCxT"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1KcZRIvzSvPLpPOhxLIaaagj7wl_YMxej"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Biochemistry",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1LFatmBflsfqLPt2uwvvmg6q98spNSYM4"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1Kwn4ClDK030gDgw3yIlyAgJQCB5VQsD5"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1GUENkuHPpsqodhPc_PfsqL9vc9mT6ekv"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1FwccIormscipthALlfrZNnDMNGTgdby7"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1zsutjiTKTWEAWIVl51cFgJZ9HOgNmvbg"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1OO4oYst1yKGOmWVPKldn8uRwxJcxwoId"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1q1k-16wTPw40wicR6U-LR_0zG1JLn5_-"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1N2JlAv-bO1K_s2NybV-R9GmuJO6-yD8c"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "11VNmILfB6Bz_k6i-guz--J-E7KRCQur0"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1Vii9QbpN_ForocoIc2uLo13nCZzaSsHZ"
+        }
+      ]
+    },
+    {
+      "name": "Biology",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1yiAyjXc0w9wQg9o_whiAPNyEa-4ZZs8y"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1jhilL5F-hsFK3tgLNfvo46VTjBnGj7BR"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1MOud9rO5x46nXC6uojbtf6VTIwWpCkgZ"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "15MZOm3Ot0669FsAt6RFk_1AHzLNxOTuE"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1msbXXicil1vrQ_mepqPnNqS9jR108Cri"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2020 May",
+          "fileKey": "1UU1C6JTe8pCAhcXR-K4WZZTHMvx0m0wb"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1rUYrk9JS5TuNXsPT6PhsFiSsYVd7CFjs"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1GnYbPSYJFD_Ec4gUDda00Z2PPyTUYlyy"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1Dt5aIMYZ_xhYGYThVKXMWcvpCzU4JD-p"
+        }
+      ]
+    },
+    {
+      "name": "Biology - Human Physiology And Anatomy",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1fT7__Hj3aa6euaXmj-u-2nRIcRXjL1Nd"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1sNbl5fxWrA8XkIlGR2dXCE28wNZ3zAd_"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Biomaterials And Tissue Interaction",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1KXLl3B4AX0BA-LtBpTCNXA2EWoUDW37H"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Biomedical Nano Technology",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1ckWujhu81Qj6mTNLAUYFBRZbDpfux1i_"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Biomedical Sensors",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 5",
+          "fileKey": "1zau08MIHPTyiYEGSxm0Ybw5BnuLkiPcq"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2020 May",
+          "fileKey": "1kQReOdHeeWbDRUVQmouoSYMFy327FZQf"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1PwRCXHS0ENjDVJQCqGFaZEmbk5uixt9c"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "160Tikxh23KmZslQUVsOcqK4YhmQjgt_T"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1VWLIx3CmEV4_2cT630RE8r2CRUxGZQ6O"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1UoVgm5eZTk9ey311M-hhWTcGnq5D6iJZ"
+        }
+      ]
+    },
+    {
+      "name": "Biomedical Signals And Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1yjUxLOt_dibZGrC4a6Ds88pNoJuDxFYv"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Bioprocess Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1douPtNxYQnjAzg3MWPkE5Up4KG70vygG"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1hI6NeYgf8cXDTcGPspmWAx39fx3SKxpl"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Bioprocess Principles",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1j7LYgdDvT5RyGYPBJqMIUZ6bz_mDOzp3"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Biostatistics",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1TNvGAILB9ZZU2q5Ae3UpBC_Y9ikkM5Vr"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "17DjUrZYy6Dy4_PoZ5TSdWoe56ILhyiGE"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "11MiveS_524XA9VQZzOaVuGDMSGP3mZEP"
+        },
+        {
+          "name": "Unit 2.3",
+          "fileKey": "1NsndmpuWOB3d_ZliQhQyQraCdgbilGbQ"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1ARyn6rcCOHx6HVxphQ-ulB17w6hq-jyJ"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1pR9HKxoVw6oq8ytXIUMEr6wh_nhlxinu"
+        }
+      ]
+    },
+    {
+      "name": "Business Intelligence and Analytics (BIA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "190w-z8fToKaA8f6xmjDkhrx51df5jLme"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1HjZ4mtKLOYfLhCGVD_YrrxhQvI6HnzOl"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1sbI9PlYTS4UPLA1TvL-H43ED2c56IQfP"
+        },
+        {
+          "name": "Unit 4.1",
+          "fileKey": "1fDXJoF6mEnXrkhfZViSExxPzO15iCooy"
+        },
+        {
+          "name": "Unit 4.2",
+          "fileKey": "1xfHL6uBlV3SrR3uQrj7H6GtizUQlMzBl"
+        },
+        {
+          "name": "Unit 4||Problems",
+          "fileKey": "1kPyY5WwjWyELtns3rJVjKj2Z24Ednrfr"
+        },
+        {
+          "name": "Unit 5.1",
+          "fileKey": "1sVfK6sVguT22PVfA64VrK_Pd6amChJoA"
+        },
+        {
+          "name": "Unit 5.2",
+          "fileKey": "1kVBzUQzKuLzjIeTL0WTLb_3pydVH81zw"
+        },
+        {
+          "name": "Unit 5.3",
+          "fileKey": "1kwu1Zkaou5YtuXh2hb4ndFtYp644fgoK"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1XN38x8MCs3H7H_z_jMXzljVd01_5KMsz"
+        }
+      ]
+    },
+    {
+      "name": "Calculus and Linear Algebra",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1B_zSoaRWy80Yu3clikl3nPYv9nGqCDOF"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1HeYOgY7_ab2HFh6CqOI3g6ZNVaGv3ukX"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1NhBxam3TNfArbQKV8Dd2FXKqVC_KwwBI"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1L9qC4u7b51dPujCtruG0dRAE7Ekn4V8U"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1KGB6evB42TwXKYM_c6X7R9kPpfGezt_S"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1fy4wxf6g1GoRbl9V2J-JUeK_sJGTjAXh"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1QfDVo4WYbU48nzdkOA_IWWY4k8W3tzwV"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1tXIcT3x_0duUuqENzKeg5RkUki2xTtRQ"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1TCdwxKBCYfxvdY_9gBmLKmEqHI8Gf-9k"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1dnIM5Z-IuFQnG3QKP6Ur-aSeZ6uS4v3f"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "1jsHpGC-sjG8FWH0cQYlPY_Ih-GZwCQzQ"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1hiIis6LHhfrKfJzWT_iGkDRCOznCQaSG"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1UsPpoCFGAG7s3QD_Ds3oBP6m4Pu0Ux1q"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1dmh0xGSArewQ_FUt3Y2hxuPqIssDPH45"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1YNgbBvFGW-9ql0AuwUtHH8ae7ufkPc6F"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1ynnlEzjhyz9-7PEU6NE0De_Yw3rX1D3P"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1LTxWhG7rB29RwkrylkOH1vEa-PcfkhBk"
+        }
+      ]
+    },
+    {
+      "name": "Cell Biology",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1oh53WlHEctPgAngfW-pgOQ5Sbd8iWi5Z"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1tEfR7Hl_abIACjQwQBuXHGh6H9zGSBSt"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1-AGNh0OQPW8evYgnAUB6YPZfMNjq34c7"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1mDSNyJFicOrGSgQ1xqsAGnb8Dv8nQYHn"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1kuf4XIYOaYOGHfWcalSPtOgxGn8edkDx"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 June",
+          "fileKey": "1GXpSSRSybZKmih5qdyXI5XRQXyi7vRsc"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1QGOdPzTHh_-txkzzIAHy5uWHAIObk6Du"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1FknzBztqWc8fE4UFt2KicclT36HdJicj"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1EcE09TQuGqIp5xRE8bW9UvDJiej80GJ4"
+        }
+      ]
+    },
+    {
+      "name": "Cell Communication And Signaling",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1l04VzaFimrdLkFx_oPjSaG0FYvnLcd1G"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Check Point System Administration",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1KQJECCbEFcc-1aoBL4jf4wicrQ4KYEYF"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Chemical Engineering Fluid Mechanics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1zOgj85PhsyQyzYzwPeJZ2sQJNjcDfmih"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Chemical Engineering Principles",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1LW1f7iju-gMiRMIDVdS4mW6Cj_eheZeW"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1CUzDIA4m0kzhmNqsYPikYWKxbF_Uzto3"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Chemical Process Calculations",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "181i4eaXl1_3XQ58xmyCwXhW-vsvhbqBw"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1LPKzt9NooBODIFYwjAkoy6bsfakahhww"
+        }
+      ]
+    },
+    {
+      "name": "Chemical Process Technology",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1DWHPjWhKff47ZJKlPKhsoPy6YV1GERML"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Chemistry",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Lab Record",
+          "fileKey": "1Go7B42dWyYxVXMs3fHLKRm2Yfgk0MkiX"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1HzDlZoZcNL4VSZNhCpLrNnfDG0kPhhP3"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "14SONhXWmpaSloQEhkLoo1VkdmKI7J1F8"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1eN9e1k-SzAr31vwXZpoKufFDTG8Op4R4"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "15NT-ENqJbUrYGhpqeLH7okceeRPT5_zL"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1GlM4Wrs1Wh5eK4AqEz4uHog7uky8GVLg"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2020 May",
+          "fileKey": "1k2jrrxq99Uqjua-J95Uy_4S89Ajk3mso"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1l7StxUsTFFTEaUAJoBX9xJau0yWhEsbP"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1n4U_clJo9HLYHmbAQlrlBdmEPhUkyOxT"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1wuxcSi_zl84DIO3P-IAPuOeypUC3mVlQ"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "16SSKA6HBqNi2Ag58C8V22yKpU8d1sZWQ"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1Gqsk8LtcN0MwcZFJE1aBpRKNTVlPHJDL"
+        }
+      ]
+    },
+    {
+      "name": "Chinese",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "1StK-9X0DhUgbKmGj2rO6_Po7eYXLjNlc"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1p5vujGmQhv7rl2uXB-iFGKbKQ25KrAh9"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1KndYcbS0A4M2s2cXJfhEtuYZ9ATfUlL5"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1VyspfY_cw_4yPAtTnCEfD-pmi5LrKrk5"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1hQyGDUaQv775DpvPTtyiUgyUGHbNe7Pg"
+        }
+      ]
+    },
+    {
+      "name": "Cloud Computing For Iot",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "13cCin14hetIJ3RDfoHFWYPy-h2UaVyVK"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Communication Systems Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1Kf39ejK4TkyUvsOurcNMsI4pcyaEcIk7"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Communicative English",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1A68xO_SpZraxvJPjJO7779QAA5WD6FxU"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1SPPwwUXyHwhhmBc3EO66ws7k5FJoQDYJ"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1CnDfXVmpMMRkJd5fOX6j7TPyYRd1gtpA"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ImSg_me0Zml4eeiJ1Q8LELwJ9vFeQvpn"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "13dvdYaCLhssYgQGEyfKL5m-lIlqFmRuk"
+        }
+      ]
+    },
+    {
+      "name": "Compiler Design (CD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1x594O3qTH9e4ZgG7rdrSdeXzhpiMCDf9"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1lv5euuIF_MFhpkSDPUzlUYdzXho-aGeE"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1EEcW1bRaYreA2Ut2zpWnLEdkE3-Qr0TS"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1vDKSrYUWEVVSP-cG4A4digXn-lclZe3f"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "10_yaAGNgBPs8XaxypBCAG2ACZouP9BJc"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1O6A0I9hBt2NX_-sWf7infNTgOOxFIL12"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1PfM7bTnjC9VEq1xG4GDoE_SunFqvowBi"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1o1MD-J1FHiNNQgixHaLiOJqtKpVRAfp7"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1csVETELHxdHVWkoBkVLuboLrXrcUg_aH"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "16HsQENMwLst38TavZby4oIHlwWJeaMHb"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "13KEkzJ0orqi7ciNf6QZxdNX7EGgDn-Mc"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1nJx_MDFY8kKBpH0Di5xPQgt0_gdG-4OK"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "13rdNSI5fBCRc3RwgVhu-fMFZraeFEIeQ"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1A9kQ4qzkBzcWXN5WgxolqczMmgD14jhs"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1tOqmG6O45h4WUPV-Y5RYPdTMeOymzuls"
+        }
+      ]
+    },
+    {
+      "name": "Comprehensive Linux For All",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "108HQxATlr3bn8rrO5LJSzDxXrQZ8ngbA"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1FY0837k0ofFv_oZxyef0ASVd817znxNq"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Computational Molecular Biology (CMB)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "10CbwmW-nrTFfGNN7YwTuJATc4cJR75U-"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1V97J-RzEeGivU3_rfv6ymvIX83B_cVl3"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "13Yck6ukNnFz1lrXhSo30htIy5VqQzwtc"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1VpDmw2KKnhL12Q_c2p6Y5FMMauUFRqOR"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "10NexIATzSnshfM953vuUXbWQmcVyqF69"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Computer Architecture",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1_WQ7tRcQKbFVhAN3nDozO9PIVgV8faZi"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Computer Graphics And Animation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1Agn59dNpUVZlBu2vgAOk3rSGGhtli6h9"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1UBWds4WU-qBhkbN2jj52dEi_o0c_4kSr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Computer Networks (CN)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1pCImSqQqJCQraUxTCObE0fHoHU1SbuS6"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1P-AxxwFb9TCGQZrT2YqgtXa9T5x15xj4"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1qSxbUibfy0GY-t7m5XBJuQr5wdc69R8v"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1PIXMW9OeNfGexZIIlEU6f1nkVCuBgmhW"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1KD_zcfkhYaGRZt8DWUFwLKmToEGUFDR4"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Jan",
+          "fileKey": "16nHil6OKlnGMx-eWA8HZpfswdfrWWxUn"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1kcZqTuQAqA-A7BLi8rFIeoSx9IulVKB8"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1Ca_WUeCoCC7kl08ryU9nmC1NV7320dis"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1VqfaTS2Nqe89Uy8EGlCnTbzb1PjClZP9"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1yE89MkWRCO_KQcA9HomT4pqtcQvRihDV"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1aCWn0WE3dn5isURJkIBal9W4ZVEFYobp"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1jTBVb30cKryYBqkxGtkwcOndYWoJFgO2"
+        }
+      ]
+    },
+    {
+      "name": "Computer Networks And Communications",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1OZVvjh_gSy71nzBRw_noPMi6CJoH96uh"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Computer Organization and Architecture (COA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1jQ0D8kcDk8EcrwYItww6uTLVWLSMg8zo"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1KA9v6EVAtg6RSqqaoZRMYGGXwWRqfLjt"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1G7uYj-YUAyXL2x2wYT7sdlQrMvzCLpHC"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1ayQweXqajAzzxBhGt4FvN0al0ZKDrBca"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "187PbN2nRkaUgLnKIBXVPaL2LtEjoV_kE"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 May",
+          "fileKey": "1yUHTy2rXTXcCu6yTegL3k38s-zV8n4uS"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1z8C_B_1t9IsGd2_PLS7P_1zc877GOyZr"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1pPdlJeVcz5wef4ykJAWrD-QhvseGRcg8"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1MZZ_zYHRt-S8gd2QkZDOLrQQw6DQFjqW"
+        },
+        {
+          "name": "QB Unit 1",
+          "fileKey": "1UDyHlMAAVZ4oX2urr7a9SRIhc-eeJQw1"
+        },
+        {
+          "name": "QB Unit 2",
+          "fileKey": "1J-01i2tdUwsL41sQpjSM5wmC6xRKE_Jm"
+        },
+        {
+          "name": "QB Unit 3",
+          "fileKey": "1m5wFPUQKcElBSu_SrOcCduCF8VwcQobw"
+        },
+        {
+          "name": "QB Unit 4",
+          "fileKey": "1EN2XFlehTCuwnL8FIokbNFmbmID2t_Eq"
+        },
+        {
+          "name": "QB Unit 5",
+          "fileKey": "1qgkCi5d7bTrQXrBCUMOV7WyqsvR1mvzn"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1L1cd8dRnflL6uw3Oauy_Sf4QSwr_0xTW"
+        }
+      ]
+    },
+    {
+      "name": "Consumer Electronics And Trouble Shooting",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1HK6eIGAMeiJL5soe12zaJ4aOz8F6G7Wm"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Control Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1VIXu9-oz2pRyFjE-px9_7-UuCUe6Y90-"
+        }
+      ]
+    },
+    {
+      "name": "Control Systems Design And Analysis",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1-ZaDmCJxAGiaXjrpEtGOwEH_TJhlY9oW"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Control Systems Theory and Applications",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "113ed6ddGRMKNOPbentqWdZzvlm7wLl_B"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Cryptography And Network Security",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1LqZvOXA9EoPzOLD27enVvQOLQGPdIbKx"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1-NADdrSKBAAF6lq_Ln6Bwy5jtCRtZrE0"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Data Mining and Analysis (DMA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1A4ZCtVMQKqe4oDszp6gB-1a0b7g5F4jR"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1NUSng7NPEpT01ZXrZPL30BITL_0M9HNJ"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1SO1wAE9sVUxqUS9rjMXlLy2rT7Qcpt1C"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1YTlpDErziJDQuHttxy5wIsQHKfFXEI0S"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1uClpS6556Vo-2_5c9FyRoz-MSE4VFx4N"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 July",
+          "fileKey": "1LGguy23qLwajkdwADeFLYqRAQoyV_Nwo"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1b1v0a_Nz4u4ZMZBCfe80026Cuk_6PMNd"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1owKvAA7up3xjdK3lW28t_K_syFmaXl-d"
+        }
+      ]
+    },
+    {
+      "name": "Data Science (DS)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Hdrl_sQgMTcMVNQeSLQBSdPr0w9kT6BA"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "14kUMOLjd-WyI_LjQ7OOKQhNQ_VASLc4J"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1bshzlkHrat5zCvjKC982bYcLiFEVAbJx"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1Vtc5_0cCPC81Sq8QakNjnGe-ukZGglXx"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1WZwiUPvdGqypu1Yk5tOdZKBk9RtfD2Eu"
+        },
+        {
+          "name": "2025 Dec",
+          "fileKey": "1PwB-RfN3cNsspaLFGl_AYTD1JMeZep9I"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1JHo4uiUCko-U9Irq6aemkhejOj2cq6r7"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1nxO7iZhxxRToan6URr2usEagZgJ693ks"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1ezOJ44vVEPw75Y4wQEPJ5uDxSZxM7he6"
+        }
+      ]
+    },
+    {
+      "name": "Data Structures and Algorithms (DSA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Scz0dzNgzwEORYwFKVYTTiuubpb27gJd"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1l2DPtXzGn_HCKttd2upJZIWvL5NA77sq"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1IJv22Betaw49B319nQY1hlfJZ0dp7CqH"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1B7uxBF3fHfYpH_hsBvl8BmXBGc8qeE2E"
+        },
+        {
+          "name": "Unit 5||Dijkstras Algorithm",
+          "fileKey": "1Ilv73ELIyOPDioYG9EZbip8HkqCPDyKf"
+        },
+        {
+          "name": "Unit 5||Graph Introduction",
+          "fileKey": "1YGNrPC0Dk4lg00yI-ka4_NY3hf9ORbK5"
+        },
+        {
+          "name": "Unit 5||Kruskals Algorithm",
+          "fileKey": "16bV5kqsOArJVZ8S_2t-mWYkLu70WnLn1"
+        },
+        {
+          "name": "Unit 5||Prims Algorithm",
+          "fileKey": "1BIZ39Cyp6I9bYnND9-LJKYR_ltrG_NK5"
+        },
+        {
+          "name": "Unit 5||Topological sorting",
+          "fileKey": "11zC2ES8ccwNOBkOEJooUiHTGmGA18UA8"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1eLhERZ8gF4mHXEFjZarL6ojA_Oqzs7dT"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "13ZooVZDGQCrktfHmZdPYwWYBOKo_Es1b"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1o_nrDX7K-DQUHQImihrsJR__jf8tn6Iy"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1Eq-yAjernhdjVgYIo6Nmm0qlPItL3bL3"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1KT0AgSZcXRi4PTPd_NA87zTMRV5IqZTS"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1AnC6mdewR5I3m-pfXc5l0vugw-GdwI9G"
+        },
+        {
+          "name": "2025 June",
+          "fileKey": "1XaNtr2IsJHCB3CmRKfL-bkg1_vMAlCSc"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1m_1T7-DSdpueX9fnjNW_6CsrzEQ_N9vP"
+        }
+      ]
+    },
+    {
+      "name": "Data Warehouse (DW)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Apriori Algorithm",
+          "fileKey": "1-iEO1KXH5MXbRWjpZE9ffw5sRcUsJaGZ"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1U-AX5P9bYHC6UpNy-EllCReJLBNtjFuc"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1ljNGRDSCXVg1eFwSc6GlG0PoJre-pRkX"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "12EDMBUaM9fp3ylX2QJQzFgjh_CnzZ0eT"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1PXKpD1DsddPLOZQTF7NiS7MxxFCcgghD"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "17iSXJMrzVULMgy_LRZ-C4Jzbaw_bG92-"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "15D3UTqgMZoT9ZmXaooTmBm1DweyIVV9f"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Database Management Systems (DBMS)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1dJJYHSYm3Xc4QucG0NfLiulUnp1PzooS"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "16WId_pA8G6CIV_TxIU12YQ-ENyxKg-bX"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1v4ZZafd3q1U7KHvCmRcy31Yru-KMndYs"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1GogfaY0HUEn1DUuQC0Ej2iFYUfwyCZ8C"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1qivjD-28ZVWd9AKIlOVENLHExon46ONy"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2022 June",
+          "fileKey": "1Msjk0wvAicbuQakU6M-LiM_-U6wBaV1n"
+        },
+        {
+          "name": "2022 Nov",
+          "fileKey": "19SQZ4s5ZTtxGMa-7oD30Ts0teDdWSO17"
+        },
+        {
+          "name": "2023 Dec",
+          "fileKey": "1w1N2644kuwnDsuF8pySbq84J5ZlScVwP"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1R5enEz-WXw605jrEgdw0-tiIMULEkzCp"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1bVUiOjsZVu2KPVDR0GdBWWMtvUl_eARb"
+        }
+      ]
+    },
+    {
+      "name": "Database Security and Privacy",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1xVPdrxcs2RVqQbnBwDFYxu_3FYY_FX3H"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1GeqhopYuImowJSlqVr6ooI336fKFQS9u"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1TVxj8oPchfgiWsV0Du2Y8KQcLPqvvv77"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1wId8IqfgCZ-uim78RL3A4qJPNLODcR45"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1i_7QQ-aWYkRRJ8sF0LlTShbUDB3ZgzCA"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1CgwOj5YGEmMbe1mFbW77Yc51lod_SjFQ"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1tzPn1jIatBxTYKa2U9bkeOkKmhLXFsvY"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1wHhF55HmKJViRJ3207Urpd3qcUfKLhM5"
+        }
+      ]
+    },
+    {
+      "name": "Design and Analysis of Algorithms (DAA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1oF0Yz4KJs3uEl6583AQlaOvsO7h_07MN"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1XxjLSqygUSMBP7YvC64yLyOr9UcLJjxj"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1yoLgc1Lpqoeub2Lr1R5_TeVvqC57zsX5"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "11VrbkNPqiXDUBiK7lKiugVRIJsjaXQvt"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1TpXyTkg-fZ11Gn8i_cn1BBAmB8iGoMmQ"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 July",
+          "fileKey": "1QmnAuT1NODdQ6opFuxrvZB30kEuZ6QDl"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1u4qqxnDMMAjFuNKMWHuyPtj9Zb8FpWuf"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1FJt7sUlaXdGOPtwZ9xfmNdeoIPrhElUY"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1KgbeKVmrd3KFzt00n9jioKM7vtKdSnMp"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1wVADP0NvoI_LFHtjZ4BffHqsSd8OldiA"
+        },
+        {
+          "name": "2025 Dec",
+          "fileKey": "1K270nz_cHKAbYKQ8RrR_oMKDLkYldFd0"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1hxdANgHZ5KP6uJL3_MAZ57ADKkhyUG5Y"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1iN7pdOBtyL_ubYQtIjEq84Q7MKhiIUNZ"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1HQl1O3OUk1Ydq0cSMqpi03oDMsEFmYfU"
+        }
+      ]
+    },
+    {
+      "name": "Design And Synthesis Of Nanomaterials",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1_Ub7pctmcIb_vD_0Q7gUcGXs7_rYR73Q"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Design For Manufacturing And Assembly",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1-wJEpoUfP3v1iRG7BCd51n6fNTRZeCtQ"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Digital Communication Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1q9dKLgZEHQUveXqsZ5uNTHu66avS9pq8"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1nrLY1fRJyqrcKFyJVCP6SvBiO2Bu7WsI"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Digital Image Processing (DIP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1f2xAPKnEhviO6yjslWQ_HbqhLytqfoXP"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1NbSHd7xhy-7p8gXPO4lNS9LMQttvo_jA"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1QgU-iJ-sOFcFdx4W4nhFA__yE1FqakE0"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1M69QXHnhRKGotyoXq_gZRyw05m_v7KIT"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1F0BlLa3xxuTXE8RJ8QchYKZ5A6RREVaB"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1qZU4JTSuMg8EFB_u3Bk2XLuyf4ydGUNK"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1Gld1M0QPm4R-xkKk8cfJ0Cr8rIUmJwjH"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "1HcW7Tjwi-hnmrETvMIfl6MwFlmGuDvF-"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1jp71G0qiXNvdEcR2RMaPC7wer1mcSTzG"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1rcOJ1qae-cB-zCjM0cXDdhZ-h540K9Ta"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1lMk-w0w2BHi28t9aWFzv7t_o33UtBXBN"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1OCWHk-vUJlkq1NR4i7j3QG1Y_UrU82Jm"
+        }
+      ]
+    },
+    {
+      "name": "Digital Logic Design (DLD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1ktyFKpE49_dPRfFm6pGe5DXwMYGDzgj0"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "16waGt6s8N3YZcgoAkrY0LaSIdkZG-4de"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1WbsvnMjrdAG21-rCufB5vcoAmZTezO6b"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1WtXQ_CRANN0Nq08vTKdThwdkJyfLWY-X"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1sYLU3d1Y-ihAhC_KlWXAEnHodd1YIbJB"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1W-3nAM8RplUUO7Y-5aV-OFgIhcMRpRIP"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1SbFwXiPAiG0Fqh0eLrS-Qok33PWdUq12"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1J8yNS5nrXzdLNP1WcmnfH9jmIcTBehP8"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1T09Ud0Ceb8Pa6tz2vZgJia7rMeayx1sI"
+        }
+      ]
+    },
+    {
+      "name": "Digital Logic For Medical Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "19BuzmlSIyp_CrroLGfnkez69j8i8xLHK"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Digital Signal Processing (DSP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "13RBImd0tKT7e0yzxyv5E9hbMaOJ1bmnb"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1WF-Q-_sQCalcKDANjU0UqhA4HEpGULBd"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1AM3I_EuRjLjPaSTEvsXMEgnZ-A0QSMM6"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1oZ3EPmbD_i4eV3t0lEWu7-7KihamhiXj"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1_gB2ZWLo1AQP7nx7CpbB78HGSNnpuoNE"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1LnWPC0aQiv1eDEh5zjNgZRJPkCo6gZNU"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "15M5NCUS_7s5t9hTYV5w_jvqFzpYzOAw5"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "11EVQC-xW11xZLpVDvBWhzotEo9gPIhBJ"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1DeR81FgV2Sv3oi2hqz-HF8CoH5j5fuNF"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Digital System Design (DSD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1PgGiXCV0i1hyId9G-VVtLX7wg2Hj4b8L"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1r-Rvw2_IsQBmJIJ7rIkrIpnM8wFQuxTx"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1vWGnOddgua51cB0GDPKd8F1mw1R-rraN"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1HORciGWqUeiAOWTySNU1ilukl8ashUc1"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1DBET6X8WKXAdMJYUE0rc8-DOa9xZAQ9Q"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1XDa2a-1hwUV0XoFagL27-GFYBhUFbfEH"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1TKsEDari5b1Q9h0kIE1nSUi8cFydVCq1"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1NEM3ZU3s_aUneL15_Nz1sDI5Ag7SsS0F"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1zseO5vprhj1792LKmHjBeuIZAG6J5ZqA"
+        }
+      ]
+    },
+    {
+      "name": "Disaster Mitigation And Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1WXE9CONiiAhoYDrC-TRn99XGTDDbpXdb"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1uGfPQoaKAqK8s_3zEqCJ1hYXEQaq1Yse"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "1MaJ6YqSk869cZRGkM2F9DIPYKydRuBBZ"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "1-X8694wSzMU3Isv6cWy6rNIqq6hJsgZ5"
+        },
+        {
+          "name": "Unit 2.3",
+          "fileKey": "1oCwXFl0J7cUDrfcgJkYoM0hwdfQH3Hfo"
+        },
+        {
+          "name": "Unit 2.4",
+          "fileKey": "1-_IlOgYhGRSTQ0M93XcmgwRy_rHrwcel"
+        },
+        {
+          "name": "Unit 2.5",
+          "fileKey": "1hMxEgT0GFRrWMH4ONDpRLagFJ24E0T_e"
+        },
+        {
+          "name": "Unit 2.6",
+          "fileKey": "1mZusojWEOzH-V2YxV7i0J6zwj6m1R8vn"
+        },
+        {
+          "name": "Unit 2.7",
+          "fileKey": "1ooznaXhXi7uIaQKHuyLUFRRc0J55uG7o"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1khNPe_VDdOxtXc3shc42z1BCHprwLTHS"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1mbDlD5S87Lr1gEr8fu3bdFkM16PW6rHf"
+        },
+        {
+          "name": "Unit 3.3",
+          "fileKey": "1uNjq4A6qCwHkuzuRBnfq5pAaJ-V2dc70"
+        },
+        {
+          "name": "Unit 3.4",
+          "fileKey": "1ofeT21OFLImf7jiYCmhCIdnHSSCaWLNs"
+        },
+        {
+          "name": "Unit 3.5",
+          "fileKey": "1jYRaQslpqZsZo4pLrfg_8fOmT4OtJiCK"
+        },
+        {
+          "name": "Unit 3.6",
+          "fileKey": "1AgXgLQZaFkvxIQGnkXB7pewyLd7xVi7N"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1_poFrV9LQZGfDKc5N2a75zb0erVnidqF"
+        },
+        {
+          "name": "Unit 4.2",
+          "fileKey": "1LeBqlD2non1K3854WE5OEohpwWBL5Vx0"
+        },
+        {
+          "name": "Unit 5.1",
+          "fileKey": "1ls86FdsRigKVYgWUQkFH11VY2bm_JB9i"
+        },
+        {
+          "name": "Unit 5.2",
+          "fileKey": "1qpo-LK31mKGQXUsOVYAfYZsaRsHndhfC"
+        },
+        {
+          "name": "Unit 5.3",
+          "fileKey": "1P9tJyhqVurHdNSNbZn_GJElaNF-gTPr1"
+        },
+        {
+          "name": "Unit 5.4",
+          "fileKey": "1uzScfU6URhy1EjvqOppNeqBeEjV-VDq7"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1yUWLKfcgikoAB4ng3yLyqQ7Ofc9kMKT6"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1yHLyYCQKEXbzq10WpvXUnDXkJt5bxM0W"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1F-MZDQvEtbJj8SpZ0D8LjdUmqfDV1UlM"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1KuWgJ2OsqgWQkG5GefncKREOKTZlOm9V"
+        }
+      ]
+    },
+    {
+      "name": "Discrete Mathematics (DM)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1RV8ivZFZPiml3A64NzNbanx_xb3RYDui"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1uZkNWciy6ukHiYKzx1tWV6laVemrT4DI"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1OKm_EWVzkAnIvfshJWm6538X7ztDlrbP"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1HFnACrQwLFQHGP03jIIZ9ZL6MDvQtwON"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1zr7DvTGHS44ZIGhIs6GS_fJg0FPw9yET"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Jan",
+          "fileKey": "1QBv91Z7Iu5FwjZYZo24xX7TzldCZVlK_"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1Nih3czhwHXigMnTWtcfrcW9sVmzjSgms"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "14zVIm5IH8wnsLsDknrIF7jxo7JdylFvb"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1P7Jvy0tmghYvbPr2f6_wGKTWmqL2ZRO3"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1dh_Ahe053T9CQ2FVcRpHb04VoMDHZlYo"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1lyHhqOM7xpWmK3PH-Uaq5COCGlYR6rdS"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1JIXgVQ9V1JQ3KQmn9ZrsI8V6XZNB2BUS"
+        }
+      ]
+    },
+    {
+      "name": "Electric And Electronic Circuits",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1Za299X47_qFr8vHLfbukyosP9w7qhfFy"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electrical Actuators And Drives",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1KM-1xNQSLhhzJxdhfPU7lvLHlky2oPY8"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electrical and Electronics Engineering (EEE)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Manual",
+          "fileKey": "1MpJVi_hCRwrpU1hNEVB2dCjPjohf4YMm"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1ybuy86-HLkj6gIas-A4-i9dcnT2B0t7e"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1BkcuDc_t775XYE-FC-qLKVOau0wRf56x"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1FSUKbZUvgIIno6ZokpkWwTIaXesKe6Ih"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Ue_F6qU-W85mVCOFGzAfyb4q8_K14bfc"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1jjZlEOQE_YmY6VAWjOXccbwGmweG2En1"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2022 July",
+          "fileKey": "1OghkCFwP-weqoLpFJ32XxOxfR1yRQHU0"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1BAWmG9Kx_slHZbxB-vTgGuFiomjqUYW6"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1OaxKXqKDu7DFNfo9lu0G2AimDKw_-nsv"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1qZV8B0lI9xbHoRy8RQVueZjTkW4fV7Zs"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1bQYNdB4WhHpB8nAj9un2DBpud4_u4lyf"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1zrQS3GCpP1mwoyTffyyhNa1FvzBigI7J"
+        }
+      ]
+    },
+    {
+      "name": "Electrical Machines I",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1r_2ysX9BMoqi_Gnk7u82oOfwtdyWZcrL"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1X_vwGRi3fbd6Ce3OODQ3W3ZptV10OgRS"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electrical Machines II",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1u7wuhs2qzR0VqduLDbKGJp1yxbCuhmf_"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "198eeIWzdeWJxx65r7cJB2X3tc7Fr8UEZ"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1mODux9MJ81jdqAmDe_DFq4l3_k18xKH5"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "19g02NMJHyvBksXidG5rL_JJyCs-WU_we"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "14lSf4yaywq-N1zTSrxxXK6hNwb-J8wpf"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1MlE14vlBKUFDNTLKcl78vfMQSbYlxWX7"
+        },
+        {
+          "name": "2025 Jan",
+          "fileKey": "1Gu6t15hCdFT_-d8OWQ-6Gva3Oo-LtWb3"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electromagnetic Theory",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1daA9wdoJbfi0T97Pj0YFeFRDkd0nIt5G"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1O6xAdwpoPS0wDF_I87fTqn7VT-4TykiQ"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electromagnetic Theory And Interference",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1v6q-ceHDar3L8fi4RmGhDOmX6cAlrl81"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1_lRO0uahNGiURBgTOY5Bjv-j5_auYIP2"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1korZa220vDHfP5g7oDwpqp2mfv2uIMvW"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1n0uBBmeRKYjdY9Gtu7kbNdSjeSIqQUGa"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1_dYkzm7sWVop76RuAfOrLMMV-Vd47A-I"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "15GyFp1EoagPPiUXQx8vmVHqOQCGu75IL"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "14dS6mIxkssh9FUDufCRiVoVD1fG0EkRi"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1rEU6U3bCLBzYpmY4q8-mMaaPtphAqL1c"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "1kaAPSHC-Z119_T_Gy_W6rljnt7mw6Csw"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1a5sX2mbTWSEEXXZKxy7neAqxB2Z20p83"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1uwsXNhasawIwJ0G8yA2zJf5asVrMvnI7"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "18scyqWCQ1PvEowRX32bYP7D348ILpl0u"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1wRreNh0a0aml0KSVAChrmsDTA6S32H3k"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Electronic Circuits and Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "14_Bh-fFWeNthOfHrChpsKvB9IA_LJ0vg"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1nFTpAltyKnVlpEg6DQg_3V35EK5yMzuQ"
+        },
+        {
+          "name": "Unit 1.3",
+          "fileKey": "1pCfPY7xZ9yJzkWavN4ta5XguLIOVlz0Q"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1q6n3AgLWXefBg9Vy7FcDAdwpUiVxYU4l"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1vYd3_KhAbDSDiMrvM5DEGggj8-Bn8ipp"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1jo97DiwtjPugnYrhpbf5z6ySQQuGcEdD"
+        },
+        {
+          "name": "Unit 4.1",
+          "fileKey": "1lIKXRel5D8tGeHvbz6zGVszTnDQ-kcOQ"
+        },
+        {
+          "name": "Unit 4.2",
+          "fileKey": "1TTtXDnpKkoWnSMzGhOD-sN2v3abQT311"
+        },
+        {
+          "name": "Unit 4.3",
+          "fileKey": "1heMfx8vBlNltHDCHstU4ESKx7gzG8ePO"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1_aAkZDU2d5ROUyGCZbRQREGfooZxkZaB"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1f2fRs8KYJiY3G749es2O4CaBtl9jDGte"
+        }
+      ]
+    },
+    {
+      "name": "Electronics and PCB Design",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "14qBIv0hVLiVOBL3i0nmw418GxIeTEBt6"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1TfJq0I8WwBnRs6s78eal05LFtOUI6JTU"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "15YtC-bnqKrwoHEmKPMe7hUN-NjqzXFiz"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1pxxLEgj3e11LQGNZKBzqdZtctHylSa_2"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1lvCI5yJOknYI2xO8ViUetOxrXLwRHZej"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "17wBUFZ2qkOaoVEkOMGwFcncEr_Jp3evR"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1i8eQKgJ_gUqx7Xn7iIaN77IpMzP1P5GH"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1Xwu1ECy8UaOiWytNxo0ypN4iVgjYI4KT"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1S9aLdrK2rwyoUIH-aGYm-F0rgtCbCxdZ"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1vT77QzXMoSz8C5LgAdVzOpw2jRF085rk"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1-CpljpfPJl3ttTFxswsN4QGmP-EQ0vD0"
+        }
+      ]
+    },
+    {
+      "name": "Electronics For Analog Signal Processing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1jYqnrfijjBxGaqO1-6b9NdsnaVP-MX_g"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Embedded System Design Using Arduino",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Duw0srVvkerAJFTs2Kt1w0xOn4DoI3K6"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "1BHayF10xh5ueNpCPINTUVWXazCBRiLa8"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "1JmUX7H9qG1xOiRfG-K2LCcXe0iRdarXD"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1AaoU5V3aKGKk6xsfBOwG5NQVr4cfXcM1"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1Pd21eIs4dYbvHKkCIvwC4nngnhtI7eRa"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1BvmXm3qnGGiw_wHEnkhhv38FcvrSOFa9"
+        },
+        {
+          "name": "Unit 5.1",
+          "fileKey": "188mrxC0araWhcWnpGEa4SGMCPE3PRcQi"
+        },
+        {
+          "name": "Unit 5.2",
+          "fileKey": "1AoWelvgzpT6k68_EIxpbtmg4_1wSG_dA"
+        },
+        {
+          "name": "Unit 5.3",
+          "fileKey": "108OvrPVgSUfTx7IBDE9EFcn4Vo_C8EQ5"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1YXfpJUVHuOqWwy6kTuMC5HIgsqpEPZxV"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "15JInnECDEUeYGn63D_dkrpEVFh3SvgSC"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "17rvkjyRRIu6y8Vo6V69YCcZCVpCLUW9U"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1LtI63AeHF63hR5Y92tlnWvh_t9Dd3Tjp"
+        }
+      ]
+    },
+    {
+      "name": "Engineering Graphics and Design (EGD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Lab Record",
+          "fileKey": "1gIU1QcvrAxskP-EyLazjB7PlafG2PuMQ"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "13MpgZPw5PM408QrHOpCmBDwMhAibsA7J"
+        }
+      ]
+    },
+    {
+      "name": "Engineering Materials And Metallurgy",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1iCGWo_sEzxoJHXYX1UWZRyQCpRXCmXLr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Engineering Mechanics (EM)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1hhXcrj9twLMcvzfuAzVylgsAT5I_LLL2"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1Y39QzeZ9y-D6A6r98aEQBG3NRctwI_xN"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1M2wmUuv6r99pbBS4OORlRxXnWMR_s6or"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1ly3IjjToUyljh389ZLqZwTQ6awPz3qDt"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "17Xs7lZT-UBzyd2BcKjTLsjw4KQ9vfUrT"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2022 May",
+          "fileKey": "1la063XsdijIkJW5hbhhsaawIfEAfF-z1"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "11Cxur2g_Jqi4mDAq4mcrG3MXAalYU0GB"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1Fhy6nd-__hR4lTDR7je3tgLwl0ewreog"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "12ptzuAadu2mVS2GB6EZruXZIabrs1DQw"
+        }
+      ]
+    },
+    {
+      "name": "Engineering Thermodynamics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1j4xfCpEd_lthjuQ-30D1181div8iErCa"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Environmental Engineering And Design",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1KyAYTvsb1hwIpCMSfJAZhLpvsAqWt9UV"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1YD19RdGfPV2KEsukunaQSPJ1_OdLg_NA"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Environmental Hydrology for Data Science",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1gI2YC5mNJyQDujC4vl7is8dXTeFg0zqv"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1fEGthWkl5yS6gmpV8_-qz7-vD6wRCGhr"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1JV7F6JWM_YHz_KEH85t37TfMEy8Ya5tR"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1ImMJ5fi_g8s_JwZvVWjWE7Lhdg3VfNdk"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1UpCX_VP24bgG2yxuQSCc7hTuTwZLRdTH"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 Nov",
+          "fileKey": "1C0caMjqy9JwQD39vTnipKMUlsVPSfB-O"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Environmental Impact Assessment (EIA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1IrUKjBcBoRHNsf8_vnCBsU2SW8ilPTsW"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1XIvsAj3TBFP5EgiAUt0ozeGn5tvhiUAG"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "19llMMtBFSiUT05UHdlD1qDqUnYFyyY6O"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1beTKRwH_CV-vC8g7j9zV__T3ZFCE6EeY"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "192KLP7UKjlmaJiEGJCtfvxeOU0XtmIu9"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Flexible Electronics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "14vRQbHKm6pIEN7TFMbHNATNcu2r2xMxc"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fluid Mechanics And Machinery",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1QNq_Lg7ycQCMwryVgp1mVgrocXYAfOXf"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ADh8Dt5vawwdt3TGLyYm7zfTYkr7J2lG"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fluid Power System And Automation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1zVZVXn0ZJtlQLKggvLiMNg7EnCryq0CJ"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Forensics and Incident Response",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1NV17Ctb7ZWUoZOckhBO8tUJ8V0WMjSD1"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1Q2Km-0Hnuiivs7q3CSteHddgLZPKXnCu"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "1KHO8CSxLQdINPv5hEF5Nd1lBur8J_htK"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "1NzjSb2YS6MWJXkCgE0OLflHpDrMN4uss"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "12f6GgzbNW9kpUfslA9mSddkJucRzzcII"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Fnwh-JsUSqB5Jxc_qM8Nd9H8fnb1-_Wk"
+        },
+        {
+          "name": "Unit 5.1",
+          "fileKey": "1FYNXKB7KWal9Eugw3T4SUM7WK3LkRnZx"
+        },
+        {
+          "name": "Unit 5.2",
+          "fileKey": "1hZTYtToYk8FWf4WRzD1QarL9-EXlZEv3"
+        },
+        {
+          "name": "Unit 5.3",
+          "fileKey": "1tYlP5wTTVnTFB4lvNBO-VuDIrHhLCSo9"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Formal Languages and Automata (FLA)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1RS90PHZzoASdqdUu87QqHCw9JpaBvN9j"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1cwNR6BgGN4IhdyaGjk1Zr-Bm-O0UyAtV"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1frMCoWdmNjUlZOihHD2Fnm9KxdBp2Ey9"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1ROSv5Rt61aD2gezzONpBaEGKfVht4OKh"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1Wn9SeJkKbazxqgQRphAmhFML1wrzGOwy"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Nov",
+          "fileKey": "1dJEFqSKj1NNGNlmxn1h1f1BLqoix6ddr"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1YagyEZ6QKSx5Z5ZAgPKeZbMkEGjNHjUW"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1DG0Gq_K5cC6chqMv7fx9x44tv-4uxZJz"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1vg0_Hwd7SLxS_XDxnigGBYfmdJKYq27G"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1-Lt1T7UhrKlnOK0AB24AWx9JjI73FrPY"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1HVUpY_Up0J_dTLKOA0OQr78qq3gE18SA"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "12iTiGj8aN6CBniAAwx06CBCPY_Vv_Gw0"
+        }
+      ]
+    },
+    {
+      "name": "Foundation Of Artificial Intelligence",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1JYTLgwjZA8FI5COufAV9W0T7qv1UMGNY"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1lATL7Ujgect3sKSbtbCmILBmf6YEAb0N"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Foundation Of Data Analysis",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1BF8zF1qLnX9DS_y_j49SnnyXmHHf4llY"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "18Uq-br8pdb1CI76yH47FFcATYDs-3y_8"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "French",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "11l2jFuuVWneMFA61IVZs1draIqo6_P5H"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1IXlOAGkkq3CLS1EIUUfbOcP7Y8ThVAxV"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1zGYsobz1VHV_jKkTGd6RsN1EkUz8_i38"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1DHLGezzHwx15Yh-ds7TRQNKef9zIpD6K"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "14lY1uSXrii1zyD_HiXFTranoonx-KLBU"
+        }
+      ]
+    },
+    {
+      "name": "Full Stack Web Development (FSWD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "JDBC",
+          "fileKey": "1RGoqrXM0LSKbH5kJrXqgVotWFLOf7CTk"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "142Cl1sORLQjgFoNb18SqQMnvLSIUR3Yp"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1MHki7WTUsPI3r0wJ40Pndo04sKqeI6Iq"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1SZocGuITpFYs-pMYjg_rXsD9jek3KSpW"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1CS5_3eqyuMwGlk38SKMPJqhj7K_YXq5H"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1tAUhODisIQ1sc4fbWbqjDJJYIAa5mF0J"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1n2GYbZvwjvpT_T5yDA7vpLYzahXsRFkG"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1N9z45tOG53hKuuj1OYkli8brarjAzIkr"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "19gD9bl9aE0PHUu2CiqbfY8ZnpNJhm3Z_"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "19VYGhI4jiRYhK7EJHA7nh6QVNcr_XBon"
+        }
+      ]
+    },
+    {
+      "name": "Fundamentals Of Blockchain",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1ALL2KiKx3FqL-qNIkcRNDu_BudRoVits"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1uuKP9ncgU9goBvD-G-3AMddnlMrG2c9V"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fundamentals Of Cloud Computing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1zTsDWaXwXvpS3I25IUl9JG9tiOAY9rmr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fundamentals Of Data Science",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1cTswoXd0oqoPnvhWtD4c5rrFiDRAGtev"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1b1xvstWmQaUZG5tz8W3o-G9A040PLz-3"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fundamentals Of Economics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "142J8A385GAbRgE7HjWcq9o8o08ctKxBd"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "13qEEvb2WjgykP5gnT2pFuj-2ag6qMztU"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1HY6aR031b4weVQpQ73sVWpQDgwdzhfqv"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Fundamentals Of Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1Gk3mle5cnYoywWF6ipeH49i-StvnqToH"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "13uUhxxLdKD83xauRm2UDSGeQgcRfBDyG"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1MrpbLc6HXWTo3muPUu5odR83SJVN7cuU"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Game Design, Prototyping And Development",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1y0Jmy0vXacm_Gac4LsCMJDVgitOY8sLH"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ViCDmzPB1iIlq0whxBL42-WCjU1KUlPp"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Genetic Algorithm And Its Applications",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1aYuZRN9p9NfIN-pFPL9fAfIOmF7ygkqG"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Genetics And Cytogenetics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1cMt-jQq43hFdld5EwdbVPDrwIXZHxwhl"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Genomics and Manipulation",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1d3WuBJWeEi5EmmiQGcv6ZTnzqA8ieMpH"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1n9Rk_E4Z92l_IF4zZowvINrPsYZDofYP"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1tFrxGEWGXI-McSHn0NcxxAGAgFW7t7f3"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1U6IT4tUBZogfYiExr6RARldBeSw4IVVY"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1ZOQMEr5bWt9khUDVBvkY8_BxkzDx0IrD"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Mb-vKFV4PnCUWUdhMEYYAqpSs55OUwC-"
+        },
+        {
+          "name": "Unit 5.1",
+          "fileKey": "11bZdTbGot9ieZzH47kE5JOB4Onuvb_jy"
+        },
+        {
+          "name": "Unit 5.2",
+          "fileKey": "1WTmHTGMphw_kcVxKPCUy41WNxTxBp4Iw"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Geomechanics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1q1sxi6DzP73MhtRQdO9vGf7aT9jsitII"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "German",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "1A4MBr6cyv0kVC0KhOYtepiExBw-rgjsU"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1pcKF0uFpMtuakjp8QOdBDhU7M4eja9Ph"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1yDP2quKzOTrZrT3KVSxNsjV8WKwLWRNz"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1IWdJjWtjBu1jR_Af1oPB4ykjlyE2g67f"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1LFMfXGkP5TAm6m2157_lwSo8my5BzmCM"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1FGWjCG4ttLna2POf0ZDE08QeHALa2UBB"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1b-AcQq-Tr1INVZ68H9_QR1mDq-nOHGjG"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1P9_VOS2bHHWf87aPlX3Y0RJyf73teJxo"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1egxEtgugDopOuKSdS_Ej1Jsr98OhScwO"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1j6ZuPa-A8dxv9wDxBLvNQGFRM0T9DCsa"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "14URY7kOOcb5XhaHZ3O3yipVQyvUxZOV1"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1ziCDZRHW4Bmgf9ajIRx8zNY4sT4Xg9V_"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1TmU6TRNnC7oNMDAcIJEovWsidKnkKlIf"
+        }
+      ]
+    },
+    {
+      "name": "Global Warming and Climate Change (GWCC)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1e8zptWAeCzPuFlpQm1lfdDGHZHH4btPc"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1tOveA88QxpLV2eU8D0AKos3t43WAF0Mp"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1J_rnHpF_leugI9NZRmMLpA8MYgga9jht"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "128r07AttWdyKP-97CxGtJupz3bEHQ5qK"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1Xx9-ZRvLnYb6WzzK_IHm2JPTOFpAXKRk"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1FKoxIMSYSFVor490BGBzKX_Mwm1uYMiu"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1p3AjVjVKhOZb5gRZqhX1WHJsWbqmhW4S"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "14ky7kSaKWms3Cw0YIRl-XqEL6Qp5rvVu"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "147NBLmnZZtMjXNa8VyNI0_CoUIkrVE9u"
+        }
+      ]
+    },
+    {
+      "name": "GPU Powered Computing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "13w_gOxWiekMdczhU064HG_dqrjt1V4_o"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Heat Transfer",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1YobqbWc-Qi5t-DrkeyfUtOPB3bpgawEr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Human Resource Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1KCKCHx57iMVoJdk9uc9qSOJDATV-hOHC"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Hydro Mechanics And Hydraulic Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1vlkfe0xHQsg121pghlTQnPQPxjGrenWI"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Image And Video Processing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "147eOFz2BeKcDXU5X-RcNcV4gMo1uf2Se"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Immunology",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "11sQkgmQesQi_Ct6m_kih-OUmVPQbEjPZ"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1PjxU_s-jBHGgGf7lDAkJT037umTExXXI"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1h4VPhH7khrPD_SK1MWY3854hxh3wkBtT"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1eUl4mkj4-UGC8c2L8UTuGiav2QxoTSLv"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1e_eFfZkpgVnN3mC01Aa4kXpwePEkHuUz"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Incompressible Aerodynamics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1QJ-zb6s2jN9KxqMxBubc3gwpJ29AA5XP"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Industrial Data Communication",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1gCHCFxBz1LKAcbk3Dw6d7caaNdtUItgO"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Industrial Electronics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1vUlCSwMPGxJjx243OJ5vZOQkqoB12sRx"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Industrial Waste Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Fsbd8-56XaUiseuv2eDTncHcSMGiBUT-"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1KM90Be5fhHhd7dLh8DPQMv70PKMw-FGG"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1dFWOE85XL3qhFdlp10Qyy6H8AH7tdAD8"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Vc_Kv4XFJt-BlmI9azIWwdqZVUdiOYmt"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1XLQ_77_BrcRaNxnJeY3oIHJbjm5TJSib"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Information Security (IS)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1M7Zs7zQLAVd6l63tnYaXhAPxNKXXDT-e"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1HXK8AApjZdNOcdCef1NFwC5S5pkv0qOU"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1I597L2Y6vtL8RGMjB18aSOFyAOujLaqf"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1_Yjy7e3LDWnOZJacSMxuPs9_55TADSnd"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1yxflLAS4CEVyv0rDLvoo3iAQA_NHgnXW"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1W7gXVE8oS-y27UI0vsYT-maQAsuRfUK6"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1_xteC7JyY0fGsqWWjCS9qwIRHaSzWoLz"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1jMIBkAoyp8H7op-TRX1sF_mG01G6Rbnn"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1G0EQofINwmG3pUfS7byn1A8k4BZL7iVy"
+        }
+      ]
+    },
+    {
+      "name": "Information Storage and Management (ISM)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1PsYOKoo3x-0OVFUWCvgCnK3vJNOfJUgl"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1gKWgGiVHas4yn9ddbtOgAjqnZbzUVqMx"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1GnIY7QL-m25Wx3ovjKh7Uc1jUZd_zFc7"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1s7gfkrGYJpCA1Zlv2fS4ur52pSmHIRFZ"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "12mCGSrnC9-mGvcdwGv19A9OJW4kDVOkc"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1VsYBarWfvgeDNsNaKAR3Pfgv92fUKdkn"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "13MroLELISJf4ZsLVWc7KvGCHKLq7XIUP"
+        }
+      ]
+    },
+    {
+      "name": "Integrated Circuit Design For Bioinstrumentation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1RlvexKq5ji4usdoN1NRvNTrO5DDn59Vf"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Integrated Waste Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1xIzmixKQ_iO8KFY_kozpOhqvaQrJUdVH"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1o8NZWnN3PKKBXjRqeAvdzgA-IcowqPdV"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1dUfMoBmYiP7Fm0zEThLtZj-rbInuW4bs"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1WaimTUQSyLkUs1S_fA0ge0NXOuTe15k4"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1Vegutig1Wu2WpAiSpiU_08w_m993U_Sj"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 July",
+          "fileKey": "1lHTQuOr5Uht-b4le70m8p_BzrLEKwkzb"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1Nxny5nttQCWK-kycAJ1Gj24dfe4quc1O"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "19QYs4ti690bCFHjFqEu_9TvW65uFPuY7"
+        }
+      ]
+    },
+    {
+      "name": "Internet of Things (IoT)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1JaxZUVxDPO6Gn55DRDCqafKCXePIaSJv"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1i4SoKD5YQiJ3Fc3K5brdfD2LGbGfj_Pc"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1MwbWL1LtKw9zGDNXfOyq2xeBh9E2BtcD"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1S117N5SiGeOh8KXFtpejrZjFuq_LHASG"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "12ETcla1Pqkv6R9aRXyBjzdTT5Rm6Ndsl"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 July",
+          "fileKey": "1cG4fAYUxUs3EMm8Nvmt3u9l9D8oJb2me"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1ok2CjLk3x2FZrCgHBBjWfXkwmKF30sCv"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1MtaaKXlN33n1yWcA6RZa9C7XIbL0_27y"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "18Lo0TANIhCYu0j8lCjJRObyDVZrnDJyD"
+        },
+        {
+          "name": "2025 Dec",
+          "fileKey": "1JSlKSVOSd6ZfrUsxuHDpuJHhRM-Xq1ty"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1-HVFJkQJoo5MxgTR0kYixoB3eUyqJh6P"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1Y42GJtD3MSb5HBwRyVVBCD9PbGs2I_fp"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1yt22UAdRHa2yyghZ6_6TpCnL_RjeFE7Y"
+        }
+      ]
+    },
+    {
+      "name": "Internet of Things Architecture and Protocols",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1PwsKY87vqP-eysgcXC_3AVIRGlHipAUy"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Introduction To Chemical Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1Qh82Wy_tasBhJXOn28MebDbFU9lhUhdr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Introduction To Cognitive Neuroscience",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1mKHZYi5mGs_sBpUGpLAPfyiQGK3tcMap"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Introduction to Computational Biology",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1zTbbqsadqDQHDq0c7cXdO5uRlvBoVEnq"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1FnrjxxsGDdXzkt0KCyt29GuSKf6vu1Vi"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1PQG4Tkapto6T5fpy2_cFC8X0p9oe5Bqf"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "11IyDcyD8xJsbPFF88z5f3iGQX4U73vCx"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1TQB8K-Vv9CqoA6LYXfh1EyLeBgIUs5Lo"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "13DMSZ0N0Q6INr2ruti9Epn2s3t8XOkDm"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1GlPYZWTexsu_-FWyOyCnb9jckC75mQa1"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1pcYX376q_S4hJYNeh0XSgaVAT_5HpgV0"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "12UCFAPTsnAQIubFFtQiWfBUEc_rVmR9X"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1fJoi2W4vx9LNr3DGB1kidWIJIxkrkZ0N"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1iIK_oXpI-M5WKGRo1x6Aigcq-DKVYZ_8"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "12zkzWFkfT07zzoqa1XcEjh1Ctpk5pQ59"
+        }
+      ]
+    },
+    {
+      "name": "Introduction to IoT",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1HCj6SLhIR-W9OpHhTpt8ReTjvjHzAaff"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1MLxpoul2ey4GbKQ0D-8T-CL7tq1X_rq3"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "10UBdaH_AxEZGJhP4ZVkPEdJNKzJUhIwS"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1NzVZNKRVZhlKB_ndAx-PpXOX0z4aiCE5"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 July",
+          "fileKey": "17yUIFswTIt6qnCk0wWa912k5OXsl5CQ3"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1fU0lwUXiV55jCtChm0o45YeUazEmbkId"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1b4HcRHp71oaalSFChpkxyfSUoTuKfPB2"
+        }
+      ]
+    },
+    {
+      "name": "Irrigation And Water Resources Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1oXyioORjeD89HrEkWEfzUxNWPfIeN0Pk"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Japanese",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "1HB_kwDJ6I5XP_icxQOYpRqIiMoxl5Y4p"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1qSLRHrA47-gODNM5nKhPD62FNG_NJALD"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1ug-CrwqNm13vVPCyh3l8ZipUR7HIPV4G"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1f0iMcIuSkddtP9lpSGi2WoFB2vqdhXdT"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "117TrkUUnZW8wS7bDDxjnF1M-jpJObzLx"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1QYrQnPjSC7v25fpyeR634ELFXin_au0r"
+        }
+      ]
+    },
+    {
+      "name": "Java Programming",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1iWocIWoCgIiagz0dNoyYU2t01HuivlMa"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Kinematics And Dynamics Of Machines",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1v9plle06HnmqNhUdzxK3_2hyH5fQLkdC"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1X4Dx7Q0pWqttbCcZIO3ePvOjbyLP_o3m"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Korean",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "11XxhCEukuqsqlnr9y5RRLI6Piphe9Y0u"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2022 Jan",
+          "fileKey": "1RvyEMqFYxVviKR80h1CNGlLsG-PVPKBi"
+        },
+        {
+          "name": "2023 Dec",
+          "fileKey": "1LnZsX89a80C58d9XGzo6sgTuzCF1cJiT"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1qaIKLUzqinb1WnU3AiZC3nQNYhn_54hB"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "19AStQtTqd1cWY3xW453XEGbBSI8dxpQM"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1oRqkm0Rq3_ZnDCFcXsvt1H3tGnM0ic7M"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1Sl2TVcR8mciaqM1-3FmGM2sTj-jPhZl6"
+        }
+      ]
+    },
+    {
+      "name": "Machine Diagnostics And Condition Monitoring",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "19y3rIG4pswuCazqWjOCQ1wAEstYw1_Mg"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Machine Learning (ML)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1wGBNVRNKfkN2w9uiGX2DWjWUBv9xAtBW"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1hsDM--1w9BVwu6Ul7Y9GrKcTtvuapDna"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1wvrCFO2IOrltAb_2NJbAAjmqjYAB7mXP"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Rn-y79Grvud_dQfyxDmK1Uj5XY2Qa4L-"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1jW_NzVyqanTQ_TL-8mFITXy4NmXfxhS-"
+        },
+        {
+          "name": "Video Lecture Links",
+          "fileKey": "1GmZkbLHQoNqoEjwwcrcQJnb9eHZ25iOI"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "10ztO3SNXY2sqqomdFF_gx7RofmpQWx0s"
+        }
+      ]
+    },
+    {
+      "name": "Machine Learning for Data Analytics",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "18b1M0MGF0BJ2jApqXC2Fv6s5FMYTiuKQ"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1Hn_NxuXQX1elxwHGJq7xliH2YH6ItP7C"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1pqyovTglECGjYXT4TdspSN0wJR9iyrfm"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1FsSN59PpFLZhkIBMDFxtkxENhT2Q4Moi"
+        }
+      ]
+    },
+    {
+      "name": "Malware Analysis",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1IC0lflvmM9RCi7N7zhIn4OTjkXVdvoEV"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1TYyPJlhkNMu_pEOmxiUCp-p3jgHpJk4N"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1zpSt32vRG7sy08IFm4_S52B4GN5h19KI"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1F3icO72TGdZa1GPaZcdDAwN_HrYpbzpB"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1MZG-FhqQdn2fY0jhOwS7trsmqmv_z7F8"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1pib2WZP1tuyYpvE_wj7TyXi_2rCBsIbI"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1g_iGbd7WexCiKTrQyLOoV058Ed3qcdSv"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1Okn7pkxM-UmyJdGnUBhH5FJL7AztgMge"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1I2rTm0vsRaKgZMmQ5-Wy_8fSwFhAEXyW"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1VK2F2lLe7mKK5rxESutsbXrSo09s9XpC"
+        }
+      ]
+    },
+    {
+      "name": "Manipulator Robotics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1q1afP0f86s7zyAanvTzBqA-GK17nUnv6"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1UgdcOueQS3Zaf5eVCQvy5XvJLDJAkkY6"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Market Research",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1nPRdlt5_JPyRAGIfTq_z7vTBQJSX2vrx"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1sAiqk03wmiX3haCACLFKRaoApd5V7osu"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Mastering Cloud Data Services and Analytics with AWS, Azure, and GCP",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1o8n5wkxM5ArU_WGBvN9A4-ilcQtdKsLk"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1uvwVWIv1I2Kjq7uTR8kzJyFCnCSVc9Fv"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1oZ-XO_b7SCznFZdiLNBvbZwk8mBumCuv"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1y6167nnyO3i2sWv9EVipX_QHtIYcw_ZM"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1IXTIemY_K_qpWaALpXI_Tc3YqJRROrRe"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1XWGr-HECIroIqnIPcbgGopE22OP-z0nE"
+        }
+      ]
+    },
+    {
+      "name": "Measurements And Instrumentation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1FZqQNOiKtceoQDQj9fYIOyNcYLJF7R9j"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Mechanical Operations",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1Qp9Z9qixy720MkFYROMRUlAhsXxIqbt9"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Mechanics Of Solids",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1M5ALEBjI0TsUy5_C4bC3EwEsCKypgVU5"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Mechanics Of Solids And Fluids",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1CH9IDieG7RKi_qibWyeNqmXSuGDtALoC"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1oEqVqjZ010CvNWHkBPrOD0rQJOypwlWD"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Mechanics Of Structures",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1jPyhBZlJZ2cDHR2fNkCkhW9b4Y6pT-J7"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Medical Physics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1b1hbhXytrLGBKtGJzB42Zl9Sa0vGAxZ4"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1uNN2aOE8ry8_sowvY8oOmROsqFG5sEb0"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Metabolic Disorders",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1vwboQG-iON2iVfoKVa7C3yC9BywJBw11"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1gURufvDyOqFxKqHntT1PzBHV9CSDEIIm"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1xmEhq5s6gtl_CgH786HpfhvBaON8aypg"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1uwJwL2UdDoy_3Ov6Ucpz5csEGJqEiAXx"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1BHpfIkH6udjDY3eI77qozwehu5buhGUw"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "15kAunvDr4XVGqQyhSPRb76n7nrtWyZZB"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1nXWNg7hjStoIxJrrWNI_Iid18AalLciT"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Micro, Nano Electromechanical Devices",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1oDgCulHQ9ujmKD7d1k9etx8B7e137NcU"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "14nHI6V_wIrke-iGLx9AEPvzvltxQINDT"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Microbiology",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1zlqistJ5GDJPNZJMYwkHJwTt8peUewwC"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1DwYNg96lC5liZODy1uPyeLgbualJbVlY"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1FVtSLXhlLtvEjA-uWbFles__sblueOi-"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "15Kbmxy5f9umkKvnliXMEhDAP22Y3VNZg"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1gkQcz3inmohuWQkIwrpfvi54dK_oV1c9"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1yhWF8Mdu5Yc_pnPadUXD1TIO9jZ-oJ9a"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1V6N18xZwNm5s_1YpVcK3JjbXWVF3jOYa"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "15xusfgAfraZpiPaCHk24yq5nu3lzQlGk"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1z12z96EjQVgqIlZcDNr_fdhmYTXpeqgc"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1hHCWWfqmhNaffivhYTE4kBBe6xVstQos"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1RAZS01qQRaqzoww1gfp2jauGGxnuXi1P"
+        }
+      ]
+    },
+    {
+      "name": "Microcontroller And Embedded Systems",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1LWcUZFITDulKk4kJUvvGDvrOhC5vxhyZ"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1IMsSflyAvJcpjFfIhn5I6Gh-1iFzpvEi"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Molecular Biology",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1uTnYYqscm708Xtcv4nywkDYZPu0cS3Wo"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1fw34yaexDQtxlENWNjU8XIAzLSAXmYJw"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Multivariate Techniques For Data Analytics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1-aJhpkxVPSt-eI6dq4-BbDyxUhPCg0N2"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Nanocomputing",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1AFnhY3W29Mdjlj-iXVHqbpyS6zIvXbjc"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1-xpLITj7z9Pjsy4Gd_g1S1AJBLG2outQ"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "13Qnhh2OnBBWsv6tCJiE46M4jUcGAhyU_"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1rC3beXncI85FBvYCbbjGjyraY75pNrUh"
+        }
+      ]
+    },
+    {
+      "name": "Nanoscience And Nanotechnology",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1_zEYW_e2JyBxlX5rpyKFkQqplqqyM6RF"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Natural Language Processing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1OCJZSKAvXonWVdgjVtOhI6zKKbBIXhfB"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1yHjfhLPrwjiorXxQKWtTwMITJfCjiQo6"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Nature Inspired Computing Techniques",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1KNrigVhgPqDNe64lSJOpGKB4UE5xKeTU"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Neural Networks And Machine Learning",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1gR-jfFOJZ5bX3W5yN-CJGUdPtByikr0o"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1PaYjdpsjOLj5gO_4H0Xq3dn0h4DRXnHs"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Numerical Methods",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1j92gSNX6xR3HdhgDmA6-zNqLrlirhfkB"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1K-_ZPGueZob3_AGktdxBsg_tpQ5wn5I_"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Numerical Methods and Analysis",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1WwhkY8gLsvXkoI7zWg89norqmqFHzB10"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1n4xjxr3APuUBfWjJt_mqLtoWIJdJwhKz"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1sb8rMZF8jtdnEDONZDZIGSiLGxvkWDLl"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1f7lwhnEcNN7W3DCk1_6HyWqlFtFMMn8v"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "17GjoQ0XMi_BUxLjwJkbpHigw0y0Nuor7"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 July",
+          "fileKey": "1hbDVo29fluo8m9ZFDucSe7g5FoXXmzx0"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1BCPvrT3la1IwUmaTGnu5e2rx9-XxVLH8"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1hAgNL2FdwzpOfXwYRhSB5pRrWUugFh78"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1gf4xblnd3E8cOIVRvx99TYQKsrHuqOJp"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "125g-W3woxW0VZKupr3ASmT-Mg8fDKX54"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "14HXJolhS-frFSC1AFLDmuo8TUujtxPdq"
+        }
+      ]
+    },
+    {
+      "name": "Object-Oriented Design and Programming (OODP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Pm0G0RcMCOc7WkABFnoIC-BDjw7YqL-W"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1hBR-Jw4w6QPCiLpaZcKhOxNhc9dsbARF"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1PWzG0Cp9dBIlaoNmL-LyLPIdYx892EZt"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1SXVDmNskWRp86WzTbw216K0uNKbW3cOW"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1hwajxVA5GpT5lie45gNipKetYtARbj5N"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2022 Dec",
+          "fileKey": "1ajkyrOywZq6PzEmOVH1zDXpnZBY62mce"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1Mm2Et9j752MlYVx6c9QF_XsusQFrMUd0"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1V2-yhP1Dco7rdjH6OpQgWStgppZS4p1z"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1gClyMDNPt8EJutYxWm8ehLFY-iuVY5nG"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1xt_idZONlcKOHVMGIBMxRH_9rkb0Mt0a"
+        }
+      ]
+    },
+    {
+      "name": "Operating Systems (OS)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1iMfHNEzwWKP3dMbQDOspIp9YABWzyZn1"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1kI9TbL8ypnbjRHIudJ0Mpv6kdIrljQ9l"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1uL5MbRcbCm1u3zfFSzf3qw_ZR38CISUf"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1-4zDaM4GpgPu3CgvafHvwRULgdYb15N2"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1FiYKBHewBRnajdt_hh3asHCvgjk-Yf26"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 June",
+          "fileKey": "1jIm8jMATGaU49EN5tLuOdYHJqTI2_B9T"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1OjTAjNYHdPsISBcJCyFvD_HkOjz9mhr1"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "16NoiqmUTxw5bmg5jTFP3WAnLNr1cl-3O"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "15ie8_j6TcAizrZUVV7Z_8ATjCC2hu11g"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1Ukcwzn16IggNoxW_WiQ1tbIFXU5TtiOR"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1nXrFR9JdN246MrZ0teTK1WJlShuxhHo5"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1JVHlkPCnz1OLizaMHhtu8QQYncAbAQDx"
+        }
+      ]
+    },
+    {
+      "name": "PCB Manufacturing and Design",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1WBLSs1UlaT5_fUzfv5v9QO_n13sw-0nK"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1d6am5S6ip3QvMQgD3HAabkNzpss-BeaN"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1unecvg9ysLp9NHI2bYAhNNfG2WRJsn64"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1QkbLhQTKvROzvaWUNB_cZ4vJZWlNHB8b"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1_g-Nboz_6lgwgRfu6JhnXHrB_SLfgjje"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1FcHMOkd-0gv8BSI920KoFQGEcN8RzZxW"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1TZIngG22qn3-zIkSlHfcLhYAUQZ1tPR1"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1D5L5vho8y-IBU8ogKZBQ0oT_6aNsDsIu"
+        },
+        {
+          "name": "2025 Sept",
+          "fileKey": "1_4v1Tohyz0Q6ZlfJHR_c-IgyadiZ82r_"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Penetration Testing And Vulnerability",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "12mk_HwdiXZevvbhkgsD9YdatCmFaBFG2"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1SuAC3xlCPTK0xcBij7_5EmqtMcQFW3Zo"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Pharmaceutical Biotechnology",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1XvjyQE786M1Rd9yFXmouKomZn7u-dDaP"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Philosophy of Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1uS98-nyETFca0Uk2agoBGTVScWYFPvUF"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1BmrEDTAW2qShYHlVaJRytNSkENZ4Bjam"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "12w_LLPZxjJQS5vFqfFH11agmMhH-DT62"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "19F_pKy9GSkPacf0kd3IHljrOzqBL0GU8"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1dieCsv7kNE5HVcQfTYWQNKKQZaaGo8NI"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "11FQSiSejs6dULExEgtAUc5-26ahScS7c"
+        },
+        {
+          "name": "2023 Jan",
+          "fileKey": "1F3TbKcfwcD0eVqHmuvXERY5y8yhhhgAf"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1cjBLbpbleiNS_PiEdFz5nTNauBqORKF7"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "13Xe6gA-okWrXHSSiv_KTexDztA_7LevB"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "1VoTZOlHVAjv_KNfHiUHxQI_Zg2Z_CgI8"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "13N7LK3-QuUwToKba_PwiSGGhCE1ZLZo6"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "19E0hIHOIukNrBb2emAUSFprq17wdywON"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1XHjxQrNnuLQhXJk3-SYvveIFqeZ-cNGS"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1JRv8O227Hxdp3i_emC80bnGSDJhk8oXK"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1iS0YYlJQGJ5Y4t8hjOZBzACORtlo9wgt"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1nV5N9_JDh4LsTGX4gmrQ4WZbtfAD3lrB"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "16LyJpuTunU07RaYI7XdQx8a--sJpDaI0"
+        }
+      ]
+    },
+    {
+      "name": "Physical and Analytical Chemistry",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1PDqHpoTrSFVNDvuWm_ewImBg0wRgsHvM"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1f70g0NfYk7aBUJ-buE9BCkrJJ0Q27WIt"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "10MgF1eulNRkJCEr1i_rXaTIkvh_u3gFW"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1_kNthx77a3xW0ecAhJ-ueHGxs-ingS7H"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1FKmrSs1Dm_7dhjlDsm_hbc2Oz9wYb7Ih"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 May",
+          "fileKey": "1UhUuh-TdFOvJcRcGtmzFxH1zR3Mv1OU4"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "173AKXH0GWDrDzDnXEF-_-6-clxLESUvW"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1k4EcebRo-6xxlNRAaAPkPmPP3PYmYI59"
+        }
+      ]
+    },
+    {
+      "name": "Physics Electromagnetic Theory, Quantum Mechanics, Waves and Optics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1RBpimA8Ame0gInrVzNFnnSpS76FK0mS5"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1DBKumbACSqceC_kbiTuNxSOOM2mmUBCh"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "14WSqERuNicCtEHmi2ARfb8-7Z0t3j3eU"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Physics Mechanics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1kXVAMwIm8GK0CeSNC6k1JA2K9-X9usTc"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1KxVSQQfP_mKjmgqG4Sczqkz6vVNr0kWJ"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1HvKuWez6QG5PpVEc_GgyFKSQG5F4nyqo"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Plant Hormones And Signaling",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1-C3IP4qcRyF7gu1wHd65QmGvzp1GTIjw"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Plc And Hmi Programming",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1kbiCA4MmPKYdClCmsxVeug3rt82WGol6"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Power Electronics (PE)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1L65PygPwyrfD_e0Krugocv5DrgaTkySN"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "157SCth6D0sRW_JaY5_iVMQrAJi4TogN2"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1gO9bjRMFb85Ms9qIL6txei3MboRD2Vp5"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "10VfrRQHIMiO3jhbteBSsSkoxffIgsl36"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1ejzWy2reJpr3PUS5PPgQae_z-g80iyke"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1TyFAm9qnrNb9IWMAFabjF4bJdZNiA1Gy"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1kbv6nzoyribTwXtFYpUIWqPm6QnAXNDa"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1QFBhV5qE0ftyMnuJGgiA0B5v-Pzx2ZwS"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Principles Of Cloud Computing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1No1L2nNob7smP-Myt32q6Z3qELtyN694"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Principles of Sustainable Development",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1Bn-aSs-cGxYp6--tJQwCcLXYKWbgLI3C"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1Q8JMLGjeRq_vecxigK77ASr0pkePJUQR"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1Y4oqdO9DZT91XXdX290fi_jKKwTyebCE"
+        }
+      ]
+    },
+    {
+      "name": "Probability And Applied Statistics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1uvxceHkO361Cq0TCIyYbme_Hb1fnRpmt"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Probability and Queueing Theory (PQT)",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1zouadOwtAex_HWKfu94H4zqSETNgALIZ"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1T7kCJgHuK7o8z0Fgs78nYrkqqWBNegMZ"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1VEiBBSz0J4t6kH97rA7nbJPPZa8zjg00"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1Cqn2V6TCucO3Q7ZVDIuTTMT6T7TU63tK"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1ArvJmoih5bECofgkOLBejHeiUU1hNxbO"
+        },
+        {
+          "name": "2025 Dec",
+          "fileKey": "1nm2OTKmtxOxo_eKWdMCWuZw2j-oue37m"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1iLRGWt9iey2K4PtAKL6Qj9_J1yvjA_9Y"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1oIymJz0OSYTwyN1FWA8QExy5aTh9kGHw"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1xLIfjk_SRzm-LBqyjfP9wPBin3OkcMhX"
+        }
+      ]
+    },
+    {
+      "name": "Probability and Statistics (P&S)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1dEu4Lux4S4w8eOIkTD9tWxFNxt8hVfxJ"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1X4wr35kRQaNDrUHTNEZNSPbzMBqonOhL"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "10MlLfIUYCuQ8pGSgFOE_ywkwG4Q094at"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1FH6M2ciesM32X7pEJnz_RVHo8l-UyzkP"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1MsuHOJMBeQHao6nbuS2TAmmAYYDqcdhA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1L97HIeUFa99MMlLNwLdxS1GDCRh4y0lu"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Dec",
+          "fileKey": "1vhGf3yXrXiA0es2eEcA8Dhwq3Vnp4M5M"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1PzrH2s41hNz-8QnvxB1t1EBdv0FT0B6l"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1eEMW52S34A6bUsMOvcaq4SnghJplJWOv"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1Pl6vMShBDYvEJgyb4nlAgczWQnIXi5p2"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1DJIzrohaXpzyHbJYdXoHrNOVM_1JOC8w"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Probability And Stochastic Processes",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "16fFuE-mGlzMJkwKxEzAVigaBmjdqnoJr"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1dvC34sx_KuD4ZtoYGlvCdSZSzDTDeFh9"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Process Planning And Cost Estimation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "11USkHm4zj9Cyk6wLPqAmSxhiQ35YLweB"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Programming For Machine Learning",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1slsduNUdz6y4ozAZfilsrdjA5sYoy4lS"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Programming for Problem Solving (PPS)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "ELAB",
+          "fileKey": "1UqNjYaiso15DQ5JIUMvaY140lePcuXkN"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1iDXjg-PXf_U83I0XUOqyOqtXoraVH2fB"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1wMxGYuCKDsXOyQWbXmgF5JMtZwazyKGQ"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1uEYihd2l-QQ4RyCkGVZamq4IeTonJA2O"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "12gAlbcMIqNrsS1CTDj2MiPfBA6hujZH2"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "14Wce1FvvMNPGCKMl4Y5tGl5STSeM6AqN"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1fgsThDe8RCYvNu-2LW-icXYfFfjhC2dV"
+        },
+        {
+          "name": "2023 July",
+          "fileKey": "1FbfGKgyg2vkuhzjVSidAj1gniNwJNDXe"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "12z8YybciwiLsQ44mI8GZ35367QKc6I7l"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1_SvJIf7VrfLGN9Rzug4_cHg_N6wxq4yP"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1tZfg7oSUxD-1mf5_UZ-FtMJfcuZ7PUTa"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1-lv-QZ-1eWJ3OqxP3sOl1eNy82yrznwd"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1rDz1nzXP-TDjnkMQSD0wfAdJsiugjjRk"
+        }
+      ]
+    },
+    {
+      "name": "Programming In Java",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1pHxrvWeObE7KMvKx-j0CuHneLYl3bEZ0"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Project Management (PM)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1v0Y65yxbVvCYn_JtcXnhgTTMpOxqS1gS"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1D4DiDkjgm-0bopjFiOKoQcXrGsLF1j17"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1_DoqP7_4AGUhxT-aC0IZqhtzLhyc4sW-"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1gseD5X8lNroyEPeKqDm7s1JfYodV0DJt"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Project Management And Industrial Practices",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1ayG7JPrfanY4f5XRvVy6lXNxU2JBeudO"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Protein Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1NiQS5Q4WUvaekHBB6CSdNiSpcd5Mu7Vp"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1iSPnGNnK8SMOCnfIBAzcPtv2jcdGj-Xa"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1q17GX5ivx2ISFjX4eopiuZH65oUuJfrw"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1sMmd_KEDMVB7av18RLCZoezl0RLaw-HA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1zinzLXopn_8oJXpFnd_xNsOkjjjTvXov"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Python And Scientific Python",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1n3fqeVDkxCnEe3pklEkjDimjWLFzBYmH"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Python For Data Sciences",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1dB90D2RhHxqCIk6cokpfJOf6r1iLeaj2"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Python Programming For Data Analytics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "19gO1QmATdm2rzzp-ciU-kMUEBsj_AMLh"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Quantum Computation",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1kOEZkb6vFexpK3rWgNf6CghasmOSKZII"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Reinforcement Learning Techniques",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1hXmTapoJgn0mg8s3zkuJQVxVAm9d1ExM"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Reliability And Safety Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "116kVkFOwU_FVtkOgJEs3FE66A8H-yMru"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Remote Sensing and GIS Applications in Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "1yL4eBxbY67tpIrdljmEvo_GWFqbgZLJy"
+        },
+        {
+          "name": "Unit 1",
+          "fileKey": "1VBLBJYREK7JeteaUy8JdFwf5ajz89Ijb"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1NQZc-FwCvqluypLf3-3P5ajq1iqK0XCj"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "13j6_2z2Sv2NN3NimvU7FqGoigaoi4tCk"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1LSKwnTX_-gl9QXLpRbK54hkAd5pi08Aj"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1_pX5aRL5aH66MtX9IqY4AqyF3xo9zTVr"
+        }
+      ]
+    },
+    {
+      "name": "Renewable Energy",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1wvWXCdXLmZcsWfLpHxsbZ1dGpapl72M3"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Renewable Energy Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1P14J70jQ-ruBiuB7tpAdKRXEEDeLn5Mx"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Renewable Energy Sources and Applications",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1qaBlYfiLQRpFTUZbOB5LY97gBraf8QiP"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1OBvZ2kFtPtz4N9nkmCscUYLV5FsxApdP"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1tl_xAKCjEcgof_5Tr9_LqowwwxMABzUq"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Aq7ozv_WEgKiXpZW7BBjFmM3242XD3Bp"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1gX1DHedVPSgEK4puZn1i4EvqJ6tIGcd1"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 May",
+          "fileKey": "1UrnuVejK4veB_Gc9ZHz4Hcbwm0pKARMJ"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1vubWlWNiPLMUs6uPjYjTnK-L7Fy_iMC0"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "SD-WAN Networking Solutions",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1qW0r-zdtvwADtzZPtNdxeYrwceMU39xk"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1BV3LXs5bnlC23Gh0BieQ03WXRgyllfhe"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1hGvqJT_AGOozGqRv2pq4DRclzbPOhZF2"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1KCT8X1BVTTwojetrtGxdPoBTcqYnm5Gf"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1mEfhCqoyJntMd4UiVAwfKll1NgtcWCdP"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "19ayNNe1c3tW_FwbbO1WIr_afsbsHn3GW"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Security Governance, Risk and Compliance (GRC)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "14DhMipI7edHBj_-s4EDmPBSd6v8GKs3Z"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1K7VnzwzyMOhUfkbvFcxamhfBrBncbysq"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1zhGmHVml3xWUjMUc3P1SvJknfZGkgTtK"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1im8fPFOu_N3s2AoJ6vf90FJut2APBvZg"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "10Cm8smHMxGESJpqr-GHUFPqcyi2SOHST"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 June",
+          "fileKey": "1Zb6ZjAxnA4N5P71ErpCoCTgrYkY5KRXT"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1T3ZRdhmdqlttNgx-0JPnlctu7ye3rKjs"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1xkUu-Usqmcrd4BgwuI_K-AdqbbvC8X6g"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "14aEf4D5BvNJEyjDVfldefSUpojcyfPcj"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1QstJkhLJ5qrhorLGp5GzsOeIoJya4qTM"
+        },
+        {
+          "name": "2025 Jan",
+          "fileKey": "1ah8ETGD3So7smmAJpfBgJRinua5rcLp4"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1j_7cITXPE9S7t5MKTWZdw1k1ZyOELnGY"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1YA4S8XRPt51qttijZCUnUK-Z4rd1-RIk"
+        }
+      ]
+    },
+    {
+      "name": "Security Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1uXl24THqWuW3ksbch4IKi7rvzNnTs-_P"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1a5waC6k1nFq8d0epXUTpoiKM5feNo0m9"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1obiJudgAi_OglNx-xvMsbCkwj77YuAl2"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1wyLw7tZYIhh1HmjTDLY6zlPGY2mePvaA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1pdPEbSDoKWYaEAanOb-X4awMIBvG6eL_"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1gB6VjT7CUKMgb6__4CE4CE9f_3f3cXSY"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1jKoCZ3-A_6_WJLZ7lhjW-KxyD2nnt0Nm"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1xyuHo2Z0n1AcHSdVAsGjiNVJFGyR2Svq"
+        }
+      ]
+    },
+    {
+      "name": "Security Risk Management and Principles (SRMP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1ijDJUaNQNZhC3vv-WLekNYpZ43EtF-rJ"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1Wn-MInNcMkKByu5dYs60RWqBDr3JDjo3"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1OYZJ89hh2qoaOssWcdWpOv2ksV06FdKV"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "17yj384h1zjcQJQ_x8WXjYFJBZSxXcudA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "19ahLY9i7PFGMRGFc60qPHyU0umPmKK2y"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Jan",
+          "fileKey": "1fKg0LdRXUNNm5KERWsIJuCt99hf8AVYK"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1VbkxncDroa7iIs63XJJLAAflTKtRmOWN"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1sIaKe9HAj3iZDKGCkJUHPdlCpeooMddH"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1Fi2Xiqx-nQAXKJvWeI-xEgYz9lLpajTX"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1T-vGRi83NE1FKEE2VZTKhBN2TzmIFrEP"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1wC6vFnItxqDsACd3v5cMpRyP31j-wA5z"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1BmxnPPC0cegA2ymV9M4am2tIkY6a2nBO"
+        }
+      ]
+    },
+    {
+      "name": "Semiconductor Physics and Computational Methods",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1rvUtYSUkR3H1NnPEOjTgYA0iVdTfEO3L"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1HXKFJTyPxC01ypliWhP2nsqjzQdIqoYC"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1kePTQr9slc_8NTwFneRvkXfATljtptdr"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1mFq0yKr4w5RLxygHkMTA20SLTzQpcTIm"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1rSETl04PsLRM-Pw42THWrJgBi3eSNSRq"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "1Ws5NYfLyMnnfM_4CfYDxm360sBpB0fRR"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1ZGcShR2zsA-lPbnYICn_ZGsbtG9QisQ5"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1EkFcTsZ37R9t1502hbYa9wHRk9fmK8FF"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1IEiUB3q0tJlemU_13fmx0yiMHyknpuoH"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1PvXtFwcRI_WNRTKDM33TfewOPaaApn7H"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1GP6ycu_m-vV1QuyIVLZU2RSxiqNAGImf"
+        }
+      ]
+    },
+    {
+      "name": "Sensors And Actuators",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1mPINrFS2mw0DArgcEje6huaGfvMIpaP_"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Sensors and Actuators for Cyber Physical System",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1jmE5Hjtblf9tNF8uRTDOOsBXfTeih4eF"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Sensors and Instruments",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1HrXmoyvTn1ajXeRXTeHgwQm9s1GeKY2L"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1sjsbnhvcyDnMraFLJcp9H7n_HEHqitWh"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1Va8x_4Up1ugD7KvpHnofvLMwVDp3lkGo"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1IaBpMgZnqzEGbrjOwZB6sbT-NhrLuqOG"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1u7r2DS8qvcs9Yg_AwMh8MHWzlL7vPrpV"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "14PW7Fs52a3NJ6La3dDQ6jCG556bi9Rzu"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Short Range Wireless Communication",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "135anEeu1mdow93cR78PwxspqvahSkhvz"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1fw62rOSjGwLOOXkcAHUV9XNFt88jj3VO"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1vsc9g3PMtNWLgi0TPWw2fuvVCIJ23qOD"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1cjjKmv09ESLRQ0_7SJgLBdMALSfOeKsx"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1cUEBgsWKx0g_MxHD28WVtm4nU2RcQmW3"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 May",
+          "fileKey": "1Gk1clFzcOYY4wIOGx3kQjCaQxi4_TCsM"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1fSfaPc4fghneveWYqdNoqGUgK7DwxSAH"
+        }
+      ]
+    },
+    {
+      "name": "Signal Processing",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1suVyx_XIwbynaFR_UZLSae-kvNBTG-vC"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Smart Cities",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1gt_FvvohCkRHEhMcQosGrJiJVEkzdNBS"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "128lNUjbTQBi4TgAdb9mZFdQMNIk0hlMZ"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "1TUDHOxV0nAfYAJLMCbjiZ8_uNpaBqqGL"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "1ErU1ja_oHaIOK5bTns8ks3j74L0VcUe9"
+        },
+        {
+          "name": "Unit 2.3",
+          "fileKey": "1cKRi7c9E3Wx3yzbbk_MiAsOWndJhTk76"
+        },
+        {
+          "name": "Unit 2.4",
+          "fileKey": "1n6MkIgmRhHfFt4iq6TyYt1hmzFIhQZsu"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1PADI9IcoXwU7ddz_ohb5QyJJqYesoDlM"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "12zZ9-Lkl_SZGeMeZFQHw-hQckgl7SSY6"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1zoFsBFEWx5yL1VHaNU7kI7EvQfTpMxWO"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2025 Nov",
+          "fileKey": "1pWIrX_vmaEFuaQl73wBQPmGfy43_OVxQ"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1iw3PSG2ah2amqwwzlMuC-IAOviHA5VPE"
+        }
+      ]
+    },
+    {
+      "name": "Smart Sensors And Devices For Agriculture",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1ktSkYcGEqRGEaahOMvPBOCy34Kw_cq2h"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Social Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Combined Units",
+          "fileKey": "1n2hIg1paYbT3Mbj1oHgq3hLcs3DtOZfs"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1dx_s4fdlxnQfx1QaGXOsGirrxSS27EtL"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1QdYneceqLRs9NNOsQCLCbyTioLeVkU_4"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1q09fpmfvyYWM5yiV6DF_vojYuXdnBiPG"
+        }
+      ]
+    },
+    {
+      "name": "Software Engineering and Project Management (SEPM)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1zeyYtIfODaJI6MYbhl-t-0uedElweCxC"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1epIR1eTkPhUUZR_HPaJ2sPHII6Ac4FpS"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1hKaXGJbvX42Bc684k4DeeJlXEeNOeBna"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1Jkm0usTQ_MjPghhJl1bZz1yXNqhvrnDj"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1Ct7rWGmciC6fGGlOhBRamPuq1EQZXUfp"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Dec",
+          "fileKey": "1BGy99i0K3i7aimXk2S8KuaXnqta4HF4G"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1YEG4nPotS2iHaHNXU5dCi8SIMaWzqkf_"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1ALPVaIcmhga-dAk6SMF6o5rEHbq2JlbU"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "14-lMclgrzL0nRubBEVNlr2HPOP9J2Zas"
+        },
+        {
+          "name": "2025 May",
+          "fileKey": "1-lczoYX4n2nXO4CcieZywyCwuJN8_NVO"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1MoXphya5wX0CZ84CPFDTno2a8AJhCLQY"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1hxenDKJw0Xf3d5J2U1L0HtnAYgblycxV"
+        }
+      ]
+    },
+    {
+      "name": "Software Process",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1fV9QrFAZRQeIo_uDnzrCVB-9bZNgQk6i"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Software Quality Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1Y-5F_pHDLAnPxuuu9Wx4-GRfQ667dBaj"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Solid State Devices (SSD)",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 Dec",
+          "fileKey": "1IhByonPYW6fOxqBeqxcq_0lz4L2cnOGR"
+        },
+        {
+          "name": "2024 Jan",
+          "fileKey": "1S2d7S8J8LUcpiRcd8lWu8_G86zv8n31e"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1waBoTDirKZ4rCE05QMd0IEn4qc8MXy2r"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1_Wke7Ww4t-PKLYnHaU31OouYt-qkNGAQ"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1T99e2lTyphi6fWjG6s2XRPd5e32qdAT8"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1suDhY89Pq7uvntv-JJMA89nCPCOYDaqb"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Solid State Engineering",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1dEHgMRFayfaiUxbKjdgHa-5zhX8B3YS1"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Spanish",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Textbook",
+          "fileKey": "1pAGd453pSm0_vNlPpRQiMmbeusFtudxG"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 Jan",
+          "fileKey": "12zaR-IjIbsV2nD4h6hYtb1rLQYfK6MHB"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1IldmgmnomZY6VVr53F7N4pS0NYv_uDBk"
+        },
+        {
+          "name": "2024 Dec",
+          "fileKey": "1BHFSA0RE4ZiutD9lcptKppPUUQ3ToVjf"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1U-xJgtYIAIOyzI5UPUMos2l1P9jZQ-80"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "12XEHXyF-c3pO4IY0ZGed7YBfdyHb9NnO"
+        }
+      ]
+    },
+    {
+      "name": "Statistical Data Analytics and Integration",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1lSB5yKUp6xwrInMKF_J9Z9auawa1_NAB"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Statistical Modeling",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1FQZOOjvuNo18mcIOVAlOxhuIXNuCIBEV"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Statistics For Data Science",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1i_nAp_yOD3ChXcPwo_Ox1JJkpne0sOIE"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1KdHHTP9c4OjT8GTepdv3jNMy77gUWIwu"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Statistics For Machine Learning",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1PIy8tY9eCWBhOEJ2lid04mMI4yaoG5PA"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1WObSioDe69xD1EDw1ri2wdntjiBhcWjr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Streaming Analytics",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "12mnnqpPazdwGnTcy4LLYoJMXd5ydN1_X"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Stress Management",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1e13Ha5fCIlVtO7ePtnuoCPdmDorGYqiv"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1bd3LO3kKEsJiX-C_ZqIbfS9E8kwgy8K3"
+        },
+        {
+          "name": "Unit 1||5 Notes",
+          "fileKey": "1qt2HT_md2zm1zZZKTbVJB01Gq40m6RsY"
+        },
+        {
+          "name": "Unit 2.1",
+          "fileKey": "1g1IGarifZM-HqPdRhUaNHrWeHMZwWMHO"
+        },
+        {
+          "name": "Unit 2.2",
+          "fileKey": "1Yjjaw52SHmXB2cwXbQMsRy6ZJDWnQnQ5"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1bJqyYp4EagY65hfDsEQzmlFMrF1geve0"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1cAjzl7eZqaCKMj4lj-6roM_sNO_d62KG"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": []
+    },
+    {
+      "name": "Structural Engineering Design-I",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 May",
+          "fileKey": "1aCsFrIdmbrxUvhS3DlbOif0-Xe10oR--"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Systems Programming",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1DnhDE5widFq3REgDv3l7tCaDvhzUtKVA"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1vrb8F02Qb7bMApFGbIMpA-UjdK90R4Mr"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Thermodynamics And Heat Transfer",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1SbJbDfTCNnFudK4NDTYyjAu-HC-odAs1"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Transforms and Boundary Value Problems (TBVP)",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1crC1kCO9LF9VpfO8HDLOtwnSZX6hM749"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1uBQMuEnWl4s1fEuDGc7cqkKkalu-uH3s"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1MuGnh2EB5IRKf3mDQCAEX5yP7vUnMA53"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1YJTeW2T_ZxRLw2C-sVxnjmkz7pH5tvTA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1nOwmp8iiyC4ExpAGDYqqE6QnVYs5OHPz"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2023 June",
+          "fileKey": "1fGrx0MWzyb3_YN05ers7zJ67C6MGl2S9"
+        },
+        {
+          "name": "2023 May",
+          "fileKey": "1UUKGY9gEDkGOEHOUgIyZ0hegfgdb-1tc"
+        },
+        {
+          "name": "2023 Nov",
+          "fileKey": "1K49PH65zAA7mc2aq-9aZ5lYUiAKTf74C"
+        },
+        {
+          "name": "2024 July",
+          "fileKey": "1xzhleTW_qE9VKXtzt_hsqS8gz4s8M4XZ"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1x_3w8VT5zes6PsdmjM93xDmuBvqxhwFB"
+        },
+        {
+          "name": "2024 Nov",
+          "fileKey": "1O6JJ1hEhjNYUYXYjPZh-qK5Kjprb2TCh"
+        },
+        {
+          "name": "2025 July",
+          "fileKey": "1L_IRaDurivUZj4PoVduSzDZ4bL2lCW2t"
+        }
+      ],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1E7ELv-xf0-V3hdQGSsiUhIYI3ZSbCNwU"
+        }
+      ]
+    },
+    {
+      "name": "Transforms and Computational Techniques",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2024 July",
+          "fileKey": "1ewZfm4Hn-wVmp8rD1noXC1DDhnqox-C8"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Waste to Wealth to Wheels",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1",
+          "fileKey": "1jjV3ZTS2leqhMTaduoPKJZB-BFOvfKeS"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1YpShpaIHCVIewoxOT4uWIjN6eML3F-Do"
+        },
+        {
+          "name": "Unit 3",
+          "fileKey": "1613WK6nlh9Nkr8ACV8xHs1n5YFKPE-rH"
+        },
+        {
+          "name": "Unit 4",
+          "fileKey": "1lDLmDgRw-5ZcPzcyQqzu0iuZTE6tRbYA"
+        },
+        {
+          "name": "Unit 5",
+          "fileKey": "1NZKceVQoiREf-0_zE5EuWLLU2diARLae"
+        }
+      ],
+      "pyqs": [],
+      "syllabus": [
+        {
+          "name": "Syllabus",
+          "fileKey": "1loyJS2s3vrT31RXkRrYM64n_EBIH2L1e"
+        }
+      ]
+    },
+    {
+      "name": "Water Pollution",
+      "semester": "",
+      "year": 1,
+      "ppts": [],
+      "pyqs": [
+        {
+          "name": "2022 May",
+          "fileKey": "1zeh2m1Qoqsa1ol3CkwfFg9I_e72goFPr"
+        },
+        {
+          "name": "2022 Nov",
+          "fileKey": "1p6oWqHm3kYCVRbfr5crdmH5YTMYZ0g57"
+        },
+        {
+          "name": "2023 June",
+          "fileKey": "1iJNXkDPE335jlnI958SMKvous67Tit21"
+        },
+        {
+          "name": "2024 May",
+          "fileKey": "1SLXF5kQOHk54CivKaMdcGndZ-JgxC6R7"
+        }
+      ],
+      "syllabus": []
+    },
+    {
+      "name": "Wireless Networks",
+      "semester": "",
+      "year": 1,
+      "ppts": [
+        {
+          "name": "Unit 1.1",
+          "fileKey": "1yxIxhMQ-UAfLTx17ce83ersakJYpynxP"
+        },
+        {
+          "name": "Unit 1.2",
+          "fileKey": "1Y-IIJ5ompC_CVacwMd50Jzkd6rubEUoR"
+        },
+        {
+          "name": "Unit 1||Numericals",
+          "fileKey": "1zlVtP8O7hUeBt5gGnWmbRuoP40VZ2kWI"
+        },
+        {
+          "name": "Unit 2",
+          "fileKey": "1IIbGiSdaiYPpb2FwyMDf5MnN8u8k8_MT"
+        },
+        {
+          "name": "Unit 3.1",
+          "fileKey": "1qb7NmK_cf5K1OxORfR5kvaZWgK9fgMJw"
+        },
+        {
+          "name": "Unit 3.2",
+          "fileKey": "1UrXRuKxiEUV6EOMUQw5jZVWtS2nqXt9Y"
+        },
+        {
+          "name": "Unit 4||5",
+          "fileKey": "1FqtpgMVQTVzEIUddCALIdqDf-Y6G_zh3"
+        }
+      ],
+      "pyqs": [
+        {
+          "name": "2024 Nov",
+          "fileKey": "1bIPDj-gH0STYZwzst8CpawEuMQ1HUeVE"
+        },
+        {
+          "name": "2025 Nov",
+          "fileKey": "1iJEGILVmsBDqoUCcYWXjL0DVyp5DNTqa"
+        }
+      ],
+      "syllabus": []
+    }
+  ]
+}

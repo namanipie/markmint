@@ -1,0 +1,1259 @@
+{
+  "sources_crawled": [
+    "Studique",
+    "TheHelpers"
+  ],
+  "pages_visited": 0,
+  "resources_discovered": 845,
+  "files_discovered": 845,
+  "folders_discovered": 413,
+  "pdfs_downloaded": 572,
+  "pdfs_failed": 47,
+  "pdfs_invalid": 129,
+  "duplicates": 97,
+  "pyqs": 310,
+  "study_materials": 294,
+  "unknown_classifications": 35,
+  "matched": 68,
+  "ambiguous": 0,
+  "unmatched": 430,
+  "catalog_only": 171,
+  "ingested": 0,
+  "failed_ingestion": 0,
+  "actions_required": [],
+  "failures": [
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1IR6Jk4-t-eYSJB-EX2uvBbyFTxc1oK0F",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1IhGYn-Hq50hu5Fcmwr23jgf5PL-T9tB8",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\x89PNG\\r\\n\\x1a\\n\\x00\\x00\\x00\\rIHDR')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1tSuXu0GNZTmLvGPOZpJAaMlhKNfMkRd8",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1tSuXu0GNZTmLvGPOZpJAaMlhKNfMkRd8&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1A0pGPpjlHkZGICKYAHNt6GmB7CXAlF_0",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1A0pGPpjlHkZGICKYAHNt6GmB7CXAlF_0&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1sZ5yEypoHbDo_55Xdsvp1VT3EV5dB__l",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1sZ5yEypoHbDo_55Xdsvp1VT3EV5dB__l&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=10HqLNoF_ZHRv4nHdBM0fqSOz2WY0ooFA",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=10HqLNoF_ZHRv4nHdBM0fqSOz2WY0ooFA&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1cByAbZmJIzEfQZrMatVwKMLDqDkk1rUX",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1cByAbZmJIzEfQZrMatVwKMLDqDkk1rUX&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1bz05Us_cVpRyvBOOGwP_QOFwsmnXQ60R",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1bz05Us_cVpRyvBOOGwP_QOFwsmnXQ60R&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1XB2TRkd7zISxyMDy7o2Wg4R6nJF84-bF",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xf0Y\\x91Y\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1sHKnZOqeRaji0MZuAVd7NMlawCusiyjN",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'Computational bi')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=139iUix8CAFwPhdPuRMNYEzJUC842bVn0",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=139iUix8CAFwPhdPuRMNYEzJUC842bVn0&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=14OhKcgSTCD-mdeMzbH4z6Pin4fKqaziq",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=14OhKcgSTCD-mdeMzbH4z6Pin4fKqaziq&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1Ae7cJ1VrMsv8sK7hagp2z_z6LRUfmHCE",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1Ae7cJ1VrMsv8sK7hagp2z_z6LRUfmHCE&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1cBndLvXtAWzi-fJUiAzuSM5C0rHhbse2",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1cBndLvXtAWzi-fJUiAzuSM5C0rHhbse2&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1bhCF8CybQfiFRqoUcF9WksAJ7_p22TiX",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1bhCF8CybQfiFRqoUcF9WksAJ7_p22TiX&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ofVZbvk4FqNzWCQAc7svXlP30nWrFmuN",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x9aW')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1JmgY3HS1OvLFv3JqU7kimiSp3paDvOXk",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x04\\x16\\t[\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=12rEeMOARIlfeXyMa8ngt5wmmq2fm3BPX",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00s\\x7f')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1eAa3OJr9Nfi7moDE9cSmhfGmY7BAPZyw",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x19\\xb7=Y\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1yPQ3_HR48a5cOfZ6yFdhQumu6421WtrV",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x8b\\xe5')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1wN2x025nxZYsCoUhyNoHJUM8WT1i-sWT",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1wN2x025nxZYsCoUhyNoHJUM8WT1i-sWT&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1kQIQUQwf0J5CB_nLoJuwNd_z9wR-Ols6",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1kQIQUQwf0J5CB_nLoJuwNd_z9wR-Ols6&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1PAL9aXCH9dQnRigncQ-SRzmkR78L6r1l",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1PAL9aXCH9dQnRigncQ-SRzmkR78L6r1l&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1mfUR6svsrhR6WFTY-DjzSzgpUyQ9faht",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xcd5')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1aP4Si6xrQUbjrAjCjesPv5IvWfwSpmUR",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x07\\x119Y\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1SIbNNyu7crsSGb5_tziCEIO4OncSJWQr",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00~\\xa4')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1JX57ZLZubQoiKNHs0TWCUSYWxJtN7wld",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\n\\x00\\x00\\x00\\x00\\x00\\x87N\\xe2@\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=10YSZksDXdcbEwUqPABVe8TQD7NKtOzs5",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x85\\x129Y\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1XF-reakaLfCCYcce-0RwW0TIHfZ3j9KC",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\n\\x00\\x00\\x00\\x00\\x00\\x87N\\xe2@\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1WrgEOaaKD2PDdn2w_P32T9G8mVo7cIeb",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xe9\\xabvY\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1IBnY_kxl7VYF2u9ICxVb0FOMooarryc4",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00vHwY\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=16tX0yQvsBq97tJ1zYzBxvuQpbwV1uBP0",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x9c\\xa6')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1tsg0rMgjnJXZ2grg3Qwovhyl_4CrO0er",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x008\\x84')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1DSKwyPOatcLjz1I8IIcufIMfftjsencD",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xb7V\\x11W\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1sWMOrOpnvCyuFD7cg_AYsTZtit2hvAy6",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1sWMOrOpnvCyuFD7cg_AYsTZtit2hvAy6&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=115dAsr68aT8VLi_7Bmv2XAuu7ekdlNzQ",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=115dAsr68aT8VLi_7Bmv2XAuu7ekdlNzQ&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=15qqWbCXr5Rd0UL1opZB5vpPQDn3AsZMG",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=15qqWbCXr5Rd0UL1opZB5vpPQDn3AsZMG&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1d3mCBRey2ZjNgkiWW-zxSBqUx61d2m7l",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1d3mCBRey2ZjNgkiWW-zxSBqUx61d2m7l&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=130zDzZqQELfPW25E2-1FM5MQuqYKdaXc",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=130zDzZqQELfPW25E2-1FM5MQuqYKdaXc&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1dF2v7hE1_0MmiByuiY1M4xPJ6DLPuyoY",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1dF2v7hE1_0MmiByuiY1M4xPJ6DLPuyoY&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1Ak0DkvpUD1SaH9DSWFRneq52smxmeRzj",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1Ak0DkvpUD1SaH9DSWFRneq52smxmeRzj&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QUup-9cNUR_xT4nY5fp-F0b5xnizRrbZ",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1QUup-9cNUR_xT4nY5fp-F0b5xnizRrbZ&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ZEoMy8Ed0yRNek8wBq6zpBAopgwS-k_B",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1ZEoMy8Ed0yRNek8wBq6zpBAopgwS-k_B&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=15QVBguOYsgizxuAHCXIrBmqD9Drml9xs",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=15QVBguOYsgizxuAHCXIrBmqD9Drml9xs&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QQO3xbx-ZapbF-OIgFMfVMXu-ekhZ9d-",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1QQO3xbx-ZapbF-OIgFMfVMXu-ekhZ9d-&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1aI6Kdp4jlfsowcvYpCXY2sbI0gIlrXIe",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1aI6Kdp4jlfsowcvYpCXY2sbI0gIlrXIe&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ns0FXhdUkpeCRu6ynycO-sC45hAuclMx",
+      "stage": "INVALID",
+      "error": "File is an HTML web page disguised as a PDF (e.g. login/error page)",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1jP11CgwCqaHy91udYsDiVaFZ3ALXQdu7",
+      "stage": "INVALID",
+      "error": "File is an HTML web page disguised as a PDF (e.g. login/error page)",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1K7IUDUo3B7TDcxkyz7ZCdOVDPJCuYM8y",
+      "stage": "INVALID",
+      "error": "File is an HTML web page disguised as a PDF (e.g. login/error page)",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1GpXwZGH3KrA7NjsGsL4EGD3ho_y7SxPl",
+      "stage": "INVALID",
+      "error": "File is an HTML web page disguised as a PDF (e.g. login/error page)",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1rChHF0m5K4iywYFB0ZYFgCgmLHb9Xrnd",
+      "stage": "INVALID",
+      "error": "File is an HTML web page disguised as a PDF (e.g. login/error page)",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1f8LEDhoidN8BU6-vj12T5YtqemleT92R",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: No connection adapters were found for 'rcuQ6b:npT2md; click:FAbpgf; auxclick:FAbpgf;u0pjoe:.CLIENT;UjQMac:.CLIENT;c0v8t:.CLIENT;keydown:.CLIENT;keyup:.CLIENT;keypress:.CLIENT;HO6t5b:.CLIENT;mlnRJb:.CLIENT;nHjqDd:.CLIENT;LhiQec:.CLIENT;GvneHb:.CLIENT;qako4e:.CLIENT'",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1XPyScCZPeUge52r8Jzx-_o9AHodsdsy3",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00v8')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1-qtx4R4J4fbWKZXLkcZtwW7BPVKegjcP",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xa2\\xb0')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1dygpV_xSZ1FgXebSBfQWSRZkAE4S8w52",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xe3\\xeb')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1did76AVR1nYUnueiRzyXVfvemSpVO5gp",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: No connection adapters were found for 'UjQMac:.CLIENT'",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=18K7SPjiaFMv44sLs41OgqiNWK1nZqYq7",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xee\\xfd')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QwnODO1-W95G5DstPFxuWeLD_MkLst_a",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1QwnODO1-W95G5DstPFxuWeLD_MkLst_a&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1x8tvElRH-apurzNkHX-ZdA-iLCYy2Njc",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1x8tvElRH-apurzNkHX-ZdA-iLCYy2Njc&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1dNscgJi3TgZO939vsofUDzMPHy26fhK5",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1dNscgJi3TgZO939vsofUDzMPHy26fhK5&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1OB5fYz_KYvPs7pJF7GCMewVg33-C7VXw",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1OB5fYz_KYvPs7pJF7GCMewVg33-C7VXw&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1221mdIZAPS9nMgXzKrlhxGoh017vUFow",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1221mdIZAPS9nMgXzKrlhxGoh017vUFow&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1bRaxh9wD-T9nEHyIvu_7EnJbTLrI4Xmj",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1bRaxh9wD-T9nEHyIvu_7EnJbTLrI4Xmj&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1yz3i5rbP8Q5o7LxO1HbHjqKQfyczP3F_",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=129H7QBHjNtVQxPSc7Q0AQINdExuVRrQd",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00?\\x88')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=17WhUiwaSVAaQ1YfTEitn6v-4lggvBt3y",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00@\\xcf')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1XvpUyrKNR_BP1pDTnIfTIkXk517FzmEU",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xc2\\xcd')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1wenAaRHtXZXQUdxrbY9Ezrj4qqtMRZrq",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00x^')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1b6ilB7suyHVDUcanUzMXqVqYgrG-DONO",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xe3\\x15')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1DwHhD6w5UllDYD6TbhXXfYnTCpaM_xgl",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xba\\x9d')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=10MhT0VpHIX1z5exdROiCNJ-hEgc_L0HB",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=10MhT0VpHIX1z5exdROiCNJ-hEgc_L0HB&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1D8DbGyhmCxRjsH6HueTk5od-ir-AQF4-",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1D8DbGyhmCxRjsH6HueTk5od-ir-AQF4-&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1eVvnfACc_on7WVw_aJ1svJwH1lxsAdEU",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1eVvnfACc_on7WVw_aJ1svJwH1lxsAdEU&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1vm4Rz8bmjxocmseWyEdYw3mDfkYdefGU",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1vm4Rz8bmjxocmseWyEdYw3mDfkYdefGU&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1TzxpCAodPmxl02NS3OrWyhZIIdPAk_OJ",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1TzxpCAodPmxl02NS3OrWyhZIIdPAk_OJ&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1abX7kLtsZREIBnyc9RPnCW94E-k2JfXZ",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xe5y')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1WaoSYrqcBhH8sZDckOHcRxBHlk-95rWP",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x00\\x85')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1vOxknMgS0eubrIty3r3bTZOZp1PYMx-5",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x00\\x85')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1IEsVez3C9fpSTUaPu1BdRIpDf4Hycp-V",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1A5DzyF0VL2zOst3BbWvFb6CDmJ-YItzJ",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'Unit 1: \\r\\nSuperp')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1phV20ArTBNES6Dsp1nwYIb_BxYMBe4vt",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1phV20ArTBNES6Dsp1nwYIb_BxYMBe4vt&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1rx1IJZ5j53ETq1yH428Q0I4rRK4QZMKj",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1FQVg0OrAAvftC0suVb4fma6Ek4USqyE-",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1l8J8vQn-pyiTVXznFVY1PgUSH1zirT2D",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1G4rH4hA6FZs5ZyKGKVWNCHHPSt5izdxW",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1rEvd7sYZOy38Yj4M9WGeDNvl3IGH3rSr",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1_ivno5tboVTjdQS4b2rnrPD7M0_6wJm1",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1aE7AsMUc0W7Cp1IqR2QYqKGY0PWOe4DX",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1EHAxYclF_zgmxPk4l4i08fcrjs9TDLym",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1Xo_Fs0I-HfCGtVGQwgFdUUmjTrgDfIbo",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1SLCNj3vwlzq2vN0xjI0lEBdUkERtmXjj",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1cLPPGY6h6HQKCVsqHRYn3KNc3MT19J5P",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1DMbwsAbDgPVTbwMVntVRdKJad48ToTp7",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xff\\xd8\\xff\\xe0\\x00\\x10JFIF\\x00\\x01\\x01\\x00\\x00\\x01')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1BMix42PM0YuAJn4AvC61u3g_HPjtrNew",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1BMix42PM0YuAJn4AvC61u3g_HPjtrNew&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QIOD79b02398FEK6SYeBWT2-c_iO1t7r",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1QIOD79b02398FEK6SYeBWT2-c_iO1t7r&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1qoM8d7Pn-_gqVHaUukHLuNKGeO62vzzj",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x10\\xfd')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=12kafim7IVg_PVy-Now71HhHLeOVYuImk",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x10\\xfd')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=16zS5nlkykRC1T3L25G14WijfXyewn6YT",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xc4\\xbe')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=16rcvstQy-bo6ZABCRg44Ao65Rjezmm2E",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xc4\\xbe')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=17ayNW6RytULiH5n8MhzWQ2gCAOL1Ek3w",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xc4\\xbe')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=157DoB8pFlDq_SZnJxgUx2_Pp58JxcH0C",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x82\\n')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ca1_TaELLbeS0-OYwx5SgMzvOoWbd3k0",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xff\\r')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1robx-2j7OZT8lo7wi-7D8nBFS1iQMoPE",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xb2\\xb2')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1b4w0A_oQ6ACL_eOgXpIsi1HYvvk80wJT",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x002\\x91')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1RCNcgnfHb9qAiKrE5GXVpLUkKzRzHo7-",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xd3>')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1My9TsgeA7riQ9Tt6C6GbiqksQQww--2v",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xac\\xe4')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1maGIbY2hSxwkoD-1iKNxcunGrk_yz4xX",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xab\\xdb')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1R9ajxIVok_9TcclxhUVefE8ZTuflYdJF",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x002\\x91')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1WjRt_hBCakYmT-3tqCGwFwTYCYdY0F1P",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xd1\\xdf')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1X2DCcpxD2yQNc40D7SxtoywBs04Pvdru",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x19\\xbe')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1yaTrYvBiZSJa1OZxCTGXR5GmuTqnKrQx",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00z\\xb6.U\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=145Rz0p8tM2JFy1LQ74dozWmQJaw3kkC6",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00d:')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1TcPdT6cJHvq9t2MjH9rYgbxt5FQmLK_r",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xd1\\xba4U\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1PczFxlOWq0fgvr_2ha_tmIJ8wR1cvN3o",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00VL\\x86T\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=14WqnLjYFH654vXKG-1hW3VnrXk2ccPYD",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xf4\\xbc4U\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1_jhjMs6Z1ut-GYAbVkayGRkWg-gSVvvo",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xff\\xe7')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=18GTVcGdW4YlzaIDOTWIcRWVnOU3WCuah",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xee\\xc0')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1x5UKQc2ke_5h5cPa9uveg9fwNDuHad8M",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00w\\xc1')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=19xwxajmUggEWY3our6B__in19gkyKaAE",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x0f\\xb4')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1zNbSmmMlP43txKO6N6bmehP9H3HA9-N3",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xa7\\x0c7U\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1V3CugwbW-WG2GptAIojHGHsYsL4CgMQ9",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00q\\x9f')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1SkSZRQYKaEaaT-XiX9IX3VaHO1eXtYjh",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xd0\\xa6\\x7fT\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=124NzM7A-APtram7SVO4Qzmg3tnTZAGST",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xe0\\x12\\xb2T\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1RUjEbpwprnMc3JRvmX5e9Ueaggs7aLpX",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1nndwsS-cifZs4TC-72_s-l7P_vp7Vyo7",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x81\\x9dXU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1lnnH9dg8HIyz8f7DhU7byG2qDx5wpFk3",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x9c\\xc5')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1bP74qmn2AM2GJ9QEhkRsc8698nc097IQ",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x9b\\xa8uU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1WxkGuhQutX3ofM6yLtU2tFgBp_z4TCsH",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QsTwttZtdP2gnzmXbBnfWkYuh_kz2j5K",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00u\\xd8')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1nnyEGPjOJhmeTh5JA7sLFNhYdloDEs9Q",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00n\\xac')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1AUi7TZVCgMZYLWTS92fMbu45s9-n2Viy",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00v8')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1nnRov4aRwLcSlEq_aicoVbqEEE_MPkhI",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1WMDNQZ9EUn4blHTA99FbqJSuFhywt9c1",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1Wb6A6TOQ40QZhzmmayKDlNsQdmK2c1e0",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1pVHTKG5kvG3Nq2rm0fKfdyhSFjoySL-A",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00w\\xc1')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1kqwof_Fr0EuhM2KzZFahf46rP8K6qmBm",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x000\\xc9')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1TNr-zHVPpvML6mn4FHA35BwaG4o7FOkW",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x08\\xf4')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1xdw3UL_JnC_NSkJcoMIQaCZ1B7mLAahl",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\xc4^')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=139IESY2y0W9iszDAZJQjtLgM3LOaahKa",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00#O')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ltWF3NlRB7wa4BU6QVwCS6Ss_ipCRLVl",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1H-SNeBcOXBi6XuSybRCuKDlWzO6TmBJN",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00g\\xbc')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=16PGvug20uVV3npV-GXZWH1P4aXlxb2l1",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xcb\\xb6dU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1nOe4CG7DPyU-KC_VkAoxmxPwJ9r6_eXx",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00@\\xb3')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1GBOBPSAA2ukiizmTsgYEv_kD8a_AO0wv",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1NQAEDnS-9JRZdxFigFAUEptBNrFBeMcf",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x002\\x13')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1p8VbEz-I83zK-AYEkJm1OJUzRe9u_idG",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x02\\x00\\x08\\x00*X%V\\xc3.')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1GjNH6MDs6NmiaUv_NS8Qy4pS3GcVv0w_",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\n\\xd5')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1csZ2s4IJGtlEfW8vuPbb8Pp6hbhomesL",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1xJiJh7ox1QOF-fHtN-CrJw_bivzv1I6a",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x19\\xb5\\x8eU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1pDm2kfoVDFfZZdbfpojdu1upPy7YMjv6",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00-\\xa9')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1AZxFx6jcbCqhSZ0El3luyJY_tRcwu109",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=18eGRh-un3qeij6No2_d0NHqWd149o2A0",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x06\\x00\\x08\\x00\\x00\\x00!\\x00\\x02~')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1ZyInCxlOsda-AtT6uyBqah9YDidq_rZs",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\xe9\\x96\\xe7R\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1HkdffqzaNpIHR8Un9MCTia6_WtaJiERG",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1rWcvp15gdVP1MXzX4f0G52Ng4gbMxqyg",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00;\\xb8\\x8eU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1Xxsc8J4lPYqhcIggtTwpZLmoMhR3ewYE",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1KE_YByBny3ywf_kcCGsr8fYVOM4Rmiem",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=11CSZx6nlfHDfoGKxGnEVHBbqM6beNtaB",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\x91\\xa3\\x8dU\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1hbBTbupnObiZG3-hmbyJ1Hysvko8XWPd",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'PK\\x03\\x04\\x14\\x00\\x08\\x08\\x08\\x00\\nu\\x86U\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1d0Sza5tlZPt1U3m6bZkizTtnDn01lhut",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1dedykwMx5xgrYMkeatEjWpXAivpmdssY",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1f5_1s4Q4EBgSEfoOHV8i38emDIQI46fd",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1rPtugUsFNTX1l6qT41L7V_1QNlPmwCcv",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1SBEe0US33WC0UkQHB5uKSsbQA8pMI6BM",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QjBqmt7TrkI2pnzZTkroxQPjYmLA1j95",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1AQkLgMHZIAwE0fA3WIo4JBZz-bsefVXI",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=11tiwFTo7MitqbywG2DuxXbgLeUXRjsP7",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1bJalJttWTH53aVH4Wmwob3-kMOQP-tV6",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1URLgYJ4Lx7ElUjw1mjsQAIGxydvsVLOY",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1fT7EgxyJw1fZXvO4XCHgbPPUmjW-ZJt5",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1OvmXRw7iQxvV3UO33JZRclAKJ4Jg1Nju",
+      "stage": "INVALID",
+      "error": "Invalid PDF header: Missing '%PDF-' magic bytes (starts with: b'\\xd0\\xcf\\x11\\xe0\\xa1\\xb1\\x1a\\xe1\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00')",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=11w4JqcjvAVvfV39JWGRFLtt5v7I-TPNx",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=11w4JqcjvAVvfV39JWGRFLtt5v7I-TPNx&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1QsUAiw6wOPVM4R_4ZdS5fx0QnpQ3qFWs",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1QsUAiw6wOPVM4R_4ZdS5fx0QnpQ3qFWs&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1J7ev17xSqpzu-GRjGGy0x0zoExHeFTQx",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1J7ev17xSqpzu-GRjGGy0x0zoExHeFTQx&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=12ll0zXsdvYRaE3ojFhO4aPxL5b8nHlOz",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=12ll0zXsdvYRaE3ojFhO4aPxL5b8nHlOz&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    },
+    {
+      "url": "https://drive.google.com/uc?export=download&id=1LC9A2DqQAtBlOH5odn9F97l7HU_dugIs",
+      "stage": "FAILED",
+      "error": "Failed after 3 attempts: 500 Server Error: Internal Server Error for url: https://drive.usercontent.google.com/download?id=1LC9A2DqQAtBlOH5odn9F97l7HU_dugIs&export=download",
+      "retry_count": 0,
+      "suggested_resolution": "Check manual permissions or retry download"
+    }
+  ],
+  "generated_at": "2026-09-16T22:25:06.184997+00:00"
+}

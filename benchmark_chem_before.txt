@@ -1,0 +1,34 @@
+BENCHMARK: data/1 Year/BASIC electric LAB/18ME103L - Basic workshop Lab exercise 2019-1.pdf
+Pages: 6
+
+--- PAGE 1 ---
+SRM INSTITUTE OF SCIENCE AND TECHNOLOGY
+DEPARTMENT OF MECHANICAL ENGINEERING
+BASIC WORK SHOP
+Lab. Exercises for 18MES103L - Civil and Mechanical Engineering Workshop for the
+First year 2019 – 2020 (ODD semester)
+Welding Lab:
+1) Butt Joints and Lap joint (Arc welding)
+2) Butt Joint (Gas welding)
+3) T - Joint (MIG Welding)
+4) Butt joint (TIG Welding)
+Sheet Metal Lab:
+1) Rectangular Tray
+2) Big Scoop
+3) Hopper
+4) Chisel (Smithy)
+Fitting lab:
+1) Step Fitting
+2) Drilling & Tapping of plate
+3) Turning and facing of M.S rod
+4) Plumbing (G.I fittings)
+Carpentry lab:
+1) Cross Halving joint
+2) Dovetail Halving Joint
+3) Duster
+4) Molding for Stepped cone pulley
+Course coordinator HOD
+
+--- PAGE 2 ---
+Exp. 1 Butt Joint Date: 02.07.2019
+Given workpieces and filed workpieces

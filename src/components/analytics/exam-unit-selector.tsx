@@ -1,6 +1,9 @@
 "use client";
+import { CycleTestQuestionsDrawer } from "./cycle-test-questions-drawer";
+import { PortionNotesDrawer } from "./portion-notes-drawer";
+import { getCourseResources } from "@/lib/course-resources";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { 
   Layers, 
   Check, 
@@ -11,7 +14,8 @@ import {
   Users, 
   HelpCircle,
   FileQuestion,
-  BookOpen
+  BookOpen,
+  FileCheck2
 } from "lucide-react";
 import { CourseCatalogItem, CourseUnitCatalogItem } from "@/lib/courses";
 import { StudentExamScopeModal } from "./student-exam-scope-modal";
@@ -37,6 +41,19 @@ export function ExamUnitSelector({
   totalTopicCount,
 }: ExamUnitSelectorProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const courseResources = useMemo(() => course ? getCourseResources(course.slug) : null, [course]);
+  const ct1PapersCount = useMemo(() => 
+    courseResources?.pyqs.filter(p => p.examType === 'CT1').length || 0,
+    [courseResources]
+  );
+  const ct2PapersCount = useMemo(() => 
+    courseResources?.pyqs.filter(p => p.examType === 'CT2').length || 0,
+    [courseResources]
+  );
+  const totalCtPapersCount = useMemo(() => 
+    courseResources?.pyqs.filter(p => ['CT1', 'CT2', 'CT3', 'CT', 'MODEL'].includes(p.examType)).length || 0,
+    [courseResources]
+  );
   const [classAnnouncements, setClassAnnouncements] = useState<ExamAnnouncementItem[]>([]);
   const [customExamTitle, setCustomExamTitle] = useState<string | null>(null);
 
@@ -108,6 +125,14 @@ export function ExamUnitSelector({
   const isCT2Preset = selectedUnits.length === 2 && selectedUnits[0] === 3 && selectedUnits[1] === 4;
   const isCustomPreset = !isAllSelected && !isCT1Preset && !isCT2Preset;
 
+  const inScopeNotes = useMemo(() => {
+    if (!courseResources?.notes) return [];
+    if (isAllSelected) return courseResources.notes;
+    return courseResources.notes.filter(
+      (n) => n.unit == null || selectedUnits.includes(n.unit)
+    );
+  }, [courseResources?.notes, isAllSelected, selectedUnits]);
+
   const activeAnnouncement = classAnnouncements.length > 0 ? classAnnouncements[0] : null;
 
   return (
@@ -165,6 +190,11 @@ export function ExamUnitSelector({
           }`}
         >
           CT1 (Units 1 &amp; 2)
+          {ct1PapersCount > 0 && (
+            <span className="ml-1.5 px-1.5 py-0.2 rounded-md text-[10px] bg-accent/20 border border-accent/30 font-mono font-bold">
+              {ct1PapersCount}
+            </span>
+          )}
         </button>
         <button
           type="button"
@@ -176,6 +206,11 @@ export function ExamUnitSelector({
           }`}
         >
           CT2 (Units 3 &amp; 4)
+          {ct2PapersCount > 0 && (
+            <span className="ml-1.5 px-1.5 py-0.2 rounded-md text-[10px] bg-accent/20 border border-accent/30 font-mono font-bold">
+              {ct2PapersCount}
+            </span>
+          )}
         </button>
         {isCustomPreset && (
           <span className="px-3 py-1.5 rounded-lg font-semibold bg-accent text-accent-foreground shadow-2xs">
@@ -263,10 +298,50 @@ export function ExamUnitSelector({
             </span>
           )}
         </div>
-        <div className="text-[10px] text-muted-foreground">
-          Tip: Tap any unit chip to add or remove it from your practice test.
-        </div>
+        {courseResources && courseResources.pyqsCount > 0 ? (
+          <a
+            href={`/courses/${course?.slug}#verified-papers`}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-accent/10 hover:bg-accent/20 text-accent font-semibold text-[11px] border border-accent/20 transition-all cursor-pointer"
+          >
+            <FileCheck2 className="w-3 h-3" />
+            <span>
+              {isCT1Preset && ct1PapersCount > 0
+                ? `${ct1PapersCount} Verified CT1 Papers & Keys Available →`
+                : isCT2Preset && ct2PapersCount > 0
+                ? `${ct2PapersCount} Verified CT2 Papers & Keys Available →`
+                : totalCtPapersCount > 0
+                ? `${totalCtPapersCount} Cycle Test Papers & Keys Available →`
+                : `${courseResources.pyqsCount} Verified PYQs & Slides Available →`}
+            </span>
+          </a>
+        ) : (
+          <div className="text-[10px] text-muted-foreground">
+            Tip: Tap any unit chip to add or remove it from your practice test.
+          </div>
+        )}
       </div>
+
+      {/* Authentic Cycle Test Questions Drawer */}
+      {course?.name && (
+        <CycleTestQuestionsDrawer
+          courseName={course.name}
+          cycle={isCT1Preset ? "CT1" : isCT2Preset ? "CT2" : "ALL"}
+          isOpenDefault={isCT1Preset || isCT2Preset}
+        />
+      )}
+
+      {/* In-Scope Professor Slides & Notes Drawer */}
+      {course?.name && inScopeNotes.length > 0 && (
+        <PortionNotesDrawer
+          notes={inScopeNotes}
+          courseName={course.name}
+          selectedUnits={selectedUnits}
+          isCT1={isCT1Preset}
+          isCT2={isCT2Preset}
+          courseSlug={course.slug}
+          isOpenDefault={false}
+        />
+      )}
 
       {/* Modal Dialog */}
       <StudentExamScopeModal

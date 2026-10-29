@@ -1,0 +1,663 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. is the common language for AI\n(A) Lisp\n(B) Python\n(C) PHP\n(D) Java [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "is the common language for AI\n(A) Lisp\n(B) Python\n(C) PHP\n(D) Java",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. The PEAS in the task environment is about\n(A) Peer, Environment, Actuators, Sense\n(B) Perceiving, Environment, Actuators, Sensors\n(C) Performance, Environment, Actuators, Sensors\n(D) Perceiving, Environment, Actuators, Sense [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "The PEAS in the task environment is about\n(A) Peer, Environment, Actuators, Sense\n(B) Perceiving, Environment, Actuators, Sensors\n(C) Performance, Environment, Actuators, Sensors\n(D) Perceiving, Environment, Actuators, Sense",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. In state-space, the set of actions for a given problem is expressed by the\n(A) Intermediate States\n(B) Successor function that takes current action and returns next state\n(C) Initial States\n(D) Action sequence [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "In state-space, the set of actions for a given problem is expressed by the\n(A) Intermediate States\n(B) Successor function that takes current action and returns next state\n(C) Initial States\n(D) Action sequence",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. A self-driving car is an example of environment\n(A) Static\n(B) Known\n(C) Discrete\n(D) Continuous [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "A self-driving car is an example of environment\n(A) Static\n(B) Known\n(C) Discrete\n(D) Continuous",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. The number of edges from the root to the node is called of the tree.\n(A) Height\n(B) Depth\n(C) Length\n(D) Width [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "The number of edges from the root to the node is called of the tree.\n(A) Height\n(B) Depth\n(C) Length\n(D) Width",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. The time and space complexity of BFS is (For time and space complexity problems consider b as branching factor and d as depth of the search tree.)\n(A) O(bd+1) and O(bd+1)\n(B) O(b2) and O(d2)\n(C) O(d2) and O(b2)\n(D) O(d2) and O(d2) [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "The time and space complexity of BFS is (For time and space complexity problems consider b as branching factor and d as depth of the search tree.)\n(A) O(bd+1) and O(bd+1)\n(B) O(b2) and O(d2)\n(C) O(d2) and O(b2)\n(D) O(d2) and O(d2)",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. The heuristic function h(n) is which of the following?\n(A) Lowest path cost\n(B) The cheapest path from the root to the goal node\n(C) Average path cost\n(D) The estimated cost of the cheapest path from the root node to the goal node [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "The heuristic function h(n) is which of the following?\n(A) Lowest path cost\n(B) The cheapest path from the root to the goal node\n(C) Average path cost\n(D) The estimated cost of the cheapest path from the root node to the goal node",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. Which of the following is the evaluation function in A* method?\n(A) Path cost from starting node to the present node\n(B) Path cost from starting node to the present node and Heuristic cost\n(C) Heuristic function\n(D) Average of Path cost from starting node to the present node and Heuristic cost [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "Which of the following is the evaluation function in A* method?\n(A) Path cost from starting node to the present node\n(B) Path cost from starting node to the present node and Heuristic cost\n(C) Heuristic function\n(D) Average of Path cost from starting node to the present node and Heuristic cost",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. For alpha-beta pruning is which option is correct\n(A) alpha<=beta\n(B) alpha>=beta\n(C) alpha=beta\n(D) alpha!=beta [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "For alpha-beta pruning is which option is correct\n(A) alpha<=beta\n(B) alpha>=beta\n(C) alpha=beta\n(D) alpha!=beta",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Select the appropriate technique that can be used for Map coloring problem\n(A) Breadth first search\n(B) A* search\n(C) Means-end analysis\n(D) Constraint satisfaction [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Select the appropriate technique that can be used for Map coloring problem\n(A) Breadth first search\n(B) A* search\n(C) Means-end analysis\n(D) Constraint satisfaction",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Agents behavior can be best described by\n(A) Perception sequence\n(B) Sensors and Actuators\n(C) Agent function\n(D) Environment in which agent is performing [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Agents behavior can be best described by\n(A) Perception sequence\n(B) Sensors and Actuators\n(C) Agent function\n(D) Environment in which agent is performing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. Treatment chosen by doctor for a patient for a disease is based on\n(A) Only current symptoms\n(B) Current symptoms plus some knowledge from the textbooks\n(C) knowledge from the experience\n(D) Current symptoms plus some knowledge from the textbooks plus experience [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "Treatment chosen by doctor for a patient for a disease is based on\n(A) Only current symptoms\n(B) Current symptoms plus some knowledge from the textbooks\n(C) knowledge from the experience\n(D) Current symptoms plus some knowledge from the textbooks plus experience",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Inference algorithm is complete only if\n(A) It can derive any sentence\n(B) It can derive any sentence that is an entailed version\n(C) It is truth preserving\n(D) It can derive any sentence that is an entailed version & It is truth preserving [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Inference algorithm is complete only if\n(A) It can derive any sentence\n(B) It can derive any sentence that is an entailed version\n(C) It is truth preserving\n(D) It can derive any sentence that is an entailed version & It is truth preserving",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. The CORRECT formula for the sentence, \"not all rainy days are cold\" is\n(A) \\forall d (Rainy(d) \\land \\neg Cold(d))\n(B) \\forall d (\\neg Rainy(d) \\rightarrow Cold(d))\n(C) \\exists d (\\neg Rainy(d) \\rightarrow Cold(d))\n(D) \\exists d (Rainy(d) \\land \\neg Cold(d))\n(A) A\n(B) B\n(C) C\n(D) D [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "The CORRECT formula for the sentence, \"not all rainy days are cold\" is\n(A) \\forall d (Rainy(d) \\land \\neg Cold(d))\n(B) \\forall d (\\neg Rainy(d) \\rightarrow Cold(d))\n(C) \\exists d (\\neg Rainy(d) \\rightarrow Cold(d))\n(D) \\exists d (Rainy(d) \\land \\neg Cold(d))\n(A) A\n(B) B\n(C) C\n(D) D",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. Choose the correct option.\nA) Knowledge base (KB) is consists of set of statements.\nB) Inference is deriving a n\n(A) A is true, B is true\n(B) A is false, B is false\n(C) A is true, B is false\n(D) A is false, B is true [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "Choose the correct option.\nA) Knowledge base (KB) is consists of set of statements.\nB) Inference is deriving a n\n(A) A is true, B is true\n(B) A is false, B is false\n(C) A is true, B is false\n(D) A is false, B is true",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. Wumpus World is a classic problem, best example of\n(A) Single player Game\n(B) Two player Game\n(C) Reasoning with Knowledge\n(D) Knowledge based Game [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "Wumpus World is a classic problem, best example of\n(A) Single player Game\n(B) Two player Game\n(C) Reasoning with Knowledge\n(D) Knowledge based Game",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning problem, then the best data structure to use is the\n(A) Stacks\n(B) Planning Graphs\n(C) BST (Binary Search Tree)\n(D) Queue [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Suppose we want to eliminate the inaccuracy problem in partial-order planning problem or planning problem, then the best data structure to use is the\n(A) Stacks\n(B) Planning Graphs\n(C) BST (Binary Search Tree)\n(D) Queue",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. Which of the following are the two major characteristics which combine the AI Planning problem?\n(A) FOL and Logic\n(B) Logic and Knowledge Based Systems\n(C) Knowledge Based Systems\n(D) Search and Logic [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "Which of the following are the two major characteristics which combine the AI Planning problem?\n(A) FOL and Logic\n(B) Logic and Knowledge Based Systems\n(C) Knowledge Based Systems\n(D) Search and Logic",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. The first expert system was\n(A) DENDRAL\n(B) MYCIN\n(C) XCON\n(D) CON [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "The first expert system was\n(A) DENDRAL\n(B) MYCIN\n(C) XCON\n(D) CON",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Machine learning is a subset of which of the following?\n(A) Deep Learning\n(B) Data Learning\n(C) Artificial Intelligence\n(D) Big data [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Machine learning is a subset of which of the following?\n(A) Deep Learning\n(B) Data Learning\n(C) Artificial Intelligence\n(D) Big data",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer ALL Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Explain the various AI models with an example. [8]\n  a. Explain the various AI models with an example. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Explain the various AI models with an example.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Explain the various AI models with an example.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "21",
+              "text": "Examine the complete solution for Missionaries and Cannibals problem.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Examine the complete solution for Missionaries and Cannibals problem.",
+                  "marks": 8
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Examine the complete solution for Missionaries and Cannibals problem. [8]\n  b. Examine the complete solution for Missionaries and Cannibals problem. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Examine the complete solution for Missionaries and Cannibals problem.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Examine the complete solution for Missionaries and Cannibals problem.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given directed graph with starting vertex as \"S\" and ending vertex as \"X\". [8]\n  a. Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given directed graph with starting vertex as \"S\" and ending vertex as \"X\". [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given directed graph with starting vertex as \"S\" and ending vertex as \"X\".",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Identify the data structure used in Breadth First Search algorithm (BFS). Apply BFS for the given directed graph with starting vertex as \"S\" and ending vertex as \"X\".",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "22",
+              "text": "Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm.",
+                  "marks": 8
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm. [8]\n  b. Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Consider the following graph. The numbers written on edges represent the distance between the nodes. The numbers written on nodes represent the heuristic value. Find the most cost-effective path to reach from start state A to final state J using A* Algorithm.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Demonstrate the two-player search tree to understand the working of Alpha-beta pruning. [8]\n  a. Demonstrate the two-player search tree to understand the working of Alpha-beta pruning. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Demonstrate the two-player search tree to understand the working of Alpha-beta pruning.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Demonstrate the two-player search tree to understand the working of Alpha-beta pruning.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "23",
+              "text": "Examine the multi-agent system with a real time example.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Examine the multi-agent system with a real time example.",
+                  "marks": 8
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Examine the multi-agent system with a real time example. [8]\n  b. Examine the multi-agent system with a real time example. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Examine the multi-agent system with a real time example.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Examine the multi-agent system with a real time example.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Consider the following axioms. Represent these axioms in predicate calculus. [8]\n  a. Consider the following axioms. Represent these axioms in predicate calculus. [8]\n    i. Every child love Ice-cream\n    ii. Everyone who loves Ice-cream loves any chocolate\n    iii. Apple is a fruit, and Apple is red color\n    iv. Anything which has a red nose is weird or is a clown\n    v. No dog is a clown\n    vi. John does not love anything which is weird.",
+          "structured_content": {
+            "number": "24",
+            "text": "Consider the following axioms. Represent these axioms in predicate calculus.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Consider the following axioms. Represent these axioms in predicate calculus.",
+                "marks": 8,
+                "subquestions": [
+                  {
+                    "number": "i",
+                    "text": "Every child love Ice-cream"
+                  },
+                  {
+                    "number": "ii",
+                    "text": "Everyone who loves Ice-cream loves any chocolate"
+                  },
+                  {
+                    "number": "iii",
+                    "text": "Apple is a fruit, and Apple is red color"
+                  },
+                  {
+                    "number": "iv",
+                    "text": "Anything which has a red nose is weird or is a clown"
+                  },
+                  {
+                    "number": "v",
+                    "text": "No dog is a clown"
+                  },
+                  {
+                    "number": "vi",
+                    "text": "John does not love anything which is weird."
+                  }
+                ]
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal.",
+                  "marks": 8
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal. [8]\n  b. The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "The law says that \"it is a crime for an American to sell weapons to hostile nations. The country \"Nano\", an enemy of America has some missiles, and all of its missiles were sold by colonel west, who is an American\". Use resolution principle to prove that west is a criminal.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the Mean Ends analysis with an example. [8]\n  a. Explain the Mean Ends analysis with an example. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the Mean Ends analysis with an example.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "a",
+                "text": "Explain the Mean Ends analysis with an example.",
+                "marks": 8
+              }
+            ],
+            "or_alternative": {
+              "number": "25",
+              "text": "Describe the architecture of expert systems.",
+              "marks": 8,
+              "subquestions": [
+                {
+                  "number": "b",
+                  "text": "Describe the architecture of expert systems.",
+                  "marks": 8
+                }
+              ]
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Describe the architecture of expert systems. [8]\n  b. Describe the architecture of expert systems. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Describe the architecture of expert systems.",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "b",
+                "text": "Describe the architecture of expert systems.",
+                "marks": 8
+              }
+            ]
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer ANY ONE Questions",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. Given two water jugs with capacities X and Y litres. Initially, both the jugs are empty. Also given that there is an infinite amount of water available. The jugs do not have markings to measure smaller quantities. One can perform the following operations on the jug:\n* Fill any of the jugs completely with water.\n* Pour water from one jug to the other until one of the jugs is either empty or full, (X, Y)-> (X - d, Y + d)\n* Empty any of the jugs\nThe task is to determine whether it is possible to measure Z litres of water using both the jugs. And if true, print any of the possible ways. [15]",
+          "structured_content": {
+            "number": "26",
+            "text": "Given two water jugs with capacities X and Y litres. Initially, both the jugs are empty. Also given that there is an infinite amount of water available. The jugs do not have markings to measure smaller quantities. One can perform the following operations on the jug:\n* Fill any of the jugs completely with water.\n* Pour water from one jug to the other until one of the jugs is either empty or full, (X, Y)-> (X - d, Y + d)\n* Empty any of the jugs\nThe task is to determine whether it is possible to measure Z litres of water using both the jugs. And if true, print any of the possible ways.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Consider the following facts:\nProve the conclusion using Resolution.\na. Team Delhi\nb. Team Mumbai\nc. Final match between Delhi and Mumbai\nd. Delhi scored 350 runs, Mumbai scored 350 runs, Delhi lost 5 wickets, Mumbai lost 7wickets.\ne. The team which scored the maximum runs wins\nf. If the scores are same the team which lost minimum wickets wins the match.\nRepresent the facts in predicate, convert to clause form and prove by resolution \"Delhi wins the match\". [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Consider the following facts:\nProve the conclusion using Resolution.\na. Team Delhi\nb. Team Mumbai\nc. Final match between Delhi and Mumbai\nd. Delhi scored 350 runs, Mumbai scored 350 runs, Delhi lost 5 wickets, Mumbai lost 7wickets.\ne. The team which scored the maximum runs wins\nf. If the scores are same the team which lost minimum wickets wins the match.\nRepresent the facts in predicate, convert to clause form and prove by resolution \"Delhi wins the match\".",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "END_SEM",
+  "year": 2023
+}

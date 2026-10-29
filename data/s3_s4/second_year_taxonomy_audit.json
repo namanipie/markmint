@@ -1,0 +1,572 @@
+{
+  "22": {
+    "course_name": "Probability and Statistics",
+    "canonical_code": "21MAB202T",
+    "semester": 4,
+    "total_questions": 123,
+    "mapped_questions": 108,
+    "unmapped_questions": 15,
+    "high_confidence": 91,
+    "medium_confidence": 17,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 15,
+    "topics_total": 25,
+    "topics_represented": 24,
+    "topics_zero_questions": 1,
+    "zero_topics_names": [
+      "417: Cumulative Distribution Functions"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 8,
+      "C_TAXONOMY_GAP": 7,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 2310,
+          "text": "22. A random variable X has the following probability function. Value of x: 0, 1, 2, 3, 4, 5, 6, 7. P(X=x): 0, k, 2k, 2k",
+          "candidates": [
+            "Discrete and Continuous Random Variables",
+            "Cumulative Distribution Functions"
+          ]
+        },
+        {
+          "id": 2314,
+          "text": "26. Given below are the values of sample means and sample range for ten samples, each of size 5. Construct the control c",
+          "candidates": [
+            "Control Charts for Variables: Mean (X-bar) Chart",
+            "Control Charts for Variables: Range (R) and Standard Deviation (s) Charts"
+          ]
+        },
+        {
+          "id": 2341,
+          "text": "23. The fatality rate of typhoid patients is believed to be 17.26 percent. In a certain year 640 patients suffering from",
+          "candidates": [
+            "Large Sample Tests: Z-Test for Means and Proportions",
+            "Chi-Square Test for Goodness of Fit and Contingency Tables"
+          ]
+        },
+        {
+          "id": 2343,
+          "text": "24. The two line of regression are:\n8x - 10y + 66 = 0 and 40x - 18y - 214 = 0\nThe variance of X is 9.\nFind, (i) the mean",
+          "candidates": [
+            "Karl Pearson's and Spearman's Rank Correlation",
+            "One-Way Analysis of Variance (ANOVA)"
+          ]
+        },
+        {
+          "id": 2376,
+          "text": "25. 10 samples each of size 50 were inspected and the number of defectives in the inspection were:\n2, 1, 1, 2, 3, 5, 5, ",
+          "candidates": [
+            "Control Charts for Attributes: Fraction Defective (p and np) Charts",
+            "Control Charts for Attributes: Number of Defects (c and u) Charts"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [
+        {
+          "id": 2360,
+          "text": "12. Degree of freedom is related to\n(A) No. of observations in a set\n(B) Hypothesis under test\n(C) No. of independent variables in a set\n(D)"
+        },
+        {
+          "id": 2378,
+          "text": "26. The nicotine contents in two random samples of tobacco are given below:\nSample I : 21 | 24 | 25 | 26 | 27 | -\nSample II : 22 | 27 | 28 |"
+        },
+        {
+          "id": 10098,
+          "text": "9. An efficient estimator should satisfy ________ (A) Chernoff bound (B) Markov inequality (C) Cramer-Rao lower bound (D) Chebyshev's inequa"
+        },
+        {
+          "id": 10099,
+          "text": "10. Estimation is of two types ________ (A) Biased and unbiased (B) One sided and two sided (C) Type I and type II (D) Point estimation and "
+        },
+        {
+          "id": 10101,
+          "text": "12. Bias of an estimator can be ________ (A) Positive (B) Negative (C) Zero (D) Both negative and positive [1]"
+        }
+      ],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "24": {
+    "course_name": "Data Structures and Algorithms",
+    "canonical_code": "21CSC201J",
+    "semester": 3,
+    "total_questions": 252,
+    "mapped_questions": 249,
+    "unmapped_questions": 3,
+    "high_confidence": 208,
+    "medium_confidence": 41,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 3,
+    "topics_total": 28,
+    "topics_represented": 27,
+    "topics_zero_questions": 1,
+    "zero_topics_names": [
+      "744: Cursor-Based Implementation of Lists"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 0,
+      "C_TAXONOMY_GAP": 3,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [],
+      "C_TAXONOMY_GAP": [
+        {
+          "id": 9001,
+          "text": "18. When new data are to be inserted into a data structure, but there is not available space, this situation is usually called\n(A) Underflow"
+        },
+        {
+          "id": 9014,
+          "text": "26. The keys 2, 4, 13, 5, 26, 7, 19, 21, 9 are to be sorted. Use any two data structure to store these keys, Discuss the advantages and disa"
+        },
+        {
+          "id": 10024,
+          "text": "26. A company approaches you to develop a customer support ticket system, they might add new tickets and remove tickets, from anywhere. Sugg"
+        }
+      ],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "25": {
+    "course_name": "Operating Systems",
+    "canonical_code": "21CSC202J",
+    "semester": 3,
+    "total_questions": 230,
+    "mapped_questions": 225,
+    "unmapped_questions": 5,
+    "high_confidence": 184,
+    "medium_confidence": 41,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 5,
+    "topics_total": 27,
+    "topics_represented": 26,
+    "topics_zero_questions": 1,
+    "zero_topics_names": [
+      "790: Security Defenses and Classifications"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 5,
+      "C_TAXONOMY_GAP": 0,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 9084,
+          "text": "32. Discuss in detail about the following\n(i) Free space management\n(ii) Swap space management [12]",
+          "candidates": [
+            "Disk Scheduling Algorithms and RAID",
+            "File System Interface and Implementation"
+          ]
+        },
+        {
+          "id": 9095,
+          "text": "11. The circular wait condition can be prevented by _____ [1]\n  A. Defining a linear ordering of (B) Using thread resour",
+          "candidates": [
+            "Interprocess Communication and Client-Server",
+            "Semaphores, Mutex Locks and Monitors",
+            "Deadlock Characterization and Resource Allocation Graph",
+            "Deadlock Prevention and Avoidance"
+          ]
+        },
+        {
+          "id": 9116,
+          "text": "30. Describe a solution to the dining philosopher problem so that no race condition arises. [12]",
+          "candidates": [
+            "Critical-Section Problem and Peterson's Solution",
+            "Classical Synchronization Problems"
+          ]
+        },
+        {
+          "id": 9192,
+          "text": "11. __________ performs run time mapping from virtual to physical addresses. (A) CPU (B) PCI (C) PCB (D) Memory Manageme",
+          "candidates": [
+            "Process Concept and Process Control Block",
+            "Main Memory and Contiguous Memory Allocation"
+          ]
+        },
+        {
+          "id": 9194,
+          "text": "13. __________ is a memory management strategy that involves the system storing and retrieving data from secondary stora",
+          "candidates": [
+            "Main Memory and Contiguous Memory Allocation",
+            "Paging, Segmentation and TLB"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "26": {
+    "course_name": "Computer Organization and Architecture",
+    "canonical_code": "21CSS201T",
+    "semester": 3,
+    "total_questions": 160,
+    "mapped_questions": 156,
+    "unmapped_questions": 4,
+    "high_confidence": 110,
+    "medium_confidence": 46,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 4,
+    "topics_total": 25,
+    "topics_represented": 23,
+    "topics_zero_questions": 2,
+    "zero_topics_names": [
+      "813: Thumb Instruction Set and Encoding",
+      "815: ARM 5 and ARM 7 Architecture Case Studies"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 4,
+      "C_TAXONOMY_GAP": 0,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 8356,
+          "text": "24. a. What are the control signals generated by control unit to execute [8]\n  i. Add (R_3), R_1\n  ii. Unconditional bra",
+          "candidates": [
+            "Functional Units and Operational Concepts",
+            "Hardwired Control Unit Design"
+          ]
+        },
+        {
+          "id": 8362,
+          "text": "1. Decimal 43 in Hexadecimal and BCD number system is respectively\n(A) B2, 0100 0011\n(B) 2B, 0100 0011\n(C) B2, 0011 0100",
+          "candidates": [
+            "Number Systems and Conversions",
+            "Binary Codes and Parity"
+          ]
+        },
+        {
+          "id": 8382,
+          "text": "21. Answer the following subquestions:\n  a. Perform BCD Addition for 984+599. [4]\n  ii. Perform (11100) - (1011) using 1",
+          "candidates": [
+            "Binary Codes and Parity",
+            "Binary Arithmetic and Complements"
+          ]
+        },
+        {
+          "id": 8414,
+          "text": "21. Convert decimal 234_{10} to [8]\n  i. Binary\n  ii. BCD\n  iii. Octal\n  iv. Hexadecimal",
+          "candidates": [
+            "Number Systems and Conversions",
+            "Binary Codes and Parity"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "27": {
+    "course_name": "Design and Analysis of Algorithms",
+    "canonical_code": "21CSC204J",
+    "semester": 4,
+    "total_questions": 287,
+    "mapped_questions": 255,
+    "unmapped_questions": 32,
+    "high_confidence": 156,
+    "medium_confidence": 99,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 32,
+    "topics_total": 26,
+    "topics_represented": 26,
+    "topics_zero_questions": 0,
+    "zero_topics_names": [],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 20,
+      "C_TAXONOMY_GAP": 12,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 8479,
+          "text": "21. b. Examine the following pseudocode and calculate the time complexity using operation count method.\nBegin\n sum=0;\n f",
+          "candidates": [
+            "Algorithm Fundamentals and Correctness",
+            "Time and Space Complexity Analysis"
+          ]
+        },
+        {
+          "id": 8487,
+          "text": "25. b. Write short note on the following:\n(i) Non-deterministic Polynomial class problems with NP-hard and NP-complete\n(",
+          "candidates": [
+            "Complexity Classes P and NP",
+            "NP-Completeness and NP-Hardness"
+          ]
+        },
+        {
+          "id": 8526,
+          "text": "6. RAM and SHYAM have been asked to show that a certain problem \\pi is NP-complete RAM shows a polynomial time reduction",
+          "candidates": [
+            "NP-Completeness and NP-Hardness",
+            "Polynomial-Time Reductions"
+          ]
+        },
+        {
+          "id": 8550,
+          "text": "25. Explain the following\n(i) Satisfiability problems with an example\n(ii) Non-deterministic polynomial class problem [8",
+          "candidates": [
+            "Complexity Classes P and NP",
+            "NP-Completeness and NP-Hardness"
+          ]
+        },
+        {
+          "id": 8563,
+          "text": "11. Which of the following can be solved using dynamic programming?\n(A) Merge sort\n(B) Binary search\n(C) Longest common ",
+          "candidates": [
+            "Dynamic Programming: 0/1 Knapsack and Matrix Chain Multiplication",
+            "Longest Common Subsequence and Optimal Binary Search Trees"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [
+        {
+          "id": 8497,
+          "text": "8. How many number of comparisons is required in insertion sort to sort a file if the file is sorted in reverse order? (A) N^2 (B) N (C) N -"
+        },
+        {
+          "id": 8513,
+          "text": "22. Apply breadth first and depth first search for the given graph with necessary steps start from 'A'. [8]"
+        },
+        {
+          "id": 8517,
+          "text": "24. In a restaurant one of the customer wants to search the item called \"Cuban sandwich\" in the list. Prescribe a suitable sequential search"
+        },
+        {
+          "id": 8574,
+          "text": "21. Write the algorithm of insertion sort and trace the algorithm for the array elements listed below.\narr [ ] = {21, 7, 12, 10, 6, 16, 24} "
+        },
+        {
+          "id": 8599,
+          "text": "15. If a data analyst is working with a graph to model website traffic, involving various paths through which users can navigate from one pa"
+        }
+      ],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "28": {
+    "course_name": "Database Management Systems",
+    "canonical_code": "21CSC205P",
+    "semester": 4,
+    "total_questions": 143,
+    "mapped_questions": 139,
+    "unmapped_questions": 4,
+    "high_confidence": 103,
+    "medium_confidence": 36,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 4,
+    "topics_total": 26,
+    "topics_represented": 24,
+    "topics_zero_questions": 2,
+    "zero_topics_names": [
+      "847: ER-to-Relational Mapping",
+      "865: Storage Structures and Introduction to NoSQL Databases"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 4,
+      "C_TAXONOMY_GAP": 0,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 8743,
+          "text": "29. Define functional dependency with respect to normal forms. How 2NF and 3NF can be resolved? Give an example scenario",
+          "candidates": [
+            "Functional Dependencies and Armstrong's Axioms",
+            "Third Normal Form (3NF) and Boyce-Codd Normal Form (BCNF)"
+          ]
+        },
+        {
+          "id": 8776,
+          "text": "28. What is the use of join operation? How is the simple and outer join operation implemented in SQL? Give examples. [8]",
+          "candidates": [
+            "Relational Algebra: Joins, Division and Aggregate Operations",
+            "SQL Queries (DML), Joins and Nested Subqueries"
+          ]
+        },
+        {
+          "id": 8778,
+          "text": "29. Give the notation and example code in relation algebra for the following operations [10]\n  i. Outer join\n  ii. Assig",
+          "candidates": [
+            "Relational Algebra: Selection, Projection and Set Operations",
+            "Relational Algebra: Joins, Division and Aggregate Operations",
+            "SQL Queries (DML), Joins and Nested Subqueries"
+          ]
+        },
+        {
+          "id": 8809,
+          "text": "28. Explain the different evolution models and discuss the advantages and limitations of each. [12]\n  a. Explain the dif",
+          "candidates": [
+            "Data Independence and DBMS Components",
+            "Data Models and Schemas"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "29": {
+    "course_name": "Artificial Intelligence",
+    "canonical_code": "21CSC207J",
+    "semester": 4,
+    "total_questions": 188,
+    "mapped_questions": 186,
+    "unmapped_questions": 2,
+    "high_confidence": 141,
+    "medium_confidence": 45,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 2,
+    "topics_total": 25,
+    "topics_represented": 24,
+    "topics_zero_questions": 1,
+    "zero_topics_names": [
+      "880: Backtracking Search and Arc Consistency for CSP"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 1,
+      "C_TAXONOMY_GAP": 1,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [
+        {
+          "id": 9993,
+          "text": "27. Given an initial state of 8 puzzle problem and final state to be reached as,\nInitial State:\n2 8 3\n1 6 4\n7   5\nFinal ",
+          "candidates": [
+            "Toy Problems: 8-Puzzle, Water Jug and Missionaries-Cannibals",
+            "A* Search Algorithm and Optimality"
+          ]
+        }
+      ],
+      "C_TAXONOMY_GAP": [
+        {
+          "id": 9373,
+          "text": "4. The extraction of meaningful information that is previously unknown and can be useful potential ahead is known as (A) Machine Learning (B"
+        }
+      ],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "30": {
+    "course_name": "Transforms and Boundary Value Problems",
+    "canonical_code": "21MAB201T",
+    "semester": 3,
+    "total_questions": 337,
+    "mapped_questions": 337,
+    "unmapped_questions": 0,
+    "high_confidence": 0,
+    "medium_confidence": 337,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 0,
+    "topics_total": 21,
+    "topics_represented": 9,
+    "topics_zero_questions": 12,
+    "zero_topics_names": [
+      "897: Non-Homogeneous Linear PDEs with Constant Coefficients",
+      "899: Half-Range Fourier Sine and Cosine Series",
+      "901: Harmonic Analysis and Practical Fourier Analysis",
+      "902: Classification of Second-Order PDEs and Separation of Variables",
+      "904: One-Dimensional Heat Conduction Equation",
+      "905: Transient Heat Flow with Insulated and Non-Insulated Ends",
+      "907: Boundary Value Problems for Finite Rectangular Plates",
+      "908: Steady-State Heat Flow in Semi-Infinite Plates",
+      "909: Dirichlet and Neumann Boundary Value Problems for Laplace Equation",
+      "911: Fourier Sine and Cosine Transforms"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 0,
+      "C_TAXONOMY_GAP": 0,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [],
+      "C_TAXONOMY_GAP": [],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  },
+  "31": {
+    "course_name": "Probability and Queueing Theory",
+    "canonical_code": "21MAB204T",
+    "semester": 4,
+    "total_questions": 191,
+    "mapped_questions": 191,
+    "unmapped_questions": 0,
+    "high_confidence": 0,
+    "medium_confidence": 191,
+    "low_confidence": 0,
+    "needs_review": 0,
+    "unresolved": 0,
+    "topics_total": 20,
+    "topics_represented": 16,
+    "topics_zero_questions": 4,
+    "zero_topics_names": [
+      "928: (M/M/1) : (k / FCFS) Single-Server Finite Capacity Queue",
+      "931: (M/M/c) : (k / FCFS) Multi-Server Finite Capacity Queue",
+      "932: Non-Markovian (M/G/1) Queue and Pollaczek-Khinchine Formula",
+      "933: Queueing Networks and System Performance Analysis"
+    ],
+    "unmapped_categorization": {
+      "A_EXISTING_TOPIC_CONFIDENT": 0,
+      "B_EXISTING_TOPIC_AMBIGUOUS": 0,
+      "C_TAXONOMY_GAP": 0,
+      "D_OUT_OF_SYLLABUS": 0,
+      "E_INSUFFICIENT_INFORMATION": 0
+    },
+    "unmapped_sample": {
+      "A_EXISTING_TOPIC_CONFIDENT": [],
+      "B_EXISTING_TOPIC_AMBIGUOUS": [],
+      "C_TAXONOMY_GAP": [],
+      "D_OUT_OF_SYLLABUS": [],
+      "E_INSUFFICIENT_INFORMATION": []
+    }
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { BrainCircuit, Loader2, FileQuestion, CheckCircle2, Sparkles, AlertCircle } from "lucide-react";
+import { BrainCircuit, Loader2, FileQuestion, CheckCircle2, Sparkles, AlertCircle, Eye, EyeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MathText } from "./math-text";
 import { generateTopicQuestions, GeneratedQuestionItem, QuestionGenerationResponse } from "@/lib/api";
@@ -17,6 +17,7 @@ export function MintAIQuestionGenerator({ topicName, courseId, trackId, cycle }:
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationResult, setGenerationResult] = useState<QuestionGenerationResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [revealedKeys, setRevealedKeys] = useState<Record<number, boolean>>({});
 
   const handleGenerateQuestions = async () => {
     setIsGenerating(true);
@@ -46,7 +47,7 @@ export function MintAIQuestionGenerator({ topicName, courseId, trackId, cycle }:
           className="flex items-center gap-2 px-4 py-2.5 bg-accent/10 hover:bg-accent/20 text-accent border border-accent/20 rounded-lg text-xs font-bold uppercase tracking-wider transition-all w-full justify-center group"
         >
           <BrainCircuit className="w-4 h-4 group-hover:scale-110 transition-transform" />
-          Generate Exam Practice Questions
+          {cycle && cycle !== "ALL" ? `Generate ${cycle} Practice Questions` : "Generate Exam Practice Questions"}
         </button>
       )}
 
@@ -55,7 +56,9 @@ export function MintAIQuestionGenerator({ topicName, courseId, trackId, cycle }:
           <Loader2 className="w-6 h-6 text-accent animate-spin" />
           <p className="text-xs font-medium text-muted-foreground text-center leading-relaxed">
             Mint AI is formulating exam-aligned practice questions for <strong className="text-foreground">{topicName}</strong>... <br/>
-            Evaluating 1-mark, 4-mark, and 13-mark assessment structures.
+            {cycle && ["CT1", "CT2"].includes(cycle.toUpperCase())
+              ? `Evaluating SRMIST ${cycle.toUpperCase()} Blueprint (${cycle.toUpperCase() === "CT1" ? "Units 1 & 2" : "Units 3 & 4"}) assessment structures.`
+              : "Evaluating 1-mark, 4-mark, and 13-mark assessment structures."}
           </p>
         </div>
       )}
@@ -131,6 +134,30 @@ export function MintAIQuestionGenerator({ topicName, courseId, trackId, cycle }:
                           <MathText content={opt} />
                         </div>
                       ))}
+                    </div>
+                  )}
+
+                  {q.answer_key && (
+                    <div className="pt-2 mt-1 border-t border-border/40">
+                      <button
+                        type="button"
+                        onClick={() => setRevealedKeys(prev => ({ ...prev, [i]: !prev[i] }))}
+                        className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 hover:underline cursor-pointer"
+                      >
+                        {revealedKeys[i] ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                        <span>{revealedKeys[i] ? "Hide Solution" : "Reveal Faculty Answer Key"}</span>
+                      </button>
+                      {revealedKeys[i] && (
+                        <div className="mt-2 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono space-y-1">
+                          <div className="flex items-center gap-1.5 font-bold text-[11px]">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>Verified Faculty Answer Key:</span>
+                          </div>
+                          <div className="whitespace-pre-line text-emerald-200 text-xs">
+                            {q.answer_key}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

@@ -742,6 +742,7 @@ export interface GeneratedQuestionItem {
   is_synthetic: boolean;
   exam_year?: number;
   source_label: string;
+  answer_key?: string | null;
 }
 
 export interface QuestionGenerationResponse {
@@ -803,5 +804,44 @@ export async function getExamAnnouncementsForCourse(
     return Array.isArray(res) ? res : [];
   } catch (err) {
     return [];
+  }
+}
+
+export interface CycleTestQuestion {
+  q_num: number;
+  question_text: string;
+  marks: number;
+  q_type: string;
+  answer_key: string | null;
+  subject: string;
+  cycle: string;
+  source_file: string;
+}
+
+export interface CycleTestQuestionsResponse {
+  subject: string;
+  cycle: string;
+  total_available: number;
+  available_subjects?: { subject: string; count: number }[];
+  questions: CycleTestQuestion[];
+}
+
+export async function getCycleTestQuestions(
+  subject: string,
+  cycle?: string,
+  limit: number = 50
+): Promise<CycleTestQuestionsResponse> {
+  const params = new URLSearchParams();
+  if (cycle && cycle !== "ALL") params.set("cycle", cycle);
+  params.set("limit", String(limit));
+  try {
+    return await fetchAPI(`/practice/cycle-tests/${encodeURIComponent(subject)}?${params.toString()}`);
+  } catch (err) {
+    return {
+      subject,
+      cycle: cycle || "ALL",
+      total_available: 0,
+      questions: []
+    };
   }
 }

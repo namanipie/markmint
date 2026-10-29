@@ -49,3 +49,56 @@ def test_mintai_fallback_mcq_has_options(client: TestClient):
     assert mcq is not None
     assert mcq["options"] is not None
     assert len(mcq["options"]) >= 4
+
+
+def test_mintai_cycle_test_1_blueprint(client: TestClient):
+    """Verify MintAI fallback generation conforms to SRMIST CT1 Blueprint (Units 1 & 2)."""
+    res = client.post(
+        "/api/intelligence/generate-questions",
+        json={"topic": "Quantum Teleportation Logic", "cycle": "CT1"},
+    )
+    assert res.status_code == 200
+    data = res.json()
+    assert data["is_synthetic"] is True
+    assert "CT1" in data["disclaimer"]
+    assert "Units 1 & 2" in data["disclaimer"]
+
+    questions = data["questions"]
+    assert len(questions) == 4
+
+    # Part A (2 Marks MCQ and Short)
+    q1 = questions[0]
+    assert q1["marks"] == "2 Marks"
+    assert q1["type"] == "MCQ"
+    assert "Units 1 & 2" in q1["source_label"]
+    assert len(q1["options"]) == 4
+
+    q2 = questions[1]
+    assert q2["marks"] == "2 Marks"
+    assert q2["type"] == "SHORT"
+
+    # Part B (5 Marks Short Analytical)
+    q3 = questions[2]
+    assert q3["marks"] == "5 Marks"
+
+    # Part C (12 Marks Comprehensive)
+    q4 = questions[3]
+    assert q4["marks"] == "12 Marks"
+    assert q4["type"] == "LONG"
+
+
+def test_mintai_cycle_test_2_blueprint(client: TestClient):
+    """Verify MintAI fallback generation conforms to SRMIST CT2 Blueprint (Units 3 & 4)."""
+    res = client.post(
+        "/api/intelligence/generate-questions",
+        json={"topic": "Quantum Error Correction Codes", "cycle": "CT2"},
+    )
+    assert res.status_code == 200
+    data = res.json()
+    assert data["is_synthetic"] is True
+    assert "CT2" in data["disclaimer"]
+    assert "Units 3 & 4" in data["disclaimer"]
+
+    questions = data["questions"]
+    assert any("Units 3 & 4" in q["source_label"] for q in questions)
+    assert any(q["marks"] == "12 Marks" for q in questions)

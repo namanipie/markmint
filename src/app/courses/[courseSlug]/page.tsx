@@ -1,3 +1,5 @@
+import { getCourseResources } from '@/lib/course-resources';
+import { CourseResourcesSection } from '@/components/courses/course-resources-section';
 import { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
@@ -106,6 +108,8 @@ export default async function CoursePage({ params }: PageProps) {
   if (!course) {
     notFound();
   }
+
+  const courseResources = getCourseResources(course.slug);
 
   // If visitor navigated to a language track alias, redirect to the track on foreign-languages
   if (LANGUAGE_TRACK_ALIASES[lower]) {
@@ -384,6 +388,9 @@ export default async function CoursePage({ params }: PageProps) {
             </aside>
           </div>
         )}
+
+        {/* Verified Past Papers & Professor Materials */}
+        <CourseResourcesSection resources={courseResources} courseName={course.name} />
 
         {/* Bottom CTA Banner */}
         <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border/80 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">

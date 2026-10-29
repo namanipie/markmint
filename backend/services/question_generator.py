@@ -23,6 +23,26 @@ from backend.models.core import Course, Exam, Section, Question, Topic, Question
 from backend.services.assessment_cycle import normalize_assessment_cycle, filter_exams_by_cycle
 
 
+import json
+from pathlib import Path
+
+CT_EXTRACTED_PATH = Path(__file__).resolve().parents[2] / "data" / "extracted_cycle_test_questions.json"
+_cached_ct_questions = None
+
+def _load_extracted_ct_questions() -> List[Dict[str, Any]]:
+    global _cached_ct_questions
+    if _cached_ct_questions is None:
+        if CT_EXTRACTED_PATH.exists():
+            try:
+                with open(CT_EXTRACTED_PATH, "r", encoding="utf-8") as f:
+                    _cached_ct_questions = json.load(f)
+            except Exception:
+                _cached_ct_questions = []
+        else:
+            _cached_ct_questions = []
+    return _cached_ct_questions
+
+
 class GeneratedQuestionItem(BaseModel):
     type: str  # "MCQ" | "SHORT" | "LONG" | "SPLIT"
     marks: str
@@ -32,6 +52,7 @@ class GeneratedQuestionItem(BaseModel):
     is_synthetic: bool
     exam_year: Optional[int] = None
     source_label: str
+    answer_key: Optional[str] = None
 
 
 class QuestionGenerationResponse(BaseModel):
@@ -69,15 +90,37 @@ class QuestionGeneratorService:
 
         # 1. Attempt historical evidence retrieval if course_id is provided
         historical_questions: List[Dict[str, Any]] = []
+        c_up = (cycle or "ALL").upper()
+
         if course_id:
-            historical_questions = cls._find_historical_questions(
-                db=db,
-                topic=sanitized_topic,
-                course_id=course_id,
-                track_id=track_id,
-                cycle=cycle,
-                cutoff_year=cutoff_year,
-            )
+            # If cycle is explicitly CT1, CT2, or CT3, check extracted CT papers first
+            if c_up in ["CT1", "CT2", "CT3"]:
+                historical_questions = cls._find_extracted_ct_questions(
+                    db=db,
+                    topic=sanitized_topic,
+                    course_id=course_id,
+                    cycle=cycle,
+                )
+
+            # If no CT questions or cycle is ALL / ENDSEM, check database PYQs
+            if not historical_questions:
+                historical_questions = cls._find_historical_questions(
+                    db=db,
+                    topic=sanitized_topic,
+                    course_id=course_id,
+                    track_id=track_id,
+                    cycle=cycle,
+                    cutoff_year=cutoff_year,
+                )
+
+            # Fallback to extracted CTs if DB was empty
+            if not historical_questions:
+                historical_questions = cls._find_extracted_ct_questions(
+                    db=db,
+                    topic=sanitized_topic,
+                    course_id=course_id,
+                    cycle=cycle,
+                )
 
         # 2. If historical evidence exists, format and return verified questions
         if historical_questions:
@@ -90,11 +133,16 @@ class QuestionGeneratorService:
                 is_synthetic=False,
                 evidence_count=len(historical_questions),
                 questions=formatted_qs,
-                disclaimer="Questions retrieved directly from verified historical university examination records.",
+                disclaimer="Questions retrieved directly from verified historical SRMIST past exam and cycle test papers.",
             )
 
-        # 3. Fallback: Generate syllabus-derived synthetic practice questions
-        synthetic_qs = cls._generate_synthetic_fallback(sanitized_topic)
+        # 3. Fallback: Generate syllabus-derived synthetic practice questions calibrated to blueprint
+        synthetic_qs = cls._generate_synthetic_fallback(sanitized_topic, cycle=cycle)
+        ct_scope_msg = (
+            f"calibrated to the SRMIST {c_up} blueprint (Units {'1 & 2' if c_up == 'CT1' else '3 & 4'})."
+            if c_up in ["CT1", "CT2"]
+            else "based on the syllabus taxonomy."
+        )
         return QuestionGenerationResponse(
             topic=sanitized_topic,
             course_id=course_id,
@@ -103,7 +151,7 @@ class QuestionGeneratorService:
             is_synthetic=True,
             evidence_count=0,
             questions=synthetic_qs,
-            disclaimer="These practice questions are AI-generated based on the syllabus taxonomy. They do not represent verified past exam papers.",
+            disclaimer=f"These practice questions are AI-generated {ct_scope_msg} They do not represent verified past exam papers.",
         )
 
     @classmethod
@@ -236,6 +284,11 @@ class QuestionGeneratorService:
                 q_type = "SPLIT"
                 marks_str = f"{int(marks_val)} Marks"
 
+            source = q.get("source_label") or (
+                f"Verified SRM {q.get('assessment_type', 'CT')} Paper ({q.get('source_file')})"
+                if q.get("source_file")
+                else f"Verified Historical SRM Exam ({q['year']})"
+            )
             items.append(
                 GeneratedQuestionItem(
                     type=q_type,
@@ -244,8 +297,9 @@ class QuestionGeneratorService:
                     options=None,
                     provenance="HISTORICAL_EVIDENCE",
                     is_synthetic=False,
-                    exam_year=q["year"],
-                    source_label=f"Verified Historical SRM Exam ({q['year']})",
+                    exam_year=q.get("year"),
+                    source_label=source,
+                    answer_key=q.get("answer_key"),
                 )
             )
             if len(items) >= 4:
@@ -254,11 +308,123 @@ class QuestionGeneratorService:
         return items
 
     @classmethod
-    def _generate_synthetic_fallback(cls, topic_name: str) -> List[GeneratedQuestionItem]:
+    def _find_extracted_ct_questions(
+        cls,
+        db: Session,
+        topic: str,
+        course_id: int,
+        cycle: Optional[str] = "ALL",
+    ) -> List[Dict[str, Any]]:
+        course = db.query(Course).filter(Course.id == course_id).first()
+        course_name = course.name.lower() if course and course.name else ""
+        if not course_name:
+            return []
+
+        all_ct_qs = _load_extracted_ct_questions()
+        if not all_ct_qs:
+            return []
+
+        topic_words = [w for w in re.split(r"\W+", topic.lower()) if len(w) > 3]
+        subj_words = [w for w in re.split(r"\W+", course_name) if len(w) > 3]
+
+        c_up = (cycle or "ALL").upper()
+
+        matched = []
+        for q in all_ct_qs:
+            q_subj = (q.get("subject") or "").lower()
+            if not any(w in q_subj for w in subj_words):
+                continue
+
+            q_cyc = (q.get("cycle") or "CT").upper()
+            if c_up != "ALL":
+                if c_up not in q_cyc and q_cyc != "CT":
+                    continue
+
+            q_text = (q.get("question_text") or "").lower()
+            score = sum(1 for w in topic_words if w in q_text)
+            matched.append((score, q))
+
+        matched.sort(key=lambda x: (x[0], x[1].get("answer_key") is not None), reverse=True)
+        top_qs = [m[1] for m in matched if m[0] > 0]
+        if not top_qs:
+            return []
+
+        results = []
+        for q in top_qs[:4]:
+            results.append({
+                "id": None,
+                "text": q.get("question_text", ""),
+                "marks": float(q.get("marks", 2)),
+                "year": 2024,
+                "assessment_type": q.get("cycle", "CT"),
+                "question_type": q.get("q_type", "SHORT_ANSWER"),
+                "source_file": q.get("source_file", ""),
+                "answer_key": q.get("answer_key"),
+            })
+        return results
+
+    @classmethod
+    def _generate_synthetic_fallback(cls, topic_name: str, cycle: Optional[str] = "ALL") -> List[GeneratedQuestionItem]:
         """
         Generate structured syllabus practice questions derived strictly from the topic title.
         Always marked with is_synthetic=True and SYNTHETIC_SYLLABUS_FALLBACK provenance.
+        Calibrated to the SRMIST Cycle Test Blueprint when cycle in ['CT1', 'CT2'].
         """
+        c_up = (cycle or "ALL").upper()
+        if c_up in ["CT1", "CT2"]:
+            scope_units = "Units 1 & 2" if c_up == "CT1" else "Units 3 & 4"
+            source_label = f"SRMIST {c_up} Blueprint Practice ({scope_units})"
+            return [
+                GeneratedQuestionItem(
+                    type="MCQ",
+                    marks="2 Marks",
+                    text=f"[{c_up} Part A] In the context of {topic_name} ({scope_units}), identify the core condition or fundamental constraint governing system behavior.",
+                    options=[
+                        f"Boundary preservation under {topic_name}",
+                        f"Asymptotic stability criterion for {topic_name}",
+                        f"Invariant state transition in {topic_name}",
+                        "None of the above"
+                    ],
+                    provenance="SYNTHETIC_SYLLABUS_FALLBACK",
+                    is_synthetic=True,
+                    exam_year=None,
+                    source_label=source_label,
+                ),
+                GeneratedQuestionItem(
+                    type="SHORT",
+                    marks="2 Marks",
+                    text=f"[{c_up} Part A] State the standard formal definition of {topic_name}. Write down its governing mathematical formula or algorithmic complexity.",
+                    options=None,
+                    provenance="SYNTHETIC_SYLLABUS_FALLBACK",
+                    is_synthetic=True,
+                    exam_year=None,
+                    source_label=source_label,
+                ),
+                GeneratedQuestionItem(
+                    type="SHORT",
+                    marks="5 Marks",
+                    text=f"[{c_up} Part B] Analyze the step-by-step operating mechanism of {topic_name} under standard engineering conditions. Illustrate with a clear diagram or pseudocode trace.",
+                    options=None,
+                    provenance="SYNTHETIC_SYLLABUS_FALLBACK",
+                    is_synthetic=True,
+                    exam_year=None,
+                    source_label=source_label,
+                ),
+                GeneratedQuestionItem(
+                    type="LONG",
+                    marks="12 Marks",
+                    text=(
+                        f"[{c_up} Part C - Comprehensive]\n"
+                        f"(a) [6 Marks] Derive the foundational principles of {topic_name} from first principles and discuss edge-case behavior.\n\n"
+                        f"(b) [6 Marks] Design a practical engineering solution utilizing {topic_name} to resolve real-world computational or physical constraints."
+                    ),
+                    options=None,
+                    provenance="SYNTHETIC_SYLLABUS_FALLBACK",
+                    is_synthetic=True,
+                    exam_year=None,
+                    source_label=source_label,
+                ),
+            ]
         lower = topic_name.lower()
         items: List[GeneratedQuestionItem] = []
 

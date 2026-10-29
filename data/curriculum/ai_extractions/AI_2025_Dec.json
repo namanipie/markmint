@@ -1,0 +1,561 @@
+{
+  "sections": [
+    {
+      "name": "PART - A",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "1",
+          "original_text": "1. In computational learning theory, show which two frameworks are used for pattern analysis? (A) Probability Approximately Not Correct and Mistake Not Bound (B) Probably Approximately Correct and Classes of Hypothesis (C) Probably Approximately Correct and Mistake Bound (D) Probability Approximately Correct and Target Function [1]",
+          "structured_content": {
+            "number": "1",
+            "text": "In computational learning theory, show which two frameworks are used for pattern analysis? (A) Probability Approximately Not Correct and Mistake Not Bound (B) Probably Approximately Correct and Classes of Hypothesis (C) Probably Approximately Correct and Mistake Bound (D) Probability Approximately Correct and Target Function",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "2",
+          "original_text": "2. Evaluation function (f(n)) in A* Search is represented as (A) f(n) = h(n) (B) f(n) = g(n) + h(n) (C) f(n) = g(n) * h(n) (D) f(n) = max(h(n)) [1]",
+          "structured_content": {
+            "number": "2",
+            "text": "Evaluation function (f(n)) in A* Search is represented as (A) f(n) = h(n) (B) f(n) = g(n) + h(n) (C) f(n) = g(n) * h(n) (D) f(n) = max(h(n))",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "3",
+          "original_text": "3. Determine the search algorithm applied in AI problem-solving (A) Dijkstra's Algorithm (B) Merge Sort (C) K-Nearest Neighbors (D) Random Forest [1]",
+          "structured_content": {
+            "number": "3",
+            "text": "Determine the search algorithm applied in AI problem-solving (A) Dijkstra's Algorithm (B) Merge Sort (C) K-Nearest Neighbors (D) Random Forest",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "4",
+          "original_text": "4. The extraction of meaningful information that is previously unknown and can be useful potential ahead is known as (A) Machine Learning (B) Learning Theory (C) Neural Computation (D) Knowledge Discovery [1]",
+          "structured_content": {
+            "number": "4",
+            "text": "The extraction of meaningful information that is previously unknown and can be useful potential ahead is known as (A) Machine Learning (B) Learning Theory (C) Neural Computation (D) Knowledge Discovery",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "5",
+          "original_text": "5. Which type of problem-solving approach involves searching through all possible states systematically? (A) Uninformed (blind) search (B) Reinforcement learning (C) Genetic algorithm (D) Machine learning [1]",
+          "structured_content": {
+            "number": "5",
+            "text": "Which type of problem-solving approach involves searching through all possible states systematically? (A) Uninformed (blind) search (B) Reinforcement learning (C) Genetic algorithm (D) Machine learning",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "6",
+          "original_text": "6. The post order traversal of a binary tree is 8, 9, 6, 7, 4, 5, 2, 3, 1. The inorder 3 2 2 traversal of the same tree is 8, 6, 9, 4, 7, 2, 5, 1, 3. If the height of a tree is the length of the longest path from the root to any leaf, the height of the tree is (A) 2 (B) 3 (C) 4 (D) 5 [1]",
+          "structured_content": {
+            "number": "6",
+            "text": "The post order traversal of a binary tree is 8, 9, 6, 7, 4, 5, 2, 3, 1. The inorder 3 2 2 traversal of the same tree is 8, 6, 9, 4, 7, 2, 5, 1, 3. If the height of a tree is the length of the longest path from the root to any leaf, the height of the tree is (A) 2 (B) 3 (C) 4 (D) 5",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "7",
+          "original_text": "7. Analyze space complexity of Breadth-First Search in the worst case. (A) O(1) (B) O(b^d), where b is the branching factor and d is the depth of the tree (C) O(d) (D) O(n), where n is the total number of nodes in the search tree [1]",
+          "structured_content": {
+            "number": "7",
+            "text": "Analyze space complexity of Breadth-First Search in the worst case. (A) O(1) (B) O(b^d), where b is the branching factor and d is the depth of the tree (C) O(d) (D) O(n), where n is the total number of nodes in the search tree",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "8",
+          "original_text": "8. In uniform cost search, what happens if two paths have the same cost to reach a node? (A) One of them is randomly chosen (B) Both paths are explored (C) The first path encountered is chosen simultaneously (D) The last path encountered is chosen [1]",
+          "structured_content": {
+            "number": "8",
+            "text": "In uniform cost search, what happens if two paths have the same cost to reach a node? (A) One of them is randomly chosen (B) Both paths are explored (C) The first path encountered is chosen simultaneously (D) The last path encountered is chosen",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "9",
+          "original_text": "9. In the Minmax algorithm, the \"min\" part refers to: (A) The player who moves first (B) The player minimizing the score of the opponent (C) The player maximizing their own score (D) A strategy for minimizing the opponent's options [1]",
+          "structured_content": {
+            "number": "9",
+            "text": "In the Minmax algorithm, the \"min\" part refers to: (A) The player who moves first (B) The player minimizing the score of the opponent (C) The player maximizing their own score (D) A strategy for minimizing the opponent's options",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "10",
+          "original_text": "10. Which of the following algorithms is commonly used for solving zero-sum, two-player games with perfect information? (A) Minmax algorithm (B) Breadth-first search (C) A* search algorithm (D) Hill climbing [1]",
+          "structured_content": {
+            "number": "10",
+            "text": "Which of the following algorithms is commonly used for solving zero-sum, two-player games with perfect information? (A) Minmax algorithm (B) Breadth-first search (C) A* search algorithm (D) Hill climbing",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "11",
+          "original_text": "11. Consider the problem of preparing a schedule for class of students. What type of problem is this? (A) Search Problem (B) Constraint satisfaction Problem (C) Planning Problem (D) Backtrack Problem [1]",
+          "structured_content": {
+            "number": "11",
+            "text": "Consider the problem of preparing a schedule for class of students. What type of problem is this? (A) Search Problem (B) Constraint satisfaction Problem (C) Planning Problem (D) Backtrack Problem",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "12",
+          "original_text": "12. The term used to describe the properties of the environment where an intelligent agent operates (e.g., fully observable, deterministic) is: (A) Constraint Domain (B) Rationality and Performance (C) Performance Measures (D) Task environment and its properties [1]",
+          "structured_content": {
+            "number": "12",
+            "text": "The term used to describe the properties of the environment where an intelligent agent operates (e.g., fully observable, deterministic) is: (A) Constraint Domain (B) Rationality and Performance (C) Performance Measures (D) Task environment and its properties",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "13",
+          "original_text": "13. Propositional logic deals with determining the ____ of the sentence. (A) Syntax (B) Truth value (C) Semantics (D) Logic [1]",
+          "structured_content": {
+            "number": "13",
+            "text": "Propositional logic deals with determining the ____ of the sentence. (A) Syntax (B) Truth value (C) Semantics (D) Logic",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "14",
+          "original_text": "14. In a Bayesian Network, nodes represent ____. (A) Physical network nodes (B) Data storage units (C) Random variable (D) Encryption algorithms [1]",
+          "structured_content": {
+            "number": "14",
+            "text": "In a Bayesian Network, nodes represent ____. (A) Physical network nodes (B) Data storage units (C) Random variable (D) Encryption algorithms",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "15",
+          "original_text": "15. The Wumpus World is primarily used to demonstrate: (A) Knowledge representation and reasoning (B) Search techniques (C) Genetic algorithms (D) Machine learning [1]",
+          "structured_content": {
+            "number": "15",
+            "text": "The Wumpus World is primarily used to demonstrate: (A) Knowledge representation and reasoning (B) Search techniques (C) Genetic algorithms (D) Machine learning",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "16",
+          "original_text": "16. The property of a Rational Agent to adapt to changes is related to ____. (A) Performance (B) Task environment (C) Flexibility (D) Rationality [1]",
+          "structured_content": {
+            "number": "16",
+            "text": "The property of a Rational Agent to adapt to changes is related to ____. (A) Performance (B) Task environment (C) Flexibility (D) Rationality",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "17",
+          "original_text": "17. Mean-Ends Analysis is used to: (A) Generate random moves (B) Optimize heuristics (C) Evaluate knowledge base (D) Solve planning problems [1]",
+          "structured_content": {
+            "number": "17",
+            "text": "Mean-Ends Analysis is used to: (A) Generate random moves (B) Optimize heuristics (C) Evaluate knowledge base (D) Solve planning problems",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "18",
+          "original_text": "18. \"MYCIN\" is an example of an Expert System developed for: (A) Network management (B) Medical diagnosis, specifically infectious diseases (C) Data encryption (D) Financial analysis [1]",
+          "structured_content": {
+            "number": "18",
+            "text": "\"MYCIN\" is an example of an Expert System developed for: (A) Network management (B) Medical diagnosis, specifically infectious diseases (C) Data encryption (D) Financial analysis",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "19",
+          "original_text": "19. Real-Time decisions, Game AI, Learning Tasks, Skill Acquisition, and Robot Navigation are applications of which of the following (A) Supervised Learning: Classification (B) Unsupervised Learning: Clustering (C) Unsupervised Learning: Regression (D) Reinforcement Learning [1]",
+          "structured_content": {
+            "number": "19",
+            "text": "Real-Time decisions, Game AI, Learning Tasks, Skill Acquisition, and Robot Navigation are applications of which of the following (A) Supervised Learning: Classification (B) Unsupervised Learning: Clustering (C) Unsupervised Learning: Regression (D) Reinforcement Learning",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "20",
+          "original_text": "20. Expert systems primarily consist of ____ (A) Graphs and trees (B) Knowledge base and inference engine (C) Neural network and optimizer (D) Data structures [1]",
+          "structured_content": {
+            "number": "20",
+            "text": "Expert systems primarily consist of ____ (A) Graphs and trees (B) Knowledge base and inference engine (C) Neural network and optimizer (D) Data structures",
+            "marks": 1
+          },
+          "marks": 1.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - B",
+      "instructions": "Answer all Questions",
+      "questions": [
+        {
+          "question_number": "21",
+          "original_text": "21. Explain the problem formulation steps with an example. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Explain the problem formulation steps with an example.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "21",
+              "text": "Consider the water jug problem: You are given two jugs, a 4-gallon one and 3-gallon one. Neither has any measuring marker on it. There is a pump that can be used to fill the jugs with water. How can you get exactly 2 gallon of water from the 4-gallon jug? Explain the state space representation and apply an optimal sequence of actions to solve it.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "21",
+          "original_text": "21. Consider the water jug problem: You are given two jugs, a 4-gallon one and 3-gallon one. Neither has any measuring marker on it. There is a pump that can be used to fill the jugs with water. How can you get exactly 2 gallon of water from the 4-gallon jug? Explain the state space representation and apply an optimal sequence of actions to solve it. [8]",
+          "structured_content": {
+            "number": "21",
+            "text": "Consider the water jug problem: You are given two jugs, a 4-gallon one and 3-gallon one. Neither has any measuring marker on it. There is a pump that can be used to fill the jugs with water. How can you get exactly 2 gallon of water from the 4-gallon jug? Explain the state space representation and apply an optimal sequence of actions to solve it.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Consider the above graph and try to find the path from S to G using the A* Algorithm. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Consider the above graph and try to find the path from S to G using the A* Algorithm.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "22",
+              "text": "Elaborate on the need for Local search algorithms and discuss anyone algorithm in detail.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "22",
+          "original_text": "22. Elaborate on the need for Local search algorithms and discuss anyone algorithm in detail. [8]",
+          "structured_content": {
+            "number": "22",
+            "text": "Elaborate on the need for Local search algorithms and discuss anyone algorithm in detail.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Brief on Mini-Max algorithm and also discuss the need for Alpha-Beta Pruning. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Brief on Mini-Max algorithm and also discuss the need for Alpha-Beta Pruning.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "23",
+              "text": "Define an Intelligent Agent. Describe the Task environment and its properties (PEAS) and briefly explain the different types of agents that can be implemented by an AI.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "23",
+          "original_text": "23. Define an Intelligent Agent. Describe the Task environment and its properties (PEAS) and briefly explain the different types of agents that can be implemented by an AI. [8]",
+          "structured_content": {
+            "number": "23",
+            "text": "Define an Intelligent Agent. Describe the Task environment and its properties (PEAS) and briefly explain the different types of agents that can be implemented by an AI.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Consider a 4x4 Wumpus World environment. The agent starts at cell (1,1) and its goal is to find gold while avoiding pits and the Wumpus. The percepts available to the stench (near Wumpus), breeze (near pit), glitter (gold), bump (wall), and scream (Wumpus killed). [8]\n  i. Draw a possible knowledge representation (using a simple logical representation) for the agent's knowledge of the environment after it perceives a breeze at (1,1) and stench at (2,1). [4]\n  ii. Using propositional logic and inference rules, determine the possible safe moves for the agent from its current position. Explain your reasoning step by step. [4]",
+          "structured_content": {
+            "number": "24",
+            "text": "Consider a 4x4 Wumpus World environment. The agent starts at cell (1,1) and its goal is to find gold while avoiding pits and the Wumpus. The percepts available to the stench (near Wumpus), breeze (near pit), glitter (gold), bump (wall), and scream (Wumpus killed).",
+            "marks": 8,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Draw a possible knowledge representation (using a simple logical representation) for the agent's knowledge of the environment after it perceives a breeze at (1,1) and stench at (2,1).",
+                "marks": 4
+              },
+              {
+                "number": "ii",
+                "text": "Using propositional logic and inference rules, determine the possible safe moves for the agent from its current position. Explain your reasoning step by step.",
+                "marks": 4
+              }
+            ],
+            "or_alternative": {
+              "number": "24",
+              "text": "Differentiate Backward and Forward chaining with an example.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "24",
+          "original_text": "24. Differentiate Backward and Forward chaining with an example. [8]",
+          "structured_content": {
+            "number": "24",
+            "text": "Differentiate Backward and Forward chaining with an example.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Explain the concept of Planning in AI. Describe the working of a Simple planning agent and elaborate on the planning problem it addresses. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Explain the concept of Planning in AI. Describe the working of a Simple planning agent and elaborate on the planning problem it addresses.",
+            "marks": 8,
+            "or_alternative": {
+              "number": "25",
+              "text": "Elaborate the types of learning models used in machine learning and their relevance in AI applications.",
+              "marks": 8
+            }
+          },
+          "marks": 8.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "25",
+          "original_text": "25. Elaborate the types of learning models used in machine learning and their relevance in AI applications. [8]",
+          "structured_content": {
+            "number": "25",
+            "text": "Elaborate the types of learning models used in machine learning and their relevance in AI applications.",
+            "marks": 8
+          },
+          "marks": 8.0,
+          "is_alternative": true,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    },
+    {
+      "name": "PART - C",
+      "instructions": "Answer any 1 Question",
+      "questions": [
+        {
+          "question_number": "26",
+          "original_text": "26. The missionaries and cannibals problem is usually stated as follows. Three missionaries and three cannibals are on one side of a river, along with a boat that can hold one or two people. Find a way to get everyone to the other side without ever leaving a group of missionaries in one place outnumbered by the cannibals in that place. [15]\n  i. Formulate the problem precisely, making only those distinctions necessary to ensure a valid solution. Draw a diagram of the complete state space. [5]\n  ii. Implement and solve the problem optimally using an appropriate search algorithm. Is it a good idea to check for repeated states? [8]\n  iii. Why do you think people have a hard time solving this puzzle, given that the state space is so simple? [2]",
+          "structured_content": {
+            "number": "26",
+            "text": "The missionaries and cannibals problem is usually stated as follows. Three missionaries and three cannibals are on one side of a river, along with a boat that can hold one or two people. Find a way to get everyone to the other side without ever leaving a group of missionaries in one place outnumbered by the cannibals in that place.",
+            "marks": 15,
+            "subquestions": [
+              {
+                "number": "i",
+                "text": "Formulate the problem precisely, making only those distinctions necessary to ensure a valid solution. Draw a diagram of the complete state space.",
+                "marks": 5
+              },
+              {
+                "number": "ii",
+                "text": "Implement and solve the problem optimally using an appropriate search algorithm. Is it a good idea to check for repeated states?",
+                "marks": 8
+              },
+              {
+                "number": "iii",
+                "text": "Why do you think people have a hard time solving this puzzle, given that the state space is so simple?",
+                "marks": 2
+              }
+            ]
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        },
+        {
+          "question_number": "27",
+          "original_text": "27. Given a weighted graph, a source node and a destination node. The task is to find the shortest path from the source node (P) to the destination node (S) using uniform cost search. [15]",
+          "structured_content": {
+            "number": "27",
+            "text": "Given a weighted graph, a source node and a destination node. The task is to find the shortest path from the source node (P) to the destination node (S) using uniform cost search.",
+            "marks": 15
+          },
+          "marks": 15.0,
+          "is_alternative": false,
+          "page_number": 1,
+          "confidence": 0.9,
+          "needs_review": false,
+          "extraction_method": "vision_gemini"
+        }
+      ]
+    }
+  ],
+  "total_pages": 1,
+  "successful": true,
+  "error_message": null,
+  "assessment_type": "DEGREE EXAMINATION",
+  "year": 2025
+}

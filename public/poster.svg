@@ -1,0 +1,369 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2480 3508" width="2480" height="3508">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="65%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#1e1035" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#0e0a1a" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#08080c" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Subtle Violet Accent Gradient -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A78BFA" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(139, 92, 246, 0.25)" />
+      <stop offset="100%" stop-color="rgba(124, 58, 237, 0.12)" />
+    </linearGradient>
+
+    <!-- Linear Gradient for Sheet Wireframes -->
+    <linearGradient id="sheetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(167, 139, 250, 0.25)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.03)" />
+    </linearGradient>
+
+    <!-- Flow Connector Gradient -->
+    <linearGradient id="flowLineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#A78BFA" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Dot Matrix Pattern for Subtle Background -->
+    <pattern id="dotGrid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="1.5" fill="rgba(255, 255, 255, 0.05)" />
+    </pattern>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+      
+      .font-brand { font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif; }
+      .font-headline { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 800; }
+      .font-body { font-family: 'Inter', -apple-system, sans-serif; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+  </defs>
+
+  <!-- Base Background -->
+  <rect width="2480" height="3508" fill="#08080C" />
+  <rect width="2480" height="3508" fill="url(#bgGlow)" />
+  <rect width="2480" height="3508" fill="url(#dotGrid)" />
+
+  <!-- Outer Architectural Registration Frame (Inset 120px = ~10mm) -->
+  <rect x="120" y="120" width="2240" height="3268" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2" />
+  
+  <!-- Corner Registration Crosshairs -->
+  <!-- Top Left -->
+  <path d="M 90 120 H 150 M 120 90 V 150" stroke="#8B5CF6" stroke-width="3" stroke-opacity="0.6" />
+  <!-- Top Right -->
+  <path d="M 2330 120 H 2390 M 2360 90 V 150" stroke="#8B5CF6" stroke-width="3" stroke-opacity="0.6" />
+  <!-- Bottom Left -->
+  <path d="M 90 3388 H 150 M 120 3358 V 3418" stroke="#8B5CF6" stroke-width="3" stroke-opacity="0.6" />
+  <!-- Bottom Right -->
+  <path d="M 2330 3388 H 2390 M 2360 3358 V 3418" stroke="#8B5CF6" stroke-width="3" stroke-opacity="0.6" />
+
+  <!-- Technical Edge Coordinates -->
+  <text x="160" y="95" class="font-mono" font-size="22" fill="#6B7280" letter-spacing="4">REF: SRM-ACAD-2026 // A4 PRINT SPEC</text>
+  <text x="2320" y="95" class="font-mono" font-size="22" fill="#6B7280" text-anchor="end" letter-spacing="3">210 × 297 MM</text>
+
+  <!-- ======================================================== -->
+  <!-- 1. BRAND HEADER -->
+  <!-- ======================================================== -->
+  <g transform="translate(200, 260)">
+    <!-- Brand Icon: Minimal Geometric Mint / Paper Node -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="46" height="46" rx="10" fill="url(#purpleGrad)" />
+      <!-- Minimal abstract folded sheet motif in mark -->
+      <path d="M 14 14 L 32 14 L 32 32 L 23 32 L 14 23 Z" fill="#08080C" />
+      <circle cx="20" cy="20" r="3" fill="#A78BFA" />
+    </g>
+
+    <!-- MARKMINT Logo Text -->
+    <text x="68" y="34" class="font-brand" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="9">MARKMINT</text>
+
+    <!-- Header Divider Line -->
+    <line x1="0" y1="80" x2="2080" y2="80" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 2. DOMINANT HEADLINE -->
+  <!-- ======================================================== -->
+  <g transform="translate(200, 530)">
+    <!-- Main Headline - Line 1 -->
+    <text x="0" y="0" class="font-headline" font-size="160" fill="#FFFFFF" letter-spacing="-3">STOP GUESSING</text>
+    <!-- Main Headline - Line 2 -->
+    <text x="0" y="170" class="font-headline" font-size="160" fill="#FFFFFF" letter-spacing="-3">
+      WHAT TO STUDY<tspan fill="#8B5CF6">.</tspan>
+    </text>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 3. CENTRAL WORKSPACE: FLOW (LEFT) + ABSTRACT MOTIF (RIGHT) -->
+  <!-- ======================================================== -->
+
+  <!-- Left: The Process Flow -->
+  <g transform="translate(200, 960)">
+    
+    <!-- Step 1: Historical PYQs -->
+    <g transform="translate(0, 0)">
+      <circle cx="28" cy="28" r="8" fill="#8B5CF6" />
+      <circle cx="28" cy="28" r="18" fill="none" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="2" />
+      <text x="80" y="38" class="font-headline" font-size="62" fill="#FFFFFF" letter-spacing="-0.5">Historical PYQs</text>
+    </g>
+
+    <!-- Downward Connector 1 -->
+    <g transform="translate(28, 65)">
+      <line x1="0" y1="0" x2="0" y2="85" stroke="url(#flowLineGrad)" stroke-width="3" stroke-dasharray="6 6" />
+      <path d="M -8 78 L 0 94 L 8 78" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 2: Exam Patterns -->
+    <g transform="translate(0, 185)">
+      <circle cx="28" cy="28" r="8" fill="#8B5CF6" />
+      <circle cx="28" cy="28" r="18" fill="none" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="2" />
+      <text x="80" y="38" class="font-headline" font-size="62" fill="#FFFFFF" letter-spacing="-0.5">Exam Patterns</text>
+    </g>
+
+    <!-- Downward Connector 2 -->
+    <g transform="translate(28, 250)">
+      <line x1="0" y1="0" x2="0" y2="85" stroke="url(#flowLineGrad)" stroke-width="3" stroke-dasharray="6 6" />
+      <path d="M -8 78 L 0 94 L 8 78" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 3: What Matters (HERO STEP - Highlighted) -->
+    <g transform="translate(0, 370)">
+      <!-- Highlight Container Badge -->
+      <rect x="65" y="-18" width="530" height="92" rx="16" fill="url(#pillGrad)" stroke="#8B5CF6" stroke-width="2.5" stroke-opacity="0.7" />
+      
+      <!-- Focal Pulse Node -->
+      <circle cx="28" cy="28" r="12" fill="#A78BFA" />
+      <circle cx="28" cy="28" r="26" fill="none" stroke="#8B5CF6" stroke-width="3" />
+      
+      <text x="95" y="44" class="font-headline" font-size="64" fill="#FFFFFF" font-weight="900" letter-spacing="-0.5">What Matters</text>
+      <!-- Small spark indicator -->
+      <circle cx="560" cy="28" r="5" fill="#C084FC" />
+    </g>
+
+    <!-- Downward Connector 3 -->
+    <g transform="translate(28, 445)">
+      <line x1="0" y1="0" x2="0" y2="85" stroke="url(#flowLineGrad)" stroke-width="3" stroke-dasharray="6 6" />
+      <path d="M -8 78 L 0 94 L 8 78" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 4: Study -->
+    <g transform="translate(0, 560)">
+      <circle cx="28" cy="28" r="8" fill="#8B5CF6" />
+      <circle cx="28" cy="28" r="18" fill="none" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="2" />
+      <text x="80" y="38" class="font-headline" font-size="62" fill="#FFFFFF" letter-spacing="-0.5">Study</text>
+    </g>
+
+    <!-- Downward Connector 4 -->
+    <g transform="translate(28, 625)">
+      <line x1="0" y1="0" x2="0" y2="85" stroke="url(#flowLineGrad)" stroke-width="3" stroke-dasharray="6 6" />
+      <path d="M -8 78 L 0 94 L 8 78" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Step 5: Practice -->
+    <g transform="translate(0, 745)">
+      <circle cx="28" cy="28" r="8" fill="#8B5CF6" />
+      <circle cx="28" cy="28" r="18" fill="none" stroke="#8B5CF6" stroke-opacity="0.3" stroke-width="2" />
+      <text x="80" y="38" class="font-headline" font-size="62" fill="#FFFFFF" letter-spacing="-0.5">Practice</text>
+    </g>
+
+    <!-- Small Supporting Text -->
+    <g transform="translate(0, 890)">
+      <rect x="0" y="0" width="36" height="4" fill="#8B5CF6" />
+      <text x="56" y="18" class="font-body" font-size="34" font-weight="600" fill="#9CA3AF" letter-spacing="1">Built from past SRM exam papers.</text>
+    </g>
+  </g>
+
+  <!-- Right: Abstract Technical Motif (Exam Papers Distilling to High-Yield Insight) -->
+  <g transform="translate(1420, 930)">
+    
+    <!-- Outer Blueprint Bounding Box -->
+    <rect x="0" y="0" width="860" height="980" rx="20" fill="rgba(15, 12, 28, 0.4)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+    
+    <!-- Header coordinate inside motif -->
+    <text x="40" y="55" class="font-mono" font-size="20" fill="#6B7280" letter-spacing="3">// DATA TRANSFORMATION ARCHITECTURE</text>
+    <line x1="40" y1="80" x2="820" y2="80" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1.5" />
+
+    <!-- Visual Layer 1: Stacked Abstract Exam Paper Wireframes (Top) -->
+    <g transform="translate(140, 120)">
+      <!-- Sheet 3 (Back) -->
+      <g transform="rotate(-6, 250, 150)">
+        <rect x="60" y="0" width="380" height="240" rx="8" fill="rgba(255, 255, 255, 0.015)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2" />
+        <line x1="90" y1="40" x2="220" y2="40" stroke="rgba(255, 255, 255, 0.15)" stroke-width="3" />
+        <line x1="90" y1="75" x2="380" y2="75" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+        <line x1="90" y1="105" x2="350" y2="105" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2" />
+      </g>
+
+      <!-- Sheet 2 (Mid) -->
+      <g transform="rotate(4, 250, 150)">
+        <rect x="40" y="20" width="380" height="240" rx="8" fill="rgba(139, 92, 246, 0.03)" stroke="rgba(167, 139, 250, 0.25)" stroke-width="2" />
+        <line x1="70" y1="60" x2="240" y2="60" stroke="#8B5CF6" stroke-width="3" stroke-opacity="0.4" />
+        <line x1="70" y1="95" x2="360" y2="95" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" />
+        <line x1="70" y1="125" x2="330" y2="125" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2" />
+      </g>
+
+      <!-- Sheet 1 (Front Primary Exam Paper) -->
+      <g transform="translate(50, 45)">
+        <rect x="0" y="0" width="380" height="240" rx="8" fill="rgba(14, 10, 26, 0.85)" stroke="rgba(167, 139, 250, 0.5)" stroke-width="2.5" />
+        <!-- Exam Paper Header Lines -->
+        <line x1="30" y1="40" x2="180" y2="40" stroke="#A78BFA" stroke-width="3.5" />
+        <rect x="300" y="26" width="50" height="24" rx="4" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" stroke-width="1.5" />
+        <!-- Questions / Question Blocks -->
+        <line x1="30" y1="80" x2="350" y2="80" stroke="rgba(255, 255, 255, 0.25)" stroke-width="2" />
+        <line x1="30" y1="110" x2="310" y2="110" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
+        <line x1="30" y1="140" x2="340" y2="140" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
+        <line x1="30" y1="170" x2="260" y2="170" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
+        <line x1="30" y1="200" x2="290" y2="200" stroke="rgba(255, 255, 255, 0.18)" stroke-width="2" />
+      </g>
+    </g>
+
+    <!-- Visual Layer 2: Deconstruction & Vector Convergence (Middle) -->
+    <g transform="translate(430, 480)">
+      <!-- Convergence Rays from paper edges into central node -->
+      <line x1="-240" y1="-80" x2="0" y2="80" stroke="rgba(167, 139, 250, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+      <line x1="-120" y1="-80" x2="0" y2="80" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2" />
+      <line x1="0" y1="-80" x2="0" y2="80" stroke="#8B5CF6" stroke-width="2.5" />
+      <line x1="120" y1="-80" x2="0" y2="80" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2" />
+      <line x1="240" y1="-80" x2="0" y2="80" stroke="rgba(167, 139, 250, 0.3)" stroke-width="2" stroke-dasharray="4 4" />
+
+      <!-- Frequency / Analytical Spectrum Grid -->
+      <g transform="translate(-160, -10)">
+        <rect x="0" y="0" width="320" height="30" rx="6" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.5" />
+        <!-- Data frequency bars inside analysis window -->
+        <rect x="25" y="8" width="12" height="14" fill="#8B5CF6" />
+        <rect x="55" y="4" width="12" height="22" fill="#A78BFA" />
+        <rect x="85" y="11" width="12" height="11" fill="#7C3AED" />
+        <rect x="115" y="2" width="12" height="26" fill="#C084FC" />
+        <rect x="145" y="7" width="12" height="16" fill="#8B5CF6" />
+        <rect x="175" y="12" width="12" height="10" fill="#6D28D9" />
+        <rect x="205" y="3" width="12" height="24" fill="#A78BFA" />
+        <rect x="235" y="9" width="12" height="14" fill="#8B5CF6" />
+        <rect x="265" y="5" width="12" height="20" fill="#C084FC" />
+      </g>
+
+      <!-- Central Distilled Focus Node (What Matters Prism) -->
+      <g transform="translate(0, 80)">
+        <!-- Outer Halo -->
+        <circle cx="0" cy="0" r="54" fill="rgba(139, 92, 246, 0.15)" />
+        <circle cx="0" cy="0" r="36" fill="rgba(124, 58, 237, 0.3)" stroke="#8B5CF6" stroke-width="3" />
+        <!-- Geometric Diamond Core -->
+        <polygon points="0,-18 18,0 0,18 -18,0" fill="#FFFFFF" />
+      </g>
+    </g>
+
+    <!-- Visual Layer 3: High-Yield Execution Channels (Bottom of motif) -->
+    <g transform="translate(430, 680)">
+      <!-- Pure Distilled Output Beam -->
+      <line x1="0" y1="-60" x2="0" y2="40" stroke="#8B5CF6" stroke-width="4" />
+      
+      <!-- Branching Study & Practice Vector Cards -->
+      <g transform="translate(-260, 40)">
+        <!-- Insight Card 1: High Yield Topics -->
+        <rect x="0" y="0" width="240" height="150" rx="12" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2" />
+        <circle cx="35" cy="35" r="10" fill="#8B5CF6" />
+        <line x1="60" y1="35" x2="200" y2="35" stroke="#FFFFFF" stroke-width="3" />
+        <line x1="35" y1="75" x2="205" y2="75" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" />
+        <line x1="35" y1="105" x2="165" y2="105" stroke="rgba(255, 255, 255, 0.2)" stroke-width="2" />
+      </g>
+
+      <g transform="translate(20, 40)">
+        <!-- Insight Card 2: Precision Practice -->
+        <rect x="0" y="0" width="240" height="150" rx="12" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(167, 139, 250, 0.4)" stroke-width="2" />
+        <circle cx="35" cy="35" r="10" fill="#C084FC" />
+        <line x1="60" y1="35" x2="200" y2="35" stroke="#FFFFFF" stroke-width="3" />
+        <!-- Target / mastery reticle -->
+        <circle cx="120" cy="95" r="28" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 4" />
+        <circle cx="120" cy="95" r="12" fill="#8B5CF6" fill-opacity="0.4" stroke="#8B5CF6" stroke-width="2" />
+        <circle cx="120" cy="95" r="3" fill="#FFFFFF" />
+      </g>
+
+      <!-- Label at base of diagram -->
+      <text x="0" y="235" class="font-mono" font-size="20" fill="#9CA3AF" text-anchor="middle" letter-spacing="4">RAW EXAMS ➔ REPETITION PATTERNS ➔ ACTIONABLE MASTERY</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 4. BOTTOM SECTION: CALL TO ACTION & QR TARGET AREA -->
+  <!-- ======================================================== -->
+  <g transform="translate(200, 2660)">
+    
+    <!-- Divider Line -->
+    <line x1="0" y1="0" x2="2080" y2="0" stroke="rgba(255, 255, 255, 0.12)" stroke-width="2" />
+
+    <!-- LEFT: Action Copy & Domain -->
+    <g transform="translate(0, 110)">
+      
+      <!-- Dominant SCAN TO TRY -->
+      <text x="0" y="120" class="font-headline" font-size="115" fill="#FFFFFF" letter-spacing="2">SCAN TO TRY</text>
+
+      <!-- Secondary Web Domain -->
+      <g transform="translate(0, 220)">
+        <rect x="0" y="0" width="600" height="96" rx="16" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(139, 92, 246, 0.35)" stroke-width="2" />
+        
+        <!-- Minimal Globe / URL Icon -->
+        <circle cx="50" cy="48" r="16" fill="none" stroke="#A78BFA" stroke-width="2.5" />
+        <line x1="34" y1="48" x2="66" y2="48" stroke="#A78BFA" stroke-width="2" />
+        <ellipse cx="50" cy="48" rx="7" ry="16" fill="none" stroke="#A78BFA" stroke-width="2" />
+        
+        <text x="86" y="58" class="font-mono" font-size="38" font-weight="600" fill="#FFFFFF" letter-spacing="1">markmint.vercel.app</text>
+      </g>
+
+      <!-- Direct arrow pointing to QR -->
+      <g transform="translate(640, 240)">
+        <line x1="0" y1="28" x2="70" y2="28" stroke="#8B5CF6" stroke-width="4" />
+        <path d="M 55 14 L 75 28 L 55 42" fill="none" stroke="#8B5CF6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </g>
+
+    <!-- RIGHT: Large, High-Contrast Clean QR Code Area -->
+    <g transform="translate(1520, 70)">
+      
+      <!-- Outer Optical Frame with Purple Corner Brackets -->
+      <!-- Top Left Bracket -->
+      <path d="M -25 20 V -25 H 20" fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="square" />
+      <!-- Top Right Bracket -->
+      <path d="M 535 20 V -25 H 490" fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="square" />
+      <!-- Bottom Left Bracket -->
+      <path d="M -25 490 V 535 H 20" fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="square" />
+      <!-- Bottom Right Bracket -->
+      <path d="M 535 490 V 535 H 490" fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="square" />
+
+      <!-- Pure White High-Contrast Card for QR Code Insertion -->
+      <rect x="0" y="0" width="510" height="510" rx="16" fill="#FFFFFF" />
+
+      <!-- Clean Placeholder Grid & Text Guidelines for User Insertion -->
+      <rect x="25" y="25" width="460" height="460" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8" />
+      
+      <!-- Corner Markers Inside Box -->
+      <rect x="45" y="45" width="70" height="70" fill="none" stroke="#0F172A" stroke-width="6" />
+      <rect x="63" y="63" width="34" height="34" fill="#0F172A" />
+
+      <rect x="395" y="45" width="70" height="70" fill="none" stroke="#0F172A" stroke-width="6" />
+      <rect x="413" y="63" width="34" height="34" fill="#0F172A" />
+
+      <rect x="45" y="395" width="70" height="70" fill="none" stroke="#0F172A" stroke-width="6" />
+      <rect x="63" y="413" width="34" height="34" fill="#0F172A" />
+
+      <!-- Placeholder Text Required by Prompt -->
+      <text x="255" y="210" class="font-headline" font-size="28" font-weight="800" fill="#0F172A" text-anchor="middle" letter-spacing="1">[ PLACE A LARGE, CLEAR</text>
+      <text x="255" y="245" class="font-headline" font-size="28" font-weight="800" fill="#0F172A" text-anchor="middle" letter-spacing="1">QR CODE HERE ]</text>
+      
+      <text x="255" y="315" class="font-mono" font-size="18" fill="#64748B" text-anchor="middle" letter-spacing="1">CLEAN RECTANGULAR AREA</text>
+      <text x="255" y="340" class="font-mono" font-size="16" fill="#94A3B8" text-anchor="middle">50 × 50 MM (A4 SCALE)</text>
+    </g>
+
+  </g>
+
+  <!-- Bottom Technical Footer Bar -->
+  <g transform="translate(200, 3320)">
+    <line x1="0" y1="0" x2="2080" y2="0" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1.5" />
+    <text x="0" y="30" class="font-mono" font-size="20" fill="#4B5563" letter-spacing="2">CAMPUS CIRCULATION // SRM INSTITUTE OF SCIENCE &amp; TECHNOLOGY</text>
+    <text x="2080" y="30" class="font-mono" font-size="20" fill="#4B5563" text-anchor="end" letter-spacing="2">A4 PORTRAIT SPECIFICATION</text>
+  </g>
+
+</svg>

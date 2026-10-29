@@ -1,0 +1,50 @@
+{
+  "documents": {
+    "count": 110,
+    "hash": "0fa6653e4ea019175495da63a5242f095f67290c3043e0fcb1690c377d755903"
+  },
+  "document_provenances": {
+    "count": 0,
+    "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "courses": {
+    "count": 23,
+    "hash": "d801217c0ba2ba79c66d1c2d87895630e6ab03bef9da94c86884168f60f8e26d"
+  },
+  "exams": {
+    "count": 8,
+    "hash": "91f74a46cc514c34e1253763d84caa9e9810f7da3760d110b1544552194b90a3"
+  },
+  "sections": {
+    "count": 16,
+    "hash": "551db7d713c837baaa8a71bd20c551ffc556622827d604e91d58bbe34088fa23"
+  },
+  "questions": {
+    "count": 223,
+    "hash": "cef32bee071cec7bb7d14d2e7644f489bbb274fba0901d5f74f42d2f451c7d81"
+  },
+  "study_evidences": {
+    "count": 62,
+    "hash": "a8156fb048ba0458a41573c32b1ba1814e2be016f08754b7986f38b65e5913cf"
+  },
+  "syllabuses": {
+    "count": 23,
+    "hash": "a3d1ae6abb707f50a6dd9a6f39f4f938d0abc806fa5876557a8a9a003ba9ce5a"
+  },
+  "topics": {
+    "count": 72,
+    "hash": "bfa40269cc97d6cadeae22f83ac92fd8a49b476fe7209d19fecac8b62b0a64b9"
+  },
+  "units": {
+    "count": 44,
+    "hash": "bc7d29d7e4b11c0230c73a721373a8f5f0dab9541b050f1c9b3b00c4454dc685"
+  },
+  "curriculum_mappings": {
+    "count": 2810,
+    "hash": "5649aa531824cc96b5a24bfd189d1415686b6f98fb82daca8de6cc6df3c20a2c"
+  },
+  "student_topic_progress": {
+    "count": 2,
+    "hash": "97c267d304f8dd7dd07f233430aaa715b629bb6834ccc54a951bb8534950fe0c"
+  }
+}

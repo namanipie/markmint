@@ -1,0 +1,297 @@
+
+--- PAGE 1 ---
+DEPARTMENT OF CHEMISTRY 
+SRM INSTITUTE OF SCIENCE AND TECHNOLOGY 
+B.TECH (2018-2019) 
+Subject/Code: Chemistry/ 18CYB101J   
+ 
+ 
+Semester-I 
+Question Bank [4/6/8/10/12 marks] 
+Module I 
+1. Derive time independent Schrodinger wave equation. 
+2. Derive Schrodinger equation for one dimensional box and obtain the 
+Eigen value by solving the equation.  
+3. Discuss briefly the plots of radial and angular wave functions for 1s 
+orbital of hydrogen atom. 
+4. What is Linear Combination of Atomic Orbitals (LCAO)? Give the wave 
+function equations for the formation of molecular orbitals by the 
+combination of atomic orbitals? 
+5. Discuss in detail the features of MO theory with energy level diagram.  
+6. Differentiate bonding and anti-bonding molecular orbital. 
+7. Describe the combination of s-s orbitals to give bonding and anti-bonding 
+molecular orbitals. 
+8. Explain why H2+ is less stable than H2 molecule? 
+9. O2 molecule is paramagnetic while O22- ion is diamagnetic 
+10. CO is diamagnetic. Justify it with MO concept. 
+11. Explain Heisenberg uncertainty principle. 
+12. Draw the shape of Molecular Orbitals obtained by overlap of s and p 
+orbitals. 
+13. Describe the overlapping of p-p orbitals with orbital diagram. 
+14. Draw and explain the molecular orbital energy level diagram for 
+hydrogen molecule (H2) and calculate the bond order. 
+
+--- PAGE 2 ---
+15. Draw and explain the molecular orbital energy level diagram for 
+hydrogen molecular ion (H2+) molecule and calculate the bond order. 
+16. Draw and explain the molecular orbital energy level diagram for oxygen 
+molecule (O2) molecule and calculate the bond order. 
+17. Draw and explain the molecular orbital energy level diagram for CO 
+molecule and calculate the bond order. 
+18. Give the salient features of crystal field theory. 
+19. Discuss the crystal field splitting in octahedral complex. 
+20. Discus the crystal field splitting in a tetrahedral complex. 
+21. Explain Huckel’s rule on aromatic, Non-aromatic and Anti-aromatic 
+compounds. 
+22. Identify from the following aromatic, non-aromatic and anti- aromatic 
+compounds. 
+a. Cyclopentadienyl anion b. Cyclopentadienyl cation c. Napthalene d. 
+Pyrrole 
+23. Explain in detail pi molecular orbitals of Benzene and Butadiene. 
+Module II 
+1. What is spectrochemical series? Mention its importance. 
+2. Draw energy level diagrams to show the splitting of d orbitals in an octahedral 
+and tetrahedral ligand field. 
+3. Draw the energy level diagrams and indicate the occupancy of the orbitals in 
+the following complexes: a) d6, octahedral, low spin b) d6, tetrahedral, high 
+spin. Calculate the CFSE in ∆o units assuming the ligands to be strong field 
+ligands.  
+4. Calculate the CFSE for d8 ion in octahedral and tetrahedral complexes, using 
+∆o in both cases.  
+5. Calculate the spin only magnetic moment for a d8 ion in octahedral and 
+tetrahedral high spin complexes. 
+
+--- PAGE 3 ---
+6. Explain briefly about high spin and low spin complexes with examples. 
+7. Calculate the magnetic moment for d4 ion in octahedral and tetrahedral 
+geometries under the influence of strong ligand fields.  
+8. Write the oxidation number, d-orbital occupation, co-ordination number and 
+expected magnetic moment of the central metal ion in the following 
+complexes: 
+i. 
+K3[Co(C2O4)3] 
+ii. 
+[Mn(H2O)6]SO4 
+iii. 
+Ni(CO)4 
+iii.[Cu(NH3)4]SO4 
+9. Identify the following ions as high spin or low spin complexes and calculate 
+the magnetic moment of the complexes. i. [CoF6]3- ii. [NiCl4]2- iii. [Fe 
+(CN)6]3-  iv. [Co(H2O)6]3+ 
+10. What are the different regions of electromagnetic radiations? 
+11. Explain the characteristics of Electromagnetic radiation. 
+12. Write a note on the principle of UV- Vis spectroscopy. 
+13. What is the condition for a molecule to absorb Microwave radiation? Give 
+examples for microwave active and inactive molecule. 
+14. What is the significance of selection rule in spectroscopy? 
+15. Write a note on the significance of Hooke’s law. 
+16. What is the major requirement for infra-red absorption? [or] Explain the 
+criteria for a molecule to absorb in IR region. 
+17. Explain the principle behind the absorption of radio frequency waves. [Or] 
+What are the criteria for a molecule to absorb NMR radiation? [or] What is 
+the resonance condition in NMR spectroscopy? 
+18. Define the term chemical shift and mention the characteristics of chemical 
+shift. 
+19. What do you understand by the term “splitting of signals”? Explain with 
+examples. 
+20. Explain briefly about spin-spin interaction? Explain its effect in NMR 
+spectrum. 
+
+--- PAGE 4 ---
+21. What is shielding? Explain the effect of shielding on the magnetic field of 
+the spinning nuclei.  
+22. What is de-shielding? Explain the effect of shielding on the magnetic field 
+of the spinning nuclei.  
+23. What is Larmor frequency? Give its significance. 
+24. Explain in detail the influence of electronic environment on the position of 
+signals taking an example in NMR spectroscopy. [Chemical shift and its 
+characteristics].  
+25. Discuss splitting of signals in NMR spectrum with an example. [or] Explain 
+the influence of neighboring nuclei on the signal of NMR spectrum taking 
+an example. 
+26. Discuss in detail about the selection rule for rotational spectrum of a rigid 
+diatomic molecule. 
+27. Write note on the vibrational spectrum of a diatomic molecule undergoing 
+simple harmonic motion. 
+28. Explain in detail the selection rule for Carbon monoxide absorbing in IR 
+region. 
+29. Discuss the selection rule for H atom in electronic spectroscopy. 
+30. Write notes on the selection rule for many electron atom based on electronic 
+spectroscopy. 
+Module III 
+ 
+1. Explain the principle of XPS?  
+2. Define Miller indices with examples. 
+3. For the intercepts x, y, and, z with values of 3, 1, and 2 respectively, find 
+the Miller indices. 
+4. Compute the Miller Indices for a plane intersecting at x= ¼, y=1, and 
+x=1/2. 
+5. Give the expression for Bragg’s law and explain the terms involved in it.  
+
+--- PAGE 5 ---
+6. What is inter-plane spacing’s in lattices? Give the expression taking an 
+example.  
+7. Determine the Miller indices (hkl) of the shaded planes below. Show your 
+work on each step of Miller indices to determine the plane. 
+a. 
+ b. 
+ c. 
+  
+8. State Fajan’s Rule. Give examples. 
+9. First ionization energy of Al is lower than that of Mg. Comment on the 
+statement. 
+10. How many numbers of geometries are possible in C.N 4? Explain with one 
+example. 
+11. Write the following equations of state for real gases i. Clausius equation, 
+ii. Berthelot equation. 
+12. Discuss the principle, instrumentation and applications of XPS. 
+13. Explain Bragg’s law with a neat diagram. 
+14. Define the terms i. Critical temperature ii. Critical volume iii. Critical 
+pressure. 
+15. Write notes on dipole-dipole interactions. 
+16. Explain Vander Waals equation of state with corrections for volume and 
+pressure. 
+17. Write notes on the factors influencing the Ionization energy and how does 
+it varies along the period and group. 
+18. What do you understand by the term electronegativity? List out the 
+elements from the following the most electropositive and electronegative 
+element.  
+
+--- PAGE 6 ---
+Li, Be, B, C, K and Flourine. 
+19. Why do halogen atoms have a very strong electron affinity? Explain. 
+20. What is electron affinity? What are the factors influencing it and arrange 
+Br, F, I and Cl in the order of increasing electron affinity.  
+21. What is screening effect? Calculate shielding constant and Effective 
+nuclear charge for i. 4s electron in Mn ii.   3d electron in Cu. 
+22. Explain Slater’s rule for determining shielding constant.  Give the 
+increasing order of effective nuclear charge in Na, Al, Mg and Si atoms 
+based on effective nuclear charge and give reasons. 
+23. Give reasons for the following 
+i. 
+Ongoing from C to N in the second period, the values of electron 
+affinity decreases instead of increasing. 
+ii. 
+Ca2+has a smaller ionic radius than K+ 
+iii. 
+Sr has larger atomic size when compared to Mg. 
+24. What is atomic radii? Give its variation along the period and down the 
+group taking examples. Arrange the following in the increasing order of 
+atomic radii and give reasons: N, S, P and O. 
+25. What are the factors that influence electronegativity? 
+26. What is ionic size? Explain with examples how cationic and anionic size 
+varies along the period and group?  
+27. Give reasons for the following: i. Mg2+ < Mg, and Cl - > Cl. 
+28.What is Polarizability and Polarizing power for an ion? Explain the factors 
+that enhance polarizability and polarizing power. 
+28. Give the oxidation state for the following: 
+i. 
+Cr in CrO42- ii. S in S2O3 2- iii. Fe in FeCl3 iv. Mn in KMnO4  
+ 
+ 
+ 
+
+--- PAGE 7 ---
+Module IV 
+1. Give the differences between hard and soft acids. 
+2. Write notes on hard and soft bases with examples for each. 
+3. Define the terms i. Entropy ii. Enthalpy and iii. Internal energy. 
+4. What is the relation between enthalpy and Internal energy? 
+5. What is entropy? Explain its significance. 
+6. What is the significance of Gibb’s free energy? 
+7. What is the significance of Helmoltz free energy? 
+8. Comment on the statement, ‘’ the entropy of the Universe is always 
+increasing’’. 
+9. Explain how Nernst equation is applied in determining potential of a redox 
+reaction? 
+10. How pH for acid-base reaction is determined using cell potential? 
+11. Explain how Gibb’s free energy for water formation is determined? 
+12. Define corrosion. Explain its types. 
+13. Explain the free energy for corrosion reaction. 
+14. How the E.M.F of a reversible cell is determined using Gibb’s-Helmoltz 
+equation? 
+15. Define Solubility product [Ksp]. Explain with an example. 
+16. What is an Electrochemical cell or Galvanic cell? Give its representation. 
+17. Define Single electrode potential. Write the mathematical expression for 
+Nernst equation for : Zn(s)/Zn2+ (aq)// Cu2+ (aq)/Cu(s) 
+18. In an electrochemical cell, the anode is given a negative charge and cathode 
+is given a positive charge. Give reasons. 
+19. With a neat sketch explain Pourbaix diagram for Iron. 
+20. Define the following with example. 
+a) Plane of symmetry 
+b) Centre of symmetry 
+
+--- PAGE 8 ---
+c) Alternating axis of symmetry 
+21. Write a note on Geometrical isomerism. 
+22. Mention the specific type of isomerism exhibited by each of the following 
+pairs: 
+i) 
+Maleic acid and Fumaric acid 
+ii) 
+n-Butyl alcohol and Diethyl ether 
+iii) 
+Diethyl ether and Methyl propyl ether 
+23. What is Chirality? Differentiate Chirality and Achirality with example. 
+24. Differentiate between Enantiomers and Diastereomers.  
+25. Explain Sawhorse projection with an example. 
+26. Draw the Fischer projection of (S)-2-hydroxybutanoic Acid, CH3 CH2 
+CH(OH)COOH. 
+Find 
+R/S 
+for 
+each 
+of 
+the 
+following 
+Fischer 
+Projections 
+ 
+27. Convert the following Fischer projections to Newman Projections 
+ 
+28. Write notes on Structural isomerism with its types and give examples. 
+29. Explain Newman projection with an example. 
+30. Write notes on Fischer projection. 
+31. Discuss the theory behind the electrode potential for an electrochemical 
+cell. 
+32. Prove -∆A = Wmax and -∆G = Wuseful 
+
+--- PAGE 9 ---
+Module V 
+1. What are electrophilic reagents? Explain its types.  
+2. What are nucleophilic reagents? Explain its types.  
+3. Explain SN1 mechanism of nucleophilic substitution reactions. 
+4. Explain SN2 mechanism of nucleophilic substitution reactions. 
+5. Give a brief account on electrophilic mechanism of addition reactions. 
+6. Give a brief account on nucleophilic mechanism of addition reactions. 
+7. Give a brief account on free radical mechanism of addition reactions. 
+8. What is the mechanism followed for anti-Markovnikov product? Explain. 
+9. With an example explain E1 mechanism of elimination reactions. 
+10. Explain E2 mechanism of elimination reactions. 
+11. What is E1cb mechanism in elimination reactions? What are its criteria? 
+12. How alkenes are oxidized using KMnO4 reagent? 
+13. With examples write the oxidation reactions of K2Cr2O7 and OsO4. 
+14. What is PCC? How is useful for the oxidation of alcohols?  
+15. What is a reducing agent? Give an example with an equation.  
+16. What is the reaction of the following with Cyclopropane? 
+i. Halogens ii. HI iii. sulphuric acid  iv. Hydrogen 
+17. What is a drug? Give the use of Aspirin and Paracetamol. 
+18. Explain the role of the following reagents in reduction reactions. 
+a) NaBH4 
+b) Li/Na in liq.NH3 
+c) Raney Ni 
+d) LiAlH4 
+19. Explain Dieckmann condensation with an example. 
+20. Explain the mechanism involved in the synthesis of Paraetamol. 
+21. Explain the mechanism involved in the synthesis of Aspirin. 
+
+--- PAGE 10 ---
+22. Write a brief account on optical activity in organic compounds with 
+examples. Explain dextro rotatory, laevo rotatory, racemic, and meso as 
+applied to optical isomers. 
+23. Explain Cahn-Ingold Prelog rules to determine R/S on a chiral center 
+taking an example. 
+24. Explain in detail the conformational analysis of n-butane with potential 
+energy diagram. 
+25. How is isomerism exhibited in transition metal compounds? Explain its 
+types with an example. 

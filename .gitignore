@@ -50,13 +50,30 @@ env/
 *.db
 *.sqlite
 *.sqlite3
-production_corpus.db
+production_corpus.db*
 exam_db.sqlite
+*.dump
 
 # Data & Corpus
 corpus/
 data/manifests/
 data/reports/
+data/.download_cache/
+data/downloads/
+data/uploads/
+data/raw/
+data/archive/
+data/1 Year/
+data/sem5_sem6/
+data/sem7_sem8/
+data/studique/
+data/studique_production/
+brag-output*
+markmint-brag-final/
+markmint/
+paperino/
+tmp/
+*.patch
 # Preserve specific JSON catalogs if tracked:
 !data/curriculum_catalog.json
 !backend/data/curriculum_catalog.json
@@ -71,5 +88,6 @@ temp_gpa.html
 *.log
 inspection_results.json
 
-
 .neon
+data/submissions/
+backend/data/submissions/
