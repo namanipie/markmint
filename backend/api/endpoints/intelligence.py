@@ -6,7 +6,7 @@ import copy
 import time
 import logging
 from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload, selectinload
 from sqlalchemy import func, desc
 
 from backend.core.database import get_db
@@ -63,6 +63,12 @@ def get_course_historical_questions(
         db.query(Question)
         .join(Section, Question.section_id == Section.id)
         .join(Exam, Section.exam_id == Exam.id)
+        .options(
+            joinedload(Question.section).joinedload(Section.exam).joinedload(Exam.document),
+            joinedload(Question.family),
+            selectinload(Question.memberships),
+            selectinload(Question.topics),
+        )
         .filter(Exam.course_id == course.id)
     )
 
@@ -136,6 +142,30 @@ def get_course_historical_questions(
         .all()
     )
 
+    # Bulk pre-fetch family recurrence history to prevent N+1 remote round-trips
+    family_ids = [q.family_id for q in questions if getattr(q, "family_id", None)]
+    family_history_map = {}
+    if family_ids:
+        history_query = (
+            db.query(Question.family_id, Exam.year)
+            .join(Section, Question.section_id == Section.id)
+            .join(Exam, Section.exam_id == Exam.id)
+            .filter(
+                Question.family_id.in_(family_ids),
+                Exam.course_id == course.id,
+                Exam.year.isnot(None),
+                Exam.year > 0
+            )
+        )
+        if active_track is not None:
+            history_query = history_query.filter(Exam.track_id == active_track.id)
+        for fid, yr in history_query.distinct().all():
+            if fid not in family_history_map:
+                family_history_map[fid] = []
+            family_history_map[fid].append(yr)
+        for fid in family_history_map:
+            family_history_map[fid].sort()
+
     formatted_questions = []
     for q in questions:
         exam = q.section.exam if q.section else None
@@ -143,20 +173,7 @@ def get_course_historical_questions(
         membership = q.memberships[0] if getattr(q, "memberships", None) else None
         topics = [t.name for t in q.topics] if getattr(q, "topics", None) else []
 
-        family_history = []
-        if family and hasattr(family, "questions") and family.questions:
-            family_history = sorted(list({
-                q_m.section.exam.year
-                for q_m in family.questions
-                if (
-                    q_m.section
-                    and q_m.section.exam
-                    and q_m.section.exam.course_id == course.id
-                    and (active_track is None or q_m.section.exam.track_id == active_track.id)
-                    and q_m.section.exam.year
-                    and q_m.section.exam.year > 0
-                )
-            }))
+        family_history = family_history_map.get(q.family_id, []) if q.family_id else []
 
         source_doc_title = exam.document.title if (exam and exam.document) else None
         source_doc_url = exam.document.original_url if (exam and exam.document) else None

@@ -54,12 +54,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/dashboard/exam-dna",
-        destination: "/mintai/exam-dna",
+        destination: "/mintai?tab=dna",
         permanent: true,
       },
       {
-        source: "/mintai",
-        destination: "/dashboard",
+        source: "/mintai/exam-dna",
+        destination: "/mintai?tab=dna",
+        permanent: true,
+      },
+      {
+        source: "/dashboard",
+        destination: "/mintai",
         permanent: false,
       },
     ];

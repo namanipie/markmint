@@ -13,14 +13,21 @@ import {
   FileText,
   History,
   Layers,
-  Info
+  Info,
+  Search,
+  Filter,
+  ChevronDown,
+  ChevronUp,
+  BrainCircuit,
+  ArrowRight
 } from "lucide-react";
 import { getExamDNA } from "@/lib/api";
 import {
   ExamDNA,
   UnitDistribution,
   QuestionTypeBreakdown,
-  MarksDistribution
+  MarksDistribution,
+  FamilyDNA
 } from "@/lib/types";
 import { ChartCard } from "@/components/ui/chart-card";
 import { UnitDistributionChart } from "@/components/charts/unit-distribution-chart";
@@ -30,6 +37,9 @@ import { TemporalUnitChart, TemporalChartRow, formatQuestionTypeName } from "@/c
 import { HistoricalFocusEvolution } from "@/components/analytics/historical-focus-evolution";
 import { HistoricalAssessmentBlueprints } from "@/components/analytics/historical-assessment-blueprints";
 import { HistoricalCognitiveDemand } from "@/components/analytics/historical-cognitive-demand";
+import { FamilyEvidenceModal } from "@/components/analytics/family-evidence-modal";
+import { EmpiricalBacktestSection } from "@/components/analytics/empirical-backtest-section";
+import { MathText } from "@/components/ui/math-text";
 
 interface ExamDNAViewProps {
   courseId: number | string;
@@ -55,15 +65,28 @@ export function ExamDNAView({
   const [dna, setDna] = useState<ExamDNA | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Sub-section controls
   const [selectedUnit, setSelectedUnit] = useState<string | null>(null);
   const [temporalMetricMode, setTemporalMetricMode] = useState<"questions" | "marks">("questions");
+
+  // Section 3: Question Family Intelligence Interactive States
+  const [familySearch, setFamilySearch] = useState("");
+  const [familyFilter, setFamilyFilter] = useState<"ALL" | "EXACT_REPEAT" | "MULTI">("ALL");
+  const [visibleFamiliesCount, setVisibleFamiliesCount] = useState(12);
+  const [selectedFamilyIdForModal, setSelectedFamilyIdForModal] = useState<number | null>(null);
+  const [selectedFamilyNameForModal, setSelectedFamilyNameForModal] = useState<string>("");
+  const [isFamilyEvidenceModalOpen, setIsFamilyEvidenceModalOpen] = useState(false);
+
+  // Section 4: Architecture & Demand tab state
+  const [architectureTab, setArchitectureTab] = useState<"blueprints" | "cognitive">("blueprints");
 
   const onDnaLoadedRef = React.useRef(onDnaLoaded);
   useEffect(() => {
     onDnaLoadedRef.current = onDnaLoaded;
   }, [onDnaLoaded]);
 
-  // Sync loading state upon prop changes without direct setState in effect body
+  // Sync loading state upon prop changes
   const [queryKey, setQueryKey] = useState(() => `${courseId}-${language || ""}-${assessmentCycle || ""}-${cutoffYear || ""}`);
   const targetKey = `${courseId}-${language || ""}-${assessmentCycle || ""}-${cutoffYear || ""}`;
 
@@ -132,6 +155,38 @@ export function ExamDNAView({
       percentage: Math.round(b.percentage_of_questions * 100)
     }));
   }, [dna]);
+
+  // Question Family Extraction & Filtering
+  const allFamilies: FamilyDNA[] = useMemo(() => {
+    if (dna?.families && dna.families.length > 0) return dna.families;
+    return (dna?.pattern_summary?.top_recurring_families || []) as unknown as FamilyDNA[];
+  }, [dna]);
+
+  const filteredFamilies = useMemo(() => {
+    return allFamilies.filter((fam) => {
+      // 1. Search filter
+      if (familySearch.trim()) {
+        const q = familySearch.toLowerCase().trim();
+        const nameMatch = (fam.family_name || "").toLowerCase().includes(q);
+        if (!nameMatch) return false;
+      }
+      // 2. Repetition type filter
+      if (familyFilter === "EXACT_REPEAT") {
+        return (fam.repetition_type || "").toLowerCase().includes("exact");
+      }
+      if (familyFilter === "MULTI") {
+        return (fam.occurrences || 0) >= 2;
+      }
+      return true;
+    });
+  }, [allFamilies, familySearch, familyFilter]);
+
+  const handleOpenFamilyEvidence = (familyId?: number | null, familyName?: string) => {
+    if (!familyId) return;
+    setSelectedFamilyIdForModal(familyId);
+    setSelectedFamilyNameForModal(familyName || "");
+    setIsFamilyEvidenceModalOpen(true);
+  };
 
   // Temporal Unit × Question-Type transformations
   const availableTemporalUnits = useMemo(() => {
@@ -342,27 +397,26 @@ export function ExamDNAView({
     );
   }
 
+  // 6 Primary Jump Anchors in order
   const JUMP_SECTIONS = [
-    { id: "overview", label: "Overview" },
-    { id: "blueprints", label: "Blueprints" },
-    { id: "cognitive-demand", label: "Cognitive Demand" },
-    { id: "question-formats", label: "Question Formats" },
-    { id: "syllabus-focus", label: "Syllabus Focus" },
-    { id: "temporal-trends", label: "Temporal Trends" },
-    { id: "marks-distribution", label: "Marks Distribution" },
-    { id: "patterns", label: "Question Patterns" },
+    { id: "fingerprint", label: "1. Fingerprint" },
+    { id: "unit-analysis", label: "2. Unit Weightage" },
+    { id: "question-families", label: "3. Question Families" },
+    { id: "blueprints-and-demand", label: "4. Structure & Demand" },
+    { id: "evolution", label: "5. Focus Evolution" },
+    { id: "backtesting", label: "6. Empirical Backtest" },
   ];
 
   return (
     <div className="space-y-8">
-      {/* Sticky Section Jump Bar */}
+      {/* Non-intrusive Section Jump Pills */}
       <nav
         aria-label="Exam DNA section navigation"
-        className="sticky top-16 z-20 px-3 py-2 bg-background/85 backdrop-blur-md border border-border/60 rounded-xl shadow-xs"
+        className="p-2.5 bg-card/60 border border-border/70 rounded-xl"
       >
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
           <span className="text-xs font-semibold text-muted-foreground mr-1.5 whitespace-nowrap hidden sm:inline">
-            Jump to:
+            Jump to Section:
           </span>
           {JUMP_SECTIONS.map((sec) => (
             <button
@@ -373,7 +427,7 @@ export function ExamDNAView({
                   el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-2.5 py-1 rounded-md text-xs font-medium bg-muted/40 hover:bg-accent/15 hover:text-accent border border-border/50 text-muted-foreground whitespace-nowrap transition-colors cursor-pointer"
+              className="px-2.5 py-1 rounded-lg text-xs font-medium bg-muted/30 hover:bg-accent/15 hover:text-accent border border-border/50 text-muted-foreground whitespace-nowrap transition-colors cursor-pointer"
             >
               {sec.label}
             </button>
@@ -381,8 +435,10 @@ export function ExamDNAView({
         </div>
       </nav>
 
-      {/* 1. Corpus & Scope Header */}
-      <section id="overview" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+      {/* ========================================================================= */}
+      {/* 1. HISTORICAL EXAMINATION FINGERPRINT (COMPACT SUMMARY)                   */}
+      {/* ========================================================================= */}
+      <section id="fingerprint" className="scroll-mt-24 bg-card border border-border/80 rounded-2xl p-6 md:p-8 shadow-xs space-y-6">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-border/50 pb-5">
           <div className="space-y-1.5">
             <div className="flex items-center gap-2">
@@ -390,14 +446,14 @@ export function ExamDNAView({
                 <Dna className="w-5 h-5" />
               </span>
               <h2 className="text-xl font-bold tracking-tight text-foreground">
-                Exam DNA: Historical Examination Fingerprint
+                Historical Examination Fingerprint
               </h2>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Empirical historical observations answering: <em>&ldquo;How does {canonicalCode ? `${courseName} (${canonicalCode})` : courseName} historically ask questions?&rdquo;</em>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Empirical historical observations answering: <em>&ldquo;How does {canonicalCode ? `${courseName} (${canonicalCode})` : courseName} historically structure and examine questions?&rdquo;</em>
             </p>
-            <div className="text-xs font-medium text-accent pt-1">
-              Based on {historicalExamCount} historical {historicalExamCount === 1 ? "exam" : "exams"} ({historicalQuestionCount} questions analyzed)
+            <div className="text-xs font-medium text-accent pt-0.5">
+              Derived from {historicalExamCount} verified historical {historicalExamCount === 1 ? "exam" : "exams"} ({historicalQuestionCount} questions analyzed)
             </div>
           </div>
 
@@ -418,52 +474,62 @@ export function ExamDNAView({
           </div>
         </div>
 
-        {/* Dataset Summary Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {/* 5 Compact Corpus Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
           <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1">
             <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-              <FileText className="w-3.5 h-3.5 text-accent" /> Exams Analysed
+              <FileText className="w-3.5 h-3.5 text-accent" /> Papers Analyzed
             </span>
-            <div className="text-2xl font-bold text-foreground">{sample_size.papers}</div>
-            <p className="text-[11px] text-muted-foreground">Verified past exam papers</p>
+            <div className="text-2xl font-bold font-mono text-foreground">{sample_size.papers}</div>
+            <p className="text-[11px] text-muted-foreground">Verified past papers</p>
           </div>
 
           <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1">
             <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-              <Hash className="w-3.5 h-3.5 text-accent" /> Questions Analysed
+              <Hash className="w-3.5 h-3.5 text-accent" /> Questions Analyzed
             </span>
-            <div className="text-2xl font-bold text-foreground">{sample_size.questions}</div>
-            <p className="text-[11px] text-muted-foreground">Total question corpus</p>
+            <div className="text-2xl font-bold font-mono text-foreground">{sample_size.questions}</div>
+            <p className="text-[11px] text-muted-foreground">Extracted exam questions</p>
           </div>
 
           <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1">
             <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-accent" /> Historical Range
+              <BarChart3 className="w-3.5 h-3.5 text-accent" /> Total Marks Analyzed
             </span>
-            <div className="text-2xl font-bold text-foreground">
+            <div className="text-2xl font-bold font-mono text-foreground">
+              {sample_size.total_marks ? sample_size.total_marks : "0"}
+            </div>
+            <p className="text-[11px] text-muted-foreground">Cumulative exam score</p>
+          </div>
+
+          <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1">
+            <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-accent" /> Year Coverage
+            </span>
+            <div className="text-2xl font-bold font-mono text-foreground">
               {sample_size.time_range_years[0] > 0
                 ? `${sample_size.time_range_years[0]} - ${sample_size.time_range_years[1]}`
                 : "Undated"}
             </div>
             <p className="text-[11px] text-muted-foreground">
               {sample_size.years && sample_size.years.length > 0
-                ? `${sample_size.years.length} distinct years (${sample_size.years.join(", ")})`
-                : "Historical evidence span"}
+                ? `${sample_size.years.length} discrete years`
+                : "Historical corpus span"}
             </p>
           </div>
 
-          <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1">
+          <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-1 col-span-2 sm:col-span-1">
             <span className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
-              <BarChart3 className="w-3.5 h-3.5 text-accent" /> Total Evaluated Marks
+              <GitBranch className="w-3.5 h-3.5 text-accent" /> Active Families
             </span>
-            <div className="text-2xl font-bold text-foreground">
-              {sample_size.total_marks ? sample_size.total_marks : "0"}
+            <div className="text-2xl font-bold font-mono text-accent">
+              {allFamilies.length}
             </div>
-            <p className="text-[11px] text-muted-foreground">Cumulative exam score weight</p>
+            <p className="text-[11px] text-muted-foreground">Question archetypes</p>
           </div>
         </div>
 
-        {/* Temporal / Sufficiency Notice */}
+        {/* Sufficiency Notice */}
         {isInsufficient ? (
           <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs flex items-center gap-2.5">
             <HelpCircle className="w-4 h-4 shrink-0" />
@@ -481,453 +547,235 @@ export function ExamDNAView({
         )}
       </section>
 
-      {/* 2. Historical Assessment Structure & Blueprints */}
-      <div id="blueprints" className="scroll-mt-24">
-        <HistoricalAssessmentBlueprints
-          assessmentBlueprints={dna.assessment_blueprints}
-          selectedCycle={assessmentCycle}
-        />
-      </div>
-
-      {/* 3. Historical Cognitive Demand */}
-      <div id="cognitive-demand" className="scroll-mt-24">
-        <HistoricalCognitiveDemand
-          cognitiveDemandDistribution={dna.cognitive_demand_distribution}
-          temporalCognitiveDemand={dna.temporal_cognitive_demand}
-          sectionCognitiveProfiles={dna.section_cognitive_profiles}
-          demandQuestionTypeCrossTabulation={dna.demand_question_type_cross_tabulation}
-          assessmentCycle={assessmentCycle}
-        />
-      </div>
-
-      {/* 4. Unit & Question-Type Distribution (2-Column Grid) */}
-      <div id="question-formats" className="scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* 2. Unit Distribution */}
-        <ChartCard
-          title="Unit Distribution"
-          description={`Historical distribution across syllabus units based on ${historicalExamCount} exams (${
-            unit_distribution?.is_marks_weighted ? "Marks-Weighted" : "Question-Count Fallback"
-          })`}
-          className="bg-card border border-border shadow-sm flex flex-col justify-between"
-        >
-          <div className="space-y-4">
-            {units.length === 0 ? (
-              <div className="h-[280px] flex items-center justify-center text-xs text-muted-foreground">
-                No syllabus unit mappings recorded for this course.
-              </div>
-            ) : (
-              <div>
-                <UnitDistributionChart data={unitChartData} />
-
-                {/* Unit breakdown table / list */}
-                <div className="mt-4 divide-y divide-border/40 border-t border-border/40 text-xs">
-                  {units.map((u) => {
-                    const pct = Math.round(u.historical_weighting * 100);
-                    return (
-                      <div key={u.unit} className="py-2.5 flex items-center justify-between gap-2">
-                        <div className="space-y-0.5">
-                          <span className="font-semibold text-foreground">{u.unit}</span>
-                          <div className="text-[11px] text-muted-foreground">
-                            Appeared in {Math.round(u.paper_coverage * 100)}% of papers
-                            {u.recent_weighting > 0 && ` • Recent: ${Math.round(u.recent_weighting * 100)}%`}
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <span className="font-bold text-foreground">{pct}%</span>
-                          <div className="text-[11px] text-muted-foreground">
-                            {u.marks} marks ({u.question_count} Qs)
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Unmapped Metadata Disclosure */}
-            {unit_distribution && unit_distribution.unmapped_question_count > 0 && (
-              <div className="mt-3 p-2.5 rounded-lg bg-muted/40 border border-border/60 text-[11px] text-muted-foreground flex items-center justify-between">
-                <span>Questions unmapped to syllabus units:</span>
-                <span className="font-semibold text-foreground">
-                  {unit_distribution.unmapped_question_count} Qs ({unit_distribution.unmapped_marks} marks)
-                </span>
-              </div>
-            )}
-          </div>
-        </ChartCard>
-
-        {/* 3. Question-Type Distribution */}
-        <ChartCard
-          title="Question-Type Distribution"
-          description={`Historical breakdown of question classifications based on ${historicalQuestionCount} questions across ${historicalExamCount} exams`}
-          className="bg-card border border-border shadow-sm flex flex-col justify-between"
-        >
-          <div className="space-y-4">
-            {question_types.length === 0 ? (
-              <div className="h-[280px] flex items-center justify-center text-xs text-muted-foreground">
-                No question type classifications recorded.
-              </div>
-            ) : (
-              <div>
-                <QuestionTypeChart data={questionTypeChartData} />
-
-                {/* Question Types breakdown table / list */}
-                <div className="mt-4 divide-y divide-border/40 border-t border-border/40 text-xs">
-                  {question_types.map((qt) => {
-                    const pct = Math.round(qt.percentage * 100);
-                    const isUnclassified = qt.question_type.toLowerCase() === "unclassified";
-                    return (
-                      <div key={qt.question_type} className="py-2.5 flex items-center justify-between gap-2">
-                        <span className="font-medium capitalize text-foreground flex items-center gap-1.5">
-                          {isUnclassified ? (
-                            <span className="text-muted-foreground italic">Unclassified / General</span>
-                          ) : (
-                            qt.question_type
-                          )}
-                        </span>
-                        <div className="text-right">
-                          <span className="font-bold text-foreground">{pct}%</span>
-                          <span className="text-[11px] text-muted-foreground ml-2">({qt.count} Qs)</span>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            <div className="mt-3 p-2.5 rounded-lg bg-muted/30 border border-border/40 text-[11px] text-muted-foreground">
-              Based on historical question classifications recorded in the archive. Unclassified questions are reported honestly without artificial synthesis.
-            </div>
-          </div>
-        </ChartCard>
-      </div>
-
-      {/* 5. Historical Exam Focus Evolution: Syllabus & Topics */}
-      <div id="syllabus-focus" className="scroll-mt-24">
-        <HistoricalFocusEvolution
-          temporalUnitFocus={dna.temporal_unit_focus}
-          topicHistoricalFootprints={dna.topic_historical_footprints}
-          temporalTopicFocus={dna.temporal_topic_focus}
-          syllabusUnits={dna.units}
-        />
-      </div>
-
-      {/* 6. Temporal Evolution: Unit × Question Type Over Time */}
-      <section id="temporal-trends" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/50 pb-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <History className="w-5 h-5 text-accent" />
-              <h3 className="text-lg font-bold tracking-tight text-foreground">
-                Temporal Evolution: Unit × Question Type
-              </h3>
-              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
-                Descriptive Archive
-              </span>
-            </div>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Historical variation in question-type composition and marks weighting across exam years. Descriptive archive — not a trend prediction.
-            </p>
-          </div>
-
-          {/* Metric Selector Toggle */}
-          <div className="inline-flex p-1 bg-muted/40 border border-border/60 rounded-xl self-start sm:self-auto">
-            <button
-              type="button"
-              onClick={() => setTemporalMetricMode("questions")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                temporalMetricMode === "questions"
-                  ? "bg-background text-foreground shadow-xs border border-border/80 font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Historical Question Share
-            </button>
-            <button
-              type="button"
-              onClick={() => setTemporalMetricMode("marks")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                temporalMetricMode === "marks"
-                  ? "bg-background text-foreground shadow-xs border border-border/80 font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Historical Marks Share
-            </button>
-          </div>
+      {/* ========================================================================= */}
+      {/* 2. UNIT-WISE ANALYSIS & MARKS DISTRIBUTION                                */}
+      {/* ========================================================================= */}
+      <section id="unit-analysis" className="scroll-mt-24 space-y-6">
+        <div className="pb-2 border-b border-border/50">
+          <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+            <Layers className="w-5 h-5 text-accent" />
+            Unit-wise Marks Weightage &amp; Question Allocations
+          </h3>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Distribution of examination marks, question types, and discrete score tiers across syllabus units based on {historicalExamCount} exams.
+          </p>
         </div>
 
-        {availableTemporalUnits.length > 0 ? (
-          <div className="space-y-4">
-            {/* Unit Selector */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-muted-foreground" />
-                <span className="text-xs font-semibold text-foreground uppercase tracking-wider">
-                  Select Syllabus Unit:
-                </span>
-              </div>
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
-                {availableTemporalUnits.map((u) => {
-                  const isSelected = u === activeUnit;
-                  return (
-                    <button
-                      key={u}
-                      type="button"
-                      onClick={() => setSelectedUnit(u)}
-                      className={`px-3 py-1.5 text-xs rounded-lg transition-all shrink-0 font-medium ${
-                        isSelected
-                          ? "bg-accent text-accent-foreground font-semibold shadow-xs"
-                          : "bg-muted/30 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                      }`}
-                    >
-                      {u}
-                    </button>
-                  );
-                })}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Unit Distribution Card */}
+          <ChartCard
+            title="Unit Marks Distribution"
+            description={`Historical weightage across syllabus units (${
+              unit_distribution?.is_marks_weighted ? "Marks-Weighted" : "Question-Count Fallback"
+            })`}
+            className="bg-card border border-border shadow-xs flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              {units.length === 0 ? (
+                <div className="h-[260px] flex items-center justify-center text-xs text-muted-foreground">
+                  No syllabus unit mappings recorded for this course.
+                </div>
+              ) : (
+                <div>
+                  <UnitDistributionChart data={unitChartData} />
+
+                  <div className="mt-4 divide-y divide-border/40 border-t border-border/40 text-xs">
+                    {units.map((u) => {
+                      const pct = Math.round(u.historical_weighting * 100);
+                      return (
+                        <div key={u.unit} className="py-2.5 flex items-center justify-between gap-2">
+                          <div className="space-y-0.5">
+                            <span className="font-semibold text-foreground">{u.unit}</span>
+                            <div className="text-[11px] text-muted-foreground">
+                              Appeared in {Math.round(u.paper_coverage * 100)}% of papers
+                              {u.recent_weighting > 0 && ` • Recent: ${Math.round(u.recent_weighting * 100)}%`}
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <span className="font-bold text-foreground">{pct}%</span>
+                            <div className="text-[11px] text-muted-foreground">
+                              {u.marks} marks ({u.question_count} Qs)
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {unit_distribution && unit_distribution.unmapped_question_count > 0 && (
+                <div className="mt-2 p-2.5 rounded-lg bg-muted/40 border border-border/60 text-[11px] text-muted-foreground flex items-center justify-between">
+                  <span>Questions unmapped to syllabus units:</span>
+                  <span className="font-semibold text-foreground">
+                    {unit_distribution.unmapped_question_count} Qs ({unit_distribution.unmapped_marks} marks)
+                  </span>
+                </div>
+              )}
+            </div>
+          </ChartCard>
+
+          {/* Question-Type Breakdown Card */}
+          <ChartCard
+            title="Question-Type Breakdown"
+            description={`Classifications based on ${historicalQuestionCount} questions across ${historicalExamCount} exams`}
+            className="bg-card border border-border shadow-xs flex flex-col justify-between"
+          >
+            <div className="space-y-4">
+              {question_types.length === 0 ? (
+                <div className="h-[260px] flex items-center justify-center text-xs text-muted-foreground">
+                  No question type classifications recorded.
+                </div>
+              ) : (
+                <div>
+                  <QuestionTypeChart data={questionTypeChartData} />
+
+                  <div className="mt-4 divide-y divide-border/40 border-t border-border/40 text-xs">
+                    {question_types.map((qt) => {
+                      const pct = Math.round(qt.percentage * 100);
+                      const isUnclassified = qt.question_type.toLowerCase() === "unclassified";
+                      return (
+                        <div key={qt.question_type} className="py-2.5 flex items-center justify-between gap-2">
+                          <span className="font-medium capitalize text-foreground flex items-center gap-1.5">
+                            {isUnclassified ? (
+                              <span className="text-muted-foreground italic">Unclassified / General</span>
+                            ) : (
+                              qt.question_type
+                            )}
+                          </span>
+                          <div className="text-right">
+                            <span className="font-bold text-foreground">{pct}%</span>
+                            <span className="text-[11px] text-muted-foreground ml-2">({qt.count} Qs)</span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              <div className="mt-2 p-2.5 rounded-lg bg-muted/30 border border-border/40 text-[11px] text-muted-foreground">
+                Classifications extracted from archived papers. Unclassified questions are reported directly without artificial fabrication.
               </div>
             </div>
+          </ChartCard>
+        </div>
 
-            {/* Low-data advisory banner */}
-            {hasSparseYears && (
-              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200/90">
-                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-semibold text-amber-300">Sparse Historical Observations:</span>{" "}
-                  Certain exam years for this unit contain fewer than 3 verified papers or fewer than 5 recorded questions.
-                  Observed distributions reflect actual archived examinations in those specific sessions.
-                </div>
+        {/* Discrete Marks Distribution Card */}
+        <div className="bg-card border border-border/80 rounded-2xl p-6 shadow-xs space-y-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
+            <div>
+              <h4 className="text-base font-bold text-foreground flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-accent" />
+                Discrete Mark Tiers (Question Weighting Architecture)
+              </h4>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Frequency and total marks contributed by 2-mark, 5-mark, 10-mark, and 12-mark questions.
+              </p>
+            </div>
+            {marks_distribution && marks_distribution.avg_marks && (
+              <div className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent/10 text-accent border border-accent/20">
+                Avg Weight: {marks_distribution.avg_marks} marks / question
               </div>
             )}
+          </div>
 
-            {/* Unscored marks notice */}
-            {temporalMetricMode === "marks" && hasUnscoredMarks && (
-              <div className="flex items-start gap-2.5 p-3 rounded-xl bg-muted/40 border border-border/60 text-xs text-muted-foreground">
-                <Info className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-semibold text-foreground">Unassigned Mark Allocations:</span>{" "}
-                  Certain archived papers for this unit lack explicit per-question mark weights. Scored marks percentages are strictly calculated from questions with verified mark values without artificial synthesis.
+          {!marks_distribution || marks_distribution.buckets.length === 0 ? (
+            <div className="py-8 text-center text-xs text-muted-foreground">
+              No discrete mark distribution data available for this course.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                  Mark Tier Breakdown
                 </div>
+                <MarksDistributionChart data={marksChartData} />
               </div>
-            )}
 
-            {/* Chart Area */}
-            {temporalChartData.length > 0 ? (
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-muted/10 border border-border/50">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                    <span>
-                      Showing {temporalMetricMode === "questions" ? "historical question proportion (%)" : "historical marks weighting (%)"} by exam year
-                    </span>
-                    <span className="text-[11px] font-mono">
-                      {temporalChartData.length} {temporalChartData.length === 1 ? "exam year" : "exam years"} observed
-                    </span>
-                  </div>
-                  <TemporalUnitChart
-                    data={temporalChartData}
-                    questionTypes={unitQuestionTypes}
-                    metricMode={temporalMetricMode}
-                  />
-                </div>
-
-                {/* Tabular breakdown by year */}
+              <div className="lg:col-span-7 space-y-3">
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs text-left">
                     <thead>
                       <tr className="border-b border-border text-muted-foreground">
-                        <th className="pb-2 font-semibold">Exam Year</th>
-                        <th className="pb-2 font-semibold">Historical Observations</th>
-                        <th className="pb-2 font-semibold">
-                          {temporalMetricMode === "questions" ? "Historical Question Share" : "Historical Marks Share"}
-                        </th>
+                        <th className="pb-2 font-semibold">Mark Tier</th>
+                        <th className="pb-2 font-semibold">Questions</th>
+                        <th className="pb-2 font-semibold">% Share</th>
+                        <th className="pb-2 font-semibold">Total Marks</th>
+                        <th className="pb-2 font-semibold">% of Exam Marks</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-border/40">
-                      {temporalChartData.map((row) => (
-                        <tr key={row.year} className="hover:bg-muted/30 transition-colors">
-                          <td className="py-2.5 font-bold text-foreground align-top">
-                            <div className="flex items-center gap-1.5">
-                              <span>Exam Year {row.year}</span>
-                              {row.isSparse && (
-                                <span className="px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-300 border border-amber-500/25">
-                                  Sparse
-                                </span>
-                              )}
-                            </div>
+                    <tbody className="divide-y divide-border/40 font-mono">
+                      {marks_distribution.buckets.map((b) => (
+                        <tr key={b.marks} className="hover:bg-muted/30 transition-colors">
+                          <td className="py-2.5 font-bold font-sans text-foreground">
+                            {b.marks} {b.marks === 1 ? "Mark" : "Marks"}
                           </td>
-                          <td className="py-2.5 text-muted-foreground align-top">
-                            <div>{row.totalQuestions} Questions</div>
-                            {row.totalMarks > 0 && <div className="text-[11px]">{row.totalMarks} Marks</div>}
-                            {row.examCount !== undefined && row.examCount > 0 && (
-                              <div className="text-[10px] text-muted-foreground/75">
-                                {row.examCount} {row.examCount === 1 ? "paper" : "papers"}
-                              </div>
-                            )}
+                          <td className="py-2.5 text-muted-foreground">{b.question_count}</td>
+                          <td className="py-2.5 font-medium text-foreground">
+                            {Math.round(b.percentage_of_questions * 100)}%
                           </td>
-                          <td className="py-2.5 align-top">
-                            <div className="flex flex-wrap gap-1.5">
-                              {unitQuestionTypes.map((qt) => {
-                                const count = row[`${qt}_count`];
-                                const marks = row[`${qt}_marks`];
-                                const pct = row[qt];
-                                if (!pct && !count) return null;
-                                return (
-                                  <span
-                                    key={qt}
-                                    className="inline-flex items-center gap-1 px-2 py-1 rounded bg-muted/40 border border-border/60 text-[11px]"
-                                  >
-                                    <span className="font-medium text-foreground">
-                                      {formatQuestionTypeName(qt)}:
-                                    </span>
-                                    <span className="font-bold text-accent">{pct}%</span>
-                                    <span className="text-[10px] text-muted-foreground font-mono">
-                                      ({temporalMetricMode === "questions" ? `${count} Qs` : `${marks}m`})
-                                    </span>
-                                  </span>
-                                );
-                              })}
-                            </div>
+                          <td className="py-2.5 text-muted-foreground">{b.cumulative_marks}</td>
+                          <td className="py-2.5 font-bold text-accent">
+                            {Math.round(b.percentage_of_marks * 100)}%
                           </td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
-              </div>
-            ) : (
-              <div className="py-12 text-center text-xs text-muted-foreground">
-                No temporal question data recorded for unit &quot;{activeUnit}&quot;.
-              </div>
-            )}
 
-            {/* Non-predictive archive disclosure */}
-            <div className="p-3 rounded-xl bg-muted/20 border border-border/40 text-[11px] text-muted-foreground">
-              <strong>Non-Predictive Archive Notice:</strong> This breakdown reflects observed question types and mark weights from past examination sessions. A rising or falling historical share does not forecast or predict questions for future exams. Unclassified questions are reported honestly without artificial synthesis. Missing years are represented as missing rather than continuous or interpolated values.
-            </div>
-          </div>
-        ) : (
-          <div className="py-10 text-center space-y-2">
-            <p className="text-xs text-muted-foreground">
-              No multi-year syllabus unit question-type breakdowns are recorded for this course in the archive.
-            </p>
-            <p className="text-[11px] text-muted-foreground/75 max-w-md mx-auto">
-              Historical exams for this course either lack unit associations or do not span multiple discrete examination years.
-            </p>
-          </div>
-        )}
-      </section>
-
-      {/* 7. Marks Distribution */}
-      <section id="marks-distribution" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
-          <div>
-            <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-accent" />
-              Marks Distribution (Empirical Question Weights)
-            </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              How frequently different mark values occur based on {historicalExamCount} historical exams
-            </p>
-          </div>
-          {marks_distribution && marks_distribution.avg_marks && (
-            <div className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-accent/10 text-accent border border-accent/20">
-              Avg Weight: {marks_distribution.avg_marks} marks/question
+                {marks_distribution.unscored_question_count > 0 && (
+                  <div className="p-2.5 rounded-lg bg-muted/40 border border-border/60 text-[11px] text-muted-foreground flex items-center justify-between">
+                    <span>Questions without assigned mark values:</span>
+                    <span className="font-semibold text-foreground">
+                      {marks_distribution.unscored_question_count} Qs ({Math.round(marks_distribution.unscored_percentage * 100)}%)
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
-
-        {!marks_distribution || marks_distribution.buckets.length === 0 ? (
-          <div className="py-12 text-center text-xs text-muted-foreground">
-            No discrete mark distribution data available for this course.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Pie Chart of Mark Tiers */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                Mark Tier Breakdown
-              </div>
-              <MarksDistributionChart data={marksChartData} />
-            </div>
-
-            {/* Table of Discrete Mark Tiers */}
-            <div className="lg:col-span-7 space-y-3">
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs text-left">
-                  <thead>
-                    <tr className="border-b border-border text-muted-foreground">
-                      <th className="pb-2 font-semibold">Mark Tier</th>
-                      <th className="pb-2 font-semibold">Question Count</th>
-                      <th className="pb-2 font-semibold">% of Questions</th>
-                      <th className="pb-2 font-semibold">Cumulative Marks</th>
-                      <th className="pb-2 font-semibold">% of Total Marks</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border/40">
-                    {marks_distribution.buckets.map((b) => (
-                      <tr key={b.marks} className="hover:bg-muted/30 transition-colors">
-                        <td className="py-2.5 font-bold text-foreground">
-                          {b.marks} {b.marks === 1 ? "Mark" : "Marks"}
-                        </td>
-                        <td className="py-2.5 text-muted-foreground">{b.question_count}</td>
-                        <td className="py-2.5 font-medium text-foreground">
-                          {Math.round(b.percentage_of_questions * 100)}%
-                        </td>
-                        <td className="py-2.5 text-muted-foreground">{b.cumulative_marks}</td>
-                        <td className="py-2.5 font-semibold text-accent">
-                          {Math.round(b.percentage_of_marks * 100)}%
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {marks_distribution.unscored_question_count > 0 && (
-                <div className="p-2.5 rounded-lg bg-muted/40 border border-border/60 text-[11px] text-muted-foreground flex items-center justify-between">
-                  <span>Questions without assigned mark values:</span>
-                  <span className="font-semibold text-foreground">
-                    {marks_distribution.unscored_question_count} Qs ({Math.round(marks_distribution.unscored_percentage * 100)}%)
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
       </section>
 
-      {/* 8. Question Patterns & Formulation Lineage */}
-      <section id="patterns" className="scroll-mt-24 bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/50 pb-4">
+      {/* ========================================================================= */}
+      {/* 3. QUESTION FAMILY INTELLIGENCE (PROMINENT SECTION)                       */}
+      {/* ========================================================================= */}
+      <section id="question-families" className="scroll-mt-24 bg-card border border-border/80 rounded-2xl p-6 md:p-8 shadow-xs space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-border/50 pb-4">
           <div>
-            <h3 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-              
-              Question Patterns & Formulation Lineage
-            </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Deterministic patterns extracted from Question Families and Question Stems based on {historicalExamCount} historical exams
+            <div className="flex items-center gap-2">
+              <span className="p-1.5 rounded-lg bg-accent/10 text-accent">
+                <GitBranch className="w-5 h-5" />
+              </span>
+              <h3 className="text-lg font-bold tracking-tight text-foreground">
+                Question Family Intelligence &amp; Lineage
+              </h3>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1 max-w-2xl leading-relaxed">
+              Synthesizing exact repeats, numerical variants, and canonical question stems extracted from {historicalExamCount} verified historical SRM exams. Click any family to inspect source papers and exact question variations.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Repetition Architecture & Syntactic Stems Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {/* Repetition Breakdown Card */}
-          <div className="bg-muted/20 border border-border/60 rounded-xl p-5 space-y-4">
+          <div className="bg-muted/20 border border-border/60 rounded-xl p-4 space-y-3.5">
             <div>
               <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Repetition Architecture
               </h4>
               <p className="text-[11px] text-muted-foreground mt-0.5">
-                Exact vs conceptual recurrence observed across papers
+                Exact vs conceptual recurrence across papers
               </p>
             </div>
 
             {pattern_summary?.repetition_breakdown ? (
-              <div className="space-y-3.5 pt-1">
+              <div className="space-y-3 pt-1">
                 <div>
-                  <div className="flex justify-between text-xs mb-1.5">
+                  <div className="flex justify-between text-xs mb-1">
                     <span className="text-muted-foreground">Exact Repeats</span>
                     <span className="font-bold text-foreground">
                       {pattern_summary.repetition_breakdown.exact_repeat_count} ({Math.round(pattern_summary.repetition_breakdown.exact_repeat_percentage * 100)}%)
@@ -935,14 +783,14 @@ export function ExamDNAView({
                   </div>
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
                     <div
-                      className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                      className="h-full bg-emerald-500 rounded-full transition-all"
                       style={{ width: `${Math.round(pattern_summary.repetition_breakdown.exact_repeat_percentage * 100)}%` }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-xs mb-1.5">
+                  <div className="flex justify-between text-xs mb-1">
                     <span className="text-muted-foreground">Family Recurrence</span>
                     <span className="font-bold text-foreground">
                       {pattern_summary.repetition_breakdown.family_repeat_count} ({Math.round(pattern_summary.repetition_breakdown.family_repeat_percentage * 100)}%)
@@ -950,14 +798,14 @@ export function ExamDNAView({
                   </div>
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
                     <div
-                      className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                      className="h-full bg-blue-500 rounded-full transition-all"
                       style={{ width: `${Math.round(pattern_summary.repetition_breakdown.family_repeat_percentage * 100)}%` }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-xs mb-1.5">
+                  <div className="flex justify-between text-xs mb-1">
                     <span className="text-muted-foreground">Singletons / Unique</span>
                     <span className="font-bold text-foreground">
                       {pattern_summary.repetition_breakdown.singleton_count} ({Math.round(pattern_summary.repetition_breakdown.singleton_percentage * 100)}%)
@@ -965,32 +813,32 @@ export function ExamDNAView({
                   </div>
                   <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
                     <div
-                      className="h-full bg-muted-foreground/40 rounded-full transition-all duration-500"
+                      className="h-full bg-muted-foreground/40 rounded-full transition-all"
                       style={{ width: `${Math.round(pattern_summary.repetition_breakdown.singleton_percentage * 100)}%` }}
                     />
                   </div>
                 </div>
               </div>
             ) : (
-              <p className="text-xs text-muted-foreground py-6 text-center">No repetition breakdown available.</p>
+              <p className="text-xs text-muted-foreground py-4 text-center">No repetition data available.</p>
             )}
           </div>
 
-          {/* Formulation Stems */}
-          <div className="bg-muted/20 border border-border/60 rounded-xl p-5 md:col-span-2 space-y-4">
+          {/* Formulation Verb Stems Card */}
+          <div className="bg-muted/20 border border-border/60 rounded-xl p-4 md:col-span-2 space-y-3">
             <div>
               <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                Common Question Formulation Stems
+                Common Formulation Verb Stems
               </h4>
               <p className="text-[11px] text-muted-foreground mt-0.5">
-                Deterministic syntactic verb stem distribution extracted from actual questions
+                Deterministic syntactic question phrasing patterns extracted from examination stems
               </p>
             </div>
 
             {pattern_summary?.stem_patterns && pattern_summary.stem_patterns.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {pattern_summary.stem_patterns.map((sp) => (
-                  <div key={sp.pattern} className="bg-card border border-border/60 p-3 rounded-lg text-xs space-y-1.5">
+                  <div key={sp.pattern} className="bg-card border border-border/60 p-2.5 rounded-lg text-xs space-y-1">
                     <div className="flex justify-between items-center font-semibold">
                       <span className="text-foreground">{sp.pattern}</span>
                       <span className="px-2 py-0.5 rounded bg-accent/10 text-accent font-bold text-[11px]">
@@ -1000,7 +848,7 @@ export function ExamDNAView({
                     <div className="text-[11px] text-muted-foreground flex items-center justify-between">
                       <span>{sp.question_count} questions</span>
                       {sp.example_verbs && sp.example_verbs.length > 0 && (
-                        <span className="truncate max-w-[140px] text-right font-mono text-[10px]">
+                        <span className="truncate max-w-[130px] font-mono text-[10px]">
                           {sp.example_verbs.slice(0, 3).join(", ")}
                         </span>
                       )}
@@ -1009,37 +857,445 @@ export function ExamDNAView({
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-muted-foreground py-6 text-center">No formulation stem patterns extracted.</p>
+              <p className="text-xs text-muted-foreground py-4 text-center">No formulation verb stems extracted.</p>
             )}
           </div>
         </div>
 
-        {/* Top Recurring Families */}
-        {pattern_summary?.top_recurring_families && pattern_summary.top_recurring_families.length > 0 && (
-          <div className="space-y-3.5 pt-2">
-            <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
-              <GitBranch className="w-4 h-4 text-accent" />
-              Most Frequent Recurring Question Families (Based on {historicalExamCount} Historical Exams)
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
-              {pattern_summary.top_recurring_families.slice(0, 6).map((fam) => (
-                <div key={fam.family_name} className="p-3.5 bg-muted/20 border border-border/60 rounded-xl text-xs space-y-2">
-                  <div className="font-semibold text-foreground flex items-start justify-between gap-2">
-                    <span className="line-clamp-2 leading-snug">{fam.family_name.replace(/_/g, " ")}</span>
-                    <span className="px-2 py-0.5 rounded bg-accent/10 text-accent text-[10px] font-bold shrink-0">
-                      {fam.occurrences}x
-                    </span>
-                  </div>
-                  <div className="pt-1.5 border-t border-border/40 flex justify-between items-center text-[11px] text-muted-foreground">
-                    <span>In {fam.distinct_paper_count} papers ({fam.years.join(", ")})</span>
-                    {fam.average_marks && <span className="font-medium text-foreground">~{fam.average_marks}m</span>}
-                  </div>
-                </div>
-              ))}
+        {/* Filter & Search Bar for Families */}
+        <div className="p-3 bg-muted/20 border border-border/60 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2 flex-1 max-w-md">
+            <div className="relative w-full">
+              <Search className="w-3.5 h-3.5 text-muted-foreground absolute left-2.5 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={familySearch}
+                onChange={(e) => setFamilySearch(e.target.value)}
+                placeholder="Search question prompts (e.g. Cayley Hamilton, Eigenvalues)..."
+                className="w-full bg-background border border-border/70 rounded-lg pl-8 pr-3 py-1.5 text-xs focus:ring-1 focus:ring-accent focus:outline-none"
+              />
             </div>
+            {familySearch && (
+              <button
+                type="button"
+                onClick={() => setFamilySearch("")}
+                className="text-muted-foreground hover:text-foreground text-[11px] underline shrink-0 cursor-pointer"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+            <button
+              type="button"
+              onClick={() => setFamilyFilter("ALL")}
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                familyFilter === "ALL"
+                  ? "bg-accent text-accent-foreground font-bold shadow-2xs"
+                  : "bg-muted/40 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              All ({allFamilies.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setFamilyFilter("EXACT_REPEAT")}
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                familyFilter === "EXACT_REPEAT"
+                  ? "bg-accent text-accent-foreground font-bold shadow-2xs"
+                  : "bg-muted/40 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Exact Repeats
+            </button>
+            <button
+              type="button"
+              onClick={() => setFamilyFilter("MULTI")}
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                familyFilter === "MULTI"
+                  ? "bg-accent text-accent-foreground font-bold shadow-2xs"
+                  : "bg-muted/40 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Multi-Appearance (2+)
+            </button>
+          </div>
+        </div>
+
+        {/* Question Family Cards Grid */}
+        {filteredFamilies.length === 0 ? (
+          <div className="py-10 text-center text-xs text-muted-foreground space-y-2">
+            <p>No question families match your current filter or search criteria.</p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              {filteredFamilies.slice(0, visibleFamiliesCount).map((fam, idx) => {
+                const isExact = (fam.repetition_type || "").toLowerCase().includes("exact");
+                return (
+                  <div
+                    key={fam.family_id || idx}
+                    className="p-4 rounded-xl bg-card border border-border/80 hover:border-accent/40 transition-all flex flex-col justify-between space-y-3 group shadow-2xs"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <span
+                          className={`px-2 py-0.5 rounded text-[10px] font-bold font-mono ${
+                            isExact
+                              ? "bg-purple-500/10 text-purple-400 border border-purple-500/20"
+                              : "bg-blue-500/10 text-blue-400 border border-blue-500/20"
+                          }`}
+                        >
+                          {isExact ? "Exact Repeat" : "Family Variant"}
+                        </span>
+                        <span className="px-2 py-0.5 rounded bg-accent/10 text-accent text-[11px] font-mono font-bold">
+                          {fam.occurrences}x Tested
+                        </span>
+                      </div>
+
+                      <div className="text-xs font-semibold text-foreground line-clamp-3 leading-relaxed">
+                        <MathText content={fam.family_name ? fam.family_name.replace(/_/g, " ") : "Canonical Question Stem"} />
+                      </div>
+                    </div>
+
+                    <div className="pt-2.5 border-t border-border/40 flex items-center justify-between gap-2">
+                      <div className="text-[11px] text-muted-foreground">
+                        <span>{fam.distinct_paper_count || 1} papers</span>
+                        {fam.years && fam.years.length > 0 && (
+                          <span className="ml-1 font-mono text-[10px]">({fam.years.join(", ")})</span>
+                        )}
+                        {fam.average_marks && (
+                          <span className="ml-1.5 font-medium text-foreground">~{fam.average_marks}m</span>
+                        )}
+                      </div>
+
+                      {fam.family_id ? (
+                        <button
+                          type="button"
+                          onClick={() => handleOpenFamilyEvidence(fam.family_id, fam.family_name)}
+                          className="px-2.5 py-1 rounded bg-accent/10 hover:bg-accent/20 text-accent font-semibold text-[11px] flex items-center gap-1 transition-colors cursor-pointer shrink-0"
+                        >
+                          <span>Evidence</span>
+                          <ArrowRight className="w-3 h-3" />
+                        </button>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {filteredFamilies.length > visibleFamiliesCount && (
+              <div className="pt-2 text-center">
+                <button
+                  type="button"
+                  onClick={() => setVisibleFamiliesCount((prev) => prev + 12)}
+                  className="px-4 py-2 rounded-xl bg-muted/40 hover:bg-muted text-xs font-semibold text-foreground border border-border/70 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                >
+                  <span>Show More Question Families ({filteredFamilies.length - visibleFamiliesCount} remaining)</span>
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            )}
           </div>
         )}
       </section>
+
+      {/* ========================================================================= */}
+      {/* 4. ASSESSMENT BLUEPRINTS & COGNITIVE DEMAND (GROUPED TOGETHER)            */}
+      {/* ========================================================================= */}
+      <section id="blueprints-and-demand" className="scroll-mt-24 bg-card border border-border/80 rounded-2xl p-6 md:p-8 shadow-xs space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/50 pb-4">
+          <div>
+            <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+              <BrainCircuit className="w-5 h-5 text-accent" />
+              Assessment Architecture &amp; Cognitive Demand
+            </h3>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Inspect Part A/B/C section blueprints alongside Bloom&apos;s Taxonomy cognitive skill demands.
+            </p>
+          </div>
+
+          {/* Segmented Control to Toggle Between Blueprints & Cognitive Demand */}
+          <div className="inline-flex p-1 bg-muted/30 border border-border/60 rounded-xl self-start sm:self-auto">
+            <button
+              type="button"
+              onClick={() => setArchitectureTab("blueprints")}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                architectureTab === "blueprints"
+                  ? "bg-background text-foreground shadow-xs border border-border/80 font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Section Blueprints (Parts A/B/C)
+            </button>
+            <button
+              type="button"
+              onClick={() => setArchitectureTab("cognitive")}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                architectureTab === "cognitive"
+                  ? "bg-background text-foreground shadow-xs border border-border/80 font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Cognitive Demand (Bloom&apos;s Taxonomy)
+            </button>
+          </div>
+        </div>
+
+        {/* Tab 1: Historical Assessment Blueprints */}
+        {architectureTab === "blueprints" && (
+          <HistoricalAssessmentBlueprints
+            assessmentBlueprints={dna.assessment_blueprints}
+            selectedCycle={assessmentCycle}
+          />
+        )}
+
+        {/* Tab 2: Historical Cognitive Demand */}
+        {architectureTab === "cognitive" && (
+          <HistoricalCognitiveDemand
+            cognitiveDemandDistribution={dna.cognitive_demand_distribution}
+            temporalCognitiveDemand={dna.temporal_cognitive_demand}
+            sectionCognitiveProfiles={dna.section_cognitive_profiles}
+            demandQuestionTypeCrossTabulation={dna.demand_question_type_cross_tabulation}
+            assessmentCycle={assessmentCycle}
+          />
+        )}
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 5. HISTORICAL FOCUS EVOLUTION & TEMPORAL TRENDS                           */}
+      {/* ========================================================================= */}
+      <section id="evolution" className="scroll-mt-24 space-y-6">
+        <div className="pb-2 border-b border-border/50">
+          <h3 className="text-lg font-bold text-foreground flex items-center gap-2">
+            <History className="w-5 h-5 text-accent" />
+            Historical Focus Evolution &amp; Temporal Trends
+          </h3>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Documented shifts in syllabus unit emphasis, topic footprints, and multi-year question-type allocations across examination sessions.
+          </p>
+        </div>
+
+        {/* Topic Footprints & Unit Focus Component */}
+        <HistoricalFocusEvolution
+          temporalUnitFocus={dna.temporal_unit_focus}
+          topicHistoricalFootprints={dna.topic_historical_footprints}
+          temporalTopicFocus={dna.temporal_topic_focus}
+          syllabusUnits={dna.units}
+        />
+
+        {/* Multi-Year Temporal Evolution: Unit × Question Type */}
+        <div className="bg-card border border-border/80 rounded-2xl p-6 md:p-8 shadow-xs space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/50 pb-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <History className="w-4 h-4 text-accent" />
+                <h4 className="text-base font-bold text-foreground">
+                  Multi-Year Unit &times; Question Type Evolution
+                </h4>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
+                  Descriptive Archive
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                Variation in question formulation types across discrete examination years.
+              </p>
+            </div>
+
+            <div className="inline-flex p-1 bg-muted/40 border border-border/60 rounded-xl self-start sm:self-auto">
+              <button
+                type="button"
+                onClick={() => setTemporalMetricMode("questions")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  temporalMetricMode === "questions"
+                    ? "bg-background text-foreground shadow-xs border border-border/80 font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Question Share
+              </button>
+              <button
+                type="button"
+                onClick={() => setTemporalMetricMode("marks")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  temporalMetricMode === "marks"
+                    ? "bg-background text-foreground shadow-xs border border-border/80 font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                Marks Share
+              </button>
+            </div>
+          </div>
+
+          {availableTemporalUnits.length > 0 ? (
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-xs font-semibold text-foreground uppercase tracking-wider">
+                    Select Syllabus Unit:
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full no-scrollbar">
+                  {availableTemporalUnits.map((u) => {
+                    const isSelected = u === activeUnit;
+                    return (
+                      <button
+                        key={u}
+                        type="button"
+                        onClick={() => setSelectedUnit(u)}
+                        className={`px-3 py-1.5 text-xs rounded-lg transition-all shrink-0 font-medium ${
+                          isSelected
+                            ? "bg-accent text-accent-foreground font-semibold shadow-xs"
+                            : "bg-muted/30 border border-border/60 text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        }`}
+                      >
+                        {u}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {hasSparseYears && (
+                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-200/90">
+                  <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-amber-300">Sparse Historical Observations:</span>{" "}
+                    Certain exam years for this unit contain fewer than 3 verified papers or fewer than 5 recorded questions.
+                    Observed distributions reflect actual archived examinations in those specific sessions.
+                  </div>
+                </div>
+              )}
+
+              {temporalMetricMode === "marks" && hasUnscoredMarks && (
+                <div className="flex items-start gap-2.5 p-3 rounded-xl bg-muted/40 border border-border/60 text-xs text-muted-foreground">
+                  <Info className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-foreground">Unassigned Mark Allocations:</span>{" "}
+                    Certain archived papers for this unit lack explicit per-question mark weights. Scored marks percentages are strictly calculated from questions with verified mark values without artificial synthesis.
+                  </div>
+                </div>
+              )}
+
+              {temporalChartData.length > 0 ? (
+                <div className="space-y-4">
+                  <div className="p-4 rounded-xl bg-muted/10 border border-border/50">
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                      <span>
+                        Showing {temporalMetricMode === "questions" ? "historical question proportion (%)" : "historical marks weighting (%)"} by exam year
+                      </span>
+                      <span className="text-[11px] font-mono">
+                        {temporalChartData.length} {temporalChartData.length === 1 ? "exam year" : "exam years"} observed
+                      </span>
+                    </div>
+                    <TemporalUnitChart
+                      data={temporalChartData}
+                      questionTypes={unitQuestionTypes}
+                      metricMode={temporalMetricMode}
+                    />
+                  </div>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs text-left">
+                      <thead>
+                        <tr className="border-b border-border text-muted-foreground">
+                          <th className="pb-2 font-semibold">Exam Year</th>
+                          <th className="pb-2 font-semibold">Observations</th>
+                          <th className="pb-2 font-semibold">
+                            {temporalMetricMode === "questions" ? "Question Share" : "Marks Share"}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border/40">
+                        {temporalChartData.map((row) => (
+                          <tr key={row.year} className="hover:bg-muted/30 transition-colors">
+                            <td className="py-2.5 font-bold text-foreground align-top">
+                              <div className="flex items-center gap-1.5">
+                                <span>Exam Year {row.year}</span>
+                                {row.isSparse && (
+                                  <span className="px-1.5 py-0.5 rounded text-[10px] bg-amber-500/15 text-amber-300 border border-amber-500/25">
+                                    Sparse
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+                            <td className="py-2.5 text-muted-foreground align-top">
+                              <div>{row.totalQuestions} Questions</div>
+                              {row.totalMarks > 0 && <div className="text-[11px]">{row.totalMarks} Marks</div>}
+                              {row.examCount !== undefined && row.examCount > 0 && (
+                                <div className="text-[10px] text-muted-foreground/75">
+                                  {row.examCount} {row.examCount === 1 ? "paper" : "papers"}
+                                </div>
+                              )}
+                            </td>
+                            <td className="py-2.5 align-top">
+                              <div className="flex flex-wrap gap-1.5">
+                                {unitQuestionTypes.map((qt) => {
+                                  const count = row[`${qt}_count`];
+                                  const marks = row[`${qt}_marks`];
+                                  const pct = row[qt];
+                                  if (!pct && !count) return null;
+                                  return (
+                                    <span
+                                      key={qt}
+                                      className="inline-flex items-center gap-1 px-2 py-1 rounded bg-muted/40 border border-border/60 text-[11px]"
+                                    >
+                                      <span className="font-medium text-foreground">
+                                        {formatQuestionTypeName(qt)}:
+                                      </span>
+                                      <span className="font-bold text-accent">{pct}%</span>
+                                      <span className="text-[10px] text-muted-foreground font-mono">
+                                        ({temporalMetricMode === "questions" ? `${count} Qs` : `${marks}m`})
+                                      </span>
+                                    </span>
+                                  );
+                                })}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ) : (
+                <div className="py-8 text-center text-xs text-muted-foreground">
+                  No temporal question data recorded for unit &quot;{activeUnit}&quot;.
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="py-8 text-center text-xs text-muted-foreground">
+              No multi-year unit question-type breakdowns recorded for this course.
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 6. ADVANCED ANALYTICS: EMPIRICAL BACKTESTING LAB (COLLAPSIBLE)            */}
+      {/* ========================================================================= */}
+      <div id="backtesting" className="scroll-mt-24">
+        <EmpiricalBacktestSection
+          courseId={courseId}
+          courseName={courseName}
+          canonicalCode={canonicalCode}
+          assessmentCycle={assessmentCycle}
+        />
+      </div>
+
+      {/* Question Family Evidence Slide-over Drawer Modal */}
+      <FamilyEvidenceModal
+        isOpen={isFamilyEvidenceModalOpen}
+        onClose={() => setIsFamilyEvidenceModalOpen(false)}
+        courseId={courseId}
+        familyId={selectedFamilyIdForModal}
+        initialFamilyName={selectedFamilyNameForModal}
+      />
     </div>
   );
 }

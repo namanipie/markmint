@@ -26,6 +26,7 @@ interface McqTestingSuiteProps {
   questions: CycleTestQuestion[];
   subjectName?: string;
   cycle?: string;
+  initialMode?: "PRACTICE" | "QUIZ";
 }
 
 export function parseMcqClient(q: CycleTestQuestion): {
@@ -108,9 +109,16 @@ export function parseMcqClient(q: CycleTestQuestion): {
 export function McqTestingSuite({
   questions,
   subjectName = "Course",
-  cycle = "Cycle Test"
+  cycle = "Cycle Test",
+  initialMode = "PRACTICE"
 }: McqTestingSuiteProps) {
-  const [testMode, setTestMode] = useState<"PRACTICE" | "QUIZ">("PRACTICE");
+  const [testMode, setTestMode] = useState<"PRACTICE" | "QUIZ">(initialMode);
+
+  useEffect(() => {
+    if (initialMode) {
+      setTestMode(initialMode);
+    }
+  }, [initialMode]);
   
   // Practice Mode state
   const [practiceAnswers, setPracticeAnswers] = useState<Record<number, string>>({});

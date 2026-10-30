@@ -19,7 +19,7 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const links = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
-    { href: "/dashboard", label: "Mint AI" },
+    { href: "/mintai", label: "Mint AI" },
     { href: "/question-bank", label: "Question Bank" },
     { href: "/calculator", label: "Calculator" },
     { href: "/developers", label: "Developers" },
@@ -55,13 +55,14 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
             {links.map((link) => {
               const isActive =
                 pathname === link.href ||
-                (link.href !== "/" && pathname?.startsWith(link.href));
+                (link.href !== "/" && pathname?.startsWith(link.href)) ||
+                (link.href === "/mintai" && pathname?.startsWith("/dashboard"));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => {
-                    if (link.href === "/dashboard") {
+                    if (link.href === "/mintai" || link.href === "/dashboard") {
                       preloadCurriculumMetadata();
                     }
                   }}

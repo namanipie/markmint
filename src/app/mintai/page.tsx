@@ -1,46 +1,27 @@
-"use client";
-
-import { useEffect, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+import { MintAIShell } from "@/components/mintai/mintai-shell";
 import { Loader2 } from "lucide-react";
 
-function MintAIRedirectContent() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+export const metadata = {
+  title: "MintAI Intelligence Engine | SRMIST Examination Forecasting & Exam DNA",
+  description: "Bayesian examination forecasts, recurring question archetypes, timed exam simulations, and verified Dr. E. Suresh & Gate Smashers study masterclasses for SRMIST Regulation 2021 students.",
+};
 
-  useEffect(() => {
-    const params = searchParams?.toString();
-    const target = params ? `/dashboard?${params}#forecast` : `/dashboard#forecast`;
-    router.replace(target);
-  }, [router, searchParams]);
-
-  return (
-    <div className="min-h-screen bg-[#070b12] flex flex-col items-center justify-center p-4">
-      <div className="flex items-center gap-3 text-emerald-400">
-        <Loader2 className="w-6 h-6 animate-spin" />
-        <span className="text-sm font-medium text-slate-300">
-          Redirecting to MintAI Forecast Dashboard...
-        </span>
-      </div>
-    </div>
-  );
-}
-
-export default function MintAIRedirectPage() {
+export default function MintAIPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#070b12] flex flex-col items-center justify-center p-4">
-          <div className="flex items-center gap-3 text-emerald-400">
+        <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+          <div className="flex items-center gap-3 text-accent">
             <Loader2 className="w-6 h-6 animate-spin" />
-            <span className="text-sm font-medium text-slate-300">
-              Loading MintAI...
+            <span className="text-sm font-medium text-muted-foreground">
+              Loading MintAI Intelligence Engine...
             </span>
           </div>
         </div>
       }
     >
-      <MintAIRedirectContent />
+      <MintAIShell />
     </Suspense>
   );
 }

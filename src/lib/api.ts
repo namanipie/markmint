@@ -821,6 +821,10 @@ export interface CycleTestQuestion {
   subject: string;
   cycle: string;
   source_file: string;
+  unit?: number | null;
+  topic?: string | null;
+  bloom_level?: string | null;
+  difficulty?: string | null;
   is_mcq?: boolean;
   section?: string;
   stem?: string;

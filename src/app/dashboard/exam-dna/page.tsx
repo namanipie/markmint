@@ -9,9 +9,9 @@ function RedirectHandler() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const qs = searchParams.toString();
-    const destination = qs ? `/mintai/exam-dna?${qs}` : "/mintai/exam-dna";
-    router.replace(destination);
+    const params = new URLSearchParams(searchParams?.toString() || "");
+    params.set("tab", "dna");
+    router.replace(`/mintai?${params.toString()}`);
   }, [router, searchParams]);
 
   return (

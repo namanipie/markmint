@@ -9,7 +9,7 @@ export function Footer() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/dashboard", label: "Dashboard" },
+    { href: "/mintai", label: "Mint AI" },
     { href: "/courses", label: "Courses" },
     { href: "/study-plan", label: "Study Plan" },
     { href: "/calculator", label: "Calculator" },
