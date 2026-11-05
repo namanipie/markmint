@@ -474,21 +474,24 @@ def get_prediction(
         observed_years = sorted(list({e.year for e in hist_exams_orm if e.year is not None}))
 
         predictions = []
+        # Pre-fetch course topics in 1 single query instead of N individual queries
+        course_topic_rows = (
+            db.query(Topic.id, Topic.name, Unit.number, Unit.name)
+            .join(Unit, Topic.unit_id == Unit.id)
+            .join(Syllabus, Unit.syllabus_id == Syllabus.id)
+            .filter(Syllabus.course_id == course.id)
+            .all()
+        )
+        topic_info_by_name = {r[1]: (r[0], r[2], r[3]) for r in course_topic_rows}
+
         # Return top 10 empirical topic predictions with clean, recognizable names and authoritative unit tags
         for p in topic_preds[:10]:
             p_dict = p.to_dict()
-            t_obj = (
-                db.query(Topic)
-                .join(Unit, Topic.unit_id == Unit.id)
-                .join(Syllabus, Unit.syllabus_id == Syllabus.id)
-                .filter(Syllabus.course_id == course.id, Topic.name == p.name)
-                .first()
-            )
-            if t_obj:
-                p_dict["topic_id"] = t_obj.id
-                if t_obj.unit:
-                    p_dict["unit_number"] = t_obj.unit.number
-                    p_dict["unit_name"] = t_obj.unit.name
+            if p.name in topic_info_by_name:
+                t_id, u_num, u_name = topic_info_by_name[p.name]
+                p_dict["topic_id"] = t_id
+                p_dict["unit_number"] = u_num
+                p_dict["unit_name"] = u_name
 
             topic_years = {
                 e.year for e in hist_exams_orm
@@ -514,7 +517,7 @@ def get_prediction(
                     "exam_id": e.id,
                     "year": e.year,
                     "assessment_type": e.assessment_type,
-                    "title": e.document.title if (getattr(e, "document", None) and e.document and e.document.title) else f"Exam {e.year} ({e.assessment_type or 'Main'})",
+                    "title": getattr(getattr(e, "document", None), "title", None) or f"Exam {e.year} ({e.assessment_type or 'Main'})",
                 }
                 for e in hist_exams_orm
                 if e.year is not None and any(
@@ -532,23 +535,34 @@ def get_prediction(
                     p_dict["explainability"]["source_years"] = sorted(list(topic_years))
             predictions.append(p_dict)
 
+        # Pre-fetch family unit associations in 1 single query instead of individual queries
+        top_fam_dicts = [p.to_dict() for p in family_preds[:6]]
+        target_fam_ids = [d.get("family_id") for d in top_fam_dicts if d.get("family_id") is not None]
+        fam_info_map = {}
+        if target_fam_ids:
+            fam_q_rows = (
+                db.query(Question.family_id, Unit.number, Unit.name, Topic.name)
+                .join(Question.topics)
+                .join(Unit, Topic.unit_id == Unit.id)
+                .join(Section, Question.section_id == Section.id)
+                .join(Exam, Section.exam_id == Exam.id)
+                .filter(Question.family_id.in_(target_fam_ids), Exam.course_id == course.id)
+                .all()
+            )
+            for f_id, u_num, u_name, top_name in fam_q_rows:
+                if f_id not in fam_info_map:
+                    fam_info_map[f_id] = (u_num, u_name, top_name)
+
         # Return top recurring question families with clean recognizable labels and unit numbers
-        for p in family_preds[:6]:
-            p_dict = p.to_dict()
+        for p_dict in top_fam_dicts:
             p_dict["is_family"] = True
 
-            # Resolve unit number for family from its questions
-            fam_q = (
-                db.query(Question)
-                .join(Section)
-                .join(Exam)
-                .filter(Question.family_id == p_dict.get("family_id"), Exam.course_id == course.id)
-                .first()
-            )
-            if fam_q and fam_q.topics and fam_q.topics[0].unit:
-                p_dict["unit_number"] = fam_q.topics[0].unit.number
-                p_dict["unit_name"] = fam_q.topics[0].unit.name
-                p_dict["associated_topic_name"] = fam_q.topics[0].name
+            f_id = p_dict.get("family_id")
+            if f_id in fam_info_map:
+                u_num, u_name, top_name = fam_info_map[f_id]
+                p_dict["unit_number"] = u_num
+                p_dict["unit_name"] = u_name
+                p_dict["associated_topic_name"] = top_name
 
             fam_years = {
                 e.year for e in hist_exams_orm

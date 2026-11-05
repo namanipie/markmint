@@ -17,6 +17,7 @@ class HistoricalRepository:
     def get_historical_exams(self) -> List[Exam]:
         """Returns only exams strictly before the cutoff year with eager loading to prevent N+1 queries."""
         q = self.db.query(Exam).options(
+            selectinload(Exam.document),
             selectinload(Exam.sections)
             .selectinload(Section.questions)
             .selectinload(Question.topics)
