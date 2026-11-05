@@ -15,7 +15,10 @@ import {
   Video, 
   Play, 
   FileCheck2,
-  AlertCircle
+  AlertCircle,
+  Layers,
+  TrendingUp,
+  BarChart3
 } from "lucide-react";
 import { MathText } from "@/components/ui/math-text";
 import { Drawer } from "@/components/ui/drawer";
@@ -24,6 +27,18 @@ import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-genera
 import { ResourceViewerModal, ResourceViewerItem } from "@/components/ui/resource-viewer-modal";
 import { getTopicResources } from "@/lib/course-resources";
 import { CourseCatalogItem } from "@/lib/courses";
+
+export interface EmpiricalUnitBreakdownItem {
+  rank: number;
+  unit_number: number;
+  unit_name: string;
+  question_count: number;
+  marks: number;
+  percentage_of_marks: number;
+  percentage_of_questions: number;
+  paper_coverage: number;
+  is_baseline?: boolean;
+}
 
 interface MintAIOverviewTabProps {
   currentCourse: CourseCatalogItem | null;
@@ -38,6 +53,10 @@ interface MintAIOverviewTabProps {
   isLoadingIntelligence: boolean;
   onSwitchTab: (tab: "overview" | "dna" | "practice" | "study", topicName?: string) => void;
   onOpenCourseModal: () => void;
+  empiricalUnitBreakdown?: EmpiricalUnitBreakdownItem[];
+  evidenceStatus?: string;
+  assessmentScope?: any;
+  onToggleUnit?: (unitNumber: number) => void;
 }
 
 function cleanExplanation(text?: string | null): string {
@@ -67,6 +86,10 @@ export function MintAIOverviewTab({
   isLoadingIntelligence,
   onSwitchTab,
   onOpenCourseModal,
+  empiricalUnitBreakdown = [],
+  evidenceStatus,
+  assessmentScope,
+  onToggleUnit,
 }: MintAIOverviewTabProps) {
   // Slide-over Practice Drawer state
   const [activePracticeTopic, setActivePracticeTopic] = useState<{
@@ -98,6 +121,13 @@ export function MintAIOverviewTab({
         return "All Cycles";
     }
   }, [selectedCycle]);
+
+  const isBaseline = React.useMemo(() => {
+    return (
+      evidenceStatus === "SYLLABUS_FALLBACK" ||
+      (empiricalUnitBreakdown.length > 0 && empiricalUnitBreakdown.every((u) => u.is_baseline))
+    );
+  }, [evidenceStatus, empiricalUnitBreakdown]);
 
   // Handle video modal launch for a topic
   const handleWatchTopicLecture = (topicName: string, unitNumber?: number) => {
@@ -194,6 +224,104 @@ export function MintAIOverviewTab({
         </div>
       </div>
 
+      {/* Empirical Unit Priority Section (No hardcoding - purely data-driven from this exam's papers) */}
+      {isBaseline ? (
+        <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-500 border border-amber-500/30 font-bold text-[11px] uppercase tracking-wide">
+                Syllabus-Derived Baseline
+              </span>
+              <span className="text-xs font-semibold text-foreground">
+                0 historical {cycleDisplayLabel} papers in archive
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Empirical evidence for {cycleDisplayLabel} is currently calibrated directly from the official SRMIST curriculum guidelines for{" "}
+              <strong className="text-foreground">
+                Units {empiricalUnitBreakdown.map((u) => u.unit_number).join(" & ") || selectedUnits.join(" & ")}
+              </strong>.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap shrink-0">
+            {empiricalUnitBreakdown.map((u) => (
+              <div
+                key={u.unit_number}
+                className="px-3 py-1.5 rounded-xl bg-card border border-border text-foreground font-mono text-xs flex items-center gap-2"
+              >
+                <span className="font-bold text-accent">Unit {u.unit_number}</span>
+                <span className="text-muted-foreground text-[11px]">({u.percentage_of_marks}% Target)</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : empiricalUnitBreakdown && empiricalUnitBreakdown.length > 0 ? (
+        <div className="p-4 sm:p-5 rounded-2xl bg-card/70 border border-border/80 space-y-3.5 shadow-2xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-2">
+                <Layers className="w-4 h-4 text-accent" />
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  Empirical Unit Priority • {cycleDisplayLabel}
+                </h3>
+              </div>
+              <p className="text-xs text-foreground font-semibold">
+                Ranked by question volume and marks on verified {cycleDisplayLabel} papers
+              </p>
+            </div>
+            <span className="text-[11px] text-muted-foreground font-mono">
+              Click unit card to toggle filter
+            </span>
+          </div>
+
+          {/* Ranked Unit Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+            {empiricalUnitBreakdown.map((u) => {
+              const isSelected = selectedUnits.includes(u.unit_number);
+              return (
+                <button
+                  key={u.unit_number}
+                  type="button"
+                  onClick={() => onToggleUnit?.(u.unit_number)}
+                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2.5 ${
+                    isSelected
+                      ? "bg-accent/10 border-accent/50 shadow-2xs ring-1 ring-accent/30"
+                      : "bg-muted/15 border-border/60 hover:border-border hover:bg-muted/25 opacity-70"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-1.5">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className="inline-flex items-center justify-center w-5 h-5 rounded-md bg-accent/20 text-accent font-mono text-[10px] font-bold shrink-0">
+                        U{u.unit_number}
+                      </span>
+                      <span className="text-xs font-bold text-foreground truncate" title={u.unit_name}>
+                        {u.unit_name || `Unit ${u.unit_number}`}
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-accent shrink-0">
+                      {u.percentage_of_marks}%
+                    </span>
+                  </div>
+
+                  {/* Visual Progress Bar */}
+                  <div className="w-full bg-muted/40 rounded-full h-1.5 overflow-hidden">
+                    <div
+                      className="bg-accent h-1.5 rounded-full transition-all"
+                      style={{ width: `${Math.min(100, Math.max(5, u.percentage_of_marks))}%` }}
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between text-[10px] text-muted-foreground font-mono">
+                    <span>{u.question_count} Qs</span>
+                    <span>{u.marks} marks</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+
       {/* Forecast Cards Grid */}
       {filteredForecastItems.length === 0 ? (
         <div className="p-8 sm:p-12 text-center rounded-2xl border border-dashed border-border/70 bg-card/40 space-y-3">
@@ -217,20 +345,29 @@ export function MintAIOverviewTab({
                   <div className="space-y-2.5">
                     {/* Header: Rank + Unit + Probability + Family */}
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 min-w-0">
                         <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-accent/15 text-accent font-mono text-xs font-bold shrink-0">
                           #{item.rank || idx + 1}
                         </span>
                         {item.unitNumber && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent/10 text-accent border border-accent/20">
-                            Unit {item.unitNumber}
+                          <span
+                            className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20 truncate max-w-[170px]"
+                            title={item.unitName || `Unit ${item.unitNumber}`}
+                          >
+                            Unit {item.unitNumber}{item.unitName && !item.unitName.startsWith("Unit ") ? `: ${item.unitName}` : ""}
                           </span>
                         )}
                       </div>
 
-                      <div className="flex items-center gap-1.5 flex-wrap justify-end">
+                      <div className="flex items-center gap-1.5 flex-wrap justify-end shrink-0">
+                        {item.is_baseline_fallback && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/25">
+                            Syllabus Baseline
+                          </span>
+                        )}
+
                         {item.isFamily && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground border border-border">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
                             {item.repetition_type === "EXACT" ? "Exact Repeat Family" : "Recurring Family"}
                           </span>
                         )}
@@ -265,8 +402,10 @@ export function MintAIOverviewTab({
                   {/* Evidence Proof Line & Action Buttons */}
                   <div className="pt-2.5 border-t border-border/40 flex items-center justify-between gap-2">
                     <span className="text-[11px] text-muted-foreground font-mono truncate">
-                      {item.papersWithItem && item.totalPapers
-                        ? `${item.papersWithItem}/${item.totalPapers} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
+                      {item.is_baseline_fallback
+                        ? `Curriculum baseline • ${cycleDisplayLabel}`
+                        : item.papersWithItem && item.totalPapers
+                        ? `${item.papersWithItem}/${item.totalPapers} ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
                         : `${item.historicalOccurrences} occurrences`}
                     </span>
 

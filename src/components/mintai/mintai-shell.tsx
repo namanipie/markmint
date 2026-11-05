@@ -10,7 +10,7 @@ import { MintAIOverviewTab } from "@/components/mintai/tabs/mintai-overview-tab"
 import { MintAIExamDNATab } from "@/components/mintai/tabs/mintai-exam-dna-tab";
 import { MintAIPracticeTab } from "@/components/mintai/tabs/mintai-practice-tab";
 import { MintAIStudyTab } from "@/components/mintai/tabs/mintai-study-tab";
-import { coursesCatalog, CourseCatalogItem } from "@/lib/courses";
+import { coursesCatalog, CourseCatalogItem, isMathematicsCourse, isComputerScienceCourse } from "@/lib/courses";
 import { getStudyContext, updateStudyContext } from "@/lib/study-context";
 import {
   getCurriculumBranches,
@@ -91,6 +91,17 @@ export function MintAIShell() {
     }
     return null;
   }, [eligibleCourses, semesterSubjects, selectedCourseId, selectedSemester]);
+
+  // Determine course domain (Dr. E Suresh ONLY for mathematics, Gate Smashers for CS)
+  const isMathCourse = useMemo(() => {
+    if (!currentCourse) return false;
+    return isMathematicsCourse(currentCourse.name || currentCourse.canonicalCode || currentCourse.code);
+  }, [currentCourse]);
+
+  const isCsCourse = useMemo(() => {
+    if (!currentCourse) return false;
+    return isComputerScienceCourse(currentCourse.name || currentCourse.canonicalCode || currentCourse.code);
+  }, [currentCourse]);
 
   // 2. Sync URL parameters helper
   const updateUrlParams = useCallback(
@@ -373,13 +384,7 @@ export function MintAIShell() {
         });
         if (match && match.unitNumber) return match.unitNumber;
       }
-      let hash = 0;
-      for (let i = 0; i < lower.length; i++) {
-        hash = (hash << 5) - hash + lower.charCodeAt(i);
-        hash |= 0;
-      }
-      const totalUnits = currentCourse.units?.length || 5;
-      return (Math.abs(hash) % totalUnits) + 1;
+      return 1;
     },
     [currentCourse]
   );
@@ -393,7 +398,7 @@ export function MintAIShell() {
       predictionsData.predictions.length > 0
     ) {
       return predictionsData.predictions.map((p: any, idx: number) => {
-        const isFamily = p.family_id != null || (p.repetition_type && p.repetition_type !== "NONE");
+        const isFamily = p.is_family || p.family_id != null || (p.repetition_type && p.repetition_type !== "NONE");
         const papersWithItem =
           p.papers_with_family ||
           p.papers_with_topic ||
@@ -416,9 +421,9 @@ export function MintAIShell() {
             ? Math.round(p.score * 100)
             : null;
 
-        const unitNumber = getTopicUnit(p.name);
+        const unitNumber = p.unit_number || getTopicUnit(p.name);
         const unitObj = currentCourse?.units?.find((u) => u.number === unitNumber);
-        const unitName = unitObj?.name || `Unit ${unitNumber}`;
+        const unitName = p.unit_name || unitObj?.name || `Unit ${unitNumber}`;
 
         return {
           rank: p.rank || idx + 1,
@@ -435,6 +440,7 @@ export function MintAIShell() {
           historicalOccurrences: p.historical_occurrences || p.historyCount || 1,
           totalMarksObserved:
             p.total_marks_observed != null ? Math.round(p.total_marks_observed) : null,
+          is_baseline_fallback: Boolean(p.is_baseline_fallback),
           explanation:
             p.explanation ||
             (isFamily
@@ -645,7 +651,7 @@ export function MintAIShell() {
                 id: "study" as MintAITab,
                 label: "Study",
                 icon: BookOpen,
-                badge: "Dr. E Suresh",
+                badge: isMathCourse ? "Dr. E Suresh" : isCsCourse ? "Gate Smashers" : "Study Hub",
               },
             ].map((tab) => {
               const Icon = tab.icon;
@@ -698,6 +704,10 @@ export function MintAIShell() {
               isLoadingIntelligence={isLoadingIntelligence}
               onSwitchTab={handleTabChange}
               onOpenCourseModal={() => setIsCourseModalOpen(true)}
+              empiricalUnitBreakdown={predictionsData?.empirical_unit_breakdown || []}
+              evidenceStatus={predictionsData?.evidence_status}
+              assessmentScope={predictionsData?.assessment_scope}
+              onToggleUnit={toggleUnit}
             />
           )}
 

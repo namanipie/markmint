@@ -29,6 +29,7 @@ import { ResourceViewerModal, ResourceViewerItem } from "@/components/ui/resourc
 import { useResourceMastery } from "@/hooks/use-resource-mastery";
 import { Search, CheckCircle2, Share2 } from "lucide-react";
 import { SubmitResourceModal } from "@/components/courses/submit-resource-modal";
+import { isMathematicsCourse, isComputerScienceCourse } from "@/lib/courses";
 
 interface CourseResourcesSectionProps {
   resources: CourseResourceGroup | null;
@@ -111,10 +112,8 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
     return null;
   }
 
-  const isMathCourse = courseName.toLowerCase().includes("calculus") || 
-                       courseName.toLowerCase().includes("math") || 
-                       courseName.toLowerCase().includes("transform") || 
-                       courseName.toLowerCase().includes("probability");
+  const isMathCourse = isMathematicsCourse(courseName || resources?.courseCode);
+  const isCsCourse = isComputerScienceCourse(courseName || resources?.courseCode);
 
   // Filtered PYQs
   const filteredPyqs = useMemo(() => {
@@ -580,7 +579,11 @@ export function CourseResourcesSection({ resources, courseName }: CourseResource
               </span>
             </div>
             <span className="text-muted-foreground text-[11px]">
-              {isMathCourse ? "Instructor: Dr. E. Suresh (SRMIST Mathematics)" : "Preferred: Gate Smashers"}
+              {isMathCourse
+                ? "Instructor: Dr. E. Suresh (SRMIST Mathematics)"
+                : isCsCourse
+                ? "Instructor: Gate Smashers"
+                : `Source: ${videos[0]?.channel || "Curated Faculty"}`}
             </span>
           </div>
 

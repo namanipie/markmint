@@ -145,6 +145,7 @@ export default function RootLayout({
           }}
         />
                 <GlobalFeatures />
+        <CommandPalette />
         <BetaObservabilityProvider />
       </ThemeProvider>
       <Analytics />

@@ -6,6 +6,7 @@ import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2, Leaf }
 import { motion, AnimatePresence } from "framer-motion";
 import { searchIntelligence, logFailedSearch } from "@/lib/api";
 import { SearchResult } from "@/lib/types";
+import { coursesCatalog } from "@/lib/courses";
 
 interface CommandItem {
   id: string;
@@ -17,9 +18,10 @@ interface CommandItem {
 }
 
 const DEFAULT_COMMANDS: CommandItem[] = [
-  { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/dashboard#forecast", category: "App" },
+  { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/mintai", category: "App" },
   { id: "calc", title: "Mint+ GPA Calculator", icon: Calculator, href: "/calculator", category: "App" },
-  { id: "study", title: "Study Intelligence & Personalization", icon: BookOpen, href: "/study-plan", category: "App" },
+  { id: "study", title: "Study Intelligence & Personalization", icon: BookOpen, href: "/mintai?tab=study", category: "App" },
+  { id: "practice", title: "Practice Hub (PYQs & MCQs)", icon: FileText, href: "/mintai?tab=practice", category: "App" },
   { id: "dev", title: "The Duo (Developers)", icon: Code, href: "/developers", category: "App" },
 ];
 
@@ -40,8 +42,17 @@ export function CommandPalette() {
       }
       if (e.key === "Escape") setOpen(false);
     };
+
+    const handleOpenPalette = () => {
+      setOpen(true);
+    };
+
     document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
+    window.addEventListener("open-command-palette", handleOpenPalette);
+    return () => {
+      document.removeEventListener("keydown", down);
+      window.removeEventListener("open-command-palette", handleOpenPalette);
+    };
   }, []);
 
   useEffect(() => {
@@ -51,8 +62,38 @@ export function CommandPalette() {
       return;
     }
 
+    const qLower = query.toLowerCase().trim();
+
+    // 1. Instant local matching across all 43 engineering courses
+    const matchedCourses: CommandItem[] = coursesCatalog
+      .filter((c) => {
+        const nameMatch = c.name.toLowerCase().includes(qLower);
+        const codeMatch = c.code.toLowerCase().includes(qLower);
+        const canonMatch = c.canonicalCode?.toLowerCase().includes(qLower);
+        const aliasMatch = c.aliases?.some((a) => a.toLowerCase().includes(qLower));
+        return nameMatch || codeMatch || canonMatch || aliasMatch;
+      })
+      .slice(0, 6)
+      .map((c) => ({
+        id: `course-${c.id}`,
+        title: `${c.name} (${c.canonicalCode || c.code})`,
+        snippet: `Semester ${c.semester} • ${c.paperCount} verified exam papers • ${c.questionCount} questions`,
+        icon: BookOpen,
+        href: `/mintai?course=${c.id}`,
+        category: "Course",
+      }));
+
+    // 2. Also search default commands
+    const matchedCommands = DEFAULT_COMMANDS.filter((cmd) =>
+      cmd.title.toLowerCase().includes(qLower)
+    );
+
+    // Immediately display local course and command matches
+    setSearchResults([...matchedCourses, ...matchedCommands]);
+
     let active = true;
     setIsSearching(true);
+
     const timer = setTimeout(() => {
       searchIntelligence({ raw_query: query.trim(), limit: 8 })
         .then((results: SearchResult[]) => {
@@ -60,27 +101,27 @@ export function CommandPalette() {
           if (results && results.length > 0) {
             const mapped: CommandItem[] = results.map((r) => {
               let icon = BookOpen;
-              let href = "/dashboard#forecast";
+              let href = "/mintai";
               let cat = "Result";
               if (r.result_type === "course") {
                 icon = BookOpen;
-                href = `/dashboard?course_id=${r.id}#forecast`;
+                href = `/mintai?course=${r.id}`;
                 cat = "Course";
               } else if (r.result_type === "topic") {
                 icon = Leaf;
-                href = `/dashboard?topic=${encodeURIComponent(r.title)}#forecast`;
+                href = `/mintai?topic=${encodeURIComponent(r.title)}`;
                 cat = "Topic";
               } else if (r.result_type === "exam_question") {
                 icon = FileText;
-                href = `/dashboard#forecast`;
+                href = `/mintai?tab=practice`;
                 cat = "Exam Question";
               } else if (r.result_type === "study_material") {
                 icon = BookOpen;
-                href = `/study-plan`;
+                href = `/mintai?tab=study`;
                 cat = "Study Material";
               } else if (r.result_type === "question_family") {
                 icon = Activity;
-                href = `/dashboard#forecast`;
+                href = `/mintai?tab=dna`;
                 cat = "Question Family";
               }
               return {
@@ -92,25 +133,28 @@ export function CommandPalette() {
                 category: cat,
               };
             });
-            setSearchResults(mapped);
+
+            // Combine matched courses with API results, de-duplicating by href
+            const combined = [...matchedCourses, ...mapped];
+            const seen = new Set<string>();
+            const deduped = combined.filter((item) => {
+              if (seen.has(item.href)) return false;
+              seen.add(item.href);
+              return true;
+            });
+
+            setSearchResults(deduped);
           } else {
-            // Fallback to filtering default commands
-            const localFiltered = DEFAULT_COMMANDS.filter((cmd) =>
-              cmd.title.toLowerCase().includes(query.toLowerCase())
-            );
-            setSearchResults(localFiltered);
-            if (localFiltered.length === 0 && query.length > 3) {
+            setSearchResults([...matchedCourses, ...matchedCommands]);
+            if (matchedCourses.length === 0 && matchedCommands.length === 0 && query.length > 3) {
               logFailedSearch(query).catch(console.error);
             }
           }
         })
         .catch(() => {
           if (!active) return;
-          const localFiltered = DEFAULT_COMMANDS.filter((cmd) =>
-            cmd.title.toLowerCase().includes(query.toLowerCase())
-          );
-          setSearchResults(localFiltered);
-          if (localFiltered.length === 0 && query.length > 3) {
+          setSearchResults([...matchedCourses, ...matchedCommands]);
+          if (matchedCourses.length === 0 && matchedCommands.length === 0 && query.length > 3) {
             logFailedSearch(query).catch(console.error);
           }
         })

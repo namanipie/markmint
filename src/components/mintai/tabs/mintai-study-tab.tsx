@@ -27,7 +27,7 @@ import {
   Flame,
   Award
 } from "lucide-react";
-import { CourseCatalogItem } from "@/lib/courses";
+import { CourseCatalogItem, isMathematicsCourse, isComputerScienceCourse } from "@/lib/courses";
 import {
   getCourseResources,
   getTopicResources,
@@ -221,11 +221,15 @@ export function MintAIStudyTab({
 
   const { completed, total, percentage } = getProgress(allCourseResourceIds);
 
-  // Determine course faculty affiliation (Dr. E. Suresh for math, Gate Smashers for CS)
+  // Determine course faculty affiliation (Dr. E. Suresh strictly for math, Gate Smashers for CS)
   const isMathCourse = useMemo(() => {
     if (!currentCourse) return false;
-    const n = currentCourse.name.toLowerCase();
-    return n.includes("calculus") || n.includes("math") || n.includes("transform") || n.includes("probability");
+    return isMathematicsCourse(currentCourse.name || currentCourse.canonicalCode || currentCourse.code);
+  }, [currentCourse]);
+
+  const isCsCourse = useMemo(() => {
+    if (!currentCourse) return false;
+    return isComputerScienceCourse(currentCourse.name || currentCourse.canonicalCode || currentCourse.code);
   }, [currentCourse]);
 
   // Filtered Videos
@@ -246,7 +250,8 @@ export function MintAIStudyTab({
         (v) =>
           v.title.toLowerCase().includes(q) ||
           v.channel.toLowerCase().includes(q) ||
-          (v.topicName && v.topicName.toLowerCase().includes(q))
+          (v.topicName && v.topicName.toLowerCase().includes(q)) ||
+          (v.description && v.description.toLowerCase().includes(q))
       );
     }
     return list;
@@ -294,7 +299,8 @@ export function MintAIStudyTab({
         (f) =>
           f.title.toLowerCase().includes(q) ||
           f.summary.toLowerCase().includes(q) ||
-          (f.topicName && f.topicName.toLowerCase().includes(q))
+          (f.topicName && f.topicName.toLowerCase().includes(q)) ||
+          (f.latexSnippet && f.latexSnippet.toLowerCase().includes(q))
       );
     }
     return list;
@@ -315,6 +321,53 @@ export function MintAIStudyTab({
       };
     });
   }, [studyPlan?.topics, currentCourse]);
+
+  // Filtered Recommended Topics (honoring active search query and unit filter)
+  const filteredRecommendedTopics: RecommendedTopicItem[] = useMemo(() => {
+    let list = recommendedTopics;
+
+    if (filterUnit !== "ALL") {
+      const uNum = Number(filterUnit);
+      if (!isNaN(uNum)) {
+        list = list.filter((t) => {
+          if (t.unit != null && t.unit === uNum) return true;
+          if (t.verifiedVideos && t.verifiedVideos.some((v) => v.unit === uNum)) return true;
+          if (t.verifiedFormulas && t.verifiedFormulas.some((f) => f.unit === uNum)) return true;
+          return false;
+        });
+      }
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter((t) => {
+        const nameMatch = t.topicName.toLowerCase().includes(q);
+        const reasonMatch = (t.reason || "").toLowerCase().includes(q);
+        const videoMatch = t.verifiedVideos?.some(
+          (v) => v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q)
+        );
+        const formulaMatch = t.verifiedFormulas?.some(
+          (f) => f.title.toLowerCase().includes(q) || f.summary.toLowerCase().includes(q)
+        );
+        return nameMatch || reasonMatch || videoMatch || formulaMatch;
+      });
+    }
+
+    return list;
+  }, [recommendedTopics, filterUnit, searchQuery]);
+
+  // Filtered Checklist IDs for My Progress tab
+  const filteredChecklistIds = useMemo(() => {
+    if (!searchQuery.trim()) return allCourseResourceIds;
+    const q = searchQuery.toLowerCase().trim();
+    return allCourseResourceIds.filter((id) => {
+      const matchedVideo = resources?.videos?.find((v) => (v.id || v.youtubeId) === id);
+      const matchedFormula = resources?.formulas?.find((f) => f.id === id);
+      const matchedNote = resources?.notes?.find((n) => n.url === id);
+      const title = (matchedVideo?.title || matchedFormula?.title || matchedNote?.title || "").toLowerCase();
+      return title.includes(q);
+    });
+  }, [allCourseResourceIds, searchQuery, resources]);
 
   if (!currentCourse) {
     return (
@@ -343,10 +396,14 @@ export function MintAIStudyTab({
               </h2>
             </div>
             <p className="text-xs text-muted-foreground">
-              Curated masterclasses and learning assets for <strong className="text-foreground">{currentCourse.name}</strong>. Featuring video lectures from{" "}
-              <strong className="text-foreground">
-                {isMathCourse ? "Dr. E. Suresh (SRMIST Mathematics)" : "Gate Smashers (Computer Science & Engineering)"}
-              </strong>
+              Curated masterclasses and learning assets for <strong className="text-foreground">{currentCourse.name}</strong>. Featuring{" "}
+              {isMathCourse ? (
+                <>video lectures from <strong className="text-foreground">Dr. E. Suresh (SRMIST Mathematics)</strong></>
+              ) : isCsCourse ? (
+                <>video lectures from <strong className="text-foreground">Gate Smashers (Computer Science)</strong></>
+              ) : (
+                <>verified lecture masterclasses and faculty notes</>
+              )}
               , professor slides, and formula sheets.
             </p>
           </div>
@@ -526,9 +583,44 @@ export function MintAIStudyTab({
               <p className="text-sm font-semibold text-foreground">No priority topics calibrated for this cycle</p>
               <p className="text-xs text-muted-foreground">Browse all video classes in the &ldquo;Video Lectures&rdquo; tab or explore professor slides.</p>
             </div>
+          ) : filteredRecommendedTopics.length === 0 ? (
+            <div className="p-8 text-center rounded-2xl border border-dashed border-border/80 bg-card/40 space-y-3">
+              <Search className="w-8 h-8 text-muted-foreground mx-auto" />
+              <p className="text-sm font-semibold text-foreground">No priority topics match &ldquo;{searchQuery}&rdquo;</p>
+              <p className="text-xs text-muted-foreground">
+                Found {filteredVideos.length} matching video lectures and {filteredNotes.length + filteredFormulas.length} notes/formulas.
+              </p>
+              <div className="flex items-center justify-center gap-2 pt-1">
+                {filteredVideos.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => handleSelectDestination("lectures")}
+                    className="px-3 py-1.5 rounded-lg bg-accent/15 text-accent text-xs font-semibold hover:bg-accent/25 transition-colors cursor-pointer"
+                  >
+                    View {filteredVideos.length} Videos &rarr;
+                  </button>
+                )}
+                {(filteredNotes.length > 0 || filteredFormulas.length > 0) && (
+                  <button
+                    type="button"
+                    onClick={() => handleSelectDestination("notes")}
+                    className="px-3 py-1.5 rounded-lg bg-muted/60 text-foreground text-xs font-semibold hover:bg-muted transition-colors cursor-pointer"
+                  >
+                    View Notes &amp; Formulas &rarr;
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="px-3 py-1.5 rounded-lg border border-border/70 text-muted-foreground hover:text-foreground text-xs transition-colors cursor-pointer"
+                >
+                  Clear Search
+                </button>
+              </div>
+            </div>
           ) : (
             <div className="space-y-4">
-              {recommendedTopics.map((topic: RecommendedTopicItem, idx: number) => {
+              {filteredRecommendedTopics.map((topic: RecommendedTopicItem, idx: number) => {
                 const priority = topic.priority?.toLowerCase() || "medium";
                 const isFirstPriority = priority === "high" || idx === 0;
 
@@ -596,7 +688,13 @@ export function MintAIStudyTab({
                               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white border border-red-500/30 font-semibold transition-all cursor-pointer"
                             >
                               <Play className="w-3 h-3 fill-current" />
-                              <span>{v.channel.includes("Suresh") ? "Dr. E. Suresh Video" : "Lecture Video"} ({v.duration})</span>
+                              <span>
+                                {v.channel.includes("Suresh")
+                                  ? "Dr. E. Suresh Video"
+                                  : v.channel.includes("Gate Smashers")
+                                  ? "Gate Smashers Video"
+                                  : "Lecture Video"} ({v.duration})
+                              </span>
                             </button>
                           ))
                         ) : (
@@ -667,14 +765,20 @@ export function MintAIStudyTab({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-xl bg-muted/20 border border-border/60 text-xs">
             <div className="space-y-0.5">
               <span className="font-semibold text-foreground">
-                Verified Faculty Lecture Playlists
+                {isMathCourse
+                  ? "Official SRMIST Math Faculty Playlists"
+                  : isCsCourse
+                  ? "Curated Computer Science Playlists"
+                  : "Curated Course Video Masterclasses"}
               </span>
               <p className="text-[11px] text-muted-foreground">
-                Official YouTube playlists by{" "}
-                <strong className="text-foreground">
-                  {isMathCourse ? "Dr. E. Suresh (SRM Faculty)" : "Gate Smashers"}
-                </strong>
-                , organized unit-by-unit with theater mode.
+                {isMathCourse ? (
+                  <>Official YouTube playlists by <strong className="text-foreground">Dr. E. Suresh (SRM Faculty)</strong>, organized unit-by-unit with theater mode.</>
+                ) : isCsCourse ? (
+                  <>Curated YouTube playlists by <strong className="text-foreground">Gate Smashers</strong>, organized unit-by-unit with theater mode.</>
+                ) : (
+                  <>Curated YouTube playlists by <strong className="text-foreground">{filteredVideos[0]?.channel || "Verified Academic Faculty"}</strong>, organized unit-by-unit with theater mode.</>
+                )}
               </p>
             </div>
 
@@ -913,8 +1017,12 @@ export function MintAIStudyTab({
                 <div className="p-6 text-center rounded-2xl border border-dashed border-border/80 bg-card/40 space-y-1">
                   <p className="text-xs text-muted-foreground">No materials found for checklist calculation.</p>
                 </div>
+              ) : filteredChecklistIds.length === 0 ? (
+                <div className="p-6 text-center rounded-2xl border border-dashed border-border/80 bg-card/40 space-y-1">
+                  <p className="text-xs text-muted-foreground">No checklist items match &ldquo;{searchQuery}&rdquo;</p>
+                </div>
               ) : (
-                allCourseResourceIds.map((id: string, idx: number) => {
+                filteredChecklistIds.map((id: string, idx: number) => {
                   const mastered = isMastered(id);
                   // Find title
                   const matchedVideo = resources?.videos?.find((v) => (v.id || v.youtubeId) === id);

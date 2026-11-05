@@ -184,3 +184,52 @@ export function getAllSlugsAndAliases(): string[] {
   return Array.from(set);
 }
 
+/**
+ * Detects whether a course is a Mathematics subject (e.g. 21MAB... series or math keywords).
+ * In SRMIST, Dr. E. Suresh videos should ONLY be shown for mathematics courses.
+ */
+export function isMathematicsCourse(courseNameOrCode?: string): boolean {
+  if (!courseNameOrCode) return false;
+  const lower = courseNameOrCode.toLowerCase().trim();
+  if (lower.includes("21mab") || lower.includes("18mab")) return true;
+  const mathKeywords = [
+    "calculus",
+    "linear algebra",
+    "transforms",
+    "boundary value",
+    "discrete mathematics",
+    "probability and statistics",
+    "probability and queueing",
+    "complex analysis",
+    "differential equations",
+    "numerical methods",
+    "applied mathematics"
+  ];
+  return mathKeywords.some((kw) => lower.includes(kw));
+}
+
+/**
+ * Detects whether a course is a Computer Science / Engineering subject where Gate Smashers is preferred.
+ */
+export function isComputerScienceCourse(courseNameOrCode?: string): boolean {
+  if (!courseNameOrCode) return false;
+  const lower = courseNameOrCode.toLowerCase().trim();
+  if (lower.includes("21csc") || lower.includes("21css") || lower.includes("21it")) return true;
+  const csKeywords = [
+    "programming for problem solving",
+    "data structures",
+    "algorithms",
+    "operating systems",
+    "computer organization",
+    "database",
+    "compiler",
+    "computer networks",
+    "software engineering",
+    "automata",
+    "object oriented",
+    "information security"
+  ];
+  return csKeywords.some((kw) => lower.includes(kw));
+}
+
+

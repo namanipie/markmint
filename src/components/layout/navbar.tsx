@@ -26,8 +26,11 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   ];
 
   const handleOpenSearch = () => {
-    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
-    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true }));
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("open-command-palette"));
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }));
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true }));
+    }
   };
 
   return (
