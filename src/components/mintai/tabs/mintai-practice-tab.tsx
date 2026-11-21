@@ -36,8 +36,9 @@ import { HistoricalQuestion } from "@/lib/types";
 import { CourseCatalogItem } from "@/lib/courses";
 import { McqTestingSuite } from "@/components/practice/mcq-testing-suite";
 import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
+import { FlashcardStudySuite } from "@/components/practice/flashcard-study-suite";
 
-export type PracticeDestination = "pyqs" | "ct_archives" | "mcqs" | "quiz" | "generator";
+export type PracticeDestination = "pyqs" | "ct_archives" | "mcqs" | "quiz" | "flashcards" | "generator";
 
 interface MintAIPracticeTabProps {
   currentCourse: CourseCatalogItem | null;
@@ -58,7 +59,7 @@ export function MintAIPracticeTab({
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const destParam = (params.get("dest") || params.get("mode")) as PracticeDestination | null;
-    if (destParam && ["pyqs", "ct_archives", "mcqs", "quiz", "generator"].includes(destParam)) {
+    if (destParam && ["pyqs", "ct_archives", "mcqs", "quiz", "flashcards", "generator"].includes(destParam)) {
       setActiveDestination(destParam);
     }
   }, []);
@@ -327,8 +328,8 @@ export function MintAIPracticeTab({
           </div>
         </div>
 
-        {/* 5-Destination Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+        {/* 6-Destination Navigation Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 pt-1">
           {[
             {
               id: "pyqs" as PracticeDestination,
@@ -353,6 +354,12 @@ export function MintAIPracticeTab({
               label: "Timed Tests",
               icon: Clock,
               badge: "Simulation",
+            },
+            {
+              id: "flashcards" as PracticeDestination,
+              label: "AI Flashcards",
+              icon: BookOpen,
+              badge: "Leitner Deck",
             },
             {
               id: "generator" as PracticeDestination,
@@ -728,7 +735,20 @@ export function MintAIPracticeTab({
       )}
 
       {/* ========================================================================= */}
-      {/* DESTINATION 5: MINTAI QUESTION GENERATOR                                  */}
+      {/* DESTINATION 5: AI LEITNER FLASHCARDS SUITE                                */}
+      {/* ========================================================================= */}
+      {activeDestination === "flashcards" && (
+        <div className="space-y-4">
+          <FlashcardStudySuite
+            course={currentCourse}
+            pyqs={pyqs}
+            initialUnit={filterUnit}
+          />
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* DESTINATION 6: MINTAI QUESTION GENERATOR                                  */}
       {/* ========================================================================= */}
       {activeDestination === "generator" && (
         <div className="space-y-5">

@@ -17,7 +17,8 @@ import {
   Maximize2,
   Minimize2,
   Share2,
-  CheckCircle2
+  CheckCircle2,
+  Award
 } from "lucide-react";
 import { MathText } from "@/components/ui/math-text";
 import { 
@@ -29,6 +30,7 @@ import {
   CourseExamResource
 } from "@/lib/course-resources";
 import { useResourceMastery } from "@/hooks/use-resource-mastery";
+import { MintAiViewerSidecar } from "@/components/ui/mintai-viewer-sidecar";
 
 export type ResourceViewerItem = 
   | { type: "video"; data: CourseVideoResource; courseName?: string; courseSlug?: string }
@@ -45,6 +47,7 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
   const [copied, setCopied] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
   const [isTheaterMode, setIsTheaterMode] = useState(false);
+  const [showSidecar, setShowSidecar] = useState(false);
 
   const { isMastered, toggleMastered } = useResourceMastery();
 
@@ -109,7 +112,7 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
       <div className="absolute inset-0 -z-10" onClick={onClose} />
 
       <div className={`relative w-full flex flex-col rounded-2xl border border-border/80 bg-card shadow-2xl overflow-hidden transition-all duration-300 ${
-        isTheaterMode ? "max-w-6xl max-h-[96vh]" : "max-w-4xl max-h-[92vh]"
+        (showSidecar || isTheaterMode) ? "max-w-6xl max-h-[96vh]" : "max-w-4xl max-h-[92vh]"
       }`}>
         {/* Top Header Bar */}
         <div className="flex items-center justify-between p-3.5 sm:p-4 border-b border-border/60 bg-muted/30">
@@ -150,6 +153,21 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
           </div>
 
           <div className="flex items-center gap-1.5 shrink-0">
+            {/* MintAI Copilot Sidecar toggle */}
+            <button
+              type="button"
+              onClick={() => setShowSidecar(!showSidecar)}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer border ${
+                showSidecar
+                  ? "bg-accent text-accent-foreground border-accent shadow-xs"
+                  : "bg-muted/60 text-muted-foreground hover:text-foreground border-border/60 hover:bg-muted"
+              }`}
+              title={showSidecar ? "Close MintAI Copilot" : "Open MintAI Copilot"}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">MintAI Copilot</span>
+            </button>
+
             {/* Mark as Mastered button */}
             <button
               type="button"
@@ -224,8 +242,9 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
           </div>
         </div>
 
-        {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-5">
+        {/* Content Body & MintAI Sidecar Split Layout */}
+        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden min-h-0">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-5">
           {/* ============================================================== */}
           {/* 1. YOUTUBE VIDEO VIEWER                                        */}
           {/* ============================================================== */}
@@ -294,17 +313,29 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
                 </div>
               )}
 
-              <div className="flex items-center justify-between text-[11px] text-muted-foreground px-1">
-                <span>Source: {item.data.source || "SRM Class Archive"}</span>
-                <a
-                  href={item.data.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-accent font-semibold hover:underline"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                  <span>Open in Google Drive</span>
-                </a>
+              <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-muted-foreground px-1 pt-2 border-t border-border/40">
+                <div className="flex items-center gap-1.5 font-medium">
+                  <Award className="w-3.5 h-3.5 text-accent" />
+                  <span>Verified Archive • {item.data.source || "SRM Student Community"}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="/tools/pdf"
+                    target="_blank"
+                    className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-accent font-semibold"
+                  >
+                    <span>MintDocs Tools</span>
+                  </a>
+                  <a
+                    href={item.data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-accent font-semibold hover:underline"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    <span>Open in Google Drive</span>
+                  </a>
+                </div>
               </div>
             </div>
           )}
@@ -351,6 +382,14 @@ export function ResourceViewerModal({ item, onClose }: ResourceViewerModalProps)
             </div>
           )}
         </div>
+
+        {/* MintAI Sidecar Panel */}
+        {showSidecar && (
+          <div className="lg:w-96 w-full h-80 lg:h-auto border-t lg:border-t-0 shrink-0">
+            <MintAiViewerSidecar item={item} onClose={() => setShowSidecar(false)} />
+          </div>
+        )}
+      </div>
       </div>
     </div>
   );

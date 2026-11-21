@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2, Leaf } from "lucide-react";
+import { Search, Calculator, Activity, Code, BookOpen, FileText, Loader2, Leaf, Target, Binary } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchIntelligence, logFailedSearch } from "@/lib/api";
 import { SearchResult } from "@/lib/types";
@@ -19,7 +19,10 @@ interface CommandItem {
 
 const DEFAULT_COMMANDS: CommandItem[] = [
   { id: "mintai", title: "MintAI Intelligence Engine", icon: Leaf, href: "/mintai", category: "App" },
-  { id: "calc", title: "Mint+ GPA Calculator", icon: Calculator, href: "/calculator", category: "App" },
+  { id: "target-calc", title: "SRM End-Sem Target Marks Predictor", icon: Target, href: "/calculator", category: "Tool" },
+  { id: "calc", title: "Mint+ GPA & CGPA Calculator", icon: Calculator, href: "/calculator", category: "App" },
+  { id: "mintdocs", title: "MintDocs PDF Tools (Merge, Split, Convert)", icon: FileText, href: "/tools/pdf", category: "Tool" },
+  { id: "kmap", title: "Interactive K-Map Logic Solver", icon: Binary, href: "/calculator", category: "Tool" },
   { id: "study", title: "Study Intelligence & Personalization", icon: BookOpen, href: "/mintai?tab=study", category: "App" },
   { id: "practice", title: "Practice Hub (PYQs & MCQs)", icon: FileText, href: "/mintai?tab=practice", category: "App" },
   { id: "dev", title: "The Duo (Developers)", icon: Code, href: "/developers", category: "App" },
