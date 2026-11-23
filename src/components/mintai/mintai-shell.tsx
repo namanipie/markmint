@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/footer";
 import { CourseSelectorModal } from "@/components/mintai/course-selector-modal";
 import { MintAIOverviewTab } from "@/components/mintai/tabs/mintai-overview-tab";
 import { MintAIExamDNATab } from "@/components/mintai/tabs/mintai-exam-dna-tab";
+import { MintAIPastPapersTab } from "@/components/mintai/tabs/mintai-past-papers-tab";
 import { MintAIPracticeTab } from "@/components/mintai/tabs/mintai-practice-tab";
 import { MintAIStudyTab } from "@/components/mintai/tabs/mintai-study-tab";
 import { coursesCatalog, CourseCatalogItem, isMathematicsCourse, isComputerScienceCourse } from "@/lib/courses";
@@ -27,6 +28,7 @@ import {
   Sparkles,
   Dna,
   FileCheck2,
+  FileText,
   BookOpen,
   ChevronRight,
   ChevronDown,
@@ -37,9 +39,13 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-export type MintAITab = "overview" | "dna" | "practice" | "study";
+export type MintAITab = "forecast" | "papers" | "study" | "practice" | "overview" | "dna";
 
-export function MintAIShell() {
+interface MintAIShellProps {
+  initialCourseId?: number;
+}
+
+export function MintAIShell({ initialCourseId }: MintAIShellProps = {}) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -56,10 +62,10 @@ export function MintAIShell() {
   const [semesterSubjects, setSemesterSubjects] = useState<CurriculumSubject[]>([]);
 
   // Core Active States
-  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(null);
+  const [selectedCourseId, setSelectedCourseId] = useState<number | null>(initialCourseId || null);
   const [selectedCycle, setSelectedCycle] = useState<string>("ENDSEM");
   const [selectedUnits, setSelectedUnits] = useState<number[]>([1, 2, 3, 4, 5]);
-  const [activeTab, setActiveTab] = useState<MintAITab>("overview");
+  const [activeTab, setActiveTab] = useState<MintAITab>("forecast");
   const [isCourseModalOpen, setIsCourseModalOpen] = useState<boolean>(false);
 
   // Predictions & Intelligence States
@@ -117,7 +123,7 @@ export function MintAIShell() {
       } else {
         params.delete("cycle");
       }
-      if (newTab && newTab !== "overview") {
+      if (newTab && newTab !== "forecast" && newTab !== "overview") {
         params.set("tab", newTab);
       } else {
         params.delete("tab");
@@ -137,7 +143,10 @@ export function MintAIShell() {
       }
 
       const queryString = params.toString();
-      const newUrl = queryString ? `/mintai?${queryString}` : "/mintai";
+      const currentPath = typeof window !== "undefined" ? window.location.pathname : "/mintai";
+      const isCourseRoute = currentPath.startsWith("/courses/");
+      const basePath = isCourseRoute ? currentPath : "/mintai";
+      const newUrl = queryString ? `${basePath}?${queryString}` : basePath;
       if (typeof window !== "undefined") {
         window.history.pushState(null, "", newUrl);
       }
@@ -162,6 +171,7 @@ export function MintAIShell() {
         const targetCourseParam =
           urlParams.get("course") ||
           urlParams.get("course_id") ||
+          (initialCourseId ? String(initialCourseId) : null) ||
           (ctx?.course_id ? String(ctx.course_id) : null);
 
         const targetCycleParam =
@@ -171,10 +181,10 @@ export function MintAIShell() {
           "ENDSEM";
 
         const targetTabParam = urlParams.get("tab") as MintAITab | null;
-        if (targetTabParam && ["overview", "dna", "practice", "study"].includes(targetTabParam)) {
-          setActiveTab(targetTabParam);
+        if (targetTabParam && ["forecast", "papers", "study", "practice", "overview", "dna"].includes(targetTabParam)) {
+          setActiveTab(targetTabParam === "overview" ? "forecast" : targetTabParam);
         } else {
-          setActiveTab("overview");
+          setActiveTab("forecast");
         }
 
         let resolvedCycle = "ENDSEM";
@@ -624,65 +634,79 @@ export function MintAIShell() {
         </section>
 
         {/* ========================================================================= */}
-        {/* UNIFIED 4-SECTION TAB NAVIGATION BAR                                      */}
+        {/* UNIFIED 4-DESTINATION COURSE WORKSPACE TABS                               */}
         {/* ========================================================================= */}
         <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-md pt-2 pb-1 border-b border-border/60">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-            {[
-              {
-                id: "overview" as MintAITab,
-                label: "Overview",
-                icon: Sparkles,
-                badge: `${filteredForecastItems.length} Predictions`,
-              },
-              {
-                id: "dna" as MintAITab,
-                label: "Exam DNA",
-                icon: Dna,
-                badge: "Analytics",
-              },
-              {
-                id: "practice" as MintAITab,
-                label: "Practice",
-                icon: FileCheck2,
-                badge: "CTs & MCQs",
-              },
-              {
-                id: "study" as MintAITab,
-                label: "Study",
-                icon: BookOpen,
-                badge: isMathCourse ? "Dr. E Suresh" : isCsCourse ? "Gate Smashers" : "Study Hub",
-              },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  data-tab={tab.id}
-                  data-testid={`mintai-tab-${tab.id}`}
-                  onClick={() => handleTabChange(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 min-h-[44px] ${
-                    isActive
-                      ? "bg-foreground text-background shadow-xs font-extrabold"
-                      : "bg-card hover:bg-muted/40 text-muted-foreground hover:text-foreground border border-border/70"
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-accent" : "text-muted-foreground"}`} />
-                  <span>{tab.label}</span>
-                  <span
-                    className={`px-1.5 py-0.2 rounded-md text-[10px] font-mono ${
+          <div className="flex items-center justify-between gap-2 overflow-x-auto no-scrollbar py-1">
+            <div className="flex items-center gap-2">
+              {[
+                {
+                  id: "forecast" as MintAITab,
+                  label: "Forecast",
+                  icon: Sparkles,
+                  badge: `${filteredForecastItems.length} Topics`,
+                },
+                {
+                  id: "papers" as MintAITab,
+                  label: "Past Papers",
+                  icon: FileText,
+                  badge: "PYQs & CTs",
+                },
+                {
+                  id: "study" as MintAITab,
+                  label: "Study",
+                  icon: BookOpen,
+                  badge: isMathCourse ? "Dr. E Suresh" : isCsCourse ? "Gate Smashers" : "Notes & Slides",
+                },
+                {
+                  id: "practice" as MintAITab,
+                  label: "Practice",
+                  icon: FileCheck2,
+                  badge: "MCQs & AI",
+                },
+              ].map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id || (tab.id === "forecast" && activeTab === "overview");
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    data-tab={tab.id}
+                    data-testid={`mintai-tab-${tab.id}`}
+                    onClick={() => handleTabChange(tab.id)}
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 min-h-[44px] ${
                       isActive
-                        ? "bg-background/20 text-background font-bold"
-                        : "bg-muted/40 text-muted-foreground"
+                        ? "bg-primary text-primary-foreground shadow-xs font-bold"
+                        : "bg-card hover:bg-secondary text-muted-foreground hover:text-foreground border border-border/80"
                     }`}
                   >
-                    {tab.badge}
-                  </span>
-                </button>
-              );
-            })}
+                    <Icon className="w-3.5 h-3.5" />
+                    <span>{tab.label}</span>
+                    <span
+                      className={`px-1.5 py-0.2 rounded-md text-[10px] font-mono ${
+                        isActive
+                          ? "bg-primary-foreground/20 text-primary-foreground font-bold"
+                          : "bg-secondary text-muted-foreground"
+                      }`}
+                    >
+                      {tab.badge}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Direct Deep-link to Dedicated Exam DNA Analytics */}
+            {currentCourse && (
+              <Link
+                href={`/mintai/exam-dna?course=${currentCourse.id}&cycle=${selectedCycle}`}
+                className="hidden lg:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-foreground hover:bg-secondary border border-border/60 transition-colors shrink-0"
+                title="Open Dedicated Exam DNA Radar"
+              >
+                <Dna className="w-3.5 h-3.5 text-primary" />
+                <span>Exam DNA Radar</span>
+              </Link>
+            )}
           </div>
         </div>
 
@@ -690,7 +714,7 @@ export function MintAIShell() {
         {/* ACTIVE SECTION CONTENT BODY                                               */}
         {/* ========================================================================= */}
         <section className="pt-2">
-          {activeTab === "overview" && (
+          {(activeTab === "forecast" || activeTab === "overview") && (
             <MintAIOverviewTab
               currentCourse={currentCourse}
               selectedCycle={selectedCycle}
@@ -708,6 +732,14 @@ export function MintAIShell() {
               evidenceStatus={predictionsData?.evidence_status}
               assessmentScope={predictionsData?.assessment_scope}
               onToggleUnit={toggleUnit}
+            />
+          )}
+
+          {activeTab === "papers" && (
+            <MintAIPastPapersTab
+              currentCourse={currentCourse}
+              selectedCycle={selectedCycle}
+              selectedUnits={selectedUnits}
             />
           )}
 

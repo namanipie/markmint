@@ -9,35 +9,34 @@ export function Footer() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/mintai", label: "Mint AI" },
     { href: "/courses", label: "Courses" },
-    { href: "/study-plan", label: "Study Plan" },
-    { href: "/calculator", label: "Calculator" },
+    { href: "/mintai", label: "Predictions" },
+    { href: "/calculator", label: "Tools" },
+    { href: "/tools/pdf", label: "MintDocs" },
     { href: "/privacy", label: "Privacy" },
     { href: "/terms", label: "Terms" },
   ];
 
   return (
-    <footer className="border-t border-border bg-background py-10 mt-auto">
-      <div className="container mx-auto px-8 md:px-16 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-border/80 bg-background/60 py-8 mt-auto text-xs">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         
-        {/* Left: Logo + Meta */}
-        <div className="flex flex-col gap-2">
+        {/* Left: Brand & SRMIST Attribution */}
+        <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2">
-            <Leaf className="h-5 w-5 text-accent opacity-50" />
-            <span className="text-xl font-bold tracking-tight text-foreground">
-              MintAI
+            <Leaf className="h-4 w-4 text-primary" />
+            <span className="font-bold tracking-tight text-foreground">
+              MarkMint
             </span>
+            <span className="text-[11px] text-muted-foreground">• Academic Intelligence</span>
           </div>
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <span>Built for SRMIST students</span>
-            <span className="w-1 h-1 rounded-full bg-border" />
-            <span>MarkMint v2.0</span>
-          </div>
+          <p className="text-[11px] text-muted-foreground">
+            Course-first academic workspace and verified examination intelligence for SRMIST students.
+          </p>
         </div>
 
-        {/* Right: Navigation */}
-        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+        {/* Right: Quick Links */}
+        <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
           {links.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -45,7 +44,7 @@ export function Footer() {
                 key={link.href}
                 href={link.href}
                 className={`hover:text-foreground transition-colors ${
-                  isActive ? "text-foreground border-b border-accent pb-0.5" : ""
+                  isActive ? "text-foreground font-semibold" : ""
                 }`}
               >
                 {link.label}

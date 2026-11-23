@@ -51,15 +51,15 @@ export function MintAIPracticeTab({
   selectedCycle,
   selectedUnits
 }: MintAIPracticeTabProps) {
-  // 1. Destination Navigation State (defaulting to PYQs or URL query)
-  const [activeDestination, setActiveDestination] = useState<PracticeDestination>("pyqs");
+  // 1. Destination Navigation State (defaulting to MCQs or URL query)
+  const [activeDestination, setActiveDestination] = useState<PracticeDestination>("mcqs");
 
   // Sync destination with URL query parameter `dest` or `mode` on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
     const params = new URLSearchParams(window.location.search);
     const destParam = (params.get("dest") || params.get("mode")) as PracticeDestination | null;
-    if (destParam && ["pyqs", "ct_archives", "mcqs", "quiz", "flashcards", "generator"].includes(destParam)) {
+    if (destParam && ["mcqs", "quiz", "flashcards", "generator", "pyqs", "ct_archives"].includes(destParam)) {
       setActiveDestination(destParam);
     }
   }, []);
@@ -328,26 +328,14 @@ export function MintAIPracticeTab({
           </div>
         </div>
 
-        {/* 6-Destination Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 pt-1">
+        {/* 4-Destination Active Practice Tabs */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
           {[
-            {
-              id: "pyqs" as PracticeDestination,
-              label: "PYQs (Past Papers)",
-              icon: FileText,
-              badge: `${pyqs.length} Qs`,
-            },
-            {
-              id: "ct_archives" as PracticeDestination,
-              label: "CT Archives",
-              icon: Layers,
-              badge: `${ctDescriptiveQuestions.length} Normal`,
-            },
             {
               id: "mcqs" as PracticeDestination,
               label: "Interactive MCQs",
               icon: CheckSquare,
-              badge: `${ctMcqQuestions.length} Active`,
+              badge: `${ctMcqQuestions.length} Available`,
             },
             {
               id: "quiz" as PracticeDestination,
@@ -357,15 +345,15 @@ export function MintAIPracticeTab({
             },
             {
               id: "flashcards" as PracticeDestination,
-              label: "AI Flashcards",
+              label: "Leitner Flashcards",
               icon: BookOpen,
-              badge: "Leitner Deck",
+              badge: "Spaced Repetition",
             },
             {
               id: "generator" as PracticeDestination,
               label: "AI Generator",
               icon: Sparkles,
-              badge: "Unseen",
+              badge: "Unseen Problems",
             },
           ].map((dest) => {
             const Icon = dest.icon;

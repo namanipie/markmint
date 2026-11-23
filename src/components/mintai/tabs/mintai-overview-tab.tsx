@@ -10,6 +10,7 @@ import {
   Check, 
   ChevronDown, 
   ChevronUp, 
+  ChevronRight,
   Loader2, 
   BookOpen, 
   Video, 
@@ -18,10 +19,13 @@ import {
   AlertCircle,
   Layers,
   TrendingUp,
-  BarChart3
+  BarChart3,
+  ArrowRight,
+  ExternalLink
 } from "lucide-react";
 import { MathText } from "@/components/ui/math-text";
 import { Drawer } from "@/components/ui/drawer";
+import { ExamDNAView } from "@/components/analytics/exam-dna-view";
 import { TopicQuestionsViewer } from "@/components/ui/topic-questions-viewer";
 import { MintAIQuestionGenerator } from "@/components/ui/mint-ai-question-generator";
 import { ResourceViewerModal, ResourceViewerItem } from "@/components/ui/resource-viewer-modal";
@@ -108,6 +112,15 @@ export function MintAIOverviewTab({
 
   const [drawerActiveTab, setDrawerActiveTab] = useState<"pyq" | "ai">("pyq");
   const [viewerItem, setViewerItem] = useState<ResourceViewerItem | null>(null);
+  const [expandedTopicNames, setExpandedTopicNames] = useState<Record<string, boolean>>({});
+  const [isDnaPreviewOpen, setIsDnaPreviewOpen] = useState<boolean>(false);
+
+  const toggleTopicExpand = (topicName: string) => {
+    setExpandedTopicNames((prev) => ({
+      ...prev,
+      [topicName]: !prev[topicName],
+    }));
+  };
 
   const cycleDisplayLabel = React.useMemo(() => {
     switch (selectedCycle) {
@@ -336,108 +349,173 @@ export function MintAIOverviewTab({
             {displayedForecastItems.map((item: any, idx: number) => {
               const topicRes = getTopicResources(currentCourse.slug || currentCourse.id, item.name, item.unitNumber);
               const hasVideo = Boolean(topicRes?.videos && topicRes.videos.length > 0);
+              const isExpanded = Boolean(expandedTopicNames[item.name]);
+              const isHighPriority =
+                (item.probability != null && item.probability >= 70) ||
+                (item.paperCoverage != null && item.paperCoverage >= 0.65) ||
+                item.isFamily;
 
               return (
                 <div
                   key={item.name || idx}
-                  className="p-4 sm:p-5 rounded-2xl bg-card border border-border/80 hover:border-accent/40 transition-all flex flex-col justify-between gap-3 shadow-2xs group"
+                  className={`p-4 sm:p-5 rounded-2xl bg-card border transition-all flex flex-col justify-between gap-3 shadow-2xs group ${
+                    isExpanded ? "border-primary/50 ring-1 ring-primary/20" : "border-border/80 hover:border-primary/40"
+                  }`}
                 >
                   <div className="space-y-2.5">
-                    {/* Header: Rank + Unit + Probability + Family */}
+                    {/* Header: Unit + Priority + Expand Indicator */}
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 min-w-0">
-                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-accent/15 text-accent font-mono text-xs font-bold shrink-0">
-                          #{item.rank || idx + 1}
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-secondary text-foreground font-mono">
+                          Unit {item.unitNumber}
                         </span>
-                        {item.unitNumber && (
-                          <span
-                            className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-accent/10 text-accent border border-accent/20 truncate max-w-[170px]"
-                            title={item.unitName || `Unit ${item.unitNumber}`}
-                          >
-                            Unit {item.unitNumber}{item.unitName && !item.unitName.startsWith("Unit ") ? `: ${item.unitName}` : ""}
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-1.5 flex-wrap justify-end shrink-0">
-                        {item.is_baseline_fallback && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/25">
-                            Syllabus Baseline
-                          </span>
-                        )}
-
-                        {item.isFamily && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                            {item.repetition_type === "EXACT" ? "Exact Repeat Family" : "Recurring Family"}
-                          </span>
-                        )}
-
-                        {item.probability != null && (
-                          <span
-                            className={`text-[10px] font-bold px-2 py-0.5 rounded-full border font-mono ${
-                              item.probability >= 70
-                                ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20"
-                                : "bg-accent/10 text-accent border-accent/20"
-                            }`}
-                          >
-                            {item.probability}% Calibrated P
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Question / Topic Title with LaTeX Math */}
-                    <div>
-                      <div className="text-sm font-bold text-foreground group-hover:text-accent transition-colors line-clamp-2 leading-snug">
-                        <MathText content={item.name} inlineOnly />
-                      </div>
-                      {item.explanation && (
-                        <p className="text-xs text-muted-foreground pt-1 line-clamp-2 leading-relaxed">
-                          {cleanExplanation(item.explanation)}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Evidence Proof Line & Action Buttons */}
-                  <div className="pt-2.5 border-t border-border/40 flex items-center justify-between gap-2">
-                    <span className="text-[11px] text-muted-foreground font-mono truncate">
-                      {item.is_baseline_fallback
-                        ? `Curriculum baseline • ${cycleDisplayLabel}`
-                        : item.papersWithItem && item.totalPapers
-                        ? `${item.papersWithItem}/${item.totalPapers} ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
-                        : `${item.historicalOccurrences} occurrences`}
-                    </span>
-
-                    <div className="flex items-center gap-1.5 shrink-0">
-                      {hasVideo && (
-                        <button
-                          type="button"
-                          onClick={() => handleWatchTopicLecture(item.name, item.unitNumber)}
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 text-xs font-semibold border border-red-500/20 transition-all cursor-pointer"
-                          title="Watch faculty video lecture for this topic"
+                        <span
+                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                            isHighPriority
+                              ? "bg-primary/10 text-primary border border-primary/20"
+                              : "bg-secondary text-muted-foreground"
+                          }`}
                         >
-                          <Play className="w-3 h-3 fill-current" />
-                          <span className="hidden sm:inline">Watch</span>
-                        </button>
-                      )}
+                          {isHighPriority ? "High Priority ⭐" : "Core Topic"}
+                        </span>
+                        {item.is_baseline_fallback && (
+                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500">
+                            Syllabus Scope
+                          </span>
+                        )}
+                      </div>
 
                       <button
                         type="button"
-                        onClick={() => {
-                          setActivePracticeTopic(item);
-                          setDrawerActiveTab("pyq");
-                        }}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent/10 hover:bg-accent/20 text-accent font-semibold text-xs border border-accent/20 transition-all cursor-pointer shadow-2xs"
+                        onClick={() => toggleTopicExpand(item.name)}
+                        className="inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground hover:text-foreground p-1 transition-colors cursor-pointer"
+                        title={isExpanded ? "Collapse details" : "Expand analytical evidence"}
                       >
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>Practice</span>
+                        <span className="text-[10px] hidden sm:inline">{isExpanded ? "Less" : "Details"}</span>
+                        {isExpanded ? <ChevronUp className="w-3.5 h-3.5 text-primary" /> : <ChevronDown className="w-3.5 h-3.5" />}
                       </button>
                     </div>
+
+                    {/* Question / Topic Title with LaTeX Math */}
+                    <div
+                      onClick={() => toggleTopicExpand(item.name)}
+                      className="cursor-pointer select-none"
+                    >
+                      <h4 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                        <MathText content={item.name} inlineOnly />
+                      </h4>
+                    </div>
+
+                    {/* One Concise Evidence Indicator (Always visible) */}
+                    <div className="text-[11px] text-muted-foreground font-mono flex items-center justify-between">
+                      <span>
+                        {item.is_baseline_fallback
+                          ? `SRMIST curriculum baseline • ${cycleDisplayLabel}`
+                          : item.papersWithItem && item.totalPapers
+                          ? `In ${item.papersWithItem}/${item.totalPapers} recent ${cycleDisplayLabel} papers (${Math.round((item.paperCoverage || 0) * 100)}%)`
+                          : `${item.historicalOccurrences || 1} historical occurrences`}
+                      </span>
+                    </div>
+
+                    {/* Progressive Disclosure Section (Revealed on click) */}
+                    {isExpanded && (
+                      <div className="pt-3 border-t border-border/50 space-y-3 animate-in fade-in-50 duration-150">
+                        {/* Probability & Archetype */}
+                        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+                          {item.probability != null ? (
+                            <div className="space-y-1 w-full sm:w-auto">
+                              <div className="flex items-center justify-between gap-4 text-[11px] font-mono">
+                                <span className="text-muted-foreground">Calibrated Recurrence:</span>
+                                <span className="font-bold text-primary">{item.probability}%</span>
+                              </div>
+                              <div className="w-full sm:w-48 bg-secondary rounded-full h-1.5 overflow-hidden">
+                                <div
+                                  className="bg-primary h-1.5 rounded-full transition-all"
+                                  style={{ width: `${item.probability}%` }}
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+
+                          {item.isFamily && (
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 font-mono">
+                              {item.repetition_type === "EXACT" ? "Exact Repeat Archetype" : "Recurring Question Family"}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Concise Explanation */}
+                        {item.explanation && (
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            {cleanExplanation(item.explanation)}
+                          </p>
+                        )}
+
+                        {/* Actions */}
+                        <div className="pt-1 flex items-center justify-end gap-2 flex-wrap">
+                          {hasVideo && (
+                            <button
+                              type="button"
+                              onClick={() => handleWatchTopicLecture(item.name, item.unitNumber)}
+                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 text-xs font-semibold border border-red-500/20 transition-all cursor-pointer"
+                            >
+                              <Play className="w-3 h-3 fill-current" />
+                              <span>Watch Lecture</span>
+                            </button>
+                          )}
+
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setActivePracticeTopic(item);
+                              setDrawerActiveTab("pyq");
+                            }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs hover:bg-primary/90 transition-all cursor-pointer shadow-2xs"
+                          >
+                            <Sparkles className="w-3.5 h-3.5" />
+                            <span>Practice Matching Questions</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Dedicated Exam DNA Radar Integration Banner */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-secondary/50 border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-4 mt-6">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                <Dna className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-foreground">
+                  Exam DNA &amp; Cognitive Demand Radar
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Deep Bloom&apos;s taxonomy demand, empirical unit weightage evolution, and historical backtesting for <strong className="text-foreground">{currentCourse.name}</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0 self-start md:self-auto">
+              <button
+                type="button"
+                onClick={() => setIsDnaPreviewOpen(true)}
+                className="px-3.5 py-2 rounded-xl bg-card border border-border text-xs font-semibold hover:bg-secondary text-foreground transition-colors cursor-pointer"
+              >
+                Quick Preview
+              </button>
+              <Link
+                href={`/mintai/exam-dna?course=${currentCourse.id}&cycle=${selectedCycle}`}
+                className="px-4 py-2 rounded-xl bg-primary text-primary-foreground text-xs font-bold hover:bg-primary/90 transition-all flex items-center gap-1.5 shadow-2xs"
+              >
+                <span>Full Analytics</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
 
           {/* Show More / Show Less Toggle & Jump Links */}
@@ -555,6 +633,42 @@ export function MintAIOverviewTab({
                 />
               </div>
             )}
+          </div>
+        )}
+      </Drawer>
+
+      {/* Exam DNA Quick Preview Drawer */}
+      <Drawer
+        isOpen={isDnaPreviewOpen}
+        onClose={() => setIsDnaPreviewOpen(false)}
+        title={
+          <div className="flex items-center gap-2">
+            <Dna className="w-5 h-5 text-primary" />
+            <span>Exam DNA Radar Preview: {currentCourse?.name}</span>
+          </div>
+        }
+        subtitle={
+          <div className="flex items-center gap-2 text-xs text-muted-foreground pt-0.5">
+            <span>Cycle: {cycleDisplayLabel}</span>
+            <span>•</span>
+            <Link
+              href={`/mintai/exam-dna?course=${currentCourse?.id}&cycle=${selectedCycle}`}
+              className="text-primary font-semibold hover:underline inline-flex items-center gap-1"
+            >
+              <span>Open Full Dedicated Page</span>
+              <ExternalLink className="w-3 h-3" />
+            </Link>
+          </div>
+        }
+      >
+        {currentCourse && (
+          <div className="p-1 space-y-4">
+            <ExamDNAView
+              courseId={currentCourse.id}
+              courseName={currentCourse.name}
+              canonicalCode={currentCourse.canonicalCode || currentCourse.code}
+              assessmentCycle={selectedCycle}
+            />
           </div>
         )}
       </Drawer>
