@@ -3,20 +3,26 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Leaf, Menu, X, Search, Wrench, User } from "lucide-react";
+import { Leaf, Menu, X, Flame, Search } from "lucide-react";
+import { HangingLamp } from "@/components/ambient/HangingLamp";
 import { cn } from "@/lib/utils";
+import { useStreak } from "@/hooks/use-streak";
+import { DeepFocusToggle } from "@/components/ui/deep-focus";
 import { preloadCurriculumMetadata } from "@/lib/api";
 
 export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const pathname = usePathname();
+  const streak = useStreak();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // The 4 core global navigation destinations
   const links = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
-    { href: "/mintai", label: "Predictions" },
-    { href: "/calculator", label: "Tools" },
+    { href: "/mintai", label: "Mint AI" },
+    { href: "/question-bank", label: "Question Bank" },
+    { href: "/calculator", label: "Calculator" },
+    { href: "/developers", label: "Developers" },
   ];
 
   const handleOpenSearch = () => {
@@ -28,48 +34,46 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b border-border transition-colors duration-200">
-      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-10">
+    <header className="relative z-50 flex h-16 items-center justify-between bg-background/90 backdrop-blur-md pl-4 pr-12 sm:pl-6 sm:pr-14 md:px-10 transition-all duration-300 border-b border-border/40">
+      <div className="flex items-center justify-between w-full">
         
-        {/* Left: Brand Logo */}
-        <div className="flex items-center gap-6">
+        {/* Left: Logo & SRMIST Tag */}
+        <div className="flex flex-col items-start justify-center">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-              <Leaf className="h-4 w-4" />
-            </div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-lg font-bold tracking-tight text-foreground">
-                MarkMint
-              </span>
-              <span className="text-[11px] font-medium text-muted-foreground hidden sm:inline">
-                SRMIST
-              </span>
-            </div>
+            <Leaf className="h-6 w-6 text-accent group-hover:rotate-12 transition-transform duration-300" />
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
+              MarkMint
+              <span className="px-2 py-0.5 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-medium tracking-wide translate-y-[1px]">v2.0</span>
+            </span>
           </Link>
+          <span className="text-[10px] tracking-widest text-muted-foreground mt-0.5 ml-8 hidden sm:inline-block">
+            For SRMIST Students
+          </span>
+        </div>
 
-          {/* Desktop Core Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 pl-4 border-l border-border/60">
+        {/* Right Side: Nav + Quick Search + Streak + Focus + Mobile Toggle */}
+        <div className="flex items-center gap-2 md:gap-4 ml-auto">
+          {/* Center: Navigation Links */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {links.map((link) => {
               const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(link.href) ||
-                    (link.href === "/mintai" && (pathname?.startsWith("/dashboard") || pathname?.startsWith("/mintai")));
-
+                pathname === link.href ||
+                (link.href !== "/" && pathname?.startsWith(link.href)) ||
+                (link.href === "/mintai" && pathname?.startsWith("/dashboard"));
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   onMouseEnter={() => {
-                    if (link.href === "/mintai") {
+                    if (link.href === "/mintai" || link.href === "/dashboard") {
                       preloadCurriculumMetadata();
                     }
                   }}
                   className={cn(
-                    "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150",
+                    "text-sm font-medium transition-colors hover:text-foreground",
                     isActive
-                      ? "bg-secondary text-foreground font-bold shadow-2xs"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                      ? "text-foreground border-b-2 border-accent pb-1"
+                      : "text-muted-foreground"
                   )}
                 >
                   {link.label}
@@ -77,91 +81,73 @@ export function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
               );
             })}
           </nav>
-        </div>
 
-        {/* Right Side: Quick Search & Profile / Mobile Toggle */}
-        <div className="flex items-center gap-2.5">
-          {/* Quick Search Button */}
+          {/* Quick Search Button (⌘K) */}
           <button
             type="button"
             onClick={handleOpenSearch}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-secondary/80 hover:bg-secondary border border-border/80 text-xs text-muted-foreground hover:text-foreground transition-all cursor-pointer"
-            title="Search courses and questions (⌘K)"
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-muted/30 hover:bg-muted/60 border border-border/60 hover:border-accent/40 text-xs text-muted-foreground transition-all cursor-pointer shadow-2xs"
+            title="Search questions, topics, courses (⌘K)"
           >
-            <Search className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline text-xs font-medium">Search courses...</span>
-            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded bg-background border border-border text-[10px] font-mono font-medium text-muted-foreground">
+            <Search className="w-3.5 h-3.5 text-muted-foreground" />
+            <span className="hidden lg:inline text-[11px] font-medium">Search</span>
+            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded bg-background border border-border/80 text-[10px] font-mono font-medium text-muted-foreground">
               ⌘K
             </kbd>
           </button>
-
-          {/* Minimal Student Profile / Guest Indicator */}
-          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-secondary/50 border border-border/60 text-xs font-medium text-foreground">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] font-semibold text-muted-foreground">B.Tech 2021/2026</span>
+          
+          <div className="flex items-center gap-2 md:gap-3 md:ml-2 md:pl-3 md:border-l border-border/40 mr-2 md:mr-0">
+            <div className="flex items-center gap-1 px-2 md:px-2.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20" title={`${streak} Day Study Streak`}>
+              <Flame className={`w-3 h-3 md:w-3.5 md:h-3.5 ${streak > 2 ? 'text-orange-500 animate-pulse' : 'text-orange-500/80'}`} />
+              <span className="text-[10px] md:text-xs font-bold text-orange-500">{streak}</span>
+            </div>
+            <DeepFocusToggle />
           </div>
-
+          
           {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="p-2 md:hidden rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-            aria-label="Toggle navigation menu"
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
       </div>
 
+      {/* The Hanging Lamp - Flush against the absolute right edge */}
+      <div className="hidden sm:block absolute right-2 top-1/2 -translate-y-1/2">
+        <HangingLamp />
+      </div>
+
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-background p-4 space-y-2 animate-in fade-in-50 duration-150">
+        <div className="absolute top-16 left-0 w-full bg-background border-b border-border shadow-lg flex flex-col p-4 md:hidden no-print z-40 space-y-1">
+          {/* Mobile Search Trigger */}
           <button
             type="button"
             onClick={() => {
               setIsMobileMenuOpen(false);
               handleOpenSearch();
             }}
-            className="w-full flex items-center justify-between p-3 rounded-xl bg-secondary border border-border text-xs font-medium text-muted-foreground"
+            className="flex items-center justify-between py-2.5 px-4 mb-2 rounded-xl bg-muted/30 border border-border/60 text-xs font-medium text-muted-foreground"
           >
             <div className="flex items-center gap-2">
-              <Search className="w-4 h-4 text-primary" />
-              <span>Search courses, codes &amp; PYQs</span>
+              <Search className="w-4 h-4 text-accent" />
+              <span>Search questions &amp; courses</span>
             </div>
             <kbd className="px-1.5 py-0.5 rounded bg-background border border-border text-[10px] font-mono">⌘K</kbd>
           </button>
 
-          <div className="grid grid-cols-2 gap-1.5 pt-1">
-            {links.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(link.href) ||
-                    (link.href === "/mintai" && (pathname?.startsWith("/dashboard") || pathname?.startsWith("/mintai")));
-
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={cn(
-                    "p-3 rounded-xl text-xs font-semibold text-center transition-colors border",
-                    isActive
-                      ? "bg-primary/10 border-primary/30 text-primary font-bold"
-                      : "bg-secondary/60 border-border/60 text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="pt-2 border-t border-border/50 flex items-center justify-between text-[11px] text-muted-foreground px-1">
-            <span>SRM Institute of Science &amp; Technology</span>
-            <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">Active Session</span>
-          </div>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="py-3 px-4 text-sm font-medium border-b border-border/40 text-foreground hover:bg-accent/10 transition-colors rounded-lg"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       )}
     </header>
