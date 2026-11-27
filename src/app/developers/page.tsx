@@ -20,6 +20,7 @@ interface Developer {
   role: string;
   status: string;
   avatar: string;
+  fallbackAvatar?: string;
   github: string;
   linkedin: string;
   instagram: string;
@@ -34,7 +35,8 @@ const developers: Developer[] = [
     name: "Aditya Kajala",
     role: "Frontend Engineer",
     status: "Listening to music",
-    avatar: "https://github.com/adityakajala1.png",
+    avatar: "/images/developers/aditya.png",
+    fallbackAvatar: "https://avatars.githubusercontent.com/u/268844871?v=4",
     github: "https://github.com/adityakajala1",
     linkedin: "https://www.linkedin.com/in/aditya-kajala-375b9b389/",
     instagram: "https://instagram.com/adipbx",
@@ -47,7 +49,8 @@ const developers: Developer[] = [
     name: "Naman",
     role: "Backend Engineer",
     status: "Larping",
-    avatar: "https://github.com/namanipie.png",
+    avatar: "/images/developers/naman.png",
+    fallbackAvatar: "https://avatars.githubusercontent.com/u/95006718?v=4",
     github: "https://github.com/namanipie",
     linkedin: "https://www.linkedin.com/in/namannkumar",
     instagram: "https://instagram.com/nam4nn",
@@ -139,7 +142,14 @@ function IDCard({ dev, index }: { dev: Developer; index: number }) {
   const [isTapped, setIsTapped] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [dropped, setDropped] = useState(false);
+  const [imgSrc, setImgSrc] = useState(dev.avatar);
+  const [imgFailed, setImgFailed] = useState(false);
   const issueDate = "2026.09.14";
+
+  useEffect(() => {
+    setImgSrc(dev.avatar);
+    setImgFailed(false);
+  }, [dev.avatar]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -235,12 +245,28 @@ function IDCard({ dev, index }: { dev: Developer; index: number }) {
           >
             {/* Glow effect */}
             <div className={`absolute inset-0 bg-accent/40 rounded-xl blur-xl transition-opacity duration-700 -z-10 ${isTapped ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'}`} />
-            <div className="w-full h-full rounded-xl overflow-hidden border-2 border-border/50 bg-background/50 shadow-inner relative z-10">
-              <img
-                src={dev.avatar}
-                alt={dev.name}
-                className={`w-full h-full object-cover transition-all duration-700 ${isTapped ? 'grayscale-0 scale-105' : 'grayscale md:group-hover:grayscale-0 md:group-hover:scale-105'}`}
-              />
+            <div className="w-full h-full rounded-xl overflow-hidden border-2 border-border/50 bg-background/50 shadow-inner relative z-10 flex items-center justify-center">
+              {!imgFailed ? (
+                <img
+                  src={imgSrc}
+                  alt={dev.name}
+                  referrerPolicy="no-referrer"
+                  crossOrigin="anonymous"
+                  onError={() => {
+                    if (imgSrc !== dev.fallbackAvatar && dev.fallbackAvatar) {
+                      setImgSrc(dev.fallbackAvatar);
+                    } else {
+                      setImgFailed(true);
+                    }
+                  }}
+                  className={`w-full h-full object-cover transition-all duration-700 ${isTapped ? 'grayscale-0 scale-105' : 'grayscale md:group-hover:grayscale-0 md:group-hover:scale-105'}`}
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center text-accent/80 font-mono font-bold text-lg select-none">
+                  <Leaf className="w-8 h-8 mb-1 opacity-50" />
+                  <span>{dev.name.split(" ").map(n => n[0]).join("")}</span>
+                </div>
+              )}
             </div>
           </div>
 
